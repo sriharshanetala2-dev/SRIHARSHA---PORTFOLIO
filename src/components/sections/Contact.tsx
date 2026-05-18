@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState } from "react";
@@ -78,7 +77,7 @@ export function Contact() {
           <div className="flex gap-5 pt-4">
             {[
               { icon: Linkedin, label: "LinkedIn", href: "https://linkedin.com" },
-              { icon: Github, label: "GitHub", href: "https://github.com" }
+              { icon: Github, label: "GitHub", href: "https://github.com/sriharshanetala" }
             ].map((social) => (
               <a 
                 key={social.label}

@@ -21,7 +21,7 @@ export function Footer() {
 
           <div className="flex gap-6">
             {[
-              { icon: Github, label: "GitHub", href: "https://github.com" },
+              { icon: Github, label: "GitHub", href: "https://github.com/sriharshanetala" },
               { icon: Linkedin, label: "LinkedIn", href: "https://linkedin.com" },
               { icon: Mail, label: "Email", href: "mailto:sriharshanetala2@gmail.com" }
             ].map((social) => (
