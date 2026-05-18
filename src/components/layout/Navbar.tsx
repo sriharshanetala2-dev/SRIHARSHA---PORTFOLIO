@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
+  { name: "Home", href: "#" },
   { name: "About", href: "#about" },
   { name: "Skills", href: "#skills" },
   { name: "Education", href: "#education" },
@@ -30,6 +31,15 @@ export function Navbar() {
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, href: string) => {
     e.preventDefault();
     setIsOpen(false);
+    
+    if (href === "#" || href === "/") {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+      return;
+    }
+
     const element = document.querySelector(href);
     if (element) {
       const offset = 80;
