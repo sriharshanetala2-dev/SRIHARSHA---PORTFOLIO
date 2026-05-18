@@ -3,7 +3,7 @@ import type {Metadata} from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'VantagePort | Professional Portfolio',
+  title: 'Sriharsha | Professional Portfolio',
   description: 'Premium personal portfolio and brand management tool.',
 };
 

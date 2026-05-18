@@ -10,12 +10,12 @@ export function Footer() {
         <div className="flex items-center gap-2">
           <Rocket className="w-6 h-6 text-accent" />
           <span className="text-lg font-headline font-bold tracking-tight">
-            Vantage<span className="text-accent">Port</span>
+            Sri<span className="text-accent">harsha</span>
           </span>
         </div>
 
         <p className="text-sm text-muted-foreground">
-          &copy; {currentYear} VantagePort Portfolio. Built with Next.js & AI.
+          &copy; {currentYear} Sriharsha Portfolio. Built with Next.js & AI.
         </p>
 
         <div className="flex gap-8">

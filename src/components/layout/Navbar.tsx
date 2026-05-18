@@ -38,7 +38,7 @@ export function Navbar() {
         <Link href="/" className="flex items-center gap-2 group">
           <Rocket className="w-8 h-8 text-accent group-hover:rotate-12 transition-transform" />
           <span className="text-xl font-headline font-bold tracking-tight text-foreground">
-            Vantage<span className="text-accent">Port</span>
+            Sri<span className="text-accent">harsha</span>
           </span>
         </Link>
 
