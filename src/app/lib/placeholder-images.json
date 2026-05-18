@@ -11,7 +11,7 @@
       "id": "weather-app",
       "description": "Neural Weather Forecasting Interface",
       "imageUrl": "https://picsum.photos/seed/dev_weather_v4/800/600",
-      "imageHint": "ai weather"
+      "imageHint": "weather analysis"
     },
     {
       "id": "todo-app",
