@@ -82,7 +82,7 @@ export function Projects() {
       <div className="max-w-7xl mx-auto">
         <div className="space-y-6 text-center mb-20 animate-in fade-in slide-in-from-bottom-4 duration-700">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-xs font-bold text-accent uppercase tracking-widest">
-            Junior Portfolio
+            Featured Portfolio
           </div>
           <h2 className="text-4xl md:text-5xl font-headline font-bold">Showcase Projects</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed">
@@ -96,7 +96,11 @@ export function Projects() {
             return (
               <Card 
                 key={idx} 
-                className="group border-border bg-card overflow-hidden hover:border-accent/40 transition-all duration-500 shadow-xl hover:shadow-2xl hover:-translate-y-2 flex flex-col"
+                className={cn(
+                  "group border-border bg-card overflow-hidden hover:border-accent/40 transition-all duration-500 shadow-xl hover:shadow-2xl hover:-translate-y-2 flex flex-col",
+                  "animate-in fade-in slide-in-from-bottom-10 duration-700 fill-mode-both"
+                )}
+                style={{ animationDelay: `${idx * 100}ms` }}
               >
                 <div className="relative h-56 overflow-hidden">
                   {imageData && (
