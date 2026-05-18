@@ -18,8 +18,8 @@ const BrandIdentityInputSchema = z.object({
 export type BrandIdentityInput = z.infer<typeof BrandIdentityInputSchema>;
 
 const BrandIdentityOutputSchema = z.object({
-  techStack: z.string().describe('Recommended technology stack.'),
-  professionalDescription: z.string().describe('A professional and concise description of the project.'),
+  techStack: z.string().describe('Recommended technology stack, e.g. "React, Next.js, Firebase, Tailwind".'),
+  professionalDescription: z.string().describe('A professional, high-impact description of the project for a portfolio.'),
   logoUrl: z.string().optional().describe('Data URI of the generated logo.'),
 });
 export type BrandIdentityOutput = z.infer<typeof BrandIdentityOutputSchema>;
@@ -34,13 +34,13 @@ const prompt = ai.definePrompt({
   name: 'brandIdentityPrompt',
   input: {schema: BrandIdentityInputSchema},
   output: {schema: BrandIdentityOutputSchema.omit({logoUrl: true})},
-  prompt: `You are a startup brand consultant and technical architect.
+  prompt: `You are a high-level startup brand consultant and technical architect.
   
 Based on this project idea: "{{{projectDescription}}}"
 
-Please provide:
-1. A recommended modern technology stack (comma-separated list).
-2. A professional, high-impact description of the project suitable for a developer portfolio.`,
+Please architect a complete identity:
+1. Recommend a modern, high-performance technology stack (comma-separated list).
+2. Write a professional, punchy, and high-impact description (2-3 sentences) suitable for a top-tier developer portfolio project card.`,
 });
 
 const generateBrandIdentityFlow = ai.defineFlow(
@@ -50,22 +50,28 @@ const generateBrandIdentityFlow = ai.defineFlow(
     outputSchema: BrandIdentityOutputSchema,
   },
   async input => {
-    // 1. Generate the textual identity
+    // 1. Generate the textual identity (Architecture + Copy)
     const {output} = await prompt(input);
     if (!output) throw new Error("Failed to generate brand identity text.");
 
-    // 2. Generate a logo based on the generated identity
-    const { media } = await ai.generate({
-      model: 'googleai/imagen-4.0-fast-generate-001',
-      prompt: `A professional, minimalist, and modern software logo icon. 
-      The project is built with: ${output.techStack}. 
-      Project concept: ${output.professionalDescription}. 
-      Style: Clean vector icon, flat design, minimalist symbol, no text, suitable for a developer portfolio project card.`,
-    });
+    // 2. Generate a logo using Imagen 4.0
+    // We try to catch errors specifically for logo generation to still return the text identity
+    let logoUrl = undefined;
+    try {
+      const { media } = await ai.generate({
+        model: 'googleai/imagen-4.0-fast-generate-001',
+        prompt: `A professional, minimalist, and modern software logo icon for a project called "${input.projectDescription.substring(0, 30)}". 
+        Stack: ${output.techStack}. 
+        Style: Clean vector icon, flat design, minimalist symbolic shape, dark background aesthetic, no text, premium tech brand style.`,
+      });
+      logoUrl = media?.url;
+    } catch (e) {
+      console.error("Logo generation failed, skipping visual asset.", e);
+    }
 
     return {
       ...output,
-      logoUrl: media?.url,
+      logoUrl,
     };
   }
 );
