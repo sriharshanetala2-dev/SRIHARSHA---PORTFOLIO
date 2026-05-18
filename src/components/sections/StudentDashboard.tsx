@@ -24,7 +24,7 @@ import {
   AreaChart, 
   Area 
 } from "recharts";
-import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
+import { ChartContainer, ChartTooltip, ChartTooltipContent, type ChartConfig } from "@/components/ui/chart";
 
 const gpaData = [
   { semester: "Sem 1", gpa: 3.2 },
@@ -41,6 +41,13 @@ const studentActivity = [
   { id: "3", name: "Charlie Davis", course: "Cyber Security", status: "Active", date: "2024-03-08" },
   { id: "4", name: "Diana Prince", course: "Data Science", status: "Active", date: "2024-03-07" },
 ];
+
+const chartConfig = {
+  gpa: {
+    label: "GPA",
+    color: "hsl(var(--accent))",
+  },
+} satisfies ChartConfig;
 
 export function StudentDashboard() {
   return (
@@ -155,12 +162,12 @@ export function StudentDashboard() {
                       <CardDescription className="text-xs">Average GPA evolution across semesters</CardDescription>
                     </CardHeader>
                     <CardContent className="h-64">
-                      <ResponsiveContainer width="100%" height="100%">
-                        <AreaChart data={gpaData}>
+                      <ChartContainer config={chartConfig}>
+                        <AreaChart data={gpaData} margin={{ left: -20, right: 10 }}>
                           <defs>
                             <linearGradient id="colorGpa" x1="0" y1="0" x2="0" y2="1">
-                              <stop offset="5%" stopColor="hsl(var(--accent))" stopOpacity={0.3}/>
-                              <stop offset="95%" stopColor="hsl(var(--accent))" stopOpacity={0}/>
+                              <stop offset="5%" stopColor="var(--color-gpa)" stopOpacity={0.3}/>
+                              <stop offset="95%" stopColor="var(--color-gpa)" stopOpacity={0}/>
                             </linearGradient>
                           </defs>
                           <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="hsl(var(--border))" />
@@ -175,18 +182,18 @@ export function StudentDashboard() {
                             tickLine={false} 
                             tick={{ fontSize: 10, fill: "hsl(var(--muted-foreground))" }} 
                           />
-                          <RechartsTooltip 
+                          <ChartTooltip 
                             content={<ChartTooltipContent />}
                           />
                           <Area 
                             type="monotone" 
                             dataKey="gpa" 
-                            stroke="hsl(var(--accent))" 
+                            stroke="var(--color-gpa)" 
                             fillOpacity={1} 
                             fill="url(#colorGpa)" 
                           />
                         </AreaChart>
-                      </ResponsiveContainer>
+                      </ChartContainer>
                     </CardContent>
                   </Card>
 
