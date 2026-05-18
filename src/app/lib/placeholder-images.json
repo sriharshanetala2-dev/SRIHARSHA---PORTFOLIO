@@ -42,6 +42,12 @@
       "description": "Formula Racing Website",
       "imageUrl": "https://picsum.photos/seed/race7/800/600",
       "imageHint": "racing car"
+    },
+    {
+      "id": "creative-process",
+      "description": "Technical Coding Development Creative Process",
+      "imageUrl": "https://picsum.photos/seed/techcode99/800/600",
+      "imageHint": "technical coding"
     }
   ]
 }

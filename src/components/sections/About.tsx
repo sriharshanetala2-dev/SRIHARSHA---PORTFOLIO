@@ -1,10 +1,14 @@
+
 "use client";
 
 import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 import { User, Code, Target, Zap } from "lucide-react";
+import { PlaceHolderImages } from "@/app/lib/placeholder-images";
 
 export function About() {
+  const creativeProcessImage = PlaceHolderImages.find(img => img.id === "creative-process");
+
   return (
     <section id="about" className="py-24 px-6 bg-background">
       <div className="max-w-7xl mx-auto space-y-16">
@@ -80,13 +84,15 @@ export function About() {
             </div>
             <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl group animate-float">
               <div className="absolute inset-0 bg-accent/10 mix-blend-overlay z-10" />
-              <Image 
-                src="https://picsum.photos/seed/process/800/600" 
-                alt="My Creative Process" 
-                fill
-                className="object-cover animate-slow-pan"
-                data-ai-hint="software development"
-              />
+              {creativeProcessImage && (
+                <Image 
+                  src={creativeProcessImage.imageUrl} 
+                  alt={creativeProcessImage.description} 
+                  fill
+                  className="object-cover animate-slow-pan"
+                  data-ai-hint={creativeProcessImage.imageHint}
+                />
+              )}
             </div>
           </div>
         </div>
