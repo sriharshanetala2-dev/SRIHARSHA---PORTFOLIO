@@ -7,22 +7,22 @@ const experience = [
   {
     role: "Advanced AI & Cloud Specialization",
     company: "Self-Paced Innovation & Research",
-    period: "Late 2025 — Future",
+    period: "2026 — Future",
     description: "Architecting a self-paced roadmap for the next frontier of engineering: AI-native applications and scalable cloud-first infrastructures. Focusing on advanced GenAI patterns, RAG systems, and high-concurrency backend design through independent research.",
     icon: Sparkles
   },
   {
     role: "Full-Stack Specialization & Certification",
     company: "NxtWave Academy (Self-Paced Intensive)",
-    period: "2024 — 2025",
+    period: "Aug 2025 — Dec 2025",
     description: "Completed an industry-ready certification program via a self-paced curriculum. Mastered the MERN stack (MongoDB, Express, React, Node.js) through hands-on coding, solving 500+ algorithmic problems, and building scalable full-stack applications.",
     icon: Award
   },
   {
     role: "Self-Directed Full-Stack Development",
     company: "Independent Learning Journey",
-    period: "2024",
-    description: "Dedicated a self-paced 6-month period post-graduation to mastering modern web architecture. Built a portfolio of responsive applications using React, Next.js, and Firebase, focusing on clean code principles and UI/UX best practices.",
+    period: "2024 — July 2025",
+    description: "Dedicated a self-paced period post-graduation to mastering modern web architecture. Built a portfolio of responsive applications using React, Next.js, and Firebase, focusing on clean code principles and UI/UX best practices.",
     icon: Zap
   }
 ];
