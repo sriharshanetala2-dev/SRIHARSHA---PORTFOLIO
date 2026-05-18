@@ -1,14 +1,14 @@
 "use client";
 
 import { Card } from "@/components/ui/card";
-import { Briefcase, Calendar, Award, Zap, Sparkles } from "lucide-react";
+import { Briefcase, Calendar, Award, Zap } from "lucide-react";
 
 const experience = [
   {
-    role: "Full-Stack & AI Specialization",
+    role: "MERN Stack & Generative AI Mastery",
     company: "NxtWave Academy",
     period: "2025 — 2026",
-    description: "Currently mastering the MERN stack and Generative AI through an intensive, industry-aligned curriculum. Successfully completed the 'AI for All' program and emerged as a top contributor in the NxtWave AI Buildathon, where I developed and deployed AI-powered applications.",
+    description: "Intensive specialization focusing on building scalable web applications with the MERN stack and integrating cutting-edge Generative AI features. Successfully completed the 'AI for All' certification and emerged as a top contributor in the NxtWave AI Buildathon for innovative application deployment.",
     icon: Award
   },
   {
@@ -32,7 +32,7 @@ export function Experience() {
             My Growth Path
           </div>
           <h2 className="text-4xl font-headline font-bold">Self-Paced Engineering Journey</h2>
-          <p className="text-muted-foreground">A timeline of independent skill acquisition and specialized AI training.</p>
+          <p className="text-muted-foreground">A timeline of independent skill acquisition and specialized industry training.</p>
         </div>
 
         <div className="space-y-8 relative">
