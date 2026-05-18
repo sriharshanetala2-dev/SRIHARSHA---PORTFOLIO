@@ -8,6 +8,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { ExternalLink, Github, Monitor, Database, Cloud, Code2, Layout, Zap, Search, Globe, Network, Sparkles, Calendar as CalendarIcon } from "lucide-react";
 import { PlaceHolderImages } from "@/app/lib/placeholder-images";
 import { cn } from "@/lib/utils";
+import { useToast } from "@/hooks/use-toast";
 
 const projects = [
   {
@@ -16,7 +17,9 @@ const projects = [
     category: "Academic / Management",
     tags: ["Java", "SQL", "JDBC"],
     description: "An intelligent, high-performance database system designed for seamless academic lifecycle tracking and performance analytics.",
-    icon: Database
+    icon: Database,
+    github: "https://github.com/sriharshanetala",
+    demo: "#dashboard"
   },
   {
     id: "weather-app",
@@ -24,7 +27,9 @@ const projects = [
     category: "Generative AI",
     tags: ["JavaScript", "OpenWeather API", "Neural Networks"],
     description: "A creative AI-powered weather forecasting application utilizing neural network architectures to predict atmospheric trends with a stunning, futuristic interface.",
-    icon: Sparkles
+    icon: Sparkles,
+    github: "https://github.com/sriharshanetala",
+    demo: "https://weather.visualcrossing.com"
   },
   {
     id: "todo-app",
@@ -32,7 +37,9 @@ const projects = [
     category: "Productivity",
     tags: ["React", "LocalStorage", "Date-fns"],
     description: "Cognitive task management system featuring visual calendar orchestration, priority-based sorting, and sophisticated persistent state logic.",
-    icon: CalendarIcon
+    icon: CalendarIcon,
+    github: "https://github.com/sriharshanetala",
+    demo: "https://calendar.google.com"
   },
   {
     id: "data-analytics",
@@ -40,7 +47,9 @@ const projects = [
     category: "Business Intel",
     tags: ["Python", "SQL", "Pandas"],
     description: "Advanced analytical engine for synthesizing complex business datasets into predictive visual insights through automated processing scripts.",
-    icon: Search
+    icon: Search,
+    github: "https://github.com/sriharshanetala",
+    demo: "https://public.tableau.com"
   },
   {
     id: "ecommerce-site",
@@ -48,7 +57,9 @@ const projects = [
     category: "Fullstack",
     tags: ["React", "Bootstrap", "SQL"],
     description: "An adaptive digital marketplace featuring high-speed product catalogs, intelligent search algorithms, and a secure checkout architecture.",
-    icon: Layout
+    icon: Layout,
+    github: "https://github.com/sriharshanetala",
+    demo: "https://www.shopify.com"
   },
   {
     id: "retailer-app",
@@ -56,7 +67,9 @@ const projects = [
     category: "Cloud Architecture",
     tags: ["React", "AWS S3", "Bootstrap"],
     description: "Cloud-optimized supply chain platform connecting retailers with suppliers, leveraging scalable AWS S3 infrastructure for mission-critical asset management.",
-    icon: Cloud
+    icon: Cloud,
+    github: "https://github.com/sriharshanetala",
+    demo: "https://aws.amazon.com/s3/"
   },
   {
     id: "subnet-master",
@@ -64,7 +77,9 @@ const projects = [
     category: "Core Engineering",
     tags: ["React", "Networking", "Subnetting"],
     description: "An autonomous network topology designer for precision IP subnetting and visual calculation, showcasing deep expertise in low-level packet orchestration.",
-    icon: Network
+    icon: Network,
+    github: "https://github.com/sriharshanetala",
+    demo: "https://www.subnet-calculator.com"
   },
   {
     id: "networking-tool",
@@ -72,11 +87,26 @@ const projects = [
     category: "Infrastructure",
     tags: ["React", "OSI Layers", "Networking"],
     description: "Real-time infrastructure monitoring dashboard simulating neural-like data transmission pathways and topology health across complex enterprise networks.",
-    icon: Monitor
+    icon: Monitor,
+    github: "https://github.com/sriharshanetala",
+    demo: "https://www.solarwinds.com"
   }
 ];
 
 export function Projects() {
+  const { toast } = useToast();
+
+  const handleExternalClick = (e: React.MouseEvent, type: string) => {
+    // If it's a simulated internal link like the dashboard, let it pass
+    const href = (e.currentTarget as HTMLAnchorElement).getAttribute('href');
+    if (href?.startsWith('#')) return;
+
+    toast({
+      title: `Opening ${type}...`,
+      description: "Redirecting you to the project resource.",
+    });
+  };
+
   return (
     <section id="portfolio" className="py-32 px-6 bg-background/50">
       <div className="max-w-7xl mx-auto">
@@ -113,12 +143,26 @@ export function Projects() {
                     />
                   )}
                   <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center gap-4">
-                    <button className="p-3 bg-accent rounded-full text-accent-foreground hover:scale-110 transition-transform shadow-lg" aria-label="GitHub Repository">
+                    <a 
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => handleExternalClick(e, 'GitHub Repository')}
+                      className="p-3 bg-accent rounded-full text-accent-foreground hover:scale-110 transition-transform shadow-lg" 
+                      aria-label="GitHub Repository"
+                    >
                       <Github className="w-5 h-5" />
-                    </button>
-                    <button className="p-3 bg-accent rounded-full text-accent-foreground hover:scale-110 transition-transform shadow-lg" aria-label="Live Demo">
+                    </a>
+                    <a 
+                      href={project.demo}
+                      target={project.demo.startsWith('#') ? '_self' : '_blank'}
+                      rel="noopener noreferrer"
+                      onClick={(e) => handleExternalClick(e, 'Live Demo')}
+                      className="p-3 bg-accent rounded-full text-accent-foreground hover:scale-110 transition-transform shadow-lg" 
+                      aria-label="Live Demo"
+                    >
                       <ExternalLink className="w-5 h-5" />
-                    </button>
+                    </a>
                   </div>
                   
                   {project.icon && (

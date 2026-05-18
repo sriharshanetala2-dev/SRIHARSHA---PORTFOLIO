@@ -1,5 +1,7 @@
+
 "use client";
 
+import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { 
   Users, 
@@ -22,6 +24,7 @@ import {
 } from "recharts";
 import { ChartContainer, ChartTooltip, ChartTooltipContent, type ChartConfig } from "@/components/ui/chart";
 import { cn } from "@/lib/utils";
+import { useToast } from "@/hooks/use-toast";
 
 const gpaData = [
   { semester: "Sem 1", gpa: 3.2 },
@@ -47,6 +50,24 @@ const chartConfig = {
 } satisfies ChartConfig;
 
 export function StudentDashboard() {
+  const [activeTab, setActiveTab] = useState("Dashboard");
+  const { toast } = useToast();
+
+  const handleTabChange = (label: string) => {
+    setActiveTab(label);
+    toast({
+      title: `Switching to ${label}`,
+      description: `Loading simulated records for the ${label.toLowerCase()} module.`,
+    });
+  };
+
+  const handleSimulatedAction = (action: string) => {
+    toast({
+      title: action,
+      description: "This feature is part of the fully-realized version of the application.",
+    });
+  };
+
   return (
     <section id="dashboard" className="py-24 px-6 bg-accent/5 overflow-hidden">
       <div className="max-w-7xl mx-auto space-y-12">
@@ -80,17 +101,24 @@ export function StudentDashboard() {
                   <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                   <input 
                     placeholder="Search records..." 
+                    onKeyDown={(e) => e.key === 'Enter' && handleSimulatedAction("Search Performed")}
                     className="bg-background border border-border rounded-xl pl-10 pr-4 py-2 text-sm w-48 xl:w-64 focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all"
                   />
                 </div>
                 <div className="flex items-center gap-2">
-                  <button className="p-2 rounded-xl bg-background border border-border text-muted-foreground hover:text-accent transition-colors">
+                  <button 
+                    onClick={() => handleSimulatedAction("Notifications Opened")}
+                    className="p-2 rounded-xl bg-background border border-border text-muted-foreground hover:text-accent transition-colors"
+                  >
                     <Bell className="w-5 h-5" />
                   </button>
-                  <button className="hidden sm:block p-2 rounded-xl bg-background border border-border text-muted-foreground hover:text-accent transition-colors">
+                  <button 
+                    onClick={() => handleSimulatedAction("Settings Opened")}
+                    className="hidden sm:block p-2 rounded-xl bg-background border border-border text-muted-foreground hover:text-accent transition-colors"
+                  >
                     <Settings className="w-5 h-5" />
                   </button>
-                  <div className="w-10 h-10 rounded-xl bg-accent/20 border border-accent/20 flex items-center justify-center text-accent font-bold">
+                  <div className="w-10 h-10 rounded-xl bg-accent/20 border border-accent/20 flex items-center justify-center text-accent font-bold cursor-pointer" onClick={() => handleSimulatedAction("User Profile Menu")}>
                     NS
                   </div>
                 </div>
@@ -98,21 +126,22 @@ export function StudentDashboard() {
             </div>
 
             <div className="flex flex-col lg:flex-row min-h-[500px]">
-              {/* Mock Sidebar - Hidden on small mobile or horizontal scrollable */}
+              {/* Mock Sidebar */}
               <div className="w-full lg:w-64 border-b lg:border-b-0 lg:border-r border-border bg-secondary/10 p-4 lg:p-6">
                 <div className="flex lg:flex-col overflow-x-auto lg:overflow-x-visible gap-2 lg:space-y-2 no-scrollbar">
                   {[
-                    { icon: LayoutDashboard, label: "Dashboard", active: true },
-                    { icon: Users, label: "Students", active: false },
-                    { icon: BookOpen, label: "Courses", active: false },
-                    { icon: TrendingUp, label: "Analytics", active: false },
-                    { icon: UserCircle, label: "Profile", active: false },
+                    { icon: LayoutDashboard, label: "Dashboard" },
+                    { icon: Users, label: "Students" },
+                    { icon: BookOpen, label: "Courses" },
+                    { icon: TrendingUp, label: "Analytics" },
+                    { icon: UserCircle, label: "Profile" },
                   ].map((item) => (
                     <button 
                       key={item.label}
+                      onClick={() => handleTabChange(item.label)}
                       className={cn(
                         "flex items-center gap-3 px-4 py-2.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap lg:w-full",
-                        item.active 
+                        activeTab === item.label
                         ? "bg-accent text-accent-foreground shadow-lg shadow-accent/20" 
                         : "text-muted-foreground hover:bg-accent/10 hover:text-accent"
                       )}
@@ -136,9 +165,10 @@ export function StudentDashboard() {
                     <Card 
                       key={stat.label} 
                       className={cn(
-                        "bg-background/50 border-border/50 backdrop-blur-sm animate-in fade-in slide-in-from-bottom-2 duration-500",
+                        "bg-background/50 border-border/50 backdrop-blur-sm animate-in fade-in slide-in-from-bottom-2 duration-500 cursor-pointer hover:bg-background transition-colors",
                         stat.delay
                       )}
+                      onClick={() => handleSimulatedAction(`Viewing ${stat.label} Details`)}
                     >
                       <CardContent className="p-6 flex items-center justify-between">
                         <div className="space-y-1">
@@ -158,14 +188,19 @@ export function StudentDashboard() {
 
                 {/* Charts Area */}
                 <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
-                  <Card className="bg-background/50 border-border/50 animate-in fade-in slide-in-from-left-4 duration-700 delay-500">
-                    <CardHeader>
-                      <CardTitle className="text-sm font-bold font-headline uppercase tracking-tight">Performance Trends</CardTitle>
-                      <CardDescription className="text-xs">GPA Evolution — Session 2024</CardDescription>
-                    </CardHeader>
-                    <CardContent className="h-64">
-                      <ChartContainer config={chartConfig}>
-                        <AreaChart data={gpaData} margin={{ left: -20, right: 10, top: 10 }}>
+                  <ChartContainer config={chartConfig} className="min-h-[300px]">
+                    <Card className="bg-background/50 border-border/50 animate-in fade-in slide-in-from-left-4 duration-700 delay-500 overflow-hidden">
+                      <CardHeader className="flex flex-row items-center justify-between">
+                        <div>
+                          <CardTitle className="text-sm font-bold font-headline uppercase tracking-tight">Performance Trends</CardTitle>
+                          <CardDescription className="text-xs">GPA Evolution — Session 2024</CardDescription>
+                        </div>
+                        <button onClick={() => handleSimulatedAction("Downloading Performance Data")} className="p-2 rounded-lg bg-secondary/50 text-accent hover:bg-accent hover:text-accent-foreground transition-all">
+                          <TrendingUp className="w-4 h-4" />
+                        </button>
+                      </CardHeader>
+                      <CardContent className="h-64 pt-4">
+                        <AreaChart data={gpaData} margin={{ left: -20, right: 10, top: 10 }} width={400} height={250}>
                           <defs>
                             <linearGradient id="colorGpa" x1="0" y1="0" x2="0" y2="1">
                               <stop offset="5%" stopColor="var(--color-gpa)" stopOpacity={0.4}/>
@@ -196,22 +231,28 @@ export function StudentDashboard() {
                             fill="url(#colorGpa)" 
                           />
                         </AreaChart>
-                      </ChartContainer>
-                    </CardContent>
-                  </Card>
+                      </CardContent>
+                    </Card>
+                  </ChartContainer>
 
                   <Card className="bg-background/50 border-border/50 animate-in fade-in slide-in-from-right-4 duration-700 delay-500">
-                    <CardHeader>
-                      <CardTitle className="text-sm font-bold font-headline uppercase tracking-tight">Recent Activity</CardTitle>
-                      <CardDescription className="text-xs">Live enrollment verification log</CardDescription>
+                    <CardHeader className="flex flex-row items-center justify-between">
+                      <div>
+                        <CardTitle className="text-sm font-bold font-headline uppercase tracking-tight">Recent Activity</CardTitle>
+                        <CardDescription className="text-xs">Live enrollment verification log</CardDescription>
+                      </div>
+                      <button onClick={() => handleSimulatedAction("Refreshing Activity Feed")} className="p-2 rounded-lg bg-secondary/50 text-accent hover:bg-accent hover:text-accent-foreground transition-all">
+                        <TrendingUp className="w-4 h-4 rotate-90" />
+                      </button>
                     </CardHeader>
                     <CardContent>
                       <div className="space-y-3">
                         {studentActivity.map((student, idx) => (
                           <div 
                             key={student.id} 
+                            onClick={() => handleSimulatedAction(`Viewing Profile: ${student.name}`)}
                             className={cn(
-                              "flex items-center justify-between p-3 rounded-xl bg-secondary/20 border border-border/30 transition-all hover:bg-secondary/40",
+                              "flex items-center justify-between p-3 rounded-xl bg-secondary/20 border border-border/30 transition-all hover:bg-secondary/40 cursor-pointer",
                               "animate-in fade-in slide-in-from-right-2 duration-500",
                               idx === 0 ? "delay-[800ms]" : idx === 1 ? "delay-[900ms]" : "delay-[1000ms]"
                             )}
