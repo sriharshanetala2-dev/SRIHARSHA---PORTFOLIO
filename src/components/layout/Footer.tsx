@@ -1,8 +1,6 @@
 import { Code2, Github, Linkedin, Mail } from "lucide-react";
 
 export function Footer() {
-  const currentYear = new Date().getFullYear();
-
   return (
     <footer className="py-20 px-6 border-t border-border bg-background">
       <div className="max-w-7xl mx-auto space-y-12">
@@ -41,7 +39,7 @@ export function Footer() {
 
         <div className="pt-12 border-t border-border flex flex-col md:flex-row items-center justify-between gap-6">
           <p className="text-sm text-muted-foreground font-medium">
-            &copy; {currentYear} NETALA SRIHARSHA. All rights reserved.
+            &copy; NETALA SRIHARSHA. All rights reserved.
           </p>
 
           <div className="flex gap-10">
