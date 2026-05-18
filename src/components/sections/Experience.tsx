@@ -1,21 +1,28 @@
 "use client";
 
 import { Card } from "@/components/ui/card";
-import { Briefcase, Calendar, Award, Zap } from "lucide-react";
+import { Briefcase, Calendar, Award, Zap, BrainCircuit, Code2 } from "lucide-react";
 
 const experience = [
   {
-    role: "MERN Stack & Generative AI Mastery",
+    role: "Java Full Stack Specialization",
     company: "NxtWave Academy",
     period: "2025 — 2026",
-    description: "Intensive specialization focusing on building scalable web applications with the MERN stack and integrating cutting-edge Generative AI features. Successfully completed the 'AI for All' certification and emerged as a top contributor in the NxtWave AI Buildathon for innovative application deployment.",
-    icon: Award
+    description: "Intensive engineering program focused on building robust enterprise applications. Mastery of Java, Spring Boot, JDBC, and SQL, coupled with modern frontend architectures for seamless user experiences.",
+    icon: Code2
   },
   {
-    role: "Self-Directed Full-Stack Development",
-    company: "Independent Learning Journey",
+    role: "Generative AI Mastery",
+    company: "NxtWave Academy",
+    period: "2025 — 2026",
+    description: "Specialized training in AI orchestration and LLM integration. Successfully completed the 'AI for All' certification and was a top contributor in the NxtWave AI Buildathon, focusing on building and deploying AI-driven solutions.",
+    icon: BrainCircuit
+  },
+  {
+    role: "Self-Directed Software Engineering",
+    company: "Independent Learning",
     period: "2024 — 2025",
-    description: "Dedicated a self-paced period post-graduation to mastering modern web architecture. Built a portfolio of responsive applications using React, Next.js, and Firebase, focusing on clean code principles and UI/UX best practices.",
+    description: "Dedicated phase post-graduation focused on core computer science principles and full-stack architecture. Built a series of technical projects to master the bridge between backend logic and interactive UIs.",
     icon: Zap
   }
 ];
@@ -29,10 +36,10 @@ export function Experience() {
         <div className="text-center mb-16 space-y-4">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-xs font-bold text-accent uppercase tracking-widest">
             <Briefcase className="w-3 h-3" />
-            My Growth Path
+            Professional Growth
           </div>
-          <h2 className="text-4xl font-headline font-bold">Self-Paced Engineering Journey</h2>
-          <p className="text-muted-foreground">A timeline of independent skill acquisition and specialized industry training.</p>
+          <h2 className="text-4xl font-headline font-bold">Self-Paced Engineering Path</h2>
+          <p className="text-muted-foreground">A specialized timeline of technical mastery and industry-aligned certifications.</p>
         </div>
 
         <div className="space-y-8 relative">
