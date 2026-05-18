@@ -2,15 +2,23 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { generateBrandIdentity, type BrandIdentityOutput } from "@/ai/flows/generate-brand-identity-flow";
+import { generateBrandIdentity, type BrandIdentityOutput, type BrandIdentityInput } from "@/ai/flows/generate-brand-identity-flow";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Sparkles, Loader2, Copy, Check, BrainCircuit, Rocket, Layout, Database, Terminal } from "lucide-react";
+import { Sparkles, Loader2, Copy, Check, BrainCircuit, Rocket, Layout, Database, Terminal, UserSquare2, Type } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 export function AITool() {
-  const [projectIdea, setProjectIdea] = useState("");
+  const [formData, setFormData] = useState<BrandIdentityInput>({
+    projectName: "",
+    mission: "",
+    audience: "",
+    tone: "Professional"
+  });
+  
   const [result, setResult] = useState<BrandIdentityOutput | null>(null);
   const [loading, setLoading] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -18,10 +26,11 @@ export function AITool() {
 
   const handleGenerate = async (e?: React.FormEvent) => {
     e?.preventDefault();
-    if (!projectIdea.trim()) {
+    
+    if (!formData.projectName || !formData.mission || !formData.audience) {
       toast({
-        title: "Input Required",
-        description: "Please describe your project vision to activate the engine.",
+        title: "Missing Requirements",
+        description: "Please fill out all blueprint fields to activate the engine.",
         variant: "destructive",
       });
       return;
@@ -30,7 +39,7 @@ export function AITool() {
     setLoading(true);
     setResult(null);
     try {
-      const output = await generateBrandIdentity({ projectDescription: projectIdea });
+      const output = await generateBrandIdentity(formData);
       if (!output) throw new Error("Empty response from AI engine");
       
       setResult(output);
@@ -42,7 +51,7 @@ export function AITool() {
       console.error("AI Engine Error:", error);
       toast({
         title: "Engine Error",
-        description: "The AI model is currently busy. Please try a different description or try again in a moment.",
+        description: "The AI model is currently busy. Please check your inputs and try again.",
         variant: "destructive",
       });
     } finally {
@@ -50,15 +59,9 @@ export function AITool() {
     }
   };
 
-  const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) {
-      handleGenerate();
-    }
-  };
-
   const copyToClipboard = () => {
     if (!result) return;
-    const text = `Project: ${projectIdea}\n\nStack: ${result.techStack}\n\nDescription: ${result.professionalDescription}`;
+    const text = `Project: ${formData.projectName}\nMission: ${formData.mission}\nStack: ${result.techStack}\nDescription: ${result.professionalDescription}`;
     navigator.clipboard.writeText(text);
     setCopied(true);
     toast({
@@ -78,55 +81,102 @@ export function AITool() {
           </div>
           <h2 className="text-4xl md:text-5xl font-headline font-bold">AI Brand Engine</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed">
-            One description. A complete digital identity. Our engine architects your stack, writes your story, and paints your logo.
+            Specify your exact requirements. Our engine will architect your stack, craft your story, and design your visual mark.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
           <Card className="border-border bg-card shadow-2xl flex flex-col group hover:border-accent/30 transition-all duration-500">
             <CardHeader>
               <div className="flex items-center justify-between">
                 <CardTitle className="font-headline flex items-center gap-2">
                   <Rocket className="w-5 h-5 text-accent" />
-                  Mission Input
+                  Requirement Blueprint
                 </CardTitle>
                 <div className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest px-2 py-0.5 rounded-md bg-secondary">
                   v2.5 Flash
                 </div>
               </div>
-              <CardDescription>Enter a few words about your project goals or target audience.</CardDescription>
+              <CardDescription>Provide the exact technical and brand constraints for your project.</CardDescription>
             </CardHeader>
-            <CardContent className="flex-1">
-              <form onSubmit={handleGenerate} className="space-y-6 h-full flex flex-col justify-between">
-                <div className="space-y-4 flex-1">
-                  <div className="relative">
-                    <Textarea 
-                      placeholder="e.g. A high-speed student registry with automated performance alerts..." 
-                      className="min-h-[250px] bg-secondary/30 border-border rounded-2xl resize-none p-5 text-base focus:ring-accent transition-all duration-300 placeholder:italic"
-                      value={projectIdea}
-                      onChange={(e) => setProjectIdea(e.target.value)}
-                      onKeyDown={handleKeyDown}
+            <CardContent>
+              <form onSubmit={handleGenerate} className="space-y-5">
+                <div className="space-y-2">
+                  <label className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground flex items-center gap-2">
+                    <Type className="w-3 h-3" /> Project Name
+                  </label>
+                  <Input 
+                    placeholder="e.g. EduSync, Nexus, FinTrack..." 
+                    value={formData.projectName}
+                    onChange={(e) => setFormData({...formData, projectName: e.target.value})}
+                    className="bg-secondary/30 border-border rounded-xl h-12"
+                    disabled={loading}
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <label className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground flex items-center gap-2">
+                    <Terminal className="w-3 h-3" /> Core Mission & Features
+                  </label>
+                  <Textarea 
+                    placeholder="Describe the problem it solves and key technical features..." 
+                    value={formData.mission}
+                    onChange={(e) => setFormData({...formData, mission: e.target.value})}
+                    className="min-h-[120px] bg-secondary/30 border-border rounded-xl resize-none p-4"
+                    disabled={loading}
+                  />
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <label className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground flex items-center gap-2">
+                      <UserSquare2 className="w-3 h-3" /> Target Audience
+                    </label>
+                    <Input 
+                      placeholder="e.g. Students, CTOs, Retailers..." 
+                      value={formData.audience}
+                      onChange={(e) => setFormData({...formData, audience: e.target.value})}
+                      className="bg-secondary/30 border-border rounded-xl h-12"
                       disabled={loading}
                     />
-                    <div className="absolute bottom-4 right-4 text-[10px] text-muted-foreground font-bold uppercase tracking-tighter opacity-50">
-                      Press Ctrl + Enter to launch
-                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground flex items-center gap-2">
+                      <Sparkles className="w-3 h-3" /> Brand Tone
+                    </label>
+                    <Select 
+                      value={formData.tone} 
+                      onValueChange={(val: any) => setFormData({...formData, tone: val})}
+                      disabled={loading}
+                    >
+                      <SelectTrigger className="bg-secondary/30 border-border rounded-xl h-12">
+                        <SelectValue placeholder="Select Tone" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="Professional">Professional</SelectItem>
+                        <SelectItem value="Minimalist">Minimalist</SelectItem>
+                        <SelectItem value="Bold">Bold</SelectItem>
+                        <SelectItem value="Futuristic">Futuristic</SelectItem>
+                        <SelectItem value="Friendly">Friendly</SelectItem>
+                      </SelectContent>
+                    </Select>
                   </div>
                 </div>
+
                 <Button 
                   type="submit" 
-                  className="w-full bg-accent text-accent-foreground hover:bg-accent/90 h-16 rounded-2xl font-bold gap-3 mt-6 shadow-xl shadow-accent/20 transition-all active:scale-[0.98] disabled:opacity-50"
+                  className="w-full bg-accent text-accent-foreground hover:bg-accent/90 h-14 rounded-xl font-bold gap-3 mt-4 shadow-xl shadow-accent/20 transition-all active:scale-[0.98] disabled:opacity-50"
                   disabled={loading}
                 >
                   {loading ? (
                     <>
-                      <Loader2 className="w-6 h-6 animate-spin" />
-                      <span>Architecting Identity...</span>
+                      <Loader2 className="w-5 h-5 animate-spin" />
+                      <span>Architecting...</span>
                     </>
                   ) : (
                     <>
-                      <Sparkles className="w-6 h-6" />
-                      <span>Generate Brand Package</span>
+                      <Sparkles className="w-5 h-5" />
+                      <span>Generate Identity</span>
                     </>
                   )}
                 </Button>
@@ -134,7 +184,7 @@ export function AITool() {
             </CardContent>
           </Card>
 
-          <Card className="border-border bg-card shadow-2xl flex flex-col relative overflow-hidden">
+          <Card className="border-border bg-card shadow-2xl flex flex-col relative overflow-hidden min-h-[500px]">
             {result && (
               <div className="absolute top-6 right-6 z-20">
                 <Button 
@@ -160,7 +210,7 @@ export function AITool() {
                    <div className="flex flex-col md:flex-row gap-8 items-start">
                      {result.logoUrl && (
                        <div className="space-y-4">
-                          <p className="text-[10px] font-black text-accent uppercase tracking-[0.2em]">Generated Logo</p>
+                          <p className="text-[10px] font-black text-accent uppercase tracking-[0.2em]">Generated Mark</p>
                           <div className="relative w-40 h-40 rounded-3xl overflow-hidden border-2 border-accent/20 shadow-2xl bg-accent/5 flex items-center justify-center group/logo">
                              <Image 
                                 src={result.logoUrl} 
@@ -175,7 +225,7 @@ export function AITool() {
 
                      <div className="flex-1 space-y-6">
                        <div className="space-y-3">
-                          <p className="text-[10px] font-black text-accent uppercase tracking-[0.2em]">Recommended Stack</p>
+                          <p className="text-[10px] font-black text-accent uppercase tracking-[0.2em]">Targeted Stack</p>
                           <div className="flex flex-wrap gap-2">
                             {result.techStack.split(',').map((tech, i) => (
                               <span key={i} className="px-3 py-1.5 bg-secondary border border-border rounded-xl text-[11px] font-bold text-foreground shadow-sm">
@@ -190,13 +240,13 @@ export function AITool() {
                              <div className="p-2 rounded-lg bg-accent/10 text-accent">
                                 <Layout className="w-3 h-3" />
                              </div>
-                             <span className="text-[10px] font-bold uppercase">UI Ready</span>
+                             <span className="text-[10px] font-bold uppercase tracking-tighter">UI Precision</span>
                           </div>
                           <div className="p-3 rounded-xl bg-secondary/50 border border-border flex items-center gap-3">
                              <div className="p-2 rounded-lg bg-accent/10 text-accent">
                                 <Database className="w-3 h-3" />
                              </div>
-                             <span className="text-[10px] font-bold uppercase">DB Ready</span>
+                             <span className="text-[10px] font-bold uppercase tracking-tighter">Logic Ready</span>
                           </div>
                        </div>
                      </div>
@@ -223,10 +273,10 @@ export function AITool() {
                   </div>
                   <div className="text-center space-y-3">
                     <p className="font-headline font-bold text-2xl uppercase tracking-tighter">
-                      {loading ? "Simulating Intelligence..." : "System Idle"}
+                      {loading ? "Synthesizing Requirements..." : "Engine Standby"}
                     </p>
                     <p className="text-sm text-muted-foreground leading-relaxed">
-                      {loading ? "Our AI is mapping your technical requirements and painting your visual identity." : "Feed the engine a project concept to generate a comprehensive brand identity package."}
+                      {loading ? "Our AI is analyzing your Blueprint to build a specialized identity." : "Complete the Blueprint on the left to activate the generation sequence."}
                     </p>
                   </div>
                 </div>

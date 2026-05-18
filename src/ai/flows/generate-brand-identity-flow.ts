@@ -1,6 +1,6 @@
 'use server';
 /**
- * @fileOverview A comprehensive Genkit flow for generating brand identities (stack, description, and logo).
+ * @fileOverview A comprehensive Genkit flow for generating brand identities with structured requirements.
  *
  * - generateBrandIdentity - A function that handles the generation process.
  * - BrandIdentityInput - The input type for the function.
@@ -11,9 +11,10 @@ import {ai} from '@/ai/genkit';
 import {z} from 'genkit';
 
 const BrandIdentityInputSchema = z.object({
-  projectDescription: z
-    .string()
-    .describe('A brief description of the project idea or purpose.'),
+  projectName: z.string().describe('The name of the project or brand.'),
+  mission: z.string().describe('The core purpose or problem being solved.'),
+  audience: z.string().describe('The intended users or market.'),
+  tone: z.enum(['Professional', 'Minimalist', 'Bold', 'Futuristic', 'Friendly']).describe('The desired brand personality.'),
 });
 export type BrandIdentityInput = z.infer<typeof BrandIdentityInputSchema>;
 
@@ -36,11 +37,14 @@ const prompt = ai.definePrompt({
   output: {schema: BrandIdentityOutputSchema.omit({logoUrl: true})},
   prompt: `You are a high-level startup brand consultant and technical architect.
   
-Based on this project idea: "{{{projectDescription}}}"
+I am building a project called "{{{projectName}}}".
+Mission: {{{mission}}}
+Target Audience: {{{audience}}}
+Brand Tone: {{{tone}}}
 
 Please architect a complete identity:
-1. Recommend a modern, high-performance technology stack (comma-separated list).
-2. Write a professional, punchy, and high-impact description (2-3 sentences) suitable for a top-tier developer portfolio project card.`,
+1. Recommend a modern, high-performance technology stack (comma-separated list) that fits this specific domain.
+2. Write a professional, punchy, and high-impact description (2-3 sentences) suitable for a top-tier developer portfolio project card, reflecting the {{{tone}}} tone.`,
 });
 
 const generateBrandIdentityFlow = ai.defineFlow(
@@ -55,14 +59,14 @@ const generateBrandIdentityFlow = ai.defineFlow(
     if (!output) throw new Error("Failed to generate brand identity text.");
 
     // 2. Generate a logo using Imagen 4.0
-    // We try to catch errors specifically for logo generation to still return the text identity
     let logoUrl = undefined;
     try {
       const { media } = await ai.generate({
         model: 'googleai/imagen-4.0-fast-generate-001',
-        prompt: `A professional, minimalist, and modern software logo icon for a project called "${input.projectDescription.substring(0, 30)}". 
-        Stack: ${output.techStack}. 
-        Style: Clean vector icon, flat design, minimalist symbolic shape, dark background aesthetic, no text, premium tech brand style.`,
+        prompt: `A professional, {{{tone}}} software logo icon for a project called "${input.projectName}". 
+        Context: ${input.mission}. 
+        Audience: ${input.audience}.
+        Style: Clean vector icon, flat design, minimalist symbolic shape, professional tech brand style, no text.`,
       });
       logoUrl = media?.url;
     } catch (e) {
