@@ -1,4 +1,3 @@
-
 import { Code2, Github, Linkedin, Mail } from "lucide-react";
 
 export function Footer() {
@@ -12,7 +11,7 @@ export function Footer() {
             <div className="flex items-center gap-3">
               <Code2 className="w-8 h-8 text-accent" />
               <span className="text-2xl font-headline font-bold tracking-tight uppercase">
-                NETALA SRI <span className="text-accent">HARSHA</span>
+                NETALA <span className="text-accent">SRIHARSHA</span>
               </span>
             </div>
             <p className="text-muted-foreground text-center md:text-left max-w-sm">
@@ -42,7 +41,7 @@ export function Footer() {
 
         <div className="pt-12 border-t border-border flex flex-col md:flex-row items-center justify-between gap-6">
           <p className="text-sm text-muted-foreground font-medium">
-            &copy; {currentYear} NETALA SRI HARSHA. All rights reserved.
+            &copy; {currentYear} NETALA SRIHARSHA. All rights reserved.
           </p>
 
           <div className="flex gap-10">

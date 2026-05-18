@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ChevronDown } from "lucide-react";
 
@@ -15,7 +14,7 @@ export function Hero() {
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-accent"></span>
           </span>
-          NETALA SRI HARSHA • Aspiring Developer
+          NETALA SRIHARSHA • Aspiring Developer
         </div>
 
         <h1 className="text-6xl md:text-8xl font-headline font-bold leading-[1.1] tracking-tight">

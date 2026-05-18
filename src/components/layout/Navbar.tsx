@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, useEffect } from "react";
@@ -11,7 +10,6 @@ const navLinks = [
   { name: "Home", href: "#" },
   { name: "About", href: "#about" },
   { name: "Projects", href: "#portfolio" },
-  { name: "Brand Tool", href: "#brand-tool" },
   { name: "Skills", href: "#skills" },
   { name: "Education", href: "#education" },
   { name: "Experience", href: "#experience" },
@@ -70,7 +68,7 @@ export function Navbar() {
             <Code2 className="w-7 h-7" />
           </div>
           <span className="text-xl md:text-2xl font-headline font-bold tracking-tighter text-foreground uppercase">
-            NETALA SRI <span className="text-accent">HARSHA</span>
+            NETALA <span className="text-accent">SRIHARSHA</span>
           </span>
         </Link>
 
