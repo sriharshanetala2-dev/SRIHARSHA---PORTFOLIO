@@ -56,7 +56,7 @@ export function AITool() {
         <div className="text-center space-y-4">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-xs font-bold text-accent uppercase tracking-widest">
             <Sparkles className="w-3 h-3" />
-            Sriharsha Branding Tool
+            NETALA SRI HARSHA Branding Tool
           </div>
           <h2 className="text-4xl font-headline font-bold">Personal Brand Engine</h2>
           <p className="text-muted-foreground">

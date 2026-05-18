@@ -37,8 +37,8 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 group">
           <Rocket className="w-8 h-8 text-accent group-hover:rotate-12 transition-transform" />
-          <span className="text-xl font-headline font-bold tracking-tight text-foreground">
-            Sri<span className="text-accent">harsha</span>
+          <span className="text-xl font-headline font-bold tracking-tight text-foreground uppercase">
+            NETALA SRI <span className="text-accent">HARSHA</span>
           </span>
         </Link>
 
