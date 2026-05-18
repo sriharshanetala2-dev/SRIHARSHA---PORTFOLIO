@@ -1,13 +1,25 @@
 
 "use client";
 
-import Image from "next/image";
+import { useState, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { User, Code, Target, Zap } from "lucide-react";
-import { PlaceHolderImages } from "@/app/lib/placeholder-images";
+import { User, Code, Target, Zap, Layout, Database, Terminal, Globe, MousePointer2 } from "lucide-react";
 
 export function About() {
-  const creativeProcessImage = PlaceHolderImages.find(img => img.id === "creative-process");
+  const [activeStep, setActiveStep] = useState(0);
+  const steps = [
+    { title: "Blueprint", icon: Layout, detail: "Architecting responsive layouts" },
+    { title: "Logic", icon: Code, detail: "Writing clean, efficient code" },
+    { title: "Backend", icon: Database, detail: "Securing data infrastructure" },
+    { title: "Deploy", icon: Globe, detail: "Launching to the world" }
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveStep((prev) => (prev + 1) % steps.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [steps.length]);
 
   return (
     <section id="about" className="py-24 px-6 bg-background">
@@ -61,38 +73,144 @@ export function About() {
           </Card>
         </div>
 
-        <div className="bg-secondary/20 rounded-3xl p-10 md:p-16 border border-border">
+        <div className="bg-secondary/10 rounded-3xl p-10 md:p-16 border border-border">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-              <h3 className="text-3xl font-headline font-bold">My Creative Process</h3>
+              <h3 className="text-3xl font-headline font-bold text-accent">My Creative Process</h3>
               <p className="text-muted-foreground leading-relaxed">
-                I believe in a user-first approach to development. Whether it's a student management system or a complex e-commerce platform, my process begins with understanding the core objective and building outward with scalability and performance in mind.
+                My workflow is built on a foundation of clarity and performance. I don't just write code; I build systems that solve real problems.
               </p>
-              <div className="space-y-4">
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {steps.map((step, idx) => (
+                  <div 
+                    key={step.title}
+                    className={`p-4 rounded-2xl border transition-all duration-500 flex items-center gap-4 ${
+                      activeStep === idx 
+                      ? "bg-accent/20 border-accent text-accent shadow-[0_0_20px_rgba(var(--accent),0.1)]" 
+                      : "bg-card/50 border-border text-muted-foreground"
+                    }`}
+                  >
+                    <step.icon className={`w-5 h-5 ${activeStep === idx ? "animate-pulse" : ""}`} />
+                    <div>
+                      <p className="text-sm font-bold uppercase tracking-tight">{step.title}</p>
+                      <p className="text-[10px] opacity-70">{step.detail}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="space-y-4 pt-4">
                 {[
                   "Responsive & Accessible UI",
                   "Performance First Architecture",
                   "Secure & Scalable Backend logic",
                   "Continuous Learning & Integration"
                 ].map((item) => (
-                  <div key={item} className="flex items-center gap-3">
-                    <div className="w-1.5 h-1.5 rounded-full bg-accent" />
+                  <div key={item} className="flex items-center gap-3 group">
+                    <div className="w-1.5 h-1.5 rounded-full bg-accent group-hover:scale-150 transition-transform" />
                     <span className="text-sm font-medium">{item}</span>
                   </div>
                 ))}
               </div>
             </div>
-            <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl group animate-float">
-              <div className="absolute inset-0 bg-accent/10 mix-blend-overlay z-10" />
-              {creativeProcessImage && (
-                <Image 
-                  src={creativeProcessImage.imageUrl} 
-                  alt={creativeProcessImage.description} 
-                  fill
-                  className="object-cover animate-slow-pan"
-                  data-ai-hint={creativeProcessImage.imageHint}
-                />
-              )}
+
+            {/* Interactive App Simulation */}
+            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl bg-[#0f1115] border border-border animate-float">
+              {/* Taskbar / Top Bar */}
+              <div className="h-8 bg-secondary/80 border-b border-border flex items-center px-4 gap-2">
+                <div className="flex gap-1.5">
+                  <div className="w-2.5 h-2.5 rounded-full bg-red-500/50" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/50" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-green-500/50" />
+                </div>
+                <div className="flex-1 flex justify-center">
+                  <div className="px-3 py-0.5 rounded bg-background/50 text-[10px] text-muted-foreground border border-border flex items-center gap-1.5">
+                    <Terminal className="w-2.5 h-2.5" />
+                    localhost:3000
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex h-[calc(100%-32px)]">
+                {/* Mock Sidebar Menu */}
+                <div className="w-14 border-r border-border bg-card/30 flex flex-col items-center py-6 gap-6">
+                  {[Layout, Database, Terminal, Globe].map((Icon, idx) => (
+                    <div 
+                      key={idx}
+                      className={`p-2 rounded-lg transition-colors ${
+                        activeStep === idx ? "text-accent bg-accent/10" : "text-muted-foreground/30"
+                      }`}
+                    >
+                      <Icon className="w-4 h-4" />
+                    </div>
+                  ))}
+                </div>
+
+                {/* Main Content Area */}
+                <div className="flex-1 p-6 relative overflow-hidden bg-gradient-to-br from-background to-card/50">
+                   {/* Animated Content based on Active Step */}
+                   <div className="space-y-6">
+                     <div className="h-4 w-1/3 bg-accent/20 rounded animate-pulse" />
+                     
+                     <div className="grid grid-cols-2 gap-4">
+                        <div className="h-24 rounded-xl bg-secondary/50 border border-border p-4 space-y-3">
+                           <div className="h-2 w-full bg-muted/30 rounded" />
+                           <div className="h-2 w-2/3 bg-muted/30 rounded" />
+                           <div className={`h-1.5 w-1/2 rounded transition-colors duration-1000 ${activeStep === 1 ? 'bg-accent' : 'bg-muted/10'}`} />
+                        </div>
+                        <div className="h-24 rounded-xl bg-secondary/50 border border-border p-4 flex flex-col justify-between">
+                           <div className="flex justify-between items-center">
+                              <div className="w-6 h-6 rounded bg-accent/20" />
+                              <div className="w-2 h-2 rounded-full bg-green-500" />
+                           </div>
+                           <div className="h-3 w-full bg-accent/10 rounded-full overflow-hidden">
+                              <div 
+                                className="h-full bg-accent transition-all duration-1000" 
+                                style={{ width: `${(activeStep + 1) * 25}%` }}
+                              />
+                           </div>
+                        </div>
+                     </div>
+
+                     <div className="h-32 rounded-xl bg-card border border-border p-4 relative">
+                        <div className="space-y-2">
+                           <div className="h-2 w-full bg-muted/20 rounded" />
+                           <div className="h-2 w-full bg-muted/20 rounded" />
+                           <div className="h-2 w-4/5 bg-muted/20 rounded" />
+                        </div>
+                        
+                        {/* Cursor Simulation */}
+                        <div className="absolute bottom-4 right-4 animate-bounce">
+                           <MousePointer2 className="w-4 h-4 text-accent fill-accent" />
+                        </div>
+
+                        {/* Centered pulse for active step */}
+                        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                           <div className="w-12 h-12 rounded-full bg-accent/5 animate-ping" />
+                        </div>
+                     </div>
+                   </div>
+
+                   {/* Overlay explaining details */}
+                   <div className="absolute bottom-6 left-6 right-6">
+                      <div className="bg-background/90 backdrop-blur-md border border-accent/30 p-4 rounded-xl shadow-2xl transform transition-all duration-500 translate-y-0 opacity-100 scale-100">
+                         <div className="flex items-center gap-3">
+                            <div className="p-2 bg-accent/10 rounded-lg text-accent">
+                               {(() => {
+                                 const StepIcon = steps[activeStep].icon;
+                                 return <StepIcon className="w-4 h-4" />;
+                               })()}
+                            </div>
+                            <div>
+                               <p className="text-xs font-bold text-accent uppercase tracking-widest">{steps[activeStep].title} Phase</p>
+                               <p className="text-[10px] text-muted-foreground">{steps[activeStep].detail}</p>
+                            </div>
+                         </div>
+                      </div>
+                   </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
