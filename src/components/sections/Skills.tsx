@@ -10,6 +10,7 @@ const skills = [
   { name: "Bootstrap", level: "Advanced", category: "Frontend" },
   { name: "Python", level: "Intermediate", category: "Language" },
   { name: "Java", level: "Intermediate", category: "Language" },
+  { name: "Spring Boot", level: "Intermediate", category: "Backend" },
   { name: "SQL", level: "Intermediate", category: "Backend" },
   { name: "Git / GitHub", level: "Advanced", category: "Tools" },
   { name: "AWS S3 Basics", level: "Intermediate", category: "Cloud" },
