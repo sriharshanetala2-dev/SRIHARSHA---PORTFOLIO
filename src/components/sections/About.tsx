@@ -1,4 +1,3 @@
-
 "use client";
 
 import Image from "next/image";
@@ -79,13 +78,14 @@ export function About() {
                 ))}
               </div>
             </div>
-            <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl">
+            <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl group animate-float">
+              <div className="absolute inset-0 bg-accent/10 mix-blend-overlay z-10" />
               <Image 
                 src="https://picsum.photos/seed/process/800/600" 
                 alt="My Creative Process" 
                 fill
-                className="object-cover"
-                data-ai-hint="planning brainstorming"
+                className="object-cover animate-slow-pan"
+                data-ai-hint="software development"
               />
             </div>
           </div>
