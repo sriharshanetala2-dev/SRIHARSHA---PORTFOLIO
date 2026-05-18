@@ -3,9 +3,9 @@
   "placeholderImages": [
     {
       "id": "student-system",
-      "description": "Student Management System",
-      "imageUrl": "https://picsum.photos/seed/edu88/800/600",
-      "imageHint": "student management"
+      "description": "Professional Academic Database Management System",
+      "imageUrl": "https://picsum.photos/seed/edu_db_77/800/600",
+      "imageHint": "database management"
     },
     {
       "id": "weather-app",
@@ -17,7 +17,7 @@
       "id": "todo-app",
       "description": "Todo Application",
       "imageUrl": "https://picsum.photos/seed/task77/800/600",
-      "imageHint": "todo list"
+      "imageHint": "productivity app"
     },
     {
       "id": "data-analytics",
@@ -29,7 +29,7 @@
       "id": "ecommerce-site",
       "description": "E-commerce Website",
       "imageUrl": "https://picsum.photos/seed/shop44/800/600",
-      "imageHint": "online shopping"
+      "imageHint": "online store"
     },
     {
       "id": "retailer-app",
@@ -38,16 +38,16 @@
       "imageHint": "retail software"
     },
     {
-      "id": "racing-site",
-      "description": "Formula Racing Website",
-      "imageUrl": "https://picsum.photos/seed/fast11/800/600",
-      "imageHint": "formula racing"
+      "id": "subnet-master",
+      "description": "Visual Network Subnet Calculator",
+      "imageUrl": "https://picsum.photos/seed/network_core_11/800/600",
+      "imageHint": "computer networking"
     },
     {
       "id": "networking-tool",
       "description": "Networking Monitor Tool",
       "imageUrl": "https://picsum.photos/seed/cloud33/800/600",
-      "imageHint": "computer network"
+      "imageHint": "network monitor"
     }
   ]
 }

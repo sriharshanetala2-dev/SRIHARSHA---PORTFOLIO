@@ -5,7 +5,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { ExternalLink, Github, Monitor, Database, Cloud, Code2, Layout, Zap, Search } from "lucide-react";
+import { ExternalLink, Github, Monitor, Database, Cloud, Code2, Layout, Zap, Search, Globe, Network } from "lucide-react";
 import { PlaceHolderImages } from "@/app/lib/placeholder-images";
 import { cn } from "@/lib/utils";
 
@@ -59,12 +59,12 @@ const projects = [
     icon: Cloud
   },
   {
-    id: "racing-site",
-    title: "Formula Racing Hub",
-    category: "UI/UX",
-    tags: ["HTML", "Bootstrap", "JavaScript"],
-    description: "High-performance landing page for racing events featuring custom CSS animations and dynamic race schedule components.",
-    icon: Code2
+    id: "subnet-master",
+    title: "SubnetMaster: Visual IP Engine",
+    category: "Core/Networking",
+    tags: ["React", "Networking", "JavaScript"],
+    description: "A unique tool for calculating IP subnets and visualizing network topologies, demonstrating deep understanding of OSI layers and packet flow.",
+    icon: Network
   },
   {
     id: "networking-tool",

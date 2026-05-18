@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ChevronDown } from "lucide-react";
 
@@ -14,7 +15,7 @@ export function Hero() {
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-accent"></span>
           </span>
-          NETALA SRIHARSHA • Aspiring Developer
+          NETALA SRIHARSHA • Emerging Software Engineer
         </div>
 
         <h1 className="text-6xl md:text-8xl font-headline font-bold leading-[1.1] tracking-tight">
@@ -25,7 +26,7 @@ export function Hero() {
         </h1>
 
         <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed font-medium">
-          Fresh graduate passionate about web development, clean architecture, and solving complex problems with modern technology.
+          Passionate about clean architecture, cloud infrastructure, and solving complex problems with modern technology.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-6">
