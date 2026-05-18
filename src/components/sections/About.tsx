@@ -8,16 +8,16 @@ import { User, Code, Target, Zap, Layout, Database, Terminal, Globe, MousePointe
 export function About() {
   const [activeStep, setActiveStep] = useState(0);
   const steps = [
-    { title: "Blueprint", icon: Layout, detail: "Architecting responsive layouts" },
-    { title: "Logic", icon: Code, detail: "Writing clean, efficient code" },
-    { title: "Backend", icon: Database, detail: "Securing data infrastructure" },
-    { title: "Deploy", icon: Globe, detail: "Launching to the world" }
+    { title: "Blueprint", icon: Layout, detail: "Architecting responsive layouts", label: "Dashboard" },
+    { title: "Logic", icon: Code, detail: "Writing clean, efficient code", label: "Editor" },
+    { title: "Backend", icon: Database, detail: "Securing data infrastructure", label: "Database" },
+    { title: "Deploy", icon: Globe, detail: "Launching to the world", label: "Hosting" }
   ];
 
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveStep((prev) => (prev + 1) % steps.length);
-    }, 3000);
+    }, 4000);
     return () => clearInterval(interval);
   }, [steps.length]);
 
@@ -130,19 +130,25 @@ export function About() {
                     localhost:3000
                   </div>
                 </div>
+                <div className="w-12 h-4 bg-accent/10 rounded flex items-center justify-center">
+                   <span className="text-[8px] font-bold text-accent">v1.0.0</span>
+                </div>
               </div>
 
               <div className="flex h-[calc(100%-32px)]">
-                {/* Mock Sidebar Menu */}
-                <div className="w-14 border-r border-border bg-card/30 flex flex-col items-center py-6 gap-6">
-                  {[Layout, Database, Terminal, Globe].map((Icon, idx) => (
+                {/* Mock Sidebar Menu with Labels */}
+                <div className="w-20 border-r border-border bg-card/30 flex flex-col py-6 gap-6">
+                  {steps.map((step, idx) => (
                     <div 
                       key={idx}
-                      className={`p-2 rounded-lg transition-colors ${
-                        activeStep === idx ? "text-accent bg-accent/10" : "text-muted-foreground/30"
+                      className={`flex flex-col items-center gap-1 transition-all duration-300 ${
+                        activeStep === idx ? "text-accent" : "text-muted-foreground/20"
                       }`}
                     >
-                      <Icon className="w-4 h-4" />
+                      <div className={`p-2 rounded-lg ${activeStep === idx ? "bg-accent/10" : ""}`}>
+                        <step.icon className="w-4 h-4" />
+                      </div>
+                      <span className="text-[8px] font-bold uppercase tracking-tighter">{step.label}</span>
                     </div>
                   ))}
                 </div>
@@ -151,50 +157,73 @@ export function About() {
                 <div className="flex-1 p-6 relative overflow-hidden bg-gradient-to-br from-background to-card/50">
                    {/* Animated Content based on Active Step */}
                    <div className="space-y-6">
-                     <div className="h-4 w-1/3 bg-accent/20 rounded animate-pulse" />
+                     <div className="flex items-center justify-between">
+                        <div className="h-4 w-1/3 bg-accent/20 rounded animate-pulse" />
+                        <div className="flex gap-2">
+                           <div className="w-10 h-4 rounded bg-secondary/50 border border-border" />
+                           <div className="w-10 h-4 rounded bg-accent/20 border border-accent/20" />
+                        </div>
+                     </div>
                      
                      <div className="grid grid-cols-2 gap-4">
-                        <div className="h-24 rounded-xl bg-secondary/50 border border-border p-4 space-y-3">
+                        <div className="h-28 rounded-xl bg-secondary/50 border border-border p-4 space-y-3 relative overflow-hidden">
                            <div className="h-2 w-full bg-muted/30 rounded" />
                            <div className="h-2 w-2/3 bg-muted/30 rounded" />
                            <div className={`h-1.5 w-1/2 rounded transition-colors duration-1000 ${activeStep === 1 ? 'bg-accent' : 'bg-muted/10'}`} />
+                           <div className="absolute top-2 right-2 text-[8px] text-muted-foreground/30 font-code">FILE: main.tsx</div>
                         </div>
-                        <div className="h-24 rounded-xl bg-secondary/50 border border-border p-4 flex flex-col justify-between">
+                        <div className="h-28 rounded-xl bg-secondary/50 border border-border p-4 flex flex-col justify-between">
                            <div className="flex justify-between items-center">
-                              <div className="w-6 h-6 rounded bg-accent/20" />
-                              <div className="w-2 h-2 rounded-full bg-green-500" />
+                              <div className="w-6 h-6 rounded bg-accent/20 flex items-center justify-center">
+                                 <Layout className="w-3 h-3 text-accent" />
+                              </div>
+                              <div className="flex items-center gap-1">
+                                 <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+                                 <span className="text-[8px] text-muted-foreground uppercase font-bold">Online</span>
+                              </div>
                            </div>
-                           <div className="h-3 w-full bg-accent/10 rounded-full overflow-hidden">
-                              <div 
-                                className="h-full bg-accent transition-all duration-1000" 
-                                style={{ width: `${(activeStep + 1) * 25}%` }}
-                              />
+                           <div className="space-y-2">
+                              <p className="text-[8px] text-muted-foreground font-bold">Uptime: 99.9%</p>
+                              <div className="h-3 w-full bg-accent/10 rounded-full overflow-hidden">
+                                 <div 
+                                   className="h-full bg-accent transition-all duration-1000" 
+                                   style={{ width: `${(activeStep + 1) * 25}%` }}
+                                 />
+                              </div>
                            </div>
                         </div>
                      </div>
 
-                     <div className="h-32 rounded-xl bg-card border border-border p-4 relative">
-                        <div className="space-y-2">
-                           <div className="h-2 w-full bg-muted/20 rounded" />
-                           <div className="h-2 w-full bg-muted/20 rounded" />
-                           <div className="h-2 w-4/5 bg-muted/20 rounded" />
+                     <div className="h-28 rounded-xl bg-card border border-border p-4 relative">
+                        <div className="flex items-center gap-2 mb-4 border-b border-border pb-2">
+                           <Terminal className="w-3 h-3 text-muted-foreground/40" />
+                           <span className="text-[10px] text-muted-foreground/60 font-code">Terminal — bash</span>
+                        </div>
+                        <div className="space-y-2 font-code">
+                           <div className="flex gap-2">
+                              <span className="text-accent text-[8px]">$</span>
+                              <div className="h-2 w-full bg-muted/20 rounded" />
+                           </div>
+                           <div className="flex gap-2">
+                              <span className="text-accent text-[8px]">$</span>
+                              <div className="h-2 w-3/4 bg-muted/20 rounded" />
+                           </div>
+                           <div className="flex gap-2">
+                              <span className="text-accent text-[8px]">$</span>
+                              <div className="h-2 w-1/2 bg-accent/30 rounded animate-pulse" />
+                           </div>
                         </div>
                         
                         {/* Cursor Simulation */}
-                        <div className="absolute bottom-4 right-4 animate-bounce">
+                        <div className="absolute bottom-4 right-4 animate-bounce z-20">
                            <MousePointer2 className="w-4 h-4 text-accent fill-accent" />
-                        </div>
-
-                        {/* Centered pulse for active step */}
-                        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                           <div className="w-12 h-12 rounded-full bg-accent/5 animate-ping" />
                         </div>
                      </div>
                    </div>
 
-                   {/* Overlay explaining details */}
+                   {/* Floating Tooltip identifying current menu/phase */}
                    <div className="absolute bottom-6 left-6 right-6">
-                      <div className="bg-background/90 backdrop-blur-md border border-accent/30 p-4 rounded-xl shadow-2xl transform transition-all duration-500 translate-y-0 opacity-100 scale-100">
+                      <div className="bg-background/95 backdrop-blur-xl border border-accent/40 p-4 rounded-xl shadow-2xl transform transition-all duration-500 translate-y-0 opacity-100 scale-100">
                          <div className="flex items-center gap-3">
                             <div className="p-2 bg-accent/10 rounded-lg text-accent">
                                {(() => {
@@ -202,10 +231,11 @@ export function About() {
                                  return <StepIcon className="w-4 h-4" />;
                                })()}
                             </div>
-                            <div>
-                               <p className="text-xs font-bold text-accent uppercase tracking-widest">{steps[activeStep].title} Phase</p>
-                               <p className="text-[10px] text-muted-foreground">{steps[activeStep].detail}</p>
+                            <div className="flex-1">
+                               <p className="text-[10px] font-black text-accent uppercase tracking-widest">{steps[activeStep].title} Phase</p>
+                               <p className="text-[10px] text-muted-foreground font-medium">Processing: {steps[activeStep].label} Menu Active</p>
                             </div>
+                            <div className="w-2 h-2 rounded-full bg-accent animate-ping" />
                          </div>
                       </div>
                    </div>
