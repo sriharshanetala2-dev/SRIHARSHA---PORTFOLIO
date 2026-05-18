@@ -81,11 +81,11 @@ export function About() {
             </div>
             <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl">
               <Image 
-                src="https://picsum.photos/seed/about/800/600" 
-                alt="Workspace" 
+                src="https://picsum.photos/seed/process/800/600" 
+                alt="My Creative Process" 
                 fill
                 className="object-cover"
-                data-ai-hint="developer workspace"
+                data-ai-hint="planning brainstorming"
               />
             </div>
           </div>
