@@ -60,13 +60,13 @@ export function Navbar() {
   return (
     <nav
       className={cn(
-        "fixed top-0 w-full z-50 transition-all duration-300 px-6 py-6",
+        "fixed top-0 w-full z-50 transition-all duration-500 px-6 py-6",
         scrolled ? "bg-background/80 backdrop-blur-md border-b py-4" : "bg-transparent"
       )}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <Link href="/" className="flex items-center gap-3 group">
-          <div className="p-2 rounded-xl bg-accent/10 text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-all duration-300">
+          <div className="p-2 rounded-xl bg-accent/10 text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-all duration-500 transform group-hover:rotate-12">
             <Code2 className="w-7 h-7" />
           </div>
           <span className="text-xl md:text-2xl font-headline font-bold tracking-tighter text-foreground uppercase">
@@ -75,13 +75,13 @@ export function Navbar() {
         </Link>
 
         {/* Desktop Nav */}
-        <div className="hidden lg:flex items-center gap-4 xl:gap-6">
+        <div className="hidden lg:flex items-center gap-4 xl:gap-8">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
               onClick={(e) => scrollToSection(e, link.href)}
-              className="text-[10px] xl:text-[11px] uppercase font-bold tracking-[0.1em] text-muted-foreground hover:text-accent transition-colors whitespace-nowrap"
+              className="text-[10px] xl:text-[11px] uppercase font-bold tracking-[0.2em] text-muted-foreground hover:text-accent transition-all duration-300 nav-link-underline whitespace-nowrap"
             >
               {link.name}
             </a>
@@ -89,7 +89,7 @@ export function Navbar() {
           <Button 
             asChild
             variant="default" 
-            className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold px-5 h-9 rounded-xl shadow-lg text-xs"
+            className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold px-6 h-10 rounded-xl shadow-lg text-xs transform hover:scale-105 active:scale-95 transition-all"
           >
             <a href="#contact" onClick={(e) => scrollToSection(e, "#contact")}>Hire Me</a>
           </Button>
@@ -97,7 +97,7 @@ export function Navbar() {
 
         {/* Mobile Toggle */}
         <button
-          className="lg:hidden text-foreground p-2"
+          className="lg:hidden text-foreground p-2 rounded-xl hover:bg-secondary transition-colors"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
         >
@@ -109,11 +109,12 @@ export function Navbar() {
       {isOpen && (
         <div className="absolute top-full left-0 w-full bg-background/95 backdrop-blur-xl border-b lg:hidden animate-in fade-in slide-in-from-top-4 duration-500">
           <div className="flex flex-col p-8 gap-6 max-h-[80vh] overflow-y-auto">
-            {navLinks.map((link) => (
+            {navLinks.map((link, idx) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-2xl font-headline font-bold text-foreground hover:text-accent"
+                style={{ animationDelay: `${idx * 50}ms` }}
+                className="text-2xl font-headline font-bold text-foreground hover:text-accent animate-in fade-in slide-in-from-left-4 duration-500"
                 onClick={(e) => scrollToSection(e, link.href)}
               >
                 {link.name}
@@ -122,7 +123,7 @@ export function Navbar() {
             <Button 
               asChild
               variant="default" 
-              className="w-full h-14 text-lg font-bold rounded-2xl"
+              className="w-full h-14 text-lg font-bold rounded-2xl mt-4"
             >
               <a href="#contact" onClick={(e) => scrollToSection(e, "#contact")}>Hire Me</a>
             </Button>
