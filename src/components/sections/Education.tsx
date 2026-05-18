@@ -2,20 +2,26 @@
 "use client";
 
 import { Card } from "@/components/ui/card";
-import { GraduationCap, Calendar, Award, BookOpen } from "lucide-react";
+import { GraduationCap, Calendar, BookOpen } from "lucide-react";
 
 const education = [
   {
-    role: "B.Tech in Computer Science & Engineering",
-    company: "Engineering College of Excellence",
-    period: "2020 — 2024",
-    description: "Focusing on Software Engineering, Database Management Systems, and Web Technologies. Maintained a consistent high GPA.",
+    role: "B.Sc in Computer Science",
+    company: "Glocal University",
+    period: "2021 — 2024",
+    description: "Focused on core computer science principles, software development, and modern engineering practices. Engaged in various technical projects and research initiatives.",
   },
   {
-    role: "Advanced Web Development Certification",
-    company: "Online Learning Platform",
-    period: "2022",
-    description: "Completed intensive training in modern JavaScript (ES6+), React, and Backend basics. Earned certification after finishing multiple real-world projects.",
+    role: "Intermediate Education",
+    company: "SRR & CVR Govt Jr College",
+    period: "2019 — 2021",
+    description: "Specialized in higher secondary education with a focus on analytical thinking and foundational science subjects.",
+  },
+  {
+    role: "Secondary School Certificate (SSC)",
+    company: "Christ the King English Medium High School",
+    period: "Class of 2019",
+    description: "Completed secondary education with a strong academic record, focusing on English medium instruction and holistic development.",
   },
 ];
 
