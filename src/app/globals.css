@@ -32,7 +32,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground font-body;
+    @apply bg-background text-foreground font-body transition-colors duration-500;
   }
   h1, h2, h3, h4, h5, h6 {
     @apply font-headline tracking-tight;
@@ -57,14 +57,19 @@
   animation: float 6s ease-in-out infinite;
 }
 
-@keyframes glow-pulse {
-  0% { opacity: 0.3; transform: scale(1); }
-  50% { opacity: 0.6; transform: scale(1.1); }
-  100% { opacity: 0.3; transform: scale(1); }
-}
-
-.glow-overlay {
-  background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(var(--primary), 0.15), transparent 40%);
+.glow-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: radial-gradient(
+    600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(var(--primary), 0.08),
+    transparent 40%
+  );
+  z-index: 1;
 }
 
 .nav-link-underline {
@@ -84,4 +89,24 @@
 
 .nav-link-underline:hover::after {
   width: 100%;
+}
+
+.tilt-element {
+  transition: transform 0.2s ease-out;
+  transform-style: preserve-3d;
+}
+
+.tilt-element:hover {
+  transform: perspective(1000px) rotateX(var(--rotate-x, 0deg)) rotateY(var(--rotate-y, 0deg));
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(var(--accent), 0.1), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite linear;
 }

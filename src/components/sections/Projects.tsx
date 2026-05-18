@@ -1,11 +1,10 @@
-
 "use client";
 
-import { useState } from "react";
+import { useRef } from "react";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { ExternalLink, Github, Monitor, Database, Search, Sparkles, Network, ShoppingCart, CheckCircle2, Code2, LineChart } from "lucide-react";
+import { ExternalLink, Github, Database, Sparkles, Network, Code2, LineChart, Search } from "lucide-react";
 import { PlaceHolderImages } from "@/app/lib/placeholder-images";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
@@ -73,23 +72,116 @@ const projects = [
   }
 ];
 
-export function Projects() {
+function ProjectCard({ project, idx }: { project: any, idx: number }) {
+  const cardRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
 
-  const handleExternalClick = (e: React.MouseEvent, type: string) => {
-    const href = (e.currentTarget as HTMLAnchorElement).getAttribute('href');
-    if (href?.startsWith('#')) return;
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const rotateX = (y - centerY) / 10;
+    const rotateY = (centerX - x) / 10;
 
-    toast({
-      title: `Opening ${type}...`,
-      description: "Redirecting you to the project resource.",
-    });
+    cardRef.current.style.setProperty("--rotate-x", `${rotateX}deg`);
+    cardRef.current.style.setProperty("--rotate-y", `${rotateY}deg`);
   };
 
+  const handleMouseLeave = () => {
+    if (!cardRef.current) return;
+    cardRef.current.style.setProperty("--rotate-x", `0deg`);
+    cardRef.current.style.setProperty("--rotate-y", `0deg`);
+  };
+
+  const imageData = PlaceHolderImages.find(img => img.id === project.id);
+
   return (
-    <section id="portfolio" className="py-32 px-6 bg-background/50">
+    <div 
+      ref={cardRef}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      className="tilt-element h-full"
+    >
+      <Card 
+        className={cn(
+          "group border-border bg-card overflow-hidden hover:border-accent/40 transition-all duration-300 shadow-xl hover:shadow-2xl h-full flex flex-col",
+          "animate-in fade-in slide-in-from-bottom-10 duration-700 fill-mode-both"
+        )}
+        style={{ animationDelay: `${idx * 100}ms` }}
+      >
+        <div className="relative h-64 overflow-hidden">
+          {imageData && (
+            <Image
+              src={imageData.imageUrl}
+              alt={project.title}
+              fill
+              className="object-cover group-hover:scale-110 transition-transform duration-1000"
+              data-ai-hint={imageData.imageHint}
+            />
+          )}
+          <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center gap-4">
+            <a 
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-3 bg-accent rounded-full text-accent-foreground hover:scale-110 transition-transform shadow-lg" 
+            >
+              <Github className="w-5 h-5" />
+            </a>
+            <a 
+              href={project.demo}
+              target={project.demo.startsWith('#') ? '_self' : '_blank'}
+              rel="noopener noreferrer"
+              className="p-3 bg-accent rounded-full text-accent-foreground hover:scale-110 transition-transform shadow-lg" 
+            >
+              <ExternalLink className="w-5 h-5" />
+            </a>
+          </div>
+          
+          {project.icon && (
+            <div className="absolute top-4 left-4 p-2 rounded-lg bg-background/80 backdrop-blur-sm border border-border shadow-sm z-10">
+              <project.icon className="w-4 h-4 text-accent" />
+            </div>
+          )}
+        </div>
+
+        <CardContent className="p-8 flex-1 flex flex-col justify-between space-y-4">
+          <div className="space-y-4">
+            <Badge variant="secondary" className="bg-accent/5 text-accent border-accent/10 text-[10px] uppercase font-bold px-2">
+              {project.category}
+            </Badge>
+            <h3 className="text-xl font-headline font-bold group-hover:text-accent transition-colors leading-tight">
+              {project.title}
+            </h3>
+            <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">
+              {project.description}
+            </p>
+          </div>
+
+          <div className="flex flex-wrap gap-2 pt-4 border-t border-border/50">
+            {project.tags.map((tag) => (
+              <span 
+                key={tag} 
+                className="text-[10px] uppercase font-bold tracking-wider text-muted-foreground bg-secondary/50 px-2 py-1 rounded"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        </CardContent>
+      </Card>
+    </div>
+  );
+}
+
+export function Projects() {
+  return (
+    <section id="portfolio" className="py-32 px-6 bg-background/50 relative overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        <div className="space-y-6 text-center mb-20 animate-in fade-in slide-in-from-bottom-4 duration-700">
+        <div className="space-y-6 text-center mb-20">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-xs font-bold text-accent uppercase tracking-widest">
             Showcase Projects
           </div>
@@ -100,86 +192,9 @@ export function Projects() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {projects.map((project, idx) => {
-            const imageData = PlaceHolderImages.find(img => img.id === project.id);
-            return (
-              <Card 
-                key={idx} 
-                className={cn(
-                  "group border-border bg-card overflow-hidden hover:border-accent/40 transition-all duration-500 shadow-xl hover:shadow-2xl hover:-translate-y-2 flex flex-col",
-                  "animate-in fade-in slide-in-from-bottom-10 duration-700 fill-mode-both"
-                )}
-                style={{ animationDelay: `${idx * 100}ms` }}
-              >
-                <div className="relative h-64 overflow-hidden">
-                  {imageData && (
-                    <Image
-                      src={imageData.imageUrl}
-                      alt={project.title}
-                      fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-1000"
-                      data-ai-hint={imageData.imageHint}
-                    />
-                  )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center gap-4">
-                    <a 
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={(e) => handleExternalClick(e, 'GitHub Repository')}
-                      className="p-3 bg-accent rounded-full text-accent-foreground hover:scale-110 transition-transform shadow-lg" 
-                      aria-label="GitHub Repository"
-                    >
-                      <Github className="w-5 h-5" />
-                    </a>
-                    <a 
-                      href={project.demo}
-                      target={project.demo.startsWith('#') ? '_self' : '_blank'}
-                      rel="noopener noreferrer"
-                      onClick={(e) => handleExternalClick(e, 'Live Demo')}
-                      className="p-3 bg-accent rounded-full text-accent-foreground hover:scale-110 transition-transform shadow-lg" 
-                      aria-label="Live Demo"
-                    >
-                      <ExternalLink className="w-5 h-5" />
-                    </a>
-                  </div>
-                  
-                  {project.icon && (
-                    <div className="absolute top-4 left-4 p-2 rounded-lg bg-background/80 backdrop-blur-sm border border-border shadow-sm z-10">
-                      <project.icon className="w-4 h-4 text-accent" />
-                    </div>
-                  )}
-                </div>
-
-                <CardContent className="p-8 flex-1 flex flex-col justify-between space-y-4">
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between">
-                      <Badge variant="secondary" className="bg-accent/5 text-accent border-accent/10 text-[10px] uppercase font-bold px-2">
-                        {project.category}
-                      </Badge>
-                    </div>
-                    <h3 className="text-xl font-headline font-bold group-hover:text-accent transition-colors leading-tight">
-                      {project.title}
-                    </h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">
-                      {project.description}
-                    </p>
-                  </div>
-
-                  <div className="flex flex-wrap gap-2 pt-4 border-t border-border/50">
-                    {project.tags.map((tag) => (
-                      <span 
-                        key={tag} 
-                        className="text-[10px] uppercase font-bold tracking-wider text-muted-foreground bg-secondary/50 px-2 py-1 rounded"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            );
-          })}
+          {projects.map((project, idx) => (
+            <ProjectCard key={project.id} project={project} idx={idx} />
+          ))}
         </div>
       </div>
     </section>
