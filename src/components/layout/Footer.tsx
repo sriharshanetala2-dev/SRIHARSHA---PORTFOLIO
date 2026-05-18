@@ -1,25 +1,52 @@
-import { Code2 } from "lucide-react";
+import { Code2, Github, Linkedin, Mail } from "lucide-react";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="py-12 px-6 border-t border-border bg-background">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
-        <div className="flex items-center gap-2">
-          <Code2 className="w-6 h-6 text-accent" />
-          <span className="text-lg font-headline font-bold tracking-tight uppercase">
-            NETALA SRI <span className="text-accent">HARSHA</span>
-          </span>
+    <footer className="py-20 px-6 border-t border-border bg-background">
+      <div className="max-w-7xl mx-auto space-y-12">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-10">
+          <div className="flex flex-col items-center md:items-start gap-4">
+            <div className="flex items-center gap-3">
+              <Code2 className="w-8 h-8 text-accent" />
+              <span className="text-2xl font-headline font-bold tracking-tight uppercase">
+                NETALA SRI <span className="text-accent">HARSHA</span>
+              </span>
+            </div>
+            <p className="text-muted-foreground text-center md:text-left max-w-sm">
+              Passionate Junior Developer focused on creating beautiful, functional, and user-centered digital experiences.
+            </p>
+          </div>
+
+          <div className="flex gap-6">
+            {[
+              { icon: Github, label: "GitHub", href: "#" },
+              { icon: Linkedin, label: "LinkedIn", href: "#" },
+              { icon: Mail, label: "Email", href: "mailto:sriharshanetala2@gmail.com" }
+            ].map((social) => (
+              <a 
+                key={social.label}
+                href={social.href}
+                className="p-4 rounded-xl bg-secondary hover:bg-accent hover:text-accent-foreground transition-all duration-300 shadow-md"
+                aria-label={social.label}
+              >
+                <social.icon className="w-5 h-5" />
+              </a>
+            ))}
+          </div>
         </div>
 
-        <p className="text-sm text-muted-foreground">
-          &copy; {currentYear} NETALA SRI HARSHA Portfolio. Built with Next.js & AI.
-        </p>
+        <div className="pt-12 border-t border-border flex flex-col md:flex-row items-center justify-between gap-6">
+          <p className="text-sm text-muted-foreground font-medium">
+            &copy; {currentYear} NETALA SRI HARSHA. All rights reserved.
+          </p>
 
-        <div className="flex gap-8">
-          <a href="#" className="text-sm text-muted-foreground hover:text-accent transition-colors">Privacy Policy</a>
-          <a href="#" className="text-sm text-muted-foreground hover:text-accent transition-colors">Terms of Service</a>
+          <div className="flex gap-10">
+            <a href="#" className="text-sm font-semibold text-muted-foreground hover:text-accent transition-colors">Privacy</a>
+            <a href="#" className="text-sm font-semibold text-muted-foreground hover:text-accent transition-colors">Terms</a>
+            <a href="#contact" className="text-sm font-semibold text-muted-foreground hover:text-accent transition-colors">Contact</a>
+          </div>
         </div>
       </div>
     </footer>

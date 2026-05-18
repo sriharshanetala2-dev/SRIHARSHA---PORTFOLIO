@@ -1,11 +1,10 @@
-
 "use client";
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, Send, Linkedin, Github, Twitter } from "lucide-react";
+import { Mail, Send, Linkedin, Github, Phone, MapPin } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 export function Contact() {
@@ -22,96 +21,123 @@ export function Contact() {
       setIsSubmitting(false);
       toast({
         title: "Message Sent!",
-        description: "Thank you for reaching out. I'll get back to you shortly.",
+        description: "Thank you for reaching out, Netala. I'll get back to you shortly.",
       });
       setFormData({ name: "", email: "", message: "" });
     }, 1500);
   };
 
   return (
-    <section id="contact" className="py-24 px-6 border-t border-border">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
-        <div className="space-y-8">
-          <div className="space-y-4">
-            <h2 className="text-4xl font-headline font-bold">Get In Touch</h2>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Have a project in mind or want to discuss a new opportunity? 
-              I'm always open to talking about new ideas and collaborative ventures.
+    <section id="contact" className="py-32 px-6 border-t border-border bg-background/50">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20">
+        <div className="space-y-12">
+          <div className="space-y-6">
+            <h2 className="text-4xl md:text-5xl font-headline font-bold">Let's Connect</h2>
+            <p className="text-lg text-muted-foreground leading-relaxed max-w-md">
+              I'm currently looking for new opportunities and would love to hear from you. 
+              Whether you have a question or just want to say hi, I'll try my best to get back to you!
             </p>
           </div>
 
           <div className="space-y-6">
-            <div className="flex items-center gap-4 p-4 rounded-2xl bg-secondary/30 border border-border group hover:border-accent/50 transition-colors">
-              <div className="p-3 rounded-xl bg-accent/10 text-accent">
+            <div className="flex items-center gap-5 p-5 rounded-2xl bg-card border border-border group hover:border-accent/50 transition-all duration-300">
+              <div className="p-4 rounded-xl bg-accent/10 text-accent group-hover:scale-110 transition-transform">
                 <Mail className="w-6 h-6" />
               </div>
               <div>
-                <p className="text-xs text-muted-foreground uppercase tracking-widest font-bold">Email Me</p>
-                <p className="text-lg font-medium">hello@sriharsha.dev</p>
+                <p className="text-xs text-muted-foreground uppercase tracking-widest font-bold mb-1">Email Me</p>
+                <a href="mailto:sriharshanetala2@gmail.com" className="text-lg font-medium hover:text-accent transition-colors">
+                  sriharshanetala2@gmail.com
+                </a>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-5 p-5 rounded-2xl bg-card border border-border group hover:border-accent/50 transition-all duration-300">
+              <div className="p-4 rounded-xl bg-accent/10 text-accent group-hover:scale-110 transition-transform">
+                <Phone className="w-6 h-6" />
+              </div>
+              <div>
+                <p className="text-xs text-muted-foreground uppercase tracking-widest font-bold mb-1">Call Me</p>
+                <a href="tel:+919346759263" className="text-lg font-medium hover:text-accent transition-colors">
+                  +91 9346759263
+                </a>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-5 p-5 rounded-2xl bg-card border border-border group hover:border-accent/50 transition-all duration-300">
+              <div className="p-4 rounded-xl bg-accent/10 text-accent group-hover:scale-110 transition-transform">
+                <MapPin className="w-6 h-6" />
+              </div>
+              <div>
+                <p className="text-xs text-muted-foreground uppercase tracking-widest font-bold mb-1">Location</p>
+                <p className="text-lg font-medium">India</p>
               </div>
             </div>
           </div>
 
-          <div className="flex gap-4 pt-4">
+          <div className="flex gap-5 pt-4">
             {[
-              { icon: Linkedin, label: "LinkedIn" },
-              { icon: Github, label: "GitHub" },
-              { icon: Twitter, label: "Twitter" }
+              { icon: Linkedin, label: "LinkedIn", href: "#" },
+              { icon: Github, label: "GitHub", href: "#" }
             ].map((social) => (
-              <button 
+              <a 
                 key={social.label}
-                className="p-4 rounded-full bg-secondary text-muted-foreground hover:bg-accent hover:text-accent-foreground transition-all duration-300 shadow-md"
+                href={social.href}
+                className="p-4 rounded-full bg-secondary text-muted-foreground hover:bg-accent hover:text-accent-foreground transition-all duration-300 shadow-lg"
                 aria-label={social.label}
               >
                 <social.icon className="w-5 h-5" />
-              </button>
+              </a>
             ))}
           </div>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-6 p-8 bg-card rounded-3xl border border-border shadow-2xl">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="space-y-2">
-              <label className="text-sm font-medium">Full Name</label>
-              <Input 
-                placeholder="John Doe" 
+        <div className="relative">
+          <div className="absolute -inset-4 bg-accent/5 blur-3xl rounded-full -z-10" />
+          <form onSubmit={handleSubmit} className="space-y-8 p-10 bg-card rounded-3xl border border-border shadow-2xl relative overflow-hidden">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="space-y-3">
+                <label className="text-sm font-semibold ml-1">Full Name</label>
+                <Input 
+                  placeholder="Your Name" 
+                  required
+                  className="bg-secondary/20 h-14 rounded-xl border-border focus:border-accent"
+                  value={formData.name}
+                  onChange={(e) => setFormData({...formData, name: e.target.value})}
+                />
+              </div>
+              <div className="space-y-3">
+                <label className="text-sm font-semibold ml-1">Email Address</label>
+                <Input 
+                  type="email" 
+                  placeholder="name@example.com" 
+                  required
+                  className="bg-secondary/20 h-14 rounded-xl border-border focus:border-accent"
+                  value={formData.email}
+                  onChange={(e) => setFormData({...formData, email: e.target.value})}
+                />
+              </div>
+            </div>
+            <div className="space-y-3">
+              <label className="text-sm font-semibold ml-1">Your Message</label>
+              <Textarea 
+                placeholder="Hi Netala, I'd like to talk about..." 
+                className="min-h-[200px] bg-secondary/20 rounded-xl border-border focus:border-accent"
                 required
-                className="bg-secondary/30 h-12"
-                value={formData.name}
-                onChange={(e) => setFormData({...formData, name: e.target.value})}
+                value={formData.message}
+                onChange={(e) => setFormData({...formData, message: e.target.value})}
               />
             </div>
-            <div className="space-y-2">
-              <label className="text-sm font-medium">Email Address</label>
-              <Input 
-                type="email" 
-                placeholder="john@example.com" 
-                required
-                className="bg-secondary/30 h-12"
-                value={formData.email}
-                onChange={(e) => setFormData({...formData, email: e.target.value})}
-              />
-            </div>
-          </div>
-          <div className="space-y-2">
-            <label className="text-sm font-medium">Your Message</label>
-            <Textarea 
-              placeholder="Tell me about your project..." 
-              className="min-h-[180px] bg-secondary/30"
-              required
-              value={formData.message}
-              onChange={(e) => setFormData({...formData, message: e.target.value})}
-            />
-          </div>
-          <Button 
-            type="submit" 
-            className="w-full h-14 bg-primary text-primary-foreground hover:bg-primary/90 rounded-2xl font-bold text-lg gap-2"
-            disabled={isSubmitting}
-          >
-            {isSubmitting ? "Sending..." : "Send Message"}
-            {!isSubmitting && <Send className="w-5 h-5" />}
-          </Button>
-        </form>
+            <Button 
+              type="submit" 
+              className="w-full h-16 bg-primary text-primary-foreground hover:bg-primary/90 rounded-2xl font-bold text-lg gap-3 shadow-xl transition-all active:scale-[0.98]"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? "Sending Message..." : "Send Message"}
+              {!isSubmitting && <Send className="w-5 h-5" />}
+            </Button>
+          </form>
+        </div>
       </div>
     </section>
   );
