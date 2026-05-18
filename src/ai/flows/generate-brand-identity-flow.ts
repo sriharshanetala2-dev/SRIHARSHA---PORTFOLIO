@@ -1,6 +1,6 @@
 'use server';
 /**
- * @fileOverview A comprehensive Genkit flow for generating brand identities with structured requirements.
+ * @fileOverview A comprehensive Genkit flow for generating brand identities with structured requirements and visual marks.
  *
  * - generateBrandIdentity - A function that handles the generation process.
  * - BrandIdentityInput - The input type for the function.
@@ -59,11 +59,12 @@ const generateBrandIdentityFlow = ai.defineFlow(
     if (!output) throw new Error("Failed to generate brand identity text.");
 
     // 2. Generate a logo using Imagen 4.0
+    // We use standard JS template literals here since this is a direct model call, not a prompt object
     let logoUrl = undefined;
     try {
       const { media } = await ai.generate({
         model: 'googleai/imagen-4.0-fast-generate-001',
-        prompt: `A professional, {{{tone}}} software logo icon for a project called "${input.projectName}". 
+        prompt: `A professional, ${input.tone} software logo icon for a project called "${input.projectName}". 
         Context: ${input.mission}. 
         Audience: ${input.audience}.
         Style: Clean vector icon, flat design, minimalist symbolic shape, professional tech brand style, no text.`,
