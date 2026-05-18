@@ -1,3 +1,4 @@
+
 import { Code2, Github, Linkedin, Mail } from "lucide-react";
 
 export function Footer() {
@@ -21,13 +22,15 @@ export function Footer() {
 
           <div className="flex gap-6">
             {[
-              { icon: Github, label: "GitHub", href: "#" },
-              { icon: Linkedin, label: "LinkedIn", href: "#" },
+              { icon: Github, label: "GitHub", href: "https://github.com" },
+              { icon: Linkedin, label: "LinkedIn", href: "https://linkedin.com" },
               { icon: Mail, label: "Email", href: "mailto:sriharshanetala2@gmail.com" }
             ].map((social) => (
               <a 
                 key={social.label}
                 href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="p-4 rounded-xl bg-secondary hover:bg-accent hover:text-accent-foreground transition-all duration-300 shadow-md"
                 aria-label={social.label}
               >

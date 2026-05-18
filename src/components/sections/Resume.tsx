@@ -1,34 +1,34 @@
 
 import { Card } from "@/components/ui/card";
-import { Briefcase, GraduationCap, Calendar } from "lucide-react";
+import { Briefcase, GraduationCap, Calendar, Award } from "lucide-react";
 
 const experience = [
   {
-    role: "Junior Web Developer",
-    company: "Innovate Hub",
-    period: "2023 — Present",
-    description: "Developing responsive UI components and assisting in API integrations for client-facing dashboards.",
+    role: "Web Development Intern",
+    company: "Tech Solutions Inc.",
+    period: "June 2023 — December 2023",
+    description: "Assisted in building responsive front-end components using React and Tailwind CSS. Participated in daily stand-ups and learned agile development workflows.",
     type: "work",
   },
   {
-    role: "Full-Stack Development Intern",
-    company: "NextGen Tech",
-    period: "2022 — 2023",
-    description: "Built internal tools using React and Node.js. Optimized database queries and improved site load speed by 20%.",
-    type: "work",
-  },
-  {
-    role: "B.Tech in Computer Science",
-    company: "Technological Institute of Excellence",
-    period: "2018 — 2022",
-    description: "Graduated with Honors. Focused on Data Structures, Algorithms, and Web Technologies.",
+    role: "B.Tech in Computer Science & Engineering",
+    company: "Engineering College of Excellence",
+    period: "2020 — 2024",
+    description: "Focusing on Software Engineering, Database Management Systems, and Web Technologies. Maintained a consistent high GPA.",
     type: "education",
   },
   {
-    role: "Coding Bootcamp Graduate",
-    company: "FullStack Academy",
+    role: "Capstone Project: Student Management System",
+    company: "Academic Project",
+    period: "2023",
+    description: "Developed a full-stack application to manage student records, using React for the frontend and Firebase for the backend database and authentication.",
+    type: "project",
+  },
+  {
+    role: "Advanced Web Development Certification",
+    company: "Online Learning Platform",
     period: "2022",
-    description: "Intensive 6-month program focused on the MERN stack and modern software engineering practices.",
+    description: "Completed intensive training in modern JavaScript (ES6+), React, and Backend basics. Earned certification after finishing multiple real-world projects.",
     type: "education",
   },
 ];
@@ -38,8 +38,11 @@ export function Resume() {
     <section id="experience" className="py-24 px-6 bg-secondary/20">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-16 space-y-4">
-          <h2 className="text-4xl font-headline font-bold">The Journey</h2>
-          <p className="text-muted-foreground">My academic foundation and emerging professional career.</p>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-xs font-bold text-accent uppercase tracking-widest">
+            My Path
+          </div>
+          <h2 className="text-4xl font-headline font-bold">Educational Journey</h2>
+          <p className="text-muted-foreground">The foundation of my engineering career and early professional exposure.</p>
         </div>
 
         <div className="relative border-l border-border ml-4 md:ml-0 space-y-12 pb-8">
@@ -54,6 +57,8 @@ export function Resume() {
                     <div className="p-3 rounded-xl bg-secondary group-hover:bg-accent/10 transition-colors">
                       {item.type === 'work' ? (
                         <Briefcase className="w-5 h-5 text-accent" />
+                      ) : item.type === 'project' ? (
+                        <Award className="w-5 h-5 text-accent" />
                       ) : (
                         <GraduationCap className="w-5 h-5 text-accent" />
                       )}

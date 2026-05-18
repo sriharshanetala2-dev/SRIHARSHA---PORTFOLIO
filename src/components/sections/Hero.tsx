@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ChevronDown } from "lucide-react";
 
@@ -14,27 +15,38 @@ export function Hero() {
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-accent"></span>
           </span>
-          NETALA SRI HARSHA • Junior Developer
+          NETALA SRI HARSHA • Aspiring Developer
         </div>
 
         <h1 className="text-6xl md:text-8xl font-headline font-bold leading-[1.1] tracking-tight">
-          Aspiring to Build <br />
+          Building Future <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-primary animate-gradient">
-            Digital Experiences
+            Digital Solutions
           </span>
         </h1>
 
         <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed font-medium">
-          Passionate about web development, clean architecture, and solving complex problems with modern technology.
+          Fresh graduate passionate about web development, clean architecture, and solving complex problems with modern technology.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-6">
-          <Button size="lg" className="h-14 px-10 bg-accent text-accent-foreground hover:bg-accent/90 rounded-2xl font-bold text-lg group shadow-xl transition-all hover:scale-105 active:scale-[0.98]">
-            View My Work
-            <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+          <Button 
+            asChild
+            size="lg" 
+            className="h-14 px-10 bg-accent text-accent-foreground hover:bg-accent/90 rounded-2xl font-bold text-lg group shadow-xl transition-all hover:scale-105 active:scale-[0.98]"
+          >
+            <a href="#portfolio">
+              View My Work
+              <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+            </a>
           </Button>
-          <Button size="lg" variant="outline" className="h-14 px-10 rounded-2xl border-border hover:bg-secondary font-bold text-lg shadow-md transition-all">
-            Get In Touch
+          <Button 
+            asChild
+            size="lg" 
+            variant="outline" 
+            className="h-14 px-10 rounded-2xl border-border hover:bg-secondary font-bold text-lg shadow-md transition-all"
+          >
+            <a href="#contact">Get In Touch</a>
           </Button>
         </div>
       </div>
