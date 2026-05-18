@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState } from "react";
@@ -16,50 +15,50 @@ const projects = [
     title: "Student Management System",
     category: "Management",
     image: PlaceHolderImages.find(img => img.id === "student-system"),
-    tags: ["React", "Firebase", "Tailwind"],
-    description: "A high-productivity dashboard for tracking student records and attendance with real-time Firebase updates.",
+    tags: ["Java", "SQL", "HTML/CSS"],
+    description: "A centralized system for managing academic records, student details, and administrative tasks efficiently.",
   },
   {
     title: "Interactive Weather App",
     category: "Web",
     image: PlaceHolderImages.find(img => img.id === "weather-app"),
-    tags: ["JavaScript", "OpenWeather API", "CSS3"],
-    description: "A fast-loading weather tracker featuring dynamic backgrounds and location-aware forecasting services.",
+    tags: ["JavaScript", "HTML5", "CSS3"],
+    description: "Real-time weather application providing accurate forecast data with a clean, responsive user interface.",
   },
   {
     title: "Advanced Todo App",
     category: "Web",
     image: PlaceHolderImages.find(img => img.id === "todo-app"),
-    tags: ["Next.js", "LocalStorage", "TypeScript"],
-    description: "Productivity-focused task manager with deadline reminders and browser-persistent storage capabilities.",
+    tags: ["React", "JavaScript", "Git"],
+    description: "A feature-rich productivity tool for task tracking, categorization, and persistent data management.",
   },
   {
     title: "Data Analytics for Business",
     category: "UI/UX",
     image: PlaceHolderImages.find(img => img.id === "data-analytics"),
-    tags: ["Recharts", "Next.js", "Radix UI"],
-    description: "Visualizing complex business KPIs using modern charting libraries and interactive data tables.",
+    tags: ["Python", "SQL", "React"],
+    description: "Insightful data visualization platform designed to help businesses make data-driven decisions.",
   },
   {
     title: "E-commerce Website",
     category: "Web",
     image: PlaceHolderImages.find(img => img.id === "ecommerce-site"),
-    tags: ["Next.js", "Stripe", "Prisma"],
-    description: "Full-stack online store MVP with product filtering, secure checkout, and basic inventory management.",
+    tags: ["React", "Bootstrap", "SQL"],
+    description: "A complete online shopping experience with product listings, search functionality, and a responsive layout.",
   },
   {
     title: "Retailer Service Provider App",
     category: "UI/UX",
     image: PlaceHolderImages.find(img => img.id === "retailer-app"),
-    tags: ["React Native", "Expo", "Node.js"],
-    description: "Mobile-first platform connecting local retailers with logistics and maintenance service providers.",
+    tags: ["React", "AWS S3", "Bootstrap"],
+    description: "Platform connecting retailers with essential service providers, leveraging cloud storage for reliability.",
   },
   {
     title: "Interactive Racing Website",
     category: "Web",
     image: PlaceHolderImages.find(img => img.id === "racing-site"),
-    tags: ["Framer Motion", "Next.js", "Tailwind"],
-    description: "A high-performance, visually stunning landing page for racing events with smooth scroll animations.",
+    tags: ["HTML", "Bootstrap", "JavaScript"],
+    description: "Dynamic landing page for racing enthusiasts featuring high-performance animations and event schedules.",
   },
 ];
 
@@ -78,7 +77,7 @@ export function Projects() {
         </div>
         <h2 className="text-4xl md:text-5xl font-headline font-bold">Featured Projects</h2>
         <p className="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed">
-          A collection of productive and efficient development projects focused on real-world utility and modern architecture.
+          A showcase of my recent development work, focused on building clean and functional applications.
         </p>
 
         <div className="flex flex-wrap items-center justify-center gap-3 pt-8">

@@ -1,30 +1,30 @@
-
 "use client";
 
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { Badge } from "@/components/ui/badge";
 
 const skills = [
-  { name: "React / Next.js", level: "Advanced", category: "Frontend" },
-  { name: "TypeScript", level: "Intermediate", category: "Language" },
-  { name: "Node.js", level: "Intermediate", category: "Backend" },
-  { name: "Tailwind CSS", level: "Advanced", category: "Frontend" },
+  { name: "React", level: "Advanced", category: "Frontend" },
+  { name: "JavaScript", level: "Advanced", category: "Language" },
   { name: "HTML5 / CSS3", level: "Expert", category: "Frontend" },
-  { name: "JavaScript (ES6+)", level: "Advanced", category: "Language" },
+  { name: "Bootstrap", level: "Advanced", category: "Frontend" },
+  { name: "Python", level: "Intermediate", category: "Language" },
+  { name: "Java", level: "Intermediate", category: "Language" },
+  { name: "SQL", level: "Intermediate", category: "Backend" },
   { name: "Git / GitHub", level: "Advanced", category: "Tools" },
-  { name: "MongoDB", level: "Intermediate", category: "Backend" },
-  { name: "SQL Basics", level: "Intermediate", category: "Backend" },
-  { name: "Firebase", level: "Intermediate", category: "Tools" },
-  { name: "Responsive Design", level: "Advanced", category: "Design" },
-  { name: "REST APIs", level: "Advanced", category: "Backend" },
+  { name: "AWS S3 Basics", level: "Intermediate", category: "Cloud" },
+  { name: "Networking Fundamentals", level: "Intermediate", category: "Fundamentals" },
 ];
 
 export function Skills() {
   return (
     <section id="skills" className="py-24 px-6 max-w-5xl mx-auto">
       <div className="text-center mb-16 space-y-4">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-xs font-bold text-accent uppercase tracking-widest">
+          My Capabilities
+        </div>
         <h2 className="text-4xl font-headline font-bold">My Toolkit</h2>
-        <p className="text-muted-foreground">The technologies I'm mastering to build modern web experiences.</p>
+        <p className="text-muted-foreground">A comprehensive list of the technologies and concepts I have mastered.</p>
       </div>
 
       <div className="flex flex-wrap justify-center gap-4">
