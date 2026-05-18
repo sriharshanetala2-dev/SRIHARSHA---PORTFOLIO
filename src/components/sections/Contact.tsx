@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from "react";
@@ -21,7 +22,7 @@ export function Contact() {
       setIsSubmitting(false);
       toast({
         title: "Message Sent!",
-        description: "Thank you for reaching out, Netala. I'll get back to you shortly.",
+        description: "Thank you for reaching out, NETALA SRI HARSHA. I'll get back to you shortly.",
       });
       setFormData({ name: "", email: "", message: "" });
     }, 1500);
@@ -34,8 +35,7 @@ export function Contact() {
           <div className="space-y-6">
             <h2 className="text-4xl md:text-5xl font-headline font-bold">Let's Connect</h2>
             <p className="text-lg text-muted-foreground leading-relaxed max-w-md">
-              I'm currently looking for new opportunities and would love to hear from you. 
-              Whether you have a question or just want to say hi, I'll try my best to get back to you!
+              I'm always open to discussing new projects, creative ideas or opportunities to be part of your visions.
             </p>
           </div>
 
@@ -77,12 +77,14 @@ export function Contact() {
 
           <div className="flex gap-5 pt-4">
             {[
-              { icon: Linkedin, label: "LinkedIn", href: "#" },
-              { icon: Github, label: "GitHub", href: "#" }
+              { icon: Linkedin, label: "LinkedIn", href: "https://linkedin.com" },
+              { icon: Github, label: "GitHub", href: "https://github.com" }
             ].map((social) => (
               <a 
                 key={social.label}
                 href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="p-4 rounded-full bg-secondary text-muted-foreground hover:bg-accent hover:text-accent-foreground transition-all duration-300 shadow-lg"
                 aria-label={social.label}
               >
@@ -121,7 +123,7 @@ export function Contact() {
             <div className="space-y-3">
               <label className="text-sm font-semibold ml-1">Your Message</label>
               <Textarea 
-                placeholder="Hi Netala, I'd like to talk about..." 
+                placeholder="Hi Sri Harsha, I'd like to talk about..." 
                 className="min-h-[200px] bg-secondary/20 rounded-xl border-border focus:border-accent"
                 required
                 value={formData.message}

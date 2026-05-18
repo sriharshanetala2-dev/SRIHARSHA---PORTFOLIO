@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect } from "react";
@@ -25,6 +26,15 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, href: string) => {
+    e.preventDefault();
+    setIsOpen(false);
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <nav
       className={cn(
@@ -45,16 +55,21 @@ export function Navbar() {
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-10">
           {navLinks.map((link) => (
-            <Link
+            <a
               key={link.name}
               href={link.href}
+              onClick={(e) => scrollToSection(e, link.href)}
               className="text-[13px] uppercase font-bold tracking-[0.1em] text-muted-foreground hover:text-accent transition-colors"
             >
               {link.name}
-            </Link>
+            </a>
           ))}
-          <Button variant="default" className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold px-6 rounded-xl shadow-lg">
-            Let's Talk
+          <Button 
+            asChild
+            variant="default" 
+            className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold px-6 rounded-xl shadow-lg"
+          >
+            <a href="#contact" onClick={(e) => scrollToSection(e, "#contact")}>Hire Me</a>
           </Button>
         </div>
 
@@ -73,17 +88,21 @@ export function Navbar() {
         <div className="absolute top-full left-0 w-full bg-background/95 backdrop-blur-xl border-b md:hidden animate-in fade-in slide-in-from-top-4 duration-500">
           <div className="flex flex-col p-8 gap-6">
             {navLinks.map((link) => (
-              <Link
+              <a
                 key={link.name}
                 href={link.href}
                 className="text-2xl font-headline font-bold text-foreground hover:text-accent"
-                onClick={() => setIsOpen(false)}
+                onClick={(e) => scrollToSection(e, link.href)}
               >
                 {link.name}
-              </Link>
+              </a>
             ))}
-            <Button variant="default" className="w-full h-14 text-lg font-bold rounded-2xl">
-              Let's Talk
+            <Button 
+              asChild
+              variant="default" 
+              className="w-full h-14 text-lg font-bold rounded-2xl"
+            >
+              <a href="#contact" onClick={(e) => scrollToSection(e, "#contact")}>Hire Me</a>
             </Button>
           </div>
         </div>
