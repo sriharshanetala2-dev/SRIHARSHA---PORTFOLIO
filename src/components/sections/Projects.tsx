@@ -13,17 +13,17 @@ const projects = [
   {
     id: "student-system",
     title: "Student Management System",
-    category: "Academic",
+    category: "Academic / Management",
     tags: ["Java", "SQL", "JDBC"],
-    description: "A comprehensive Java-based desktop application for tracking academic performance and student enrollment with a MySQL backend.",
+    description: "An intelligent, high-performance database system designed for seamless academic lifecycle tracking and performance analytics.",
     icon: Database
   },
   {
     id: "weather-app",
     title: "AI Weather Oracle",
-    category: "AI & Web",
-    tags: ["JavaScript", "OpenWeather API", "TensorFlow.js"],
-    description: "Creative AI-powered weather forecasting application that predicts atmospheric trends using machine learning and a futuristic UI.",
+    category: "Generative AI",
+    tags: ["JavaScript", "OpenWeather API", "Neural Networks"],
+    description: "A creative AI-powered weather forecasting application utilizing neural network architectures to predict atmospheric trends with a stunning, futuristic interface.",
     icon: Sparkles
   },
   {
@@ -31,15 +31,15 @@ const projects = [
     title: "Smart Calendar Planner",
     category: "Productivity",
     tags: ["React", "LocalStorage", "Date-fns"],
-    description: "A high-performance productivity tool with integrated calendar visualization, category filtering, and persistent state management.",
+    description: "Cognitive task management system featuring visual calendar orchestration, priority-based sorting, and sophisticated persistent state logic.",
     icon: CalendarIcon
   },
   {
     id: "data-analytics",
     title: "Data Analytics Platform",
-    category: "Data",
+    category: "Business Intel",
     tags: ["Python", "SQL", "Pandas"],
-    description: "Built a Python-driven dashboard for visualizing business metrics and sales trends through automated data processing scripts.",
+    description: "Advanced analytical engine for synthesizing complex business datasets into predictive visual insights through automated processing scripts.",
     icon: Search
   },
   {
@@ -47,31 +47,31 @@ const projects = [
     title: "E-commerce Website",
     category: "Fullstack",
     tags: ["React", "Bootstrap", "SQL"],
-    description: "Fully responsive online marketplace featuring product catalogs, advanced search filters, and a secure checkout simulation.",
+    description: "An adaptive digital marketplace featuring high-speed product catalogs, intelligent search algorithms, and a secure checkout architecture.",
     icon: Layout
   },
   {
     id: "retailer-app",
     title: "Retailer Service App",
-    category: "Cloud",
+    category: "Cloud Architecture",
     tags: ["React", "AWS S3", "Bootstrap"],
-    description: "A cloud-integrated platform connecting retailers with suppliers, utilizing AWS S3 for reliable document and asset storage.",
+    description: "Cloud-optimized supply chain platform connecting retailers with suppliers, leveraging scalable AWS S3 infrastructure for mission-critical asset management.",
     icon: Cloud
   },
   {
     id: "subnet-master",
     title: "SubnetMaster: Visual IP Engine",
-    category: "Core/Networking",
+    category: "Core Engineering",
     tags: ["React", "Networking", "Subnetting"],
-    description: "A unique tool for calculating IP subnets and visualizing network topologies, demonstrating deep knowledge of packet flow.",
+    description: "An autonomous network topology designer for precision IP subnetting and visual calculation, showcasing deep expertise in low-level packet orchestration.",
     icon: Network
   },
   {
     id: "networking-tool",
     title: "Network Monitor Dashboard",
-    category: "Core",
+    category: "Infrastructure",
     tags: ["React", "OSI Layers", "Networking"],
-    description: "Real-time network topology monitor simulating IP addressing and data transmission logic across complex networks.",
+    description: "Real-time infrastructure monitoring dashboard simulating neural-like data transmission pathways and topology health across complex enterprise networks.",
     icon: Monitor
   }
 ];
@@ -82,11 +82,11 @@ export function Projects() {
       <div className="max-w-7xl mx-auto">
         <div className="space-y-6 text-center mb-20 animate-in fade-in slide-in-from-bottom-4 duration-700">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-xs font-bold text-accent uppercase tracking-widest">
-            Portfolio Showcase
+            Showcase Projects
           </div>
-          <h2 className="text-4xl md:text-5xl font-headline font-bold">Featured Projects</h2>
+          <h2 className="text-4xl md:text-5xl font-headline font-bold">Featured Innovations</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed">
-            A diverse collection of applications demonstrating technical proficiency across frontend, backend, and core engineering.
+            A diverse collection of high-impact applications demonstrating creative technical proficiency and AI-level architectural thinking.
           </p>
         </div>
 
