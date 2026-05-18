@@ -15,51 +15,51 @@ const projects = [
   {
     title: "Student Management System",
     category: "Management",
-    image: PlaceHolderImages[0],
+    image: PlaceHolderImages.find(img => img.id === "student-system"),
     tags: ["React", "Firebase", "Tailwind"],
-    description: "A comprehensive system for tracking student records, attendance, and performance analytics.",
+    description: "A high-productivity dashboard for tracking student records and attendance with real-time Firebase updates.",
   },
   {
     title: "Interactive Weather App",
     category: "Web",
-    image: PlaceHolderImages[1],
+    image: PlaceHolderImages.find(img => img.id === "weather-app"),
     tags: ["JavaScript", "OpenWeather API", "CSS3"],
-    description: "Real-time weather tracking with dynamic backgrounds and location-based forecasting.",
+    description: "A fast-loading weather tracker featuring dynamic backgrounds and location-aware forecasting services.",
   },
   {
     title: "Advanced Todo App",
     category: "Web",
-    image: PlaceHolderImages[2],
+    image: PlaceHolderImages.find(img => img.id === "todo-app"),
     tags: ["Next.js", "LocalStorage", "TypeScript"],
-    description: "Productivity tool with task categorization, deadlines, and persistent data storage.",
+    description: "Productivity-focused task manager with deadline reminders and browser-persistent storage capabilities.",
   },
   {
     title: "Data Analytics for Business",
     category: "UI/UX",
-    image: PlaceHolderImages[3],
+    image: PlaceHolderImages.find(img => img.id === "data-analytics"),
     tags: ["Recharts", "Next.js", "Radix UI"],
-    description: "A sophisticated dashboard visualizing business KPIs and market trends with interactive charts.",
+    description: "Visualizing complex business KPIs using modern charting libraries and interactive data tables.",
   },
   {
     title: "E-commerce Website",
     category: "Web",
-    image: PlaceHolderImages[4],
+    image: PlaceHolderImages.find(img => img.id === "ecommerce-site"),
     tags: ["Next.js", "Stripe", "Prisma"],
-    description: "Full-featured online store with product filtering, secure checkout, and user authentication.",
+    description: "Full-stack online store MVP with product filtering, secure checkout, and basic inventory management.",
   },
   {
     title: "Retailer Service Provider App",
     category: "UI/UX",
-    image: PlaceHolderImages[5],
+    image: PlaceHolderImages.find(img => img.id === "retailer-app"),
     tags: ["React Native", "Expo", "Node.js"],
-    description: "Connecting retailers with service providers for inventory and logistics management.",
+    description: "Mobile-first platform connecting local retailers with logistics and maintenance service providers.",
   },
   {
     title: "Interactive Racing Website",
     category: "Web",
-    image: PlaceHolderImages[6],
-    tags: ["Three.js", "Framer Motion", "Tailwind"],
-    description: "A high-performance landing page for a racing team featuring 3D elements and smooth animations.",
+    image: PlaceHolderImages.find(img => img.id === "racing-site"),
+    tags: ["Framer Motion", "Next.js", "Tailwind"],
+    description: "A high-performance, visually stunning landing page for racing events with smooth scroll animations.",
   },
 ];
 
@@ -78,7 +78,7 @@ export function Projects() {
         </div>
         <h2 className="text-4xl md:text-5xl font-headline font-bold">Featured Projects</h2>
         <p className="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed">
-          A showcase of my recent development projects, ranging from management systems to high-performance web experiences.
+          A collection of productive and efficient development projects focused on real-world utility and modern architecture.
         </p>
 
         <div className="flex flex-wrap items-center justify-center gap-3 pt-8">
@@ -113,10 +113,10 @@ export function Projects() {
                 />
               )}
               <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center gap-4">
-                <button className="p-4 bg-accent rounded-full text-accent-foreground hover:scale-110 transition-transform shadow-lg">
+                <button className="p-4 bg-accent rounded-full text-accent-foreground hover:scale-110 transition-transform shadow-lg" aria-label="GitHub Repository">
                   <Github className="w-6 h-6" />
                 </button>
-                <button className="p-4 bg-accent rounded-full text-accent-foreground hover:scale-110 transition-transform shadow-lg">
+                <button className="p-4 bg-accent rounded-full text-accent-foreground hover:scale-110 transition-transform shadow-lg" aria-label="Live Demo">
                   <ExternalLink className="w-6 h-6" />
                 </button>
               </div>
