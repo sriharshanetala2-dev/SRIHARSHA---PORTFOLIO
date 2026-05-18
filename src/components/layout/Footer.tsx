@@ -1,5 +1,4 @@
-
-import { Rocket } from "lucide-react";
+import { Code2 } from "lucide-react";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -8,7 +7,7 @@ export function Footer() {
     <footer className="py-12 px-6 border-t border-border bg-background">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
         <div className="flex items-center gap-2">
-          <Rocket className="w-6 h-6 text-accent" />
+          <Code2 className="w-6 h-6 text-accent" />
           <span className="text-lg font-headline font-bold tracking-tight uppercase">
             NETALA SRI <span className="text-accent">HARSHA</span>
           </span>

@@ -1,9 +1,8 @@
-
 "use client";
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X, Rocket } from "lucide-react";
+import { Menu, X, Code2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -36,7 +35,7 @@ export function Navbar() {
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 group">
-          <Rocket className="w-8 h-8 text-accent group-hover:rotate-12 transition-transform" />
+          <Code2 className="w-8 h-8 text-accent group-hover:rotate-12 transition-transform" />
           <span className="text-xl font-headline font-bold tracking-tight text-foreground uppercase">
             NETALA SRI <span className="text-accent">HARSHA</span>
           </span>
