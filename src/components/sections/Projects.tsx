@@ -1,11 +1,10 @@
-
 "use client";
 
 import { useState } from "react";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { ExternalLink, Github, Monitor, Database, Cloud, Code2, Layout, Zap, Search, Globe, Network, Sparkles, Calendar as CalendarIcon } from "lucide-react";
+import { ExternalLink, Github, Monitor, Database, Search, Sparkles, Network } from "lucide-react";
 import { PlaceHolderImages } from "@/app/lib/placeholder-images";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
@@ -32,46 +31,6 @@ const projects = [
     demo: "https://weather.visualcrossing.com"
   },
   {
-    id: "todo-app",
-    title: "Smart Calendar Planner",
-    category: "Productivity",
-    tags: ["React", "LocalStorage", "Date-fns"],
-    description: "Cognitive task management system featuring visual calendar orchestration, priority-based sorting, and sophisticated persistent state logic.",
-    icon: CalendarIcon,
-    github: "https://github.com/sriharshanetala",
-    demo: "https://calendar.google.com"
-  },
-  {
-    id: "data-analytics",
-    title: "Data Analytics Platform",
-    category: "Business Intel",
-    tags: ["Python", "SQL", "Pandas"],
-    description: "Advanced analytical engine for synthesizing complex business datasets into predictive visual insights through automated processing scripts.",
-    icon: Search,
-    github: "https://github.com/sriharshanetala",
-    demo: "https://public.tableau.com"
-  },
-  {
-    id: "ecommerce-site",
-    title: "E-commerce Website",
-    category: "Fullstack",
-    tags: ["React", "Bootstrap", "SQL"],
-    description: "An adaptive digital marketplace featuring high-speed product catalogs, intelligent search algorithms, and a secure checkout architecture.",
-    icon: Layout,
-    github: "https://github.com/sriharshanetala",
-    demo: "https://www.shopify.com"
-  },
-  {
-    id: "retailer-app",
-    title: "Retailer Service App",
-    category: "Cloud Architecture",
-    tags: ["React", "AWS S3", "Bootstrap"],
-    description: "Cloud-optimized supply chain platform connecting retailers with suppliers, leveraging scalable AWS S3 infrastructure for mission-critical asset management.",
-    icon: Cloud,
-    github: "https://github.com/sriharshanetala",
-    demo: "https://aws.amazon.com/s3/"
-  },
-  {
     id: "subnet-master",
     title: "SubnetMaster: Visual IP Engine",
     category: "Core Engineering",
@@ -82,14 +41,14 @@ const projects = [
     demo: "https://www.subnet-calculator.com"
   },
   {
-    id: "networking-tool",
-    title: "Network Monitor Dashboard",
-    category: "Infrastructure",
-    tags: ["React", "OSI Layers", "Networking"],
-    description: "Real-time infrastructure monitoring dashboard simulating neural-like data transmission pathways and topology health across complex enterprise networks.",
-    icon: Monitor,
+    id: "data-analytics",
+    title: "Data Analytics Platform",
+    category: "Business Intel",
+    tags: ["Python", "SQL", "Pandas"],
+    description: "Advanced analytical engine for synthesizing complex business datasets into predictive visual insights through automated processing scripts.",
+    icon: Search,
     github: "https://github.com/sriharshanetala",
-    demo: "https://www.solarwinds.com"
+    demo: "https://public.tableau.com"
   }
 ];
 
@@ -97,7 +56,6 @@ export function Projects() {
   const { toast } = useToast();
 
   const handleExternalClick = (e: React.MouseEvent, type: string) => {
-    // If it's a simulated internal link like the dashboard, let it pass
     const href = (e.currentTarget as HTMLAnchorElement).getAttribute('href');
     if (href?.startsWith('#')) return;
 
@@ -116,11 +74,11 @@ export function Projects() {
           </div>
           <h2 className="text-4xl md:text-5xl font-headline font-bold">Featured Innovations</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed">
-            A diverse collection of high-impact applications demonstrating creative technical proficiency and AI-level architectural thinking.
+            A curated collection of high-impact applications demonstrating creative technical proficiency and AI-level architectural thinking.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {projects.map((project, idx) => {
             const imageData = PlaceHolderImages.find(img => img.id === project.id);
             return (
@@ -132,7 +90,7 @@ export function Projects() {
                 )}
                 style={{ animationDelay: `${idx * 100}ms` }}
               >
-                <div className="relative h-56 overflow-hidden">
+                <div className="relative h-64 overflow-hidden">
                   {imageData && (
                     <Image
                       src={imageData.imageUrl}
@@ -172,14 +130,14 @@ export function Projects() {
                   )}
                 </div>
 
-                <CardContent className="p-6 flex-1 flex flex-col justify-between space-y-4">
-                  <div className="space-y-3">
+                <CardContent className="p-8 flex-1 flex flex-col justify-between space-y-4">
+                  <div className="space-y-4">
                     <div className="flex items-center justify-between">
                       <Badge variant="secondary" className="bg-accent/5 text-accent border-accent/10 text-[10px] uppercase font-bold px-2">
                         {project.category}
                       </Badge>
                     </div>
-                    <h3 className="text-xl font-headline font-bold group-hover:text-accent transition-colors leading-tight">
+                    <h3 className="text-2xl font-headline font-bold group-hover:text-accent transition-colors leading-tight">
                       {project.title}
                     </h3>
                     <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">
@@ -187,7 +145,7 @@ export function Projects() {
                     </p>
                   </div>
 
-                  <div className="flex flex-wrap gap-2 pt-2">
+                  <div className="flex flex-wrap gap-2 pt-4 border-t border-border/50">
                     {project.tags.map((tag) => (
                       <span 
                         key={tag} 
