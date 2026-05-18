@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { ExternalLink, Github, Monitor, Database, Search, Sparkles, Network } from "lucide-react";
+import { ExternalLink, Github, Monitor, Database, Search, Sparkles, Network, ShoppingCart, CheckCircle2 } from "lucide-react";
 import { PlaceHolderImages } from "@/app/lib/placeholder-images";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
@@ -29,6 +29,26 @@ const projects = [
     icon: Sparkles,
     github: "https://github.com/sriharshanetala",
     demo: "https://weather.visualcrossing.com"
+  },
+  {
+    id: "todo-app",
+    title: "AI Cognitive Task Manager",
+    category: "GenAI / Productivity",
+    tags: ["Next.js", "Genkit", "Firebase"],
+    description: "An intelligent orchestration engine that uses Large Language Models to prioritize, categorize, and automate daily scheduling workflows with predictive accuracy.",
+    icon: CheckCircle2,
+    github: "https://github.com/sriharshanetala",
+    demo: "https://github.com/sriharshanetala"
+  },
+  {
+    id: "ecommerce-site",
+    title: "Adaptive Digital Marketplace",
+    category: "E-Commerce",
+    tags: ["React", "Tailwind", "Firebase"],
+    description: "A modern, high-conversion e-commerce platform featuring dynamic product recommendation engines and real-time inventory synchronization.",
+    icon: ShoppingCart,
+    github: "https://github.com/sriharshanetala",
+    demo: "https://github.com/sriharshanetala"
   },
   {
     id: "subnet-master",
@@ -78,7 +98,7 @@ export function Projects() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {projects.map((project, idx) => {
             const imageData = PlaceHolderImages.find(img => img.id === project.id);
             return (
@@ -137,7 +157,7 @@ export function Projects() {
                         {project.category}
                       </Badge>
                     </div>
-                    <h3 className="text-2xl font-headline font-bold group-hover:text-accent transition-colors leading-tight">
+                    <h3 className="text-xl font-headline font-bold group-hover:text-accent transition-colors leading-tight">
                       {project.title}
                     </h3>
                     <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">
