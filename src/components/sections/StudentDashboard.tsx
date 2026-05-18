@@ -9,11 +9,12 @@ import {
   BookOpen, 
   TrendingUp, 
   LayoutDashboard, 
-  UserCircle, 
+  Database, 
   Settings, 
   Bell,
   Search,
-  MoreVertical
+  MoreVertical,
+  FileText
 } from "lucide-react";
 import { 
   XAxis, 
@@ -50,14 +51,14 @@ const chartConfig = {
 } satisfies ChartConfig;
 
 export function StudentDashboard() {
-  const [activeTab, setActiveTab] = useState("Dashboard");
+  const [activeTab, setActiveTab] = useState("Student Data");
   const { toast } = useToast();
 
   const handleTabChange = (label: string) => {
     setActiveTab(label);
     toast({
-      title: `Switching to ${label}`,
-      description: `Loading simulated records for the ${label.toLowerCase()} module.`,
+      title: `Accessing ${label}`,
+      description: `Loading encrypted records from the ${label.toLowerCase()} cluster.`,
     });
   };
 
@@ -73,12 +74,12 @@ export function StudentDashboard() {
       <div className="max-w-7xl mx-auto space-y-12">
         <div className="text-center space-y-4 animate-in fade-in slide-in-from-bottom-4 duration-700">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-xs font-bold text-accent uppercase tracking-widest">
-            <LayoutDashboard className="w-3 h-3" />
-            Project Spotlight
+            <Database className="w-3 h-3" />
+            Core Data Management
           </div>
-          <h2 className="text-4xl font-headline font-bold">Student Management System</h2>
+          <h2 className="text-4xl font-headline font-bold">Student Data Environment</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            A high-performance dashboard simulation demonstrating architecture for academic lifecycle management.
+            A high-performance architectural simulation focusing on academic data integrity and predictive lifecycle analytics.
           </p>
         </div>
 
@@ -88,11 +89,11 @@ export function StudentDashboard() {
             <div className="p-4 md:p-6 border-b border-border bg-secondary/20 flex flex-col md:flex-row md:items-center justify-between gap-4">
               <div className="flex items-center gap-4">
                 <div className="p-3 rounded-2xl bg-accent text-accent-foreground">
-                  <GraduationCap className="w-6 h-6" />
+                  <Database className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold font-headline">EduSync Pro</h3>
-                  <p className="text-[10px] text-muted-foreground uppercase tracking-tighter">Academic Terminal</p>
+                  <h3 className="text-lg font-bold font-headline">EduSync Data Hub</h3>
+                  <p className="text-[10px] text-muted-foreground uppercase tracking-tighter">Central Intelligence Node</p>
                 </div>
               </div>
               
@@ -100,25 +101,25 @@ export function StudentDashboard() {
                 <div className="relative hidden lg:block">
                   <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                   <input 
-                    placeholder="Search records..." 
-                    onKeyDown={(e) => e.key === 'Enter' && handleSimulatedAction("Search Performed")}
+                    placeholder="Query data records..." 
+                    onKeyDown={(e) => e.key === 'Enter' && handleSimulatedAction("Record Query Executed")}
                     className="bg-background border border-border rounded-xl pl-10 pr-4 py-2 text-sm w-48 xl:w-64 focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all"
                   />
                 </div>
                 <div className="flex items-center gap-2">
                   <button 
-                    onClick={() => handleSimulatedAction("Notifications Opened")}
+                    onClick={() => handleSimulatedAction("Alerts Toggled")}
                     className="p-2 rounded-xl bg-background border border-border text-muted-foreground hover:text-accent transition-colors"
                   >
                     <Bell className="w-5 h-5" />
                   </button>
                   <button 
-                    onClick={() => handleSimulatedAction("Settings Opened")}
+                    onClick={() => handleSimulatedAction("System Preferences")}
                     className="hidden sm:block p-2 rounded-xl bg-background border border-border text-muted-foreground hover:text-accent transition-colors"
                   >
                     <Settings className="w-5 h-5" />
                   </button>
-                  <div className="w-10 h-10 rounded-xl bg-accent/20 border border-accent/20 flex items-center justify-center text-accent font-bold cursor-pointer" onClick={() => handleSimulatedAction("User Profile Menu")}>
+                  <div className="w-10 h-10 rounded-xl bg-accent/20 border border-accent/20 flex items-center justify-center text-accent font-bold cursor-pointer" onClick={() => handleSimulatedAction("Security Profile")}>
                     NS
                   </div>
                 </div>
@@ -130,11 +131,11 @@ export function StudentDashboard() {
               <div className="w-full lg:w-64 border-b lg:border-b-0 lg:border-r border-border bg-secondary/10 p-4 lg:p-6">
                 <div className="flex lg:flex-col overflow-x-auto lg:overflow-x-visible gap-2 lg:space-y-2 no-scrollbar">
                   {[
-                    { icon: LayoutDashboard, label: "Dashboard" },
-                    { icon: Users, label: "Students" },
-                    { icon: BookOpen, label: "Courses" },
-                    { icon: TrendingUp, label: "Analytics" },
-                    { icon: UserCircle, label: "Profile" },
+                    { icon: Users, label: "Student Data" },
+                    { icon: BookOpen, label: "Academic Data" },
+                    { icon: TrendingUp, label: "Analytical Data" },
+                    { icon: FileText, label: "Report Data" },
+                    { icon: LayoutDashboard, label: "Overview" },
                   ].map((item) => (
                     <button 
                       key={item.label}
@@ -155,12 +156,23 @@ export function StudentDashboard() {
 
               {/* Dashboard Content */}
               <div className="flex-1 p-4 md:p-8 space-y-8 bg-gradient-to-br from-background to-secondary/5">
+                {/* Header Title based on Tab */}
+                <div className="flex items-center justify-between">
+                  <h4 className="text-xl font-headline font-bold text-foreground animate-in fade-in duration-500">
+                    {activeTab} Management
+                  </h4>
+                  <div className="flex gap-2">
+                    <button onClick={() => handleSimulatedAction("Exporting CSV Data")} className="text-[10px] font-bold px-3 py-1.5 rounded-lg border border-border hover:bg-secondary transition-colors uppercase">CSV</button>
+                    <button onClick={() => handleSimulatedAction("Exporting PDF Report")} className="text-[10px] font-bold px-3 py-1.5 rounded-lg border border-border hover:bg-secondary transition-colors uppercase">PDF</button>
+                  </div>
+                </div>
+
                 {/* Stats Grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                   {[
-                    { label: "Total Students", value: "1,284", change: "+12%", icon: Users, delay: "delay-100" },
-                    { label: "Active Courses", value: "48", change: "+4", icon: BookOpen, delay: "delay-200" },
-                    { label: "Avg GPA", value: "3.64", change: "+0.2", icon: TrendingUp, delay: "delay-300" },
+                    { label: "Data Points", value: "24,512", change: "+1.2k", icon: Database, delay: "delay-100" },
+                    { label: "Course Modules", value: "112", change: "+6", icon: BookOpen, delay: "delay-200" },
+                    { label: "Performance Score", value: "94.2%", change: "+0.5%", icon: TrendingUp, delay: "delay-300" },
                   ].map((stat) => (
                     <Card 
                       key={stat.label} 
@@ -168,7 +180,7 @@ export function StudentDashboard() {
                         "bg-background/50 border-border/50 backdrop-blur-sm animate-in fade-in slide-in-from-bottom-2 duration-500 cursor-pointer hover:bg-background transition-colors",
                         stat.delay
                       )}
-                      onClick={() => handleSimulatedAction(`Viewing ${stat.label} Details`)}
+                      onClick={() => handleSimulatedAction(`Analyzing ${stat.label}`)}
                     >
                       <CardContent className="p-6 flex items-center justify-between">
                         <div className="space-y-1">
@@ -192,10 +204,10 @@ export function StudentDashboard() {
                     <Card className="bg-background/50 border-border/50 animate-in fade-in slide-in-from-left-4 duration-700 delay-500 overflow-hidden">
                       <CardHeader className="flex flex-row items-center justify-between">
                         <div>
-                          <CardTitle className="text-sm font-bold font-headline uppercase tracking-tight">Performance Trends</CardTitle>
-                          <CardDescription className="text-xs">GPA Evolution — Session 2024</CardDescription>
+                          <CardTitle className="text-sm font-bold font-headline uppercase tracking-tight">Data Trends</CardTitle>
+                          <CardDescription className="text-xs">Academic Integrity Metrics — 2024</CardDescription>
                         </div>
-                        <button onClick={() => handleSimulatedAction("Downloading Performance Data")} className="p-2 rounded-lg bg-secondary/50 text-accent hover:bg-accent hover:text-accent-foreground transition-all">
+                        <button onClick={() => handleSimulatedAction("Refreshing Data Stream")} className="p-2 rounded-lg bg-secondary/50 text-accent hover:bg-accent hover:text-accent-foreground transition-all">
                           <TrendingUp className="w-4 h-4" />
                         </button>
                       </CardHeader>
@@ -238,10 +250,10 @@ export function StudentDashboard() {
                   <Card className="bg-background/50 border-border/50 animate-in fade-in slide-in-from-right-4 duration-700 delay-500">
                     <CardHeader className="flex flex-row items-center justify-between">
                       <div>
-                        <CardTitle className="text-sm font-bold font-headline uppercase tracking-tight">Recent Activity</CardTitle>
-                        <CardDescription className="text-xs">Live enrollment verification log</CardDescription>
+                        <CardTitle className="text-sm font-bold font-headline uppercase tracking-tight">Log Entries</CardTitle>
+                        <CardDescription className="text-xs">Live data access verification</CardDescription>
                       </div>
-                      <button onClick={() => handleSimulatedAction("Refreshing Activity Feed")} className="p-2 rounded-lg bg-secondary/50 text-accent hover:bg-accent hover:text-accent-foreground transition-all">
+                      <button onClick={() => handleSimulatedAction("Syncing Records")} className="p-2 rounded-lg bg-secondary/50 text-accent hover:bg-accent hover:text-accent-foreground transition-all">
                         <TrendingUp className="w-4 h-4 rotate-90" />
                       </button>
                     </CardHeader>
@@ -250,7 +262,7 @@ export function StudentDashboard() {
                         {studentActivity.map((student, idx) => (
                           <div 
                             key={student.id} 
-                            onClick={() => handleSimulatedAction(`Viewing Profile: ${student.name}`)}
+                            onClick={() => handleSimulatedAction(`Viewing Data Record: ${student.name}`)}
                             className={cn(
                               "flex items-center justify-between p-3 rounded-xl bg-secondary/20 border border-border/30 transition-all hover:bg-secondary/40 cursor-pointer",
                               "animate-in fade-in slide-in-from-right-2 duration-500",
