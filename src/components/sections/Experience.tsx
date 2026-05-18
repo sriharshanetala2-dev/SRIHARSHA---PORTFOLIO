@@ -14,14 +14,14 @@ const experience = [
   {
     role: "Full-Stack Specialization & Certification",
     company: "NxtWave Academy (Self-Paced Intensive)",
-    period: "Aug 2025 — Dec 2025",
+    period: "2025",
     description: "Completed an industry-ready certification program via a self-paced curriculum. Mastered the MERN stack (MongoDB, Express, React, Node.js) through hands-on coding, solving 500+ algorithmic problems, and building scalable full-stack applications.",
     icon: Award
   },
   {
     role: "Self-Directed Full-Stack Development",
     company: "Independent Learning Journey",
-    period: "2024 — July 2025",
+    period: "2024 — 2025",
     description: "Dedicated a self-paced period post-graduation to mastering modern web architecture. Built a portfolio of responsive applications using React, Next.js, and Firebase, focusing on clean code principles and UI/UX best practices.",
     icon: Zap
   }
