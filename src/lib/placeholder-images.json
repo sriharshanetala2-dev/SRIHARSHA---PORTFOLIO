@@ -8,9 +8,9 @@
     },
     {
       "id": "weather-app",
-      "description": "Neural Weather Forecasting Interface",
-      "imageUrl": "https://picsum.photos/seed/dev_weather_v8/800/600",
-      "imageHint": "weather analysis"
+      "description": "Graph Analysis of Weather Report",
+      "imageUrl": "https://picsum.photos/seed/weather_analytics_v9/800/600",
+      "imageHint": "weather graphs"
     },
     {
       "id": "todo-app",
