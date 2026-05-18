@@ -6,38 +6,30 @@ import { Briefcase, Calendar, Award, Star, Code2, GraduationCap, Zap, Globe, Spa
 const experience = [
   {
     role: "Advanced AI & Cloud Specialization",
-    company: "Personal Innovation & Research Lab",
+    company: "Self-Paced Innovation & Research",
     period: "Late 2025 — Future",
-    description: "Focusing on the next frontier of engineering: architecting AI-native applications and scalable cloud-first infrastructures. Exploring advanced GenAI patterns, RAG systems, and high-concurrency backend design.",
+    description: "Architecting a self-paced roadmap for the next frontier of engineering: AI-native applications and scalable cloud-first infrastructures. Focusing on advanced GenAI patterns, RAG systems, and high-concurrency backend design through independent research.",
     icon: Sparkles
   },
   {
     role: "Full-Stack Specialization & Certification",
-    company: "NxtWave Academy",
+    company: "NxtWave Academy (Self-Paced Intensive)",
     period: "2024 — 2025",
-    description: "Completed an intensive industry-ready certification program. Mastered the MERN stack (MongoDB, Express, React, Node.js) through hands-on coding, solving 500+ algorithmic problems, and building scalable full-stack applications.",
+    description: "Completed an industry-ready certification program via a self-paced curriculum. Mastered the MERN stack (MongoDB, Express, React, Node.js) through hands-on coding, solving 500+ algorithmic problems, and building scalable full-stack applications.",
     icon: Award
   },
   {
     role: "Self-Directed Full-Stack Development",
     company: "Independent Learning Journey",
     period: "2024",
-    description: "Dedicated 6+ months post-graduation to mastering modern web architecture. Built a portfolio of responsive applications using React, Next.js, and Firebase, focusing on clean code principles and UI/UX best practices.",
+    description: "Dedicated a self-paced 6-month period post-graduation to mastering modern web architecture. Built a portfolio of responsive applications using React, Next.js, and Firebase, focusing on clean code principles and UI/UX best practices.",
     icon: Zap
-  },
-  {
-    role: "Full-Stack Development (Capstone Project)",
-    company: "Academic Project • Student Management System",
-    period: "2023 — 2024",
-    description: "Architected and implemented a comprehensive system for academic record management. Focused on database integrity using SQL and built a responsive UI with modern frameworks. Integrated Firebase for real-time authentication.",
-    icon: Code2
   }
 ];
 
 export function Experience() {
   return (
     <section id="experience" className="py-24 px-6 bg-background relative overflow-hidden">
-      {/* Background glow for cursor reactivity */}
       <div className="absolute top-1/2 right-0 w-[300px] h-[300px] bg-accent/5 rounded-full blur-[120px] -z-10" />
       
       <div className="max-w-4xl mx-auto">
@@ -46,12 +38,11 @@ export function Experience() {
             <Briefcase className="w-3 h-3" />
             My Growth Path
           </div>
-          <h2 className="text-4xl font-headline font-bold">Training & Project Journey</h2>
-          <p className="text-muted-foreground">Transforming from an academic graduate to an industry-ready engineer through intensive specialization.</p>
+          <h2 className="text-4xl font-headline font-bold">Self-Paced Engineering Journey</h2>
+          <p className="text-muted-foreground">A timeline of independent skill acquisition and industry-ready specialization.</p>
         </div>
 
         <div className="space-y-8 relative">
-          {/* Vertical line for timeline feel */}
           <div className="absolute left-10 md:left-12 top-0 bottom-0 w-px bg-border/50 hidden sm:block" />
 
           {experience.map((item, idx) => (
