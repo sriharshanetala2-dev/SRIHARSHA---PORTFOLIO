@@ -1,29 +1,29 @@
 "use client";
 
 import { Card } from "@/components/ui/card";
-import { Briefcase, Calendar, Award, Star, Code2, GraduationCap } from "lucide-react";
+import { Briefcase, Calendar, Award, Star, Code2, GraduationCap, Zap } from "lucide-react";
 
 const experience = [
+  {
+    role: "Full-Stack Specialization & Certification",
+    company: "NxtWave Academy",
+    period: "2024 — 2025",
+    description: "Completed an intensive industry-ready certification program. Mastered the MERN stack (MongoDB, Express, React, Node.js) through hands-on coding, solving 500+ algorithmic problems, and building scalable full-stack applications.",
+    icon: Award
+  },
+  {
+    role: "Self-Directed Full-Stack Development",
+    company: "Independent Learning Journey",
+    period: "2024",
+    description: "Dedicated 6+ months post-graduation to mastering modern web architecture. Built a portfolio of responsive applications using React, Next.js, and Firebase, focusing on clean code principles and UI/UX best practices.",
+    icon: Zap
+  },
   {
     role: "Full-Stack Development (Capstone Project)",
     company: "Academic Project • Student Management System",
     period: "2023 — 2024",
     description: "Architected and implemented a comprehensive system for academic record management. Focused on database integrity using SQL and built a responsive UI with modern frameworks. Integrated Firebase for real-time authentication.",
     icon: Code2
-  },
-  {
-    role: "Technical Training & Intern Simulation",
-    company: "Self-Directed / Industry Prep",
-    period: "2023",
-    description: "Completed intensive training modules in Web Development and System Architecture. Developed multiple projects using React, Next.js, and Java, simulating industry-standard agile workflows and version control.",
-    icon: Star
-  },
-  {
-    role: "Advanced Java Programming",
-    company: "Professional Certification Course",
-    period: "2022",
-    description: "Mastered core Java concepts, JDBC connectivity, and multi-threading. Built console-based applications to solve complex algorithmic problems and manage data structures effectively.",
-    icon: Award
   }
 ];
 
@@ -37,10 +37,10 @@ export function Experience() {
         <div className="text-center mb-16 space-y-4">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-xs font-bold text-accent uppercase tracking-widest">
             <Briefcase className="w-3 h-3" />
-            Practical Experience
+            My Growth Path
           </div>
-          <h2 className="text-4xl font-headline font-bold">Project & Training Journey</h2>
-          <p className="text-muted-foreground">Focusing on practical application of engineering principles through intensive projects and self-directed learning.</p>
+          <h2 className="text-4xl font-headline font-bold">Training & Project Journey</h2>
+          <p className="text-muted-foreground">Transforming from an academic graduate to an industry-ready engineer through intensive specialization.</p>
         </div>
 
         <div className="space-y-8 relative">
