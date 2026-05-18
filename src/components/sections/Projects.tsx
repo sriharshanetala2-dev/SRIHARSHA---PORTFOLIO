@@ -5,7 +5,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { ExternalLink, Github, Monitor, Database, Search, Sparkles, Network, ShoppingCart, CheckCircle2, Code2 } from "lucide-react";
+import { ExternalLink, Github, Monitor, Database, Search, Sparkles, Network, ShoppingCart, CheckCircle2, Code2, LineChart } from "lucide-react";
 import { PlaceHolderImages } from "@/app/lib/placeholder-images";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
@@ -43,11 +43,11 @@ const projects = [
   },
   {
     id: "ecommerce-site",
-    title: "Adaptive Digital Marketplace",
-    category: "E-Commerce / Data",
+    title: "MarketSync: Adaptive Trading Hub",
+    category: "E-Commerce / FinTech",
     tags: ["React", "Tailwind", "Firebase"],
-    description: "A modern e-commerce platform featuring dynamic data recommendation engines and real-time inventory synchronization analytics.",
-    icon: ShoppingCart,
+    description: "A professional marketing analytics platform integrating stock market trend analysis and real-time data visualization for digital asset management.",
+    icon: LineChart,
     github: "https://github.com/sriharshanetala",
     demo: "https://github.com/sriharshanetala"
   },

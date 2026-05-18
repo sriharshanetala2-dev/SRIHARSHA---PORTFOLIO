@@ -21,9 +21,9 @@
     },
     {
       "id": "ecommerce-site",
-      "description": "Analytical Dashboard for Digital Trade",
-      "imageUrl": "https://picsum.photos/seed/dev_data_v2/800/600",
-      "imageHint": "data analysis"
+      "description": "Marketing Analytics and Stock Market Trends",
+      "imageUrl": "https://picsum.photos/seed/dev_stocks_v5/800/600",
+      "imageHint": "stock marketing"
     },
     {
       "id": "subnet-master",
