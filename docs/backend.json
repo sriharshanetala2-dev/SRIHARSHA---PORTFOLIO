@@ -1,0 +1,27 @@
+
+{
+  "entities": {
+    "Message": {
+      "title": "Message",
+      "description": "A contact form submission message.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "message": { "type": "string" },
+        "timestamp": { "type": "string", "format": "date-time" },
+        "recipient": { "type": "string" }
+      },
+      "required": ["name", "email", "message"]
+    }
+  },
+  "auth": {
+    "providers": ["google.com"]
+  },
+  "firestore": {
+    "/messages/{messageId}": {
+      "schema": { "$ref": "#/entities/Message" },
+      "description": "Contact messages from visitors."
+    }
+  }
+}

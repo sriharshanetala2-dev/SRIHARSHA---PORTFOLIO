@@ -1,30 +1,60 @@
+
 "use client";
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, Send, Linkedin, Github, Phone, MapPin } from "lucide-react";
+import { Mail, Send, Linkedin, Github, Phone, MapPin, Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { useFirestore } from "@/firebase";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { errorEmitter } from '@/firebase/error-emitter';
+import { FirestorePermissionError } from '@/firebase/errors';
 
 export function Contact() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
+  const db = useFirestore();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!db) return;
+
     setIsSubmitting(true);
     
-    // Simulate API call
-    setTimeout(() => {
-      setIsSubmitting(false);
-      toast({
-        title: "Message Sent!",
-        description: "Thank you for reaching out, NETALA SRI HARSHA. I'll get back to you shortly.",
+    const messagesRef = collection(db, 'messages');
+    const submissionData = {
+      ...formData,
+      timestamp: serverTimestamp(),
+      recipient: "sriharshanetala2@gmail.com"
+    };
+
+    addDoc(messagesRef, submissionData)
+      .then(() => {
+        setIsSubmitting(false);
+        toast({
+          title: "Message Sent!",
+          description: "Your message has been saved. I will be notified and get back to you soon!",
+        });
+        setFormData({ name: "", email: "", message: "" });
+      })
+      .catch(async (error) => {
+        setIsSubmitting(false);
+        const permissionError = new FirestorePermissionError({
+          path: messagesRef.path,
+          operation: 'create',
+          requestResourceData: submissionData,
+        });
+        errorEmitter.emit('permission-error', permissionError);
+        
+        toast({
+          variant: "destructive",
+          title: "Submission Error",
+          description: "Something went wrong. Please try emailing me directly.",
+        });
       });
-      setFormData({ name: "", email: "", message: "" });
-    }, 1500);
   };
 
   return (
@@ -76,7 +106,7 @@ export function Contact() {
 
           <div className="flex gap-5 pt-4">
             {[
-              { icon: Linkedin, label: "LinkedIn", href: "https://linkedin.com" },
+              { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/sriharshanetala/" },
               { icon: Github, label: "GitHub", href: "https://github.com/sriharshanetala" }
             ].map((social) => (
               <a 
@@ -105,6 +135,7 @@ export function Contact() {
                   className="bg-secondary/20 h-14 rounded-xl border-border focus:border-accent"
                   value={formData.name}
                   onChange={(e) => setFormData({...formData, name: e.target.value})}
+                  disabled={isSubmitting}
                 />
               </div>
               <div className="space-y-3">
@@ -116,6 +147,7 @@ export function Contact() {
                   className="bg-secondary/20 h-14 rounded-xl border-border focus:border-accent"
                   value={formData.email}
                   onChange={(e) => setFormData({...formData, email: e.target.value})}
+                  disabled={isSubmitting}
                 />
               </div>
             </div>
@@ -127,6 +159,7 @@ export function Contact() {
                 required
                 value={formData.message}
                 onChange={(e) => setFormData({...formData, message: e.target.value})}
+                disabled={isSubmitting}
               />
             </div>
             <Button 
@@ -134,8 +167,17 @@ export function Contact() {
               className="w-full h-16 bg-primary text-primary-foreground hover:bg-primary/90 rounded-2xl font-bold text-lg gap-3 shadow-xl transition-all active:scale-[0.98]"
               disabled={isSubmitting}
             >
-              {isSubmitting ? "Sending Message..." : "Send Message"}
-              {!isSubmitting && <Send className="w-5 h-5" />}
+              {isSubmitting ? (
+                <>
+                  <Loader2 className="w-5 h-5 animate-spin" />
+                  Sending...
+                </>
+              ) : (
+                <>
+                  Send Message
+                  <Send className="w-5 h-5" />
+                </>
+              )}
             </Button>
           </form>
         </div>
