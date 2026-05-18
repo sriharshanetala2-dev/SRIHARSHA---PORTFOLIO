@@ -10,6 +10,7 @@ const navLinks = [
   { name: "Home", href: "#" },
   { name: "About", href: "#about" },
   { name: "Projects", href: "#portfolio" },
+  { name: "Dashboard", href: "#dashboard" },
   { name: "Skills", href: "#skills" },
   { name: "Education", href: "#education" },
   { name: "Experience", href: "#experience" },
@@ -73,13 +74,13 @@ export function Navbar() {
         </Link>
 
         {/* Desktop Nav */}
-        <div className="hidden lg:flex items-center gap-6 xl:gap-8">
+        <div className="hidden lg:flex items-center gap-4 xl:gap-6">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
               onClick={(e) => scrollToSection(e, link.href)}
-              className="text-[11px] xl:text-[12px] uppercase font-bold tracking-[0.1em] text-muted-foreground hover:text-accent transition-colors whitespace-nowrap"
+              className="text-[10px] xl:text-[11px] uppercase font-bold tracking-[0.1em] text-muted-foreground hover:text-accent transition-colors whitespace-nowrap"
             >
               {link.name}
             </a>
@@ -87,7 +88,7 @@ export function Navbar() {
           <Button 
             asChild
             variant="default" 
-            className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold px-6 rounded-xl shadow-lg"
+            className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold px-5 h-9 rounded-xl shadow-lg text-xs"
           >
             <a href="#contact" onClick={(e) => scrollToSection(e, "#contact")}>Hire Me</a>
           </Button>
