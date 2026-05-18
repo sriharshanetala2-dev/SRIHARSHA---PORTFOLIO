@@ -10,13 +10,13 @@
     {
       "id": "weather-app",
       "description": "Neural Weather Forecasting Interface",
-      "imageUrl": "https://picsum.photos/seed/dev_weather_v4/800/600",
+      "imageUrl": "https://picsum.photos/seed/dev_weather_v5/800/600",
       "imageHint": "weather analysis"
     },
     {
       "id": "todo-app",
       "description": "Cognitive Schedule Orchestration",
-      "imageUrl": "https://picsum.photos/seed/dev_calendar_v4/800/600",
+      "imageUrl": "https://picsum.photos/seed/dev_calendar_v5/800/600",
       "imageHint": "calendar schedule"
     },
     {
