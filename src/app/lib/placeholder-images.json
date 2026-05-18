@@ -4,8 +4,8 @@
     {
       "id": "student-system",
       "description": "Professional Academic Database Management System",
-      "imageUrl": "https://picsum.photos/seed/edu_db_77/800/600",
-      "imageHint": "database management"
+      "imageUrl": "https://picsum.photos/seed/mgmt_99/800/600",
+      "imageHint": "management dashboard"
     },
     {
       "id": "weather-app",
@@ -16,8 +16,8 @@
     {
       "id": "todo-app",
       "description": "Todo Application",
-      "imageUrl": "https://picsum.photos/seed/task77/800/600",
-      "imageHint": "productivity app"
+      "imageUrl": "https://picsum.photos/seed/tasks_22/800/600",
+      "imageHint": "todo list"
     },
     {
       "id": "data-analytics",
