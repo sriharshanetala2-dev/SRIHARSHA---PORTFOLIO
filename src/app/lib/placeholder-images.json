@@ -4,50 +4,50 @@
     {
       "id": "student-system",
       "description": "Intelligent Academic Lifecycle Management",
-      "imageUrl": "https://picsum.photos/seed/mgmt_99/800/600",
-      "imageHint": "management dashboard"
+      "imageUrl": "https://picsum.photos/seed/academic_mgmt_v2/800/600",
+      "imageHint": "college management"
     },
     {
       "id": "weather-app",
       "description": "Neural Weather Forecasting Interface",
-      "imageUrl": "https://picsum.photos/seed/ai_weather_futuristic/800/600",
-      "imageHint": "ai weather"
+      "imageUrl": "https://picsum.photos/seed/future_weather_v2/800/600",
+      "imageHint": "cyber weather"
     },
     {
       "id": "todo-app",
       "description": "Cognitive Schedule Orchestration",
-      "imageUrl": "https://picsum.photos/seed/calendar_plan_88/800/600",
-      "imageHint": "calendar schedule"
+      "imageUrl": "https://picsum.photos/seed/calendar_plan_v2/800/600",
+      "imageHint": "planner calendar"
     },
     {
       "id": "data-analytics",
       "description": "Predictive Business Intelligence",
-      "imageUrl": "https://picsum.photos/seed/chart55/800/600",
-      "imageHint": "data analytics"
+      "imageUrl": "https://picsum.photos/seed/analytics_chart_v2/800/600",
+      "imageHint": "data dashboard"
     },
     {
       "id": "ecommerce-site",
       "description": "Adaptive Digital Marketplace",
-      "imageUrl": "https://picsum.photos/seed/shop44/800/600",
-      "imageHint": "online store"
+      "imageUrl": "https://picsum.photos/seed/ecommerce_store_v2/800/600",
+      "imageHint": "digital marketplace"
     },
     {
       "id": "retailer-app",
       "description": "Smart Supply Chain Optimizer",
-      "imageUrl": "https://picsum.photos/seed/store22/800/600",
-      "imageHint": "retail software"
+      "imageUrl": "https://picsum.photos/seed/supply_chain_v2/800/600",
+      "imageHint": "warehouse software"
     },
     {
       "id": "subnet-master",
       "description": "Autonomous Network Designer",
-      "imageUrl": "https://picsum.photos/seed/network_core_11/800/600",
-      "imageHint": "computer networking"
+      "imageUrl": "https://picsum.photos/seed/network_config_v2/800/600",
+      "imageHint": "networking tech"
     },
     {
       "id": "networking-tool",
       "description": "Real-time Neural Network Monitor",
-      "imageUrl": "https://picsum.photos/seed/cloud33/800/600",
-      "imageHint": "network monitor"
+      "imageUrl": "https://picsum.photos/seed/security_monitor_v2/800/600",
+      "imageHint": "server monitor"
     }
   ]
 }
