@@ -10,6 +10,8 @@ import { cn } from "@/lib/utils";
 const navLinks = [
   { name: "Home", href: "#" },
   { name: "About", href: "#about" },
+  { name: "Projects", href: "#portfolio" },
+  { name: "Brand Tool", href: "#brand-tool" },
   { name: "Skills", href: "#skills" },
   { name: "Education", href: "#education" },
   { name: "Experience", href: "#experience" },
@@ -73,13 +75,13 @@ export function Navbar() {
         </Link>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-10">
+        <div className="hidden lg:flex items-center gap-6 xl:gap-8">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
               onClick={(e) => scrollToSection(e, link.href)}
-              className="text-[13px] uppercase font-bold tracking-[0.1em] text-muted-foreground hover:text-accent transition-colors"
+              className="text-[11px] xl:text-[12px] uppercase font-bold tracking-[0.1em] text-muted-foreground hover:text-accent transition-colors whitespace-nowrap"
             >
               {link.name}
             </a>
@@ -95,7 +97,7 @@ export function Navbar() {
 
         {/* Mobile Toggle */}
         <button
-          className="md:hidden text-foreground p-2"
+          className="lg:hidden text-foreground p-2"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
         >
@@ -105,8 +107,8 @@ export function Navbar() {
 
       {/* Mobile Nav */}
       {isOpen && (
-        <div className="absolute top-full left-0 w-full bg-background/95 backdrop-blur-xl border-b md:hidden animate-in fade-in slide-in-from-top-4 duration-500">
-          <div className="flex flex-col p-8 gap-6">
+        <div className="absolute top-full left-0 w-full bg-background/95 backdrop-blur-xl border-b lg:hidden animate-in fade-in slide-in-from-top-4 duration-500">
+          <div className="flex flex-col p-8 gap-6 max-h-[80vh] overflow-y-auto">
             {navLinks.map((link) => (
               <a
                 key={link.name}
