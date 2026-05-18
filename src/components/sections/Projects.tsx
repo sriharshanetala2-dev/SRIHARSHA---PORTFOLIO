@@ -5,7 +5,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { ExternalLink, Github, Monitor, Database, Cloud, Code2, Layout, Zap, Search, Globe, Network } from "lucide-react";
+import { ExternalLink, Github, Monitor, Database, Cloud, Code2, Layout, Zap, Search, Globe, Network, Sparkles, Calendar as CalendarIcon } from "lucide-react";
 import { PlaceHolderImages } from "@/app/lib/placeholder-images";
 import { cn } from "@/lib/utils";
 
@@ -20,19 +20,19 @@ const projects = [
   },
   {
     id: "weather-app",
-    title: "Interactive Weather App",
-    category: "Web",
-    tags: ["JavaScript", "HTML5", "CSS3", "API"],
-    description: "Real-time weather tracking application that fetches dynamic data using OpenWeatherMap API and features a custom-built responsive UI.",
-    icon: Cloud
+    title: "AI Weather Oracle",
+    category: "AI & Web",
+    tags: ["JavaScript", "OpenWeather API", "TensorFlow.js"],
+    description: "Creative AI-powered weather forecasting application that predicts atmospheric trends using machine learning and a futuristic UI.",
+    icon: Sparkles
   },
   {
     id: "todo-app",
-    title: "Advanced Todo App",
-    category: "Web",
-    tags: ["React", "JavaScript", "Git", "LocalStorage"],
-    description: "A high-performance productivity tool with state persistence, category filtering, and mobile-first design architecture.",
-    icon: Zap
+    title: "Smart Calendar Planner",
+    category: "Productivity",
+    tags: ["React", "LocalStorage", "Date-fns"],
+    description: "A high-performance productivity tool with integrated calendar visualization, category filtering, and persistent state management.",
+    icon: CalendarIcon
   },
   {
     id: "data-analytics",
@@ -62,16 +62,16 @@ const projects = [
     id: "subnet-master",
     title: "SubnetMaster: Visual IP Engine",
     category: "Core/Networking",
-    tags: ["React", "Networking", "JavaScript"],
-    description: "A unique tool for calculating IP subnets and visualizing network topologies, demonstrating deep understanding of OSI layers and packet flow.",
+    tags: ["React", "Networking", "Subnetting"],
+    description: "A unique tool for calculating IP subnets and visualizing network topologies, demonstrating deep knowledge of packet flow.",
     icon: Network
   },
   {
     id: "networking-tool",
-    title: "Networking Monitor",
+    title: "Network Monitor Dashboard",
     category: "Core",
-    tags: ["React", "Networking Basics", "Git"],
-    description: "Simulated network topology monitor used to demonstrate understanding of IP addressing, subnets, and packet flow logic.",
+    tags: ["React", "OSI Layers", "Networking"],
+    description: "Real-time network topology monitor simulating IP addressing and data transmission logic across complex networks.",
     icon: Monitor
   }
 ];
@@ -82,11 +82,11 @@ export function Projects() {
       <div className="max-w-7xl mx-auto">
         <div className="space-y-6 text-center mb-20 animate-in fade-in slide-in-from-bottom-4 duration-700">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-xs font-bold text-accent uppercase tracking-widest">
-            Featured Portfolio
+            Portfolio Showcase
           </div>
-          <h2 className="text-4xl md:text-5xl font-headline font-bold">Showcase Projects</h2>
+          <h2 className="text-4xl md:text-5xl font-headline font-bold">Featured Projects</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed">
-            A diverse collection of applications demonstrating proficiency in frontend, backend, and core engineering concepts.
+            A diverse collection of applications demonstrating technical proficiency across frontend, backend, and core engineering.
           </p>
         </div>
 
@@ -122,7 +122,7 @@ export function Projects() {
                   </div>
                   
                   {project.icon && (
-                    <div className="absolute top-4 left-4 p-2 rounded-lg bg-background/80 backdrop-blur-sm border border-border shadow-sm">
+                    <div className="absolute top-4 left-4 p-2 rounded-lg bg-background/80 backdrop-blur-sm border border-border shadow-sm z-10">
                       <project.icon className="w-4 h-4 text-accent" />
                     </div>
                   )}

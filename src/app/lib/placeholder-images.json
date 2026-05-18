@@ -9,15 +9,15 @@
     },
     {
       "id": "weather-app",
-      "description": "Interactive Weather App",
-      "imageUrl": "https://picsum.photos/seed/sky99/800/600",
-      "imageHint": "weather forecast"
+      "description": "AI-Powered Predictive Weather Interface",
+      "imageUrl": "https://picsum.photos/seed/ai_weather_futuristic/800/600",
+      "imageHint": "ai weather"
     },
     {
       "id": "todo-app",
-      "description": "Todo Application",
-      "imageUrl": "https://picsum.photos/seed/tasks_22/800/600",
-      "imageHint": "todo list"
+      "description": "Calendar-Integrated Task Management",
+      "imageUrl": "https://picsum.photos/seed/calendar_plan_88/800/600",
+      "imageHint": "calendar schedule"
     },
     {
       "id": "data-analytics",
