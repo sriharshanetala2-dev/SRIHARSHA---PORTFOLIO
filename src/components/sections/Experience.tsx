@@ -1,9 +1,16 @@
 "use client";
 
 import { Card } from "@/components/ui/card";
-import { Briefcase, Calendar, Award, Star, Code2, GraduationCap, Zap } from "lucide-react";
+import { Briefcase, Calendar, Award, Star, Code2, GraduationCap, Zap, Globe, Sparkles } from "lucide-react";
 
 const experience = [
+  {
+    role: "Advanced AI & Cloud Specialization",
+    company: "Personal Innovation & Research Lab",
+    period: "Late 2025 — Future",
+    description: "Focusing on the next frontier of engineering: architecting AI-native applications and scalable cloud-first infrastructures. Exploring advanced GenAI patterns, RAG systems, and high-concurrency backend design.",
+    icon: Sparkles
+  },
   {
     role: "Full-Stack Specialization & Certification",
     company: "NxtWave Academy",
