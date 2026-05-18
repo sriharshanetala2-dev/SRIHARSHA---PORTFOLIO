@@ -14,9 +14,9 @@
     },
     {
       "id": "todo-app",
-      "description": "Cognitive Schedule Orchestration",
-      "imageUrl": "https://picsum.photos/seed/dev_calendar_v6/800/600",
-      "imageHint": "calendar planning"
+      "description": "Dynamic Task Flow Orchestration",
+      "imageUrl": "https://picsum.photos/seed/task_flow_v2/800/600",
+      "imageHint": "flowing tasks"
     },
     {
       "id": "data-analytics",

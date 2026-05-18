@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from "react";
@@ -35,7 +36,7 @@ const projects = [
     title: "AI Cognitive Task Manager",
     category: "GenAI / Productivity",
     tags: ["Next.js", "Genkit", "Firebase"],
-    description: "An intelligent orchestration engine that uses Large Language Models to prioritize, categorize, and automate daily scheduling workflows with predictive accuracy.",
+    description: "A dynamic orchestration engine featuring animated task flows that uses LLMs to prioritize, categorize, and automate scheduling with predictive accuracy.",
     icon: CheckCircle2,
     github: "https://github.com/sriharshanetala",
     demo: "https://github.com/sriharshanetala"
