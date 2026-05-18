@@ -1,6 +1,7 @@
 
 "use client";
 
+import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 import { User, Code, Target, Zap } from "lucide-react";
 
@@ -79,10 +80,12 @@ export function About() {
               </div>
             </div>
             <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl">
-              <img 
+              <Image 
                 src="https://picsum.photos/seed/about/800/600" 
                 alt="Workspace" 
-                className="object-cover w-full h-full"
+                fill
+                className="object-cover"
+                data-ai-hint="developer workspace"
               />
             </div>
           </div>
