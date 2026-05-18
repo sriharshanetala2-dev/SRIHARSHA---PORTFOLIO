@@ -5,7 +5,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { ExternalLink, Github, Monitor, Database, Search, Sparkles, Network, ShoppingCart, CheckCircle2 } from "lucide-react";
+import { ExternalLink, Github, Monitor, Database, Search, Sparkles, Network, ShoppingCart, CheckCircle2, Code2 } from "lucide-react";
 import { PlaceHolderImages } from "@/app/lib/placeholder-images";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
@@ -34,19 +34,19 @@ const projects = [
   {
     id: "todo-app",
     title: "AI Cognitive Task Manager",
-    category: "GenAI / Productivity",
+    category: "GenAI / Coding",
     tags: ["Next.js", "Genkit", "Firebase"],
-    description: "A dynamic orchestration engine featuring animated task flows that uses LLMs to prioritize, categorize, and automate scheduling with predictive accuracy.",
-    icon: CheckCircle2,
+    description: "A dynamic orchestration engine utilizing code-driven logic and LLMs to prioritize, categorize, and automate scheduling with predictive accuracy.",
+    icon: Code2,
     github: "https://github.com/sriharshanetala",
     demo: "https://github.com/sriharshanetala"
   },
   {
     id: "ecommerce-site",
     title: "Adaptive Digital Marketplace",
-    category: "E-Commerce",
+    category: "E-Commerce / Data",
     tags: ["React", "Tailwind", "Firebase"],
-    description: "A modern, high-conversion e-commerce platform featuring dynamic product recommendation engines and real-time inventory synchronization.",
+    description: "A modern e-commerce platform featuring dynamic data recommendation engines and real-time inventory synchronization analytics.",
     icon: ShoppingCart,
     github: "https://github.com/sriharshanetala",
     demo: "https://github.com/sriharshanetala"
@@ -54,9 +54,9 @@ const projects = [
   {
     id: "subnet-master",
     title: "SubnetMaster: Visual IP Engine",
-    category: "Core Engineering",
+    category: "Network Engineering",
     tags: ["React", "Networking", "Subnetting"],
-    description: "An autonomous network topology designer for precision IP subnetting and visual calculation, showcasing deep expertise in low-level packet orchestration.",
+    description: "An autonomous network topology designer for precision IP subnetting, utilizing terminal-style logic and visual calculation engines.",
     icon: Network,
     github: "https://github.com/sriharshanetala",
     demo: "https://www.subnet-calculator.com"

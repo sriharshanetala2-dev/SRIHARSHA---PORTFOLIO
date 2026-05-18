@@ -15,9 +15,21 @@
     },
     {
       "id": "todo-app",
-      "description": "Dynamic Task Flow Orchestration",
-      "imageUrl": "https://picsum.photos/seed/task_flow_v2/800/600",
-      "imageHint": "flowing tasks"
+      "description": "Coding Environment for Task Logic",
+      "imageUrl": "https://picsum.photos/seed/dev_coding_v1/800/600",
+      "imageHint": "software code"
+    },
+    {
+      "id": "ecommerce-site",
+      "description": "Analytical Dashboard for Digital Trade",
+      "imageUrl": "https://picsum.photos/seed/dev_data_v2/800/600",
+      "imageHint": "data analysis"
+    },
+    {
+      "id": "subnet-master",
+      "description": "Technical Terminal for Network Logic",
+      "imageUrl": "https://picsum.photos/seed/dev_terminal_v3/800/600",
+      "imageHint": "coding terminal"
     },
     {
       "id": "data-analytics",
@@ -26,22 +38,10 @@
       "imageHint": "data analytics"
     },
     {
-      "id": "ecommerce-site",
-      "description": "Adaptive Digital Marketplace",
-      "imageUrl": "https://picsum.photos/seed/dev_ecommerce_v4/800/600",
-      "imageHint": "online shopping"
-    },
-    {
       "id": "retailer-app",
       "description": "Smart Supply Chain Optimizer",
       "imageUrl": "https://picsum.photos/seed/dev_logistics_v4/800/600",
       "imageHint": "retail logistics"
-    },
-    {
-      "id": "subnet-master",
-      "description": "Autonomous Network Designer",
-      "imageUrl": "https://picsum.photos/seed/dev_subnet_v4/800/600",
-      "imageHint": "network master"
     },
     {
       "id": "networking-tool",
