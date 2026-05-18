@@ -4,31 +4,31 @@ import { Briefcase, GraduationCap, Calendar } from "lucide-react";
 
 const experience = [
   {
-    role: "Senior Full-Stack Developer",
-    company: "TechNexus Solutions",
-    period: "2021 — Present",
-    description: "Leading a team of 8 developers in building scalable cloud-native applications using Next.js and AWS.",
-    type: "work",
-  },
-  {
-    role: "Full-Stack Engineer",
-    company: "Lumina Digital",
-    period: "2018 — 2021",
-    description: "Architected and delivered 15+ high-performance web applications for Fortune 500 clients.",
-    type: "work",
-  },
-  {
     role: "Junior Web Developer",
-    company: "Starlight Interactive",
-    period: "2016 — 2018",
-    description: "Specialized in front-end performance optimization and interactive UI component design.",
+    company: "Innovate Hub",
+    period: "2023 — Present",
+    description: "Developing responsive UI components and assisting in API integrations for client-facing dashboards.",
     type: "work",
   },
   {
-    role: "Master of Computer Science",
-    company: "Silicon Valley Tech University",
-    period: "2014 — 2016",
-    description: "Specialized in Distributed Systems and Artificial Intelligence.",
+    role: "Full-Stack Development Intern",
+    company: "NextGen Tech",
+    period: "2022 — 2023",
+    description: "Built internal tools using React and Node.js. Optimized database queries and improved site load speed by 20%.",
+    type: "work",
+  },
+  {
+    role: "B.Tech in Computer Science",
+    company: "Technological Institute of Excellence",
+    period: "2018 — 2022",
+    description: "Graduated with Honors. Focused on Data Structures, Algorithms, and Web Technologies.",
+    type: "education",
+  },
+  {
+    role: "Coding Bootcamp Graduate",
+    company: "FullStack Academy",
+    period: "2022",
+    description: "Intensive 6-month program focused on the MERN stack and modern software engineering practices.",
     type: "education",
   },
 ];
@@ -39,7 +39,7 @@ export function Resume() {
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-16 space-y-4">
           <h2 className="text-4xl font-headline font-bold">The Journey</h2>
-          <p className="text-muted-foreground">My professional evolution and academic foundation.</p>
+          <p className="text-muted-foreground">My academic foundation and emerging professional career.</p>
         </div>
 
         <div className="relative border-l border-border ml-4 md:ml-0 space-y-12 pb-8">

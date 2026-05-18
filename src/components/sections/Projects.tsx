@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from "react";
@@ -8,50 +9,50 @@ import { ExternalLink, Github } from "lucide-react";
 import { PlaceHolderImages } from "@/app/lib/placeholder-images";
 import { cn } from "@/lib/utils";
 
-const categories = ["All", "Web", "Mobile", "AI", "Infrastructure"];
+const categories = ["All", "Web", "Mobile", "UI/UX"];
 
 const projects = [
   {
-    title: "Enterprise Dashboard",
+    title: "TaskFlow Manager",
     category: "Web",
-    image: PlaceHolderImages[0] || { imageUrl: "https://picsum.photos/seed/p1/800/600", imageHint: "dashboard software" },
-    tags: ["React", "TypeScript", "D3.js"],
-    description: "A real-time data visualization platform for enterprise resource planning.",
+    image: PlaceHolderImages[0] || { imageUrl: "https://picsum.photos/seed/p1/800/600", imageHint: "task management" },
+    tags: ["React", "Firebase", "Tailwind"],
+    description: "A productivity tool to organize daily tasks with real-time updates and user authentication.",
   },
   {
-    title: "EcoShop Mobile",
-    category: "Mobile",
-    image: PlaceHolderImages[1] || { imageUrl: "https://picsum.photos/seed/p2/800/600", imageHint: "mobile shopping" },
-    tags: ["React Native", "Firebase", "Redux"],
-    description: "Sustainable e-commerce mobile application with localized logistics.",
-  },
-  {
-    title: "Sentinel Cloud",
-    category: "Infrastructure",
-    image: PlaceHolderImages[2] || { imageUrl: "https://picsum.photos/seed/p3/800/600", imageHint: "data visual" },
-    tags: ["AWS", "Terraform", "Go"],
-    description: "Automated infrastructure monitoring and self-healing system.",
-  },
-  {
-    title: "FinFlow",
+    title: "Weatherify Dashboard",
     category: "Web",
-    image: PlaceHolderImages[3] || { imageUrl: "https://picsum.photos/seed/p4/800/600", imageHint: "banking app" },
-    tags: ["Next.js", "Prisma", "Tailwind"],
-    description: "Personal finance management tool with AI-driven budgeting insights.",
+    image: PlaceHolderImages[1] || { imageUrl: "https://picsum.photos/seed/p2/800/600", imageHint: "weather app" },
+    tags: ["React", "OpenWeather API", "Chart.js"],
+    description: "Dynamic weather forecasting application providing detailed metrics and 7-day predictions.",
   },
   {
-    title: "Linguist AI",
-    category: "AI",
-    image: PlaceHolderImages[4] || { imageUrl: "https://picsum.photos/seed/p5/800/600", imageHint: "artificial intelligence" },
-    tags: ["OpenAI", "Node.js", "Python"],
-    description: "NLP platform for multi-language sentiment analysis and translation.",
+    title: "DevConnect Social",
+    category: "Web",
+    image: PlaceHolderImages[2] || { imageUrl: "https://picsum.photos/seed/p3/800/600", imageHint: "social network" },
+    tags: ["Next.js", "MongoDB", "Auth.js"],
+    description: "A mini-social network for developers to share project updates and connect with peers.",
   },
   {
-    title: "Vitality Tracker",
+    title: "Recipe Finder",
     category: "Mobile",
-    image: PlaceHolderImages[5] || { imageUrl: "https://picsum.photos/seed/p6/800/600", imageHint: "fitness app" },
-    tags: ["Flutter", "HealthKit", "GraphQL"],
-    description: "End-to-end health tracking solution with medical API integrations.",
+    image: PlaceHolderImages[3] || { imageUrl: "https://picsum.photos/seed/p4/800/600", imageHint: "food app" },
+    tags: ["React Native", "Spoonacular API"],
+    description: "Mobile-first application for searching recipes by ingredients and saving favorites.",
+  },
+  {
+    title: "Personal Portfolio v1",
+    category: "UI/UX",
+    image: PlaceHolderImages[4] || { imageUrl: "https://picsum.photos/seed/p5/800/600", imageHint: "portfolio design" },
+    tags: ["HTML", "CSS", "JavaScript"],
+    description: "My initial step into professional web presence, focusing on responsive design and clean layout.",
+  },
+  {
+    title: "Expense Tracker",
+    category: "Web",
+    image: PlaceHolderImages[5] || { imageUrl: "https://picsum.photos/seed/p6/800/600", imageHint: "finance tracker" },
+    tags: ["Next.js", "Prisma", "PostgreSQL"],
+    description: "Simplified personal finance tracker with category-wise spending analysis.",
   },
 ];
 
@@ -67,7 +68,7 @@ export function Projects() {
       <div className="space-y-4 text-center mb-16">
         <h2 className="text-4xl font-headline font-bold">Featured Projects</h2>
         <p className="text-muted-foreground max-w-xl mx-auto">
-          A collection of digital products built with precision, scalability, and impact in mind.
+          A showcase of my recent work as I expand my technical skills and build impactful tools.
         </p>
 
         <div className="flex flex-wrap items-center justify-center gap-2 pt-6">

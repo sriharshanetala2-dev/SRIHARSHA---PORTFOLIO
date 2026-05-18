@@ -5,26 +5,26 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/comp
 import { Badge } from "@/components/ui/badge";
 
 const skills = [
-  { name: "React / Next.js", level: "Expert", category: "Frontend" },
-  { name: "TypeScript", level: "Expert", category: "Language" },
-  { name: "Node.js", level: "Expert", category: "Backend" },
+  { name: "React / Next.js", level: "Advanced", category: "Frontend" },
+  { name: "TypeScript", level: "Intermediate", category: "Language" },
+  { name: "Node.js", level: "Intermediate", category: "Backend" },
   { name: "Tailwind CSS", level: "Advanced", category: "Frontend" },
-  { name: "PostgreSQL", level: "Advanced", category: "Backend" },
-  { name: "AWS / Cloud", level: "Advanced", category: "Infrastructure" },
-  { name: "Docker", level: "Advanced", category: "Infrastructure" },
-  { name: "GraphQL", level: "Intermediate", category: "Backend" },
-  { name: "Python", level: "Intermediate", category: "AI/Data" },
-  { name: "GenAI / LLMs", level: "Advanced", category: "AI/Data" },
-  { name: "Figma", level: "Intermediate", category: "Design" },
-  { name: "Unit Testing", level: "Expert", category: "Quality" },
+  { name: "HTML5 / CSS3", level: "Expert", category: "Frontend" },
+  { name: "JavaScript (ES6+)", level: "Advanced", category: "Language" },
+  { name: "Git / GitHub", level: "Advanced", category: "Tools" },
+  { name: "MongoDB", level: "Intermediate", category: "Backend" },
+  { name: "SQL Basics", level: "Intermediate", category: "Backend" },
+  { name: "Firebase", level: "Intermediate", category: "Tools" },
+  { name: "Responsive Design", level: "Advanced", category: "Design" },
+  { name: "REST APIs", level: "Advanced", category: "Backend" },
 ];
 
 export function Skills() {
   return (
     <section id="skills" className="py-24 px-6 max-w-5xl mx-auto">
       <div className="text-center mb-16 space-y-4">
-        <h2 className="text-4xl font-headline font-bold">Tech Stack</h2>
-        <p className="text-muted-foreground">My dynamic toolkit for building world-class products.</p>
+        <h2 className="text-4xl font-headline font-bold">My Toolkit</h2>
+        <p className="text-muted-foreground">The technologies I'm mastering to build modern web experiences.</p>
       </div>
 
       <div className="flex flex-wrap justify-center gap-4">

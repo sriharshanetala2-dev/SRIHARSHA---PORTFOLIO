@@ -15,28 +15,28 @@ export function Hero() {
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
           </span>
-          Available for new opportunities
+          Eager to build and learn
         </div>
 
         <h1 className="text-5xl md:text-7xl font-headline font-bold leading-tight">
-          Crafting Digital <br />
+          Building the Future <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-primary animate-gradient">
-            Excellence & Innovation
+            One Line at a Time
           </span>
         </h1>
 
         <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-          Senior Product Engineer specializing in high-performance web systems, 
-          generative AI integrations, and intuitive user experiences.
+          Junior Full-Stack Developer specializing in modern web technologies. 
+          Focused on writing clean code, building responsive interfaces, and solving real-world problems.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
           <Button size="lg" className="h-12 px-8 bg-accent text-accent-foreground hover:bg-accent/90 rounded-full font-semibold group">
-            View My Work
+            See My Projects
             <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
           </Button>
           <Button size="lg" variant="outline" className="h-12 px-8 rounded-full border-border hover:bg-secondary font-semibold">
-            Contact Me
+            Get In Touch
           </Button>
         </div>
       </div>
