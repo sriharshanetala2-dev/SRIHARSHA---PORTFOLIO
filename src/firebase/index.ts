@@ -7,11 +7,22 @@ import { getAuth, Auth } from 'firebase/auth';
 import { firebaseConfig } from './config';
 
 export function initializeFirebase() {
-  const app = getApps().length > 0 ? getApp() : initializeApp(firebaseConfig);
-  const db = getFirestore(app);
-  const auth = getAuth(app);
+  // Check if we have the minimum required config to initialize
+  if (!firebaseConfig.apiKey || firebaseConfig.apiKey === "undefined") {
+    console.warn("Firebase configuration is missing or incomplete. Please check your environment variables.");
+    return { firebaseApp: null, firestore: null, auth: null };
+  }
 
-  return { firebaseApp: app, firestore: db, auth };
+  try {
+    const app = getApps().length > 0 ? getApp() : initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    const auth = getAuth(app);
+
+    return { firebaseApp: app, firestore: db, auth };
+  } catch (error) {
+    console.error("Error initializing Firebase:", error);
+    return { firebaseApp: null, firestore: null, auth: null };
+  }
 }
 
 export * from './provider';

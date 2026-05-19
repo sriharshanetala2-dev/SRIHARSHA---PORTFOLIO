@@ -20,7 +20,15 @@ export function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!db) return;
+    
+    if (!db) {
+      toast({
+        variant: "destructive",
+        title: "Configuration Missing",
+        description: "Firebase is not configured. Please use the direct email link instead.",
+      });
+      return;
+    }
 
     setIsSubmitting(true);
     
