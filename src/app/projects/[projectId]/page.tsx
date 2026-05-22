@@ -20,8 +20,7 @@ import {
   BrainCircuit,
   Box,
   Fingerprint,
-  Network,
-  CpuChip
+  Network
 } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -81,7 +80,7 @@ export default function ProjectPage({ params }: { params: Promise<{ projectId: s
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-3xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black tracking-tighter uppercase leading-[1.05] shimmer-text break-words"
+            className="text-3xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter uppercase leading-[1.05] shimmer-text break-words"
           >
             {project.title}
           </motion.h1>
@@ -118,7 +117,7 @@ export default function ProjectPage({ params }: { params: Promise<{ projectId: s
             <section className="space-y-12">
               <div className="flex items-center gap-4">
                 <div className="p-3 rounded-xl bg-primary/10 text-primary">
-                  <CpuChip className="w-6 h-6" />
+                  <Cpu className="w-6 h-6" />
                 </div>
                 <h2 className="text-xl sm:text-2xl font-black uppercase tracking-tight">System Specification Manifest</h2>
               </div>
@@ -234,3 +233,6 @@ export default function ProjectPage({ params }: { params: Promise<{ projectId: s
     </div>
   );
 }
+
+// Hallucination Fix: Icon replacement mapping
+const ShieldCheck = Shield; // Reusing Shield as a placeholder if ShieldCheck is not standard in some versions, but standard lucide has it.
