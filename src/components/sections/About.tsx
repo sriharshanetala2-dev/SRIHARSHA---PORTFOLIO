@@ -1,121 +1,94 @@
 
 "use client";
 
-import { useState, useEffect } from "react";
 import Image from "next/image";
-import { Card, CardContent } from "@/components/ui/card";
-import { Code, Target, Zap, Layout, Database, Globe, Layers, Cpu } from "lucide-react";
+import { motion } from "framer-motion";
+import { Code2, Laptop, Rocket, Palette, Sparkles, Database } from "lucide-react";
 import { PlaceHolderImages } from "@/app/lib/placeholder-images";
 
 export function About() {
-  const [activeStep, setActiveStep] = useState(0);
-  const creativeImage = PlaceHolderImages.find(img => img.id === "creative-process");
-
-  const steps = [
-    { title: "Architect", icon: Layout, detail: "Structural Schema Design" },
-    { title: "Develop", icon: Code, detail: "High-Efficiency Logic Synthesis" },
-    { title: "Integrate", icon: Database, detail: "Distributed Data Persistence" },
-    { title: "Optimize", icon: Zap, detail: "Performance & Throughput Tuning" }
-  ];
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveStep((prev) => (prev + 1) % steps.length);
-    }, 4000);
-    return () => clearInterval(interval);
-  }, []);
+  const animeDevImage = PlaceHolderImages.find(img => img.id === "anime-dev");
 
   return (
-    <section id="about" className="py-32 px-6 relative overflow-hidden bg-foreground/[0.02]">
-      <div className="max-w-7xl mx-auto space-y-24">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-          <div className="space-y-12">
-            <div className="space-y-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-card text-[9px] font-black tracking-widest text-primary uppercase">
-                <Cpu className="w-3 h-3" />
-                The Craft
+    <section id="about" className="py-24 px-6 relative overflow-hidden">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <motion.div 
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="space-y-8"
+          >
+            <div className="space-y-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-[10px] font-black tracking-widest text-primary uppercase border border-primary/20">
+                <Sparkles className="w-3 h-3" />
+                The Story
               </div>
-              <h2 className="text-5xl md:text-8xl font-headline font-black leading-none tracking-tighter">
-                ENGINEERING <br />
-                <span className="text-primary">PHILOSOPHY</span>
+              <h2 className="text-4xl md:text-6xl font-headline font-black leading-tight">
+                Orchestrating <br />
+                <span className="text-gradient">Digital Symphonies</span>
               </h2>
-              <p className="text-xl text-muted-foreground leading-relaxed max-w-xl font-medium">
-                I translate complex business requirements into elegant software architectures. My methodology bridges the gap between raw data integrity and fluid, intelligent user experiences.
+            </div>
+
+            <div className="space-y-6 text-lg text-muted-foreground leading-relaxed font-medium">
+              <p>
+                I don't just write code; I weave logic into experiences. My journey as a <span className="text-primary font-bold">Computer Science graduate</span> is a continuous exploration of the boundary where algorithmic efficiency meets human-centric design.
+              </p>
+              <p>
+                Whether I'm architecting a robust <span className="text-accent font-bold">Full Stack ecosystem</span> or fine-tuning the choreography of a <span className="text-primary font-bold">UI interaction</span>, my goal is the same: to create software that doesn't just work, but feels like it breathes.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+            <div className="grid grid-cols-2 gap-6">
               {[
-                { title: "Logical Rigor", icon: Target, desc: "Decomposing multi-faceted problems into deterministic code solutions." },
-                { title: "Neural Sync", icon: Zap, desc: "Implementing semantic AI layers to enhance application intelligence." },
-                { title: "Scalable Core", icon: Database, desc: "Building modular systems designed for long-term growth and stability." },
-                { title: "UX Precision", icon: Layout, desc: "Synthesizing intuitive interfaces with pixel-perfect architectural execution." }
+                { label: "Frontend", icon: Laptop, color: "text-blue-500" },
+                { label: "Backend", icon: Database, color: "text-indigo-500" },
+                { label: "UI/UX", icon: Palette, color: "text-purple-500" },
+                { label: "AI Integration", icon: Rocket, color: "text-orange-500" }
               ].map((item, i) => (
-                <div key={i} className="space-y-4 group">
-                  <div className="p-4 w-fit rounded-[1.5rem] bg-foreground/5 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500 shadow-sm">
-                    <item.icon className="w-6 h-6" />
+                <div key={i} className="flex items-center gap-3 p-4 rounded-2xl bg-secondary/50 border border-border/50 group hover:border-primary/50 transition-colors">
+                  <div className={`p-2 rounded-xl bg-background shadow-sm group-hover:scale-110 transition-transform ${item.color}`}>
+                    <item.icon className="w-5 h-5" />
                   </div>
-                  <h3 className="font-black text-xl uppercase tracking-tight">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed font-medium opacity-70">{item.desc}</p>
+                  <span className="font-bold text-sm tracking-tight">{item.label}</span>
                 </div>
               ))}
             </div>
-          </div>
+          </motion.div>
 
-          <div className="relative">
-            <div className="absolute -inset-10 bg-primary/10 blur-[120px] rounded-full -z-10 animate-pulse" />
-            <div className="glass-card rounded-[3rem] p-10 space-y-10 border-foreground/5">
-              <div className="flex items-center justify-between border-b border-foreground/5 pb-8">
-                <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
-                    <Layers className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <span className="font-black uppercase tracking-[0.3em] text-[10px]">Active Sequence</span>
-                    <p className="text-xs font-bold opacity-40">System Lifecycle Node</p>
-                  </div>
-                </div>
-                <div className="px-4 py-1.5 rounded-full bg-accent/10 text-[9px] font-black text-accent uppercase tracking-widest animate-pulse">
-                  Processing
-                </div>
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="relative"
+          >
+            <div className="absolute -inset-4 bg-primary/20 blur-[100px] rounded-full -z-10 animate-pulse" />
+            <div className="relative aspect-square rounded-[3rem] overflow-hidden border border-border shadow-2xl group">
+              {animeDevImage && (
+                <Image 
+                  src={animeDevImage.imageUrl}
+                  alt="Anime Developer Working"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-[3000ms]"
+                  data-ai-hint={animeDevImage.imageHint}
+                />
+              )}
+              <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+              
+              {/* Dynamic Floating Badges */}
+              <div className="absolute top-8 left-8 p-4 glass-card rounded-2xl flex items-center gap-3 animate-bounce shadow-xl">
+                <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                <span className="text-[10px] font-black uppercase tracking-widest">Compiling Vision...</span>
               </div>
-
-              <div className="relative aspect-square rounded-[2.5rem] overflow-hidden group border border-foreground/5 shadow-2xl">
-                {creativeImage && (
-                  <Image 
-                    src={creativeImage.imageUrl}
-                    alt="Process Illustration"
-                    fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-[4000ms] opacity-80"
-                    data-ai-hint={creativeImage.imageHint}
-                  />
-                )}
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60" />
-                
-                <div className="absolute bottom-8 left-8 right-8 p-8 glass-card rounded-[2rem] flex items-center gap-6 animate-in slide-in-from-bottom-6 shadow-3xl">
-                  <div className="p-4 bg-primary text-primary-foreground rounded-2xl shadow-lg shadow-primary/30">
-                    {(() => {
-                      const Icon = steps[activeStep].icon;
-                      return <Icon className="w-6 h-6" />;
-                    })()}
-                  </div>
-                  <div>
-                    <p className="text-[10px] font-black uppercase text-primary tracking-[0.4em] mb-1">Module: {steps[activeStep].title}</p>
-                    <p className="font-black text-lg tracking-tight">{steps[activeStep].detail}</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex gap-3">
-                {steps.map((_, idx) => (
-                  <div 
-                    key={idx}
-                    className={`h-1 flex-1 rounded-full transition-all duration-700 ${activeStep === idx ? "bg-primary" : "bg-foreground/10"}`}
-                  />
-                ))}
+              
+              <div className="absolute bottom-8 right-8 p-6 glass-card rounded-2xl space-y-2 max-w-[200px] shadow-2xl">
+                <p className="text-[10px] font-black text-primary uppercase tracking-[0.2em]">Active Status</p>
+                <p className="text-sm font-bold leading-tight">Optimizing User Intent Analytics</p>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

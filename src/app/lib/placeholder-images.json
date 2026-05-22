@@ -1,22 +1,23 @@
+
 {
   "placeholderImages": [
     {
       "id": "site-logo",
-      "description": "Developer S Logo Signature",
-      "imageUrl": "https://picsum.photos/seed/sri_dev_logo/200/200",
-      "imageHint": "developer logo S"
+      "description": "Professional Tech Brand Mark",
+      "imageUrl": "https://picsum.photos/seed/sri_logo_tech/200/200",
+      "imageHint": "tech logo"
+    },
+    {
+      "id": "anime-dev",
+      "description": "Anime style developer working at a desk",
+      "imageUrl": "https://picsum.photos/seed/anime_dev_coding_v2/800/600",
+      "imageHint": "anime coder"
     },
     {
       "id": "student-system",
       "description": "Intelligent Academic Lifecycle Management",
       "imageUrl": "https://picsum.photos/seed/student_database_records/800/600",
       "imageHint": "student database"
-    },
-    {
-      "id": "weather-oracle",
-      "description": "AI-Driven Atmospheric Insights",
-      "imageUrl": "https://picsum.photos/seed/sri_weather_v2/800/600",
-      "imageHint": "weather forecasting"
     },
     {
       "id": "ai-task-manager",
@@ -35,18 +36,6 @@
       "description": "Visual IP Networking Engine",
       "imageUrl": "https://picsum.photos/seed/sri_network_v5/800/600",
       "imageHint": "computer networking"
-    },
-    {
-      "id": "data-analytics",
-      "description": "Predictive Data Synthesis Platform",
-      "imageUrl": "https://picsum.photos/seed/sri_analytics_v6/800/600",
-      "imageHint": "data science"
-    },
-    {
-      "id": "creative-process",
-      "description": "UI/UX Design Architecture Blueprint",
-      "imageUrl": "https://picsum.photos/seed/ui_design_ux_sri/800/600",
-      "imageHint": "ui design"
     }
   ]
 }

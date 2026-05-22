@@ -11,6 +11,7 @@ import { useFirestore } from "@/firebase";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { errorEmitter } from '@/firebase/error-emitter';
 import { FirestorePermissionError } from '@/firebase/errors';
+import { motion } from "framer-motion";
 
 export function Contact() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
@@ -32,7 +33,7 @@ export function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Fallback always works for mail clients
+    // Fallback opens Gmail client with pre-filled content
     const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${userEmail}&su=Inquiry from Portfolio&body=Hi Sri Harsha, my name is ${formData.name}. %0D%0A%0D%0A${formData.message}`;
     
     if (!db) {
@@ -42,14 +43,13 @@ export function Contact() {
 
     setIsSubmitting(true);
     try {
-      await addDoc(collection(db, 'messages'), {
+      addDoc(collection(db, 'messages'), {
         ...formData,
         timestamp: serverTimestamp(),
         recipient: userEmail,
       });
-      toast({ title: "Message Sent", description: "I will get back to you shortly." });
+      toast({ title: "Message Logged", description: "Your inquiry has been stored in my records." });
       setFormData({ name: "", email: "", message: "" });
-      // Also open the mail client for better redundancy
       window.open(gmailUrl, '_blank');
     } catch (error: any) {
       const permissionError = new FirestorePermissionError({ path: 'messages', operation: 'create' });
@@ -61,48 +61,56 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 px-6 bg-secondary/10">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
-        <div className="space-y-10">
-          <div className="space-y-4">
-            <h2 className="text-4xl md:text-6xl font-headline font-black">Let's <span className="text-primary">Connect</span></h2>
-            <p className="text-lg text-muted-foreground leading-relaxed max-w-md">
-              Currently open for Full Stack, Frontend, or UI Developer opportunities. Let's build something amazing together.
+    <section id="contact" className="py-32 px-6 bg-secondary/20 relative">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="space-y-12"
+        >
+          <div className="space-y-6">
+            <h2 className="text-5xl md:text-7xl font-headline font-black tracking-tighter">
+              LET'S <span className="text-primary">TALK</span>
+            </h2>
+            <p className="text-xl text-muted-foreground leading-relaxed max-w-md font-medium">
+              Open for Full Stack, Frontend, or UI engineering roles. Let's discuss how I can contribute to your vision.
             </p>
           </div>
 
           <div className="space-y-4">
             <div 
               onClick={copyEmail}
-              className="flex items-center gap-4 p-5 glass-card rounded-2xl hover:border-primary/50 cursor-pointer group"
+              className="flex items-center gap-5 p-6 glass-card rounded-3xl hover:border-primary/50 cursor-pointer group transition-all"
             >
-              <div className="p-3 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all">
-                <Mail className="w-5 h-5" />
+              <div className="p-4 rounded-2xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all">
+                <Mail className="w-6 h-6" />
               </div>
               <div className="flex-1">
-                <p className="text-[10px] font-bold uppercase text-primary tracking-widest">Email</p>
-                <p className="font-bold">{userEmail}</p>
+                <p className="text-[10px] font-black uppercase text-primary tracking-widest">Direct Mail</p>
+                <p className="font-bold text-lg">{userEmail}</p>
               </div>
-              {copied ? <Check className="w-4 h-4 text-green-500" /> : <Copy className="w-4 h-4 opacity-30" />}
+              {copied ? <Check className="w-5 h-5 text-green-500" /> : <Copy className="w-5 h-5 opacity-20 group-hover:opacity-100 transition-opacity" />}
             </div>
 
-            <div className="flex items-center gap-4 p-5 glass-card rounded-2xl">
-              <div className="p-3 rounded-xl bg-primary/10 text-primary">
-                <Phone className="w-5 h-5" />
+            <div className="flex items-center gap-5 p-6 glass-card rounded-3xl">
+              <div className="p-4 rounded-2xl bg-primary/10 text-primary">
+                <Phone className="w-6 h-6" />
               </div>
               <div>
-                <p className="text-[10px] font-bold uppercase text-primary tracking-widest">Phone</p>
-                <p className="font-bold">+91 9346759263</p>
+                <p className="text-[10px] font-black uppercase text-primary tracking-widest">Inquiry Line</p>
+                <p className="font-bold text-lg">+91 9346759263</p>
               </div>
             </div>
 
-            <div className="flex items-center gap-4 p-5 glass-card rounded-2xl">
-              <div className="p-3 rounded-xl bg-primary/10 text-primary">
-                <MapPin className="w-5 h-5" />
+            <div className="flex items-center gap-5 p-6 glass-card rounded-3xl">
+              <div className="p-4 rounded-2xl bg-primary/10 text-primary">
+                <MapPin className="w-6 h-6" />
               </div>
               <div>
-                <p className="text-[10px] font-bold uppercase text-primary tracking-widest">Location</p>
-                <p className="font-bold">India (IST)</p>
+                <p className="text-[10px] font-black uppercase text-primary tracking-widest">Base Region</p>
+                <p className="font-bold text-lg">India (IST)</p>
               </div>
             </div>
           </div>
@@ -112,42 +120,48 @@ export function Contact() {
               href={linkedInUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-4 rounded-2xl glass-card hover:bg-primary hover:text-primary-foreground transition-all"
+              className="p-5 rounded-3xl glass-card hover:bg-primary hover:text-primary-foreground transition-all hover:-translate-y-1 shadow-lg"
             >
-              <Linkedin className="w-5 h-5" />
+              <Linkedin className="w-6 h-6" />
             </a>
             <a 
               href="https://github.com/sriharshanetala2-dev" 
               target="_blank"
               rel="noopener noreferrer"
-              className="p-4 rounded-2xl glass-card hover:bg-primary hover:text-primary-foreground transition-all"
+              className="p-5 rounded-3xl glass-card hover:bg-primary hover:text-primary-foreground transition-all hover:-translate-y-1 shadow-lg"
             >
-              <Github className="w-5 h-5" />
+              <Github className="w-6 h-6" />
             </a>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="glass-card p-8 rounded-3xl">
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="glass-card p-10 rounded-[3rem] shadow-3xl"
+        >
+          <form onSubmit={handleSubmit} className="space-y-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="space-y-2">
-                <label className="text-[10px] font-bold uppercase text-muted-foreground tracking-widest ml-1">Name</label>
+                <label className="text-[10px] font-black uppercase text-muted-foreground tracking-widest ml-1">Identity</label>
                 <Input 
                   placeholder="Your Name" 
                   required
-                  className="bg-background/50 border-border focus:ring-primary h-12"
+                  className="bg-background/50 border-border focus:ring-primary h-14 rounded-2xl text-lg font-bold"
                   value={formData.name}
                   onChange={(e) => setFormData({...formData, name: e.target.value})}
                   disabled={isSubmitting}
                 />
               </div>
               <div className="space-y-2">
-                <label className="text-[10px] font-bold uppercase text-muted-foreground tracking-widest ml-1">Email</label>
+                <label className="text-[10px] font-black uppercase text-muted-foreground tracking-widest ml-1">Registry Email</label>
                 <Input 
                   type="email" 
                   placeholder="email@example.com" 
                   required
-                  className="bg-background/50 border-border focus:ring-primary h-12"
+                  className="bg-background/50 border-border focus:ring-primary h-14 rounded-2xl text-lg font-bold"
                   value={formData.email}
                   onChange={(e) => setFormData({...formData, email: e.target.value})}
                   disabled={isSubmitting}
@@ -155,10 +169,10 @@ export function Contact() {
               </div>
             </div>
             <div className="space-y-2">
-              <label className="text-[10px] font-bold uppercase text-muted-foreground tracking-widest ml-1">Message</label>
+              <label className="text-[10px] font-black uppercase text-muted-foreground tracking-widest ml-1">Objective</label>
               <Textarea 
-                placeholder="How can I help you?" 
-                className="min-h-[150px] bg-background/50 border-border focus:ring-primary p-4 resize-none"
+                placeholder="Briefly describe your requirements..." 
+                className="min-h-[180px] bg-background/50 border-border focus:ring-primary p-6 resize-none rounded-2xl text-lg font-medium"
                 required
                 value={formData.message}
                 onChange={(e) => setFormData({...formData, message: e.target.value})}
@@ -167,13 +181,13 @@ export function Contact() {
             </div>
             <Button 
               type="submit" 
-              className="w-full h-14 rounded-xl bg-primary text-primary-foreground hover:bg-primary/90 font-bold uppercase tracking-widest gap-2"
+              className="w-full h-20 rounded-[2rem] bg-primary text-primary-foreground hover:bg-primary/90 font-black uppercase tracking-[0.3em] gap-3 shadow-2xl shadow-primary/30 transition-all hover:scale-[1.02]"
               disabled={isSubmitting}
             >
-              {isSubmitting ? <Loader2 className="w-4 h-4 animate-spin" /> : <><Send className="w-4 h-4" /> Send Inquiry</>}
+              {isSubmitting ? <Loader2 className="w-6 h-6 animate-spin" /> : <><Send className="w-5 h-5" /> Initiate Sync</>}
             </Button>
           </form>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
