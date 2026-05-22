@@ -7,46 +7,40 @@
       "imageHint": "tech logo"
     },
     {
-      "id": "student-system",
-      "description": "Intelligent Academic Lifecycle Management",
-      "imageUrl": "https://picsum.photos/seed/student_database_records/800/600",
-      "imageHint": "student database"
-    },
-    {
-      "id": "weather-oracle",
-      "description": "AI-Driven Atmospheric Insights",
-      "imageUrl": "https://picsum.photos/seed/sri_weather_v2/800/600",
-      "imageHint": "weather forecasting"
-    },
-    {
-      "id": "ai-task-manager",
-      "description": "Cognitive Task Orchestration",
-      "imageUrl": "https://picsum.photos/seed/sri_task_v3/800/600",
+      "id": "neural-workflow-os",
+      "description": "AI Logic System Orchestration",
+      "imageUrl": "https://picsum.photos/seed/sri_ai_v2/1600/900",
       "imageHint": "artificial intelligence"
     },
     {
-      "id": "marketsync",
-      "description": "Adaptive Financial Trading Hub",
-      "imageUrl": "https://picsum.photos/seed/sri_finance_v4/800/600",
-      "imageHint": "stock trading"
+      "id": "skyguard-mobile",
+      "description": "Flutter Fleet Management Hub",
+      "imageUrl": "https://picsum.photos/seed/fleet_tracker/1600/900",
+      "imageHint": "mobile app"
     },
     {
-      "id": "subnet-master",
-      "description": "Visual IP Networking Engine",
-      "imageUrl": "https://picsum.photos/seed/sri_network_v5/800/600",
-      "imageHint": "computer networking"
+      "id": "sentinel-iam-hub",
+      "description": "Enterprise Authentication Hub",
+      "imageUrl": "https://picsum.photos/seed/sri_security_v2/1600/900",
+      "imageHint": "security architecture"
     },
     {
-      "id": "data-analytics",
-      "description": "Predictive Data Synthesis Platform",
-      "imageUrl": "https://picsum.photos/seed/sri_analytics_v6/800/600",
+      "id": "cloudsync-vault",
+      "description": "Atomic Document Cloud Storage",
+      "imageUrl": "https://picsum.photos/seed/cloud_vault/1600/900",
+      "imageHint": "cloud database"
+    },
+    {
+      "id": "pulse-analytics-node",
+      "description": "Predictive Data Pipeline",
+      "imageUrl": "https://picsum.photos/seed/sri_data_v2/1600/900",
       "imageHint": "data science"
     },
     {
-      "id": "creative-process",
-      "description": "UI/UX Design Architecture Blueprint",
-      "imageUrl": "https://picsum.photos/seed/ui_design_ux_sri/800/600",
-      "imageHint": "ui design"
+      "id": "core-logic-engine",
+      "description": "Java Spring Boot System",
+      "imageUrl": "https://picsum.photos/seed/sri_java_v2/1600/900",
+      "imageHint": "software engineering"
     }
   ]
 }

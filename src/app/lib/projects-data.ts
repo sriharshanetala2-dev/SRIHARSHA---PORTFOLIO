@@ -3,12 +3,12 @@ import {
   Database, 
   Globe, 
   Workflow, 
-  BarChart3,
   Terminal,
   Activity,
   ShieldCheck,
   Server,
-  Code2,
+  Smartphone,
+  Cloud,
   Box
 } from 'lucide-react';
 
@@ -48,6 +48,40 @@ export const projects = [
 }`
   },
   {
+    id: 'skyguard-mobile',
+    title: 'SkyGuard Mobile',
+    category: 'Mobile Dev',
+    icon: Smartphone,
+    description: 'High-performance fleet tracking application developed with Flutter and Dart, integrated with Firebase real-time data.',
+    longDescription: 'Engineered a cross-platform mobile solution for real-time asset tracking. Implemented reactive state management using Dart and connected to Firebase Firestore and Cloud Messaging for zero-latency updates.',
+    tags: ['Flutter', 'Dart', 'Firebase', 'Mobile'],
+    techStack: ['Flutter', 'Dart', 'Firebase Firestore', 'Firebase Auth'],
+    features: [
+      'Real-time Geospatial Tracking',
+      'Reactive Dart UI Logic',
+      'Firebase Cloud Synchronization',
+      'Biometric Secure Access'
+    ],
+    metrics: [
+      { label: 'Integrity', value: 'Mobile-L1' },
+      { label: 'Architecture', value: 'Reactive' },
+      { label: 'Security', value: 'Hardened' }
+    ],
+    systemLogs: [
+      "[DART] Initializing Flutter Kernel...",
+      "[FIREBASE] Establishing stream listener...",
+      "[GPS] Location polling active.",
+      "[UI] Frame rate: 120fps stable.",
+      "[APP] Fleet node: SYNCED"
+    ],
+    codeSnippet: `{
+  "platform": "Flutter_Dart_Core",
+  "service": "Firebase_Cloud",
+  "state": "Reactive_BLoC",
+  "status": "ACTIVE"
+}`
+  },
+  {
     id: 'sentinel-iam-hub',
     title: 'Sentinel IAM Hub',
     category: 'Security',
@@ -80,6 +114,40 @@ export const projects = [
   "database": "SQL_Postgres",
   "auth": "JWT_Secure",
   "state": "ACTIVE"
+}`
+  },
+  {
+    id: 'cloudsync-vault',
+    title: 'CloudSync Vault',
+    category: 'Full Stack',
+    icon: Cloud,
+    description: 'Enterprise document management platform built with React and Node.js, featuring atomic Firebase storage operations.',
+    longDescription: 'Developed a high-concurrency file management system. Utilized React for a responsive frontend and Node.js for backend orchestration, with Firebase handles for storage and complex auth rules.',
+    tags: ['React', 'Node.js', 'Firebase', 'TS'],
+    techStack: ['React', 'Node.js', 'Firebase Storage', 'TypeScript'],
+    features: [
+      'Atomic Document Mutations',
+      'Firebase Security Logic',
+      'Real-time Collaboration',
+      'High-Speed CDN Delivery'
+    ],
+    metrics: [
+      { label: 'Integrity', value: 'Atomic' },
+      { label: 'Architecture', value: 'Serverless' },
+      { label: 'Security', value: 'Verified' }
+    ],
+    systemLogs: [
+      "[NODE] Initializing worker thread...",
+      "[FIREBASE] Mounting bucket storage...",
+      "[UI] Hydrating React components...",
+      "[AUTH] Rule set deployed.",
+      "[SYNC] Vault node: ONLINE"
+    ],
+    codeSnippet: `{
+  "stack": "React_NodeJS_Firebase",
+  "concurrency": "EventLoop",
+  "storage": "Firebase_Bucket",
+  "status": "RUNNING"
 }`
   },
   {

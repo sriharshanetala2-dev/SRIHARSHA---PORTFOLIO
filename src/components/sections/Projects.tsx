@@ -36,7 +36,7 @@ export function Projects() {
             viewport={{ once: true }}
             className="max-w-2xl text-[12px] sm:text-sm text-muted-foreground font-black uppercase tracking-[0.3em] leading-relaxed mx-auto opacity-70"
           >
-            Full Stack software systems engineered for performance and structural stability.
+            Full Stack & Mobile software systems engineered for performance and structural stability.
           </motion.p>
         </div>
 

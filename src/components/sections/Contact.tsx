@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, Send, Linkedin, Github, Phone, Copy, Check, Loader2, User, Sparkles, Terminal } from "lucide-react";
+import { Mail, Send, Linkedin, Github, Phone, Copy, Check, Loader2, User, Terminal } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useFirestore } from "@/firebase";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";

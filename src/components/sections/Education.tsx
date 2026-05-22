@@ -7,19 +7,19 @@ import { GraduationCap, BookOpen, BrainCircuit } from "lucide-react";
 const education = [
   {
     role: "B.Sc in Computer Science",
-    company: "Glocal University",
+    institution: "Glocal University",
     description: "Foundational Computer Science degree focused on software engineering principles and computational logic.",
     icon: GraduationCap
   },
   {
     role: "Intermediate Education",
-    company: "SRR & CVR Govt Jr College",
+    institution: "SRR & CVR Govt Jr College",
     description: "Pre-university education focusing on science and mathematics.",
     icon: BookOpen
   },
   {
     role: "Secondary School Certificate",
-    company: "Christ the King High School",
+    institution: "Christ the King High School",
     description: "Foundational academic training and logic development.",
     icon: BrainCircuit
   },
@@ -66,7 +66,7 @@ export function Education() {
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                       <h3 className="text-xl sm:text-2xl font-headline font-black uppercase tracking-tight group-hover:text-primary transition-colors">{item.role}</h3>
                     </div>
-                    <p className="text-primary font-black text-[10px] uppercase tracking-[0.3em] opacity-80">{item.company}</p>
+                    <p className="text-primary font-black text-[10px] uppercase tracking-[0.3em] opacity-80">{item.institution}</p>
                     <p className="text-sm sm:text-base text-muted-foreground leading-relaxed font-bold opacity-80 uppercase tracking-tight">
                       {item.description}
                     </p>

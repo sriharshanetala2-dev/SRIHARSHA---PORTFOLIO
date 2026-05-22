@@ -5,12 +5,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { projects } from "@/app/lib/projects-data";
 import { 
-  Terminal,
-  Cpu,
   Database,
   ShieldCheck,
   Layers,
-  Code2,
   ChevronLeft,
   Activity,
   Box
