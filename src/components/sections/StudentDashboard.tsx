@@ -17,7 +17,8 @@ import {
   BarChart3,
   PieChart as PieChartIcon,
   Download,
-  Filter
+  Filter,
+  Activity
 } from "lucide-react";
 import { 
   XAxis, 
@@ -120,39 +121,41 @@ export function StudentDashboard() {
                 </div>
               </CardHeader>
               <CardContent>
-                <Table>
-                  <TableHeader>
-                    <TableRow>
-                      <TableHead>ID</TableHead>
-                      <TableHead>Name</TableHead>
-                      <TableHead>Course</TableHead>
-                      <TableHead>GPA</TableHead>
-                      <TableHead>Status</TableHead>
-                      <TableHead className="text-right">Actions</TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {studentActivity.map((student) => (
-                      <TableRow key={student.id}>
-                        <TableCell className="font-mono text-xs">{student.id_num}</TableCell>
-                        <TableCell className="font-medium">{student.name}</TableCell>
-                        <TableCell>{student.course}</TableCell>
-                        <TableCell className="font-bold text-primary">{student.gpa}</TableCell>
-                        <TableCell>
-                          <span className={cn(
-                            "px-2 py-0.5 rounded-full text-[10px] font-bold uppercase",
-                            student.status === "Active" ? "bg-green-500/10 text-green-500" : "bg-yellow-500/10 text-yellow-500"
-                          )}>
-                            {student.status}
-                          </span>
-                        </TableCell>
-                        <TableCell className="text-right">
-                          <button onClick={() => handleSimulatedAction(`Viewing ${student.name}`)} className="text-accent hover:underline text-xs font-black uppercase">Details</button>
-                        </TableCell>
+                <div className="overflow-x-auto no-scrollbar">
+                  <Table>
+                    <TableHeader>
+                      <TableRow>
+                        <TableHead>ID</TableHead>
+                        <TableHead>Name</TableHead>
+                        <TableHead className="hidden sm:table-cell">Course</TableHead>
+                        <TableHead>GPA</TableHead>
+                        <TableHead className="hidden md:table-cell">Status</TableHead>
+                        <TableHead className="text-right">Actions</TableHead>
                       </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
+                    </TableHeader>
+                    <TableBody>
+                      {studentActivity.map((student) => (
+                        <TableRow key={student.id}>
+                          <TableCell className="font-mono text-[10px] sm:text-xs">{student.id_num}</TableCell>
+                          <TableCell className="font-medium text-xs sm:text-sm">{student.name}</TableCell>
+                          <TableCell className="hidden sm:table-cell text-xs">{student.course}</TableCell>
+                          <TableCell className="font-bold text-primary text-xs sm:text-sm">{student.gpa}</TableCell>
+                          <TableCell className="hidden md:table-cell">
+                            <span className={cn(
+                              "px-2 py-0.5 rounded-full text-[9px] font-black uppercase",
+                              student.status === "Active" ? "bg-green-500/10 text-green-500" : "bg-yellow-500/10 text-yellow-500"
+                            )}>
+                              {student.status}
+                            </span>
+                          </TableCell>
+                          <TableCell className="text-right">
+                            <button onClick={() => handleSimulatedAction(`Viewing ${student.name}`)} className="text-accent hover:underline text-[9px] font-black uppercase">View</button>
+                          </TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </div>
               </CardContent>
             </Card>
           </div>
@@ -166,7 +169,7 @@ export function StudentDashboard() {
                 <CardTitle className="text-lg font-bold">Grade Distribution (GPA vs Attendance)</CardTitle>
                 <CardDescription>Correlation between presence and academic performance</CardDescription>
               </CardHeader>
-              <CardContent className="h-80 pt-6">
+              <CardContent className="h-64 sm:h-80 pt-6">
                 <ChartContainer config={chartConfig} className="h-full w-full">
                   <AreaChart data={gpaData} margin={{ left: -20, right: 10, top: 10 }}>
                     <defs>
@@ -180,8 +183,8 @@ export function StudentDashboard() {
                       </linearGradient>
                     </defs>
                     <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="hsl(var(--border) / 0.5)" />
-                    <XAxis dataKey="semester" axisLine={false} tickLine={false} tick={{ fontSize: 10, fill: "hsl(var(--muted-foreground))" }} />
-                    <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 10, fill: "hsl(var(--muted-foreground))" }} />
+                    <XAxis dataKey="semester" axisLine={false} tickLine={false} tick={{ fontSize: 9, fill: "hsl(var(--muted-foreground))" }} />
+                    <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 9, fill: "hsl(var(--muted-foreground))" }} />
                     <ChartTooltip content={<ChartTooltipContent />} />
                     <Area type="monotone" dataKey="gpa" stroke="var(--color-gpa)" fill="url(#colorGpa)" strokeWidth={3} />
                     <Area type="monotone" dataKey="attendance" stroke="var(--color-attendance)" fill="url(#colorAttendance)" strokeWidth={3} />
@@ -209,8 +212,8 @@ export function StudentDashboard() {
                     { name: 'Proj', submissions: 278 },
                   ]}>
                     <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="hsl(var(--border) / 0.5)" />
-                    <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{ fontSize: 10 }} />
-                    <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 10 }} />
+                    <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{ fontSize: 9 }} />
+                    <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 9 }} />
                     <ChartTooltip content={<ChartTooltipContent />} />
                     <Bar dataKey="submissions" fill="var(--color-submissions)" radius={[4, 4, 0, 0]} />
                   </BarChart>
@@ -222,7 +225,7 @@ export function StudentDashboard() {
                 <CardTitle className="text-lg font-bold">Skill Acquisition Index</CardTitle>
                 <CardDescription>Mastery levels across core competencies</CardDescription>
               </CardHeader>
-              <CardContent className="flex items-center justify-center p-8">
+              <CardContent className="flex items-center justify-center p-6 sm:p-8">
                 <div className="space-y-4 w-full">
                   {[
                     { skill: "Data Structures", val: 88 },
@@ -231,11 +234,11 @@ export function StudentDashboard() {
                     { skill: "UI/UX Logic", val: 82 }
                   ].map((s) => (
                     <div key={s.skill} className="space-y-1">
-                      <div className="flex justify-between text-xs font-black uppercase">
+                      <div className="flex justify-between text-[10px] font-black uppercase">
                         <span>{s.skill}</span>
                         <span className="text-primary">{s.val}%</span>
                       </div>
-                      <div className="h-2 w-full bg-secondary rounded-full overflow-hidden">
+                      <div className="h-1.5 w-full bg-secondary rounded-full overflow-hidden">
                         <div className="h-full bg-primary transition-all duration-1000" style={{ width: `${s.val}%` }} />
                       </div>
                     </div>
@@ -248,17 +251,17 @@ export function StudentDashboard() {
 
       case "Report Data":
         return (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
             {reports.map((report) => (
               <Card key={report.title} className="bg-background/50 border-border/50 hover:border-primary transition-all group cursor-pointer" onClick={() => handleSimulatedAction(`Downloading ${report.title}`)}>
-                <CardContent className="p-6 flex items-center justify-between">
-                  <div className="flex items-center gap-4">
-                    <div className="p-3 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all">
-                      <FileText className="w-5 h-5" />
+                <CardContent className="p-5 sm:p-6 flex items-center justify-between">
+                  <div className="flex items-center gap-3 sm:gap-4">
+                    <div className="p-2 sm:p-3 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all">
+                      <FileText className="w-4 h-4 sm:w-5 sm:h-5" />
                     </div>
                     <div>
-                      <h5 className="font-bold text-sm">{report.title}</h5>
-                      <p className="text-[10px] text-muted-foreground uppercase font-black">{report.date} • {report.size}</p>
+                      <h5 className="font-bold text-xs sm:text-sm">{report.title}</h5>
+                      <p className="text-[9px] text-muted-foreground uppercase font-black">{report.date} • {report.size}</p>
                     </div>
                   </div>
                   <Download className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
@@ -272,7 +275,7 @@ export function StudentDashboard() {
       default:
         return (
           <div className="space-y-8 animate-in fade-in duration-700">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
               {[
                 { label: "Total Students", value: "24,512", change: "+1.2k", icon: Users, delay: "delay-100" },
                 { label: "Active Courses", value: "112", change: "+6", icon: BookOpen, delay: "delay-200" },
@@ -286,37 +289,37 @@ export function StudentDashboard() {
                   )}
                   onClick={() => handleSimulatedAction(`Analyzing ${stat.label}`)}
                 >
-                  <CardContent className="p-6 flex items-center justify-between">
+                  <CardContent className="p-4 sm:p-6 flex items-center justify-between">
                     <div className="space-y-1">
-                      <p className="text-[10px] font-black text-muted-foreground uppercase tracking-widest">{stat.label}</p>
+                      <p className="text-[9px] font-black text-muted-foreground uppercase tracking-widest">{stat.label}</p>
                       <div className="flex items-baseline gap-2">
-                        <span className="text-2xl font-black font-headline text-foreground">{stat.value}</span>
-                        <span className="text-[10px] font-bold text-green-500">{stat.change}</span>
+                        <span className="text-xl sm:text-2xl font-black font-headline text-foreground">{stat.value}</span>
+                        <span className="text-[9px] font-bold text-green-500">{stat.change}</span>
                       </div>
                     </div>
-                    <div className="p-3 rounded-2xl bg-primary/10 text-primary">
-                      <stat.icon className="w-5 h-5" />
+                    <div className="p-2 sm:p-3 rounded-2xl bg-primary/10 text-primary">
+                      <stat.icon className="w-4 h-4 sm:w-5 sm:h-5" />
                     </div>
                   </CardContent>
                 </Card>
               ))}
             </div>
 
-            <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 sm:gap-8">
               <Card className="bg-background/50 border-border/50 animate-in fade-in slide-in-from-left-4 duration-700 overflow-hidden">
                 <CardHeader className="flex flex-row items-center justify-between">
                   <div>
-                    <CardTitle className="text-sm font-black font-headline uppercase tracking-tight text-primary">Overview Trends</CardTitle>
-                    <CardDescription className="text-xs">Aggregate Academic Performance</CardDescription>
+                    <CardTitle className="text-xs sm:text-sm font-black font-headline uppercase tracking-tight text-primary">Overview Trends</CardTitle>
+                    <CardDescription className="text-[10px]">Aggregate Academic Performance</CardDescription>
                   </div>
                   <BarChart3 className="w-4 h-4 text-primary" />
                 </CardHeader>
-                <CardContent className="h-64 pt-4">
+                <CardContent className="h-48 sm:h-64 pt-4">
                   <ChartContainer config={chartConfig} className="h-full w-full">
                     <AreaChart data={gpaData} margin={{ left: -20, right: 10, top: 10 }}>
                       <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="hsl(var(--border) / 0.5)" />
-                      <XAxis dataKey="semester" axisLine={false} tickLine={false} tick={{ fontSize: 9 }} />
-                      <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 9 }} />
+                      <XAxis dataKey="semester" axisLine={false} tickLine={false} tick={{ fontSize: 8 }} />
+                      <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 8 }} />
                       <ChartTooltip content={<ChartTooltipContent />} />
                       <Area type="monotone" dataKey="gpa" stroke="var(--color-gpa)" fill="hsl(var(--primary)/0.15)" strokeWidth={3} />
                     </AreaChart>
@@ -327,32 +330,32 @@ export function StudentDashboard() {
               <Card className="bg-background/50 border-border/50 animate-in fade-in slide-in-from-right-4 duration-700">
                 <CardHeader className="flex flex-row items-center justify-between">
                   <div>
-                    <CardTitle className="text-sm font-black font-headline uppercase tracking-tight text-primary">Security Logs</CardTitle>
-                    <CardDescription className="text-xs">Live data access verification</CardDescription>
+                    <CardTitle className="text-xs sm:text-sm font-black font-headline uppercase tracking-tight text-primary">Security Logs</CardTitle>
+                    <CardDescription className="text-[10px]">Live data access verification</CardDescription>
                   </div>
                   <Settings className="w-4 h-4 text-primary animate-spin-slow" />
                 </CardHeader>
                 <CardContent>
-                  <div className="space-y-3">
+                  <div className="space-y-2 sm:space-y-3">
                     {studentActivity.slice(0, 4).map((student, idx) => (
                       <div 
                         key={student.id} 
                         onClick={() => handleSimulatedAction(`Viewing Data Record: ${student.name}`)}
                         className={cn(
-                          "flex items-center justify-between p-3 rounded-xl bg-secondary/20 border border-border/30 transition-all hover:bg-secondary/40 cursor-pointer",
+                          "flex items-center justify-between p-2 sm:p-3 rounded-xl bg-secondary/20 border border-border/30 transition-all hover:bg-secondary/40 cursor-pointer",
                           "animate-in fade-in slide-in-from-right-2 duration-500"
                         )}
                       >
-                        <div className="flex items-center gap-3">
-                          <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-[10px] font-black text-primary">
+                        <div className="flex items-center gap-2 sm:gap-3">
+                          <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-primary/10 flex items-center justify-center text-[9px] font-black text-primary">
                             {student.name.split(' ').map(n => n[0]).join('')}
                           </div>
                           <div>
-                            <p className="text-xs font-bold text-foreground">{student.name}</p>
-                            <p className="text-[10px] text-muted-foreground uppercase font-black">{student.course}</p>
+                            <p className="text-[10px] sm:text-xs font-bold text-foreground">{student.name}</p>
+                            <p className="text-[8px] text-muted-foreground uppercase font-black truncate max-w-[80px] sm:max-w-none">{student.course}</p>
                           </div>
                         </div>
-                        <MoreVertical className="w-4 h-4 text-muted-foreground cursor-pointer" />
+                        <MoreVertical className="w-3 h-3 sm:w-4 sm:h-4 text-muted-foreground" />
                       </div>
                     ))}
                   </div>
@@ -365,28 +368,30 @@ export function StudentDashboard() {
   };
 
   return (
-    <section id="dashboard" className="py-24 px-6 bg-accent/5 overflow-hidden scroll-mt-20">
+    <section id="dashboard" className="py-24 px-4 sm:px-6 bg-accent/5 overflow-hidden scroll-mt-20">
       <div className="max-w-7xl mx-auto space-y-12">
         <div className="text-center space-y-4 animate-in fade-in slide-in-from-bottom-4 duration-700">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-xs font-black text-primary uppercase tracking-widest">
-            <Database className="w-3 h-3" />
-            Core Data Management
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-[9px] font-black text-primary uppercase tracking-[0.4em]">
+            <Activity className="w-3.5 h-3.5" />
+            Core Analytics Node
           </div>
-          <h2 className="text-4xl sm:text-5xl font-headline font-black tracking-tighter uppercase shimmer-text">EduSync Environment</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto font-medium">
+          <h2 className="text-4xl sm:text-6xl md:text-7xl font-headline font-black tracking-tighter uppercase leading-none">
+            INTELLIGENT <span className="text-gradient">DATA ECOSYSTEM</span>
+          </h2>
+          <p className="text-sm sm:text-lg text-muted-foreground max-w-2xl mx-auto font-medium opacity-70 uppercase tracking-widest">
             A high-performance architectural simulation focusing on academic data integrity and predictive lifecycle analytics.
           </p>
         </div>
 
-        <div className="rounded-3xl overflow-hidden border border-border bg-card shadow-2xl animate-in fade-in zoom-in-95 duration-1000">
-          <div className="p-4 md:p-6 border-b border-border bg-secondary/20 flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div className="rounded-[2rem] sm:rounded-[3rem] overflow-hidden border border-border bg-card shadow-3xl animate-in fade-in zoom-in-95 duration-1000">
+          <div className="p-5 md:p-8 border-b border-border bg-secondary/20 flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div className="flex items-center gap-4">
-              <div className="p-3 rounded-2xl bg-primary text-primary-foreground shadow-lg">
+              <div className="p-3 sm:p-4 rounded-2xl bg-primary text-primary-foreground shadow-2xl">
                 <Database className="w-6 h-6" />
               </div>
               <div>
-                <h3 className="text-lg font-black font-headline uppercase tracking-tight text-foreground">EduSync Data Hub</h3>
-                <p className="text-[10px] text-muted-foreground uppercase tracking-widest font-black">Central Intelligence Node</p>
+                <h3 className="text-lg sm:text-xl font-black font-headline uppercase tracking-tight text-foreground">EduSync Data Hub</h3>
+                <p className="text-[9px] text-muted-foreground uppercase tracking-widest font-black opacity-60">Central Intelligence Node</p>
               </div>
             </div>
             
@@ -400,15 +405,15 @@ export function StudentDashboard() {
                 />
               </div>
               <div className="flex items-center gap-2">
-                <button onClick={() => handleSimulatedAction("Alerts Toggled")} className="p-2 rounded-xl bg-background border border-border text-muted-foreground hover:text-primary transition-colors"><Bell className="w-5 h-5" /></button>
-                <div className="w-10 h-10 rounded-xl bg-primary/20 border border-primary/20 flex items-center justify-center text-primary font-black cursor-pointer" onClick={() => handleSimulatedAction("Security Profile")}>NS</div>
+                <button onClick={() => handleSimulatedAction("Alerts Toggled")} className="p-2.5 rounded-xl bg-background border border-border text-muted-foreground hover:text-primary transition-colors"><Bell className="w-5 h-5" /></button>
+                <div className="w-10 h-10 rounded-xl bg-primary/20 border border-primary/20 flex items-center justify-center text-primary font-black cursor-pointer text-xs" onClick={() => handleSimulatedAction("Security Profile")}>NS</div>
               </div>
             </div>
           </div>
 
-          <div className="flex flex-col lg:flex-row min-h-[600px]">
+          <div className="flex flex-col lg:flex-row min-h-[500px] sm:min-h-[600px]">
             <div className="w-full lg:w-64 border-b lg:border-b-0 lg:border-r border-border bg-secondary/10 p-4 lg:p-6">
-              <div className="flex lg:flex-col overflow-x-auto lg:overflow-x-visible gap-2 lg:space-y-2 no-scrollbar">
+              <div className="flex lg:flex-col overflow-x-auto lg:overflow-x-visible gap-2 lg:space-y-2 no-scrollbar pb-2 lg:pb-0">
                 {[
                   { icon: LayoutDashboard, label: "Overview" },
                   { icon: Users, label: "Student Data" },
@@ -420,30 +425,30 @@ export function StudentDashboard() {
                     key={item.label}
                     onClick={() => handleTabChange(item.label)}
                     className={cn(
-                      "flex items-center gap-3 px-4 py-2.5 rounded-xl text-[10px] font-black transition-all whitespace-nowrap lg:w-full uppercase tracking-widest",
+                      "flex items-center gap-3 px-4 py-2.5 rounded-xl text-[9px] font-black transition-all whitespace-nowrap lg:w-full uppercase tracking-[0.2em]",
                       activeTab === item.label
-                      ? "bg-primary text-primary-foreground shadow-lg shadow-primary/20" 
+                      ? "bg-primary text-primary-foreground shadow-xl shadow-primary/20" 
                       : "text-muted-foreground hover:bg-primary/10 hover:text-primary"
                     )}
                   >
-                    <item.icon className="w-4 h-4" />
+                    <item.icon className="w-3.5 h-3.5" />
                     {item.label}
                   </button>
                 ))}
               </div>
             </div>
 
-            <div className="flex-1 p-4 md:p-8 space-y-8 bg-gradient-to-br from-background to-secondary/5">
+            <div className="flex-1 p-5 md:p-8 lg:p-12 space-y-8 bg-gradient-to-br from-background to-secondary/5">
               <div className="flex items-center justify-between">
-                <h4 className="text-xl font-black font-headline text-foreground uppercase tracking-tight">
+                <h4 className="text-xl sm:text-2xl font-black font-headline text-foreground uppercase tracking-tight">
                   {activeTab} Management
                 </h4>
                 <div className="flex gap-2">
-                  <button onClick={() => handleSimulatedAction("Syncing Records")} className="hidden sm:flex items-center gap-2 text-[10px] font-black px-3 py-1.5 rounded-lg border border-border hover:bg-secondary transition-colors uppercase tracking-widest">
-                    <TrendingUp className="w-3 h-3" /> Sync
+                  <button onClick={() => handleSimulatedAction("Syncing Records")} className="hidden sm:flex items-center gap-2 text-[9px] font-black px-4 py-2 rounded-lg border border-border hover:bg-secondary transition-colors uppercase tracking-widest">
+                    <TrendingUp className="w-3.5 h-3.5" /> Sync
                   </button>
-                  <button onClick={() => handleSimulatedAction("Exporting Data")} className="flex items-center gap-2 text-[10px] font-black px-3 py-1.5 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors uppercase tracking-widest shadow-md">
-                    <Download className="w-3 h-3" /> Export
+                  <button onClick={() => handleSimulatedAction("Exporting Data")} className="flex items-center gap-2 text-[9px] font-black px-4 py-2 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors uppercase tracking-widest shadow-xl">
+                    <Download className="w-3.5 h-3.5" /> Export
                   </button>
                 </div>
               </div>
