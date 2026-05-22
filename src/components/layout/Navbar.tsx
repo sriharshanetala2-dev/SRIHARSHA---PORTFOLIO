@@ -2,11 +2,10 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { PlaceHolderImages } from "@/app/lib/placeholder-images";
+import { Logo } from "@/components/ui/logo";
 
 const navLinks = [
   { name: "About", href: "#about" },
@@ -21,7 +20,6 @@ const navLinks = [
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const logoData = PlaceHolderImages.find(img => img.id === "site-logo");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -60,16 +58,8 @@ export function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-3 group">
-          <div className="relative w-10 h-10 rounded-xl overflow-hidden glass-card group-hover:scale-105 transition-transform duration-300">
-            {logoData && (
-              <Image 
-                src={logoData.imageUrl} 
-                alt="Logo" 
-                fill 
-                className="object-cover"
-                data-ai-hint={logoData.imageHint}
-              />
-            )}
+          <div className="w-10 h-10 group-hover:scale-110 transition-transform duration-300">
+            <Logo />
           </div>
           <span className="text-xl font-headline font-bold tracking-tight">
             SRI<span className="text-primary">HARSHA</span>

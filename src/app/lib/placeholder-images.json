@@ -1,11 +1,10 @@
-
 {
   "placeholderImages": [
     {
       "id": "site-logo",
-      "description": "Professional Tech Brand Mark",
-      "imageUrl": "https://picsum.photos/seed/sri_logo_tech/200/200",
-      "imageHint": "tech logo"
+      "description": "Developer S Logo Signature",
+      "imageUrl": "https://picsum.photos/seed/sri_dev_logo/200/200",
+      "imageHint": "developer logo S"
     },
     {
       "id": "student-system",
@@ -33,7 +32,7 @@
     },
     {
       "id": "subnet-master",
-      "description": "Visual IP Engine",
+      "description": "Visual IP Networking Engine",
       "imageUrl": "https://picsum.photos/seed/sri_network_v5/800/600",
       "imageHint": "computer networking"
     },
