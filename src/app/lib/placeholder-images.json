@@ -42,6 +42,12 @@
       "description": "Predictive Data Synthesis Platform",
       "imageUrl": "https://picsum.photos/seed/sri_analytics_v6/800/600",
       "imageHint": "data science"
+    },
+    {
+      "id": "creative-process",
+      "description": "Anime Style Creative Coder Illustration",
+      "imageUrl": "https://picsum.photos/seed/creative_anime_sri/800/600",
+      "imageHint": "anime coder"
     }
   ]
 }

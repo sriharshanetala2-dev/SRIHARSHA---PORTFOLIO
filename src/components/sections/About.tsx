@@ -1,13 +1,18 @@
+
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
-import { User, Code, Target, Zap, Layout, Database, Terminal, Globe, MousePointer2 } from "lucide-react";
+import { User, Code, Target, Zap, Layout, Database, Globe, MousePointer2, Sparkles } from "lucide-react";
+import { PlaceHolderImages } from "@/app/lib/placeholder-images";
 
 export function About() {
   const [activeStep, setActiveStep] = useState(0);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const containerRef = useRef<HTMLDivElement>(null);
+
+  const creativeImage = PlaceHolderImages.find(img => img.id === "creative-process");
 
   const steps = [
     { title: "Blueprint", icon: Layout, detail: "Architecting responsive layouts", label: "Dashboard" },
@@ -119,122 +124,61 @@ export function About() {
               </div>
             </div>
 
-            {/* Interactive App Simulation */}
+            {/* Anime Illustration Container */}
             <div 
-              className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl bg-[#0f1115] border border-border transition-transform duration-500 ease-out hover:scale-[1.02] hover:shadow-accent/10"
+              className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl bg-card border border-border transition-transform duration-500 ease-out hover:scale-[1.02] hover:shadow-accent/10"
               style={{
                 transform: `perspective(1000px) rotateX(${(mousePos.y - 300) / 50}deg) rotateY(${(mousePos.x - 400) / 50}deg)`
               }}
             >
-              <div className="h-8 bg-secondary/80 border-b border-border flex items-center px-4 gap-2">
-                <div className="flex gap-1.5">
-                  <div className="w-2.5 h-2.5 rounded-full bg-red-500/50" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/50" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-green-500/50" />
+              {creativeImage && (
+                <Image 
+                  src={creativeImage.imageUrl}
+                  alt="Creative Process Illustration"
+                  fill
+                  className="object-cover opacity-90 group-hover:scale-110 transition-transform duration-[2000ms]"
+                  data-ai-hint={creativeImage.imageHint}
+                />
+              )}
+              
+              {/* Overlay elements to keep it feeling techy */}
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60" />
+              
+              <div className="absolute top-6 left-6 right-6 flex justify-between items-start">
+                <div className="flex gap-2">
+                  <div className="w-2 h-2 rounded-full bg-red-500/80" />
+                  <div className="w-2 h-2 rounded-full bg-yellow-500/80" />
+                  <div className="w-2 h-2 rounded-full bg-green-500/80" />
                 </div>
-                <div className="flex-1 flex justify-center">
-                  <div className="px-3 py-0.5 rounded bg-background/50 text-[10px] text-muted-foreground border border-border flex items-center gap-1.5">
-                    <Terminal className="w-2.5 h-2.5" />
-                    localhost:3000
+                <div className="px-3 py-1 rounded-full bg-accent/20 backdrop-blur-md border border-accent/30 text-[10px] font-black text-accent uppercase tracking-widest flex items-center gap-2">
+                  <Sparkles className="w-3 h-3 animate-pulse" />
+                  {steps[activeStep].title} Mode
+                </div>
+              </div>
+
+              <div className="absolute bottom-6 left-6 right-6">
+                <div className="bg-background/80 backdrop-blur-xl border border-accent/30 p-5 rounded-2xl shadow-2xl transform transition-all duration-500">
+                  <div className="flex items-center gap-4">
+                    <div className="p-3 bg-accent/10 rounded-xl text-accent">
+                      {(() => {
+                        const StepIcon = steps[activeStep].icon;
+                        return <StepIcon className="w-5 h-5" />;
+                      })()}
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-[10px] font-black text-accent uppercase tracking-[0.2em] mb-1">Current Focus</p>
+                      <p className="text-sm font-bold text-foreground">{steps[activeStep].detail}</p>
+                    </div>
+                    <div className="relative">
+                      <div className="w-2 h-2 rounded-full bg-accent animate-ping absolute inset-0" />
+                      <div className="w-2 h-2 rounded-full bg-accent relative" />
+                    </div>
                   </div>
                 </div>
               </div>
-
-              <div className="flex h-[calc(100%-32px)]">
-                <div className="w-20 border-r border-border bg-card/30 flex flex-col py-6 gap-6">
-                  {steps.map((step, idx) => (
-                    <div 
-                      key={idx}
-                      className={`flex flex-col items-center gap-1 transition-all duration-300 ${
-                        activeStep === idx ? "text-accent scale-110" : "text-muted-foreground/20 hover:text-muted-foreground/40"
-                      }`}
-                    >
-                      <div className={`p-2 rounded-lg ${activeStep === idx ? "bg-accent/10" : ""}`}>
-                        <step.icon className="w-4 h-4" />
-                      </div>
-                      <span className="text-[8px] font-bold uppercase tracking-tighter">{step.label}</span>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="flex-1 p-6 relative overflow-hidden bg-gradient-to-br from-background to-card/50">
-                   <div className="space-y-6">
-                     <div className="flex items-center justify-between">
-                        <div className="h-4 w-1/3 bg-accent/20 rounded animate-pulse" />
-                        <div className="flex gap-2">
-                           <div className="w-10 h-4 rounded bg-secondary/50 border border-border" />
-                           <div className="w-10 h-4 rounded bg-accent/20 border border-accent/20" />
-                        </div>
-                     </div>
-                     
-                     <div className="grid grid-cols-2 gap-4">
-                        <div className="h-28 rounded-xl bg-secondary/50 border border-border p-4 space-y-3 relative overflow-hidden group/card">
-                           <div className="h-2 w-full bg-muted/30 rounded" />
-                           <div className="h-2 w-2/3 bg-muted/30 rounded" />
-                           <div className={`h-1.5 w-1/2 rounded transition-all duration-1000 ${activeStep === 1 ? 'bg-accent w-full' : 'bg-muted/10'}`} />
-                           <div className="absolute top-2 right-2 text-[8px] text-muted-foreground/30 font-code">FILE: main.tsx</div>
-                        </div>
-                        <div className="h-28 rounded-xl bg-secondary/50 border border-border p-4 flex flex-col justify-between">
-                           <div className="flex justify-between items-center">
-                              <div className="w-6 h-6 rounded bg-accent/20 flex items-center justify-center">
-                                 <Layout className="w-3 h-3 text-accent" />
-                              </div>
-                              <div className="flex items-center gap-1">
-                                 <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
-                                 <span className="text-[8px] text-muted-foreground uppercase font-bold">Online</span>
-                              </div>
-                           </div>
-                           <div className="space-y-2">
-                              <p className="text-[8px] text-muted-foreground font-bold">Uptime: 99.9%</p>
-                              <div className="h-3 w-full bg-accent/10 rounded-full overflow-hidden">
-                                 <div 
-                                   className="h-full bg-accent transition-all duration-1000" 
-                                   style={{ width: `${(activeStep + 1) * 25}%` }}
-                                 />
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-
-                     <div className="h-28 rounded-xl bg-card border border-border p-4 relative">
-                        <div className="flex items-center gap-2 mb-4 border-b border-border pb-2">
-                           <Terminal className="w-3 h-3 text-muted-foreground/40" />
-                           <span className="text-[10px] text-muted-foreground/60 font-code">Terminal — bash</span>
-                        </div>
-                        <div className="space-y-2 font-code">
-                           <div className="flex gap-2">
-                              <span className="text-accent text-[8px]">$</span>
-                              <div className="h-2 w-full bg-muted/20 rounded" />
-                           </div>
-                           <div className="flex gap-2">
-                              <span className="text-accent text-[8px] font-bold">DEPLOYED SUCCESS</span>
-                           </div>
-                        </div>
-                        <div className="absolute bottom-4 right-4 animate-bounce z-20">
-                           <MousePointer2 className="w-4 h-4 text-accent fill-accent" />
-                        </div>
-                     </div>
-                   </div>
-
-                   <div className="absolute bottom-6 left-6 right-6">
-                      <div className="bg-background/95 backdrop-blur-xl border border-accent/40 p-4 rounded-xl shadow-2xl transform transition-all duration-500 hover:scale-105">
-                         <div className="flex items-center gap-3">
-                            <div className="p-2 bg-accent/10 rounded-lg text-accent">
-                               {(() => {
-                                 const StepIcon = steps[activeStep].icon;
-                                 return <StepIcon className="w-4 h-4" />;
-                               })()}
-                            </div>
-                            <div className="flex-1">
-                               <p className="text-[10px] font-black text-accent uppercase tracking-widest">{steps[activeStep].title} Phase</p>
-                               <p className="text-[10px] text-muted-foreground font-medium">Processing: {steps[activeStep].label} Menu Active</p>
-                            </div>
-                            <div className="w-2 h-2 rounded-full bg-accent animate-ping" />
-                         </div>
-                      </div>
-                   </div>
-                </div>
-              </div>
+              
+              {/* Decorative Scanline effect */}
+              <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.1)_50%),linear-gradient(90deg,rgba(255,0,0,0.02),rgba(0,255,0,0.01),rgba(0,0,255,0.02))] bg-[length:100%_4px,3px_100%]" />
             </div>
           </div>
         </div>
