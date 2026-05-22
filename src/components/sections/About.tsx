@@ -1,3 +1,4 @@
+
 "use client";
 
 import Image from "next/image";
@@ -16,7 +17,7 @@ export function About() {
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true }}
             className="space-y-10"
           >
             <div className="space-y-6">
@@ -80,7 +81,7 @@ export function About() {
                   src={animeDevImage.imageUrl}
                   alt="Anime Developer Working"
                   fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-1000 grayscale-[20%] group-hover:grayscale-0"
+                  className="object-cover group-hover:scale-105 transition-transform duration-700 grayscale-[20%] group-hover:grayscale-0"
                   data-ai-hint="anime coder"
                   priority
                 />

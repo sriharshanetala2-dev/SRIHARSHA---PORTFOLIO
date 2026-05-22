@@ -1,15 +1,16 @@
+
 "use client";
 
 import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
-import { GraduationCap, Calendar, BookOpen } from "lucide-react";
+import { GraduationCap, BookOpen } from "lucide-react";
 
 const education = [
   {
     role: "B.Sc in Computer Science",
     company: "Glocal University",
     period: "2021 — 2024",
-    description: "Specialized in core computational theory, algorithms, and software development. Graduated with a high proficiency in relational database management and modern frontend ecosystems.",
+    description: "Specialized in core computational theory, algorithms, and software development. Graduated with high proficiency in relational database management and modern frontend ecosystems.",
     icon: GraduationCap
   },
   {
@@ -69,14 +70,9 @@ export function Education() {
                     <item.icon className="w-8 h-8 md:w-10 md:h-10" />
                   </div>
                   <div className="space-y-3 flex-1">
-                    {item.period && (
-                      <div className="flex items-center gap-2 text-[10px] font-black text-muted-foreground uppercase tracking-widest">
-                        <Calendar className="w-3.5 h-3.5" />
-                        {item.period}
-                      </div>
-                    )}
                     <h3 className="text-2xl sm:text-3xl font-headline font-black tracking-tight group-hover:text-primary transition-colors">{item.role}</h3>
                     <p className="text-primary font-bold text-lg md:text-xl">{item.company}</p>
+                    {item.period && <p className="text-[10px] font-black text-muted-foreground uppercase tracking-widest">{item.period}</p>}
                     <p className="text-sm sm:text-lg text-muted-foreground leading-relaxed font-medium opacity-80">
                       {item.description}
                     </p>
