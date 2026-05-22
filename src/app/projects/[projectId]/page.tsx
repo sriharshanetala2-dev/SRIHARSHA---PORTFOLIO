@@ -1,120 +1,217 @@
 "use client";
 
-import { use } from "react";
+import { use, useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { notFound } from "next/navigation";
 import { projects } from "@/app/lib/projects-data";
-import { PlaceHolderImages } from "@/app/lib/placeholder-images";
 import { 
   ArrowLeft, 
   CheckCircle2, 
   Layers, 
-  Code2 
+  Code2, 
+  Cpu,
+  Zap,
+  Activity
 } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { motion, AnimatePresence } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 export default function ProjectPage({ params }: { params: Promise<{ projectId: string }> }) {
   const resolvedParams = use(params);
   const project = projects.find((p) => p.id === resolvedParams.projectId);
+  const [mounted, setMounted] = useState(false);
   
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   if (!project) {
     notFound();
   }
 
-  const imageData = PlaceHolderImages.find((img) => img.id === project.id);
+  if (!mounted) return null;
 
   return (
-    <div className="min-h-screen bg-background text-foreground selection:bg-accent selection:text-accent-foreground">
+    <div className="min-h-screen bg-background text-foreground selection:bg-primary/30">
+      <div className="glow-mesh opacity-20" />
       <Navbar />
       
-      <main className="pt-32 pb-24 px-6">
+      <main className="pt-32 pb-24 px-6 relative z-10">
         <div className="max-w-5xl mx-auto space-y-16">
           {/* Back Navigation */}
           <Link 
             href="/#portfolio" 
-            className="inline-flex items-center gap-2 text-sm font-bold text-accent uppercase tracking-widest hover:gap-4 transition-all"
+            className="inline-flex items-center gap-2 text-[10px] font-black text-primary uppercase tracking-[0.4em] hover:gap-4 transition-all group"
           >
-            <ArrowLeft className="w-4 h-4" />
-            Back to Showcase
+            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+            Project Archive
           </Link>
 
           {/* Header */}
           <div className="space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-[10px] font-black text-accent uppercase tracking-[0.2em]">
+            <motion.div 
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-[10px] font-black text-accent uppercase tracking-[0.2em]"
+            >
+              <Activity className="w-3 h-3" />
               {project.category}
-            </div>
-            <h1 className="text-5xl md:text-7xl font-headline font-bold tracking-tighter">
-              {project.title}
-            </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed font-medium max-w-3xl">
+            </motion.div>
+            <motion.h1 
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.1 }}
+              className="text-5xl md:text-8xl font-headline font-black tracking-tighter uppercase leading-[0.9]"
+            >
+              {project.title.split(' ').map((word, i) => (
+                <span key={i} className={i % 2 !== 0 ? "text-gradient" : ""}>
+                  {word}{" "}
+                </span>
+              ))}
+            </motion.h1>
+            <motion.p 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.2 }}
+              className="text-xl md:text-2xl text-muted-foreground leading-relaxed font-medium max-w-3xl opacity-70"
+            >
               {project.description}
-            </p>
+            </motion.p>
           </div>
 
-          {/* Featured Image */}
-          <div className="relative aspect-video rounded-3xl overflow-hidden border border-border shadow-2xl group">
-            {imageData && (
-              <Image 
-                src={imageData.imageUrl} 
-                alt={project.title} 
-                fill 
-                className="object-cover group-hover:scale-105 transition-transform duration-1000"
-                priority
-                data-ai-hint={imageData.imageHint}
-              />
-            )}
-            <div className="absolute inset-0 bg-gradient-to-t from-background/50 to-transparent" />
-          </div>
+          {/* Featured Technical Visual (System Lens) */}
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1 }}
+            className="relative aspect-video rounded-[3rem] overflow-hidden border border-border shadow-3xl bg-secondary/5 data-flow-grid group"
+          >
+            <div className="absolute inset-0 flex items-center justify-center p-12">
+              <div className="absolute inset-0 opacity-10">
+                <div className="absolute top-0 left-0 w-full h-full" style={{ backgroundImage: 'radial-gradient(circle, hsl(var(--primary)) 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+              </div>
+
+              <div className="relative z-10 flex flex-col items-center gap-10">
+                <motion.div 
+                  animate={{ 
+                    boxShadow: ["0 0 20px hsl(var(--primary) / 0.1)", "0 0 50px hsl(var(--primary) / 0.3)", "0 0 20px hsl(var(--primary) / 0.1)"]
+                  }}
+                  transition={{ duration: 4, repeat: Infinity }}
+                  className="relative p-16 rounded-[4rem] bg-card border border-border/50 shadow-2xl backdrop-blur-3xl"
+                >
+                  <project.icon className="w-24 h-24 text-primary" />
+                  <div className="absolute -top-4 -right-4 p-4 rounded-2xl bg-accent text-accent-foreground shadow-xl border border-white/10">
+                    <Zap className="w-6 h-6 animate-pulse" />
+                  </div>
+                </motion.div>
+
+                <div className="flex flex-col items-center gap-2">
+                  <p className="text-[10px] font-black uppercase tracking-[0.6em] text-primary opacity-60">Architectural Node</p>
+                  <h3 className="text-3xl font-black uppercase tracking-tighter">{project.title}</h3>
+                </div>
+
+                <div className="flex gap-6 px-10 py-5 glass-card rounded-[2rem] border-white/5 bg-background/50 shadow-2xl">
+                   {project.metrics.map((metric, i) => (
+                     <div key={i} className="flex flex-col items-center px-6 border-r last:border-0 border-border/50">
+                       <span className="text-[8px] font-black uppercase tracking-widest text-muted-foreground mb-1">{metric.label}</span>
+                       <span className="text-sm font-bold text-accent font-mono">{metric.value}</span>
+                     </div>
+                   ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Ambient Tech Flows */}
+            <motion.div 
+              animate={{ 
+                x: ["-100%", "100%"],
+                opacity: [0, 0.2, 0]
+              }}
+              transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+              className="absolute top-1/3 left-0 right-0 h-px bg-primary"
+            />
+            <motion.div 
+              animate={{ 
+                x: ["100%", "-100%"],
+                opacity: [0, 0.2, 0]
+              }}
+              transition={{ duration: 10, repeat: Infinity, ease: "linear", delay: 2 }}
+              className="absolute bottom-1/3 left-0 right-0 h-px bg-accent"
+            />
+
+            <div className="absolute bottom-8 left-8 p-4 glass-card rounded-2xl border-white/5 bg-black/40 flex items-center gap-3">
+              <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+              <span className="text-[10px] font-black uppercase tracking-widest text-green-500">System Verified: {project.id}</span>
+            </div>
+          </motion.div>
 
           {/* Details Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
-            <div className="lg:col-span-8 space-y-12">
-              <section className="space-y-6">
-                <h2 className="text-3xl font-headline font-bold flex items-center gap-3">
-                  <Layers className="w-6 h-6 text-accent" />
-                  Overview & Goals
+            <div className="lg:col-span-8 space-y-16">
+              <section className="space-y-8">
+                <h2 className="text-4xl font-headline font-black tracking-tight flex items-center gap-4 uppercase shimmer-text">
+                  <Layers className="w-8 h-8 text-primary" />
+                  Engineering Logic
                 </h2>
-                <p className="text-lg text-muted-foreground leading-relaxed">
+                <p className="text-lg text-muted-foreground leading-relaxed font-medium opacity-80">
                   {project.longDescription}
                 </p>
               </section>
 
-              <section className="space-y-6">
-                <h2 className="text-3xl font-headline font-bold flex items-center gap-3">
-                  <CheckCircle2 className="w-6 h-6 text-accent" />
-                  Technical Features
+              <section className="space-y-8">
+                <h2 className="text-4xl font-headline font-black tracking-tight flex items-center gap-4 uppercase shimmer-text">
+                  <CheckCircle2 className="w-8 h-8 text-primary" />
+                  System Features
                 </h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {project.features.map((feature, i) => (
-                    <div key={i} className="flex items-center gap-4 p-4 rounded-2xl bg-secondary/30 border border-border/50">
-                      <div className="w-2 h-2 rounded-full bg-accent shadow-[0_0_10px_rgba(var(--accent),0.5)]" />
-                      <span className="font-bold text-sm tracking-tight">{feature}</span>
-                    </div>
+                    <motion.div 
+                      key={i} 
+                      whileHover={{ x: 5 }}
+                      className="flex items-center gap-5 p-6 rounded-[2rem] bg-secondary/20 border border-border/50 group"
+                    >
+                      <div className="w-3 h-3 rounded-full bg-primary shadow-[0_0_15px_rgba(var(--primary),0.5)] group-hover:scale-125 transition-transform" />
+                      <span className="font-bold text-base tracking-tight">{feature}</span>
+                    </motion.div>
                   ))}
                 </div>
               </section>
             </div>
 
             <div className="lg:col-span-4 space-y-8">
-              <div className="p-8 rounded-[2rem] bg-card border border-border space-y-8 sticky top-32 shadow-xl">
-                <div className="space-y-4">
-                  <p className="text-[10px] font-black text-accent uppercase tracking-widest flex items-center gap-2">
-                    <Code2 className="w-3 h-3" /> Technical Stack
+              <div className="p-10 rounded-[3rem] bg-card/40 border border-border space-y-10 sticky top-32 shadow-3xl backdrop-blur-xl">
+                <div className="space-y-6">
+                  <p className="text-[10px] font-black text-primary uppercase tracking-[0.4em] flex items-center gap-2">
+                    <Code2 className="w-4 h-4" /> Tech Stack Matrix
                   </p>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-3">
                     {project.techStack.map((tech) => (
-                      <span key={tech} className="px-3 py-1.5 rounded-lg bg-secondary text-xs font-bold border border-border/50">
+                      <span key={tech} className="px-4 py-2 rounded-xl bg-secondary/50 text-xs font-black uppercase tracking-widest border border-border/50 hover:border-primary/50 transition-colors">
                         {tech}
                       </span>
                     ))}
                   </div>
                 </div>
 
-                <div className="pt-4 text-center border-t border-border">
-                   <p className="text-[9px] text-muted-foreground font-bold uppercase tracking-tighter opacity-50">
-                     Project Phase: {project.phase === 'learning' ? 'Engineering Foundation' : 'Full Stack Mastery'}
+                <div className="pt-8 border-t border-border/50 space-y-6">
+                  <p className="text-[10px] font-black text-accent uppercase tracking-[0.4em] flex items-center gap-2">
+                    <Zap className="w-4 h-4" /> Project Performance
+                  </p>
+                  <div className="space-y-4">
+                    {project.metrics.map((m, i) => (
+                      <div key={i} className="flex items-center justify-between">
+                        <span className="text-[10px] font-bold text-muted-foreground uppercase">{m.label}</span>
+                        <span className="text-sm font-black text-primary font-mono">{m.value}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="pt-8 border-t border-border/50 text-center">
+                   <p className="text-[9px] text-muted-foreground font-black uppercase tracking-widest opacity-40">
+                     Verification Checksum: {Math.random().toString(36).substring(7).toUpperCase()}
                    </p>
                 </div>
               </div>
