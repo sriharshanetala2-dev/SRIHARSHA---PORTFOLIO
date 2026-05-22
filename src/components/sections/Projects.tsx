@@ -104,25 +104,7 @@ export function Projects() {
           </p>
         </div>
 
-        {/* Full Stack Phase */}
-        <div className="space-y-12">
-          <div className="flex items-center gap-4">
-            <div className="p-3 rounded-2xl bg-accent/10 text-accent">
-              <BrainCircuit className="w-8 h-8" />
-            </div>
-            <div>
-              <h3 className="text-3xl font-headline font-bold">Phase 02: Full Stack & AI Mastery</h3>
-              <p className="text-muted-foreground font-medium uppercase text-[10px] tracking-widest">Modern Architectural Solutions</p>
-            </div>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {fullstackProjects.map((project, idx) => (
-              <ProjectCard key={project.id} project={project} idx={idx} />
-            ))}
-          </div>
-        </div>
-
-        {/* Learning Phase */}
+        {/* Learning Phase - Now First */}
         <div className="space-y-12">
           <div className="flex items-center gap-4">
             <div className="p-3 rounded-2xl bg-primary/10 text-primary">
@@ -135,6 +117,24 @@ export function Projects() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {learningProjects.map((project, idx) => (
+              <ProjectCard key={project.id} project={project} idx={idx} />
+            ))}
+          </div>
+        </div>
+
+        {/* Full Stack Phase - Now Second */}
+        <div className="space-y-12">
+          <div className="flex items-center gap-4">
+            <div className="p-3 rounded-2xl bg-accent/10 text-accent">
+              <BrainCircuit className="w-8 h-8" />
+            </div>
+            <div>
+              <h3 className="text-3xl font-headline font-bold">Phase 02: Full Stack & AI Mastery</h3>
+              <p className="text-muted-foreground font-medium uppercase text-[10px] tracking-widest">Modern Architectural Solutions</p>
+            </div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {fullstackProjects.map((project, idx) => (
               <ProjectCard key={project.id} project={project} idx={idx} />
             ))}
           </div>
