@@ -1,4 +1,3 @@
-
 "use client";
 
 import { use, useEffect, useState } from "react";
@@ -14,7 +13,9 @@ import {
   Terminal,
   Cpu,
   Database,
-  Layers
+  Layers,
+  Code2,
+  ChevronRight
 } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -68,7 +69,7 @@ export default function ProjectPage({ params }: { params: Promise<{ projectId: s
             initial={{ opacity: 0, scale: 0.98 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
-            className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter uppercase leading-[1.1] shimmer-text"
+            className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter uppercase leading-tight shimmer-text"
           >
             {project.title}
           </motion.h1>
@@ -83,44 +84,62 @@ export default function ProjectPage({ params }: { params: Promise<{ projectId: s
           </motion.p>
         </div>
 
-        {/* High-Visibility Metrics HUD - Persistent side-by-side */}
+        {/* High-Visibility Metrics HUD - Fixed Horizontal Persistence */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
-          className="grid grid-cols-3 gap-2 sm:gap-6"
+          className="grid grid-cols-3 gap-2 sm:gap-6 bg-secondary/10 p-4 sm:p-10 rounded-2xl sm:rounded-[3rem] border border-border/50"
         >
           {project.metrics.map((metric, i) => (
-            <div key={i} className="flex flex-col items-center justify-center p-4 sm:p-10 rounded-2xl sm:rounded-[3rem] bg-secondary/20 border border-border/50 group hover:border-primary/50 transition-all shadow-xl">
-              <span className="text-[8px] sm:text-[11px] font-black text-primary uppercase mb-2 tracking-[0.3em] text-center">{metric.label}</span>
-              <span className="text-xs sm:text-2xl font-black text-foreground uppercase tracking-tighter text-center">{metric.value}</span>
+            <div key={i} className="flex flex-col items-center justify-center text-center">
+              <span className="text-[9px] sm:text-[11px] font-black text-primary uppercase mb-2 tracking-[0.3em]">{metric.label}</span>
+              <span className="text-xs sm:text-2xl font-black text-foreground uppercase tracking-tighter">{metric.value}</span>
             </div>
           ))}
         </motion.div>
 
-        {/* Engineering Content Grid */}
+        {/* Developer Blueprint Section */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
           <div className="lg:col-span-8 space-y-20">
-            {/* Logic Blueprint Section */}
+            {/* Terminal Interface Section */}
             <section className="space-y-10">
               <div className="flex items-center gap-4">
                 <div className="p-3 rounded-xl bg-primary/10 text-primary">
                   <Terminal className="w-6 h-6" />
                 </div>
-                <h2 className="text-xl sm:text-2xl font-black uppercase tracking-tight">Interface Logic Blueprint</h2>
+                <h2 className="text-xl sm:text-2xl font-black uppercase tracking-tight">System Logic Trace</h2>
               </div>
-              <div className="aspect-video relative rounded-[2rem] sm:rounded-[3rem] overflow-hidden border border-border bg-secondary/5 shadow-3xl group">
-                <div className="absolute inset-0 data-flow-grid opacity-10" />
-                <img 
-                  src={`https://picsum.photos/seed/${project.id}_v2/1200/675`}
-                  alt="System Architecture"
-                  className="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-[2000ms]"
-                  data-ai-hint="software architecture"
-                />
-                <div className="absolute top-4 left-4 sm:top-8 sm:left-8 flex gap-3">
-                  <div className="px-3 py-1.5 rounded-lg bg-black/60 border border-white/10 backdrop-blur-xl text-[9px] sm:text-[10px] font-black text-green-500 uppercase tracking-widest flex items-center gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
-                    System Active
+              
+              <div className="bg-black/80 rounded-[2rem] sm:rounded-[3rem] border border-white/10 overflow-hidden shadow-3xl font-mono text-[10px] sm:text-sm">
+                {/* Terminal Header */}
+                <div className="bg-secondary/40 px-6 py-4 border-b border-white/5 flex items-center justify-between">
+                  <div className="flex gap-2">
+                    <div className="w-3 h-3 rounded-full bg-red-500/40" />
+                    <div className="w-3 h-3 rounded-full bg-yellow-500/40" />
+                    <div className="w-3 h-3 rounded-full bg-green-500/40" />
+                  </div>
+                  <div className="text-[10px] font-black uppercase tracking-widest text-muted-foreground/40">
+                    node --version 21.0.0
+                  </div>
+                </div>
+                
+                {/* Terminal Content */}
+                <div className="p-6 sm:p-10 space-y-8 overflow-x-auto no-scrollbar">
+                  <div className="space-y-4">
+                    <div className="flex gap-4 text-green-500/60">
+                      <span className="opacity-40">01</span>
+                      <code className="whitespace-pre">{(project as any).codeSnippet}</code>
+                    </div>
+                  </div>
+
+                  <div className="space-y-2 pt-6 border-t border-white/5">
+                    {(project as any).systemLogs.map((log: string, i: number) => (
+                      <div key={i} className="flex gap-4">
+                        <span className="text-muted-foreground/30">{String(i + 1).padStart(2, '0')}</span>
+                        <span className="text-primary/70">{log}</span>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
