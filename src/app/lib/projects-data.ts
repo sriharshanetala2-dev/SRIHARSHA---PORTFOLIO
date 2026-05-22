@@ -1,4 +1,4 @@
-import { Database, Sparkles, Network, Code2, LineChart, Search, LucideIcon, Cpu, Globe, Zap, Shield, Server, Box, Terminal } from "lucide-react";
+import { Database, Network, Code2, LineChart, LucideIcon } from "lucide-react";
 
 export interface Project {
   id: string;
@@ -19,93 +19,88 @@ export const projects: Project[] = [
   {
     id: "ai-task-manager",
     title: "Cognitive Workflow OS",
-    category: "Generative AI",
+    category: "Full Stack & AI",
     tags: ["Next.js", "Genkit", "Firebase", "AI"],
-    description: "A neural-orchestrated productivity hub that leverages LLMs for semantic task prioritization and user intent analysis.",
-    longDescription: "The next evolution of productivity tools. This platform utilizes Google Genkit to perform semantic analysis on user intent, automatically categorizing and prioritizing workflows based on natural language context. It integrates real-time synchronization through Firestore, ensuring a seamless experience across all devices with zero-latency updates.",
+    description: "A high-performance productivity hub leveraging LLMs for semantic task prioritization and real-time state synchronization.",
+    longDescription: "Architected a next-generation task orchestration platform that utilizes Google Genkit for semantic analysis of user intent. Built with a focus on real-time data integrity using Firestore and high-performance UI responsiveness.",
     icon: Code2,
     github: "https://github.com/sriharshanetala2-dev",
     demo: "/projects/ai-task-manager",
     features: [
       "Semantic Intent Parsing",
       "Real-time Firestore Sync",
-      "OAuth 2.0 Security Flow",
-      "Predictive Deadline Estimation",
-      "AI-Generated Subtask Arrays"
+      "OAuth 2.0 Security",
+      "Predictive Analytics"
     ],
-    techStack: ["Next.js 15", "Google Genkit", "Firebase", "ShadCN UI", "Zod"],
+    techStack: ["Next.js 15", "Google Genkit", "Firebase", "Tailwind CSS"],
     metrics: [
-      { label: "Inference Time", value: "~0.8s" },
       { label: "Sync Latency", value: "<30ms" },
       { label: "Accuracy", value: "98.5%" }
     ]
   },
   {
     id: "marketsync",
-    title: "MarketSync: Financial Hub",
-    category: "FinTech Development",
+    title: "MarketSync Dashboard",
+    category: "UI & FinTech",
     tags: ["React", "Recharts", "Firebase", "Real-time"],
-    description: "Engineered a low-latency financial monitoring dashboard for real-time asset tracking and virtual portfolio management.",
-    longDescription: "A high-performance trading simulation that handles high-frequency data streams. It features advanced data visualization components that map market volatility onto interactive time-series charts. Built with a focus on real-time data integrity and reactive UI updates, allowing for precise tracking of virtual portfolios.",
+    description: "Low-latency financial monitoring dashboard for real-time asset tracking and virtual portfolio management.",
+    longDescription: "Engineered a high-performance financial data visualization tool handling live high-frequency streams. Focused on interactive time-series analysis and state-driven UI responsiveness.",
     icon: LineChart,
     github: "https://github.com/sriharshanetala2-dev",
     demo: "/projects/marketsync",
     features: [
-      "High-Frequency Data Streams",
-      "Advanced Time-Series Visuals",
-      "Transactional Ledger System",
-      "Live P/L Calculation Engine"
+      "High-Frequency Streams",
+      "Advanced Charting",
+      "Transactional Integrity",
+      "Live P/L Engine"
     ],
-    techStack: ["React", "Recharts", "Firebase", "Tailwind CSS", "Framer Motion"],
+    techStack: ["React", "Recharts", "Firebase", "Framer Motion"],
     metrics: [
-      { label: "Data Points", value: "50k+" },
       { label: "Update Rate", value: "250ms" },
-      { label: "Resolution", value: "4K Optimized" }
+      { label: "Data Points", value: "50k+" }
     ]
   },
   {
     id: "student-system",
     title: "Academic Record Engine",
-    category: "Database Systems",
+    category: "Backend Systems",
     tags: ["Java", "SQL", "JDBC", "Back-end"],
-    description: "Architected a high-concurrency academic record engine using relational integrity and optimized JDBC throughput for scale.",
-    longDescription: "A mission-critical management layer designed to handle complex relational datasets. This project focuses on ACID compliance, transaction isolation levels, and efficient query execution plans for educational institutions. The system utilizes advanced JDBC pooling techniques to ensure high performance.",
+    description: "High-concurrency academic record engine using relational integrity and optimized JDBC throughput for scale.",
+    longDescription: "Architected a mission-critical management layer focused on ACID compliance and transaction isolation. Designed efficient query execution plans for high-load educational data environments.",
     icon: Database,
     github: "https://github.com/sriharshanetala2-dev",
     demo: "/projects/student-system",
     features: [
-      "ACID Compliant Transactions",
-      "Dynamic JDBC Connection Pooling",
-      "Normalized Relational Schema (3NF)",
-      "Automated Performance Logging"
+      "ACID Compliance",
+      "JDBC Connection Pooling",
+      "Normalized Schema",
+      "Performance Logging"
     ],
-    techStack: ["Java SE", "PostgreSQL", "JDBC", "Swing UI"],
+    techStack: ["Java SE", "PostgreSQL", "JDBC", "Back-end Logic"],
     metrics: [
       { label: "Query Latency", value: "<8ms" },
-      { label: "Relational Tables", value: "18+" },
       { label: "Throughput", value: "2.5k req/s" }
     ]
   },
   {
     id: "subnet-master",
-    title: "NetViz: Logical IP Matrix",
+    title: "NetViz IP Matrix",
     category: "Computer Networks",
     tags: ["React", "Algorithms", "Networking"],
-    description: "Developed a mathematical visualization engine for complex CIDR subnetting and network topology mapping.",
-    longDescription: "An engineering tool built to demystify binary subnetting. It translates bitwise operations into interactive visual maps, providing a precise blueprint for IPv4 infrastructure planning. Features a real-time validation engine that prevents overlapping network segments.",
+    description: "Mathematical visualization engine for complex CIDR subnetting and network topology mapping.",
+    longDescription: "Developed an engineering tool to visualize bitwise operations in IPv4 subnetting. Translated complex networking algorithms into interactive visual maps for precise infrastructure planning.",
     icon: Network,
     github: "https://github.com/sriharshanetala2-dev",
     demo: "/projects/subnet-master",
     features: [
       "Bitwise Mask Computation",
-      "Variable Length Subnet Masking",
-      "Real-time Topology Generation",
-      "Conflict Resolution Logic"
+      "VLSM Logic",
+      "Topology Generation",
+      "Conflict Resolution"
     ],
-    techStack: ["React", "Canvas API", "TypeScript", "Bitwise Ops"],
+    techStack: ["React", "TypeScript", "Bitwise Ops", "Algorithms"],
     metrics: [
       { label: "Calc Accuracy", value: "100%" },
-      { label: "Subnet Limit", value: "Infinite" },
       { label: "Render Speed", value: "60fps" }
     ]
   }

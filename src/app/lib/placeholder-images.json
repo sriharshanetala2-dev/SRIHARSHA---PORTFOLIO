@@ -1,23 +1,10 @@
-
 {
   "placeholderImages": [
-    {
-      "id": "site-logo",
-      "description": "Professional Tech Brand Mark",
-      "imageUrl": "https://picsum.photos/seed/sri_logo_tech/200/200",
-      "imageHint": "tech logo"
-    },
     {
       "id": "anime-dev",
       "description": "Anime style developer working at a desk",
       "imageUrl": "https://picsum.photos/seed/anime_dev_coding_v2/800/600",
-      "imageHint": "anime coder"
-    },
-    {
-      "id": "student-system",
-      "description": "Intelligent Academic Lifecycle Management",
-      "imageUrl": "https://picsum.photos/seed/student_database_records/800/600",
-      "imageHint": "student database"
+      "imageHint": "anime developer"
     },
     {
       "id": "ai-task-manager",
@@ -27,13 +14,19 @@
     },
     {
       "id": "marketsync",
-      "description": "Adaptive Financial Trading Hub",
+      "description": "Financial Monitoring Dashboard",
       "imageUrl": "https://picsum.photos/seed/sri_finance_v4/800/600",
-      "imageHint": "stock trading"
+      "imageHint": "financial dashboard"
+    },
+    {
+      "id": "student-system",
+      "description": "Academic Record Engine",
+      "imageUrl": "https://picsum.photos/seed/sri_edu_v1/800/600",
+      "imageHint": "student database"
     },
     {
       "id": "subnet-master",
-      "description": "Visual IP Networking Engine",
+      "description": "IP Networking Visualizer",
       "imageUrl": "https://picsum.photos/seed/sri_network_v5/800/600",
       "imageHint": "computer networking"
     }
