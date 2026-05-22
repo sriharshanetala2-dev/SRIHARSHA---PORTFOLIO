@@ -46,22 +46,22 @@ export default function ProjectPage({ params }: PageProps) {
       <div className="glow-mesh opacity-20" />
       <Navbar />
       
-      <main className="pt-32 sm:pt-44 pb-20 sm:pb-32 px-6 sm:px-12 relative z-10">
+      <main className="pt-32 sm:pt-44 pb-20 sm:pb-32 px-4 sm:px-12 relative z-10">
         <div className="max-w-7xl mx-auto space-y-16 sm:space-y-32">
           
           <Link 
             href="/#portfolio" 
-            className="inline-flex items-center gap-4 text-[12px] font-black text-primary uppercase tracking-[0.6em] hover:gap-8 transition-all group"
+            className="inline-flex items-center gap-4 text-[11px] font-black text-primary uppercase tracking-[0.6em] hover:gap-8 transition-all group"
           >
             <ArrowLeft className="w-5 h-5 group-hover:-translate-x-2 transition-transform" />
             Archive / {project.category}
           </Link>
 
-          <div className="space-y-12 sm:space-y-16 max-w-5xl">
+          <div className="space-y-10 sm:space-y-16 max-w-5xl">
             <motion.div 
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-accent/10 border border-accent/20 text-[11px] font-black text-accent uppercase tracking-[0.4em]"
+              className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-accent/10 border border-accent/20 text-[10px] font-black text-accent uppercase tracking-[0.4em]"
             >
               <Activity className="w-4 h-4" />
               Engineering Record: {project.id}
@@ -90,14 +90,14 @@ export default function ProjectPage({ params }: PageProps) {
             </motion.p>
           </div>
 
-          {/* Visual Hero HUD */}
+          {/* Visual Hero HUD - Aspect Ratio adjusted for mobile clarity */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.98 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.2, delay: 0.2 }}
-            className="relative aspect-[4/5] sm:aspect-video rounded-[3rem] sm:rounded-[4.5rem] overflow-hidden border border-border/60 shadow-3xl bg-secondary/5 data-flow-grid group"
+            className="relative aspect-[4/5] sm:aspect-video rounded-[2.5rem] sm:rounded-[4.5rem] overflow-hidden border border-border/60 shadow-3xl bg-secondary/5 data-flow-grid group"
           >
-            <div className="absolute inset-0 flex items-center justify-center p-6 sm:p-20">
+            <div className="absolute inset-0 flex items-center justify-center p-4 sm:p-20">
               <div className="absolute inset-0 opacity-10 pointer-events-none">
                 <div className="absolute top-0 left-0 w-full h-full" style={{ backgroundImage: 'radial-gradient(circle, hsl(var(--primary)) 1.5px, transparent 1.5px)', backgroundSize: '64px 64px' }} />
               </div>
@@ -110,21 +110,21 @@ export default function ProjectPage({ params }: PageProps) {
                   transition={{ duration: 6, repeat: Infinity }}
                   className="relative p-8 sm:p-24 rounded-[3rem] sm:rounded-[6rem] bg-card border border-border/50 shadow-3xl backdrop-blur-3xl"
                 >
-                  <project.icon className="w-12 h-12 sm:w-40 sm:h-40 text-primary" />
+                  <project.icon className="w-16 h-16 sm:w-40 sm:h-40 text-primary" />
                   <div className="absolute -top-2 -right-2 sm:-top-6 sm:-right-6 p-3 sm:p-8 rounded-xl sm:rounded-[2.5rem] bg-accent text-accent-foreground shadow-3xl border border-white/10">
-                    <Zap className="w-5 sm:w-12 h-5 sm:h-12 animate-pulse" />
+                    <Zap className="w-6 sm:w-12 h-6 sm:h-12 animate-pulse" />
                   </div>
                 </motion.div>
 
-                <div className="flex flex-col items-center gap-4">
-                  <p className="text-[11px] font-black uppercase tracking-[0.8em] text-primary opacity-60">System Core Node</p>
+                <div className="flex flex-col items-center gap-2 sm:gap-4">
+                  <p className="text-[10px] font-black uppercase tracking-[0.8em] text-primary opacity-60">System Core Node</p>
                   <h3 className="text-xl sm:text-6xl font-black uppercase tracking-tighter text-center px-4 leading-tight">{project.title}</h3>
                 </div>
 
-                {/* Metrics Control Panel - Fixed for Mobile Visibility */}
+                {/* Metrics Control Panel - Horizontal Persistence for 3 Metrics */}
                 <div className="grid grid-cols-3 items-center justify-center gap-2 sm:gap-12 px-4 sm:px-20 py-6 sm:py-12 glass-card rounded-[2rem] sm:rounded-[4rem] border-white/10 bg-background/60 shadow-3xl backdrop-blur-2xl w-full max-w-4xl mx-auto">
                    {project.metrics.map((metric, i) => (
-                     <div key={i} className="flex flex-col items-center px-1 sm:px-12 border-r last:border-0 border-border/30">
+                     <div key={i} className="flex flex-col items-center px-1 sm:px-12 border-r last:border-0 border-border/30 overflow-hidden">
                        <span className="text-[9px] sm:text-[12px] font-black uppercase tracking-[0.2em] sm:tracking-[0.4em] text-muted-foreground mb-1 sm:mb-3 whitespace-nowrap">{metric.label}</span>
                        <span className="text-xs sm:text-3xl font-black text-accent uppercase font-headline whitespace-nowrap">{metric.value}</span>
                      </div>
@@ -133,17 +133,17 @@ export default function ProjectPage({ params }: PageProps) {
               </div>
             </div>
 
-            {/* Corner Decorative Elements */}
-            <div className="absolute top-6 left-6 sm:top-14 sm:left-14 flex gap-2 sm:gap-4">
-               <div className="w-8 h-8 sm:w-16 sm:h-16 rounded-xl sm:rounded-3xl glass-card border-white/5 bg-black/40 flex items-center justify-center shadow-2xl">
+            {/* Corner Decorative Elements - Scaled for visibility */}
+            <div className="absolute top-4 left-4 sm:top-14 sm:left-14 flex gap-2 sm:gap-4">
+               <div className="w-8 h-8 sm:w-16 sm:h-16 rounded-lg sm:rounded-3xl glass-card border-white/5 bg-black/40 flex items-center justify-center shadow-2xl">
                  <Cpu className="w-4 h-4 sm:w-8 sm:h-8 text-primary/60" />
                </div>
-               <div className="w-8 h-8 sm:w-16 sm:h-16 rounded-xl sm:rounded-3xl glass-card border-white/5 bg-black/40 flex items-center justify-center shadow-2xl">
+               <div className="w-8 h-8 sm:w-16 sm:h-16 rounded-lg sm:rounded-3xl glass-card border-white/5 bg-black/40 flex items-center justify-center shadow-2xl">
                  <ShieldCheck className="w-4 h-4 sm:w-8 sm:h-8 text-primary/60" />
                </div>
             </div>
 
-            <div className="absolute bottom-6 left-6 sm:bottom-14 sm:left-14 p-2 sm:p-8 glass-card rounded-xl sm:rounded-[2.5rem] border-white/10 bg-black/60 flex items-center gap-3 sm:gap-4 shadow-3xl">
+            <div className="absolute bottom-4 left-4 sm:bottom-14 sm:left-14 p-2 sm:p-8 glass-card rounded-xl sm:rounded-[2.5rem] border-white/10 bg-black/60 flex items-center gap-2 sm:gap-4 shadow-3xl">
               <div className="relative">
                 <div className="w-2 h-2 sm:w-5 sm:h-5 rounded-full bg-green-500 animate-ping absolute inset-0" />
                 <div className="w-2 h-2 sm:w-5 sm:h-5 rounded-full bg-green-500 shadow-[0_0_20px_#22c55e]" />
@@ -152,6 +152,7 @@ export default function ProjectPage({ params }: PageProps) {
             </div>
           </motion.div>
 
+          {/* Project Details Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 sm:gap-24">
             <div className="lg:col-span-8 space-y-20 sm:space-y-32">
               <section className="space-y-12 sm:space-y-16">
@@ -192,7 +193,7 @@ export default function ProjectPage({ params }: PageProps) {
                 </div>
 
                 <div className="space-y-10 sm:space-y-12 relative z-10">
-                  <p className="text-[12px] font-black text-primary uppercase tracking-[0.6em] flex items-center gap-5">
+                  <p className="text-[11px] font-black text-primary uppercase tracking-[0.6em] flex items-center gap-5">
                     <Code2 className="w-6 h-6" /> Tech Stack Matrix
                   </p>
                   <div className="flex flex-wrap gap-3 sm:gap-6">
@@ -205,21 +206,21 @@ export default function ProjectPage({ params }: PageProps) {
                 </div>
 
                 <div className="pt-12 sm:pt-20 border-t border-border/40 space-y-10 relative z-10">
-                  <p className="text-[12px] font-black text-accent uppercase tracking-[0.6em] flex items-center gap-5">
+                  <p className="text-[11px] font-black text-accent uppercase tracking-[0.6em] flex items-center gap-5">
                     <Activity className="w-6 h-6" /> Node Parameters
                   </p>
                   <div className="space-y-6 sm:space-y-10">
                     {project.metrics.map((m, i) => (
                       <div key={i} className="flex items-center justify-between">
-                        <span className="text-[10px] sm:text-[13px] font-black text-muted-foreground uppercase tracking-widest">{m.label}</span>
-                        <span className="text-[13px] sm:text-2xl font-black text-primary uppercase font-headline">{m.value}</span>
+                        <span className="text-[10px] sm:text-[12px] font-black text-muted-foreground uppercase tracking-widest">{m.label}</span>
+                        <span className="text-xs sm:text-2xl font-black text-primary uppercase font-headline">{m.value}</span>
                       </div>
                     ))}
                   </div>
                 </div>
 
                 <div className="pt-12 sm:pt-24 border-t border-border/40 text-center opacity-40">
-                   <p className="text-[11px] text-muted-foreground font-black uppercase tracking-[0.8em]">
+                   <p className="text-[10px] text-muted-foreground font-black uppercase tracking-[0.8em]">
                      Architectural Verified Node
                    </p>
                 </div>
