@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Laptop, Palette, Database, Cpu, BrainCircuit, Zap } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -46,10 +46,17 @@ const synthesisNodes = [
 
 export function About() {
   const [activeNode, setActiveNode] = useState(synthesisNodes[0]);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
 
   return (
     <section id="about" className="py-24 md:py-32 px-6 relative overflow-hidden bg-background">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(var(--primary),0.02),transparent)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,hsl(var(--primary)/0.02),transparent)] pointer-events-none" />
       
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
@@ -103,7 +110,7 @@ export function About() {
                   {activeNode.id === node.id && (
                     <motion.div 
                       layoutId="active-node-indicator"
-                      className="absolute right-4 top-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_10px_rgba(var(--primary),0.8)]"
+                      className="absolute right-4 top-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_10px_hsl(var(--primary)/0.8)]"
                     />
                   )}
                 </button>
@@ -111,7 +118,7 @@ export function About() {
             </div>
           </motion.div>
 
-          {/* Right Visual Matrix */}
+          {/* Right Visual Matrix - Re-engineered for Data Flows */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -129,17 +136,35 @@ export function About() {
                   transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
                   className="absolute inset-0 flex items-center justify-center"
                 >
-                  {/* Technical Background Grid Layers */}
+                  {/* Technical Background Grid Layers - Ambient Flows */}
                   <div className="absolute inset-0 opacity-20 pointer-events-none">
                     <div className="absolute top-0 left-0 w-full h-full" style={{ backgroundImage: 'radial-gradient(circle, hsl(var(--primary)) 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
-                    <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(var(--primary),0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(var(--primary),0.05)_1px,transparent_1px)] bg-[size:80px_80px]" />
+                    <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--primary)/0.05)_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--primary)/0.05)_1px,transparent_1px)] bg-[size:80px_80px]" />
+                    
+                    {/* Animated Data Flows */}
+                    <motion.div 
+                      animate={{ 
+                        x: ["-100%", "100%"],
+                        opacity: [0, 0.3, 0]
+                      }}
+                      transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
+                      className="absolute top-1/4 left-0 right-0 h-px bg-primary"
+                    />
+                    <motion.div 
+                      animate={{ 
+                        y: ["-100%", "100%"],
+                        opacity: [0, 0.3, 0]
+                      }}
+                      transition={{ duration: 7, repeat: Infinity, ease: "linear", delay: 1 }}
+                      className="absolute top-0 bottom-0 left-1/3 w-px bg-primary"
+                    />
                   </div>
 
-                  {/* Central Node Visual */}
+                  {/* Central Node Visual - Technical Lens */}
                   <div className="relative z-10 flex flex-col items-center gap-10">
                     <motion.div 
                       animate={{ 
-                        boxShadow: activeNode.id === 'ai' ? ["0 0 20px rgba(249,115,22,0.2)", "0 0 50px rgba(249,115,22,0.4)", "0 0 20px rgba(249,115,22,0.2)"] : ["0 0 20px rgba(var(--primary),0.2)", "0 0 50px rgba(var(--primary),0.4)", "0 0 20px rgba(var(--primary),0.2)"]
+                        boxShadow: activeNode.id === 'ai' ? ["0 0 20px hsl(24 95% 53% / 0.2)", "0 0 50px hsl(24 95% 53% / 0.4)", "0 0 20px hsl(24 95% 53% / 0.2)"] : ["0 0 20px hsl(var(--primary) / 0.2)", "0 0 50px hsl(var(--primary) / 0.4)", "0 0 20px hsl(var(--primary) / 0.2)"]
                       }}
                       transition={{ duration: 4, repeat: Infinity }}
                       className="relative p-12 rounded-[3.5rem] bg-card border border-border/50 shadow-2xl transition-all duration-700 backdrop-blur-3xl group-hover:scale-105"
@@ -149,7 +174,6 @@ export function About() {
                         <Zap className="w-5 h-5 animate-pulse" />
                       </div>
                       
-                      {/* Technical "Scanning" Element */}
                       <motion.div 
                         animate={{ top: ["0%", "100%", "0%"] }}
                         transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
@@ -206,8 +230,6 @@ export function About() {
                 </div>
               </div>
             </div>
-            
-            <div className="absolute -top-10 -right-10 w-72 h-72 bg-primary/10 rounded-full blur-[120px] -z-10 animate-pulse" />
           </motion.div>
         </div>
       </div>

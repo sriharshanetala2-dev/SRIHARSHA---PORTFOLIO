@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { 
   Users, 
@@ -79,7 +79,12 @@ const chartConfig = {
 
 export function StudentDashboard() {
   const [activeTab, setActiveTab] = useState("Student Data");
+  const [mounted, setMounted] = useState(false);
   const { toast } = useToast();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const handleTabChange = (label: string) => {
     setActiveTab(label);
@@ -95,6 +100,8 @@ export function StudentDashboard() {
       description: "This operation is being processed by the system core.",
     });
   };
+
+  if (!mounted) return null;
 
   const renderContent = () => {
     switch (activeTab) {
@@ -358,7 +365,7 @@ export function StudentDashboard() {
   };
 
   return (
-    <section id="dashboard" className="py-24 px-6 bg-accent/5 overflow-hidden">
+    <section id="dashboard" className="py-24 px-6 bg-accent/5 overflow-hidden scroll-mt-20">
       <div className="max-w-7xl mx-auto space-y-12">
         <div className="text-center space-y-4 animate-in fade-in slide-in-from-bottom-4 duration-700">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-xs font-bold text-accent uppercase tracking-widest">

@@ -80,15 +80,15 @@
   height: 100%;
   z-index: -1;
   background-image: 
-    radial-gradient(at 0% 0%, hsla(var(--primary), 0.05) 0px, transparent 50%),
-    radial-gradient(at 100% 100%, hsla(var(--accent), 0.05) 0px, transparent 50%);
+    radial-gradient(at 0% 0%, hsl(var(--primary) / 0.05) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, hsl(var(--accent) / 0.05) 0px, transparent 50%);
 }
 
 .glow-cursor {
   position: fixed;
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, hsla(var(--primary), 0.08) 0%, transparent 70%);
+  background: radial-gradient(circle, hsl(var(--primary) / 0.08) 0%, transparent 70%);
   border-radius: 50%;
   pointer-events: none;
   transform: translate(-50%, -50%);
