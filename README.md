@@ -1,12 +1,12 @@
-# NETALA SRIHARSHA | Professional Portfolio
+# NETALA SRIHARSHA | Professional Portfolio & AI Architect
 
-A high-performance, AI-integrated portfolio showcasing expertise in Java Full Stack Engineering and Generative AI.
+A high-performance, AI-integrated portfolio showcasing expertise in Software Development, Full Stack Engineering, and Generative AI.
 
 ## 🚀 Features
-- **AI Brand Engine**: A sophisticated Genkit-powered tool that architects project identities (tech stacks + visual marks) from user blueprints.
-- **Enterprise Student Dashboard**: A simulated environment demonstrating complex data visualization and management using ShadCN UI and Recharts.
+- **Identity Architect Terminal**: A high-tech Genkit-powered command center that synthesizes project blueprints into full brand identities (tech stacks + visual marks).
+- **Enterprise Student Dashboard**: A simulated environment demonstrating complex data visualization using ShadCN UI and Recharts.
 - **Dynamic Projects**: Interactive showcase of Java, AI, and Network Engineering innovations.
-- **Firebase Core**: Integrated with Firestore for real-time contact management and persistence.
+- **Firebase Integration**: Wired for Firestore to handle real-time contact management.
 
 ## 🛠 Tech Stack
 - **Framework**: Next.js 15 (App Router)
@@ -14,38 +14,41 @@ A high-performance, AI-integrated portfolio showcasing expertise in Java Full St
 - **Database**: Firebase Firestore
 - **AI Engine**: Google Genkit (Gemini 2.5 Flash & Imagen 4.0)
 
-## 🌐 Free Deployment Guide
+## 🌐 Publishing to GitHub
 
-You can host this portfolio for free using one of the following methods:
+1. **Initialize Git**:
+   ```bash
+   git init
+   ```
+2. **Add Files**:
+   ```bash
+   git add .
+   ```
+3. **Commit**:
+   ```bash
+   git commit -m "Initial commit: Premium Portfolio with AI Brand Engine"
+   ```
+4. **Push to GitHub**:
+   - Create a repository at [github.com/new](https://github.com/new)
+   - Follow the instructions to link your local repo:
+   ```bash
+   git remote add origin https://github.com/sriharshanetala2-dev/your-repo-name.git
+   git branch -M main
+   git push -u origin main
+   ```
+
+## 🚀 Free Deployment Guide
 
 ### Option 1: Firebase App Hosting (Recommended)
-Firebase App Hosting is optimized for Next.js and offers a generous free tier.
-1. **Push to GitHub**: Create a repository and push your code.
-2. **Firebase Console**: Go to [Firebase Console](https://console.firebase.google.com/), select your project.
-3. **App Hosting**: Click "App Hosting" in the sidebar and click "Get Started".
-4. **Connect GitHub**: Connect your account and select this repository.
-5. **Configure**: Firebase will automatically detect Next.js. Use the default settings.
-6. **Secrets**: In the "Settings" tab of your backend, add your environment variables (`GOOGLE_GENAI_API_KEY`, etc.) as Secrets.
+1. Go to the [Firebase Console](https://console.firebase.google.com/).
+2. Select your project and navigate to **App Hosting**.
+3. Connect your GitHub repository.
+4. Set your environment variables (like `GOOGLE_GENAI_API_KEY`) in the App Hosting settings as **Secrets**.
 
-### Option 2: Vercel (Fastest for Next.js)
-Vercel is the creator of Next.js and provides an excellent free tier for personal portfolios.
-1. **Push to GitHub**: Ensure your code is in a public or private GitHub repo.
-2. **Import Project**: Go to [Vercel](https://vercel.com/new) and import your repository.
-3. **Environment Variables**: Add your `NEXT_PUBLIC_FIREBASE_*` variables and your `GOOGLE_GENAI_API_KEY` in the project settings.
-4. **Deploy**: Click "Deploy" and your site will be live in seconds.
-
-## 📦 Local Development
-
-1. **Environment Setup**:
-   Copy `.env.example` to `.env` and fill in your Firebase credentials.
-2. **Installation**:
-   ```bash
-   npm install
-   ```
-3. **Run**:
-   ```bash
-   npm run dev
-   ```
+### Option 2: Vercel
+1. Import your repository to [Vercel](https://vercel.com/new).
+2. Add your environment variables in the project settings.
+3. Click **Deploy**.
 
 ## 📝 License
-&copy; NETALA SRIHARSHA. All rights reserved.
+&copy; 2024 NETALA SRIHARSHA. All rights reserved.
