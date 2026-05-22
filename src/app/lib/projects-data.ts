@@ -8,14 +8,17 @@ import {
   Shield, 
   BarChart3,
   Terminal,
-  Activity
+  Activity,
+  ShieldCheck,
+  Server,
+  Code2
 } from 'lucide-react';
 
 export const projects = [
   {
     id: 'neural-workflow-os',
     title: 'Neural Workflow OS',
-    category: 'Agentic Systems',
+    category: 'Agentic AI',
     icon: Workflow,
     description: 'Autonomous orchestration engine utilizing Genkit for semantic intent parsing and priority mapping.',
     longDescription: 'Engineered an enterprise-grade AI kernel that leverages Large Language Models for autonomous task orchestration. The system implements a sophisticated priority scoring algorithm and real-time state synchronization via a low-latency Firestore architecture.',
@@ -28,9 +31,9 @@ export const projects = [
       'Agentic Execution Logic'
     ],
     metrics: [
-      { label: 'Integrity', value: 'Verified' },
+      { label: 'Integrity', value: 'High' },
       { label: 'Architecture', value: 'Neural' },
-      { label: 'Security', value: 'Enterprise' }
+      { label: 'Security', value: 'Verified' }
     ],
     systemLogs: [
       "[SYSTEM] Initializing Neural Kernel v2.4...",
@@ -48,9 +51,44 @@ export const projects = [
 }`
   },
   {
+    id: 'sentinel-security-hub',
+    title: 'Sentinel IAM Hub',
+    category: 'Cybersecurity',
+    icon: ShieldCheck,
+    description: 'Cloud Identity and Access Management platform with multi-factor biometric simulation.',
+    longDescription: 'Developed a robust IAM gateway focusing on zero-trust principles. Implemented custom OAuth2 flows and RBAC (Role-Based Access Control) using Spring Security and JWT for high-integrity authentication.',
+    tags: ['Spring Security', 'JWT', 'PostgreSQL', 'Docker'],
+    techStack: ['Java', 'Spring Boot', 'PostgreSQL', 'Docker'],
+    features: [
+      'Zero-Trust Architecture',
+      'JWT Payload Encryption',
+      'Advanced RBAC Subsystem',
+      'Biometric Simulation Logic'
+    ],
+    metrics: [
+      { label: 'Integrity', value: 'L4' },
+      { label: 'Architecture', value: 'Zero-Trust' },
+      { label: 'Security', value: 'Hardened' }
+    ],
+    systemLogs: [
+      "[AUTH] Handshaking JWT Header...",
+      "[SENTINEL] Anomaly detection active: NO_THREAT",
+      "[DB] Session state persisted in Postgres.",
+      "[RBAC] Access permission verified for UID:8812",
+      "[CORE] Security gateway: LOCKED"
+    ],
+    codeSnippet: `{
+  "subsystem": "Sentinel_IAM_Core",
+  "auth_model": "OAuth2_JWT_v3",
+  "isolation": "Zero_Trust_L4",
+  "encryption": "AES_256_GCM",
+  "state": "SECURE"
+}`
+  },
+  {
     id: 'tradeflux-engine',
     title: 'TradeFlux Engine',
-    category: 'FinTech Logic',
+    category: 'FinTech',
     icon: BarChart3,
     description: 'High-frequency market analysis dashboard with real-time ACID-compliant data streams.',
     longDescription: 'Architected a low-latency financial dashboard that aggregates complex market data into real-time insights. Optimized for high-frequency rendering and data integrity using custom PostgreSQL indexing and reactive frontend logic.',
@@ -65,7 +103,7 @@ export const projects = [
     metrics: [
       { label: 'Integrity', value: 'ACID' },
       { label: 'Architecture', value: 'Reactive' },
-      { label: 'Security', value: 'TLS 1.3' }
+      { label: 'Security', value: 'Verified' }
     ],
     systemLogs: [
       "[DB] Optimizing PostgreSQL B-Tree Index...",
@@ -83,9 +121,44 @@ export const projects = [
 }`
   },
   {
+    id: 'pulse-data-engine',
+    title: 'Pulse Data Engine',
+    category: 'Big Data',
+    icon: Server,
+    description: 'Massive dataset visualization and predictive analytics pipeline.',
+    longDescription: 'Engineered a data processing pipeline that visualizes multi-million record sets with sub-second response times. Implemented specialized caching layers and optimized SQL query plans for deep analytics.',
+    tags: ['Next.js', 'SQL', 'Redis', 'Python'],
+    techStack: ['Next.js', 'PostgreSQL', 'Redis', 'Python'],
+    features: [
+      'Predictive Modeling Node',
+      'L2 Caching Subsystem',
+      'Multi-Million Record Parsing',
+      'Visual Data Mapping'
+    ],
+    metrics: [
+      { label: 'Integrity', value: 'Atomic' },
+      { label: 'Architecture', value: 'Pipeline' },
+      { label: 'Security', value: 'L3 Verified' }
+    ],
+    systemLogs: [
+      "[PULSE] Parsing dataset: 4.2M records",
+      "[CACHE] Redis L2 Hit Rate: 94%",
+      "[SQL] Parallel scan optimization: COMPLETE",
+      "[MOD] Predictive delta coefficient: 0.12",
+      "[SYS] Analytics node heartbeat: OK"
+    ],
+    codeSnippet: `{
+  "core": "Pulse_Analytics_v1",
+  "pipeline": "ETL_Optimized_L2",
+  "caching": "Redis_Distributed",
+  "throughput": "50k_ops/sec",
+  "status": "OPERATIONAL"
+}`
+  },
+  {
     id: 'corelogic-db',
     title: 'CoreLogic DB',
-    category: 'Systems Engineering',
+    category: 'Systems',
     icon: Database,
     description: 'Robust transaction management system focusing on high-concurrency data integrity.',
     longDescription: 'Developed a specialized backend core focusing on high-integrity data mutations and complex join optimization. Implemented custom JDBC pooling and atomic transaction lifecycles for enterprise-scale environments.',
@@ -120,7 +193,7 @@ export const projects = [
   {
     id: 'netops-topology',
     title: 'NetOps Topology',
-    category: 'Network Systems',
+    category: 'Networking',
     icon: Globe,
     description: 'Visual IP orchestration tool for infrastructure mapping and subnet mask calculation.',
     longDescription: 'Built a specialized utility for network architects to simulate and visualize IP address distributions. Leverages advanced bitwise logic to handle high-performance CIDR mapping and topological routing simulations.',
@@ -133,9 +206,9 @@ export const projects = [
       'Path Simulation Logic'
     ],
     metrics: [
-      { label: 'Integrity', value: 'L3/L4' },
-      { label: 'Architecture', value: 'Topology' },
-      { label: 'Security', value: 'Verified' }
+      { label: 'Integrity', value: 'Verified' },
+      { label: 'Architecture', value: 'Topological' },
+      { label: 'Security', value: 'L3 Sec' }
     ],
     systemLogs: [
       "[NET] Computing CIDR boundary for 192.168.0.0/24",

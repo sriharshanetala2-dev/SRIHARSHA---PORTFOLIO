@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ChevronDown, Cpu, ArrowRight, Activity, Zap } from "lucide-react";
+import { ChevronDown, ArrowRight, Activity, Zap, Code2 } from "lucide-react";
 
 export function Hero() {
   const containerVariants = {
@@ -42,22 +42,22 @@ export function Hero() {
           className="inline-flex items-center gap-3 px-6 py-2 rounded-full glass-card text-[10px] font-black tracking-[0.4em] text-primary uppercase border-primary/20 backdrop-blur-xl"
         >
           <Activity className="w-3.5 h-3.5" />
-          Neural Core v4.0 Active
+          Full Stack Subsystem v4.0 Active
         </motion.div>
 
         <motion.h1
           variants={itemVariants}
           className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-headline font-black tracking-tighter leading-[1.05] uppercase italic"
         >
-          QUANTUM <br />
-          <span className="text-gradient">SYSTEMS</span>
+          ENGINEERING <br />
+          <span className="text-gradient">ECOSYSTEMS</span>
         </motion.h1>
 
         <motion.p
           variants={itemVariants}
-          className="max-w-2xl mx-auto text-xs sm:text-base md:text-lg text-muted-foreground font-medium uppercase tracking-[0.2em] opacity-70 leading-relaxed"
+          className="max-w-2xl mx-auto text-xs sm:text-base md:text-lg text-muted-foreground font-medium uppercase tracking-[0.2em] opacity-70 leading-relaxed font-body"
         >
-          Architecting elite digital ecosystems where neural logic meets professional visual precision. 
+          Architecting high-performance Full Stack solutions where enterprise logic meets professional visual precision. 
           Performance optimized. Zero-lag infrastructure.
         </motion.p>
 
@@ -78,7 +78,7 @@ export function Hero() {
               href="#about"
               className="group flex items-center justify-center gap-4 px-10 py-5 rounded-xl bg-secondary/80 text-foreground font-black text-[11px] tracking-[0.3em] uppercase border border-white/10 transition-all hover:bg-secondary hover:border-primary/50 backdrop-blur-md"
             >
-              <Zap className="w-4 h-4 text-primary" />
+              <Code2 className="w-4 h-4 text-primary" />
               Core Logic
             </a>
           </div>

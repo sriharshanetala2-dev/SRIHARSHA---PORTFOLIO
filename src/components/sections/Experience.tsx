@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
-import { Briefcase, Calendar, Zap, BrainCircuit, Code2, Layers } from "lucide-react";
+import { Briefcase, Calendar, Code2, BrainCircuit, Layers } from "lucide-react";
 
 const experience = [
   {
@@ -21,7 +21,7 @@ const experience = [
   },
   {
     role: "Independent Software Engineering",
-    company: "Self-Directed Mastery",
+    company: "Full Stack Mastery",
     period: "2024 — 2025",
     description: "Dedicated phase post-graduation focused on applying core Computer Science principles to real-time interactive UIs and backend logic cores.",
     icon: Layers
@@ -56,7 +56,7 @@ export function Experience() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-sm sm:text-xl text-muted-foreground font-bold max-w-2xl mx-auto opacity-60 uppercase tracking-widest"
+            className="text-sm sm:text-xl text-muted-foreground font-bold max-w-2xl mx-auto opacity-60 uppercase tracking-widest font-body"
           >
             A specialized architectural mapping of technical development and high-level milestone integration.
           </motion.p>
@@ -77,36 +77,22 @@ export function Experience() {
               <Card 
                 className="p-8 md:p-12 glass-card bg-secondary/20 border-white/5 hover:border-primary/40 transition-all rounded-[2rem] overflow-hidden"
               >
-                <div className="absolute top-0 right-0 p-8 opacity-[0.03] group-hover:opacity-10 transition-opacity">
-                  <item.icon className="w-40 h-40" />
-                </div>
                 <div className="flex flex-col md:flex-row md:items-start gap-8 md:gap-12 relative z-10">
                   <div className="p-6 rounded-2xl bg-secondary group-hover:bg-primary text-primary group-hover:text-primary-foreground transition-all duration-500 w-fit shadow-2xl border border-white/5">
                     <item.icon className="w-8 h-8" />
                   </div>
                   <div className="space-y-6 flex-1">
-                    <div className="flex items-center gap-3 text-[9px] font-black text-primary uppercase tracking-[0.4em]">
+                    <div className="flex items-center gap-3 text-[9px] font-black text-primary uppercase tracking-[0.4em] font-mono">
                       <Calendar className="w-4 h-4" />
                       {item.period}
                     </div>
                     <div className="space-y-2">
                       <h3 className="text-2xl md:text-4xl font-headline font-black tracking-tight uppercase italic">{item.role}</h3>
-                      <p className="text-foreground/40 font-black text-sm sm:text-lg tracking-widest uppercase">{item.company}</p>
+                      <p className="text-foreground/40 font-black text-sm sm:text-lg tracking-widest uppercase font-mono">{item.company}</p>
                     </div>
-                    <p className="text-sm sm:text-lg text-muted-foreground leading-relaxed font-medium opacity-80 max-w-3xl">
+                    <p className="text-sm sm:text-lg text-muted-foreground leading-relaxed font-body opacity-80 max-w-3xl">
                       {item.description}
                     </p>
-                    
-                    <div className="pt-6">
-                      <div className="h-1 w-24 bg-primary/10 rounded-full overflow-hidden">
-                         <motion.div 
-                           initial={{ width: 0 }}
-                           whileInView={{ width: "100%" }}
-                           transition={{ duration: 1, ease: "easeInOut" }}
-                           className="h-full bg-primary" 
-                         />
-                      </div>
-                    </div>
                   </div>
                 </div>
               </Card>
