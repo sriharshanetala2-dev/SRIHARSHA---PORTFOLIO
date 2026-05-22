@@ -31,7 +31,7 @@ const experience = [
 export function Experience() {
   return (
     <section id="experience" className="py-24 md:py-44 px-6 bg-background relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_0%_50%,hsl(var(--accent)/0.03),transparent)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_0%_50%,hsl(var(--primary)/0.03),transparent)] pointer-events-none" />
       
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-24 space-y-6">
@@ -56,41 +56,41 @@ export function Experience() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-sm sm:text-xl text-muted-foreground font-bold max-w-2xl mx-auto opacity-60 uppercase tracking-widest font-body"
+            className="text-sm sm:text-xl text-muted-foreground font-black max-w-2xl mx-auto opacity-60 uppercase tracking-[0.2em]"
           >
             A technical mapping of development milestones and high-level project integration.
           </motion.p>
         </div>
 
         <div className="space-y-8 relative">
-          <div className="absolute left-8 md:left-12 top-0 bottom-0 w-[1px] bg-white/5 hidden sm:block" />
+          <div className="absolute left-8 md:left-12 top-0 bottom-0 w-[1px] bg-border hidden sm:block" />
 
           {experience.map((item, idx) => (
             <motion.div 
               key={idx}
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: idx * 0.1 }}
+              transition={{ duration: 0.6, delay: idx * 0.1, type: "spring" }}
               viewport={{ once: true, margin: "-50px" }}
               className="relative"
             >
               <Card 
-                className="p-8 md:p-12 glass-card bg-secondary/20 border-white/5 hover:border-primary/40 transition-all rounded-[2rem] overflow-hidden"
+                className="p-8 md:p-12 glass-card bg-card/30 border-border/50 hover:border-primary/40 transition-all rounded-[2rem] overflow-hidden"
               >
                 <div className="flex flex-col md:flex-row md:items-start gap-8 md:gap-12 relative z-10">
-                  <div className="p-6 rounded-2xl bg-secondary group-hover:bg-primary text-primary group-hover:text-primary-foreground transition-all duration-500 w-fit shadow-2xl border border-white/5">
+                  <div className="p-6 rounded-2xl bg-secondary group-hover:bg-primary text-primary group-hover:text-primary-foreground transition-all duration-500 w-fit shadow-md border border-border/50">
                     <item.icon className="w-8 h-8" />
                   </div>
                   <div className="space-y-6 flex-1">
-                    <div className="flex items-center gap-3 text-[9px] font-black text-primary uppercase tracking-[0.4em] font-mono">
+                    <div className="flex items-center gap-3 text-[9px] font-black text-primary uppercase tracking-[0.4em]">
                       <Calendar className="w-4 h-4" />
                       {item.period}
                     </div>
                     <div className="space-y-2">
                       <h3 className="text-2xl md:text-4xl font-headline font-black tracking-tight uppercase">{item.role}</h3>
-                      <p className="text-foreground/40 font-black text-sm sm:text-lg tracking-widest uppercase font-mono">{item.company}</p>
+                      <p className="text-foreground/40 font-black text-sm sm:text-lg tracking-widest uppercase">{item.company}</p>
                     </div>
-                    <p className="text-sm sm:text-lg text-muted-foreground leading-relaxed font-body opacity-80 max-w-3xl">
+                    <p className="text-sm sm:text-lg text-muted-foreground leading-relaxed font-bold opacity-80 max-w-3xl uppercase tracking-tight">
                       {item.description}
                     </p>
                   </div>

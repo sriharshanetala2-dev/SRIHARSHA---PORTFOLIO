@@ -44,7 +44,7 @@ export function Skills() {
 
   return (
     <section id="skills" className="py-24 md:py-44 px-6 relative overflow-hidden bg-background">
-      <div className="absolute inset-0 neural-grid opacity-[0.05] pointer-events-none" />
+      <div className="absolute inset-0 data-flow-grid opacity-[0.05] pointer-events-none" />
       <div className="max-w-7xl mx-auto space-y-24">
         <div className="text-center space-y-6">
           <motion.div 
@@ -60,7 +60,7 @@ export function Skills() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl sm:text-7xl md:text-9xl font-headline font-black tracking-tighter uppercase leading-none italic"
+            className="text-4xl sm:text-7xl md:text-9xl font-headline font-black tracking-tighter uppercase leading-none"
           >
             TECHNICAL <span className="text-gradient">STACK</span>
           </motion.h2>
@@ -92,14 +92,14 @@ export function Skills() {
                     <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity" />
                     <div className="flex items-center gap-6 relative z-10">
                       <skill.icon className="w-5 h-5 text-primary group-hover:scale-110 transition-transform" />
-                      <span className="font-black tracking-tight text-lg sm:text-2xl uppercase italic">{skill.name}</span>
+                      <span className="font-black tracking-tight text-lg sm:text-2xl uppercase">{skill.name}</span>
                     </div>
                   </motion.div>
                 </TooltipTrigger>
                 <TooltipContent className="glass-card p-8 border-white/10 rounded-2xl w-80 space-y-6 shadow-3xl backdrop-blur-3xl bg-background/95">
                   <div className="space-y-1">
                     <p className="text-[9px] font-black uppercase text-primary tracking-[0.4em]">{skill.category}</p>
-                    <p className="font-black text-2xl tracking-tighter uppercase italic">{skill.name}</p>
+                    <p className="font-black text-2xl tracking-tighter uppercase">{skill.name}</p>
                   </div>
                   <div className="space-y-3">
                     <div className="flex justify-between items-center text-[9px] font-black uppercase tracking-widest opacity-50">

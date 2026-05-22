@@ -36,7 +36,7 @@ export function Navbar() {
     )}>
       <div className={cn(
         "max-w-7xl mx-auto flex items-center justify-between px-6 py-3 rounded-xl transition-all duration-300 border",
-        scrolled ? "bg-background/95 backdrop-blur-md border-border shadow-lg" : "bg-transparent border-transparent"
+        scrolled ? "bg-background/95 backdrop-blur-md border-border shadow-md" : "bg-transparent border-transparent"
       )}>
         <Link href="/" className="flex items-center gap-3 group">
           <div className="p-2 rounded bg-primary text-primary-foreground">
@@ -75,7 +75,7 @@ export function Navbar() {
             href="#contact"
             className="px-5 py-2 rounded bg-primary text-primary-foreground text-[10px] font-black uppercase tracking-widest hover:brightness-110 transition-all shadow-md"
           >
-            Hire Node
+            Hire Developer
           </a>
         </div>
 
@@ -118,7 +118,7 @@ export function Navbar() {
               className="w-full py-3 rounded bg-primary text-primary-foreground text-center font-black uppercase tracking-widest text-[10px]"
               onClick={() => setIsOpen(false)}
             >
-              Hire Node
+              Hire Developer
             </a>
           </motion.div>
         )}
