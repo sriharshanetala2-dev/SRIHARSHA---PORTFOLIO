@@ -1,4 +1,3 @@
-
 "use client";
 
 import { motion } from "framer-motion";
@@ -20,7 +19,7 @@ export function Hero() {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
-          className="inline-flex items-center gap-3 px-6 py-2 rounded-full bg-primary/10 text-[10px] font-black tracking-[0.4em] text-primary uppercase border border-primary/20"
+          className="inline-flex items-center gap-3 px-6 py-2 rounded-full bg-primary/10 text-[9px] sm:text-[10px] font-black tracking-[0.4em] text-primary uppercase border border-primary/20 shadow-xl"
         >
           <Sparkles className="w-4 h-4" />
           Full Stack & UI Developer
@@ -42,7 +41,7 @@ export function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.5 }}
-          className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed font-medium opacity-70 uppercase tracking-[0.2em]"
+          className="text-xs sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed font-medium opacity-70 uppercase tracking-[0.2em]"
         >
           B.Sc Computer Science graduate specializing in modern React ecosystems and high-performance digital architecture.
         </motion.p>
@@ -67,7 +66,7 @@ export function Hero() {
             asChild
             size="lg" 
             variant="outline" 
-            className="w-full sm:w-auto h-16 px-12 rounded-full font-black uppercase tracking-[0.3em] text-[10px] hover:scale-105 transition-all border-border/50"
+            className="w-full sm:w-auto h-16 px-12 rounded-full font-black uppercase tracking-[0.3em] text-[10px] hover:scale-105 transition-all border-border/50 bg-background/50 backdrop-blur-sm"
           >
             <a href="#contact">Hire Me</a>
           </Button>

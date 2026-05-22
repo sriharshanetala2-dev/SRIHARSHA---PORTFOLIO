@@ -10,7 +10,9 @@ import {
   Layers, 
   Code2, 
   Zap,
-  Activity
+  Activity,
+  Terminal,
+  Cpu
 } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -49,11 +51,11 @@ export default function ProjectPage({ params }: { params: Promise<{ projectId: s
           </Link>
 
           {/* Header */}
-          <div className="space-y-6">
+          <div className="space-y-6 sm:space-y-8">
             <motion.div 
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-[10px] font-black text-accent uppercase tracking-[0.2em]"
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-[9px] font-black text-accent uppercase tracking-[0.2em]"
             >
               <Activity className="w-3 h-3" />
               {project.category}
@@ -62,11 +64,11 @@ export default function ProjectPage({ params }: { params: Promise<{ projectId: s
             <motion.h1 
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.1 }}
+              transition={{ delay: 0.1, duration: 0.8 }}
               className="flex flex-wrap text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-headline font-black tracking-tighter uppercase leading-[1.1] sm:leading-tight"
             >
               {project.title.split(' ').map((word, i) => (
-                <span key={i} className={cn("inline-block mr-[0.3em] last:mr-0", i % 2 !== 0 ? "text-gradient" : "")}>
+                <span key={i} className={cn("inline-block mr-[0.3em] last:mr-0", i % 2 !== 0 ? "text-gradient" : "text-foreground")}>
                   {word}
                 </span>
               ))}
@@ -76,7 +78,7 @@ export default function ProjectPage({ params }: { params: Promise<{ projectId: s
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
-              className="text-base sm:text-xl md:text-2xl text-muted-foreground leading-relaxed font-medium max-w-3xl opacity-70"
+              className="text-sm sm:text-lg md:text-xl text-muted-foreground leading-relaxed font-medium max-w-3xl opacity-80"
             >
               {project.description}
             </motion.p>
@@ -89,15 +91,15 @@ export default function ProjectPage({ params }: { params: Promise<{ projectId: s
             transition={{ duration: 1 }}
             className="relative aspect-square sm:aspect-video rounded-[2rem] sm:rounded-[3rem] overflow-hidden border border-border shadow-3xl bg-secondary/5 data-flow-grid group"
           >
-            <div className="absolute inset-0 flex items-center justify-center p-4 sm:p-12">
-              <div className="absolute inset-0 opacity-10">
-                <div className="absolute top-0 left-0 w-full h-full" style={{ backgroundImage: 'radial-gradient(circle, hsl(var(--primary)) 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+            <div className="absolute inset-0 flex items-center justify-center p-6 sm:p-12">
+              <div className="absolute inset-0 opacity-10 pointer-events-none">
+                <div className="absolute top-0 left-0 w-full h-full" style={{ backgroundImage: 'radial-gradient(circle, hsl(var(--primary)) 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
               </div>
 
               <div className="relative z-10 flex flex-col items-center gap-6 sm:gap-10 w-full">
                 <motion.div 
                   animate={{ 
-                    boxShadow: ["0 0 20px hsl(var(--primary) / 0.1)", "0 0 50px hsl(var(--primary) / 0.3)", "0 0 20px hsl(var(--primary) / 0.1)"]
+                    boxShadow: ["0 0 15px hsl(var(--primary) / 0.1)", "0 0 40px hsl(var(--primary) / 0.3)", "0 0 15px hsl(var(--primary) / 0.1)"]
                   }}
                   transition={{ duration: 4, repeat: Infinity }}
                   className="relative p-6 sm:p-16 rounded-[2rem] sm:rounded-[4rem] bg-card border border-border/50 shadow-2xl backdrop-blur-3xl"
@@ -110,12 +112,12 @@ export default function ProjectPage({ params }: { params: Promise<{ projectId: s
 
                 <div className="flex flex-col items-center gap-1 sm:gap-2">
                   <p className="text-[7px] sm:text-[10px] font-black uppercase tracking-[0.4em] sm:tracking-[0.6em] text-primary opacity-60">Architectural Node</p>
-                  <h3 className="text-sm sm:text-3xl font-black uppercase tracking-tighter text-center px-4">{project.title}</h3>
+                  <h3 className="text-xs sm:text-3xl font-black uppercase tracking-tighter text-center px-4">{project.title}</h3>
                 </div>
 
-                <div className="flex gap-2 sm:gap-6 px-3 sm:px-10 py-2 sm:py-5 glass-card rounded-xl sm:rounded-[2rem] border-white/5 bg-background/50 shadow-2xl">
+                <div className="flex gap-2 sm:gap-6 px-3 sm:px-10 py-2 sm:py-5 glass-card rounded-xl sm:rounded-[2rem] border-white/5 bg-background/50 shadow-2xl backdrop-blur-md overflow-hidden">
                    {project.metrics.map((metric, i) => (
-                     <div key={i} className="flex flex-col items-center px-1.5 sm:px-6 border-r last:border-0 border-border/50">
+                     <div key={i} className="flex flex-col items-center px-2 sm:px-6 border-r last:border-0 border-border/50">
                        <span className="text-[5px] sm:text-[8px] font-black uppercase tracking-widest text-muted-foreground mb-0.5 sm:mb-1">{metric.label}</span>
                        <span className="text-[8px] sm:text-sm font-bold text-accent font-mono whitespace-nowrap">{metric.value}</span>
                      </div>
@@ -135,8 +137,8 @@ export default function ProjectPage({ params }: { params: Promise<{ projectId: s
             />
             
             <div className="absolute bottom-4 left-4 sm:bottom-8 sm:left-8 p-1.5 sm:p-4 glass-card rounded-lg sm:rounded-xl border-white/5 bg-black/40 flex items-center gap-1.5 sm:gap-3">
-              <div className="w-1 h-1 sm:w-2 sm:h-2 rounded-full bg-green-500 animate-pulse" />
-              <span className="text-[6px] sm:text-[10px] font-black uppercase tracking-widest text-green-500">Node Verified</span>
+              <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-green-500 animate-pulse" />
+              <span className="text-[6px] sm:text-[10px] font-black uppercase tracking-widest text-green-500">System Verified</span>
             </div>
           </motion.div>
 
