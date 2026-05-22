@@ -1,9 +1,8 @@
-
 "use client";
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Sparkles, Terminal } from "lucide-react";
+import { ArrowRight, Sparkles } from "lucide-react";
 
 export function Hero() {
   return (
@@ -11,9 +10,9 @@ export function Hero() {
       <div className="glow-mesh" />
       
       <motion.div 
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, ease: "easeOut" }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
         className="max-w-7xl mx-auto text-center space-y-12 md:space-y-16 relative z-10"
       >
         <motion.div 
@@ -27,24 +26,39 @@ export function Hero() {
         </motion.div>
 
         <div className="space-y-8">
-          <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-[7rem] font-headline font-black leading-[0.9] tracking-tighter uppercase">
+          <motion.h1 
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.2 }}
+            className="text-5xl sm:text-7xl md:text-8xl lg:text-[7.5rem] font-headline font-black leading-[0.85] tracking-tighter uppercase"
+          >
             Computational <br />
             <span className="text-gradient">Experience</span>
-          </h1>
+          </motion.h1>
         </div>
 
-        <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-medium opacity-70 uppercase tracking-[0.1em]">
+        <motion.p 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.5 }}
+          className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-medium opacity-70 uppercase tracking-[0.1em]"
+        >
           B.Sc Computer Science graduate specializing in modern React ecosystems and high-performance digital architecture.
-        </p>
+        </motion.p>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-10">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
+          className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-10"
+        >
           <Button 
             asChild
             size="lg" 
             className="w-full sm:w-auto h-16 px-12 rounded-full font-black uppercase tracking-[0.3em] text-[10px] group shadow-2xl hover:scale-105 transition-all bg-primary text-primary-foreground"
           >
             <a href="#portfolio">
-              Project Archive
+              Project Matrix
               <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
             </a>
           </Button>
@@ -56,17 +70,7 @@ export function Hero() {
           >
             <a href="#contact">Hire Me</a>
           </Button>
-        </div>
-      </motion.div>
-
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.4 }}
-        transition={{ delay: 1 }}
-        className="absolute bottom-10 left-10 hidden xl:flex items-center gap-4 text-[9px] font-mono font-bold uppercase tracking-[0.6em] opacity-40"
-      >
-        <Terminal className="w-4 h-4" />
-        <span>Logical flow initiated // System ready</span>
+        </motion.div>
       </motion.div>
     </section>
   );
