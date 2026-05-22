@@ -126,7 +126,7 @@ export function Contact() {
               <div className="space-y-2">
                 <label className="text-[10px] font-black uppercase text-muted-foreground tracking-widest ml-1">Full Name</label>
                 <Input 
-                  placeholder="John Doe" 
+                  placeholder="Your Name" 
                   required
                   className="bg-background/50 border-border focus:ring-primary h-14 rounded-xl text-base font-bold"
                   value={formData.name}

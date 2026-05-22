@@ -9,6 +9,10 @@ import {
   Activity,
   Cpu,
   Layers,
+  Terminal,
+  Cloud,
+  Eye,
+  Lock,
   LucideIcon 
 } from "lucide-react";
 
@@ -73,6 +77,28 @@ export const projects: Project[] = [
     ]
   },
   {
+    id: "cloudscale-orchestrator",
+    title: "CloudScale Orchestrator",
+    category: "DevOps & Cloud",
+    tags: ["Go", "React", "Docker", "Monitoring"],
+    description: "Enterprise-grade container monitoring hub for real-time cluster health and automated resource scaling.",
+    longDescription: "Architected a high-fidelity monitoring shell for distributed systems. Implemented real-time resource telemetry and automated incident response logic for high-availability environments.",
+    icon: Cloud,
+    github: "https://github.com/sriharshanetala2-dev",
+    demo: "/projects/cloudscale-orchestrator",
+    features: [
+      "Real-time Resource Telemetry",
+      "Automated Scaling Logic",
+      "Cluster Health Visualizer",
+      "Container Lifecycle Hooks"
+    ],
+    techStack: ["Go", "React", "Docker", "Prometheus"],
+    metrics: [
+      { label: "Uptime", value: "99.99%" },
+      { label: "Scaling Speed", value: "<2s" }
+    ]
+  },
+  {
     id: "corelogic-java-engine",
     title: "CoreLogic Java Engine",
     category: "Backend Architecture",
@@ -95,6 +121,28 @@ export const projects: Project[] = [
     ]
   },
   {
+    id: "algoviz-engine",
+    title: "AlgoViz Engine",
+    category: "Computer Science",
+    tags: ["TypeScript", "Algorithms", "Visualizer"],
+    description: "Deep-dive visualization engine for complex data structures and pathfinding algorithms.",
+    longDescription: "Developed an interactive educational tool to visualize algorithmic complexity. Implemented step-through logic for A*, Dijkstra, and Red-Black Tree balancing to demystify core CS principles.",
+    icon: Eye,
+    github: "https://github.com/sriharshanetala2-dev",
+    demo: "/projects/algoviz-engine",
+    features: [
+      "Step-through Algorithm Execution",
+      "Complexity Heatmap Generation",
+      "Dynamic Pathfinding Visuals",
+      "Real-time Data Structure Sync"
+    ],
+    techStack: ["TypeScript", "React", "Canvas API", "Algorithms"],
+    metrics: [
+      { label: "Frame Rate", value: "144fps" },
+      { label: "Algo Depth", value: "24+" }
+    ]
+  },
+  {
     id: "netops-topology-engine",
     title: "NetOps Topology Engine",
     category: "Network Engineering",
@@ -114,6 +162,28 @@ export const projects: Project[] = [
     metrics: [
       { label: "Calculation Error", value: "0%" },
       { label: "Map Rendering", value: "<15ms" }
+    ]
+  },
+  {
+    id: "sentinel-security-hub",
+    title: "Sentinel Security Hub",
+    category: "Cybersecurity",
+    tags: ["Python", "React", "Security", "Analytics"],
+    description: "Real-time threat detection and security analytics dashboard for enterprise network protection.",
+    longDescription: "Engineered a centralized security hub focusing on anomaly detection and risk scoring. Implemented real-time log ingestion and automated threat classification using heuristic analysis.",
+    icon: Lock,
+    github: "https://github.com/sriharshanetala2-dev",
+    demo: "/projects/sentinel-security-hub",
+    features: [
+      "Real-time Anomaly Detection",
+      "Dynamic Risk Scoring Hub",
+      "Automated Threat Analysis",
+      "Security Policy Enforcement"
+    ],
+    techStack: ["Python", "React", "Firebase", "Heuristics"],
+    metrics: [
+      { label: "Threat Detection", value: "<100ms" },
+      { label: "False Positives", value: "<0.1%" }
     ]
   },
   {
