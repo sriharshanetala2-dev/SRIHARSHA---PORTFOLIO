@@ -13,48 +13,39 @@ A high-performance, AI-integrated portfolio showcasing expertise in Java Full St
 - **Styling**: Tailwind CSS, ShadCN UI, Lucide Icons
 - **Database**: Firebase Firestore
 - **AI Engine**: Google Genkit (Gemini 2.5 Flash & Imagen 4.0)
-- **Visuals**: Framer-style interactive components & custom glassmorphism
 
-## 📦 Getting Started
+## 🌐 Free Deployment Guide
+
+You can host this portfolio for free using one of the following methods:
+
+### Option 1: Firebase App Hosting (Recommended)
+Firebase App Hosting is optimized for Next.js and offers a generous free tier.
+1. **Push to GitHub**: Create a repository and push your code.
+2. **Firebase Console**: Go to [Firebase Console](https://console.firebase.google.com/), select your project.
+3. **App Hosting**: Click "App Hosting" in the sidebar and click "Get Started".
+4. **Connect GitHub**: Connect your account and select this repository.
+5. **Configure**: Firebase will automatically detect Next.js. Use the default settings.
+6. **Secrets**: In the "Settings" tab of your backend, add your environment variables (`GOOGLE_GENAI_API_KEY`, etc.) as Secrets.
+
+### Option 2: Vercel (Fastest for Next.js)
+Vercel is the creator of Next.js and provides an excellent free tier for personal portfolios.
+1. **Push to GitHub**: Ensure your code is in a public or private GitHub repo.
+2. **Import Project**: Go to [Vercel](https://vercel.com/new) and import your repository.
+3. **Environment Variables**: Add your `NEXT_PUBLIC_FIREBASE_*` variables and your `GOOGLE_GENAI_API_KEY` in the project settings.
+4. **Deploy**: Click "Deploy" and your site will be live in seconds.
+
+## 📦 Local Development
 
 1. **Environment Setup**:
-   Copy `.env.example` to `.env.local` and fill in your Firebase credentials.
-   ```env
-   NEXT_PUBLIC_FIREBASE_API_KEY=your_key
-   NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
-   NEXT_PUBLIC_FIREBASE_PROJECT_ID=your_project_id
-   GOOGLE_GENAI_API_KEY=your_gemini_key
-   ```
-
+   Copy `.env.example` to `.env` and fill in your Firebase credentials.
 2. **Installation**:
    ```bash
    npm install
    ```
-
-3. **Local Development**:
+3. **Run**:
    ```bash
    npm run dev
    ```
-
-## 🌐 Publishing to Production
-
-This app is optimized for **Firebase App Hosting**.
-
-### 1. Connect to GitHub
-Push your code to a GitHub repository:
-```bash
-git init
-git add .
-git commit -m "Initial production-ready commit"
-git remote add origin <your-repo-url>
-git push -u origin main
-```
-
-### 2. Deploy with Firebase
-Go to the [Firebase Console](https://console.firebase.google.com/), select your project, and navigate to **App Hosting**.
-- Click "Get Started" and connect your GitHub repo.
-- Firebase will automatically detect the Next.js framework and build settings.
-- Add your secret environment variables (like API keys) in the Firebase console settings for the backend.
 
 ## 📝 License
 &copy; NETALA SRIHARSHA. All rights reserved.
