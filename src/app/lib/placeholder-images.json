@@ -1,10 +1,11 @@
+
 {
   "placeholderImages": [
     {
       "id": "ai-about-visual",
-      "description": "Cybernetic Neural Matrix Illustration",
-      "imageUrl": "https://picsum.photos/seed/cyber_logic_v9/800/800",
-      "imageHint": "artificial intelligence"
+      "description": "Neural Data Flow Matrix",
+      "imageUrl": "https://picsum.photos/seed/tech_matrix_v12/800/800",
+      "imageHint": "data flow"
     },
     {
       "id": "ai-task-manager",
