@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Zap, Code2, Database, Globe, Cpu, Layout, Terminal, ShieldCheck, Box } from "lucide-react";
+import { Code2, Database, Globe, Cpu, Layout, Terminal, ShieldCheck } from "lucide-react";
 import { Tooltip, TooltipProvider, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
 
@@ -14,12 +14,12 @@ const skills = [
   { name: "SQL / PostgreSQL", level: "Advanced", category: "Database", icon: Database },
   { name: "HTML5 / CSS3", level: "Expert", category: "Frontend", icon: Layout },
   { name: "Tailwind CSS", level: "Advanced", category: "Frontend", icon: Layout },
-  { name: "AWS Cloud", level: "Intermediate", category: "Cloud", icon: Globe },
+  { name: "Flutter / Dart", level: "Intermediate", category: "Mobile", icon: Globe },
+  { name: "Firebase", level: "Advanced", category: "Backend", icon: Database },
   { name: "Git / GitHub", level: "Advanced", category: "Tools", icon: Terminal },
-  { name: "Networking", level: "Intermediate", category: "Fundamentals", icon: Globe },
-  { name: "IP Subnetting", level: "Advanced", category: "Fundamentals", icon: Cpu },
   { name: "Data Structures", level: "Advanced", category: "Fundamentals", icon: Code2 },
-  { name: "Architecture", level: "Intermediate", category: "Fundamentals", icon: ShieldCheck },
+  { name: "Networking", level: "Intermediate", category: "Fundamentals", icon: Globe },
+  { name: "Systems Design", level: "Intermediate", category: "Fundamentals", icon: ShieldCheck },
 ];
 
 export function Skills() {
@@ -51,7 +51,7 @@ export function Skills() {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-primary/10 text-xs font-black text-primary uppercase tracking-widest border border-primary/20"
+            className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-primary/10 text-[10px] font-black text-primary uppercase tracking-widest border border-primary/20"
           >
             <Cpu className="w-4 h-4" />
             Engineering Stack
@@ -60,15 +60,15 @@ export function Skills() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl sm:text-6xl font-headline font-black tracking-tighter uppercase leading-none"
+            className="text-4xl sm:text-5xl font-headline font-black tracking-tighter uppercase leading-none"
           >
-            TECHNICAL <span className="text-gradient">CAPABILITIES</span>
+            TECHNICAL <span className="text-primary">CAPABILITIES</span>
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed font-bold opacity-60 uppercase tracking-widest"
+            className="text-xs sm:text-sm text-muted-foreground max-w-2xl mx-auto leading-relaxed font-bold opacity-60 uppercase tracking-widest"
           >
             A high-density mapping of my software development toolkit and core systems engineering foundation.
           </motion.p>
@@ -79,7 +79,7 @@ export function Skills() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="flex flex-wrap justify-center gap-4"
+          className="flex flex-wrap justify-center gap-3"
         >
           <TooltipProvider delayDuration={0}>
             {skills.map((skill) => (
@@ -87,19 +87,19 @@ export function Skills() {
                 <TooltipTrigger asChild>
                   <motion.div 
                     variants={itemVariants}
-                    className="group relative flex items-center gap-4 px-6 py-4 rounded-2xl bg-secondary/20 border border-border hover:border-primary/50 transition-all cursor-pointer overflow-hidden shadow-sm"
+                    className="group relative flex items-center gap-3 px-6 py-3 rounded-xl bg-secondary/20 border border-border hover:border-primary/50 transition-all cursor-pointer overflow-hidden shadow-sm"
                   >
-                    <skill.icon className="w-5 h-5 text-primary group-hover:scale-110 transition-transform" />
-                    <span className="font-black tracking-tight text-sm sm:text-lg uppercase whitespace-nowrap">{skill.name}</span>
+                    <skill.icon className="w-4 h-4 text-primary group-hover:scale-110 transition-transform" />
+                    <span className="font-black tracking-tight text-xs sm:text-sm uppercase whitespace-nowrap">{skill.name}</span>
                   </motion.div>
                 </TooltipTrigger>
-                <TooltipContent className="glass-card p-6 border-border rounded-2xl w-64 space-y-4 shadow-xl backdrop-blur-xl bg-background/95">
-                  <div className="space-y-1">
-                    <p className="text-[10px] font-black uppercase text-primary tracking-widest opacity-60">{skill.category}</p>
-                    <p className="font-black text-lg tracking-tighter uppercase">{skill.name}</p>
+                <TooltipContent className="glass-card p-5 border-border rounded-xl w-60 space-y-3 shadow-xl backdrop-blur-xl bg-background/95">
+                  <div className="space-y-0.5">
+                    <p className="text-[9px] font-black uppercase text-primary tracking-widest opacity-60">{skill.category}</p>
+                    <p className="font-black text-sm tracking-tight uppercase">{skill.name}</p>
                   </div>
-                  <div className="space-y-3">
-                    <div className="flex justify-between items-center text-[10px] font-black uppercase tracking-widest opacity-50">
+                  <div className="space-y-2">
+                    <div className="flex justify-between items-center text-[9px] font-black uppercase tracking-widest opacity-50">
                       <span>Expertise</span>
                       <span>{skill.level}</span>
                     </div>
@@ -122,17 +122,17 @@ export function Skills() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 0.5 }}
           viewport={{ once: true }}
-          className="flex flex-wrap justify-center gap-8 pt-8"
+          className="flex flex-wrap justify-center gap-6 pt-8"
         >
           {[
             { label: "Frontend", color: "bg-blue-500" },
             { label: "Backend", color: "bg-indigo-500" },
-            { label: "Languages", color: "bg-primary" },
-            { label: "Systems", color: "bg-accent" }
+            { label: "Language", color: "bg-primary" },
+            { label: "Fundamentals", color: "bg-accent" }
           ].map(type => (
             <div key={type.label} className="flex items-center gap-2">
               <div className={cn("w-2 h-2 rounded-full", type.color)} />
-              <span className="text-[10px] font-black uppercase tracking-widest">{type.label}</span>
+              <span className="text-[9px] font-black uppercase tracking-widest">{type.label}</span>
             </div>
           ))}
         </motion.div>

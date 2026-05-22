@@ -4,6 +4,8 @@ import { Logo } from "@/components/ui/logo";
 export function Footer() {
   const linkedInUrl = "https://www.linkedin.com/in/sriharsha-netala-dev/";
   const email = "sriharshanetala2@gmail.com";
+  // Direct Gmail compose link
+  const gmailComposeUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}`;
 
   return (
     <footer className="py-24 px-8 border-t border-border bg-background relative overflow-hidden">
@@ -12,8 +14,8 @@ export function Footer() {
       <div className="max-w-7xl mx-auto space-y-16 relative z-10">
         <div className="flex flex-col md:flex-row items-center justify-between gap-12">
           <div className="flex flex-col items-center md:items-start gap-8">
-            <Logo className="scale-[1.75] origin-left" />
-            <p className="text-muted-foreground text-center md:text-left max-w-md text-base sm:text-lg font-medium leading-relaxed opacity-70">
+            <Logo className="scale-[1.5] origin-left" />
+            <p className="text-muted-foreground text-center md:text-left max-w-md text-sm sm:text-base font-medium leading-relaxed opacity-70">
               Architecting high-performance digital solutions with a focus on Full Stack integrity and UI precision.
             </p>
           </div>
@@ -22,7 +24,7 @@ export function Footer() {
             {[
               { icon: Github, label: "GitHub", href: "https://github.com/sriharshanetala2-dev" },
               { icon: Linkedin, label: "LinkedIn", href: linkedInUrl },
-              { icon: Mail, label: "Email", href: `mailto:${email}` }
+              { icon: Mail, label: "Email", href: gmailComposeUrl }
             ].map((social) => (
               <a 
                 key={social.label}
@@ -39,7 +41,7 @@ export function Footer() {
         </div>
 
         <div className="pt-16 border-t border-border/40 flex flex-col md:flex-row items-center justify-between gap-10">
-          <p className="text-[11px] text-muted-foreground font-black uppercase tracking-[0.5em] opacity-50">
+          <p className="text-[10px] text-muted-foreground font-black uppercase tracking-[0.4em] opacity-50">
             &copy; SRI HARSHA // ALL RIGHTS RESERVED.
           </p>
 
@@ -48,7 +50,7 @@ export function Footer() {
               <a 
                 key={item}
                 href={`#${item.toLowerCase()}`}
-                className="text-[11px] font-black text-muted-foreground hover:text-primary uppercase tracking-[0.6em] transition-all hover:translate-y-[-2px]"
+                className="text-[10px] font-black text-muted-foreground hover:text-primary uppercase tracking-[0.5em] transition-all"
               >
                 {item}
               </a>

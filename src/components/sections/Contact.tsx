@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, Send, Linkedin, Github, Phone, Copy, Check, Loader2, User, Terminal } from "lucide-react";
+import { Mail, Send, Phone, Copy, Check, Loader2, User } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useFirestore } from "@/firebase";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
@@ -23,6 +23,9 @@ export function Contact() {
   const userEmail = "sriharshanetala2@gmail.com";
   const userPhone = "+91 9346759263";
 
+  // Gmail direct link logic
+  const gmailComposeUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${userEmail}`;
+
   const copyEmail = () => {
     navigator.clipboard.writeText(userEmail);
     setCopiedEmail(true);
@@ -39,11 +42,8 @@ export function Contact() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${userEmail}&su=Inquiry from ${formData.name}&body=${encodeURIComponent(formData.message)}`;
-    
     setIsSubmitting(true);
     
-    // Attempt Firestore persistence if db is ready
     if (db) {
       addDoc(collection(db, 'messages'), {
         ...formData,
@@ -55,11 +55,12 @@ export function Contact() {
       });
     }
 
-    toast({ title: "Sending Message", description: "Opening your email client..." });
+    toast({ title: "Sending Message", description: "Opening your Gmail client..." });
     
-    // Simulate slight delay for professional feedback then redirect
     setTimeout(() => {
-      window.open(gmailUrl, '_blank');
+      // Redirect to pre-filled Gmail compose
+      const mailUrl = `${gmailComposeUrl}&su=Inquiry from ${formData.name}&body=${encodeURIComponent(formData.message)}`;
+      window.open(mailUrl, '_blank');
       setIsSubmitting(false);
       setFormData({ name: "", email: "", message: "" });
     }, 1200);
@@ -76,45 +77,45 @@ export function Contact() {
           className="space-y-12"
         >
           <div className="space-y-8">
-            <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-primary/10 border border-primary/20 text-xs font-black text-primary uppercase tracking-widest">
+            <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-primary/10 border border-primary/20 text-[10px] font-black text-primary uppercase tracking-widest">
               <Mail className="w-4 h-4" />
               Contact Hub
             </div>
-            <h2 className="text-4xl sm:text-6xl font-headline font-black tracking-tighter leading-none uppercase">
+            <h2 className="text-4xl sm:text-5xl font-headline font-black tracking-tighter leading-none uppercase">
               GET IN <span className="text-primary">TOUCH</span>
             </h2>
-            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-lg font-bold opacity-80 uppercase tracking-widest">
+            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed max-w-lg font-bold opacity-80 uppercase tracking-widest">
               Open for professional Full Stack development opportunities and secure collaboration.
             </p>
           </div>
 
-          <div className="space-y-6">
+          <div className="space-y-4">
             <div 
               onClick={copyEmail}
-              className="flex items-center gap-6 p-8 bg-secondary/30 rounded-3xl border border-border hover:border-primary transition-all cursor-pointer group shadow-sm"
+              className="flex items-center gap-4 p-6 bg-secondary/30 rounded-2xl border border-border hover:border-primary transition-all cursor-pointer group shadow-sm"
             >
-              <div className="p-4 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all shadow-inner">
-                <Mail className="w-6 h-6" />
+              <div className="p-3 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all">
+                <Mail className="w-5 h-5" />
               </div>
               <div className="flex-1 min-w-0">
-                <p className="text-[10px] font-black uppercase text-primary tracking-widest mb-1 opacity-60">Professional Email</p>
-                <p className="font-black text-lg sm:text-xl truncate tracking-tight uppercase">{userEmail}</p>
+                <p className="text-[9px] font-black uppercase text-primary tracking-widest mb-1 opacity-60">Professional Email</p>
+                <p className="font-black text-sm sm:text-base truncate tracking-tight uppercase">{userEmail}</p>
               </div>
-              {copiedEmail ? <Check className="w-6 h-6 text-green-500" /> : <Copy className="w-6 h-6 opacity-20 group-hover:opacity-100 transition-opacity" />}
+              {copiedEmail ? <Check className="w-5 h-5 text-green-500" /> : <Copy className="w-5 h-5 opacity-20 group-hover:opacity-100 transition-opacity" />}
             </div>
 
             <div 
               onClick={copyPhone}
-              className="flex items-center gap-6 p-8 bg-secondary/30 rounded-3xl border border-border hover:border-primary transition-all cursor-pointer group shadow-sm"
+              className="flex items-center gap-4 p-6 bg-secondary/30 rounded-2xl border border-border hover:border-primary transition-all cursor-pointer group shadow-sm"
             >
-              <div className="p-4 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all shadow-inner">
-                <Phone className="w-6 h-6" />
+              <div className="p-3 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all">
+                <Phone className="w-5 h-5" />
               </div>
               <div className="flex-1">
-                <p className="text-[10px] font-black uppercase text-primary tracking-widest mb-1 opacity-60">Direct Line</p>
-                <p className="font-black text-lg sm:text-xl tracking-tight uppercase">{userPhone}</p>
+                <p className="text-[9px] font-black uppercase text-primary tracking-widest mb-1 opacity-60">Direct Line</p>
+                <p className="font-black text-sm sm:text-base tracking-tight uppercase">{userPhone}</p>
               </div>
-              {copiedPhone ? <Check className="w-6 h-6 text-green-500" /> : <Copy className="w-6 h-6 opacity-20 group-hover:opacity-100 transition-opacity" />}
+              {copiedPhone ? <Check className="w-5 h-5 text-green-500" /> : <Copy className="w-5 h-5 opacity-20 group-hover:opacity-100 transition-opacity" />}
             </div>
           </div>
         </motion.div>
@@ -124,45 +125,45 @@ export function Contact() {
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="bg-card/50 border border-border p-8 md:p-12 rounded-[2.5rem] shadow-xl"
+          className="bg-card/50 border border-border p-8 rounded-[2rem] shadow-xl"
         >
-          <form onSubmit={handleSubmit} className="space-y-10">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="space-y-3">
+          <form onSubmit={handleSubmit} className="space-y-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="space-y-2">
                 <label className="text-[10px] font-black uppercase text-muted-foreground tracking-widest ml-1">Full Name</label>
                 <div className="relative">
                   <Input 
                     placeholder="ENTER NAME" 
                     required
-                    className="bg-background/40 border-border focus:ring-primary h-14 rounded-xl text-sm font-black pl-12 shadow-inner uppercase tracking-wider"
+                    className="bg-background/40 border-border focus:ring-primary h-12 rounded-xl text-xs font-black pl-10 shadow-inner uppercase tracking-wider"
                     value={formData.name}
                     onChange={(e) => setFormData({...formData, name: e.target.value})}
                     disabled={isSubmitting}
                   />
-                  <User className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground opacity-30" />
+                  <User className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground opacity-30" />
                 </div>
               </div>
-              <div className="space-y-3">
+              <div className="space-y-2">
                 <label className="text-[10px] font-black uppercase text-muted-foreground tracking-widest ml-1">Email Address</label>
                 <div className="relative">
                   <Input 
                     type="email" 
                     placeholder="ENTER EMAIL" 
                     required
-                    className="bg-background/40 border-border focus:ring-primary h-14 rounded-xl text-sm font-black pl-12 shadow-inner uppercase tracking-wider"
+                    className="bg-background/40 border-border focus:ring-primary h-12 rounded-xl text-xs font-black pl-10 shadow-inner uppercase tracking-wider"
                     value={formData.email}
                     onChange={(e) => setFormData({...formData, email: e.target.value})}
                     disabled={isSubmitting}
                   />
-                  <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground opacity-30" />
+                  <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground opacity-30" />
                 </div>
               </div>
             </div>
-            <div className="space-y-3">
-              <label className="text-[10px] font-black uppercase text-muted-foreground tracking-widest ml-1">Message Payload</label>
+            <div className="space-y-2">
+              <label className="text-[10px] font-black uppercase text-muted-foreground tracking-widest ml-1">Message</label>
               <Textarea 
                 placeholder="YOUR MESSAGE CONTENT..." 
-                className="min-h-[160px] bg-background/40 border-border focus:ring-primary p-6 resize-none rounded-2xl text-sm font-black leading-relaxed shadow-inner uppercase tracking-tight"
+                className="min-h-[140px] bg-background/40 border-border focus:ring-primary p-5 resize-none rounded-xl text-xs font-black leading-relaxed shadow-inner uppercase tracking-tight"
                 required
                 value={formData.message}
                 onChange={(e) => setFormData({...formData, message: e.target.value})}
@@ -171,10 +172,10 @@ export function Contact() {
             </div>
             <Button 
               type="submit" 
-              className="w-full h-16 rounded-full font-black uppercase tracking-widest text-xs gap-4 shadow-xl transition-all bg-primary text-primary-foreground hover:brightness-110"
+              className="w-full h-14 rounded-full font-black uppercase tracking-widest text-[11px] gap-3 shadow-lg transition-all bg-primary text-primary-foreground hover:brightness-110"
               disabled={isSubmitting}
             >
-              {isSubmitting ? <Loader2 className="w-5 h-5 animate-spin" /> : <><Send className="w-4 h-4" /> Send Message</>}
+              {isSubmitting ? <Loader2 className="w-4 h-4 animate-spin" /> : <><Send className="w-4 h-4" /> Send Message</>}
             </Button>
           </form>
         </motion.div>
