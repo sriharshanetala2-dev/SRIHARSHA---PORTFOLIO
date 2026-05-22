@@ -233,6 +233,3 @@ export default function ProjectPage({ params }: { params: Promise<{ projectId: s
     </div>
   );
 }
-
-// Hallucination Fix: Icon replacement mapping
-const ShieldCheck = Shield; // Reusing Shield as a placeholder if ShieldCheck is not standard in some versions, but standard lucide has it.
