@@ -3,33 +3,27 @@
   "placeholderImages": [
     {
       "id": "neural-workflow-os",
-      "description": "AI Neural Data Flow Matrix",
-      "imageUrl": "https://picsum.photos/seed/sri_neural_v22/1600/900",
-      "imageHint": "neural interface"
+      "description": "AI Logic System Orchestration",
+      "imageUrl": "https://picsum.photos/seed/sri_ai_v2/1600/900",
+      "imageHint": "artificial intelligence"
     },
     {
-      "id": "tradeflux-enterprise",
-      "description": "High-Frequency FinTech Dashboard",
-      "imageUrl": "https://picsum.photos/seed/sri_trade_v22/1600/900",
-      "imageHint": "financial analytics"
+      "id": "sentinel-iam-hub",
+      "description": "Enterprise Authentication Hub",
+      "imageUrl": "https://picsum.photos/seed/sri_security_v2/1600/900",
+      "imageHint": "security architecture"
     },
     {
-      "id": "corelogic-java-engine",
-      "description": "Relational Database Logic Core",
-      "imageUrl": "https://picsum.photos/seed/sri_java_v22/1600/900",
-      "imageHint": "server architecture"
+      "id": "pulse-analytics-node",
+      "description": "Predictive Data Pipeline",
+      "imageUrl": "https://picsum.photos/seed/sri_data_v2/1600/900",
+      "imageHint": "data science"
     },
     {
-      "id": "netops-topology-engine",
-      "description": "Subnet Mask Networking Visualizer",
-      "imageUrl": "https://picsum.photos/seed/sri_net_v22/1600/900",
-      "imageHint": "network topology"
-    },
-    {
-      "id": "securegate-iam",
-      "description": "Cloud Identity & Access Management Shell",
-      "imageUrl": "https://picsum.photos/seed/sri_secure_v22/1600/900",
-      "imageHint": "cyber security"
+      "id": "core-logic-engine",
+      "description": "Java Spring Boot System",
+      "imageUrl": "https://picsum.photos/seed/sri_java_v2/1600/900",
+      "imageHint": "software engineering"
     }
   ]
 }

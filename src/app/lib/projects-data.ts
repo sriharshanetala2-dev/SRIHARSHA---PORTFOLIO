@@ -2,33 +2,31 @@ import {
   Cpu, 
   Database, 
   Globe, 
-  Lock, 
   Workflow, 
-  Zap, 
-  Shield, 
   BarChart3,
   Terminal,
   Activity,
   ShieldCheck,
   Server,
-  Code2
+  Code2,
+  Box
 } from 'lucide-react';
 
 export const projects = [
   {
     id: 'neural-workflow-os',
     title: 'Neural Workflow OS',
-    category: 'Agentic AI',
+    category: 'AI Systems',
     icon: Workflow,
-    description: 'Autonomous orchestration engine utilizing Genkit for semantic intent parsing and priority mapping.',
-    longDescription: 'Engineered an enterprise-grade AI kernel that leverages Large Language Models for autonomous task orchestration. The system implements a sophisticated priority scoring algorithm and real-time state synchronization via a low-latency Firestore architecture.',
-    tags: ['Genkit', 'Firebase', 'Next.js', 'LLM'],
-    techStack: ['Google Genkit', 'Firebase', 'TypeScript', 'Tailwind'],
+    description: 'Autonomous task orchestration engine built with Next.js and Google Genkit for semantic intent parsing.',
+    longDescription: 'Developed an enterprise-grade AI kernel that leverages Large Language Models for autonomous task management. The system uses Genkit for logic flows and Next.js for high-performance rendering.',
+    tags: ['Next.js', 'Genkit', 'TypeScript', 'React'],
+    techStack: ['Next.js', 'Google Genkit', 'TypeScript', 'Tailwind CSS'],
     features: [
-      'Semantic Intent Parsing Engine',
-      'Real-time State Synchronization',
-      'Neural Priority Mapping',
-      'Agentic Execution Logic'
+      'Semantic Intent Resolution',
+      'AI Logic Orchestration',
+      'Real-time State Management',
+      'Automated Task Mapping'
     ],
     metrics: [
       { label: 'Integrity', value: 'High' },
@@ -36,193 +34,122 @@ export const projects = [
       { label: 'Security', value: 'Verified' }
     ],
     systemLogs: [
-      "[SYSTEM] Initializing Neural Kernel v2.4...",
-      "[TRACE] Semantic intent resolution: SUCCESS",
-      "[NODE] Priority mapping weights adjusted: 0.892",
-      "[SYNC] Firestore state push latency: 12ms",
-      "[AGENT] Task orchestration loop started."
+      "[SYSTEM] Initializing AI Kernel...",
+      "[TRACE] Genkit flow registered.",
+      "[NODE] Processing semantic intent.",
+      "[SYNC] Next.js SSR active.",
+      "[AGENT] Execution loop online."
     ],
     codeSnippet: `{
-  "kernel": "Neural_Orchestrator_v2",
-  "logic_gate": "Semantic_Intent_Parser",
-  "objective": "Autonomous_Task_Mapping",
-  "state_sync": "Firestore_ACID",
+  "kernel": "NextJS_Genkit_Core",
+  "logic": "AI_Orchestrator",
+  "stack": ["React", "TypeScript", "Node"],
   "status": "OPERATIONAL"
 }`
   },
   {
-    id: 'sentinel-security-hub',
+    id: 'sentinel-iam-hub',
     title: 'Sentinel IAM Hub',
-    category: 'Cybersecurity',
+    category: 'Security',
     icon: ShieldCheck,
-    description: 'Cloud Identity and Access Management platform with multi-factor biometric simulation.',
-    longDescription: 'Developed a robust IAM gateway focusing on zero-trust principles. Implemented custom OAuth2 flows and RBAC (Role-Based Access Control) using Spring Security and JWT for high-integrity authentication.',
-    tags: ['Spring Security', 'JWT', 'PostgreSQL', 'Docker'],
-    techStack: ['Java', 'Spring Boot', 'PostgreSQL', 'Docker'],
+    description: 'Centralized Identity & Access Management system utilizing Spring Boot and SQL for secure enterprise authentication.',
+    longDescription: 'Architected a robust security gateway focusing on RBAC and secure session management. Implemented custom authentication filters and atomic database transactions using Spring Boot and SQL.',
+    tags: ['Spring Boot', 'Java', 'SQL', 'Security'],
+    techStack: ['Java', 'Spring Boot', 'SQL', 'Hibernate'],
     features: [
-      'Zero-Trust Architecture',
-      'JWT Payload Encryption',
+      'Spring Security Integration',
+      'SQL Database Persistence',
       'Advanced RBAC Subsystem',
-      'Biometric Simulation Logic'
-    ],
-    metrics: [
-      { label: 'Integrity', value: 'L4' },
-      { label: 'Architecture', value: 'Zero-Trust' },
-      { label: 'Security', value: 'Hardened' }
-    ],
-    systemLogs: [
-      "[AUTH] Handshaking JWT Header...",
-      "[SENTINEL] Anomaly detection active: NO_THREAT",
-      "[DB] Session state persisted in Postgres.",
-      "[RBAC] Access permission verified for UID:8812",
-      "[CORE] Security gateway: LOCKED"
-    ],
-    codeSnippet: `{
-  "subsystem": "Sentinel_IAM_Core",
-  "auth_model": "OAuth2_JWT_v3",
-  "isolation": "Zero_Trust_L4",
-  "encryption": "AES_256_GCM",
-  "state": "SECURE"
-}`
-  },
-  {
-    id: 'tradeflux-engine',
-    title: 'TradeFlux Engine',
-    category: 'FinTech',
-    icon: BarChart3,
-    description: 'High-frequency market analysis dashboard with real-time ACID-compliant data streams.',
-    longDescription: 'Architected a low-latency financial dashboard that aggregates complex market data into real-time insights. Optimized for high-frequency rendering and data integrity using custom PostgreSQL indexing and reactive frontend logic.',
-    tags: ['PostgreSQL', 'Recharts', 'Node.js', 'React'],
-    techStack: ['PostgreSQL', 'Node.js', 'React', 'Web Workers'],
-    features: [
-      'ACID-Compliant Mutations',
-      'High-Frequency Data Streaming',
-      'Predictive Volatility Modeling',
       'Atomic Transaction Control'
     ],
     metrics: [
-      { label: 'Integrity', value: 'ACID' },
-      { label: 'Architecture', value: 'Reactive' },
-      { label: 'Security', value: 'Verified' }
+      { label: 'Integrity', value: 'L4' },
+      { label: 'Architecture', value: 'Distributed' },
+      { label: 'Security', value: 'Hardened' }
     ],
     systemLogs: [
-      "[DB] Optimizing PostgreSQL B-Tree Index...",
-      "[STREAM] Reactive buffer flushed: 1.2MB",
-      "[ACID] Transaction verified: #TX-99021",
-      "[STATS] Market volatility delta: +0.02%",
-      "[W-WORKER] Chart re-render compute optimized."
+      "[AUTH] Handshaking Spring Security...",
+      "[SQL] Querying identity registry...",
+      "[SENTINEL] Anomaly check: PASSED",
+      "[DB] Session state persisted.",
+      "[CORE] Auth gateway: SECURE"
     ],
     codeSnippet: `{
-  "engine": "TradeFlux_L1_Stream",
-  "data_integrity": "ACID_COMPLIANT",
-  "latency_target": "<15ms",
-  "threading_model": "WebWorkers_Parallel",
-  "stream_status": "ACTIVE"
+  "subsystem": "SpringBoot_IAM",
+  "language": "Java_21",
+  "database": "SQL_Postgres",
+  "auth": "JWT_Secure",
+  "state": "ACTIVE"
 }`
   },
   {
-    id: 'pulse-data-engine',
-    title: 'Pulse Data Engine',
+    id: 'pulse-analytics-node',
+    title: 'Pulse Analytics Node',
     category: 'Big Data',
     icon: Server,
-    description: 'Massive dataset visualization and predictive analytics pipeline.',
-    longDescription: 'Engineered a data processing pipeline that visualizes multi-million record sets with sub-second response times. Implemented specialized caching layers and optimized SQL query plans for deep analytics.',
-    tags: ['Next.js', 'SQL', 'Redis', 'Python'],
-    techStack: ['Next.js', 'PostgreSQL', 'Redis', 'Python'],
+    description: 'Data processing pipeline for high-volume analytics using Python and SQL for predictive modeling.',
+    longDescription: 'Engineered a data synthesis platform that handles massive datasets. Utilizes Python for data parsing and SQL for structured storage, with a React-based interface for real-time visualization.',
+    tags: ['Python', 'SQL', 'React', 'Node.js'],
+    techStack: ['Python', 'SQL', 'Node.js', 'React'],
     features: [
-      'Predictive Modeling Node',
-      'L2 Caching Subsystem',
-      'Multi-Million Record Parsing',
-      'Visual Data Mapping'
+      'Python Predictive Modeling',
+      'SQL Query Optimization',
+      'Real-time Data Streams',
+      'High-Density Visual Charts'
     ],
     metrics: [
       { label: 'Integrity', value: 'Atomic' },
       { label: 'Architecture', value: 'Pipeline' },
-      { label: 'Security', value: 'L3 Verified' }
+      { label: 'Security', value: 'Verified' }
     ],
     systemLogs: [
-      "[PULSE] Parsing dataset: 4.2M records",
-      "[CACHE] Redis L2 Hit Rate: 94%",
-      "[SQL] Parallel scan optimization: COMPLETE",
-      "[MOD] Predictive delta coefficient: 0.12",
-      "[SYS] Analytics node heartbeat: OK"
+      "[PULSE] Python script executing...",
+      "[SQL] Indexing large dataset...",
+      "[DATA] Pulse stream: 45k ops/sec",
+      "[SYNC] React UI update: 12ms",
+      "[SYS] Analytics node: STABLE"
     ],
     codeSnippet: `{
-  "core": "Pulse_Analytics_v1",
-  "pipeline": "ETL_Optimized_L2",
-  "caching": "Redis_Distributed",
-  "throughput": "50k_ops/sec",
-  "status": "OPERATIONAL"
+  "engine": "Python_SQL_Pulse",
+  "throughput": "High_Volume",
+  "stack": ["NodeJS", "React"],
+  "analysis": "Predictive_L2",
+  "status": "RUNNING"
 }`
   },
   {
-    id: 'corelogic-db',
-    title: 'CoreLogic DB',
-    category: 'Systems',
+    id: 'core-logic-engine',
+    title: 'Core Logic Engine',
+    category: 'Backend',
     icon: Database,
-    description: 'Robust transaction management system focusing on high-concurrency data integrity.',
-    longDescription: 'Developed a specialized backend core focusing on high-integrity data mutations and complex join optimization. Implemented custom JDBC pooling and atomic transaction lifecycles for enterprise-scale environments.',
-    tags: ['Java', 'Spring Boot', 'SQL', 'Docker'],
-    techStack: ['Java 21', 'Spring Boot 3', 'PostgreSQL', 'Docker'],
+    description: 'Robust transaction management system focusing on high-concurrency Java systems and SQL integrity.',
+    longDescription: 'Developed a high-performance backend core for handling complex data mutations. Focused on Spring Boot for logic and SQL for data persistence with ACID compliance.',
+    tags: ['Java', 'Spring Boot', 'SQL', 'Node.js'],
+    techStack: ['Java', 'Spring Boot', 'SQL', 'Node.js'],
     features: [
-      'Custom JDBC Connection Pooling',
-      'Optimized Execution Plans',
-      'Multi-Threaded Sync Core',
-      'Safe Failover Protocols'
+      'Spring Boot Core Logic',
+      'SQL ACID Transactions',
+      'Custom Connection Pooling',
+      'High-Concurrency Support'
     ],
     metrics: [
       { label: 'Integrity', value: 'Atomic' },
-      { label: 'Architecture', value: 'Distributed' },
-      { label: 'Security', value: 'RBAC' }
+      { label: 'Architecture', value: 'Systems' },
+      { label: 'Security', value: 'Verified' }
     ],
     systemLogs: [
-      "[CORE] Java JVM HotSpot compilation optimized.",
-      "[POOL] JDBC connection pool health: 98%",
-      "[SQL] Execution plan re-analyzed for JOIN speed.",
-      "[SYNC] Worker thread cluster: ONLINE",
-      "[FAILOVER] Secondary node heartbeat verified."
+      "[CORE] Java HotSpot starting...",
+      "[SQL] Connection pool: READY",
+      "[BOOT] Spring Context loaded.",
+      "[ACID] Transaction verified.",
+      "[NODE] Worker threads active."
     ],
     codeSnippet: `{
-  "core": "Atomic_Commit_Manager",
-  "persistence": "JPA_Hibernate_L2",
-  "concurrency": "MultiThread_Worker_Pool",
-  "isolation_level": "SERIALIZABLE",
-  "integrity": "VERIFIED"
-}`
-  },
-  {
-    id: 'netops-topology',
-    title: 'NetOps Topology',
-    category: 'Networking',
-    icon: Globe,
-    description: 'Visual IP orchestration tool for infrastructure mapping and subnet mask calculation.',
-    longDescription: 'Built a specialized utility for network architects to simulate and visualize IP address distributions. Leverages advanced bitwise logic to handle high-performance CIDR mapping and topological routing simulations.',
-    tags: ['Networking', 'Algorithms', 'TypeScript'],
-    techStack: ['TypeScript', 'Framer Motion', 'Zod', 'Tailwind'],
-    features: [
-      'Real-time Subnet Logic',
-      'Visual Topology Mapping',
-      'Bitwise CIDR Calculation',
-      'Path Simulation Logic'
-    ],
-    metrics: [
-      { label: 'Integrity', value: 'Verified' },
-      { label: 'Architecture', value: 'Topological' },
-      { label: 'Security', value: 'L3 Sec' }
-    ],
-    systemLogs: [
-      "[NET] Computing CIDR boundary for 192.168.0.0/24",
-      "[MAP] Topological node graph generated.",
-      "[BITWISE] Subnet mask applied: 255.255.255.0",
-      "[SIM] Path simulation latency: 4ms",
-      "[ZOD] Payload validation complete."
-    ],
-    codeSnippet: `{
-  "system": "Network_Topology_Solver",
-  "logic": "Bitwise_CIDR_Mapping",
-  "layer": "L3_Network_Interface",
-  "validation": "Zod_Type_Safe",
-  "mapping_status": "SYNCED"
+  "system": "SpringBoot_SQL_Core",
+  "concurrency": "MultiThreaded",
+  "isolation": "Serializable",
+  "integrity": "Atomic",
+  "state": "ONLINE"
 }`
   }
 ];
