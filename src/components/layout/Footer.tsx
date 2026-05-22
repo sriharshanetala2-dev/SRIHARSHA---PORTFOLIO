@@ -11,9 +11,9 @@ export function Footer() {
       
       <div className="max-w-7xl mx-auto space-y-16 relative z-10">
         <div className="flex flex-col md:flex-row items-center justify-between gap-12">
-          <div className="flex flex-col items-center md:items-start gap-6">
-            <Logo className="scale-150 origin-left" />
-            <p className="text-muted-foreground text-center md:text-left max-w-md text-base font-medium leading-relaxed opacity-80">
+          <div className="flex flex-col items-center md:items-start gap-8">
+            <Logo className="scale-[1.75] origin-left" />
+            <p className="text-muted-foreground text-center md:text-left max-w-md text-base sm:text-lg font-medium leading-relaxed opacity-70">
               Architecting high-performance digital solutions with a focus on Full Stack integrity and UI precision.
             </p>
           </div>
@@ -29,17 +29,17 @@ export function Footer() {
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-5 rounded-[1.5rem] bg-secondary/50 border border-border hover:border-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 shadow-xl"
+                className="p-6 rounded-[2rem] bg-secondary/50 border border-border hover:border-primary hover:bg-primary hover:text-primary-foreground transition-all duration-500 shadow-xl group"
                 aria-label={social.label}
               >
-                <social.icon className="w-6 h-6" />
+                <social.icon className="w-6 h-6 group-hover:scale-110 transition-transform" />
               </a>
             ))}
           </div>
         </div>
 
-        <div className="pt-16 border-t border-border/40 flex flex-col md:flex-row items-center justify-between gap-8">
-          <p className="text-xs text-muted-foreground font-black uppercase tracking-[0.4em] opacity-60">
+        <div className="pt-16 border-t border-border/40 flex flex-col md:flex-row items-center justify-between gap-10">
+          <p className="text-[11px] text-muted-foreground font-black uppercase tracking-[0.5em] opacity-50">
             &copy; SRI HARSHA // ALL RIGHTS RESERVED.
           </p>
 
@@ -48,7 +48,7 @@ export function Footer() {
               <a 
                 key={item}
                 href={`#${item.toLowerCase()}`}
-                className="text-xs font-black text-muted-foreground hover:text-primary uppercase tracking-[0.5em] transition-colors"
+                className="text-[11px] font-black text-muted-foreground hover:text-primary uppercase tracking-[0.6em] transition-all hover:translate-y-[-2px]"
               >
                 {item}
               </a>

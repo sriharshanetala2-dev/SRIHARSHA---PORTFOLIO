@@ -10,20 +10,20 @@
     --card-foreground: 224 71.4% 4.1%;
     --popover: 0 0% 100%;
     --popover-foreground: 224 71.4% 4.1%;
-    --primary: 262.1 83.3% 57.8%;
+    --primary: 263.4 70% 50.4%;
     --primary-foreground: 210 20% 98%;
     --secondary: 220 14.3% 95.9%;
     --secondary-foreground: 220.9 39.3% 11%;
     --muted: 220 14.3% 95.9%;
     --muted-foreground: 220 8.9% 46.1%;
-    --accent: 262.1 83.3% 57.8%;
+    --accent: 263.4 70% 50.4%;
     --accent-foreground: 220.9 39.3% 11%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 20% 98%;
     --border: 220 13% 91%;
     --input: 220 13% 91%;
-    --ring: 262.1 83.3% 57.8%;
-    --radius: 1rem;
+    --ring: 263.4 70% 50.4%;
+    --radius: 1.25rem;
   }
 
   .dark {
@@ -35,7 +35,7 @@
     --popover-foreground: 210 20% 98%;
     --primary: 263.4 70% 50.4%;
     --primary-foreground: 210 20% 98%;
-    --secondary: 215 27.9% 16.9%;
+    --secondary: 215 27.9% 12.9%;
     --secondary-foreground: 210 20% 98%;
     --muted: 215 27.9% 16.9%;
     --muted-foreground: 217.9 10.6% 64.9%;
@@ -64,7 +64,7 @@
 .text-gradient {
   @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-indigo-400 to-primary;
   background-size: 200% auto;
-  animation: textShine 4s linear infinite;
+  animation: textShine 5s linear infinite;
 }
 
 @keyframes textShine {
@@ -72,7 +72,7 @@
 }
 
 .glass-card {
-  @apply bg-card/40 backdrop-blur-xl border border-border/50 shadow-sm transition-all duration-300;
+  @apply bg-card/40 backdrop-blur-2xl border border-border/50 shadow-sm transition-all duration-500;
 }
 
 .glow-mesh {
@@ -83,7 +83,7 @@
   height: 100%;
   z-index: -1;
   background-image: 
-    radial-gradient(at 0% 0%, hsl(var(--primary) / 0.1) 0px, transparent 50%),
+    radial-gradient(at 0% 0%, hsl(var(--primary) / 0.12) 0px, transparent 55%),
     radial-gradient(at 100% 100%, hsl(var(--accent) / 0.1) 0px, transparent 50%);
 }
 
@@ -91,14 +91,14 @@
   position: fixed;
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, hsl(var(--primary) / 0.12) 0%, transparent 70%);
+  background: radial-gradient(circle, hsl(var(--primary) / 0.15) 0%, transparent 70%);
   border-radius: 50%;
   pointer-events: none;
   transform: translate(-50%, -50%);
   left: var(--mouse-x, 0);
   top: var(--mouse-y, 0);
   z-index: 1;
-  transition: transform 0.15s ease-out;
+  transition: transform 0.2s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .no-scrollbar::-webkit-scrollbar {
@@ -110,8 +110,8 @@
 }
 
 .data-flow-grid {
-  background-image: radial-gradient(circle at 1px 1px, hsl(var(--border) / 0.4) 1px, transparent 0);
-  background-size: 40px 40px;
+  background-image: radial-gradient(circle at 1px 1px, hsl(var(--border) / 0.3) 1px, transparent 0);
+  background-size: 48px 48px;
 }
 
 .shimmer-text {
@@ -124,10 +124,10 @@
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-fill-color: transparent;
-  animation: shimmer 8s infinite linear;
+  animation: shimmer 10s infinite linear;
 }
 
 @keyframes shimmer {
-  0% { background-position: 100% 0; }
-  100% { background-position: -100% 0; }
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
 }
