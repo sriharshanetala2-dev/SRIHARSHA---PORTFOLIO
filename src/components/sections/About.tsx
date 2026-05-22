@@ -124,7 +124,7 @@ export function About() {
               </div>
             </div>
 
-            {/* Anime Illustration Container */}
+            {/* Creative Visualization Container */}
             <div 
               className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl bg-card border border-border transition-transform duration-500 ease-out hover:scale-[1.02] hover:shadow-accent/10"
               style={{
@@ -141,7 +141,6 @@ export function About() {
                 />
               )}
               
-              {/* Overlay elements to keep it feeling techy */}
               <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60" />
               
               <div className="absolute top-6 left-6 right-6 flex justify-between items-start">

@@ -45,9 +45,9 @@
     },
     {
       "id": "creative-process",
-      "description": "Anime Style Creative Coder Illustration",
-      "imageUrl": "https://picsum.photos/seed/creative_anime_sri/800/600",
-      "imageHint": "anime coder"
+      "description": "Abstract Software Architecture Blueprint",
+      "imageUrl": "https://picsum.photos/seed/tech_blueprint_sri/800/600",
+      "imageHint": "software architecture"
     }
   ]
 }
