@@ -4,32 +4,32 @@
     {
       "id": "neural-workflow-os",
       "description": "AI Neural Data Flow Matrix",
-      "imageUrl": "https://picsum.photos/seed/sri_neural_v1/800/600",
-      "imageHint": "neural network"
+      "imageUrl": "https://picsum.photos/seed/sri_neural_v22/1600/900",
+      "imageHint": "neural interface"
     },
     {
       "id": "tradeflux-enterprise",
       "description": "High-Frequency FinTech Dashboard",
-      "imageUrl": "https://picsum.photos/seed/sri_trade_v1/800/600",
-      "imageHint": "financial data"
+      "imageUrl": "https://picsum.photos/seed/sri_trade_v22/1600/900",
+      "imageHint": "financial analytics"
     },
     {
       "id": "corelogic-java-engine",
       "description": "Relational Database Logic Core",
-      "imageUrl": "https://picsum.photos/seed/sri_java_v1/800/600",
-      "imageHint": "server database"
+      "imageUrl": "https://picsum.photos/seed/sri_java_v22/1600/900",
+      "imageHint": "server architecture"
     },
     {
       "id": "netops-topology-engine",
       "description": "Subnet Mask Networking Visualizer",
-      "imageUrl": "https://picsum.photos/seed/sri_net_v1/800/600",
-      "imageHint": "computer network"
+      "imageUrl": "https://picsum.photos/seed/sri_net_v22/1600/900",
+      "imageHint": "network topology"
     },
     {
       "id": "securegate-iam",
       "description": "Cloud Identity & Access Management Shell",
-      "imageUrl": "https://picsum.photos/seed/sri_secure_v1/800/600",
-      "imageHint": "cloud security"
+      "imageUrl": "https://picsum.photos/seed/sri_secure_v22/1600/900",
+      "imageHint": "cyber security"
     }
   ]
 }
