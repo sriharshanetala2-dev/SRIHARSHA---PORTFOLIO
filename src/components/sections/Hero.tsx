@@ -49,10 +49,10 @@ export function Hero() {
           Neural Architecture & Systems logic
         </motion.div>
 
-        <div className="space-y-8 sm:space-y-14">
+        <div className="space-y-6 sm:space-y-14">
           <motion.h1 
             variants={itemVariants}
-            className="text-4xl sm:text-7xl md:text-8xl lg:text-9xl font-headline font-black leading-[1.1] tracking-tighter uppercase flex flex-col items-center"
+            className="text-3xl sm:text-7xl md:text-8xl lg:text-9xl font-headline font-black leading-tight tracking-tighter uppercase flex flex-col items-center"
           >
             <span className="block opacity-90">Computational</span>
             <span className="text-gradient shimmer-text block">Experience</span>
@@ -82,7 +82,7 @@ export function Hero() {
           <Button 
             asChild
             size="lg" 
-            className="w-full sm:w-auto h-16 sm:h-20 px-12 sm:px-16 rounded-full font-black uppercase tracking-[0.3em] sm:tracking-[0.4em] text-[11px] sm:text-[12px] group shadow-3xl hover:scale-105 transition-all bg-primary text-primary-foreground active:scale-95"
+            className="w-full sm:w-auto h-16 sm:h-20 px-12 sm:px-16 rounded-full font-black uppercase tracking-[0.3em] sm:tracking-[0.4em] text-[12px] group shadow-3xl hover:scale-105 transition-all bg-primary text-primary-foreground active:scale-95"
           >
             <a href="#portfolio">
               Project Archive
@@ -93,7 +93,7 @@ export function Hero() {
             asChild
             size="lg" 
             variant="outline" 
-            className="w-full sm:w-auto h-16 sm:h-20 px-12 sm:px-16 rounded-full font-black uppercase tracking-[0.3em] sm:tracking-[0.4em] text-[11px] sm:text-[12px] hover:scale-105 transition-all border-border/60 bg-background/50 backdrop-blur-md group active:scale-95"
+            className="w-full sm:w-auto h-16 sm:h-20 px-12 sm:px-16 rounded-full font-black uppercase tracking-[0.3em] sm:tracking-[0.4em] text-[12px] hover:scale-105 transition-all border-border/60 bg-background/50 backdrop-blur-md group active:scale-95"
           >
             <a href="#contact" className="flex items-center gap-4">
               <Terminal className="w-5 h-5 text-primary group-hover:animate-pulse" />
