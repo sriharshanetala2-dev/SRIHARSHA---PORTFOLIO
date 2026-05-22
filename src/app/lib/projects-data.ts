@@ -39,11 +39,12 @@ export const projects = [
       "[SYNC] Firestore state push latency: 12ms",
       "[AGENT] Task orchestration loop started."
     ],
-    codeSnippet: `// Neural Core Logic
-export async function processSemanticIntent(rawInput: string) {
-  const kernel = await getNeuralKernel();
-  const intent = await kernel.parse(rawInput);
-  return await intent.executeTaskOrchestration();
+    codeSnippet: `{
+  "kernel": "Neural_Orchestrator_v2",
+  "logic_gate": "Semantic_Intent_Parser",
+  "objective": "Autonomous_Task_Mapping",
+  "state_sync": "Firestore_ACID",
+  "status": "OPERATIONAL"
 }`
   },
   {
@@ -73,11 +74,13 @@ export async function processSemanticIntent(rawInput: string) {
       "[STATS] Market volatility delta: +0.02%",
       "[W-WORKER] Chart re-render compute optimized."
     ],
-    codeSnippet: `// Reactive Stream Core
-const stream = db.from('market_data').stream();
-stream.on('mutation', (delta) => {
-  worker.postMessage({ type: 'COMPUTE', delta });
-});`
+    codeSnippet: `{
+  "engine": "TradeFlux_L1_Stream",
+  "data_integrity": "ACID_COMPLIANT",
+  "latency_target": "<15ms",
+  "threading_model": "WebWorkers_Parallel",
+  "stream_status": "ACTIVE"
+}`
   },
   {
     id: 'corelogic-db',
@@ -106,11 +109,12 @@ stream.on('mutation', (delta) => {
       "[SYNC] Worker thread cluster: ONLINE",
       "[FAILOVER] Secondary node heartbeat verified."
     ],
-    codeSnippet: `@Transactional
-public void atomicCommit(Payload p) {
-  db.persist(p);
-  audit.log(p.getMetadata());
-  eventBus.publish(new CommitEvent(p));
+    codeSnippet: `{
+  "core": "Atomic_Commit_Manager",
+  "persistence": "JPA_Hibernate_L2",
+  "concurrency": "MultiThread_Worker_Pool",
+  "isolation_level": "SERIALIZABLE",
+  "integrity": "VERIFIED"
 }`
   },
   {
@@ -140,10 +144,12 @@ public void atomicCommit(Payload p) {
       "[SIM] Path simulation latency: 4ms",
       "[ZOD] Payload validation complete."
     ],
-    codeSnippet: `function solveSubnet(ip, cidr) {
-  const mask = 0xffffffff << (32 - cidr);
-  const net = (ipToInt(ip) & mask) >>> 0;
-  return intToIp(net);
+    codeSnippet: `{
+  "system": "Network_Topology_Solver",
+  "logic": "Bitwise_CIDR_Mapping",
+  "layer": "L3_Network_Interface",
+  "validation": "Zod_Type_Safe",
+  "mapping_status": "SYNCED"
 }`
   }
 ];

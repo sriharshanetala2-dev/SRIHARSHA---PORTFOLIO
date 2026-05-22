@@ -16,7 +16,8 @@ import {
   Layers,
   Code2,
   ChevronRight,
-  ShieldCheck
+  ShieldCheck,
+  BrainCircuit
 } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -103,13 +104,13 @@ export default function ProjectPage({ params }: { params: Promise<{ projectId: s
         {/* Architectural Record Section */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
           <div className="lg:col-span-8 space-y-20">
-            {/* System Logic Trace (Code Style for Developers) */}
+            {/* System Logic Trace (Developer AI Style) */}
             <section className="space-y-10">
               <div className="flex items-center gap-4">
                 <div className="p-3 rounded-xl bg-primary/10 text-primary">
-                  <Terminal className="w-6 h-6" />
+                  <BrainCircuit className="w-6 h-6" />
                 </div>
-                <h2 className="text-xl sm:text-2xl font-black uppercase tracking-tight">System Logic Trace</h2>
+                <h2 className="text-xl sm:text-2xl font-black uppercase tracking-tight">AI Subsystem Manifest</h2>
               </div>
               
               <div className="bg-black/80 rounded-[2rem] sm:rounded-[3rem] border border-white/10 overflow-hidden shadow-3xl font-mono">
@@ -121,27 +122,27 @@ export default function ProjectPage({ params }: { params: Promise<{ projectId: s
                     <div className="w-3 h-3 rounded-full bg-green-500/40" />
                   </div>
                   <div className="text-[10px] font-black uppercase tracking-widest text-muted-foreground/40">
-                    root@dev-hub:~/projects/{project.id}
+                    node-architect@manifest:~/registry/{project.id}.json
                   </div>
                 </div>
                 
-                {/* Terminal Content - Pure Developer Logic */}
-                <div className="p-6 sm:p-12 space-y-10 overflow-x-auto no-scrollbar">
-                  <div className="space-y-6">
+                {/* Terminal Content - AI Architecture Style */}
+                <div className="p-6 sm:p-12 space-y-12 overflow-x-auto no-scrollbar">
+                  <div className="space-y-8">
                     <div className="flex gap-4">
-                      <span className="text-muted-foreground/30 text-xs">01</span>
-                      <pre className="text-green-500/80 text-xs sm:text-sm leading-relaxed whitespace-pre-wrap">
+                      <span className="text-primary/40 text-xs font-black">MANIFEST</span>
+                      <pre className="text-primary/80 text-xs sm:text-sm leading-relaxed whitespace-pre-wrap font-bold">
                         <code>{project.codeSnippet}</code>
                       </pre>
                     </div>
                   </div>
 
-                  <div className="pt-10 border-t border-white/5 space-y-3">
-                    <p className="text-[10px] font-black text-primary/40 uppercase tracking-[0.3em] mb-4">Neural Activity Logs</p>
+                  <div className="pt-10 border-t border-white/5 space-y-4">
+                    <p className="text-[10px] font-black text-primary/40 uppercase tracking-[0.3em] mb-4">Neural Activity Stream</p>
                     {project.systemLogs.map((log: string, i: number) => (
                       <div key={i} className="flex gap-4 items-center">
-                        <span className="text-muted-foreground/20 text-[10px]">{String(i + 1).padStart(2, '0')}</span>
-                        <span className="text-primary/60 text-xs sm:text-sm font-bold tracking-tight">{log}</span>
+                        <span className="text-muted-foreground/20 text-[10px] font-black">{String(i + 1).padStart(2, '0')}</span>
+                        <span className="text-foreground/70 text-xs sm:text-sm font-bold tracking-tight">{log}</span>
                       </div>
                     ))}
                   </div>
