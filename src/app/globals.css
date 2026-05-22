@@ -120,7 +120,7 @@
   );
   background-size: 200% auto;
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  -webkit-fill-color: transparent;
   animation: shimmer 5s infinite linear;
 }
 

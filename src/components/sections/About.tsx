@@ -1,9 +1,8 @@
-
 "use client";
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Laptop, Palette, Database, Cpu, BrainCircuit, Activity, Network, Code2, ShieldCheck, Zap } from "lucide-react";
+import { Laptop, Palette, Database, Cpu, BrainCircuit, Zap } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const synthesisNodes = [
