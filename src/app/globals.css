@@ -23,7 +23,7 @@
     --border: 220 13% 91%;
     --input: 220 13% 91%;
     --ring: 262.1 83.3% 57.8%;
-    --radius: 0.75rem;
+    --radius: 1rem;
   }
 
   .dark {
@@ -52,9 +52,12 @@
 @layer base {
   * {
     @apply border-border;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-osx-font-smoothing: grayscale;
   }
   body {
     @apply bg-background text-foreground font-body antialiased selection:bg-primary/30;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
 }
 
@@ -69,7 +72,7 @@
 }
 
 .glass-card {
-  @apply bg-card/50 backdrop-blur-md border border-border/50 shadow-sm transition-all duration-300;
+  @apply bg-card/40 backdrop-blur-xl border border-border/50 shadow-sm transition-all duration-300;
 }
 
 .glow-mesh {
@@ -80,22 +83,22 @@
   height: 100%;
   z-index: -1;
   background-image: 
-    radial-gradient(at 0% 0%, hsl(var(--primary) / 0.08) 0px, transparent 50%),
-    radial-gradient(at 100% 100%, hsl(var(--accent) / 0.08) 0px, transparent 50%);
+    radial-gradient(at 0% 0%, hsl(var(--primary) / 0.1) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, hsl(var(--accent) / 0.1) 0px, transparent 50%);
 }
 
 .glow-cursor {
   position: fixed;
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, hsl(var(--primary) / 0.1) 0%, transparent 70%);
+  background: radial-gradient(circle, hsl(var(--primary) / 0.12) 0%, transparent 70%);
   border-radius: 50%;
   pointer-events: none;
   transform: translate(-50%, -50%);
   left: var(--mouse-x, 0);
   top: var(--mouse-y, 0);
   z-index: 1;
-  transition: transform 0.1s ease-out;
+  transition: transform 0.15s ease-out;
 }
 
 .no-scrollbar::-webkit-scrollbar {
@@ -107,8 +110,8 @@
 }
 
 .data-flow-grid {
-  background-image: radial-gradient(circle at 1px 1px, hsl(var(--border) / 0.5) 1px, transparent 0);
-  background-size: 32px 32px;
+  background-image: radial-gradient(circle at 1px 1px, hsl(var(--border) / 0.4) 1px, transparent 0);
+  background-size: 40px 40px;
 }
 
 .shimmer-text {
@@ -121,7 +124,7 @@
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-fill-color: transparent;
-  animation: shimmer 5s infinite linear;
+  animation: shimmer 8s infinite linear;
 }
 
 @keyframes shimmer {
