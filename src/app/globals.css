@@ -23,7 +23,7 @@
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
     --ring: 255 70% 55%;
-    --radius: 1rem;
+    --radius: 1.25rem;
   }
 
   .dark {
@@ -54,16 +54,20 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground font-body antialiased selection:bg-primary/30;
+    @apply bg-background text-foreground font-body antialiased selection:bg-primary/30 transition-colors duration-300;
   }
 }
 
 .glass-card {
-  @apply bg-card/60 backdrop-blur-xl border border-white/10 shadow-xl transition-all duration-300;
+  @apply bg-card/60 backdrop-blur-xl border border-white/10 shadow-xl transition-all duration-500;
 }
 
 .dark .glass-card {
   @apply bg-card/40 border-white/5;
+}
+
+.glass-nav {
+  @apply bg-background/70 backdrop-blur-lg border-b border-white/10;
 }
 
 .text-gradient {
@@ -87,9 +91,8 @@
   height: 100%;
   z-index: -1;
   background-image: 
-    radial-gradient(at 0% 0%, hsla(var(--primary), 0.15) 0px, transparent 50%),
-    radial-gradient(at 100% 100%, hsla(var(--accent), 0.15) 0px, transparent 50%),
-    radial-gradient(at 50% 50%, hsla(var(--primary), 0.05) 0px, transparent 50%);
+    radial-gradient(at 0% 0%, hsla(var(--primary), 0.1) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, hsla(var(--accent), 0.1) 0px, transparent 50%);
   filter: blur(80px);
 }
 
@@ -105,14 +108,13 @@
   position: fixed;
   top: var(--mouse-y, 0);
   left: var(--mouse-x, 0);
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, hsla(var(--primary), 0.08) 0%, transparent 70%);
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, hsla(var(--primary), 0.05) 0%, transparent 70%);
   transform: translate(-50%, -50%);
   pointer-events: none;
   z-index: 0;
   border-radius: 50%;
-  transition: opacity 0.3s ease;
 }
 
 @media (max-width: 768px) {
