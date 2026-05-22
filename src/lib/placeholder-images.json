@@ -3,8 +3,8 @@
     {
       "id": "student-system",
       "description": "Intelligent Academic Lifecycle Management",
-      "imageUrl": "https://picsum.photos/seed/dev_student_v4/800/600",
-      "imageHint": "student records"
+      "imageUrl": "https://picsum.photos/seed/student_record_mgmt/800/600",
+      "imageHint": "student management"
     },
     {
       "id": "weather-app",
