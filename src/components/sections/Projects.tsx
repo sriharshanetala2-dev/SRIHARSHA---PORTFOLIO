@@ -9,6 +9,7 @@ import { projects, Project } from "@/app/lib/projects-data";
 function ProjectLens({ project }: { project: Project }) {
   return (
     <div className="relative h-64 overflow-hidden bg-muted/20 border-b border-border flex items-center justify-center p-8 group-hover:bg-primary/5 transition-all">
+      {/* Abstract architectural grid pattern */}
       <div className="absolute inset-0 opacity-[0.05] pointer-events-none">
         <div className="absolute top-0 left-0 w-full h-full" style={{ backgroundImage: 'radial-gradient(circle, currentColor 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
       </div>
@@ -16,6 +17,7 @@ function ProjectLens({ project }: { project: Project }) {
       <div className="relative z-10 flex flex-col items-center gap-4">
         <div className="relative p-8 rounded-[2rem] bg-card border border-border shadow-xl group-hover:scale-110 transition-transform duration-500">
           <project.icon className="w-12 h-12 text-primary" />
+          {/* System status node */}
           <div className="absolute -top-2 -right-2 p-2 rounded-xl bg-accent text-accent-foreground shadow-lg border border-border">
             <Cpu className="w-4 h-4" />
           </div>
@@ -23,6 +25,7 @@ function ProjectLens({ project }: { project: Project }) {
         <p className="text-[10px] font-black uppercase tracking-[0.4em] text-primary opacity-60">System Lens</p>
       </div>
 
+      {/* Floating metrics pill */}
       <div className="absolute bottom-6 left-6 right-6 flex justify-between px-6 py-3 glass-card rounded-2xl border-border bg-background/50 backdrop-blur-md">
          {project.metrics.map((m, i) => (
            <div key={i} className="flex flex-col items-start">

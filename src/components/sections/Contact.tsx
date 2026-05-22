@@ -35,6 +35,7 @@ export function Contact() {
     
     setIsSubmitting(true);
     
+    // Attempt Firestore sync for analytics/records
     if (db) {
       addDoc(collection(db, 'messages'), {
         ...formData,

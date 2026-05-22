@@ -66,6 +66,7 @@ export function Experience() {
         </div>
 
         <div className="space-y-10 md:space-y-12 relative">
+          {/* Vertical line for desktop */}
           <div className="absolute left-10 md:left-14 top-0 bottom-0 w-px bg-border/20 hidden sm:block" />
 
           {experience.map((item, idx) => (
