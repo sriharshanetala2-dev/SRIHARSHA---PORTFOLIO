@@ -14,6 +14,32 @@ A high-performance, AI-integrated portfolio showcasing expertise in Software Dev
 - **Database**: Firebase Firestore
 - **AI Engine**: Google Genkit (Gemini 2.5 Flash & Imagen 4.0)
 
+## 💻 Running Locally (Manual Setup)
+
+Follow these steps to run the application on your computer:
+
+1. **Prerequisites**: Ensure you have [Node.js](https://nodejs.org/) installed (v18 or higher recommended).
+2. **Install Dependencies**:
+   ```bash
+   npm install
+   ```
+3. **Set Up Environment Variables**:
+   Create a file named `.env.local` in the root directory and add your keys:
+   ```env
+   NEXT_PUBLIC_FIREBASE_API_KEY=your_api_key
+   NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your_project_id.firebaseapp.com
+   NEXT_PUBLIC_FIREBASE_PROJECT_ID=your_project_id
+   NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your_project_id.appspot.com
+   NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
+   NEXT_PUBLIC_FIREBASE_APP_ID=your_app_id
+   GOOGLE_GENAI_API_KEY=your_gemini_api_key
+   ```
+4. **Start the Development Server**:
+   ```bash
+   npm run dev
+   ```
+   Open [http://localhost:9002](http://localhost:9002) in your browser.
+
 ## 🌐 Publishing to GitHub (Step-by-Step)
 
 1. **Initialize Git**:
