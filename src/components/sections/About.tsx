@@ -11,36 +11,36 @@ const synthesisNodes = [
     label: "Frontend", 
     icon: Laptop, 
     color: "text-blue-500", 
-    desc: "React Interfaces",
-    status: "Compiling UI...",
-    metrics: ["120fps", "Modern", "Fluid"]
+    desc: "React & Next.js",
+    status: "Compiling UI",
+    metrics: ["120fps Performance", "Modern Orchestration", "Fluid Logic"]
   },
   { 
     id: "fullstack",
     label: "Full Stack", 
     icon: Database, 
     color: "text-indigo-500", 
-    desc: "Robust state flows",
-    status: "Syncing Logic...",
-    metrics: ["ACID", "Real-time", "Secure"]
+    desc: "Java & Spring Boot",
+    status: "Syncing Systems",
+    metrics: ["ACID Compliance", "Real-time Data", "Secure Core"]
   },
   { 
     id: "uiux",
-    label: "Logic Design", 
+    label: "Systems Design", 
     icon: Palette, 
     color: "text-purple-500", 
-    desc: "Code Architecture",
-    status: "Mapping Experience...",
-    metrics: ["Scalable", "Precise", "Visual"]
+    desc: "UI Engineering",
+    status: "Mapping Logic",
+    metrics: ["Scalable CSS", "Precise UX", "Industrial Visuals"]
   },
   { 
     id: "ai",
     label: "AI Systems", 
     icon: Cpu, 
     color: "text-orange-500", 
-    desc: "Genkit Integration",
-    status: "Training Node...",
-    metrics: ["LLMs", "Logic", "Tools"]
+    desc: "Genkit AI Tools",
+    status: "Training Node",
+    metrics: ["LLM Integration", "Semantic Logic", "Tool Chaining"]
   }
 ];
 
@@ -55,29 +55,27 @@ export function About() {
   if (!mounted) return null;
 
   return (
-    <section id="about" className="py-24 md:py-40 px-6 relative overflow-hidden bg-background">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,hsl(var(--primary)/0.03),transparent)] pointer-events-none" />
-      
+    <section id="about" className="py-24 md:py-40 px-6 relative overflow-hidden bg-background border-t border-border">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
           <motion.div 
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
             viewport={{ once: true }}
             className="space-y-12"
           >
             <div className="space-y-6 text-center lg:text-left">
               <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-primary/10 text-[10px] font-black tracking-[0.4em] text-primary uppercase border border-primary/20">
                 <Fingerprint className="w-4 h-4" />
-                Developer Manifest
+                Developer Registry
               </div>
               <h2 className="text-4xl sm:text-7xl font-headline font-black leading-[1] tracking-tighter uppercase">
                 CODE <br className="hidden sm:block" />
                 <span className="text-gradient">IDENTITY</span>
               </h2>
               <p className="text-sm sm:text-lg text-muted-foreground leading-relaxed font-bold max-w-xl mx-auto lg:mx-0 opacity-80 uppercase tracking-widest">
-                As a <span className="text-primary font-black">Full Stack Developer</span>, I build digital solutions where engineering logic meets high-performance code.
+                As a <span className="text-primary font-black">Full Stack Developer</span>, I build digital ecosystems where high-performance engineering logic meets industrial-grade stability.
               </p>
             </div>
 
@@ -87,7 +85,7 @@ export function About() {
                   key={node.id}
                   onClick={() => setActiveNode(node)}
                   className={cn(
-                    "flex items-center gap-4 p-5 rounded-2xl border transition-all text-left relative overflow-hidden group",
+                    "flex items-center gap-4 p-5 rounded-2xl border transition-all text-left group",
                     activeNode.id === node.id 
                       ? "bg-secondary border-primary/40 shadow-sm" 
                       : "bg-secondary/20 border-white/5 hover:border-primary/30"
@@ -109,60 +107,53 @@ export function About() {
             </div>
           </motion.div>
 
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, type: "spring" }}
-            viewport={{ once: true }}
-            className="relative"
-          >
-            <div className="relative aspect-square rounded-[2.5rem] overflow-hidden border border-border/50 bg-secondary/5 shadow-2xl flex items-center justify-center p-8 group">
-              <div className="absolute inset-0 neural-grid opacity-10" />
-              
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={activeNode.id}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.8 }}
-                  transition={{ duration: 0.4 }}
-                  className="relative z-10 flex flex-col items-center gap-10 w-full"
-                >
-                  <div className="relative p-12 sm:p-20 rounded-full bg-card/40 border border-border/50 shadow-xl backdrop-blur-xl">
-                    <activeNode.icon className={cn("w-20 h-20 sm:w-40 sm:h-40 transition-colors duration-500", activeNode.color)} />
-                    <div className="absolute -top-4 -right-4 p-4 rounded-xl bg-primary text-primary-foreground shadow-lg border border-white/20">
-                      <Zap className="w-6 h-6 animate-pulse" />
+          <div className="relative">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeNode.id}
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.4 }}
+                className="w-full"
+              >
+                <div className="p-10 rounded-[2.5rem] border border-border/50 bg-secondary/5 space-y-12">
+                  <div className="flex flex-col items-center gap-8">
+                    <div className="relative p-12 rounded-full bg-card border border-border shadow-xl">
+                      <activeNode.icon className={cn("w-20 h-20 transition-colors duration-500", activeNode.color)} />
+                      <div className="absolute -top-2 -right-2 p-3 rounded-xl bg-primary text-primary-foreground shadow-lg">
+                        <Zap className="w-5 h-5" />
+                      </div>
+                    </div>
+                    <div className="text-center space-y-2">
+                      <p className="text-[9px] font-black uppercase tracking-[0.6em] text-primary">Active Logic Node</p>
+                      <h3 className="text-3xl sm:text-5xl font-headline font-black uppercase tracking-tighter">{activeNode.label}</h3>
                     </div>
                   </div>
 
-                  <div className="text-center space-y-2">
-                    <p className="text-[9px] font-black uppercase tracking-[0.6em] text-primary opacity-50">Active Logic Node</p>
-                    <h3 className="text-2xl sm:text-5xl font-headline font-black uppercase tracking-tighter">{activeNode.label}</h3>
+                  <div className="grid grid-cols-1 gap-4">
+                    {activeNode.metrics.map((metric, i) => (
+                      <div key={i} className="flex items-center justify-between p-5 rounded-xl bg-background border border-border">
+                        <span className="text-[9px] font-black uppercase tracking-[0.5em] text-muted-foreground opacity-50">Technical Vector</span>
+                        <span className="text-[11px] font-black text-primary uppercase tracking-widest">{metric}</span>
+                      </div>
+                    ))}
                   </div>
 
-                  <div className="flex flex-wrap justify-center gap-4 sm:gap-8 px-6 py-4 glass-card rounded-2xl border-border/50 bg-background/50">
-                     {activeNode.metrics.map((metric, i) => (
-                       <div key={i} className="flex flex-col items-center px-4 sm:px-6 border-r last:border-0 border-border/50">
-                         <span className="text-[8px] font-black uppercase tracking-widest text-muted-foreground opacity-50 mb-0.5">Vector</span>
-                         <span className="text-[11px] font-black text-primary whitespace-nowrap uppercase">{metric}</span>
-                       </div>
-                     ))}
-                  </div>
-                </motion.div>
-              </AnimatePresence>
-              
-              <div className="absolute bottom-6 left-6 right-6 p-4 glass-card rounded-2xl flex items-center justify-between border-border/50 bg-background/80">
-                <div className="flex items-center gap-4">
-                  <div className="w-2 h-2 rounded-full bg-green-500 shadow-[0_0_8px_#22c55e]" />
-                  <div className="flex flex-col">
-                    <span className="text-[8px] font-black uppercase tracking-[0.4em] text-muted-foreground/40">Status Registry</span>
-                    <span className="text-[10px] font-black text-green-600 uppercase tracking-widest">{activeNode.status}</span>
+                  <div className="pt-8 border-t border-border/50 flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                      <div className="flex flex-col">
+                        <span className="text-[8px] font-black uppercase tracking-[0.4em] text-muted-foreground/40">Status Registry</span>
+                        <span className="text-[10px] font-black text-green-600 uppercase tracking-widest">{activeNode.status}</span>
+                      </div>
+                    </div>
+                    <Activity className="w-4 h-4 text-green-500/40" />
                   </div>
                 </div>
-                <Activity className="w-4 h-4 text-green-500/40" />
-              </div>
-            </div>
-          </motion.div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
         </div>
       </div>
     </section>

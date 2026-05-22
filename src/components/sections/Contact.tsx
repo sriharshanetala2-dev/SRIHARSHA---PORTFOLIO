@@ -56,14 +56,12 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 md:py-44 px-6 relative overflow-hidden bg-background">
-      <div className="absolute inset-0 data-flow-grid opacity-5 pointer-events-none" />
-      
+    <section id="contact" className="py-24 md:py-44 px-6 relative overflow-hidden bg-background border-t border-border">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 relative z-10">
         <motion.div 
           initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 0.8 }}
           viewport={{ once: true }}
           className="space-y-16"
         >
@@ -105,31 +103,14 @@ export function Contact() {
               </div>
             </div>
           </div>
-
-          <div className="flex gap-6">
-            {[
-              { icon: Linkedin, href: linkedInUrl },
-              { icon: Github, href: "https://github.com/sriharshanetala2-dev" }
-            ].map((social, i) => (
-              <a 
-                key={i}
-                href={social.href} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="p-6 rounded-xl glass-card hover:bg-primary hover:text-primary-foreground transition-all shadow-sm border-border"
-              >
-                <social.icon className="w-7 h-7" />
-              </a>
-            ))}
-          </div>
         </motion.div>
 
         <motion.div 
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, type: "spring" }}
+          transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="glass-card p-8 md:p-12 rounded-[2.5rem] shadow-xl border-border bg-card/30 backdrop-blur-xl"
+          className="glass-card p-8 md:p-12 rounded-[2.5rem] shadow-xl border-border bg-card/30"
         >
           <form onSubmit={handleSubmit} className="space-y-10">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -176,7 +157,7 @@ export function Contact() {
             </div>
             <Button 
               type="submit" 
-              className="w-full h-16 rounded-full font-black uppercase tracking-[0.4em] text-[12px] gap-4 shadow-xl transition-all active:scale-[0.98] hover:scale-[1.02] bg-primary text-primary-foreground"
+              className="w-full h-16 rounded-full font-black uppercase tracking-[0.4em] text-[12px] gap-4 shadow-xl transition-all bg-primary text-primary-foreground"
               disabled={isSubmitting}
             >
               {isSubmitting ? <Loader2 className="w-6 h-6 animate-spin" /> : <><Send className="w-5 h-5" /> Execute Transmission</>}

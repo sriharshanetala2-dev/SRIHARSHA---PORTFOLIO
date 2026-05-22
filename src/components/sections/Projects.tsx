@@ -31,8 +31,8 @@ export function Projects() {
           </motion.h2>
 
           <motion.p 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="max-w-2xl text-[12px] sm:text-sm text-muted-foreground font-black uppercase tracking-[0.3em] leading-relaxed mx-auto opacity-70"
           >
@@ -50,7 +50,7 @@ export function Projects() {
               viewport={{ once: true }}
             >
               <Link href={`/projects/${project.id}`} className="block h-full group">
-                <Card className="h-full bg-secondary/50 border-border hover:border-primary transition-all rounded-xl overflow-hidden shadow-lg backdrop-blur-sm">
+                <Card className="h-full bg-secondary/50 border-border hover:border-primary transition-all rounded-xl overflow-hidden shadow-lg">
                   <CardContent className="p-8 space-y-8 flex flex-col h-full">
                     <div className="flex justify-between items-start">
                       <div className="p-4 rounded bg-background border border-border text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">

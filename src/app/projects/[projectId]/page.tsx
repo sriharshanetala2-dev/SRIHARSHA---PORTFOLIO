@@ -78,7 +78,6 @@ export default function ProjectPage({ params }: { params: Promise<{ projectId: s
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
           <div className="lg:col-span-8 space-y-20">
-            {/* System Spec Grid */}
             <section className="space-y-8">
               <div className="flex items-center gap-4">
                 <Database className="w-6 h-6 text-primary" />
@@ -99,7 +98,6 @@ export default function ProjectPage({ params }: { params: Promise<{ projectId: s
               </div>
             </section>
 
-            {/* Process Logs */}
             <section className="space-y-8">
               <div className="flex items-center gap-4">
                 <Activity className="w-6 h-6 text-indigo-500" />
@@ -116,7 +114,6 @@ export default function ProjectPage({ params }: { params: Promise<{ projectId: s
               </div>
             </section>
 
-            {/* Full Stack Logic */}
             <section className="space-y-10">
               <div className="flex items-center gap-4">
                 <Layers className="w-6 h-6 text-indigo-500" />
