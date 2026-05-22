@@ -80,7 +80,7 @@ export function About() {
                   src={animeDevImage.imageUrl}
                   alt="Creative Developer Visualization"
                   fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-[4000ms]"
+                  className="object-cover group-hover:scale-105 transition-transform duration-1000"
                   data-ai-hint={animeDevImage.imageHint}
                   priority
                 />

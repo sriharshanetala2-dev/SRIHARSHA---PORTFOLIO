@@ -1,4 +1,3 @@
-
 'use client';
 
 import { initializeApp, getApps, getApp, FirebaseApp } from 'firebase/app';
@@ -8,8 +7,12 @@ import { firebaseConfig } from './config';
 
 export function initializeFirebase() {
   // Check if we have the minimum required config to initialize
-  if (!firebaseConfig.apiKey || firebaseConfig.apiKey === "undefined") {
-    console.warn("Firebase configuration is missing or incomplete. Please check your environment variables.");
+  const isConfigValid = firebaseConfig.apiKey && firebaseConfig.apiKey !== "undefined";
+
+  if (!isConfigValid) {
+    if (typeof window !== 'undefined') {
+      console.warn("Firebase configuration is missing or incomplete. Some features like the contact form may be limited.");
+    }
     return { firebaseApp: null, firestore: null, auth: null };
   }
 
@@ -20,7 +23,9 @@ export function initializeFirebase() {
 
     return { firebaseApp: app, firestore: db, auth };
   } catch (error) {
-    console.error("Error initializing Firebase:", error);
+    if (typeof window !== 'undefined') {
+      console.error("Error initializing Firebase:", error);
+    }
     return { firebaseApp: null, firestore: null, auth: null };
   }
 }

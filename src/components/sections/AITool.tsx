@@ -198,7 +198,7 @@ export function AITool() {
                       <div className="space-y-5 shrink-0">
                         <p className="text-[10px] font-black text-accent uppercase tracking-[0.3em] ml-1">Visual Signature</p>
                         <div className="relative w-48 h-48 rounded-[2.5rem] overflow-hidden border-2 border-white/5 shadow-3xl group cursor-crosshair">
-                          <Image src={result.logoUrl} alt="Visual Signature" fill className="object-cover group-hover:scale-110 transition-transform duration-[2000ms]" />
+                          <Image src={result.logoUrl} alt="Visual Signature" fill className="object-cover group-hover:scale-110 transition-transform duration-1000" />
                           <div className="absolute inset-0 bg-accent/10 opacity-0 group-hover:opacity-100 transition-opacity" />
                         </div>
                       </div>
