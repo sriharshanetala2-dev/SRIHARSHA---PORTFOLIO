@@ -1,3 +1,4 @@
+
 "use client";
 
 import { motion } from "framer-motion";
@@ -8,7 +9,7 @@ import { projects, Project } from "@/app/lib/projects-data";
 
 function ProjectLens({ project }: { project: Project }) {
   return (
-    <div className="relative h-64 overflow-hidden bg-muted/20 border-b border-border flex items-center justify-center p-8 group-hover:bg-primary/5 transition-all duration-500">
+    <div className="relative h-64 overflow-hidden bg-muted/20 border-b border-border flex items-center justify-center p-6 sm:p-8 group-hover:bg-primary/5 transition-all duration-500">
       <div className="absolute inset-0 opacity-[0.05] pointer-events-none">
         <div className="absolute top-0 left-0 w-full h-full" style={{ backgroundImage: 'radial-gradient(circle, currentColor 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
       </div>
@@ -16,21 +17,21 @@ function ProjectLens({ project }: { project: Project }) {
       <div className="relative z-10 flex flex-col items-center gap-4">
         <motion.div 
           whileHover={{ scale: 1.1, rotate: 2 }}
-          className="relative p-8 rounded-[2rem] bg-card border border-border shadow-xl transition-all duration-500"
+          className="relative p-6 sm:p-8 rounded-[1.5rem] sm:rounded-[2rem] bg-card border border-border shadow-xl transition-all duration-500"
         >
-          <project.icon className="w-12 h-12 text-primary" />
-          <div className="absolute -top-2 -right-2 p-2 rounded-xl bg-accent text-accent-foreground shadow-lg border border-border">
-            <Cpu className="w-4 h-4" />
+          <project.icon className="w-8 h-8 sm:w-12 sm:h-12 text-primary" />
+          <div className="absolute -top-1.5 -right-1.5 p-1.5 rounded-lg bg-accent text-accent-foreground shadow-lg border border-border">
+            <Cpu className="w-3.5 h-3.5" />
           </div>
         </motion.div>
-        <p className="text-[10px] font-black uppercase tracking-[0.4em] text-primary opacity-60">System Lens</p>
+        <p className="text-[8px] sm:text-[10px] font-black uppercase tracking-[0.4em] text-primary opacity-60">System Lens</p>
       </div>
 
-      <div className="absolute bottom-6 left-6 right-6 flex justify-between px-6 py-3 glass-card rounded-2xl border-border bg-background/50 backdrop-blur-md">
+      <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 flex justify-between px-4 sm:px-6 py-2.5 sm:py-3 glass-card rounded-xl sm:rounded-2xl border-border bg-background/50 backdrop-blur-md">
          {project.metrics.map((m, i) => (
-           <div key={i} className="flex flex-col items-start">
-             <span className="text-[8px] font-black uppercase tracking-widest text-muted-foreground">{m.label}</span>
-             <span className="text-[11px] font-bold text-accent font-mono">{m.value}</span>
+           <div key={i} className="flex flex-col items-start px-2 border-r last:border-0 border-border/20">
+             <span className="text-[6px] sm:text-[8px] font-black uppercase tracking-widest text-muted-foreground whitespace-nowrap">{m.label}</span>
+             <span className="text-[9px] sm:text-[11px] font-bold text-accent font-mono truncate max-w-[80px] sm:max-w-none">{m.value}</span>
            </div>
          ))}
       </div>

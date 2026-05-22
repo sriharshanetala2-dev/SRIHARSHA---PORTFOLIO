@@ -1,3 +1,4 @@
+
 "use client";
 
 import { use, useState, useEffect } from "react";
@@ -65,10 +66,10 @@ export default function ProjectPage({ params }: { params: Promise<{ projectId: s
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.1, duration: 0.8 }}
-              className="flex flex-wrap text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-headline font-black tracking-tighter uppercase leading-[1.1] sm:leading-tight"
+              className="flex flex-wrap text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-headline font-black tracking-tighter uppercase leading-[1.2] sm:leading-tight"
             >
               {project.title.split(' ').map((word, i) => (
-                <span key={i} className={cn("inline-block mr-[0.3em] last:mr-0", i % 2 !== 0 ? "text-gradient" : "text-foreground")}>
+                <span key={i} className={cn("inline-block mr-[0.35em] last:mr-0", i % 2 !== 0 ? "text-gradient" : "text-foreground")}>
                   {word}
                 </span>
               ))}
@@ -84,7 +85,7 @@ export default function ProjectPage({ params }: { params: Promise<{ projectId: s
             </motion.p>
           </div>
 
-          {/* Featured Technical Visual (System Lens) - Lite for Mobile */}
+          {/* Featured Technical Visual (System Lens) */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -102,11 +103,11 @@ export default function ProjectPage({ params }: { params: Promise<{ projectId: s
                     boxShadow: ["0 0 15px hsl(var(--primary) / 0.1)", "0 0 40px hsl(var(--primary) / 0.3)", "0 0 15px hsl(var(--primary) / 0.1)"]
                   }}
                   transition={{ duration: 4, repeat: Infinity }}
-                  className="relative p-6 sm:p-16 rounded-[2rem] sm:rounded-[4rem] bg-card border border-border/50 shadow-2xl backdrop-blur-3xl"
+                  className="relative p-6 sm:p-16 rounded-[1.8rem] sm:rounded-[4rem] bg-card border border-border/50 shadow-2xl backdrop-blur-3xl"
                 >
                   <project.icon className="w-10 h-10 sm:w-24 sm:h-24 text-primary" />
-                  <div className="absolute -top-1 -right-1 sm:-top-4 sm:-right-4 p-1.5 sm:p-4 rounded-lg sm:rounded-2xl bg-accent text-accent-foreground shadow-xl border border-white/10">
-                    <Zap className="w-3 sm:w-6 h-3 sm:h-6 animate-pulse" />
+                  <div className="absolute -top-1.5 -right-1.5 sm:-top-4 sm:-right-4 p-1.5 sm:p-4 rounded-lg sm:rounded-2xl bg-accent text-accent-foreground shadow-xl border border-white/10">
+                    <Zap className="w-3.5 sm:w-6 h-3.5 sm:h-6 animate-pulse" />
                   </div>
                 </motion.div>
 
@@ -115,18 +116,17 @@ export default function ProjectPage({ params }: { params: Promise<{ projectId: s
                   <h3 className="text-xs sm:text-3xl font-black uppercase tracking-tighter text-center px-4">{project.title}</h3>
                 </div>
 
-                <div className="flex gap-2 sm:gap-6 px-3 sm:px-10 py-2 sm:py-5 glass-card rounded-xl sm:rounded-[2rem] border-white/5 bg-background/50 shadow-2xl backdrop-blur-md overflow-hidden">
+                <div className="flex gap-1.5 sm:gap-6 px-3 sm:px-10 py-2 sm:py-5 glass-card rounded-xl sm:rounded-[2rem] border-white/5 bg-background/50 shadow-2xl backdrop-blur-md overflow-hidden max-w-[90vw]">
                    {project.metrics.map((metric, i) => (
                      <div key={i} className="flex flex-col items-center px-2 sm:px-6 border-r last:border-0 border-border/50">
-                       <span className="text-[5px] sm:text-[8px] font-black uppercase tracking-widest text-muted-foreground mb-0.5 sm:mb-1">{metric.label}</span>
-                       <span className="text-[8px] sm:text-sm font-bold text-accent font-mono whitespace-nowrap">{metric.value}</span>
+                       <span className="text-[5px] sm:text-[8px] font-black uppercase tracking-widest text-muted-foreground mb-0.5 sm:mb-1 whitespace-nowrap">{metric.label}</span>
+                       <span className="text-[7px] sm:text-sm font-bold text-accent font-mono whitespace-nowrap">{metric.value}</span>
                      </div>
                    ))}
                 </div>
               </div>
             </div>
 
-            {/* Ambient Tech Flows - Lite for Mobile */}
             <motion.div 
               animate={{ 
                 x: ["-100%", "100%"],
