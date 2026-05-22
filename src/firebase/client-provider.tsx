@@ -4,7 +4,7 @@
 import React, { useMemo } from 'react';
 import { FirebaseProvider } from './provider';
 import { FirebaseErrorListener } from '@/components/FirebaseErrorListener';
-import { initializeFirebase } from './index';
+import { initializeFirebase } from './init';
 
 export const FirebaseClientProvider: React.FC<{
   children: React.ReactNode;
