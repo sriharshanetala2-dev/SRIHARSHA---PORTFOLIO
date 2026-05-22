@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect } from "react";
@@ -43,8 +44,8 @@ export function Navbar() {
             <Code2 className="w-5 h-5" />
           </div>
           <div className="flex flex-col">
-            <span className="text-lg font-headline font-black tracking-tight uppercase leading-none">SRI HARSHA</span>
-            <span className="text-[8px] font-black uppercase tracking-[0.2em] text-primary">Full Stack Developer</span>
+            <span className="text-base font-headline font-black tracking-tight uppercase leading-none">SRI HARSHA</span>
+            <span className="text-xs font-black uppercase tracking-wider text-primary">Full Stack Developer</span>
           </div>
         </Link>
 
@@ -54,7 +55,7 @@ export function Navbar() {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-[10px] font-black text-foreground/70 hover:text-primary transition-all uppercase tracking-[0.1em]"
+                className="text-xs font-black text-foreground/70 hover:text-primary transition-all uppercase tracking-widest"
               >
                 {link.name}
               </a>
@@ -73,7 +74,7 @@ export function Navbar() {
           
           <a 
             href="#contact"
-            className="px-5 py-2 rounded bg-primary text-primary-foreground text-[10px] font-black uppercase tracking-widest hover:brightness-110 transition-all shadow-md"
+            className="px-6 py-2 rounded bg-primary text-primary-foreground text-xs font-black uppercase tracking-widest hover:brightness-110 transition-all shadow-md"
           >
             Hire Developer
           </a>
@@ -107,7 +108,7 @@ export function Navbar() {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-sm font-black uppercase tracking-widest hover:text-primary transition-colors py-2 border-b border-border/50 last:border-0"
+                className="text-sm font-black uppercase tracking-widest hover:text-primary transition-colors py-3 border-b border-border/50 last:border-0"
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}
@@ -115,7 +116,7 @@ export function Navbar() {
             ))}
             <a 
               href="#contact"
-              className="w-full py-3 rounded bg-primary text-primary-foreground text-center font-black uppercase tracking-widest text-[10px]"
+              className="w-full py-4 rounded bg-primary text-primary-foreground text-center font-black uppercase tracking-widest text-xs"
               onClick={() => setIsOpen(false)}
             >
               Hire Developer

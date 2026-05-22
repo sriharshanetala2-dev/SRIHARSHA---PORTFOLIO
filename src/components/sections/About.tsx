@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect } from "react";
@@ -66,11 +67,11 @@ export function About() {
             className="space-y-12"
           >
             <div className="space-y-6 text-center lg:text-left">
-              <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-primary/10 text-[10px] font-black tracking-[0.4em] text-primary uppercase border border-primary/20">
+              <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-primary/10 text-xs font-black tracking-widest text-primary uppercase border border-primary/20">
                 <Fingerprint className="w-4 h-4" />
                 Developer Registry
               </div>
-              <h2 className="text-4xl sm:text-7xl font-headline font-black leading-[1] tracking-tighter uppercase">
+              <h2 className="text-4xl sm:text-6xl font-headline font-black leading-[1] tracking-tighter uppercase">
                 CODE <br className="hidden sm:block" />
                 <span className="text-gradient">IDENTITY</span>
               </h2>
@@ -79,28 +80,28 @@ export function About() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {synthesisNodes.map((node) => (
                 <button 
                   key={node.id}
                   onClick={() => setActiveNode(node)}
                   className={cn(
-                    "flex items-center gap-4 p-5 rounded-2xl border transition-all text-left group",
+                    "flex items-center gap-5 p-6 rounded-2xl border transition-all text-left group",
                     activeNode.id === node.id 
-                      ? "bg-secondary border-primary/40 shadow-sm" 
+                      ? "bg-secondary border-primary/40 shadow-md" 
                       : "bg-secondary/20 border-white/5 hover:border-primary/30"
                   )}
                 >
                   <div className={cn(
-                    "p-3 rounded-xl bg-background transition-all duration-500",
+                    "p-4 rounded-xl bg-background transition-all duration-500",
                     node.color,
                     activeNode.id === node.id ? "scale-110 shadow-sm" : "opacity-30"
                   )}>
-                    <node.icon className="w-5 h-5" />
+                    <node.icon className="w-6 h-6" />
                   </div>
                   <div className="flex flex-col">
-                    <span className="font-black text-[10px] uppercase tracking-widest">{node.label}</span>
-                    <span className="text-[9px] text-muted-foreground uppercase tracking-widest font-black opacity-40 truncate">{node.desc}</span>
+                    <span className="font-black text-xs uppercase tracking-widest">{node.label}</span>
+                    <span className="text-[10px] text-muted-foreground uppercase tracking-wider font-black opacity-50 truncate">{node.desc}</span>
                   </div>
                 </button>
               ))}
@@ -117,38 +118,38 @@ export function About() {
                 transition={{ duration: 0.4 }}
                 className="w-full"
               >
-                <div className="p-8 md:p-12 rounded-[2.5rem] border border-border/50 bg-secondary/5 space-y-10 relative overflow-hidden">
-                  <div className="flex flex-col items-center gap-6 relative z-10">
-                    <div className="relative p-10 rounded-full bg-card border border-border shadow-xl">
+                <div className="p-8 md:p-12 rounded-[2.5rem] border border-border/50 bg-secondary/5 space-y-12 relative overflow-hidden shadow-2xl">
+                  <div className="flex flex-col items-center gap-8 relative z-10">
+                    <div className="relative p-12 rounded-full bg-card border border-border shadow-xl">
                       <activeNode.icon className={cn("w-16 h-16 transition-colors duration-500", activeNode.color)} />
-                      <div className="absolute -top-1 -right-1 p-2.5 rounded-xl bg-primary text-primary-foreground shadow-lg">
-                        <Zap className="w-4 h-4" />
+                      <div className="absolute -top-1 -right-1 p-3 rounded-xl bg-primary text-primary-foreground shadow-lg">
+                        <Zap className="w-5 h-5" />
                       </div>
                     </div>
-                    <div className="text-center space-y-1">
-                      <p className="text-[9px] font-black uppercase tracking-[0.5em] text-primary">Technical Registry</p>
+                    <div className="text-center space-y-2">
+                      <p className="text-xs font-black uppercase tracking-widest text-primary opacity-60">Technical Registry</p>
                       <h3 className="text-3xl sm:text-5xl font-headline font-black uppercase tracking-tighter">{activeNode.label}</h3>
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 gap-3 relative z-10">
+                  <div className="grid grid-cols-1 gap-4 relative z-10">
                     {activeNode.metrics.map((metric, i) => (
-                      <div key={i} className="flex items-center justify-between p-4 rounded-xl bg-background border border-border">
-                        <span className="text-[9px] font-black uppercase tracking-[0.4em] text-muted-foreground opacity-50">Vector</span>
-                        <span className="text-[10px] font-black text-primary uppercase tracking-widest">{metric}</span>
+                      <div key={i} className="flex items-center justify-between p-5 rounded-2xl bg-background border border-border shadow-sm">
+                        <span className="text-xs font-black uppercase tracking-widest text-muted-foreground opacity-40">Metric</span>
+                        <span className="text-sm font-black text-primary uppercase tracking-wider">{metric}</span>
                       </div>
                     ))}
                   </div>
 
-                  <div className="pt-6 border-t border-border/50 flex items-center justify-between relative z-10">
-                    <div className="flex items-center gap-3">
-                      <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                  <div className="pt-8 border-t border-border/50 flex items-center justify-between relative z-10">
+                    <div className="flex items-center gap-4">
+                      <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse" />
                       <div className="flex flex-col">
-                        <span className="text-[8px] font-black uppercase tracking-[0.4em] text-muted-foreground/40">Status</span>
-                        <span className="text-[9px] font-black text-green-600 uppercase tracking-widest">{activeNode.status}</span>
+                        <span className="text-[10px] font-black uppercase tracking-widest text-muted-foreground/40 leading-none mb-1">Status</span>
+                        <span className="text-xs font-black text-green-600 uppercase tracking-widest">{activeNode.status}</span>
                       </div>
                     </div>
-                    <Activity className="w-4 h-4 text-green-500/40" />
+                    <Activity className="w-6 h-6 text-green-500/30" />
                   </div>
                 </div>
               </motion.div>

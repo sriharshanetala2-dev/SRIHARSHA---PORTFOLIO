@@ -1,3 +1,4 @@
+
 "use client";
 
 import { motion } from "framer-motion";
@@ -39,7 +40,7 @@ export function Experience() {
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-primary/10 border border-primary/20 text-[10px] font-black text-primary uppercase tracking-[0.4em]"
+            className="inline-flex items-center gap-3 px-6 py-2 rounded-full bg-primary/10 border border-primary/20 text-xs font-black text-primary uppercase tracking-widest"
           >
             <Briefcase className="w-4 h-4" />
             Developer Timeline
@@ -48,7 +49,7 @@ export function Experience() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl sm:text-7xl font-headline font-black tracking-tighter uppercase"
+            className="text-4xl sm:text-6xl font-headline font-black tracking-tighter uppercase"
           >
             GROWTH <span className="text-gradient">MATRIX</span>
           </motion.h2>
@@ -56,7 +57,7 @@ export function Experience() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-sm sm:text-xl text-muted-foreground font-black max-w-2xl mx-auto opacity-60 uppercase tracking-[0.2em]"
+            className="text-sm sm:text-lg text-muted-foreground font-black max-w-2xl mx-auto opacity-60 uppercase tracking-widest leading-relaxed"
           >
             A technical mapping of development milestones and high-level project integration.
           </motion.p>
@@ -75,22 +76,22 @@ export function Experience() {
               className="relative"
             >
               <Card 
-                className="p-8 md:p-12 glass-card bg-card/30 border-border/50 hover:border-primary/40 transition-all rounded-[2rem] overflow-hidden"
+                className="p-8 md:p-12 glass-card bg-card/30 border-border/50 hover:border-primary/40 transition-all rounded-[2.5rem] overflow-hidden shadow-lg"
               >
-                <div className="flex flex-col md:flex-row md:items-start gap-8 md:gap-12 relative z-10">
-                  <div className="p-6 rounded-2xl bg-secondary group-hover:bg-primary text-primary group-hover:text-primary-foreground transition-all duration-500 w-fit shadow-md border border-border/50">
-                    <item.icon className="w-8 h-8" />
+                <div className="flex flex-col md:flex-row md:items-start gap-10 md:gap-14 relative z-10">
+                  <div className="p-8 rounded-2xl bg-secondary group-hover:bg-primary text-primary group-hover:text-primary-foreground transition-all duration-500 w-fit shadow-md border border-border/50">
+                    <item.icon className="w-10 h-10" />
                   </div>
-                  <div className="space-y-6 flex-1">
-                    <div className="flex items-center gap-3 text-[9px] font-black text-primary uppercase tracking-[0.4em]">
-                      <Calendar className="w-4 h-4" />
+                  <div className="space-y-8 flex-1">
+                    <div className="flex items-center gap-4 text-xs font-black text-primary uppercase tracking-widest">
+                      <Calendar className="w-5 h-5" />
                       {item.period}
                     </div>
-                    <div className="space-y-2">
+                    <div className="space-y-3">
                       <h3 className="text-2xl md:text-4xl font-headline font-black tracking-tight uppercase">{item.role}</h3>
-                      <p className="text-foreground/40 font-black text-sm sm:text-lg tracking-widest uppercase">{item.company}</p>
+                      <p className="text-foreground/50 font-black text-base sm:text-xl tracking-widest uppercase">{item.company}</p>
                     </div>
-                    <p className="text-sm sm:text-lg text-muted-foreground leading-relaxed font-bold opacity-80 max-w-3xl uppercase tracking-tight">
+                    <p className="text-base sm:text-lg text-muted-foreground leading-relaxed font-bold opacity-80 max-w-3xl uppercase tracking-tight">
                       {item.description}
                     </p>
                   </div>
