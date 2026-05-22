@@ -2,6 +2,12 @@
 {
   "placeholderImages": [
     {
+      "id": "site-logo",
+      "description": "Professional Tech Brand Mark",
+      "imageUrl": "https://picsum.photos/seed/sri_logo_tech/200/200",
+      "imageHint": "tech logo"
+    },
+    {
       "id": "student-system",
       "description": "Intelligent Academic Lifecycle Management",
       "imageUrl": "https://picsum.photos/seed/sri_student_v1/800/600",

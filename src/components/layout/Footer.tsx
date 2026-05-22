@@ -1,13 +1,28 @@
-import { Code2, Github, Linkedin, Mail } from "lucide-react";
+
+import Image from "next/image";
+import { Github, Linkedin, Mail } from "lucide-react";
+import { PlaceHolderImages } from "@/app/lib/placeholder-images";
 
 export function Footer() {
+  const logoData = PlaceHolderImages.find(img => img.id === "site-logo");
+
   return (
     <footer className="py-20 px-6 border-t border-border bg-background">
       <div className="max-w-7xl mx-auto space-y-12">
         <div className="flex flex-col md:flex-row items-center justify-between gap-10">
           <div className="flex flex-col items-center md:items-start gap-4">
             <div className="flex items-center gap-3">
-              <Code2 className="w-8 h-8 text-accent" />
+              <div className="relative w-8 h-8 rounded-lg overflow-hidden border border-accent/20">
+                {logoData && (
+                  <Image 
+                    src={logoData.imageUrl} 
+                    alt="Logo" 
+                    fill 
+                    className="object-cover opacity-80"
+                    data-ai-hint={logoData.imageHint}
+                  />
+                )}
+              </div>
               <span className="text-2xl font-headline font-bold tracking-tight uppercase">
                 NETALA <span className="text-accent">SRIHARSHA</span>
               </span>

@@ -1,10 +1,13 @@
+
 "use client";
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X, Code2 } from "lucide-react";
+import Image from "next/image";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { PlaceHolderImages } from "@/app/lib/placeholder-images";
 
 const navLinks = [
   { name: "Home", href: "#" },
@@ -20,6 +23,7 @@ const navLinks = [
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const logoData = PlaceHolderImages.find(img => img.id === "site-logo");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -65,8 +69,16 @@ export function Navbar() {
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <Link href="/" className="flex items-center gap-3 group">
-          <div className="p-2 rounded-xl bg-accent/10 text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-all duration-500 transform group-hover:rotate-12">
-            <Code2 className="w-7 h-7" />
+          <div className="relative w-10 h-10 rounded-xl overflow-hidden bg-accent/10 border border-accent/20 group-hover:scale-110 transition-transform duration-500">
+            {logoData && (
+              <Image 
+                src={logoData.imageUrl} 
+                alt="Logo" 
+                fill 
+                className="object-cover opacity-80 group-hover:opacity-100 transition-opacity"
+                data-ai-hint={logoData.imageHint}
+              />
+            )}
           </div>
           <span className="text-xl md:text-2xl font-headline font-bold tracking-tighter text-foreground uppercase">
             NETALA <span className="text-accent">SRIHARSHA</span>
