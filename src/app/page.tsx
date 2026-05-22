@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useEffect, useState } from "react";
@@ -6,7 +5,7 @@ import dynamic from 'next/dynamic';
 import { Navbar } from "@/components/layout/Navbar";
 import { Hero } from "@/components/sections/Hero";
 import { Footer } from "@/components/layout/Footer";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 
 const About = dynamic(() => import('@/components/sections/About').then(mod => mod.About), { ssr: false });
 const Experience = dynamic(() => import('@/components/sections/Experience').then(mod => mod.Experience), { ssr: false });
@@ -23,22 +22,16 @@ export default function Home() {
 
   useEffect(() => {
     setMounted(true);
-    const handleMouseMove = (e: MouseEvent) => {
-      document.documentElement.style.setProperty("--mouse-x", `${e.clientX}px`);
-      document.documentElement.style.setProperty("--mouse-y", `${e.clientY}px`);
-    };
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
   if (!mounted) return null;
 
   return (
     <AnimatePresence>
-      <div className="min-h-screen relative bg-background selection:bg-primary/20 overflow-x-hidden">
-        <div className="fixed inset-0 neural-grid opacity-[0.03] pointer-events-none" />
+      <div className="min-h-screen bg-background relative overflow-x-hidden">
+        <div className="fixed inset-0 neural-grid pointer-events-none z-0" />
         <Navbar />
-        <main>
+        <main className="relative z-10">
           <Hero />
           <About />
           <Experience />

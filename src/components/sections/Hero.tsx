@@ -4,94 +4,70 @@ import { motion } from "framer-motion";
 import { ChevronDown, ArrowRight, Activity, Code2 } from "lucide-react";
 
 export function Hero() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.2
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20, scale: 0.98 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      scale: 1,
-      transition: { type: "spring", stiffness: 120, damping: 25 }
-    }
-  };
-
   return (
-    <section className="min-h-screen flex items-center justify-center pt-20 px-6 relative overflow-hidden bg-background">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_50%_0%,hsl(var(--primary)/0.15),transparent_70%)] pointer-events-none" />
-      <div className="absolute inset-0 neural-grid opacity-10 pointer-events-none" />
-      
-      <motion.div 
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-        className="max-w-7xl mx-auto text-center space-y-12 relative z-10"
-      >
+    <section className="min-h-screen flex items-center justify-center pt-20 px-6 relative overflow-hidden">
+      <div className="max-w-7xl mx-auto text-center space-y-10 relative z-10">
         <motion.div
-          variants={itemVariants}
-          className="inline-flex items-center gap-3 px-6 py-2 rounded-full glass-card text-[10px] font-black tracking-[0.4em] text-primary uppercase border-primary/20 backdrop-blur-xl"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="inline-flex items-center gap-3 px-5 py-2 rounded-full border border-primary/20 bg-primary/5 text-[10px] font-black tracking-[0.4em] text-primary uppercase"
         >
-          <Activity className="w-3.5 h-3.5" />
-          Development Subsystem v4.0 Active
+          <Activity className="w-4 h-4" />
+          Full Stack Developer Subsystem
         </motion.div>
 
         <motion.h1
-          variants={itemVariants}
-          className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-headline font-black tracking-tighter leading-[1.05] uppercase"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 }}
+          className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-headline font-black tracking-tighter leading-none uppercase"
         >
-          CODING <br />
-          <span className="text-gradient">ECOSYSTEMS</span>
+          DEVELOPING <br />
+          <span className="text-gradient">SYSTEMS</span>
         </motion.h1>
 
         <motion.p
-          variants={itemVariants}
-          className="max-w-2xl mx-auto text-xs sm:text-base md:text-lg text-muted-foreground font-medium uppercase tracking-[0.2em] opacity-70 leading-relaxed font-body"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="max-w-2xl mx-auto text-sm sm:text-lg text-muted-foreground font-medium uppercase tracking-[0.2em] opacity-70 leading-relaxed"
         >
-          Building high-performance Full Stack solutions where enterprise logic meets professional visual precision. 
-          Performance optimized. Zero-lag infrastructure.
+          Building high-performance Full Stack solutions where enterprise logic meets professional engineering. Optimized infrastructure. Zero-lag performance.
         </motion.p>
 
         <motion.div
-          variants={itemVariants}
-          className="flex flex-col items-center gap-16 pt-8"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+          className="flex flex-col items-center gap-12 pt-8"
         >
           <div className="flex flex-col sm:flex-row gap-5">
             <a
               href="#portfolio"
-              className="group relative flex items-center justify-center gap-4 px-10 py-5 rounded-xl bg-primary text-primary-foreground font-black text-[11px] tracking-[0.3em] uppercase transition-all hover:scale-105 hover:shadow-[0_0_30px_hsl(var(--primary)/0.4)] overflow-hidden"
+              className="flex items-center justify-center gap-4 px-10 py-5 rounded-lg bg-primary text-primary-foreground font-black text-[11px] tracking-[0.3em] uppercase transition-all hover:scale-105 shadow-xl"
             >
-              <span className="relative z-10">Access Projects</span>
-              <ArrowRight className="w-4 h-4 relative z-10 group-hover:translate-x-1 transition-transform" />
+              Access Projects
+              <ArrowRight className="w-4 h-4" />
             </a>
-            
             <a
               href="#about"
-              className="group flex items-center justify-center gap-4 px-10 py-5 rounded-xl bg-secondary/80 text-foreground font-black text-[11px] tracking-[0.3em] uppercase border border-white/10 transition-all hover:bg-secondary hover:border-primary/50 backdrop-blur-md"
+              className="flex items-center justify-center gap-4 px-10 py-5 rounded-lg bg-secondary text-foreground font-black text-[11px] tracking-[0.3em] uppercase border border-border hover:bg-secondary/80 transition-all"
             >
               <Code2 className="w-4 h-4 text-primary" />
-              Developer Logic
+              Developer Profile
             </a>
           </div>
 
           <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 2.5, repeat: Infinity }}
             className="flex flex-col items-center gap-2 opacity-30"
           >
-            <span className="text-[9px] font-black uppercase tracking-[0.6em]">Initialize Scroll</span>
+            <span className="text-[9px] font-black uppercase tracking-[0.6em]">Scroll to Initialize</span>
             <ChevronDown className="w-4 h-4" />
           </motion.div>
         </motion.div>
-      </motion.div>
+      </div>
     </section>
   );
 }
