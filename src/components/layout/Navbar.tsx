@@ -1,13 +1,15 @@
+
 "use client";
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X, Code, Fingerprint } from "lucide-react";
+import { Menu, X, Fingerprint } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
   { name: "About", href: "#about" },
+  { name: "Experience", href: "#experience" },
   { name: "Portfolio", href: "#portfolio" },
   { name: "Skills", href: "#skills" },
   { name: "Contact", href: "#contact" },

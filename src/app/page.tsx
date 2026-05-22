@@ -9,11 +9,13 @@ import { Footer } from "@/components/layout/Footer";
 import { motion, AnimatePresence } from "framer-motion";
 
 const About = dynamic(() => import('@/components/sections/About').then(mod => mod.About), { ssr: false });
+const Experience = dynamic(() => import('@/components/sections/Experience').then(mod => mod.Experience), { ssr: false });
+const Education = dynamic(() => import('@/components/sections/Education').then(mod => mod.Education), { ssr: false });
 const Projects = dynamic(() => import('@/components/sections/Projects').then(mod => mod.Projects), { ssr: false });
 const Skills = dynamic(() => import('@/components/sections/Skills').then(mod => mod.Skills), { ssr: false });
-const Contact = dynamic(() => import('@/components/sections/Contact').then(mod => mod.Contact), { ssr: false });
 const AITool = dynamic(() => import('@/components/sections/AITool').then(mod => mod.AITool), { ssr: false });
 const StudentDashboard = dynamic(() => import('@/components/sections/StudentDashboard').then(mod => mod.StudentDashboard), { ssr: false });
+const Contact = dynamic(() => import('@/components/sections/Contact').then(mod => mod.Contact), { ssr: false });
 const Toaster = dynamic(() => import('@/components/ui/toaster').then(mod => mod.Toaster), { ssr: false });
 
 export default function Home() {
@@ -34,11 +36,13 @@ export default function Home() {
   return (
     <AnimatePresence>
       <div className="min-h-screen relative bg-background selection:bg-primary/20 overflow-x-hidden">
-        <div className="fixed inset-0 data-grid opacity-[0.03] pointer-events-none" />
+        <div className="fixed inset-0 neural-grid opacity-[0.03] pointer-events-none" />
         <Navbar />
         <main>
           <Hero />
           <About />
+          <Experience />
+          <Education />
           <Projects />
           <AITool />
           <StudentDashboard />

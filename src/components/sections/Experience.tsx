@@ -1,3 +1,4 @@
+
 "use client";
 
 import { motion } from "framer-motion";
@@ -30,84 +31,82 @@ const experience = [
 
 export function Experience() {
   return (
-    <section id="experience" className="py-24 md:py-32 px-6 bg-background relative overflow-hidden">
-      <div className="absolute top-1/2 right-0 w-[600px] h-[600px] bg-accent/5 rounded-full blur-[150px] -z-10 animate-pulse" />
+    <section id="experience" className="py-24 md:py-44 px-6 bg-background relative overflow-hidden">
+      <div className="absolute top-1/2 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[150px] -z-10 animate-pulse" />
       
       <div className="max-w-5xl mx-auto">
-        <div className="text-center mb-20 md:mb-24 space-y-6">
+        <div className="text-center mb-24 space-y-8">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-accent/10 border border-accent/20 text-xs font-black text-accent uppercase tracking-[0.4em]"
+            className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-primary/10 border border-primary/20 text-[11px] font-black text-primary uppercase tracking-[0.4em]"
           >
             <Briefcase className="w-4 h-4" />
-            Growth Timeline
+            Engineering Timeline
           </motion.div>
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="text-4xl sm:text-5xl md:text-7xl font-headline font-black tracking-tighter"
+            className="text-4xl sm:text-6xl md:text-8xl font-headline font-black tracking-tighter uppercase"
           >
-            PROFESSIONAL <span className="text-gradient">EXPERIENCE</span>
+            SYSTEMIC <span className="text-gradient">GROWTH</span>
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
             viewport={{ once: true }}
-            className="text-base sm:text-lg md:text-xl text-muted-foreground font-medium max-w-2xl mx-auto"
+            className="text-base sm:text-xl text-muted-foreground font-medium max-w-2xl mx-auto opacity-70"
           >
-            A specialized mapping of my technical development and industry-aligned certifications.
+            A specialized architectural mapping of technical development and high-level certification milestones.
           </motion.p>
         </div>
 
-        <div className="space-y-10 md:space-y-12 relative">
-          {/* Vertical line for desktop */}
-          <div className="absolute left-10 md:left-14 top-0 bottom-0 w-px bg-border/20 hidden sm:block" />
+        <div className="space-y-12 relative">
+          <div className="absolute left-10 md:left-14 top-0 bottom-0 w-px bg-primary/20 hidden sm:block" />
 
           {experience.map((item, idx) => (
             <motion.div 
               key={idx}
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: idx * 0.15 }}
-              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.8, delay: idx * 0.1 }}
+              viewport={{ once: true, margin: "-100px" }}
               className="relative"
             >
               <Card 
-                className="p-8 md:p-12 bg-card/40 border-border/40 hover:border-accent/40 transition-all shadow-2xl group relative overflow-hidden rounded-[2.5rem] md:rounded-[3.5rem] backdrop-blur-xl"
+                className="p-10 md:p-14 bg-card/20 border-white/5 hover:border-primary/40 transition-all shadow-3xl group relative overflow-hidden rounded-[3rem] backdrop-blur-xl"
               >
-                 <div className="absolute top-0 right-0 p-10 opacity-5 group-hover:scale-110 transition-transform duration-1000">
-                  <item.icon className="w-32 h-32 md:w-48 md:h-48" />
+                <div className="absolute top-0 right-0 p-12 opacity-5 group-hover:scale-110 transition-transform duration-1000">
+                  <item.icon className="w-48 h-48" />
                 </div>
-                <div className="flex flex-col md:flex-row md:items-start gap-8 md:gap-12 relative z-10">
-                  <div className="p-6 rounded-[2rem] bg-secondary group-hover:bg-accent text-accent group-hover:text-accent-foreground transition-all duration-500 w-fit shadow-2xl">
-                    <item.icon className="w-8 h-8 md:w-10 md:h-10" />
+                <div className="flex flex-col md:flex-row md:items-start gap-10 md:gap-14 relative z-10">
+                  <div className="p-8 rounded-[2rem] bg-secondary group-hover:bg-primary text-primary group-hover:text-primary-foreground transition-all duration-500 w-fit shadow-2xl">
+                    <item.icon className="w-10 h-10" />
                   </div>
-                  <div className="space-y-4 md:space-y-6 flex-1">
-                    <div className="flex items-center gap-3 text-xs font-black text-accent uppercase tracking-[0.3em]">
+                  <div className="space-y-6 flex-1">
+                    <div className="flex items-center gap-3 text-[10px] font-black text-primary uppercase tracking-[0.4em]">
                       <Calendar className="w-4 h-4" />
                       {item.period}
                     </div>
-                    <div className="space-y-2">
-                      <h3 className="text-2xl sm:text-3xl md:text-4xl font-headline font-black tracking-tight group-hover:text-accent transition-colors">{item.role}</h3>
-                      <p className="text-primary font-bold text-lg md:text-xl tracking-tight uppercase opacity-80">{item.company}</p>
+                    <div className="space-y-3">
+                      <h3 className="text-3xl md:text-4xl font-headline font-black tracking-tight group-hover:text-primary transition-colors uppercase">{item.role}</h3>
+                      <p className="text-foreground/60 font-black text-lg tracking-widest uppercase">{item.company}</p>
                     </div>
-                    <p className="text-sm sm:text-lg text-muted-foreground leading-relaxed font-medium opacity-90 max-w-3xl">
+                    <p className="text-base sm:text-lg text-muted-foreground leading-relaxed font-medium opacity-80 max-w-3xl">
                       {item.description}
                     </p>
                     
-                    <div className="flex gap-3 pt-4">
-                      <motion.div 
-                        initial={{ width: "4rem" }}
-                        whileInView={{ width: "8rem" }}
-                        transition={{ duration: 1.5, ease: "easeInOut" }}
-                        className="h-1.5 bg-accent/20 rounded-full group-hover:bg-accent" 
-                      />
+                    <div className="flex gap-4 pt-6">
+                      <div className="h-1.5 w-32 bg-primary/10 rounded-full overflow-hidden">
+                         <motion.div 
+                           initial={{ width: 0 }}
+                           whileInView={{ width: "100%" }}
+                           transition={{ duration: 1.5, ease: "easeInOut" }}
+                           className="h-full bg-primary" 
+                         />
+                      </div>
                     </div>
                   </div>
                 </div>
