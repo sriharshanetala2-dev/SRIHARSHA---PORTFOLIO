@@ -43,16 +43,16 @@ export function Hero() {
       >
         <motion.div 
           variants={itemVariants}
-          className="inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 py-2 sm:py-3 rounded-full bg-primary/10 text-[10px] sm:text-[13px] font-black tracking-[0.3em] sm:tracking-[0.5em] text-primary uppercase border border-primary/20 shadow-2xl backdrop-blur-xl"
+          className="inline-flex items-center gap-3 sm:gap-4 px-6 sm:px-8 py-3 rounded-full bg-primary/10 text-[11px] sm:text-[13px] font-black tracking-[0.4em] sm:tracking-[0.5em] text-primary uppercase border border-primary/20 shadow-2xl backdrop-blur-xl"
         >
-          <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 animate-pulse" />
+          <Sparkles className="w-5 h-5 animate-pulse" />
           Neural Architecture & Systems logic
         </motion.div>
 
         <div className="space-y-8 sm:space-y-14">
           <motion.h1 
             variants={itemVariants}
-            className="text-3xl sm:text-7xl md:text-8xl lg:text-9xl font-headline font-black leading-[1.1] tracking-tighter uppercase flex flex-col items-center"
+            className="text-4xl sm:text-7xl md:text-8xl lg:text-9xl font-headline font-black leading-[1.1] tracking-tighter uppercase flex flex-col items-center"
           >
             <span className="block opacity-90">Computational</span>
             <span className="text-gradient shimmer-text block">Experience</span>
@@ -63,14 +63,14 @@ export function Hero() {
             className="flex items-center justify-center gap-4 sm:gap-6"
           >
             <div className="h-px w-10 sm:w-28 bg-primary/20" />
-            <p className="text-[10px] sm:text-[14px] font-black text-muted-foreground uppercase tracking-[0.4em] sm:tracking-[0.6em] opacity-50">Architectural Node v2.1.0</p>
+            <p className="text-[11px] sm:text-[14px] font-black text-muted-foreground uppercase tracking-[0.4em] sm:tracking-[0.6em] opacity-50">Architectural Node v2.1.0</p>
             <div className="h-px w-10 sm:w-28 bg-primary/20" />
           </motion.div>
         </div>
 
         <motion.p 
           variants={itemVariants}
-          className="text-base sm:text-2xl md:text-3xl text-muted-foreground max-w-4xl mx-auto leading-relaxed font-medium uppercase tracking-[0.1em] sm:tracking-[0.2em] px-2 opacity-80"
+          className="text-lg sm:text-2xl md:text-3xl text-muted-foreground max-w-4xl mx-auto leading-relaxed font-medium uppercase tracking-[0.1em] sm:tracking-[0.2em] px-2 opacity-80"
         >
           Architecting elite digital ecosystems with a focus on high-performance logic and structural integrity.
         </motion.p>
@@ -86,7 +86,7 @@ export function Hero() {
           >
             <a href="#portfolio">
               Project Archive
-              <ArrowRight className="w-5 h-5 ml-3 sm:ml-4 group-hover:translate-x-3 transition-transform" />
+              <ArrowRight className="w-5 h-5 ml-4 group-hover:translate-x-3 transition-transform" />
             </a>
           </Button>
           <Button 
