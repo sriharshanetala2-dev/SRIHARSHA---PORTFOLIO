@@ -29,7 +29,7 @@ export default function ProjectPage({ params }: PageProps) {
   
   useEffect(() => {
     setMounted(true);
-    // Move dynamic/random values to useEffect to avoid hydration mismatch
+    // Secure non-deterministic values within useEffect to avoid hydration mismatch
     setSessionCode(Math.random().toString(36).substring(7).toUpperCase());
   }, []);
 
@@ -67,13 +67,13 @@ export default function ProjectPage({ params }: PageProps) {
             </motion.div>
             
             <motion.h1 
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1, duration: 0.8 }}
-              className="flex flex-wrap text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-headline font-black tracking-tighter uppercase leading-tight sm:leading-tight"
+              className="flex flex-wrap items-center gap-x-[0.3em] text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-headline font-black tracking-tighter uppercase leading-tight"
             >
               {project.title.split(' ').map((word, i) => (
-                <span key={i} className={cn("inline-block mr-[0.3em] last:mr-0", i % 2 !== 0 ? "text-gradient" : "text-foreground")}>
+                <span key={i} className={cn("inline-block", i % 2 !== 0 ? "text-gradient" : "text-foreground")}>
                   {word}
                 </span>
               ))}
@@ -91,7 +91,7 @@ export default function ProjectPage({ params }: PageProps) {
 
           {/* Featured Technical Visual (System Lens) */}
           <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 0, scale: 0.98 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1 }}
             className="relative aspect-square sm:aspect-video rounded-[2rem] sm:rounded-[3rem] overflow-hidden border border-border shadow-3xl bg-secondary/5 data-flow-grid group"
@@ -120,7 +120,7 @@ export default function ProjectPage({ params }: PageProps) {
                   <h3 className="text-xs sm:text-3xl font-black uppercase tracking-tighter text-center px-4">{project.title}</h3>
                 </div>
 
-                <div className="flex gap-2 sm:gap-6 px-3 sm:px-10 py-2 sm:py-5 glass-card rounded-xl sm:rounded-[2rem] border-white/5 bg-background/50 shadow-2xl backdrop-blur-md overflow-hidden max-w-[90vw]">
+                <div className="flex gap-2 sm:gap-6 px-3 sm:px-10 py-2 sm:py-5 glass-card rounded-xl sm:rounded-[2rem] border-white/5 bg-background/50 shadow-2xl backdrop-blur-md overflow-hidden max-w-[95vw]">
                    {project.metrics.map((metric, i) => (
                      <div key={i} className="flex flex-col items-center px-2 sm:px-6 border-r last:border-0 border-border/50">
                        <span className="text-[5px] sm:text-[8px] font-black uppercase tracking-widest text-muted-foreground mb-0.5 whitespace-nowrap">{metric.label}</span>
@@ -142,7 +142,7 @@ export default function ProjectPage({ params }: PageProps) {
             
             <div className="absolute bottom-3 left-3 sm:bottom-8 sm:left-8 p-1.5 sm:p-4 glass-card rounded-lg sm:rounded-xl border-white/5 bg-black/40 flex items-center gap-1.5 sm:gap-3">
               <div className="w-1 h-1 sm:w-2 sm:h-2 rounded-full bg-green-500 animate-pulse" />
-              <span className="text-[5px] sm:text-[10px] font-black uppercase tracking-widest text-green-500">Verified</span>
+              <span className="text-[5px] sm:text-[10px] font-black uppercase tracking-widest text-green-500">System Verified</span>
             </div>
           </motion.div>
 

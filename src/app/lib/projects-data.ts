@@ -21,7 +21,7 @@ export const projects = [
     category: 'Full Stack & AI',
     icon: Workflow,
     description: 'An AI-first productivity ecosystem leveraging Google Genkit for semantic task orchestration and real-time state sync.',
-    longDescription: 'Architected a high-performance productivity hub that utilizes Generative AI for intent parsing and automated priority mapping. Built with a focus on real-time data integrity using Firestore and a low-latency UI architecture that prioritizes developer velocity.',
+    longDescription: 'Architected a high-performance productivity hub that utilizes Generative AI for intent parsing and automated priority mapping. Built with a focus on real-time data integrity using Firestore and a low-latency UI architecture that prioritizes developer velocity and cognitive ease.',
     tags: ['Next.js 15', 'Genkit', 'Firebase', 'LLM'],
     techStack: ['Next.js 15', 'Google Genkit', 'Firebase', 'Tailwind CSS'],
     features: [
@@ -42,7 +42,7 @@ export const projects = [
     category: 'FinTech',
     icon: BarChart3,
     description: 'A low-latency financial dashboard for high-frequency trading visualization and predictive market analysis.',
-    longDescription: 'Engineered an enterprise-grade financial monitoring system that aggregates complex market data into real-time visual insights. Optimized for 60fps rendering of data-heavy charts using Recharts and custom Web Worker logic.',
+    longDescription: 'Engineered an enterprise-grade financial monitoring system that aggregates complex market data into real-time visual insights. Optimized for 60fps rendering of data-heavy charts using Recharts and custom Web Worker logic for non-blocking data processing.',
     tags: ['Recharts', 'TypeScript', 'Web3', 'Node.js'],
     techStack: ['React', 'Node.js', 'PostgreSQL', 'Recharts'],
     features: [
@@ -63,7 +63,7 @@ export const projects = [
     category: 'Backend Architecture',
     icon: Database,
     description: 'A robust, ACID-compliant relational engine designed for high-concurrency enterprise transaction management.',
-    longDescription: 'Developed a specialized backend core focusing on high-integrity data mutations and complex join optimization. Implemented custom JDBC pooling and transaction management to ensure zero data loss during peak loads.',
+    longDescription: 'Developed a specialized backend core focusing on high-integrity data mutations and complex join optimization. Implemented custom JDBC pooling and transaction management to ensure zero data loss during peak loads in enterprise environments.',
     tags: ['Java', 'Spring Boot', 'SQL', 'ACID'],
     techStack: ['Java 21', 'Spring Boot 3', 'PostgreSQL', 'Docker'],
     features: [
@@ -84,7 +84,7 @@ export const projects = [
     category: 'Network Engineering',
     icon: Globe,
     description: 'A visual networking visualizer and subnet mask calculator for complex data center infrastructure mapping.',
-    longDescription: 'Built a specialized tool for network architects to simulate and visualize IP address distributions and routing topologies. Uses advanced bitwise logic to handle high-performance IP range calculations and CIDR mapping.',
+    longDescription: 'Built a specialized tool for network architects to simulate and visualize IP address distributions and routing topologies. Uses advanced bitwise logic to handle high-performance IP range calculations and CIDR mapping in real-time.',
     tags: ['Networking', 'CIDR', 'Algorithms', 'React'],
     techStack: ['TypeScript', 'Tailwind CSS', 'Framer Motion', 'Zod'],
     features: [
@@ -105,7 +105,7 @@ export const projects = [
     category: 'Cybersecurity',
     icon: Lock,
     description: 'An advanced Identity and Access Management shell with OAuth 2.0 integration and MFA biometric logic.',
-    longDescription: 'Designed a security-first authentication layer focusing on zero-trust principles and robust session management. Implemented complex identity mapping and audit logging for high-compliance enterprise environments.',
+    longDescription: 'Designed a security-first authentication layer focusing on zero-trust principles and robust session management. Implemented complex identity mapping and audit logging for high-compliance enterprise environments using modern cryptographic standards.',
     tags: ['Auth', 'Security', 'OAuth 2.0', 'Firebase'],
     techStack: ['Firebase Auth', 'JWT', 'TypeScript', 'Node.js'],
     features: [
@@ -126,7 +126,7 @@ export const projects = [
     category: 'Cloud Systems',
     icon: Server,
     description: 'A specialized Kubernetes cluster monitoring dashboard for real-time resource allocation and auto-scaling.',
-    longDescription: 'Orchestrated a cloud-native monitoring suite that provides deep observability into containerized workloads. Features automated threshold alerts and resource consumption forecasting.',
+    longDescription: 'Orchestrated a cloud-native monitoring suite that provides deep observability into containerized workloads. Features automated threshold alerts, resource consumption forecasting, and cluster-wide health synchronization.',
     tags: ['DevOps', 'Cloud', 'Monitoring', 'Next.js'],
     techStack: ['Next.js', 'Prometheus API', 'Docker', 'AWS'],
     features: [
@@ -147,7 +147,7 @@ export const projects = [
     category: 'Computer Science',
     icon: Zap,
     description: 'A deep-dive visualization platform for complex data structures and sorting algorithms with step-by-step logic.',
-    longDescription: 'Created an educational tool that brings abstract CS concepts to life. Uses advanced React state management to animate complex pointer movements and tree traversals in real-time.',
+    longDescription: 'Created an educational tool that brings abstract CS concepts to life. Uses advanced React state management to animate complex pointer movements and tree traversals in real-time, helping developers debug logic visually.',
     tags: ['Algorithms', 'Data Structures', 'Education', 'UI'],
     techStack: ['React', 'Framer Motion', 'TypeScript', 'Tailwind'],
     features: [
@@ -167,8 +167,8 @@ export const projects = [
     title: 'Sentinel Threat Node',
     category: 'Security Operations',
     icon: ShieldCheck,
-    description: 'A real-time threat detection and incident response dashboard for SecOps teams.',
-    longDescription: 'Developed a high-fidelity security operations center dashboard. Integrates multiple threat feeds into a unified neural interface for rapid incident prioritization and triage.',
+    description: 'A real-time threat detection and incident response dashboard for SecOps teams to mitigate risks at scale.',
+    longDescription: 'Developed a high-fidelity security operations center dashboard. Integrates multiple threat feeds into a unified neural interface for rapid incident prioritization, triage, and automated remediation playbooks.',
     tags: ['SecOps', 'Threat Intel', 'Next.js', 'Dashboard'],
     techStack: ['Next.js', 'Firebase', 'Radix UI', 'Lucide'],
     features: [

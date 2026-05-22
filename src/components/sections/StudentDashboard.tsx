@@ -57,13 +57,6 @@ const studentActivity = [
   { id: "5", name: "Ethan Hunt", course: "Software Eng", status: "Active", gpa: 3.7, id_num: "SE2024-201" },
 ];
 
-const reports = [
-  { title: "Annual Academic Audit", date: "2024-01-15", size: "2.4 MB", type: "PDF" },
-  { title: "Semester performance Analytics", date: "2024-02-10", size: "1.8 MB", type: "XLS" },
-  { title: "Student Retention Report", date: "2024-03-01", size: "3.1 MB", type: "PDF" },
-  { title: "Infrastructure Utilization", date: "2024-03-05", size: "1.2 MB", type: "PDF" },
-];
-
 const chartConfig = {
   gpa: {
     label: "GPA Score",

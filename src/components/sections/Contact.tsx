@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, Send, Linkedin, Github, Phone, Copy, Check, Loader2 } from "lucide-react";
+import { Mail, Send, Linkedin, Github, Phone, Copy, Check, Loader2, User } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useFirestore } from "@/firebase";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
@@ -57,7 +57,7 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 md:py-32 px-6 relative overflow-hidden">
+    <section id="contact" className="py-24 md:py-32 px-6 relative overflow-hidden bg-background">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 relative z-10">
         <motion.div 
           initial={{ opacity: 0, x: -30 }}
@@ -115,7 +115,7 @@ export function Contact() {
         </motion.div>
 
         <motion.div 
-          initial={{ opacity: 0, scale: 0.95 }}
+          initial={{ opacity: 0, scale: 0.98 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
@@ -125,26 +125,32 @@ export function Contact() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-2">
                 <label className="text-[10px] font-black uppercase text-muted-foreground tracking-widest ml-1">Full Name</label>
-                <Input 
-                  placeholder="Your Name" 
-                  required
-                  className="bg-background/50 border-border focus:ring-primary h-14 rounded-xl text-base font-bold"
-                  value={formData.name}
-                  onChange={(e) => setFormData({...formData, name: e.target.value})}
-                  disabled={isSubmitting}
-                />
+                <div className="relative">
+                  <Input 
+                    placeholder="Enter your name" 
+                    required
+                    className="bg-background/50 border-border focus:ring-primary h-14 rounded-xl text-base font-bold pl-10"
+                    value={formData.name}
+                    onChange={(e) => setFormData({...formData, name: e.target.value})}
+                    disabled={isSubmitting}
+                  />
+                  <User className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground opacity-40" />
+                </div>
               </div>
               <div className="space-y-2">
                 <label className="text-[10px] font-black uppercase text-muted-foreground tracking-widest ml-1">Email</label>
-                <Input 
-                  type="email" 
-                  placeholder="name@domain.com" 
-                  required
-                  className="bg-background/50 border-border focus:ring-primary h-14 rounded-xl text-base font-bold"
-                  value={formData.email}
-                  onChange={(e) => setFormData({...formData, email: e.target.value})}
-                  disabled={isSubmitting}
-                />
+                <div className="relative">
+                  <Input 
+                    type="email" 
+                    placeholder="name@domain.com" 
+                    required
+                    className="bg-background/50 border-border focus:ring-primary h-14 rounded-xl text-base font-bold pl-10"
+                    value={formData.email}
+                    onChange={(e) => setFormData({...formData, email: e.target.value})}
+                    disabled={isSubmitting}
+                  />
+                  <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground opacity-40" />
+                </div>
               </div>
             </div>
             <div className="space-y-2">
