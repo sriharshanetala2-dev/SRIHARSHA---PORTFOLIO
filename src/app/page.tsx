@@ -1,7 +1,6 @@
-
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Hero } from "@/components/sections/Hero";
 import { About } from "@/components/sections/About";
@@ -12,9 +11,13 @@ import { Skills } from "@/components/sections/Skills";
 import { Contact } from "@/components/sections/Contact";
 import { Footer } from "@/components/layout/Footer";
 import { Toaster } from "@/components/ui/toaster";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Home() {
+  const [mounted, setMounted] = useState(false);
+
   useEffect(() => {
+    setMounted(true);
     const handleMouseMove = (e: MouseEvent) => {
       document.documentElement.style.setProperty("--mouse-x", `${e.clientX}px`);
       document.documentElement.style.setProperty("--mouse-y", `${e.clientY}px`);
@@ -24,21 +27,25 @@ export default function Home() {
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
+  if (!mounted) return null;
+
   return (
-    <div className="min-h-screen relative overflow-x-hidden">
-      <div className="glow-cursor" />
-      <Navbar />
-      <main className="relative z-10">
-        <Hero />
-        <About />
-        <Projects />
-        <Skills />
-        <Education />
-        <Experience />
-        <Contact />
-      </main>
-      <Footer />
-      <Toaster />
-    </div>
+    <AnimatePresence mode="wait">
+      <div className="min-h-screen relative overflow-x-hidden">
+        <div className="glow-cursor" />
+        <Navbar />
+        <main className="relative z-10">
+          <Hero />
+          <About />
+          <Projects />
+          <Skills />
+          <Experience />
+          <Education />
+          <Contact />
+        </main>
+        <Footer />
+        <Toaster />
+      </div>
+    </AnimatePresence>
   );
 }
