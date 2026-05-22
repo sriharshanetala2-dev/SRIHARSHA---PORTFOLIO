@@ -8,6 +8,7 @@ import { notFound } from "next/navigation";
 import { projects } from "@/app/lib/projects-data";
 import { PlaceHolderImages } from "@/app/lib/placeholder-images";
 import { Button } from "@/components/ui/button";
+import { useToast } from "@/hooks/use-toast";
 import { 
   ArrowLeft, 
   Github, 
@@ -20,6 +21,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 
 export default function ProjectPage({ params }: { params: Promise<{ projectId: string }> }) {
+  const { toast } = useToast();
   const resolvedParams = use(params);
   const project = projects.find((p) => p.id === resolvedParams.projectId);
   
@@ -28,6 +30,14 @@ export default function ProjectPage({ params }: { params: Promise<{ projectId: s
   }
 
   const imageData = PlaceHolderImages.find((img) => img.id === project.id);
+
+  const handleLiveDemo = (e: React.MouseEvent) => {
+    e.preventDefault();
+    toast({
+      title: "Demo System Initializing",
+      description: "This project is currently running in a local development environment. Please check the repository for setup instructions.",
+    });
+  };
 
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-accent selection:text-accent-foreground">
@@ -78,7 +88,7 @@ export default function ProjectPage({ params }: { params: Promise<{ projectId: s
               <section className="space-y-6">
                 <h2 className="text-3xl font-headline font-bold flex items-center gap-3">
                   <Layers className="w-6 h-6 text-accent" />
-                  Project Architecture
+                  Overview & Goals
                 </h2>
                 <p className="text-lg text-muted-foreground leading-relaxed">
                   {project.longDescription}
@@ -88,7 +98,7 @@ export default function ProjectPage({ params }: { params: Promise<{ projectId: s
               <section className="space-y-6">
                 <h2 className="text-3xl font-headline font-bold flex items-center gap-3">
                   <CheckCircle2 className="w-6 h-6 text-accent" />
-                  Key Modules & Features
+                  Technical Features
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {project.features.map((feature, i) => (
@@ -122,23 +132,21 @@ export default function ProjectPage({ params }: { params: Promise<{ projectId: s
                     className="w-full h-14 rounded-xl bg-accent text-accent-foreground font-black uppercase tracking-widest gap-2"
                   >
                     <a href={project.github} target="_blank" rel="noopener noreferrer">
-                      <Github className="w-5 h-5" /> Repository
+                      <Github className="w-5 h-5" /> View Code
                     </a>
                   </Button>
                   <Button 
-                    asChild 
                     variant="outline" 
+                    onClick={handleLiveDemo}
                     className="w-full h-14 rounded-xl font-black uppercase tracking-widest gap-2"
                   >
-                    <a href="#" onClick={(e) => { e.preventDefault(); alert('Demo environment initializing...'); }}>
-                      <ExternalLink className="w-5 h-5" /> Live System
-                    </a>
+                    <ExternalLink className="w-5 h-5" /> Live System
                   </Button>
                 </div>
 
                 <div className="pt-4 text-center">
                    <p className="text-[9px] text-muted-foreground font-bold uppercase tracking-tighter opacity-50">
-                     Reference ID: {project.id.toUpperCase()}-v1.0
+                     Project Version: 1.0.0
                    </p>
                 </div>
               </div>
