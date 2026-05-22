@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, Github, Code2, BrainCircuit } from "lucide-react";
+import { ArrowRight, Code2, BrainCircuit } from "lucide-react";
 import { PlaceHolderImages } from "@/app/lib/placeholder-images";
 import { cn } from "@/lib/utils";
 import { projects, Project } from "@/app/lib/projects-data";
@@ -70,16 +70,6 @@ function ProjectCard({ project, idx }: { project: Project, idx: number }) {
                 </span>
               ))}
             </div>
-            <div className="flex gap-3">
-              <a 
-                href={project.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-accent transition-colors"
-              >
-                <Github className="w-5 h-5" />
-              </a>
-            </div>
           </div>
         </CardContent>
       </Card>
@@ -104,7 +94,7 @@ export function Projects() {
           </p>
         </div>
 
-        {/* Learning Phase - Now First */}
+        {/* Learning Phase */}
         <div className="space-y-12">
           <div className="flex items-center gap-4">
             <div className="p-3 rounded-2xl bg-primary/10 text-primary">
@@ -122,7 +112,7 @@ export function Projects() {
           </div>
         </div>
 
-        {/* Full Stack Phase - Now Second */}
+        {/* Full Stack Phase */}
         <div className="space-y-12">
           <div className="flex items-center gap-4">
             <div className="p-3 rounded-2xl bg-accent/10 text-accent">

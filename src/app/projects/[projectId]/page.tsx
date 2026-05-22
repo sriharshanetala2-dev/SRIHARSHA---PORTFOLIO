@@ -1,4 +1,3 @@
-
 "use client";
 
 import { use } from "react";
@@ -7,12 +6,8 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { projects } from "@/app/lib/projects-data";
 import { PlaceHolderImages } from "@/app/lib/placeholder-images";
-import { Button } from "@/components/ui/button";
-import { useToast } from "@/hooks/use-toast";
 import { 
   ArrowLeft, 
-  Github, 
-  ExternalLink, 
   CheckCircle2, 
   Layers, 
   Code2 
@@ -21,7 +16,6 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 
 export default function ProjectPage({ params }: { params: Promise<{ projectId: string }> }) {
-  const { toast } = useToast();
   const resolvedParams = use(params);
   const project = projects.find((p) => p.id === resolvedParams.projectId);
   
@@ -30,14 +24,6 @@ export default function ProjectPage({ params }: { params: Promise<{ projectId: s
   }
 
   const imageData = PlaceHolderImages.find((img) => img.id === project.id);
-
-  const handleLiveDemo = (e: React.MouseEvent) => {
-    e.preventDefault();
-    toast({
-      title: "Demo System Initializing",
-      description: "This project is currently running in a local development environment. Please check the repository for setup instructions.",
-    });
-  };
 
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-accent selection:text-accent-foreground">
@@ -126,27 +112,9 @@ export default function ProjectPage({ params }: { params: Promise<{ projectId: s
                   </div>
                 </div>
 
-                <div className="space-y-4 pt-6 border-t border-border">
-                  <Button 
-                    asChild 
-                    className="w-full h-14 rounded-xl bg-accent text-accent-foreground font-black uppercase tracking-widest gap-2"
-                  >
-                    <a href={project.github} target="_blank" rel="noopener noreferrer">
-                      <Github className="w-5 h-5" /> View Code
-                    </a>
-                  </Button>
-                  <Button 
-                    variant="outline" 
-                    onClick={handleLiveDemo}
-                    className="w-full h-14 rounded-xl font-black uppercase tracking-widest gap-2"
-                  >
-                    <ExternalLink className="w-5 h-5" /> Live System
-                  </Button>
-                </div>
-
-                <div className="pt-4 text-center">
+                <div className="pt-4 text-center border-t border-border">
                    <p className="text-[9px] text-muted-foreground font-bold uppercase tracking-tighter opacity-50">
-                     Project Version: 1.0.0
+                     Project Phase: {project.phase === 'learning' ? 'Engineering Foundation' : 'Full Stack Mastery'}
                    </p>
                 </div>
               </div>
