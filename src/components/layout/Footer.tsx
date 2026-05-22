@@ -39,7 +39,7 @@ export function Footer() {
         </div>
 
         <div className="pt-16 border-t border-border/40 flex flex-col md:flex-row items-center justify-between gap-8">
-          <p className="text-[11px] text-muted-foreground font-black uppercase tracking-[0.4em] opacity-60">
+          <p className="text-xs text-muted-foreground font-black uppercase tracking-[0.4em] opacity-60">
             &copy; SRI HARSHA // ALL RIGHTS RESERVED.
           </p>
 
@@ -48,7 +48,7 @@ export function Footer() {
               <a 
                 key={item}
                 href={`#${item.toLowerCase()}`}
-                className="text-[11px] font-black text-muted-foreground hover:text-primary uppercase tracking-[0.5em] transition-colors"
+                className="text-xs font-black text-muted-foreground hover:text-primary uppercase tracking-[0.5em] transition-colors"
               >
                 {item}
               </a>

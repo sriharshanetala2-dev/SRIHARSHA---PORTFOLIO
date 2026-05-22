@@ -48,7 +48,7 @@ export default function ProjectPage({ params }: PageProps) {
           {/* Back Navigation */}
           <Link 
             href="/#portfolio" 
-            className="inline-flex items-center gap-3 text-[11px] font-black text-primary uppercase tracking-[0.5em] hover:gap-6 transition-all group"
+            className="inline-flex items-center gap-3 text-xs font-black text-primary uppercase tracking-[0.5em] hover:gap-6 transition-all group"
           >
             <ArrowLeft className="w-5 h-5 group-hover:-translate-x-2 transition-transform" />
             Project Archive
@@ -59,7 +59,7 @@ export default function ProjectPage({ params }: PageProps) {
             <motion.div 
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 text-[10px] font-black text-accent uppercase tracking-[0.4em]"
+              className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 text-xs font-black text-accent uppercase tracking-[0.4em]"
             >
               <Activity className="w-4 h-4" />
               {project.category}
@@ -115,15 +115,15 @@ export default function ProjectPage({ params }: PageProps) {
                 </motion.div>
 
                 <div className="flex flex-col items-center gap-2">
-                  <p className="text-[8px] sm:text-[11px] font-black uppercase tracking-[0.5em] sm:tracking-[0.8em] text-primary opacity-70">Architectural Node</p>
+                  <p className="text-[10px] sm:text-xs font-black uppercase tracking-[0.5em] sm:tracking-[0.8em] text-primary opacity-70">Architectural Node</p>
                   <h3 className="text-sm sm:text-4xl font-black uppercase tracking-tighter text-center px-6 leading-tight">{project.title}</h3>
                 </div>
 
                 <div className="flex gap-3 sm:gap-10 px-4 sm:px-14 py-3 sm:py-8 glass-card rounded-2xl sm:rounded-[3rem] border-white/10 bg-background/60 shadow-2xl backdrop-blur-xl overflow-hidden max-w-[95vw]">
                    {project.metrics.map((metric, i) => (
                      <div key={i} className="flex flex-col items-center px-3 sm:px-10 border-r last:border-0 border-border/50">
-                       <span className="text-[6px] sm:text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground mb-1 whitespace-nowrap">{metric.label}</span>
-                       <span className="text-[10px] sm:text-lg font-black text-accent font-mono whitespace-nowrap">{metric.value}</span>
+                       <span className="text-[9px] sm:text-[11px] font-black uppercase tracking-[0.3em] text-muted-foreground mb-1 whitespace-nowrap">{metric.label}</span>
+                       <span className="text-[11px] sm:text-lg font-black text-accent font-mono whitespace-nowrap">{metric.value}</span>
                      </div>
                    ))}
                 </div>
@@ -132,7 +132,7 @@ export default function ProjectPage({ params }: PageProps) {
 
             <div className="absolute bottom-4 left-4 sm:bottom-10 sm:left-10 p-2 sm:p-5 glass-card rounded-xl sm:rounded-2xl border-white/10 bg-black/50 flex items-center gap-2 sm:gap-4">
               <div className="w-1.5 h-1.5 sm:w-3 sm:h-3 rounded-full bg-green-500 animate-pulse" />
-              <span className="text-[7px] sm:text-[11px] font-black uppercase tracking-[0.4em] text-green-500">System Verified</span>
+              <span className="text-[10px] sm:text-[11px] font-black uppercase tracking-[0.4em] text-green-500">System Verified</span>
             </div>
           </motion.div>
 
@@ -172,12 +172,12 @@ export default function ProjectPage({ params }: PageProps) {
             <div className="lg:col-span-4 space-y-10">
               <div className="p-8 sm:p-14 rounded-[2rem] sm:rounded-[4rem] bg-card/50 border border-border/60 space-y-10 sm:space-y-14 lg:sticky lg:top-36 shadow-3xl backdrop-blur-2xl">
                 <div className="space-y-6 sm:space-y-8">
-                  <p className="text-[10px] sm:text-[11px] font-black text-primary uppercase tracking-[0.5em] flex items-center gap-3">
+                  <p className="text-xs sm:text-[11px] font-black text-primary uppercase tracking-[0.5em] flex items-center gap-3">
                     <Code2 className="w-5 h-5" /> Tech Matrix
                   </p>
                   <div className="flex flex-wrap gap-2 sm:gap-4">
                     {project.techStack.map((tech) => (
-                      <span key={tech} className="px-3 sm:px-5 py-2 sm:py-3 rounded-lg sm:rounded-2xl bg-secondary/60 text-[9px] sm:text-[11px] font-black uppercase tracking-widest border border-border/50 hover:border-primary/50 transition-colors">
+                      <span key={tech} className="px-3 sm:px-5 py-2 sm:py-3 rounded-lg sm:rounded-2xl bg-secondary/60 text-[10px] sm:text-[11px] font-black uppercase tracking-widest border border-border/50 hover:border-primary/50 transition-colors">
                         {tech}
                       </span>
                     ))}
@@ -185,13 +185,13 @@ export default function ProjectPage({ params }: PageProps) {
                 </div>
 
                 <div className="pt-8 sm:pt-12 border-t border-border/40 space-y-6 sm:space-y-10">
-                  <p className="text-[10px] sm:text-[11px] font-black text-accent uppercase tracking-[0.5em] flex items-center gap-3">
+                  <p className="text-xs sm:text-[11px] font-black text-accent uppercase tracking-[0.5em] flex items-center gap-3">
                     <Zap className="w-5 h-5" /> Performance
                   </p>
                   <div className="space-y-4 sm:space-y-6">
                     {project.metrics.map((m, i) => (
                       <div key={i} className="flex items-center justify-between">
-                        <span className="text-[9px] sm:text-[11px] font-black text-muted-foreground uppercase tracking-widest">{m.label}</span>
+                        <span className="text-[10px] sm:text-[11px] font-black text-muted-foreground uppercase tracking-widest">{m.label}</span>
                         <span className="text-[11px] sm:text-lg font-black text-primary font-mono">{m.value}</span>
                       </div>
                     ))}
@@ -199,7 +199,7 @@ export default function ProjectPage({ params }: PageProps) {
                 </div>
 
                 <div className="pt-10 sm:pt-14 border-t border-border/40 text-center">
-                   <p className="text-[8px] sm:text-[10px] text-muted-foreground font-black uppercase tracking-[0.4em] opacity-40">
+                   <p className="text-[10px] text-muted-foreground font-black uppercase tracking-[0.4em] opacity-40">
                      Check: {sessionCode}
                    </p>
                 </div>

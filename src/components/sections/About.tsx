@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, useEffect } from "react";
@@ -70,7 +69,7 @@ export function About() {
             className="space-y-8 sm:space-y-12"
           >
             <div className="space-y-4 sm:space-y-6 text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-[9px] font-black tracking-[0.4em] text-primary uppercase border border-primary/20">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-[11px] font-black tracking-[0.4em] text-primary uppercase border border-primary/20">
                 <BrainCircuit className="w-3.5 h-3.5" />
                 Logic Synthesis Node
               </div>
@@ -103,8 +102,8 @@ export function About() {
                     <node.icon className="w-4 h-4 sm:w-5 sm:h-5" />
                   </div>
                   <div className="flex flex-col">
-                    <span className="font-black text-[9px] sm:text-[10px] uppercase tracking-widest">{node.label}</span>
-                    <span className="text-[8px] sm:text-[9px] text-muted-foreground uppercase tracking-[0.1em] font-bold truncate max-w-[120px]">{node.desc}</span>
+                    <span className="font-black text-[11px] uppercase tracking-widest">{node.label}</span>
+                    <span className="text-[10px] text-muted-foreground uppercase tracking-[0.1em] font-bold truncate max-w-[120px]">{node.desc}</span>
                   </div>
                 </button>
               ))}
@@ -148,15 +147,15 @@ export function About() {
                     </motion.div>
 
                     <div className="flex flex-col items-center gap-1">
-                      <p className="text-[7px] sm:text-[10px] font-black uppercase tracking-[0.3em] sm:tracking-[0.5em] text-primary opacity-60">Neural Node</p>
+                      <p className="text-[10px] font-black uppercase tracking-[0.3em] sm:tracking-[0.5em] text-primary opacity-60">Neural Node</p>
                       <h3 className="text-base sm:text-2xl font-black uppercase tracking-tighter text-center">{activeNode.label}</h3>
                     </div>
 
                     <div className="flex flex-wrap justify-center gap-2 sm:gap-4 px-3 sm:px-6 py-2 sm:py-3 glass-card rounded-xl sm:rounded-2xl border-white/5 bg-background/50">
                        {activeNode.metrics.map((metric, i) => (
                          <div key={i} className="flex flex-col items-center px-2 sm:px-4 border-r last:border-0 border-border/50">
-                           <span className="text-[5px] sm:text-[7px] font-black uppercase tracking-widest text-muted-foreground mb-0.5">Vector</span>
-                           <span className="text-[8px] sm:text-[10px] font-bold text-accent whitespace-nowrap">{metric}</span>
+                           <span className="text-[8px] font-black uppercase tracking-widest text-muted-foreground mb-0.5">Vector</span>
+                           <span className="text-[10px] font-bold text-accent whitespace-nowrap">{metric}</span>
                          </div>
                        ))}
                     </div>
@@ -171,12 +170,12 @@ export function About() {
                     <div className="w-1 h-1 sm:w-2 sm:h-2 rounded-full bg-green-500 shadow-[0_0_10px_#22c55e]" />
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-[6px] sm:text-[8px] font-black uppercase tracking-[0.2em] sm:tracking-[0.4em] text-white/40">Stream: {activeNode.id}</span>
+                    <span className="text-[9px] font-black uppercase tracking-[0.2em] sm:tracking-[0.4em] text-white/40">Stream: {activeNode.id}</span>
                     <motion.span 
                       key={activeNode.status}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      className="text-[8px] sm:text-[10px] font-bold text-green-500 uppercase tracking-widest truncate max-w-[100px] sm:max-w-none"
+                      className="text-[10px] font-bold text-green-500 uppercase tracking-widest truncate max-w-[100px] sm:max-w-none"
                     >
                       {activeNode.status}
                     </motion.span>

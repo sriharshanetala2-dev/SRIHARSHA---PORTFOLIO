@@ -61,7 +61,7 @@ export function Navbar() {
             <span className="text-xl font-headline font-black tracking-tighter uppercase">
               SRI<span className="text-primary">HARSHA</span>
             </span>
-            <span className="text-[8px] font-black uppercase tracking-[0.5em] opacity-40">Dev. Portfolio</span>
+            <span className="text-[10px] font-black uppercase tracking-[0.5em] opacity-40">Dev. Portfolio</span>
           </div>
         </Link>
 
@@ -73,7 +73,7 @@ export function Navbar() {
                 key={link.name}
                 href={link.href}
                 onClick={(e) => scrollToSection(e, link.href)}
-                className="text-[9px] font-black text-muted-foreground hover:text-primary transition-colors uppercase tracking-[0.4em]"
+                className="text-[11px] font-black text-muted-foreground hover:text-primary transition-colors uppercase tracking-[0.4em]"
               >
                 {link.name}
               </a>
@@ -91,7 +91,7 @@ export function Navbar() {
             </Button>
             <Button 
               asChild
-              className="rounded-full px-8 h-12 font-black text-[10px] uppercase tracking-[0.3em] shadow-xl hover:scale-105 transition-transform"
+              className="rounded-full px-8 h-12 font-black text-[11px] uppercase tracking-[0.3em] shadow-xl hover:scale-105 transition-transform"
             >
               <a href="#contact" onClick={(e) => scrollToSection(e, "#contact")}>Hire Me</a>
             </Button>

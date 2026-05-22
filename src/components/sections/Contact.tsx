@@ -67,7 +67,7 @@ export function Contact() {
           className="space-y-12"
         >
           <div className="space-y-6">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-[10px] font-black text-primary uppercase tracking-[0.3em]">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-xs font-black text-primary uppercase tracking-[0.3em]">
               Connect
             </div>
             <h2 className="text-5xl sm:text-7xl md:text-8xl font-headline font-black tracking-tighter leading-none uppercase">
@@ -87,7 +87,7 @@ export function Contact() {
                 <Mail className="w-6 h-6" />
               </div>
               <div className="flex-1 overflow-hidden">
-                <p className="text-[10px] font-black uppercase text-primary tracking-widest">Email</p>
+                <p className="text-xs font-black uppercase text-primary tracking-widest">Email</p>
                 <p className="font-bold text-sm sm:text-base truncate">{userEmail}</p>
               </div>
               {copied ? <Check className="w-5 h-5 text-green-500" /> : <Copy className="w-5 h-5 opacity-20 group-hover:opacity-100 transition-opacity" />}
@@ -98,7 +98,7 @@ export function Contact() {
                 <Phone className="w-6 h-6" />
               </div>
               <div>
-                <p className="text-[10px] font-black uppercase text-primary tracking-widest">Voice</p>
+                <p className="text-xs font-black uppercase text-primary tracking-widest">Voice</p>
                 <p className="font-bold text-sm sm:text-base tracking-tight">+91 9346759263</p>
               </div>
             </div>
@@ -124,7 +124,7 @@ export function Contact() {
           <form onSubmit={handleSubmit} className="space-y-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-2">
-                <label className="text-[10px] font-black uppercase text-muted-foreground tracking-widest ml-1">Full Name</label>
+                <label className="text-xs font-black uppercase text-muted-foreground tracking-widest ml-1">Full Name</label>
                 <div className="relative">
                   <Input 
                     placeholder="Enter your name" 
@@ -138,7 +138,7 @@ export function Contact() {
                 </div>
               </div>
               <div className="space-y-2">
-                <label className="text-[10px] font-black uppercase text-muted-foreground tracking-widest ml-1">Email</label>
+                <label className="text-xs font-black uppercase text-muted-foreground tracking-widest ml-1">Email</label>
                 <div className="relative">
                   <Input 
                     type="email" 
@@ -154,7 +154,7 @@ export function Contact() {
               </div>
             </div>
             <div className="space-y-2">
-              <label className="text-[10px] font-black uppercase text-muted-foreground tracking-widest ml-1">Message</label>
+              <label className="text-xs font-black uppercase text-muted-foreground tracking-widest ml-1">Message</label>
               <Textarea 
                 placeholder="Describe your project scope..." 
                 className="min-h-[160px] bg-background/50 border-border focus:ring-primary p-5 resize-none rounded-2xl text-base font-medium"

@@ -40,7 +40,7 @@ export function Experience() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-accent/10 border border-accent/20 text-[10px] font-black text-accent uppercase tracking-[0.4em]"
+            className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-accent/10 border border-accent/20 text-xs font-black text-accent uppercase tracking-[0.4em]"
           >
             <Briefcase className="w-4 h-4" />
             Growth Timeline
@@ -89,7 +89,7 @@ export function Experience() {
                     <item.icon className="w-8 h-8 md:w-10 md:h-10" />
                   </div>
                   <div className="space-y-4 md:space-y-6 flex-1">
-                    <div className="flex items-center gap-3 text-[10px] font-black text-accent uppercase tracking-[0.3em]">
+                    <div className="flex items-center gap-3 text-xs font-black text-accent uppercase tracking-[0.3em]">
                       <Calendar className="w-4 h-4" />
                       {item.period}
                     </div>

@@ -14,7 +14,7 @@ export function Projects() {
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-3 px-6 py-2 rounded-full glass-card text-[11px] font-black tracking-[0.5em] text-primary uppercase border-primary/30"
+            className="inline-flex items-center gap-3 px-6 py-2 rounded-full glass-card text-xs font-black tracking-[0.5em] text-primary uppercase border-primary/30"
           >
             <Layers className="w-4 h-4" />
             Project Matrix
@@ -43,7 +43,7 @@ export function Projects() {
                   <CardContent className="p-10 sm:p-12 space-y-10">
                     <div className="space-y-6">
                       <div className="flex items-center justify-between">
-                        <span className="text-[11px] font-black uppercase text-accent tracking-[0.4em] px-4 py-2 rounded-full bg-accent/10 border border-accent/20">
+                        <span className="text-xs font-black uppercase text-accent tracking-[0.4em] px-4 py-2 rounded-full bg-accent/10 border border-accent/20">
                           {project.category}
                         </span>
                         <div className="flex gap-1.5">
@@ -65,7 +65,7 @@ export function Projects() {
 
                     <div className="flex flex-wrap gap-3 pt-10 border-t border-border/40">
                       {project.tags.map((tag) => (
-                        <span key={tag} className="px-4 py-2 rounded-xl bg-secondary/50 text-[11px] font-black uppercase tracking-widest border border-border/60 hover:border-primary/30 transition-colors">
+                        <span key={tag} className="px-4 py-2 rounded-xl bg-secondary/50 text-xs font-black uppercase tracking-widest border border-border/60 hover:border-primary/30 transition-colors">
                           {tag}
                         </span>
                       ))}

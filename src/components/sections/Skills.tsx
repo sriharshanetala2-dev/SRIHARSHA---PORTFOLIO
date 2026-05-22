@@ -51,7 +51,7 @@ export function Skills() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-card text-[10px] font-black tracking-widest text-primary uppercase"
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-card text-[11px] font-black tracking-widest text-primary uppercase"
           >
             <Zap className="w-3 h-3" />
             Core Competencies
@@ -99,11 +99,11 @@ export function Skills() {
                 </TooltipTrigger>
                 <TooltipContent className="glass-card p-6 border-white/10 rounded-2xl w-64 space-y-4 shadow-3xl backdrop-blur-2xl">
                   <div className="space-y-1">
-                    <p className="text-[10px] font-black uppercase text-primary tracking-widest">{skill.category}</p>
+                    <p className="text-[11px] font-black uppercase text-primary tracking-widest">{skill.category}</p>
                     <p className="font-bold text-lg">{skill.name}</p>
                   </div>
                   <div className="space-y-2">
-                    <div className="flex justify-between items-center text-[10px] font-bold uppercase opacity-60">
+                    <div className="flex justify-between items-center text-[11px] font-bold uppercase opacity-60">
                       <span>Proficiency</span>
                       <span>{skill.level}</span>
                     </div>
@@ -137,7 +137,7 @@ export function Skills() {
           ].map(type => (
             <div key={type.label} className="flex items-center gap-2">
               <div className={cn("w-2 h-2 rounded-full", type.color)} />
-              <span className="text-[10px] font-bold uppercase tracking-[0.2em]">{type.label}</span>
+              <span className="text-[11px] font-bold uppercase tracking-[0.2em]">{type.label}</span>
             </div>
           ))}
         </motion.div>

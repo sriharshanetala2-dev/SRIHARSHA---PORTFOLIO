@@ -37,7 +37,7 @@ export function Education() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-[10px] font-bold text-primary uppercase tracking-[0.3em] border border-primary/20"
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-xs font-bold text-primary uppercase tracking-[0.3em] border border-primary/20"
           >
             <BookOpen className="w-3.5 h-3.5" />
             Academic Path
@@ -62,7 +62,7 @@ export function Education() {
                   <div className="space-y-3 flex-1">
                     <h3 className="text-2xl sm:text-3xl font-headline font-black tracking-tight group-hover:text-primary transition-colors">{item.role}</h3>
                     <p className="text-primary font-bold text-lg">{item.company}</p>
-                    {item.period && <p className="text-[10px] font-black text-muted-foreground uppercase tracking-widest">{item.period}</p>}
+                    {item.period && <p className="text-xs font-black text-muted-foreground uppercase tracking-widest">{item.period}</p>}
                     <p className="text-sm sm:text-lg text-muted-foreground leading-relaxed font-medium opacity-80">
                       {item.description}
                     </p>

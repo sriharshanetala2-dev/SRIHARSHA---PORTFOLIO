@@ -12,14 +12,14 @@ export function Hero() {
       <motion.div 
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
+        transition={{ duration: 0.8, base: "easeOut" }}
         className="max-w-7xl mx-auto text-center space-y-12 md:space-y-16 relative z-10"
       >
         <motion.div 
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
-          className="inline-flex items-center gap-3 px-6 py-2.5 rounded-full bg-primary/10 text-[10px] sm:text-[11px] font-black tracking-[0.5em] text-primary uppercase border border-primary/20 shadow-xl backdrop-blur-md"
+          className="inline-flex items-center gap-3 px-6 py-2.5 rounded-full bg-primary/10 text-[12px] sm:text-xs font-black tracking-[0.5em] text-primary uppercase border border-primary/20 shadow-xl backdrop-blur-md"
         >
           <Sparkles className="w-4 h-4" />
           Full Stack & UI Architect
@@ -41,7 +41,7 @@ export function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.5 }}
-          className="text-[11px] sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-medium opacity-80 uppercase tracking-[0.25em]"
+          className="text-xs sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-medium opacity-80 uppercase tracking-[0.25em]"
         >
           B.Sc Computer Science graduate specializing in high-performance React ecosystems and elite digital architecture.
         </motion.p>
@@ -55,7 +55,7 @@ export function Hero() {
           <Button 
             asChild
             size="lg" 
-            className="w-full sm:w-auto h-16 px-14 rounded-full font-black uppercase tracking-[0.4em] text-[11px] group shadow-2xl hover:scale-105 transition-all bg-primary text-primary-foreground"
+            className="w-full sm:w-auto h-16 px-14 rounded-full font-black uppercase tracking-[0.4em] text-xs group shadow-2xl hover:scale-105 transition-all bg-primary text-primary-foreground"
           >
             <a href="#portfolio">
               Project Matrix
@@ -66,7 +66,7 @@ export function Hero() {
             asChild
             size="lg" 
             variant="outline" 
-            className="w-full sm:w-auto h-16 px-14 rounded-full font-black uppercase tracking-[0.4em] text-[11px] hover:scale-105 transition-all border-border/60 bg-background/50 backdrop-blur-md"
+            className="w-full sm:w-auto h-16 px-14 rounded-full font-black uppercase tracking-[0.4em] text-xs hover:scale-105 transition-all border-border/60 bg-background/50 backdrop-blur-md"
           >
             <a href="#contact">Hire Me</a>
           </Button>
