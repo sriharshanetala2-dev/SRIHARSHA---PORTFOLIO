@@ -1,8 +1,7 @@
-
 "use client";
 
 import { motion } from "framer-motion";
-import { Zap, Code2, Database, Globe, Cpu, Layout, Terminal, ShieldCheck } from "lucide-react";
+import { Zap, Code2, Database, Globe, Cpu, Layout, Terminal, ShieldCheck, Box } from "lucide-react";
 import { Tooltip, TooltipProvider, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
 
@@ -35,43 +34,43 @@ export function Skills() {
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
+    hidden: { opacity: 0, scale: 0.9 },
     visible: { 
       opacity: 1, 
       scale: 1,
-      transition: { duration: 0.5, ease: "easeOut" }
+      transition: { duration: 0.4 }
     },
   };
 
   return (
     <section id="skills" className="py-24 md:py-44 px-6 relative overflow-hidden bg-background">
-      <div className="absolute inset-0 data-flow-grid opacity-5 pointer-events-none" />
+      <div className="absolute inset-0 neural-grid opacity-[0.05] pointer-events-none" />
       <div className="max-w-7xl mx-auto space-y-24">
-        <div className="text-center space-y-8">
+        <div className="text-center space-y-6">
           <motion.div 
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-primary/10 text-[11px] font-black text-primary uppercase tracking-[0.4em] border border-primary/20"
+            className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-primary/10 text-[10px] font-black text-primary uppercase tracking-[0.4em] border border-primary/20"
           >
-            <Zap className="w-4 h-4" />
-            Technical Matrix
+            <Cpu className="w-4 h-4" />
+            Engineering Matrix
           </motion.div>
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl sm:text-6xl md:text-9xl font-headline font-black tracking-tighter uppercase leading-none"
+            className="text-4xl sm:text-7xl md:text-9xl font-headline font-black tracking-tighter uppercase leading-none italic"
           >
-            ENGINEERING <span className="text-gradient">ECOSYSTEM</span>
+            TECHNICAL <span className="text-gradient">STACK</span>
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-base sm:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed font-medium opacity-70"
+            className="text-xs sm:text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed font-bold opacity-60 uppercase tracking-widest"
           >
-            A comprehensive mapping of my computational toolkit, from core software engineering principles to modern Full Stack orchestration.
+            A comprehensive mapping of my computational toolkit, from core engineering principles to modern full stack orchestration.
           </motion.p>
         </div>
 
@@ -80,7 +79,7 @@ export function Skills() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="flex flex-wrap justify-center gap-6"
+          className="flex flex-wrap justify-center gap-4 lg:gap-6"
         >
           <TooltipProvider delayDuration={0}>
             {skills.map((skill) => (
@@ -88,25 +87,26 @@ export function Skills() {
                 <TooltipTrigger asChild>
                   <motion.div 
                     variants={itemVariants}
-                    className="glass-card px-8 sm:px-12 py-6 sm:py-8 rounded-[2rem] sm:rounded-[3rem] hover:border-primary/50 transition-all cursor-pointer group bg-card/10 shadow-3xl"
+                    className="glass-card px-8 py-5 rounded-2xl hover:border-primary/50 transition-all cursor-pointer group bg-card/20 border-white/5 relative overflow-hidden"
                   >
-                    <div className="flex items-center gap-6">
-                      <skill.icon className="w-6 h-6 text-primary group-hover:scale-110 transition-transform" />
-                      <span className="font-black tracking-tighter text-xl sm:text-2xl uppercase">{skill.name}</span>
+                    <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <div className="flex items-center gap-6 relative z-10">
+                      <skill.icon className="w-5 h-5 text-primary group-hover:scale-110 transition-transform" />
+                      <span className="font-black tracking-tight text-lg sm:text-2xl uppercase italic">{skill.name}</span>
                     </div>
                   </motion.div>
                 </TooltipTrigger>
-                <TooltipContent className="glass-card p-10 border-white/10 rounded-[2.5rem] w-80 space-y-8 shadow-3xl backdrop-blur-3xl bg-background/90">
-                  <div className="space-y-2">
-                    <p className="text-[11px] font-black uppercase text-primary tracking-[0.4em]">{skill.category}</p>
-                    <p className="font-black text-3xl tracking-tighter uppercase">{skill.name}</p>
+                <TooltipContent className="glass-card p-8 border-white/10 rounded-2xl w-80 space-y-6 shadow-3xl backdrop-blur-3xl bg-background/95">
+                  <div className="space-y-1">
+                    <p className="text-[9px] font-black uppercase text-primary tracking-[0.4em]">{skill.category}</p>
+                    <p className="font-black text-2xl tracking-tighter uppercase italic">{skill.name}</p>
                   </div>
-                  <div className="space-y-4">
-                    <div className="flex justify-between items-center text-[10px] font-black uppercase tracking-widest opacity-60">
+                  <div className="space-y-3">
+                    <div className="flex justify-between items-center text-[9px] font-black uppercase tracking-widest opacity-50">
                       <span>Proficiency</span>
                       <span>{skill.level}</span>
                     </div>
-                    <div className="h-2 w-full bg-white/5 rounded-full overflow-hidden">
+                    <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
                       <motion.div 
                         initial={{ width: 0 }}
                         whileInView={{ width: skill.level === 'Expert' ? '100%' : skill.level === 'Advanced' ? '85%' : '65%' }}
@@ -123,19 +123,19 @@ export function Skills() {
 
         <motion.div 
           initial={{ opacity: 0 }}
-          whileInView={{ opacity: 0.6 }}
+          whileInView={{ opacity: 0.5 }}
           viewport={{ once: true }}
-          className="flex flex-wrap justify-center gap-12 pt-12"
+          className="flex flex-wrap justify-center gap-8 sm:gap-12 pt-12"
         >
           {[
             { label: "Frontend", color: "bg-blue-500" },
             { label: "Backend", color: "bg-indigo-500" },
             { label: "Languages", color: "bg-primary" },
-            { label: "Systems", color: "bg-accent" }
+            { label: "Fundamentals", color: "bg-accent" }
           ].map(type => (
-            <div key={type.label} className="flex items-center gap-4">
-              <div className={cn("w-3 h-3 rounded-full", type.color)} />
-              <span className="text-[11px] font-black uppercase tracking-[0.3em]">{type.label}</span>
+            <div key={type.label} className="flex items-center gap-3">
+              <div className={cn("w-2 h-2 rounded-full", type.color)} />
+              <span className="text-[10px] font-black uppercase tracking-[0.3em]">{type.label}</span>
             </div>
           ))}
         </motion.div>

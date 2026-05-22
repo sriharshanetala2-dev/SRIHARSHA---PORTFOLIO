@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ChevronDown, Code, Zap, Cpu, ArrowRight } from "lucide-react";
+import { ChevronDown, Cpu, ArrowRight, Activity, Zap } from "lucide-react";
 
 export function Hero() {
   const containerVariants = {
@@ -9,28 +9,28 @@ export function Hero() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3
+        staggerChildren: 0.15,
+        delayChildren: 0.2
       }
     }
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 20, scale: 0.98 },
     visible: { 
       opacity: 1, 
       y: 0,
-      transition: { type: "spring", stiffness: 100, damping: 20 }
+      scale: 1,
+      transition: { type: "spring", stiffness: 120, damping: 25 }
     }
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center pt-20 px-6 relative overflow-hidden">
-      {/* Dynamic Background Elements */}
-      <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[160px] -z-10 animate-pulse" />
-      <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-accent/10 rounded-full blur-[160px] -z-10" />
+    <section className="min-h-screen flex items-center justify-center pt-20 px-6 relative overflow-hidden bg-background">
+      {/* Quantum Background Components */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_50%_0%,hsl(var(--primary)/0.15),transparent_70%)] pointer-events-none" />
       <div className="absolute inset-0 neural-grid opacity-10 pointer-events-none" />
-
+      
       <motion.div 
         variants={containerVariants}
         initial="hidden"
@@ -39,56 +39,57 @@ export function Hero() {
       >
         <motion.div
           variants={itemVariants}
-          className="inline-flex items-center gap-3 px-8 py-3 rounded-full glass-card text-[11px] font-black tracking-[0.5em] text-primary uppercase border-primary/20"
+          className="inline-flex items-center gap-3 px-6 py-2 rounded-full glass-card text-[10px] font-black tracking-[0.4em] text-primary uppercase border-primary/20 backdrop-blur-xl"
         >
-          <Cpu className="w-4 h-4 animate-spin-slow" />
-          Neural Systems & Architecture
+          <Activity className="w-3.5 h-3.5" />
+          Neural Core v4.0 Active
         </motion.div>
 
         <motion.h1
           variants={itemVariants}
-          className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-[1.05] uppercase"
+          className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-headline font-black tracking-tighter leading-[1.05] uppercase italic"
         >
-          ORCHESTRATING <br />
-          <span className="text-gradient">SYSTEM LOGIC</span>
+          QUANTUM <br />
+          <span className="text-gradient">SYSTEMS</span>
         </motion.h1>
 
         <motion.p
           variants={itemVariants}
-          className="max-w-3xl mx-auto text-sm sm:text-lg md:text-xl text-muted-foreground font-medium uppercase tracking-[0.3em] opacity-80 leading-relaxed"
+          className="max-w-2xl mx-auto text-xs sm:text-base md:text-lg text-muted-foreground font-medium uppercase tracking-[0.2em] opacity-70 leading-relaxed"
         >
-          Architecting high-performance digital ecosystems where complex logic meets professional visual precision.
+          Architecting elite digital ecosystems where neural logic meets professional visual precision. 
+          Performance optimized. Zero-lag infrastructure.
         </motion.p>
 
         <motion.div
           variants={itemVariants}
           className="flex flex-col items-center gap-16 pt-8"
         >
-          <div className="flex flex-col sm:flex-row gap-6">
+          <div className="flex flex-col sm:flex-row gap-5">
             <a
               href="#portfolio"
-              className="group relative flex items-center gap-4 px-12 py-6 rounded-full bg-primary text-primary-foreground font-black text-[12px] tracking-[0.3em] uppercase transition-all hover:scale-105 hover:shadow-3xl hover:shadow-primary/40 overflow-hidden"
+              className="group relative flex items-center justify-center gap-4 px-10 py-5 rounded-xl bg-primary text-primary-foreground font-black text-[11px] tracking-[0.3em] uppercase transition-all hover:scale-105 hover:shadow-[0_0_30px_hsl(var(--primary)/0.4)] overflow-hidden"
             >
-              <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
-              <span className="relative z-10">Explore Systems</span>
-              <ArrowRight className="w-5 h-5 relative z-10 group-hover:translate-x-2 transition-transform" />
+              <span className="relative z-10">Access Registry</span>
+              <ArrowRight className="w-4 h-4 relative z-10 group-hover:translate-x-1 transition-transform" />
             </a>
             
             <a
               href="#about"
-              className="group flex items-center gap-4 px-12 py-6 rounded-full bg-secondary/50 text-foreground font-black text-[12px] tracking-[0.3em] uppercase border border-white/10 transition-all hover:bg-secondary hover:border-primary/50"
+              className="group flex items-center justify-center gap-4 px-10 py-5 rounded-xl bg-secondary/80 text-foreground font-black text-[11px] tracking-[0.3em] uppercase border border-white/10 transition-all hover:bg-secondary hover:border-primary/50 backdrop-blur-md"
             >
-              Core Protocol
+              <Zap className="w-4 h-4 text-primary" />
+              Core Logic
             </a>
           </div>
 
           <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            className="flex flex-col items-center gap-3 opacity-30"
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+            className="flex flex-col items-center gap-2 opacity-30"
           >
-            <span className="text-[10px] font-black uppercase tracking-[0.5em]">Scroll to Access</span>
-            <ChevronDown className="w-5 h-5" />
+            <span className="text-[9px] font-black uppercase tracking-[0.6em]">Initialize Scroll</span>
+            <ChevronDown className="w-4 h-4" />
           </motion.div>
         </motion.div>
       </motion.div>
