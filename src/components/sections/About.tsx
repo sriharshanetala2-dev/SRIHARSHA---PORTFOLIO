@@ -127,7 +127,7 @@ export function About() {
             viewport={{ once: true }}
             className="relative"
           >
-            <div className="relative aspect-square rounded-[3rem] overflow-hidden border border-border/50 shadow-3xl bg-secondary/5 data-flow-grid group">
+            <div className="relative aspect-square rounded-[2.5rem] sm:rounded-[3rem] overflow-hidden border border-border/50 shadow-3xl bg-secondary/5 data-flow-grid group">
               <div className="absolute inset-0 opacity-20 pointer-events-none">
                 <div className="absolute top-0 left-0 w-full h-full" style={{ backgroundImage: 'radial-gradient(circle, hsl(var(--primary)) 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
                 
@@ -165,32 +165,32 @@ export function About() {
                   animate={{ opacity: 1, filter: "blur(0px)", scale: 1 }}
                   exit={{ opacity: 0, filter: "blur(15px)", scale: 0.9 }}
                   transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                  className="absolute inset-0 flex items-center justify-center"
+                  className="absolute inset-0 flex items-center justify-center p-4 sm:p-0"
                 >
-                  <div className="relative z-10 flex flex-col items-center gap-10">
+                  <div className="relative z-10 flex flex-col items-center gap-6 sm:gap-10 w-full">
                     <motion.div 
                       animate={{ 
                         boxShadow: ["0 0 20px hsl(var(--primary) / 0.2)", "0 0 60px hsl(var(--primary) / 0.5)", "0 0 20px hsl(var(--primary) / 0.2)"]
                       }}
                       transition={{ duration: 4, repeat: Infinity }}
-                      className="relative p-12 rounded-[3.5rem] bg-card border border-border/50 shadow-2xl backdrop-blur-3xl"
+                      className="relative p-8 sm:p-12 rounded-[2.5rem] sm:rounded-[3.5rem] bg-card border border-border/50 shadow-2xl backdrop-blur-3xl"
                     >
-                      <activeNode.icon className={cn("w-20 h-20 transition-colors duration-500", activeNode.color)} />
-                      <div className="absolute -top-3 -right-3 p-3 rounded-2xl bg-accent text-accent-foreground shadow-xl border border-white/10">
-                        <Zap className="w-5 h-5 animate-pulse" />
+                      <activeNode.icon className={cn("w-12 h-12 sm:w-20 sm:h-20 transition-colors duration-500", activeNode.color)} />
+                      <div className="absolute -top-2 -right-2 sm:-top-3 sm:-right-3 p-2 sm:p-3 rounded-xl bg-accent text-accent-foreground shadow-xl border border-white/10">
+                        <Zap className="w-4 h-4 sm:w-5 sm:h-5 animate-pulse" />
                       </div>
                     </motion.div>
 
-                    <div className="flex flex-col items-center gap-2">
-                      <p className="text-[10px] font-black uppercase tracking-[0.5em] text-primary opacity-60">Neural Engine v4.0</p>
-                      <h3 className="text-2xl font-black uppercase tracking-tighter">{activeNode.label}</h3>
+                    <div className="flex flex-col items-center gap-1 sm:gap-2">
+                      <p className="text-[8px] sm:text-[10px] font-black uppercase tracking-[0.3em] sm:tracking-[0.5em] text-primary opacity-60">Neural Engine v4.0</p>
+                      <h3 className="text-xl sm:text-2xl font-black uppercase tracking-tighter text-center">{activeNode.label}</h3>
                     </div>
 
-                    <div className="flex gap-4 px-6 py-3 glass-card rounded-2xl border-white/5 bg-background/50">
+                    <div className="flex flex-wrap justify-center gap-2 sm:gap-4 px-4 sm:px-6 py-3 glass-card rounded-2xl border-white/5 bg-background/50 max-w-[90%] sm:max-w-none">
                        {activeNode.metrics.map((metric, i) => (
-                         <div key={i} className="flex flex-col items-center px-4 border-r last:border-0 border-border/50">
-                           <span className="text-[7px] font-black uppercase tracking-widest text-muted-foreground mb-1">Vector</span>
-                           <span className="text-[10px] font-bold text-accent">{metric}</span>
+                         <div key={i} className="flex flex-col items-center px-3 sm:px-4 border-r last:border-0 border-border/50">
+                           <span className="text-[6px] sm:text-[7px] font-black uppercase tracking-widest text-muted-foreground mb-0.5 sm:mb-1">Vector</span>
+                           <span className="text-[9px] sm:text-[10px] font-bold text-accent whitespace-nowrap">{metric}</span>
                          </div>
                        ))}
                     </div>
@@ -198,31 +198,31 @@ export function About() {
                 </motion.div>
               </AnimatePresence>
               
-              <div className="absolute bottom-8 left-8 right-8 p-5 glass-card rounded-[1.5rem] flex items-center justify-between border border-white/5 bg-black/40 shadow-2xl">
-                <div className="flex items-center gap-4">
+              <div className="absolute bottom-4 sm:bottom-8 left-4 sm:left-8 right-4 sm:right-8 p-3 sm:p-5 glass-card rounded-xl sm:rounded-[1.5rem] flex items-center justify-between border border-white/5 bg-black/40 shadow-2xl">
+                <div className="flex items-center gap-3 sm:gap-4">
                   <div className="relative">
-                    <div className="w-2 h-2 rounded-full bg-green-500 animate-ping absolute inset-0" />
-                    <div className="w-2 h-2 rounded-full bg-green-500 shadow-[0_0_10px_#22c55e]" />
+                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-green-500 animate-ping absolute inset-0" />
+                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-green-500 shadow-[0_0_10px_#22c55e]" />
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-[8px] font-black uppercase tracking-[0.4em] text-white/40">Stream: {activeNode.id}</span>
+                    <span className="text-[7px] sm:text-[8px] font-black uppercase tracking-[0.2em] sm:tracking-[0.4em] text-white/40">Stream: {activeNode.id}</span>
                     <motion.span 
                       key={activeNode.status}
                       initial={{ opacity: 0, y: 5 }}
                       animate={{ opacity: 1, y: 0 }}
-                      className="text-[10px] font-bold text-green-500 uppercase tracking-widest"
+                      className="text-[9px] sm:text-[10px] font-bold text-green-500 uppercase tracking-widest truncate max-w-[120px] sm:max-w-none"
                     >
                       {activeNode.status}
                     </motion.span>
                   </div>
                 </div>
-                <div className="flex gap-1.5">
+                <div className="flex gap-1 sm:gap-1.5">
                    {[...Array(4)].map((_, i) => (
                      <motion.div 
                       key={i}
                       animate={{ opacity: [0.2, 1, 0.2] }}
                       transition={{ duration: 1, delay: i * 0.2, repeat: Infinity }}
-                      className="w-1 h-3 rounded-full bg-primary/40" 
+                      className="w-0.5 sm:w-1 h-2 sm:h-3 rounded-full bg-primary/40" 
                      />
                    ))}
                 </div>
