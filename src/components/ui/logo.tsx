@@ -3,8 +3,8 @@
 import { cn } from "@/lib/utils";
 
 /**
- * @fileOverview A professional Developer Logo component.
- * Features a terminal-inspired design with a prompt and cursor.
+ * @fileOverview High-Precision Engineering Brand Mark.
+ * A sophisticated monogram combining architectural symmetry with dynamic motion.
  */
 
 export function Logo({ className }: { className?: string }) {
@@ -13,41 +13,49 @@ export function Logo({ className }: { className?: string }) {
       viewBox="0 0 100 100"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={cn("w-full h-full drop-shadow-[0_0_12px_rgba(var(--primary),0.3)]", className)}
+      className={cn("w-full h-full filter drop-shadow-[0_0_8px_rgba(var(--primary),0.4)]", className)}
     >
-      {/* Terminal Window Container */}
-      <rect
-        x="10"
-        y="20"
-        width="80"
-        height="60"
-        rx="12"
-        className="fill-card stroke-primary"
-        strokeWidth="4"
+      {/* Precision Hexagonal Frame */}
+      <path
+        d="M50 5L89.5 27.5V72.5L50 95L10.5 72.5V27.5L50 5Z"
+        className="stroke-primary/20"
+        strokeWidth="1"
+        strokeLinejoin="round"
       />
       
-      {/* Terminal Header dots */}
-      <circle cx="22" cy="32" r="3" className="fill-destructive/50" />
-      <circle cx="32" cy="32" r="3" className="fill-yellow-500/50" />
-      <circle cx="42" cy="32" r="3" className="fill-green-500/50" />
-
-      {/* Developer Prompt ">" */}
+      {/* Architectural 'S' Structure - Lower Facet (Stability) */}
       <path
-        d="M30 45L45 55L30 65"
-        stroke="currentColor"
+        d="M30 70C30 75 35 80 45 80H55C65 80 70 75 70 70V60L30 50"
+        className="stroke-primary"
         strokeWidth="8"
         strokeLinecap="round"
         strokeLinejoin="round"
-        className="text-primary"
       />
       
-      {/* Blinking Cursor "_" */}
+      {/* Architectural 'S' Structure - Upper Facet (Innovation) */}
       <path
-        d="M52 65H70"
-        stroke="currentColor"
+        d="M70 30C70 25 65 20 55 20H45C35 20 30 25 30 30V40L70 50"
+        className="stroke-accent"
         strokeWidth="8"
         strokeLinecap="round"
-        className="text-accent animate-pulse"
+        strokeLinejoin="round"
+      />
+
+      {/* Center Pivot Point (Integration) */}
+      <circle cx="50" cy="50" r="4" className="fill-foreground animate-pulse" />
+      
+      {/* Dynamic Glow Accents */}
+      <path
+        d="M50 20V5"
+        className="stroke-accent/40"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
+      <path
+        d="M50 95V80"
+        className="stroke-primary/40"
+        strokeWidth="2"
+        strokeLinecap="round"
       />
     </svg>
   );
