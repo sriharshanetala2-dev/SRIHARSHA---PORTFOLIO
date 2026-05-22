@@ -1,4 +1,3 @@
-
 "use client";
 
 import { Card } from "@/components/ui/card";
@@ -9,7 +8,7 @@ const education = [
     role: "B.Sc in Computer Science",
     company: "Glocal University",
     period: "2021 — 2024",
-    description: "Focused on core computer science principles, software development, and modern engineering practices. Engaged in various technical projects and research initiatives.",
+    description: "Focused on core computer science principles, software development, and modern development practices. Engaged in various technical projects and research initiatives.",
   },
   {
     role: "Intermediate Education",

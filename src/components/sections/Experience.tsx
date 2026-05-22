@@ -8,7 +8,7 @@ const experience = [
     role: "Java Full Stack Specialization",
     company: "NxtWave Academy",
     period: "2025 — 2026",
-    description: "Intensive engineering program focused on building robust enterprise applications. Mastery of Java, Spring Boot, JDBC, and SQL, coupled with modern frontend architectures for seamless user experiences.",
+    description: "Intensive training program focused on building robust enterprise applications. Mastery of Java, Spring Boot, JDBC, and SQL, coupled with modern frontend architectures for seamless user experiences.",
     icon: Code2
   },
   {
@@ -19,7 +19,7 @@ const experience = [
     icon: BrainCircuit
   },
   {
-    role: "Self-Directed Software Engineering",
+    role: "Self-Directed Development Mastery",
     company: "Independent Learning",
     period: "2024 — 2025",
     description: "Dedicated phase post-graduation focused on core computer science principles and full-stack architecture. Built a series of technical projects to master the bridge between backend logic and interactive UIs.",
@@ -38,7 +38,7 @@ export function Experience() {
             <Briefcase className="w-3 h-3" />
             Professional Growth
           </div>
-          <h2 className="text-4xl font-headline font-bold">Self-Paced Engineering Path</h2>
+          <h2 className="text-4xl font-headline font-bold">Technical Mastery Journey</h2>
           <p className="text-muted-foreground">A specialized timeline of technical mastery and industry-aligned certifications.</p>
         </div>
 
