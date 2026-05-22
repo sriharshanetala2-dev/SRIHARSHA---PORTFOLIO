@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect } from "react";
@@ -73,7 +74,7 @@ export function About() {
                 <BrainCircuit className="w-3.5 h-3.5" />
                 Logic Synthesis Node
               </div>
-              <h2 className="text-4xl sm:text-6xl md:text-7xl font-headline font-black leading-[0.9] tracking-tighter uppercase shimmer-text">
+              <h2 className="text-4xl sm:text-5xl md:text-6xl font-headline font-black leading-[0.9] tracking-tighter uppercase shimmer-text">
                 NEURAL <br />
                 <span className="text-gradient">ARCHITECTURE</span>
               </h2>
@@ -118,7 +119,7 @@ export function About() {
             </div>
           </motion.div>
 
-          {/* Right Visual Matrix - Re-engineered for Data Flows */}
+          {/* Right Visual Matrix */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -136,12 +137,10 @@ export function About() {
                   transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
                   className="absolute inset-0 flex items-center justify-center"
                 >
-                  {/* Technical Background Grid Layers - Ambient Flows */}
                   <div className="absolute inset-0 opacity-20 pointer-events-none">
                     <div className="absolute top-0 left-0 w-full h-full" style={{ backgroundImage: 'radial-gradient(circle, hsl(var(--primary)) 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
                     <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--primary)/0.05)_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--primary)/0.05)_1px,transparent_1px)] bg-[size:80px_80px]" />
                     
-                    {/* Animated Data Flows */}
                     <motion.div 
                       animate={{ 
                         x: ["-100%", "100%"],
@@ -150,35 +149,20 @@ export function About() {
                       transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
                       className="absolute top-1/4 left-0 right-0 h-px bg-primary"
                     />
-                    <motion.div 
-                      animate={{ 
-                        y: ["-100%", "100%"],
-                        opacity: [0, 0.3, 0]
-                      }}
-                      transition={{ duration: 7, repeat: Infinity, ease: "linear", delay: 1 }}
-                      className="absolute top-0 bottom-0 left-1/3 w-px bg-primary"
-                    />
                   </div>
 
-                  {/* Central Node Visual - Technical Lens */}
                   <div className="relative z-10 flex flex-col items-center gap-10">
                     <motion.div 
                       animate={{ 
-                        boxShadow: activeNode.id === 'ai' ? ["0 0 20px hsl(24 95% 53% / 0.2)", "0 0 50px hsl(24 95% 53% / 0.4)", "0 0 20px hsl(24 95% 53% / 0.2)"] : ["0 0 20px hsl(var(--primary) / 0.2)", "0 0 50px hsl(var(--primary) / 0.4)", "0 0 20px hsl(var(--primary) / 0.2)"]
+                        boxShadow: ["0 0 20px hsl(var(--primary) / 0.2)", "0 0 50px hsl(var(--primary) / 0.4)", "0 0 20px hsl(var(--primary) / 0.2)"]
                       }}
                       transition={{ duration: 4, repeat: Infinity }}
-                      className="relative p-12 rounded-[3.5rem] bg-card border border-border/50 shadow-2xl transition-all duration-700 backdrop-blur-3xl group-hover:scale-105"
+                      className="relative p-12 rounded-[3.5rem] bg-card border border-border/50 shadow-2xl backdrop-blur-3xl"
                     >
                       <activeNode.icon className={cn("w-20 h-20 transition-colors duration-500", activeNode.color)} />
                       <div className="absolute -top-3 -right-3 p-3 rounded-2xl bg-accent text-accent-foreground shadow-xl border border-white/10">
                         <Zap className="w-5 h-5 animate-pulse" />
                       </div>
-                      
-                      <motion.div 
-                        animate={{ top: ["0%", "100%", "0%"] }}
-                        transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-                        className="absolute left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent pointer-events-none"
-                      />
                     </motion.div>
 
                     <div className="flex flex-col items-center gap-2">
@@ -186,7 +170,6 @@ export function About() {
                       <h3 className="text-2xl font-black uppercase tracking-tighter">{activeNode.label}</h3>
                     </div>
 
-                    {/* Metrics HUD */}
                     <div className="flex gap-4 px-6 py-3 glass-card rounded-2xl border-white/5 bg-background/50">
                        {activeNode.metrics.map((metric, i) => (
                          <div key={i} className="flex flex-col items-center px-4 border-r last:border-0 border-border/50">
@@ -199,7 +182,6 @@ export function About() {
                 </motion.div>
               </AnimatePresence>
               
-              {/* Dynamic Status Bar */}
               <div className="absolute bottom-8 left-8 right-8 p-5 glass-card rounded-[1.5rem] flex items-center justify-between border border-white/5 bg-black/40 shadow-2xl">
                 <div className="flex items-center gap-4">
                   <div className="relative">
