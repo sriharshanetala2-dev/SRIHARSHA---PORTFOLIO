@@ -1,10 +1,10 @@
 {
   "placeholderImages": [
     {
-      "id": "anime-dev",
-      "description": "Anime style developer working at a desk",
-      "imageUrl": "https://picsum.photos/seed/anime_dev_coding_v2/800/600",
-      "imageHint": "anime developer"
+      "id": "ai-about-visual",
+      "description": "Cybernetic Neural Matrix Illustration",
+      "imageUrl": "https://picsum.photos/seed/cyber_logic_v9/800/800",
+      "imageHint": "artificial intelligence"
     },
     {
       "id": "ai-task-manager",
