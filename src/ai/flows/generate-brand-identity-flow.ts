@@ -35,16 +35,16 @@ const prompt = ai.definePrompt({
   name: 'brandIdentityPrompt',
   input: {schema: BrandIdentityInputSchema},
   output: {schema: BrandIdentityOutputSchema.omit({logoUrl: true})},
-  prompt: `You are a high-level startup brand consultant and technical architect.
+  prompt: `You are an elite startup brand consultant and technical architect.
   
-I am building a project called "{{{projectName}}}".
+Project Name: "{{{projectName}}}"
 Mission: {{{mission}}}
 Target Audience: {{{audience}}}
-Brand Tone: {{{tone}}}
+Desired Brand Tone: {{{tone}}}
 
-Please architect a complete identity:
-1. Recommend a modern, high-performance technology stack (comma-separated list) that fits this specific domain.
-2. Write a professional, punchy, and high-impact description (2-3 sentences) suitable for a top-tier developer portfolio project card, reflecting the {{{tone}}} tone.`,
+Your task is to:
+1. Architect a modern, production-grade technology stack (comma-separated list) optimized for this specific domain and mission.
+2. Draft a compelling, high-impact project description (2-3 sentences) that sounds like it came from a senior engineer's portfolio. The tone must strictly reflect the chosen "{{{tone}}}" personality.`,
 });
 
 const generateBrandIdentityFlow = ai.defineFlow(
@@ -54,24 +54,24 @@ const generateBrandIdentityFlow = ai.defineFlow(
     outputSchema: BrandIdentityOutputSchema,
   },
   async input => {
-    // 1. Generate the textual identity (Architecture + Copy)
-    const {output} = await prompt(input);
-    if (!output) throw new Error("Failed to generate brand identity text.");
+    // 1. Generate textual identity
+    const response = await prompt(input);
+    const output = response.output;
+    if (!output) throw new Error("The identity architect failed to synthesize the requirements.");
 
-    // 2. Generate a logo using Imagen 4.0
-    // We use standard JS template literals here since this is a direct model call, not a prompt object
+    // 2. Generate a visual mark (Logo)
     let logoUrl = undefined;
     try {
       const { media } = await ai.generate({
         model: 'googleai/imagen-4.0-fast-generate-001',
-        prompt: `A professional, ${input.tone} software logo icon for a project called "${input.projectName}". 
-        Context: ${input.mission}. 
-        Audience: ${input.audience}.
-        Style: Clean vector icon, flat design, minimalist symbolic shape, professional tech brand style, no text.`,
+        prompt: `A high-end, ${input.tone} minimal software icon for a project named "${input.projectName}". 
+        Mission context: ${input.mission}. 
+        Style: Clean geometric vector, flat design, professional tech aesthetic, centered composition, high contrast, no text, no letters, no words.`,
       });
       logoUrl = media?.url;
     } catch (e) {
-      console.error("Logo generation failed, skipping visual asset.", e);
+      // Non-blocking: If image fails, text is still valuable
+      console.error("Visual asset generation bypassed due to engine limits.", e);
     }
 
     return {
