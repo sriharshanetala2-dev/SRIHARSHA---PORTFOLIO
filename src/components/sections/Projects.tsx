@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useRef } from "react";
@@ -5,7 +6,7 @@ import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { ExternalLink, Github, Database, Sparkles, Network, Code2, LineChart, Search } from "lucide-react";
-import { PlaceHolderImages } from "@/app/lib/placeholder-images";
+import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
 
