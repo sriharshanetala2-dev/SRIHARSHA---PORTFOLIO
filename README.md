@@ -14,7 +14,7 @@ A high-performance, AI-integrated portfolio showcasing expertise in Software Dev
 - **Database**: Firebase Firestore
 - **AI Engine**: Google Genkit (Gemini 2.5 Flash & Imagen 4.0)
 
-## 🌐 Publishing to GitHub
+## 🌐 Publishing to GitHub (Step-by-Step)
 
 1. **Initialize Git**:
    ```bash
@@ -28,11 +28,14 @@ A high-performance, AI-integrated portfolio showcasing expertise in Software Dev
    ```bash
    git commit -m "Initial commit: Premium Portfolio with AI Brand Engine"
    ```
-4. **Push to GitHub**:
-   - Create a repository at [github.com/new](https://github.com/new)
-   - Follow the instructions to link your local repo:
+4. **Create a Repository on GitHub**:
+   - Go to [github.com/new](https://github.com/new)
+   - Name it (e.g., `portfolio`) and click **Create repository**.
+
+5. **Link and Push**:
+   - Replace `<your-repo-name>` with the name you chose:
    ```bash
-   git remote add origin https://github.com/sriharshanetala2-dev/your-repo-name.git
+   git remote add origin https://github.com/sriharshanetala2-dev/<your-repo-name>.git
    git branch -M main
    git push -u origin main
    ```
