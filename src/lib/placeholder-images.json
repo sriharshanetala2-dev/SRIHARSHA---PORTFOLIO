@@ -41,6 +41,12 @@
       "description": "Predictive Data Synthesis Platform",
       "imageUrl": "https://picsum.photos/seed/sri_analytics_v6/800/600",
       "imageHint": "data science"
+    },
+    {
+      "id": "creative-process",
+      "description": "UI/UX Design Architecture Blueprint",
+      "imageUrl": "https://picsum.photos/seed/ui_design_ux_sri/800/600",
+      "imageHint": "ui design"
     }
   ]
 }

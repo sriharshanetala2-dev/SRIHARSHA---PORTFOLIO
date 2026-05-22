@@ -33,7 +33,7 @@
     },
     {
       "id": "subnet-master",
-      "description": "Visual IP Networking Engine",
+      "description": "Visual IP Engine",
       "imageUrl": "https://picsum.photos/seed/sri_network_v5/800/600",
       "imageHint": "computer networking"
     },
@@ -45,9 +45,9 @@
     },
     {
       "id": "creative-process",
-      "description": "Abstract Software Architecture Blueprint",
-      "imageUrl": "https://picsum.photos/seed/tech_blueprint_sri/800/600",
-      "imageHint": "software architecture"
+      "description": "UI/UX Design Architecture Blueprint",
+      "imageUrl": "https://picsum.photos/seed/ui_design_ux_sri/800/600",
+      "imageHint": "ui design"
     }
   ]
 }
