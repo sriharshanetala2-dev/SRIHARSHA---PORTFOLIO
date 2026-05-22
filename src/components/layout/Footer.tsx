@@ -1,23 +1,24 @@
-
 import { Github, Linkedin, Mail } from "lucide-react";
 import { Logo } from "@/components/ui/logo";
 
 export function Footer() {
-  const linkedInUrl = "https://www.linkedin.com/in/sriharshanetala/";
+  const linkedInUrl = "https://www.linkedin.com/in/sriharsha-netala-dev/";
   const email = "sriharshanetala2@gmail.com";
 
   return (
-    <footer className="py-16 px-6 border-t border-border bg-background">
-      <div className="max-w-7xl mx-auto space-y-10">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-          <div className="flex flex-col items-center md:items-start gap-3">
-            <Logo />
-            <p className="text-muted-foreground text-center md:text-left max-w-sm text-sm font-medium">
-              Building intuitive, high-performance digital experiences with modern web technologies.
+    <footer className="py-20 px-6 border-t border-border bg-background relative overflow-hidden">
+      <div className="absolute inset-0 bg-primary/5 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] pointer-events-none" />
+      
+      <div className="max-w-7xl mx-auto space-y-12 relative z-10">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-10">
+          <div className="flex flex-col items-center md:items-start gap-4">
+            <Logo className="scale-125 origin-left" />
+            <p className="text-muted-foreground text-center md:text-left max-w-sm text-sm font-medium leading-relaxed">
+              Architecting high-performance digital solutions with a focus on Full Stack integrity and UI precision.
             </p>
           </div>
 
-          <div className="flex gap-4">
+          <div className="flex gap-5">
             {[
               { icon: Github, label: "GitHub", href: "https://github.com/sriharshanetala2-dev" },
               { icon: Linkedin, label: "LinkedIn", href: linkedInUrl },
@@ -28,7 +29,7 @@ export function Footer() {
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 rounded-xl bg-secondary hover:bg-primary hover:text-primary-foreground transition-all"
+                className="p-4 rounded-2xl bg-secondary/50 border border-border hover:border-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 shadow-sm"
                 aria-label={social.label}
               >
                 <social.icon className="w-5 h-5" />
@@ -37,15 +38,21 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="pt-10 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-muted-foreground font-medium">
-            &copy; {new Date().getFullYear()} NETALA SRIHARSHA.
+        <div className="pt-12 border-t border-border flex flex-col md:flex-row items-center justify-between gap-6">
+          <p className="text-[10px] text-muted-foreground font-black uppercase tracking-[0.2em]">
+            &copy; {new Date().getFullYear()} SRI HARSHA // ALL RIGHTS RESERVED.
           </p>
 
-          <div className="flex gap-6">
-            <a href="#about" className="text-xs font-bold text-muted-foreground hover:text-primary uppercase tracking-widest">About</a>
-            <a href="#portfolio" className="text-xs font-bold text-muted-foreground hover:text-primary uppercase tracking-widest">Showcase</a>
-            <a href="#contact" className="text-xs font-bold text-muted-foreground hover:text-primary uppercase tracking-widest">Hire</a>
+          <div className="flex gap-8">
+            {["About", "Portfolio", "Contact"].map((item) => (
+              <a 
+                key={item}
+                href={`#${item.toLowerCase()}`}
+                className="text-[10px] font-black text-muted-foreground hover:text-primary uppercase tracking-[0.3em] transition-colors"
+              >
+                {item}
+              </a>
+            ))}
           </div>
         </div>
       </div>

@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState } from "react";
@@ -21,20 +20,20 @@ export function Contact() {
   const db = useFirestore();
 
   const userEmail = "sriharshanetala2@gmail.com";
-  const linkedInUrl = "https://www.linkedin.com/in/sriharshanetala/";
+  const linkedInUrl = "https://www.linkedin.com/in/sriharsha-netala-dev/";
 
   const copyEmail = () => {
     navigator.clipboard.writeText(userEmail);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
-    toast({ description: "Email address copied." });
+    toast({ description: "Email address copied to clipboard." });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Fallback opens Gmail client with pre-filled content
-    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${userEmail}&su=Inquiry from Portfolio&body=Hi Sri Harsha, my name is ${formData.name}. %0D%0A%0D%0A${formData.message}`;
+    // Open Gmail client as fallback/primary action
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${userEmail}&su=Portfolio Inquiry from ${formData.name}&body=${encodeURIComponent(formData.message)}`;
     
     if (!db) {
       window.open(gmailUrl, '_blank');
@@ -48,9 +47,9 @@ export function Contact() {
         timestamp: serverTimestamp(),
         recipient: userEmail,
       });
-      toast({ title: "Message Logged", description: "Your inquiry has been stored in my records." });
+      toast({ title: "Transmission Logged", description: "Your message has been stored. Opening Gmail for direct sync..." });
       setFormData({ name: "", email: "", message: "" });
-      window.open(gmailUrl, '_blank');
+      setTimeout(() => window.open(gmailUrl, '_blank'), 1000);
     } catch (error: any) {
       const permissionError = new FirestorePermissionError({ path: 'messages', operation: 'create' });
       errorEmitter.emit('permission-error', permissionError);
@@ -61,25 +60,30 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="py-32 px-6 bg-secondary/20 relative">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20">
+    <section id="contact" className="py-32 px-6 relative overflow-hidden">
+      <div className="absolute inset-0 bg-secondary/10 pointer-events-none" />
+      
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 relative z-10">
         <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
           viewport={{ once: true }}
           className="space-y-12"
         >
           <div className="space-y-6">
-            <h2 className="text-5xl md:text-7xl font-headline font-black tracking-tighter">
-              LET'S <span className="text-primary">TALK</span>
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-[10px] font-black text-primary uppercase tracking-[0.3em]">
+              Connect
+            </div>
+            <h2 className="text-6xl md:text-8xl font-headline font-black tracking-tighter leading-none">
+              HIRE <span className="text-primary">ME</span>
             </h2>
             <p className="text-xl text-muted-foreground leading-relaxed max-w-md font-medium">
-              Open for Full Stack, Frontend, or UI engineering roles. Let's discuss how I can contribute to your vision.
+              Ready to engineer your next high-performance digital product. Let's discuss your technical requirements.
             </p>
           </div>
 
-          <div className="space-y-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
             <div 
               onClick={copyEmail}
               className="flex items-center gap-5 p-6 glass-card rounded-3xl hover:border-primary/50 cursor-pointer group transition-all"
@@ -88,8 +92,8 @@ export function Contact() {
                 <Mail className="w-6 h-6" />
               </div>
               <div className="flex-1">
-                <p className="text-[10px] font-black uppercase text-primary tracking-widest">Direct Mail</p>
-                <p className="font-bold text-lg">{userEmail}</p>
+                <p className="text-[10px] font-black uppercase text-primary tracking-widest">Mailbox</p>
+                <p className="font-bold text-lg truncate">{userEmail}</p>
               </div>
               {copied ? <Check className="w-5 h-5 text-green-500" /> : <Copy className="w-5 h-5 opacity-20 group-hover:opacity-100 transition-opacity" />}
             </div>
@@ -99,28 +103,18 @@ export function Contact() {
                 <Phone className="w-6 h-6" />
               </div>
               <div>
-                <p className="text-[10px] font-black uppercase text-primary tracking-widest">Inquiry Line</p>
+                <p className="text-[10px] font-black uppercase text-primary tracking-widest">Voice</p>
                 <p className="font-bold text-lg">+91 9346759263</p>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-5 p-6 glass-card rounded-3xl">
-              <div className="p-4 rounded-2xl bg-primary/10 text-primary">
-                <MapPin className="w-6 h-6" />
-              </div>
-              <div>
-                <p className="text-[10px] font-black uppercase text-primary tracking-widest">Base Region</p>
-                <p className="font-bold text-lg">India (IST)</p>
               </div>
             </div>
           </div>
 
-          <div className="flex gap-4">
+          <div className="flex gap-4 pt-4">
             <a 
               href={linkedInUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-5 rounded-3xl glass-card hover:bg-primary hover:text-primary-foreground transition-all hover:-translate-y-1 shadow-lg"
+              className="p-5 rounded-3xl glass-card hover:bg-primary hover:text-primary-foreground transition-all hover:-translate-y-2 shadow-xl border-white/5"
             >
               <Linkedin className="w-6 h-6" />
             </a>
@@ -128,7 +122,7 @@ export function Contact() {
               href="https://github.com/sriharshanetala2-dev" 
               target="_blank"
               rel="noopener noreferrer"
-              className="p-5 rounded-3xl glass-card hover:bg-primary hover:text-primary-foreground transition-all hover:-translate-y-1 shadow-lg"
+              className="p-5 rounded-3xl glass-card hover:bg-primary hover:text-primary-foreground transition-all hover:-translate-y-2 shadow-xl border-white/5"
             >
               <Github className="w-6 h-6" />
             </a>
@@ -138,16 +132,16 @@ export function Contact() {
         <motion.div 
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="glass-card p-10 rounded-[3rem] shadow-3xl"
+          className="glass-card p-10 rounded-[3rem] shadow-3xl border-white/5 bg-card/50 backdrop-blur-3xl"
         >
           <form onSubmit={handleSubmit} className="space-y-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="space-y-2">
-                <label className="text-[10px] font-black uppercase text-muted-foreground tracking-widest ml-1">Identity</label>
+              <div className="space-y-3">
+                <label className="text-[10px] font-black uppercase text-muted-foreground tracking-widest ml-1">Full Name</label>
                 <Input 
-                  placeholder="Your Name" 
+                  placeholder="John Doe" 
                   required
                   className="bg-background/50 border-border focus:ring-primary h-14 rounded-2xl text-lg font-bold"
                   value={formData.name}
@@ -155,11 +149,11 @@ export function Contact() {
                   disabled={isSubmitting}
                 />
               </div>
-              <div className="space-y-2">
-                <label className="text-[10px] font-black uppercase text-muted-foreground tracking-widest ml-1">Registry Email</label>
+              <div className="space-y-3">
+                <label className="text-[10px] font-black uppercase text-muted-foreground tracking-widest ml-1">Email Node</label>
                 <Input 
                   type="email" 
-                  placeholder="email@example.com" 
+                  placeholder="name@domain.com" 
                   required
                   className="bg-background/50 border-border focus:ring-primary h-14 rounded-2xl text-lg font-bold"
                   value={formData.email}
@@ -168,10 +162,10 @@ export function Contact() {
                 />
               </div>
             </div>
-            <div className="space-y-2">
-              <label className="text-[10px] font-black uppercase text-muted-foreground tracking-widest ml-1">Objective</label>
+            <div className="space-y-3">
+              <label className="text-[10px] font-black uppercase text-muted-foreground tracking-widest ml-1">Requirement Brief</label>
               <Textarea 
-                placeholder="Briefly describe your requirements..." 
+                placeholder="Describe your project scope or role requirements..." 
                 className="min-h-[180px] bg-background/50 border-border focus:ring-primary p-6 resize-none rounded-2xl text-lg font-medium"
                 required
                 value={formData.message}
@@ -181,10 +175,10 @@ export function Contact() {
             </div>
             <Button 
               type="submit" 
-              className="w-full h-20 rounded-[2rem] bg-primary text-primary-foreground hover:bg-primary/90 font-black uppercase tracking-[0.3em] gap-3 shadow-2xl shadow-primary/30 transition-all hover:scale-[1.02]"
+              className="w-full h-20 rounded-[2rem] bg-primary text-primary-foreground hover:bg-primary/90 font-black uppercase tracking-[0.3em] gap-3 shadow-2xl shadow-primary/30 transition-all hover:scale-[1.03] active:scale-[0.98]"
               disabled={isSubmitting}
             >
-              {isSubmitting ? <Loader2 className="w-6 h-6 animate-spin" /> : <><Send className="w-5 h-5" /> Initiate Sync</>}
+              {isSubmitting ? <Loader2 className="w-6 h-6 animate-spin" /> : <><Send className="w-5 h-5" /> Initiate Protocol</>}
             </Button>
           </form>
         </motion.div>
