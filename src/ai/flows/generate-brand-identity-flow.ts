@@ -1,10 +1,7 @@
 'use server';
 /**
  * @fileOverview A comprehensive Genkit flow for generating brand identities with structured requirements and visual marks.
- *
- * - generateBrandIdentity - A function that handles the generation process.
- * - BrandIdentityInput - The input type for the function.
- * - BrandIdentityOutput - The return type for the function.
+ * Includes detailed server-side logging for manual debugging.
  */
 
 import {ai} from '@/ai/genkit';
@@ -29,6 +26,7 @@ export type BrandIdentityOutput = z.infer<typeof BrandIdentityOutputSchema>;
 export async function generateBrandIdentity(
   input: BrandIdentityInput
 ): Promise<BrandIdentityOutput> {
+  console.log('[DEBUG] Initiating generateBrandIdentity with input:', JSON.stringify(input, null, 2));
   return generateBrandIdentityFlow(input);
 }
 
@@ -57,13 +55,21 @@ const generateBrandIdentityFlow = ai.defineFlow(
   },
   async input => {
     // 1. Generate textual identity
+    console.log('[DEBUG] Calling brandIdentityPrompt...');
     const response = await prompt(input);
     const output = response.output;
-    if (!output) throw new Error("Synthesis failure: Neural core failed to resolve identity.");
+    
+    if (!output) {
+      console.error('[DEBUG] Synthesis failure: Model returned null output');
+      throw new Error("Synthesis failure: Neural core failed to resolve identity.");
+    }
+    
+    console.log('[DEBUG] Textual identity generated:', JSON.stringify(output, null, 2));
 
     // 2. Generate a visual mark (Logo)
     let logoUrl = undefined;
     try {
+      console.log('[DEBUG] Generating visual signature with Imagen 4.0...');
       const { media } = await ai.generate({
         model: 'googleai/imagen-4.0-fast-generate-001',
         prompt: `A high-end, ${input.tone} minimal vector software icon for a project named "${input.projectName}". 
@@ -71,8 +77,9 @@ const generateBrandIdentityFlow = ai.defineFlow(
         Style: Clean geometric design, solid background, tech aesthetic, no text, no letters, centered, professional.`,
       });
       logoUrl = media?.url;
+      console.log('[DEBUG] Visual signature generated successfully.');
     } catch (e) {
-      console.error("Visual generation bypassed.", e);
+      console.warn('[DEBUG] Visual generation bypassed or failed:', e);
     }
 
     return {

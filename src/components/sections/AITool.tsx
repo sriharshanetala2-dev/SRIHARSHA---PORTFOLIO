@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card, CardContent } from "@/components/ui/card";
-import { Sparkles, Loader2, Copy, Check, BrainCircuit, Rocket, Layout, Database, Terminal, UserSquare2, Type, Box, ShieldCheck, Cpu } from "lucide-react";
+import { Sparkles, Loader2, Copy, Check, BrainCircuit, Rocket, Layout, Database, Terminal, UserSquare2, Type, Box, ShieldCheck, Cpu, Bug } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { cn } from "@/lib/utils";
 
@@ -28,6 +28,9 @@ export function AITool() {
   const handleGenerate = async (e?: React.FormEvent) => {
     e?.preventDefault();
     
+    console.log('%c[CLIENT DEBUG] Initiating Brand Synthesis...', 'color: #3b82f6; font-weight: bold;');
+    console.log('[CLIENT DEBUG] Form Data:', formData);
+
     if (!formData.projectName || !formData.mission || !formData.audience) {
       toast({
         title: "Blueprint Incomplete",
@@ -42,14 +45,16 @@ export function AITool() {
     try {
       const output = await generateBrandIdentity(formData);
       setResult(output);
+      console.log('%c[CLIENT DEBUG] Synthesis Success!', 'color: #10b981; font-weight: bold;', output);
       toast({
         title: "Identity Synthesized",
         description: "Project identity has been successfully architected.",
       });
     } catch (error: any) {
+      console.error('%c[CLIENT DEBUG] Synthesis Error!', 'color: #ef4444; font-weight: bold;', error);
       toast({
         title: "System Error",
-        description: "The architect encountered an unexpected exception.",
+        description: error.message || "The architect encountered an unexpected exception.",
         variant: "destructive",
       });
     } finally {
@@ -147,6 +152,7 @@ export function AITool() {
                       <SelectItem value="Futuristic">Futuristic</SelectItem>
                       <SelectItem value="Minimalist">Minimalist</SelectItem>
                       <SelectItem value="Bold">Bold</SelectItem>
+                      <SelectItem value="Friendly">Friendly</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -159,6 +165,10 @@ export function AITool() {
               >
                 {loading ? <Loader2 className="w-6 h-6 animate-spin" /> : "Initiate Synthesis"}
               </Button>
+
+              <div className="flex items-center justify-center gap-2 text-[8px] text-muted-foreground font-bold uppercase tracking-widest opacity-40">
+                <Bug className="w-2 h-2" /> Open console (F12) for diagnostics
+              </div>
             </form>
           </div>
 
