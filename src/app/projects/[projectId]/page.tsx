@@ -58,18 +58,20 @@ export default function ProjectPage({ params }: { params: Promise<{ projectId: s
               <Activity className="w-3 h-3" />
               {project.category}
             </motion.div>
+            
             <motion.h1 
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-headline font-black tracking-tighter uppercase leading-[1.1] sm:leading-tight"
+              className="flex flex-wrap text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-headline font-black tracking-tighter uppercase leading-[1.1] sm:leading-tight"
             >
               {project.title.split(' ').map((word, i) => (
-                <span key={i} className={cn("inline-block mr-[0.2em] last:mr-0", i % 2 !== 0 ? "text-gradient" : "")}>
+                <span key={i} className={cn("inline-block mr-[0.3em] last:mr-0", i % 2 !== 0 ? "text-gradient" : "")}>
                   {word}
                 </span>
               ))}
             </motion.h1>
+
             <motion.p 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -122,19 +124,19 @@ export default function ProjectPage({ params }: { params: Promise<{ projectId: s
               </div>
             </div>
 
-            {/* Ambient Tech Flows */}
+            {/* Ambient Tech Flows - Lite for Mobile */}
             <motion.div 
               animate={{ 
                 x: ["-100%", "100%"],
                 opacity: [0, 0.2, 0]
               }}
               transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-              className="absolute top-1/3 left-0 right-0 h-px bg-primary"
+              className="absolute top-1/3 left-0 right-0 h-px bg-primary hidden sm:block"
             />
             
             <div className="absolute bottom-4 left-4 sm:bottom-8 sm:left-8 p-1.5 sm:p-4 glass-card rounded-lg sm:rounded-xl border-white/5 bg-black/40 flex items-center gap-1.5 sm:gap-3">
               <div className="w-1 h-1 sm:w-2 sm:h-2 rounded-full bg-green-500 animate-pulse" />
-              <span className="text-[6px] sm:text-[10px] font-black uppercase tracking-widest text-green-500">System Verified: {project.id}</span>
+              <span className="text-[6px] sm:text-[10px] font-black uppercase tracking-widest text-green-500">Node Verified</span>
             </div>
           </motion.div>
 
