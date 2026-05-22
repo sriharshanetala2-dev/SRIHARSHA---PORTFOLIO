@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -81,15 +80,15 @@
   height: 100%;
   z-index: -1;
   background-image: 
-    radial-gradient(at 0% 0%, hsl(var(--primary) / 0.05) 0px, transparent 50%),
-    radial-gradient(at 100% 100%, hsl(var(--accent) / 0.05) 0px, transparent 50%);
+    radial-gradient(at 0% 0%, hsl(var(--primary) / 0.08) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, hsl(var(--accent) / 0.08) 0px, transparent 50%);
 }
 
 .glow-cursor {
   position: fixed;
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, hsl(var(--primary) / 0.08) 0%, transparent 70%);
+  background: radial-gradient(circle, hsl(var(--primary) / 0.1) 0%, transparent 70%);
   border-radius: 50%;
   pointer-events: none;
   transform: translate(-50%, -50%);
@@ -108,7 +107,7 @@
 }
 
 .data-flow-grid {
-  background-image: radial-gradient(circle at 1px 1px, hsl(var(--border)) 1px, transparent 0);
+  background-image: radial-gradient(circle at 1px 1px, hsl(var(--border) / 0.5) 1px, transparent 0);
   background-size: 32px 32px;
 }
 

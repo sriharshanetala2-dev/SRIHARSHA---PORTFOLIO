@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, useEffect } from "react";
@@ -11,7 +10,7 @@ const synthesisNodes = [
     id: "frontend",
     label: "Frontend Orchestration", 
     icon: Laptop, 
-    color: "text-blue-500", 
+    color: "text-blue-400", 
     desc: "Pixel-perfect React builds",
     status: "Compiling Interface...",
     metrics: ["60fps", "WAI-ARIA", "Tailwind"]
@@ -20,7 +19,7 @@ const synthesisNodes = [
     id: "fullstack",
     label: "Full Stack Integrity", 
     icon: Database, 
-    color: "text-indigo-500", 
+    color: "text-indigo-400", 
     desc: "Real-time logic & sync",
     status: "Synchronizing State...",
     metrics: ["ACID", "REST/GraphQL", "Auth"]
@@ -29,7 +28,7 @@ const synthesisNodes = [
     id: "uiux",
     label: "UI/UX Logic", 
     icon: Palette, 
-    color: "text-purple-500", 
+    color: "text-purple-400", 
     desc: "Architectural design",
     status: "Mapping Experience...",
     metrics: ["Framer", "Design Ops", "UX"]
@@ -38,7 +37,7 @@ const synthesisNodes = [
     id: "ai",
     label: "Neural Systems", 
     icon: Cpu, 
-    color: "text-orange-500", 
+    color: "text-orange-400", 
     desc: "Genkit AI integration",
     status: "Optimizing Neural Core...",
     metrics: ["LLMs", "Prompt Eng", "RAG"]
@@ -147,14 +146,6 @@ export function About() {
                   }}
                   transition={{ duration: 6, repeat: Infinity, ease: "linear", delay: 1 }}
                   className="absolute top-2/3 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-accent to-transparent"
-                />
-                <motion.div 
-                  animate={{ 
-                    y: ["-100%", "100%"],
-                    opacity: [0, 0.3, 0]
-                  }}
-                  transition={{ duration: 8, repeat: Infinity, ease: "linear", delay: 2 }}
-                  className="absolute left-1/3 top-0 bottom-0 w-[1px] bg-gradient-to-b from-transparent via-primary to-transparent"
                 />
               </div>
 

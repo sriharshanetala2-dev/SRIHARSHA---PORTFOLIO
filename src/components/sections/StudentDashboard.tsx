@@ -137,7 +137,7 @@ export function StudentDashboard() {
                         <TableCell className="font-mono text-xs">{student.id_num}</TableCell>
                         <TableCell className="font-medium">{student.name}</TableCell>
                         <TableCell>{student.course}</TableCell>
-                        <TableCell>{student.gpa}</TableCell>
+                        <TableCell className="font-bold text-primary">{student.gpa}</TableCell>
                         <TableCell>
                           <span className={cn(
                             "px-2 py-0.5 rounded-full text-[10px] font-bold uppercase",
@@ -147,7 +147,7 @@ export function StudentDashboard() {
                           </span>
                         </TableCell>
                         <TableCell className="text-right">
-                          <button onClick={() => handleSimulatedAction(`Viewing ${student.name}`)} className="text-accent hover:underline text-xs font-bold">Details</button>
+                          <button onClick={() => handleSimulatedAction(`Viewing ${student.name}`)} className="text-accent hover:underline text-xs font-black uppercase">Details</button>
                         </TableCell>
                       </TableRow>
                     ))}
@@ -171,15 +171,15 @@ export function StudentDashboard() {
                   <AreaChart data={gpaData} margin={{ left: -20, right: 10, top: 10 }}>
                     <defs>
                       <linearGradient id="colorGpa" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="5%" stopColor="var(--color-gpa)" stopOpacity={0.3}/>
+                        <stop offset="5%" stopColor="var(--color-gpa)" stopOpacity={0.4}/>
                         <stop offset="95%" stopColor="var(--color-gpa)" stopOpacity={0}/>
                       </linearGradient>
                       <linearGradient id="colorAttendance" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="5%" stopColor="var(--color-attendance)" stopOpacity={0.3}/>
+                        <stop offset="5%" stopColor="var(--color-attendance)" stopOpacity={0.4}/>
                         <stop offset="95%" stopColor="var(--color-attendance)" stopOpacity={0}/>
                       </linearGradient>
                     </defs>
-                    <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="hsl(var(--border))" />
+                    <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="hsl(var(--border) / 0.5)" />
                     <XAxis dataKey="semester" axisLine={false} tickLine={false} tick={{ fontSize: 10, fill: "hsl(var(--muted-foreground))" }} />
                     <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 10, fill: "hsl(var(--muted-foreground))" }} />
                     <ChartTooltip content={<ChartTooltipContent />} />
@@ -208,7 +208,7 @@ export function StudentDashboard() {
                     { name: 'Lab', submissions: 200 },
                     { name: 'Proj', submissions: 278 },
                   ]}>
-                    <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="hsl(var(--border))" />
+                    <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="hsl(var(--border) / 0.5)" />
                     <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{ fontSize: 10 }} />
                     <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 10 }} />
                     <ChartTooltip content={<ChartTooltipContent />} />
@@ -231,12 +231,12 @@ export function StudentDashboard() {
                     { skill: "UI/UX Logic", val: 82 }
                   ].map((s) => (
                     <div key={s.skill} className="space-y-1">
-                      <div className="flex justify-between text-xs font-bold uppercase">
+                      <div className="flex justify-between text-xs font-black uppercase">
                         <span>{s.skill}</span>
-                        <span>{s.val}%</span>
+                        <span className="text-primary">{s.val}%</span>
                       </div>
                       <div className="h-2 w-full bg-secondary rounded-full overflow-hidden">
-                        <div className="h-full bg-accent transition-all duration-1000" style={{ width: `${s.val}%` }} />
+                        <div className="h-full bg-primary transition-all duration-1000" style={{ width: `${s.val}%` }} />
                       </div>
                     </div>
                   ))}
@@ -250,18 +250,18 @@ export function StudentDashboard() {
         return (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
             {reports.map((report) => (
-              <Card key={report.title} className="bg-background/50 border-border/50 hover:border-accent transition-all group cursor-pointer" onClick={() => handleSimulatedAction(`Downloading ${report.title}`)}>
+              <Card key={report.title} className="bg-background/50 border-border/50 hover:border-primary transition-all group cursor-pointer" onClick={() => handleSimulatedAction(`Downloading ${report.title}`)}>
                 <CardContent className="p-6 flex items-center justify-between">
                   <div className="flex items-center gap-4">
-                    <div className="p-3 rounded-xl bg-accent/10 text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-all">
+                    <div className="p-3 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all">
                       <FileText className="w-5 h-5" />
                     </div>
                     <div>
                       <h5 className="font-bold text-sm">{report.title}</h5>
-                      <p className="text-[10px] text-muted-foreground uppercase">{report.date} • {report.size}</p>
+                      <p className="text-[10px] text-muted-foreground uppercase font-black">{report.date} • {report.size}</p>
                     </div>
                   </div>
-                  <Download className="w-4 h-4 text-muted-foreground group-hover:text-accent transition-colors" />
+                  <Download className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
                 </CardContent>
               </Card>
             ))}
@@ -290,11 +290,11 @@ export function StudentDashboard() {
                     <div className="space-y-1">
                       <p className="text-[10px] font-black text-muted-foreground uppercase tracking-widest">{stat.label}</p>
                       <div className="flex items-baseline gap-2">
-                        <span className="text-2xl font-bold font-headline">{stat.value}</span>
+                        <span className="text-2xl font-black font-headline text-foreground">{stat.value}</span>
                         <span className="text-[10px] font-bold text-green-500">{stat.change}</span>
                       </div>
                     </div>
-                    <div className="p-3 rounded-2xl bg-accent/10 text-accent">
+                    <div className="p-3 rounded-2xl bg-primary/10 text-primary">
                       <stat.icon className="w-5 h-5" />
                     </div>
                   </CardContent>
@@ -306,19 +306,19 @@ export function StudentDashboard() {
               <Card className="bg-background/50 border-border/50 animate-in fade-in slide-in-from-left-4 duration-700 overflow-hidden">
                 <CardHeader className="flex flex-row items-center justify-between">
                   <div>
-                    <CardTitle className="text-sm font-bold font-headline uppercase tracking-tight text-accent">Overview Trends</CardTitle>
+                    <CardTitle className="text-sm font-black font-headline uppercase tracking-tight text-primary">Overview Trends</CardTitle>
                     <CardDescription className="text-xs">Aggregate Academic Performance</CardDescription>
                   </div>
-                  <BarChart3 className="w-4 h-4 text-accent" />
+                  <BarChart3 className="w-4 h-4 text-primary" />
                 </CardHeader>
                 <CardContent className="h-64 pt-4">
                   <ChartContainer config={chartConfig} className="h-full w-full">
                     <AreaChart data={gpaData} margin={{ left: -20, right: 10, top: 10 }}>
-                      <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="hsl(var(--border))" />
+                      <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="hsl(var(--border) / 0.5)" />
                       <XAxis dataKey="semester" axisLine={false} tickLine={false} tick={{ fontSize: 9 }} />
                       <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 9 }} />
                       <ChartTooltip content={<ChartTooltipContent />} />
-                      <Area type="monotone" dataKey="gpa" stroke="var(--color-gpa)" fill="hsl(var(--accent)/0.1)" strokeWidth={3} />
+                      <Area type="monotone" dataKey="gpa" stroke="var(--color-gpa)" fill="hsl(var(--primary)/0.15)" strokeWidth={3} />
                     </AreaChart>
                   </ChartContainer>
                 </CardContent>
@@ -327,10 +327,10 @@ export function StudentDashboard() {
               <Card className="bg-background/50 border-border/50 animate-in fade-in slide-in-from-right-4 duration-700">
                 <CardHeader className="flex flex-row items-center justify-between">
                   <div>
-                    <CardTitle className="text-sm font-bold font-headline uppercase tracking-tight text-accent">Security Logs</CardTitle>
+                    <CardTitle className="text-sm font-black font-headline uppercase tracking-tight text-primary">Security Logs</CardTitle>
                     <CardDescription className="text-xs">Live data access verification</CardDescription>
                   </div>
-                  <Settings className="w-4 h-4 text-accent animate-spin-slow" />
+                  <Settings className="w-4 h-4 text-primary animate-spin-slow" />
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-3">
@@ -344,12 +344,12 @@ export function StudentDashboard() {
                         )}
                       >
                         <div className="flex items-center gap-3">
-                          <div className="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center text-[10px] font-bold text-accent">
+                          <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-[10px] font-black text-primary">
                             {student.name.split(' ').map(n => n[0]).join('')}
                           </div>
                           <div>
-                            <p className="text-xs font-bold">{student.name}</p>
-                            <p className="text-[10px] text-muted-foreground uppercase">{student.course}</p>
+                            <p className="text-xs font-bold text-foreground">{student.name}</p>
+                            <p className="text-[10px] text-muted-foreground uppercase font-black">{student.course}</p>
                           </div>
                         </div>
                         <MoreVertical className="w-4 h-4 text-muted-foreground cursor-pointer" />
@@ -368,12 +368,12 @@ export function StudentDashboard() {
     <section id="dashboard" className="py-24 px-6 bg-accent/5 overflow-hidden scroll-mt-20">
       <div className="max-w-7xl mx-auto space-y-12">
         <div className="text-center space-y-4 animate-in fade-in slide-in-from-bottom-4 duration-700">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-xs font-bold text-accent uppercase tracking-widest">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-xs font-black text-primary uppercase tracking-widest">
             <Database className="w-3 h-3" />
             Core Data Management
           </div>
-          <h2 className="text-4xl font-headline font-bold">Student Data Environment</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <h2 className="text-4xl sm:text-5xl font-headline font-black tracking-tighter uppercase shimmer-text">EduSync Environment</h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto font-medium">
             A high-performance architectural simulation focusing on academic data integrity and predictive lifecycle analytics.
           </p>
         </div>
@@ -381,12 +381,12 @@ export function StudentDashboard() {
         <div className="rounded-3xl overflow-hidden border border-border bg-card shadow-2xl animate-in fade-in zoom-in-95 duration-1000">
           <div className="p-4 md:p-6 border-b border-border bg-secondary/20 flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div className="flex items-center gap-4">
-              <div className="p-3 rounded-2xl bg-accent text-accent-foreground">
+              <div className="p-3 rounded-2xl bg-primary text-primary-foreground shadow-lg">
                 <Database className="w-6 h-6" />
               </div>
               <div>
-                <h3 className="text-lg font-bold font-headline">EduSync Data Hub</h3>
-                <p className="text-[10px] text-muted-foreground uppercase tracking-tighter">Central Intelligence Node</p>
+                <h3 className="text-lg font-black font-headline uppercase tracking-tight text-foreground">EduSync Data Hub</h3>
+                <p className="text-[10px] text-muted-foreground uppercase tracking-widest font-black">Central Intelligence Node</p>
               </div>
             </div>
             
@@ -396,12 +396,12 @@ export function StudentDashboard() {
                 <input 
                   placeholder="Query data records..." 
                   onKeyDown={(e) => e.key === 'Enter' && handleSimulatedAction("Record Query Executed")}
-                  className="bg-background border border-border rounded-xl pl-10 pr-4 py-2 text-sm w-48 xl:w-64 focus:outline-none focus:ring-2 focus:ring-accent/50 transition-all"
+                  className="bg-background border border-border rounded-xl pl-10 pr-4 py-2 text-sm w-48 xl:w-64 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all font-medium"
                 />
               </div>
               <div className="flex items-center gap-2">
-                <button onClick={() => handleSimulatedAction("Alerts Toggled")} className="p-2 rounded-xl bg-background border border-border text-muted-foreground hover:text-accent transition-colors"><Bell className="w-5 h-5" /></button>
-                <div className="w-10 h-10 rounded-xl bg-accent/20 border border-accent/20 flex items-center justify-center text-accent font-bold cursor-pointer" onClick={() => handleSimulatedAction("Security Profile")}>NS</div>
+                <button onClick={() => handleSimulatedAction("Alerts Toggled")} className="p-2 rounded-xl bg-background border border-border text-muted-foreground hover:text-primary transition-colors"><Bell className="w-5 h-5" /></button>
+                <div className="w-10 h-10 rounded-xl bg-primary/20 border border-primary/20 flex items-center justify-center text-primary font-black cursor-pointer" onClick={() => handleSimulatedAction("Security Profile")}>NS</div>
               </div>
             </div>
           </div>
@@ -420,10 +420,10 @@ export function StudentDashboard() {
                     key={item.label}
                     onClick={() => handleTabChange(item.label)}
                     className={cn(
-                      "flex items-center gap-3 px-4 py-2.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap lg:w-full",
+                      "flex items-center gap-3 px-4 py-2.5 rounded-xl text-[10px] font-black transition-all whitespace-nowrap lg:w-full uppercase tracking-widest",
                       activeTab === item.label
-                      ? "bg-accent text-accent-foreground shadow-lg shadow-accent/20" 
-                      : "text-muted-foreground hover:bg-accent/10 hover:text-accent"
+                      ? "bg-primary text-primary-foreground shadow-lg shadow-primary/20" 
+                      : "text-muted-foreground hover:bg-primary/10 hover:text-primary"
                     )}
                   >
                     <item.icon className="w-4 h-4" />
@@ -435,14 +435,14 @@ export function StudentDashboard() {
 
             <div className="flex-1 p-4 md:p-8 space-y-8 bg-gradient-to-br from-background to-secondary/5">
               <div className="flex items-center justify-between">
-                <h4 className="text-xl font-headline font-bold text-foreground">
+                <h4 className="text-xl font-black font-headline text-foreground uppercase tracking-tight">
                   {activeTab} Management
                 </h4>
                 <div className="flex gap-2">
-                  <button onClick={() => handleSimulatedAction("Syncing Records")} className="hidden sm:flex items-center gap-2 text-[10px] font-bold px-3 py-1.5 rounded-lg border border-border hover:bg-secondary transition-colors uppercase">
+                  <button onClick={() => handleSimulatedAction("Syncing Records")} className="hidden sm:flex items-center gap-2 text-[10px] font-black px-3 py-1.5 rounded-lg border border-border hover:bg-secondary transition-colors uppercase tracking-widest">
                     <TrendingUp className="w-3 h-3" /> Sync
                   </button>
-                  <button onClick={() => handleSimulatedAction("Exporting Data")} className="flex items-center gap-2 text-[10px] font-bold px-3 py-1.5 rounded-lg bg-accent text-accent-foreground hover:bg-accent/90 transition-colors uppercase">
+                  <button onClick={() => handleSimulatedAction("Exporting Data")} className="flex items-center gap-2 text-[10px] font-black px-3 py-1.5 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors uppercase tracking-widest shadow-md">
                     <Download className="w-3 h-3" /> Export
                   </button>
                 </div>
