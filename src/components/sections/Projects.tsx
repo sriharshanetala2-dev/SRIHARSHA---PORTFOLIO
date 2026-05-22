@@ -27,11 +27,11 @@ function ProjectLens({ project }: { project: Project }) {
         <p className="text-[8px] sm:text-[10px] font-black uppercase tracking-[0.4em] text-primary opacity-60">System Lens</p>
       </div>
 
-      <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 flex justify-between px-4 sm:px-6 py-2.5 sm:py-3 glass-card rounded-xl sm:rounded-2xl border-border bg-background/50 backdrop-blur-md">
+      <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 flex justify-between px-3 sm:px-6 py-2.5 sm:py-3 glass-card rounded-xl sm:rounded-2xl border-border bg-background/50 backdrop-blur-md overflow-hidden">
          {project.metrics.map((m, i) => (
-           <div key={i} className="flex flex-col items-start px-2 border-r last:border-0 border-border/20">
-             <span className="text-[6px] sm:text-[8px] font-black uppercase tracking-widest text-muted-foreground whitespace-nowrap">{m.label}</span>
-             <span className="text-[9px] sm:text-[11px] font-bold text-accent font-mono truncate max-w-[80px] sm:max-w-none">{m.value}</span>
+           <div key={i} className="flex flex-col items-start px-2 sm:px-4 border-r last:border-0 border-border/20">
+             <span className="text-[5px] sm:text-[8px] font-black uppercase tracking-widest text-muted-foreground whitespace-nowrap">{m.label}</span>
+             <span className="text-[8px] sm:text-[11px] font-bold text-accent font-mono truncate max-w-[70px] sm:max-w-none">{m.value}</span>
            </div>
          ))}
       </div>
@@ -53,7 +53,7 @@ export function Projects() {
             Project Matrix
           </motion.div>
           
-          <h2 className="text-4xl sm:text-6xl md:text-7xl font-headline font-black tracking-tighter leading-[0.9] uppercase shimmer-text">
+          <h2 className="text-4xl sm:text-6xl md:text-7xl font-headline font-black tracking-tighter leading-tight sm:leading-none uppercase shimmer-text">
             COMPUTATIONAL <span className="text-gradient">SHOWCASE</span>
           </h2>
           

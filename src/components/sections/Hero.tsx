@@ -1,3 +1,4 @@
+
 "use client";
 
 import { motion } from "framer-motion";
@@ -30,7 +31,7 @@ export function Hero() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.2 }}
-            className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-headline font-black leading-[0.9] tracking-tighter uppercase"
+            className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-headline font-black leading-tight sm:leading-none tracking-tighter uppercase"
           >
             Computational <br />
             <span className="text-gradient">Experience</span>
@@ -41,7 +42,7 @@ export function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.5 }}
-          className="text-xs sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed font-medium opacity-70 uppercase tracking-[0.2em]"
+          className="text-[10px] sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed font-medium opacity-70 uppercase tracking-[0.2em]"
         >
           B.Sc Computer Science graduate specializing in modern React ecosystems and high-performance digital architecture.
         </motion.p>

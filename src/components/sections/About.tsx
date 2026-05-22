@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect } from "react";
@@ -73,7 +74,7 @@ export function About() {
                 <BrainCircuit className="w-3.5 h-3.5" />
                 Logic Synthesis Node
               </div>
-              <h2 className="text-4xl sm:text-5xl md:text-6xl font-headline font-black leading-[1] tracking-tighter uppercase shimmer-text">
+              <h2 className="text-4xl sm:text-5xl md:text-6xl font-headline font-black leading-tight sm:leading-none tracking-tighter uppercase shimmer-text">
                 NEURAL <br className="hidden sm:block" />
                 <span className="text-gradient">ARCHITECTURE</span>
               </h2>
@@ -110,7 +111,7 @@ export function About() {
             </div>
           </motion.div>
 
-          {/* Right Visual Matrix (Lite for Mobile) */}
+          {/* Right Visual Matrix */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -130,7 +131,7 @@ export function About() {
                   animate={{ opacity: 1, filter: "blur(0px)", scale: 1 }}
                   exit={{ opacity: 0, filter: "blur(10px)", scale: 0.95 }}
                   transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                  className="absolute inset-0 flex items-center justify-center p-6"
+                  className="absolute inset-0 flex items-center justify-center p-4 sm:p-6"
                 >
                   <div className="relative z-10 flex flex-col items-center gap-6 sm:gap-10 w-full">
                     <motion.div 
@@ -147,8 +148,8 @@ export function About() {
                     </motion.div>
 
                     <div className="flex flex-col items-center gap-1">
-                      <p className="text-[7px] sm:text-[10px] font-black uppercase tracking-[0.3em] sm:tracking-[0.5em] text-primary opacity-60">Neural Engine Node</p>
-                      <h3 className="text-lg sm:text-2xl font-black uppercase tracking-tighter text-center">{activeNode.label}</h3>
+                      <p className="text-[7px] sm:text-[10px] font-black uppercase tracking-[0.3em] sm:tracking-[0.5em] text-primary opacity-60">Neural Node</p>
+                      <h3 className="text-base sm:text-2xl font-black uppercase tracking-tighter text-center">{activeNode.label}</h3>
                     </div>
 
                     <div className="flex flex-wrap justify-center gap-2 sm:gap-4 px-3 sm:px-6 py-2 sm:py-3 glass-card rounded-xl sm:rounded-2xl border-white/5 bg-background/50">
