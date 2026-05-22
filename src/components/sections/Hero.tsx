@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ChevronDown, ArrowRight, Activity, Zap, Code2 } from "lucide-react";
+import { ChevronDown, ArrowRight, Activity, Code2 } from "lucide-react";
 
 export function Hero() {
   const containerVariants = {
@@ -27,7 +27,6 @@ export function Hero() {
 
   return (
     <section className="min-h-screen flex items-center justify-center pt-20 px-6 relative overflow-hidden bg-background">
-      {/* Quantum Background Components */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_50%_0%,hsl(var(--primary)/0.15),transparent_70%)] pointer-events-none" />
       <div className="absolute inset-0 neural-grid opacity-10 pointer-events-none" />
       
@@ -42,14 +41,14 @@ export function Hero() {
           className="inline-flex items-center gap-3 px-6 py-2 rounded-full glass-card text-[10px] font-black tracking-[0.4em] text-primary uppercase border-primary/20 backdrop-blur-xl"
         >
           <Activity className="w-3.5 h-3.5" />
-          Full Stack Subsystem v4.0 Active
+          Development Subsystem v4.0 Active
         </motion.div>
 
         <motion.h1
           variants={itemVariants}
-          className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-headline font-black tracking-tighter leading-[1.05] uppercase italic"
+          className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-headline font-black tracking-tighter leading-[1.05] uppercase"
         >
-          ENGINEERING <br />
+          CODING <br />
           <span className="text-gradient">ECOSYSTEMS</span>
         </motion.h1>
 
@@ -57,7 +56,7 @@ export function Hero() {
           variants={itemVariants}
           className="max-w-2xl mx-auto text-xs sm:text-base md:text-lg text-muted-foreground font-medium uppercase tracking-[0.2em] opacity-70 leading-relaxed font-body"
         >
-          Architecting high-performance Full Stack solutions where enterprise logic meets professional visual precision. 
+          Building high-performance Full Stack solutions where enterprise logic meets professional visual precision. 
           Performance optimized. Zero-lag infrastructure.
         </motion.p>
 
@@ -70,7 +69,7 @@ export function Hero() {
               href="#portfolio"
               className="group relative flex items-center justify-center gap-4 px-10 py-5 rounded-xl bg-primary text-primary-foreground font-black text-[11px] tracking-[0.3em] uppercase transition-all hover:scale-105 hover:shadow-[0_0_30px_hsl(var(--primary)/0.4)] overflow-hidden"
             >
-              <span className="relative z-10">Access Registry</span>
+              <span className="relative z-10">Access Projects</span>
               <ArrowRight className="w-4 h-4 relative z-10 group-hover:translate-x-1 transition-transform" />
             </a>
             
@@ -79,7 +78,7 @@ export function Hero() {
               className="group flex items-center justify-center gap-4 px-10 py-5 rounded-xl bg-secondary/80 text-foreground font-black text-[11px] tracking-[0.3em] uppercase border border-white/10 transition-all hover:bg-secondary hover:border-primary/50 backdrop-blur-md"
             >
               <Code2 className="w-4 h-4 text-primary" />
-              Core Logic
+              Developer Logic
             </a>
           </div>
 

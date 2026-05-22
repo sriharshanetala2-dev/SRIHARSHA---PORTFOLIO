@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Laptop, Palette, Database, Cpu, BrainCircuit, Zap, Fingerprint, Activity } from "lucide-react";
+import { Laptop, Palette, Database, Cpu, Zap, Fingerprint, Activity } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const synthesisNodes = [
@@ -11,7 +11,7 @@ const synthesisNodes = [
     label: "Frontend", 
     icon: Laptop, 
     color: "text-blue-400", 
-    desc: "Elite React Interfaces",
+    desc: "React Interfaces",
     status: "Compiling UI...",
     metrics: ["120fps", "Modern", "Fluid"]
   },
@@ -29,18 +29,18 @@ const synthesisNodes = [
     label: "Logic Design", 
     icon: Palette, 
     color: "text-purple-400", 
-    desc: "System Architecture",
+    desc: "Code Architecture",
     status: "Mapping Experience...",
     metrics: ["Scalable", "Precise", "Visual"]
   },
   { 
     id: "ai",
-    label: "Neural Engine", 
+    label: "AI Systems", 
     icon: Cpu, 
     color: "text-orange-400", 
-    desc: "Genkit AI Agents",
-    status: "Training Model...",
-    metrics: ["LLMs", "Orchestration", "Tools"]
+    desc: "Genkit Integration",
+    status: "Training Node...",
+    metrics: ["LLMs", "Logic", "Tools"]
   }
 ];
 
@@ -60,7 +60,6 @@ export function About() {
       
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-          {/* Left Content */}
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -71,14 +70,14 @@ export function About() {
             <div className="space-y-6 text-center lg:text-left">
               <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-primary/10 text-[10px] font-black tracking-[0.4em] text-primary uppercase border border-primary/20">
                 <Fingerprint className="w-4 h-4" />
-                Identity Manifest
+                Developer Manifest
               </div>
-              <h2 className="text-4xl sm:text-7xl font-headline font-black leading-[1] tracking-tighter uppercase italic shimmer-text">
-                SYSTEMIC <br className="hidden sm:block" />
+              <h2 className="text-4xl sm:text-7xl font-headline font-black leading-[1] tracking-tighter uppercase shimmer-text">
+                CODE <br className="hidden sm:block" />
                 <span className="text-gradient">IDENTITY</span>
               </h2>
               <p className="text-sm sm:text-lg text-muted-foreground leading-relaxed font-medium max-w-xl mx-auto lg:mx-0 opacity-80 uppercase tracking-widest">
-                As a <span className="text-primary font-bold">B.Sc Computer Science graduate</span>, I engineer digital solutions where systemic logic meets elite architectural design.
+                As a <span className="text-primary font-bold">B.Sc Computer Science graduate</span>, I build digital solutions where engineering logic meets high-performance code.
               </p>
             </div>
 
@@ -110,7 +109,6 @@ export function About() {
             </div>
           </motion.div>
 
-          {/* Right Visual Matrix */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -138,8 +136,8 @@ export function About() {
                   </div>
 
                   <div className="text-center space-y-2">
-                    <p className="text-[9px] font-black uppercase tracking-[0.6em] text-primary opacity-50">Active Vector Node</p>
-                    <h3 className="text-2xl sm:text-5xl font-headline font-black uppercase tracking-tighter italic">{activeNode.label}</h3>
+                    <p className="text-[9px] font-black uppercase tracking-[0.6em] text-primary opacity-50">Active Code Node</p>
+                    <h3 className="text-2xl sm:text-5xl font-headline font-black uppercase tracking-tighter">{activeNode.label}</h3>
                   </div>
 
                   <div className="flex flex-wrap justify-center gap-4 sm:gap-8 px-6 py-4 glass-card rounded-2xl border-white/10 bg-background/50">

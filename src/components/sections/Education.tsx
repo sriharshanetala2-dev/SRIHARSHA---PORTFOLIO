@@ -1,4 +1,3 @@
-
 "use client";
 
 import { motion } from "framer-motion";
@@ -42,10 +41,10 @@ export function Education() {
             className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-accent/10 text-[11px] font-black text-accent uppercase tracking-[0.4em] border border-accent/20"
           >
             <BookOpen className="w-4 h-4" />
-            Academic Node
+            Education Registry
           </motion.div>
-          <h2 className="text-4xl sm:text-6xl md:text-8xl font-headline font-black tracking-tighter uppercase">EDUCATION <span className="text-accent">PATH</span></h2>
-          <p className="text-base sm:text-xl text-muted-foreground font-medium opacity-70">The computational foundation of my engineering career.</p>
+          <h2 className="text-4xl sm:text-6xl md:text-8xl font-headline font-black tracking-tighter uppercase">ACADEMIC <span className="text-accent">PATH</span></h2>
+          <p className="text-base sm:text-xl text-muted-foreground font-medium opacity-70">The technical foundation of my development career.</p>
         </div>
 
         <div className="grid grid-cols-1 gap-8">

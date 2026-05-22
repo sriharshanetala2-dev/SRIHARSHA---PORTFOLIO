@@ -4,8 +4,8 @@ import { FirebaseClientProvider } from '@/firebase';
 import { ThemeProvider } from 'next-themes';
 
 export const metadata: Metadata = {
-  title: 'SRI HARSHA | Full Stack Engineer & UI Architect',
-  description: 'Professional portfolio of Netala Sri Harsha, a B.Sc Computer Science graduate specializing in high-performance Full Stack Development, Java Systems, and AI Orchestration.',
+  title: 'SRI HARSHA | Full Stack Developer & Software Engineer',
+  description: 'Professional portfolio of Netala Sri Harsha, a B.Sc Computer Science graduate specializing in high-performance Full Stack Development, Java Systems, and AI Integration.',
   keywords: ['Software Developer', 'Full Stack Developer', 'Java Engineer', 'Spring Boot', 'React Developer', 'Next.js', 'Firebase', 'GenAI'],
   authors: [{ name: 'Netala Sri Harsha' }],
   metadataBase: new URL('https://sriharsha-dev.web.app'),
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: 'SRI HARSHA | Full Stack Engineer',
+    title: 'SRI HARSHA | Full Stack Developer',
     description: 'B.Sc Computer Science graduate focused on enterprise-grade Full Stack Development and High-Performance UI Logic.',
     url: '/',
     siteName: 'SRI HARSHA Portfolio',
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'SRI HARSHA | Software Architect',
+    title: 'SRI HARSHA | Software Developer',
     description: 'Engineering digital ecosystems with code, logic, and precision.',
   },
 };

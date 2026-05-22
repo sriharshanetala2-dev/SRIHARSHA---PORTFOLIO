@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, Activity, Zap, Layers, Fingerprint, Box } from "lucide-react";
+import { ArrowRight, Box } from "lucide-react";
 import { projects } from "@/app/lib/projects-data";
 
 export function Projects() {
@@ -39,21 +39,21 @@ export function Projects() {
             className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-primary/10 border border-primary/20 text-[10px] font-black tracking-[0.5em] text-primary uppercase"
           >
             <Box className="w-4 h-4" />
-            Systemic Archive
+            Project Archive
           </motion.div>
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-headline font-black tracking-tighter uppercase italic leading-[0.9]"
+            className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-headline font-black tracking-tighter uppercase leading-[0.9]"
           >
-            PROJECT <span className="text-gradient">MATRIX</span>
+            CODE <span className="text-gradient">MATRIX</span>
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             className="max-w-2xl text-[11px] sm:text-sm text-muted-foreground font-bold uppercase tracking-[0.3em] leading-relaxed mx-auto lg:mx-0 opacity-60"
           >
-            Elite technical systems engineered for enterprise performance and neural orchestration.
+            Elite software systems built for enterprise performance and functional logic.
           </motion.p>
         </div>
 

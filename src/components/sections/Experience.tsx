@@ -6,22 +6,22 @@ import { Briefcase, Calendar, Code2, BrainCircuit, Layers } from "lucide-react";
 
 const experience = [
   {
-    role: "Java Full Stack Specialization",
+    role: "Java Full Stack Developer",
     company: "NxtWave Academy",
     period: "2025 — 2026",
-    description: "Intensive architectural program focused on building robust full-stack systems. Mastery of Java, Spring Boot, JDBC, and SQL, coupled with modern high-performance frontend orchestration.",
+    description: "Intensive development program focused on building robust full-stack systems. Mastery of Java, Spring Boot, JDBC, and SQL, coupled with modern high-performance frontend orchestration.",
     icon: Code2
   },
   {
-    role: "Generative AI Mastery",
+    role: "Generative AI Developer",
     company: "NxtWave Academy",
     period: "2025 — 2026",
-    description: "Specialized training in neural orchestration and LLM integration. Successfully completed 'AI for All' certification and a top contributor in AI Buildathons.",
+    description: "Specialized training in neural integration and LLM application development. Successfully completed 'AI for All' certification and a top contributor in AI Buildathons.",
     icon: BrainCircuit
   },
   {
-    role: "Independent Software Engineering",
-    company: "Full Stack Mastery",
+    role: "Full Stack Software Developer",
+    company: "Independent Projects",
     period: "2024 — 2025",
     description: "Dedicated phase post-graduation focused on applying core Computer Science principles to real-time interactive UIs and backend logic cores.",
     icon: Layers
@@ -42,13 +42,13 @@ export function Experience() {
             className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-primary/10 border border-primary/20 text-[10px] font-black text-primary uppercase tracking-[0.4em]"
           >
             <Briefcase className="w-4 h-4" />
-            Engineering Timeline
+            Developer Timeline
           </motion.div>
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl sm:text-7xl font-headline font-black tracking-tighter uppercase italic"
+            className="text-4xl sm:text-7xl font-headline font-black tracking-tighter uppercase"
           >
             GROWTH <span className="text-gradient">MATRIX</span>
           </motion.h2>
@@ -58,7 +58,7 @@ export function Experience() {
             viewport={{ once: true }}
             className="text-sm sm:text-xl text-muted-foreground font-bold max-w-2xl mx-auto opacity-60 uppercase tracking-widest font-body"
           >
-            A specialized architectural mapping of technical development and high-level milestone integration.
+            A technical mapping of development milestones and high-level project integration.
           </motion.p>
         </div>
 
@@ -87,7 +87,7 @@ export function Experience() {
                       {item.period}
                     </div>
                     <div className="space-y-2">
-                      <h3 className="text-2xl md:text-4xl font-headline font-black tracking-tight uppercase italic">{item.role}</h3>
+                      <h3 className="text-2xl md:text-4xl font-headline font-black tracking-tight uppercase">{item.role}</h3>
                       <p className="text-foreground/40 font-black text-sm sm:text-lg tracking-widest uppercase font-mono">{item.company}</p>
                     </div>
                     <p className="text-sm sm:text-lg text-muted-foreground leading-relaxed font-body opacity-80 max-w-3xl">

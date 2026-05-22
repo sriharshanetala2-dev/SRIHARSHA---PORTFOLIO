@@ -8,23 +8,16 @@ import {
   ArrowLeft, 
   Activity, 
   Workflow, 
-  Shield, 
   Zap, 
   Terminal,
   Cpu,
   Database,
-  Layers,
-  Code2,
   ShieldCheck,
-  BrainCircuit,
-  Box,
-  Fingerprint,
   Network
 } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { motion } from "framer-motion";
-import { cn } from "@/lib/utils";
 
 export default function ProjectPage({ params }: { params: Promise<{ projectId: string }> }) {
   const { projectId } = use(params);
@@ -38,7 +31,6 @@ export default function ProjectPage({ params }: { params: Promise<{ projectId: s
   if (!project) notFound();
   if (!mounted) return null;
 
-  // Parse the manifest data for structured display
   let manifestData = {};
   try {
     manifestData = JSON.parse(project.codeSnippet);
@@ -51,7 +43,6 @@ export default function ProjectPage({ params }: { params: Promise<{ projectId: s
       <Navbar />
       
       <main className="pt-32 pb-24 px-6 max-w-7xl mx-auto space-y-16">
-        {/* Navigation Breadcrumb */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -65,7 +56,6 @@ export default function ProjectPage({ params }: { params: Promise<{ projectId: s
           </Link>
         </motion.div>
 
-        {/* Engineering Header */}
         <div className="space-y-6">
           <motion.div 
             initial={{ opacity: 0, y: 10 }}
@@ -79,7 +69,7 @@ export default function ProjectPage({ params }: { params: Promise<{ projectId: s
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl sm:text-7xl lg:text-8xl font-headline font-black tracking-tighter uppercase italic leading-[1] shimmer-text"
+            className="text-4xl sm:text-7xl lg:text-8xl font-headline font-black tracking-tighter uppercase leading-[1] shimmer-text"
           >
             {project.title}
           </motion.h1>
@@ -93,7 +83,6 @@ export default function ProjectPage({ params }: { params: Promise<{ projectId: s
           </motion.p>
         </div>
 
-        {/* CRITICAL: Side-by-Side Horizontal Metrics HUD */}
         <motion.div 
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -108,17 +97,14 @@ export default function ProjectPage({ params }: { params: Promise<{ projectId: s
           ))}
         </motion.div>
 
-        {/* Architectural Manifest Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           <div className="lg:col-span-8 space-y-20">
-            
-            {/* System Specification Grid */}
             <section className="space-y-8">
               <div className="flex items-center gap-3">
                 <div className="p-2.5 rounded-lg bg-primary/10 text-primary">
                   <Cpu className="w-5 h-5" />
                 </div>
-                <h2 className="text-lg font-black uppercase tracking-tight italic">System Specification</h2>
+                <h2 className="text-lg font-black uppercase tracking-tight">System Specification</h2>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -135,13 +121,12 @@ export default function ProjectPage({ params }: { params: Promise<{ projectId: s
               </div>
             </section>
 
-            {/* Neural Process Stream */}
             <section className="space-y-8">
               <div className="flex items-center gap-3">
                 <div className="p-2.5 rounded-lg bg-accent/10 text-accent">
                   <Network className="w-5 h-5" />
                 </div>
-                <h2 className="text-lg font-black uppercase tracking-tight italic">Process Trace Logs</h2>
+                <h2 className="text-lg font-black uppercase tracking-tight">Process Trace Logs</h2>
               </div>
               
               <div className="space-y-2.5 font-mono">
@@ -158,13 +143,12 @@ export default function ProjectPage({ params }: { params: Promise<{ projectId: s
               </div>
             </section>
 
-            {/* Subsystem Engineering */}
             <section className="space-y-10">
               <div className="flex items-center gap-3">
                 <div className="p-2.5 rounded-lg bg-indigo-500/10 text-indigo-400">
                   <Workflow className="w-5 h-5" />
                 </div>
-                <h2 className="text-lg font-black uppercase tracking-tight italic">Engineering Subsystems</h2>
+                <h2 className="text-lg font-black uppercase tracking-tight">Engineering Subsystems</h2>
               </div>
               <p className="text-base sm:text-lg text-muted-foreground leading-relaxed font-medium">
                 {project.longDescription}
@@ -186,7 +170,6 @@ export default function ProjectPage({ params }: { params: Promise<{ projectId: s
             </section>
           </div>
 
-          {/* Technical Metadata Sidebar */}
           <aside className="lg:col-span-4">
             <motion.div 
               initial={{ opacity: 0, x: 20 }}
@@ -207,17 +190,17 @@ export default function ProjectPage({ params }: { params: Promise<{ projectId: s
 
                 <div className="pt-8 border-t border-white/5 flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <div className="w-2 h-2 rounded-full bg-accent animate-pulse shadow-[0_0_10px_hsl(var(--accent))]" />
-                    <span className="text-[9px] font-black uppercase tracking-widest text-accent">Neural Locked</span>
+                    <div className="w-2 h-2 rounded-full bg-accent animate-pulse shadow-[0_0_10px_#8b5cf6]" />
+                    <span className="text-[9px] font-black uppercase tracking-widest text-accent">Developer Signed</span>
                   </div>
                   <ShieldCheck className="w-4 h-4 text-accent/50" />
                 </div>
 
                 <div className="pt-8 border-t border-white/5 space-y-4">
-                   <p className="text-[9px] font-black text-muted-foreground uppercase tracking-[0.4em]">Orchestration Meta</p>
+                   <p className="text-[9px] font-black text-muted-foreground uppercase tracking-[0.4em]">Development Meta</p>
                    <div className="flex items-center gap-3 text-[10px] font-bold opacity-60">
                      <Activity className="w-4 h-4 text-primary" />
-                     <span className="uppercase">L4 Integrity Verified</span>
+                     <span className="uppercase">Production Integrity Verified</span>
                    </div>
                 </div>
               </div>

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X, Cpu, Fingerprint, Activity } from "lucide-react";
+import { Menu, X, Activity, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -38,8 +38,8 @@ export function Navbar() {
             <Activity className="w-5 h-5" />
           </div>
           <div className="flex flex-col">
-            <span className="text-xl font-headline font-black tracking-tighter uppercase leading-none italic">SRI HARSHA</span>
-            <span className="text-[8px] font-black uppercase tracking-[0.4em] text-primary opacity-60">Neural Architect</span>
+            <span className="text-xl font-headline font-black tracking-tighter uppercase leading-none">SRI HARSHA</span>
+            <span className="text-[8px] font-black uppercase tracking-[0.4em] text-primary opacity-60">Full Stack Developer</span>
           </div>
         </Link>
 
