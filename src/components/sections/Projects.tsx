@@ -1,76 +1,14 @@
 
 "use client";
 
-import { useRef } from "react";
+import Link from "next/link";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { ExternalLink, Github, Database, Sparkles, Network, Code2, LineChart, Search } from "lucide-react";
+import { ExternalLink, Github, ArrowRight } from "lucide-react";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { cn } from "@/lib/utils";
-
-const projects = [
-  {
-    id: "student-system",
-    title: "Student Management System",
-    category: "Academic / Management",
-    tags: ["Java", "SQL", "JDBC"],
-    description: "An intelligent, high-performance database system designed for seamless academic lifecycle tracking and performance analytics.",
-    icon: Database,
-    github: "https://github.com/sriharshanetala2-dev",
-    demo: "#dashboard"
-  },
-  {
-    id: "weather-app",
-    title: "AI Weather Oracle",
-    category: "Generative AI",
-    tags: ["JavaScript", "OpenWeather API", "Neural Networks"],
-    description: "A creative AI-powered weather forecasting application utilizing neural network architectures to predict atmospheric trends with a stunning, futuristic interface.",
-    icon: Sparkles,
-    github: "https://github.com/sriharshanetala2-dev",
-    demo: "https://weather.visualcrossing.com"
-  },
-  {
-    id: "todo-app",
-    title: "AI Cognitive Task Manager",
-    category: "GenAI / Coding",
-    tags: ["Next.js", "Genkit", "Firebase"],
-    description: "A dynamic orchestration engine utilizing code-driven logic and LLMs to prioritize, categorize, and automate scheduling with predictive accuracy.",
-    icon: Code2,
-    github: "https://github.com/sriharshanetala2-dev",
-    demo: "https://github.com/sriharshanetala2-dev"
-  },
-  {
-    id: "ecommerce-site",
-    title: "MarketSync: Adaptive Trading Hub",
-    category: "E-Commerce / FinTech",
-    tags: ["React", "Tailwind", "Firebase"],
-    description: "A professional marketing analytics platform integrating stock market trend analysis and real-time data visualization for digital asset management.",
-    icon: LineChart,
-    github: "https://github.com/sriharshanetala2-dev",
-    demo: "https://github.com/sriharshanetala2-dev"
-  },
-  {
-    id: "subnet-master",
-    title: "SubnetMaster: Visual IP Engine",
-    category: "Network Engineering",
-    tags: ["React", "Networking", "Subnetting"],
-    description: "An autonomous network topology designer for precision IP subnetting, utilizing terminal-style logic and visual calculation engines.",
-    icon: Network,
-    github: "https://github.com/sriharshanetala2-dev",
-    demo: "https://www.subnet-calculator.com"
-  },
-  {
-    id: "data-analytics",
-    title: "Data Analytics Platform",
-    category: "Business Intel",
-    tags: ["Python", "SQL", "Pandas"],
-    description: "Advanced analytical engine for synthesizing complex business datasets into predictive visual insights through automated processing scripts.",
-    icon: Search,
-    github: "https://github.com/sriharshanetala2-dev",
-    demo: "https://public.tableau.com"
-  }
-];
+import { projects } from "@/app/lib/projects-data";
 
 function ProjectCard({ project, idx }: { project: any, idx: number }) {
   const imageData = PlaceHolderImages.find(img => img.id === project.id);
@@ -84,33 +22,20 @@ function ProjectCard({ project, idx }: { project: any, idx: number }) {
         )}
         style={{ animationDelay: `${idx * 100}ms` }}
       >
-        <div className="relative h-64 overflow-hidden">
+        <Link href={`/projects/${project.id}`} className="relative h-64 overflow-hidden block">
           {imageData && (
             <Image
               src={imageData.imageUrl}
               alt={project.title}
               fill
-              className="object-cover group-hover:scale-110 transition-transform duration-1000"
+              className="object-cover group-hover:scale-105 transition-transform duration-700"
               data-ai-hint={imageData.imageHint}
             />
           )}
           <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center gap-4">
-            <a 
-              href={project.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 bg-accent rounded-full text-accent-foreground hover:scale-110 transition-transform shadow-lg" 
-            >
-              <Github className="w-5 h-5" />
-            </a>
-            <a 
-              href={project.demo}
-              target={project.demo.startsWith('#') ? '_self' : '_blank'}
-              rel="noopener noreferrer"
-              className="p-3 bg-accent rounded-full text-accent-foreground hover:scale-110 transition-transform shadow-lg" 
-            >
-              <ExternalLink className="w-5 h-5" />
-            </a>
+             <div className="bg-accent text-accent-foreground px-6 py-2 rounded-full font-bold flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform">
+               View Details <ArrowRight className="w-4 h-4" />
+             </div>
           </div>
           
           {project.icon && (
@@ -118,30 +43,44 @@ function ProjectCard({ project, idx }: { project: any, idx: number }) {
               <project.icon className="w-4 h-4 text-accent" />
             </div>
           )}
-        </div>
+        </Link>
 
         <CardContent className="p-8 flex-1 flex flex-col justify-between space-y-4">
           <div className="space-y-4">
             <Badge variant="secondary" className="bg-accent/5 text-accent border-accent/10 text-[10px] uppercase font-bold px-2">
               {project.category}
             </Badge>
-            <h3 className="text-xl font-headline font-bold group-hover:text-accent transition-colors leading-tight">
-              {project.title}
-            </h3>
+            <Link href={`/projects/${project.id}`}>
+              <h3 className="text-xl font-headline font-bold group-hover:text-accent transition-colors leading-tight">
+                {project.title}
+              </h3>
+            </Link>
             <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">
               {project.description}
             </p>
           </div>
 
-          <div className="flex flex-wrap gap-2 pt-4 border-t border-border/50">
-            {project.tags.map((tag) => (
-              <span 
-                key={tag} 
-                className="text-[10px] uppercase font-bold tracking-wider text-muted-foreground bg-secondary/50 px-2 py-1 rounded"
+          <div className="flex items-center justify-between pt-4 border-t border-border/50">
+            <div className="flex flex-wrap gap-2">
+              {project.tags.slice(0, 2).map((tag: string) => (
+                <span 
+                  key={tag} 
+                  className="text-[10px] uppercase font-bold tracking-wider text-muted-foreground bg-secondary/50 px-2 py-1 rounded"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+            <div className="flex gap-3">
+              <a 
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-accent transition-colors"
               >
-                {tag}
-              </span>
-            ))}
+                <Github className="w-5 h-5" />
+              </a>
+            </div>
           </div>
         </CardContent>
       </Card>
