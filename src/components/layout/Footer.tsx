@@ -40,7 +40,7 @@ export function Footer() {
 
         <div className="pt-12 border-t border-border flex flex-col md:flex-row items-center justify-between gap-6">
           <p className="text-[10px] text-muted-foreground font-black uppercase tracking-[0.2em]">
-            &copy; {new Date().getFullYear()} SRI HARSHA // ALL RIGHTS RESERVED.
+            &copy; SRI HARSHA // ALL RIGHTS RESERVED.
           </p>
 
           <div className="flex gap-8">

@@ -14,7 +14,7 @@ import {
 } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 interface PageProps {
@@ -29,7 +29,7 @@ export default function ProjectPage({ params }: PageProps) {
   
   useEffect(() => {
     setMounted(true);
-    // Secure non-deterministic values within useEffect to avoid hydration mismatch
+    // Defer dynamic value generation to client-side only to avoid hydration mismatch
     setSessionCode(Math.random().toString(36).substring(7).toUpperCase());
   }, []);
 
@@ -89,7 +89,7 @@ export default function ProjectPage({ params }: PageProps) {
             </motion.p>
           </div>
 
-          {/* Featured Technical Visual (System Lens) */}
+          {/* Featured Technical Visual (System Lens) - Lite Responsive Version */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.98 }}
             animate={{ opacity: 1, scale: 1 }}
