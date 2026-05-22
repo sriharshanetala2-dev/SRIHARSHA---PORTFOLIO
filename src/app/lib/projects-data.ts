@@ -18,18 +18,18 @@ export const projects = [
   {
     id: 'neural-workflow-os',
     title: 'Neural Workflow OS',
-    category: 'Full Stack & AI',
+    category: 'Agentic AI Systems',
     icon: Workflow,
     imageId: 'neural-workflow-os',
-    description: 'An enterprise-grade AI orchestration ecosystem leveraging Google Genkit for semantic task management and neural priority mapping.',
-    longDescription: 'Architected a high-performance productivity hub that utilizes Generative AI for intent parsing and automated priority mapping. This system focuses on real-time data integrity using a low-latency Firestore architecture designed to minimize cognitive overhead for high-performance teams.',
+    description: 'A high-performance task orchestration hub leveraging Google Genkit for semantic intent parsing and neural priority mapping.',
+    longDescription: 'Engineered an enterprise-grade AI ecosystem that utilizes Generative AI for intent-based task orchestration. The system implements a sophisticated priority scoring algorithm and real-time state synchronization via a low-latency Firestore architecture, designed for high-concurrency environments.',
     tags: ['Next.js 15', 'Genkit', 'Firebase', 'LLM'],
     techStack: ['Next.js 15', 'Google Genkit', 'Firebase', 'Tailwind CSS'],
     features: [
-      'Semantic Intent Analysis Engine',
+      'Semantic Intent Analysis Kernel',
       'Real-time Firestore State Streams',
       'Dynamic Priority Neural Scoring',
-      'Agentic Task Execution Logic'
+      'Agentic Execution Logic'
     ],
     metrics: [
       { label: 'Integrity', value: 'Verified' },
@@ -40,89 +40,89 @@ export const projects = [
   {
     id: 'tradeflux-enterprise',
     title: 'TradeFlux Enterprise',
-    category: 'FinTech Systems',
+    category: 'FinTech Architecture',
     icon: BarChart3,
     imageId: 'tradeflux-enterprise',
-    description: 'A low-latency financial dashboard engineered for high-frequency trading visualization and multi-asset market analysis.',
-    longDescription: 'Engineered an enterprise-grade financial monitoring system that aggregates complex market data into real-time visual insights. Optimized for high-frequency rendering of data-heavy charts using Recharts and custom Web Worker logic for non-blocking data processing on the main thread.',
+    description: 'A real-time financial dashboard engineered for multi-asset market analysis and high-frequency data visualization.',
+    longDescription: 'Architected a low-latency financial monitoring hub that aggregates complex market data into real-time visual insights. Optimized for high-frequency rendering of data-heavy charts using Recharts and non-blocking Web Worker logic to ensure zero UI lag during peak volatility.',
     tags: ['Recharts', 'TypeScript', 'Web3', 'Node.js'],
     techStack: ['React', 'Node.js', 'PostgreSQL', 'Recharts'],
     features: [
       'High-Frequency Data Streaming',
       'Predictive Volatility Modeling',
       'Custom Technical Indicator Logic',
-      'Multi-Asset Portfolio Synchronization'
+      'Multi-Asset Portfolio Sync'
     ],
     metrics: [
-      { label: 'Standard', value: 'PCI-DSS' },
-      { label: 'Protocol', value: 'WSS/JSON' },
-      { label: 'Status', value: 'Stable' }
+      { label: 'Integrity', value: 'PCI-DSS' },
+      { label: 'Architecture', value: 'Real-time' },
+      { label: 'Security', value: 'AES-256' }
     ]
   },
   {
     id: 'corelogic-java-engine',
     title: 'CoreLogic Java Engine',
-    category: 'Backend Architecture',
+    category: 'Backend Engineering',
     icon: Database,
     imageId: 'corelogic-java-engine',
-    description: 'A robust, ACID-compliant relational engine designed for high-concurrency enterprise transaction management and data integrity.',
-    longDescription: 'Developed a specialized backend core focusing on high-integrity data mutations and complex join optimization. Implemented custom JDBC pooling and transaction management to ensure zero data loss during peak loads in enterprise-critical environments.',
+    description: 'A robust, ACID-compliant relational core designed for high-concurrency enterprise transaction management.',
+    longDescription: 'Developed a specialized backend engine focusing on high-integrity data mutations and complex join optimization. Implemented custom JDBC pooling and atomic transaction lifecycles to ensure zero data loss in distributed enterprise environments.',
     tags: ['Java', 'Spring Boot', 'SQL', 'ACID'],
     techStack: ['Java 21', 'Spring Boot 3', 'PostgreSQL', 'Docker'],
     features: [
       'Custom JDBC Connection Pooling',
       'Optimized SQL Execution Plans',
-      'Multi-Threaded Sync Architecture',
-      'Atomic Transaction Lifecycle Control'
+      'Multi-Threaded Sync Core',
+      'Atomic Transaction Control'
     ],
     metrics: [
-      { label: 'Type', value: 'ACID' },
-      { label: 'Core', value: 'Spring' },
-      { label: 'Nodes', value: 'Distributed' }
+      { label: 'Integrity', value: 'ACID' },
+      { label: 'Architecture', value: 'Distributed' },
+      { label: 'Security', value: 'TLS 1.3' }
     ]
   },
   {
     id: 'netops-topology-engine',
     title: 'NetOps Topology Hub',
-    category: 'Network Engineering',
+    category: 'Network Systems',
     icon: Globe,
     imageId: 'netops-topology-engine',
-    description: 'A visual networking engine for complex data center infrastructure mapping and subnet mask calculation.',
-    longDescription: 'Built a specialized tool for network architects to simulate and visualize IP address distributions and routing topologies. Uses advanced bitwise logic to handle high-performance IP range calculations and CIDR mapping in a responsive browser environment.',
+    description: 'A visual networking engine for complex infrastructure mapping and high-speed subnet mask calculation.',
+    longDescription: 'Built a specialized utility for network architects to simulate and visualize IP address distributions. Leverages advanced bitwise logic to handle high-performance CIDR mapping and topological routing path simulations in a responsive browser environment.',
     tags: ['Networking', 'CIDR', 'Algorithms', 'React'],
     techStack: ['TypeScript', 'Tailwind CSS', 'Framer Motion', 'Zod'],
     features: [
-      'Real-time Subnet Logic Calculation',
-      'Visual Topological Node Mapping',
-      'Latency Path Simulation Algorithm',
-      'Dynamic CIDR Orchestration UI'
+      'Real-time Subnet Logic Engine',
+      'Visual Topological Mapping',
+      'Path Simulation Algorithms',
+      'Dynamic CIDR Orchestration'
     ],
     metrics: [
-      { label: 'Layer', value: 'L3/L4' },
-      { label: 'Logic', value: 'Bitwise' },
-      { label: 'Format', value: 'CIDR' }
+      { label: 'Integrity', value: 'L3/L4' },
+      { label: 'Architecture', value: 'Topology' },
+      { label: 'Security', value: 'Verified' }
     ]
   },
   {
     id: 'securegate-iam',
     title: 'SecureGate IAM',
-    category: 'Cybersecurity',
+    category: 'Cybersecurity Logic',
     icon: Lock,
     imageId: 'securegate-iam',
-    description: 'An advanced Identity and Access Management shell with OAuth 2.0 integration and MFA biometric verification logic.',
-    longDescription: 'Designed a security-first authentication layer focusing on zero-trust principles and robust session management. Implemented complex identity mapping and audit logging for high-compliance enterprise environments using modern cryptographic standards.',
+    description: 'An advanced Identity and Access Management shell with OAuth 2.0 integration and Zero-Trust verification.',
+    longDescription: 'Designed a security-first authentication layer focusing on zero-trust principles and robust session rotation. Implemented complex identity mapping and automated audit logging for high-compliance enterprise environments using modern cryptographic standards.',
     tags: ['Auth', 'Security', 'OAuth 2.0', 'Firebase'],
     techStack: ['Firebase Auth', 'JWT', 'TypeScript', 'Node.js'],
     features: [
-      'Biometric MFA Integration Logic',
-      'JWT Session Rotation Strategy',
+      'MFA Verification Logic',
+      'JWT Session Rotation',
       'Zero-Trust Identity Mapping',
-      'Automated Enterprise Audit Logging'
+      'Automated Audit Logging'
     ],
     metrics: [
-      { label: 'Auth', value: 'OAuth 2.0' },
-      { label: 'Encryption', value: 'AES-256' },
-      { label: 'Strategy', value: 'ZTNA' }
+      { label: 'Integrity', value: 'OAuth 2.0' },
+      { label: 'Architecture', value: 'ZTA' },
+      { label: 'Security', value: 'FIPS 140' }
     ]
   }
 ];
