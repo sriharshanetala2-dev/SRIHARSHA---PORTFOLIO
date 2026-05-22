@@ -52,11 +52,11 @@ export function Projects() {
             Project Matrix
           </motion.div>
           
-          <h2 className="text-5xl sm:text-7xl md:text-8xl font-headline font-black tracking-tighter leading-none uppercase shimmer-text">
+          <h2 className="text-4xl sm:text-6xl md:text-7xl font-headline font-black tracking-tighter leading-[0.9] uppercase shimmer-text">
             COMPUTATIONAL <span className="text-gradient">SHOWCASE</span>
           </h2>
           
-          <p className="text-base sm:text-xl text-muted-foreground max-w-3xl mx-auto font-medium opacity-70">
+          <p className="text-sm sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto font-medium opacity-70 leading-relaxed uppercase tracking-[0.15em]">
             A curated selection of software experiments, ranging from core Java algorithms to high-performance AI-integrated Full Stack systems.
           </p>
         </div>
@@ -88,7 +88,7 @@ export function Projects() {
                       </div>
                       
                       <div className="flex items-start justify-between gap-4">
-                        <h3 className="text-3xl font-headline font-black leading-tight group-hover:text-primary transition-colors tracking-tighter uppercase">
+                        <h3 className="text-2xl sm:text-3xl font-headline font-black leading-tight group-hover:text-primary transition-colors tracking-tighter uppercase">
                           {project.title}
                         </h3>
                         <div className="p-3 rounded-xl bg-secondary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500 shadow-sm">
