@@ -71,7 +71,7 @@ export default function ProjectPage({ params }: PageProps) {
               initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
               animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               transition={{ delay: 0.1, duration: 1, ease: [0.22, 1, 0.36, 1] }}
-              className="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-headline font-black tracking-tighter uppercase leading-tight sm:leading-[1.1] flex flex-wrap"
+              className="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-headline font-black tracking-tighter uppercase leading-[1.1] flex flex-wrap"
             >
               {project.title.split(' ').map((word, i) => (
                 <span key={i} className={cn("inline-block mr-[0.3em] last:mr-0", i % 2 !== 0 ? "text-gradient shimmer-text" : "text-foreground")}>
@@ -108,25 +108,25 @@ export default function ProjectPage({ params }: PageProps) {
                     boxShadow: ["0 0 30px hsl(var(--primary) / 0.1)", "0 0 80px hsl(var(--primary) / 0.3)", "0 0 30px hsl(var(--primary) / 0.1)"]
                   }}
                   transition={{ duration: 6, repeat: Infinity }}
-                  className="relative p-10 sm:p-24 rounded-[3rem] sm:rounded-[6rem] bg-card border border-border/50 shadow-3xl backdrop-blur-3xl"
+                  className="relative p-8 sm:p-24 rounded-[3rem] sm:rounded-[6rem] bg-card border border-border/50 shadow-3xl backdrop-blur-3xl"
                 >
-                  <project.icon className="w-16 h-16 sm:w-40 sm:h-40 text-primary" />
-                  <div className="absolute -top-3 -right-3 sm:-top-6 sm:-right-6 p-4 sm:p-8 rounded-2xl sm:rounded-[2.5rem] bg-accent text-accent-foreground shadow-3xl border border-white/10">
-                    <Zap className="w-6 sm:w-12 h-6 sm:h-12 animate-pulse" />
+                  <project.icon className="w-12 h-12 sm:w-40 sm:h-40 text-primary" />
+                  <div className="absolute -top-2 -right-2 sm:-top-6 sm:-right-6 p-3 sm:p-8 rounded-xl sm:rounded-[2.5rem] bg-accent text-accent-foreground shadow-3xl border border-white/10">
+                    <Zap className="w-5 sm:w-12 h-5 sm:h-12 animate-pulse" />
                   </div>
                 </motion.div>
 
                 <div className="flex flex-col items-center gap-4">
                   <p className="text-[11px] font-black uppercase tracking-[0.8em] text-primary opacity-60">System Core Node</p>
-                  <h3 className="text-2xl sm:text-6xl font-black uppercase tracking-tighter text-center px-4 leading-tight">{project.title}</h3>
+                  <h3 className="text-xl sm:text-6xl font-black uppercase tracking-tighter text-center px-4 leading-tight">{project.title}</h3>
                 </div>
 
-                {/* Metrics Control Panel */}
-                <div className="grid grid-cols-1 sm:flex items-center justify-center gap-6 sm:gap-12 px-6 sm:px-20 py-8 sm:py-12 glass-card rounded-[2.5rem] sm:rounded-[4rem] border-white/10 bg-background/60 shadow-3xl backdrop-blur-2xl w-full max-w-4xl mx-auto">
+                {/* Metrics Control Panel - Fixed for Mobile Visibility */}
+                <div className="grid grid-cols-3 items-center justify-center gap-2 sm:gap-12 px-4 sm:px-20 py-6 sm:py-12 glass-card rounded-[2rem] sm:rounded-[4rem] border-white/10 bg-background/60 shadow-3xl backdrop-blur-2xl w-full max-w-4xl mx-auto">
                    {project.metrics.map((metric, i) => (
-                     <div key={i} className="flex flex-col items-center px-4 sm:px-12 border-b sm:border-b-0 sm:border-r last:border-0 border-border/30 pb-4 sm:pb-0 last:pb-0">
-                       <span className="text-[10px] sm:text-[12px] font-black uppercase tracking-[0.4em] text-muted-foreground mb-2 sm:mb-3 whitespace-nowrap">{metric.label}</span>
-                       <span className="text-lg sm:text-3xl font-black text-accent uppercase font-headline whitespace-nowrap">{metric.value}</span>
+                     <div key={i} className="flex flex-col items-center px-1 sm:px-12 border-r last:border-0 border-border/30">
+                       <span className="text-[9px] sm:text-[12px] font-black uppercase tracking-[0.2em] sm:tracking-[0.4em] text-muted-foreground mb-1 sm:mb-3 whitespace-nowrap">{metric.label}</span>
+                       <span className="text-xs sm:text-3xl font-black text-accent uppercase font-headline whitespace-nowrap">{metric.value}</span>
                      </div>
                    ))}
                 </div>
@@ -134,28 +134,28 @@ export default function ProjectPage({ params }: PageProps) {
             </div>
 
             {/* Corner Decorative Elements */}
-            <div className="absolute top-8 left-8 sm:top-14 sm:left-14 flex gap-3 sm:gap-4">
-               <div className="w-10 h-10 sm:w-16 sm:h-16 rounded-2xl sm:rounded-3xl glass-card border-white/5 bg-black/40 flex items-center justify-center shadow-2xl">
-                 <Cpu className="w-5 h-5 sm:w-8 sm:h-8 text-primary/60" />
+            <div className="absolute top-6 left-6 sm:top-14 sm:left-14 flex gap-2 sm:gap-4">
+               <div className="w-8 h-8 sm:w-16 sm:h-16 rounded-xl sm:rounded-3xl glass-card border-white/5 bg-black/40 flex items-center justify-center shadow-2xl">
+                 <Cpu className="w-4 h-4 sm:w-8 sm:h-8 text-primary/60" />
                </div>
-               <div className="w-10 h-10 sm:w-16 sm:h-16 rounded-2xl sm:rounded-3xl glass-card border-white/5 bg-black/40 flex items-center justify-center shadow-2xl">
-                 <ShieldCheck className="w-5 h-5 sm:w-8 sm:h-8 text-primary/60" />
+               <div className="w-8 h-8 sm:w-16 sm:h-16 rounded-xl sm:rounded-3xl glass-card border-white/5 bg-black/40 flex items-center justify-center shadow-2xl">
+                 <ShieldCheck className="w-4 h-4 sm:w-8 sm:h-8 text-primary/60" />
                </div>
             </div>
 
-            <div className="absolute bottom-8 left-8 sm:bottom-14 sm:left-14 p-3 sm:p-8 glass-card rounded-2xl sm:rounded-[2.5rem] border-white/10 bg-black/60 flex items-center gap-4 shadow-3xl">
+            <div className="absolute bottom-6 left-6 sm:bottom-14 sm:left-14 p-2 sm:p-8 glass-card rounded-xl sm:rounded-[2.5rem] border-white/10 bg-black/60 flex items-center gap-3 sm:gap-4 shadow-3xl">
               <div className="relative">
-                <div className="w-2.5 h-2.5 sm:w-5 sm:h-5 rounded-full bg-green-500 animate-ping absolute inset-0" />
-                <div className="w-2.5 h-2.5 sm:w-5 sm:h-5 rounded-full bg-green-500 shadow-[0_0_20px_#22c55e]" />
+                <div className="w-2 h-2 sm:w-5 sm:h-5 rounded-full bg-green-500 animate-ping absolute inset-0" />
+                <div className="w-2 h-2 sm:w-5 sm:h-5 rounded-full bg-green-500 shadow-[0_0_20px_#22c55e]" />
               </div>
-              <span className="text-[10px] sm:text-[13px] font-black uppercase tracking-[0.6em] text-green-500">Node Secure</span>
+              <span className="text-[9px] sm:text-[13px] font-black uppercase tracking-[0.4em] sm:tracking-[0.6em] text-green-500">Node Secure</span>
             </div>
           </motion.div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 sm:gap-24">
             <div className="lg:col-span-8 space-y-20 sm:space-y-32">
               <section className="space-y-12 sm:space-y-16">
-                <h2 className="text-3xl sm:text-7xl font-headline font-black tracking-tight flex items-center gap-6 sm:gap-10 uppercase shimmer-text">
+                <h2 className="text-3xl sm:text-7xl font-headline font-black tracking-tight flex items-center gap-6 sm:gap-10 uppercase shimmer-text leading-tight">
                   <Layers className="w-10 h-10 sm:w-16 sm:h-16 text-primary" />
                   Engineering Logic
                 </h2>
@@ -165,7 +165,7 @@ export default function ProjectPage({ params }: PageProps) {
               </section>
 
               <section className="space-y-12 sm:space-y-16">
-                <h2 className="text-3xl sm:text-7xl font-headline font-black tracking-tight flex items-center gap-6 sm:gap-10 uppercase shimmer-text">
+                <h2 className="text-3xl sm:text-7xl font-headline font-black tracking-tight flex items-center gap-6 sm:gap-10 uppercase shimmer-text leading-tight">
                   <CheckCircle2 className="w-10 h-10 sm:w-16 sm:h-16 text-primary" />
                   Core Subsystems
                 </h2>
@@ -177,7 +177,7 @@ export default function ProjectPage({ params }: PageProps) {
                       className="flex items-center gap-6 sm:gap-10 p-8 sm:p-16 rounded-[2.5rem] sm:rounded-[4.5rem] bg-secondary/20 border border-border/50 group transition-all shadow-xl"
                     >
                       <div className="w-3 h-3 sm:w-6 sm:h-6 rounded-full bg-primary shadow-[0_0_30px_rgba(var(--primary),0.8)] group-hover:scale-150 transition-transform" />
-                      <span className="font-black text-base sm:text-3xl tracking-tighter uppercase">{feature}</span>
+                      <span className="font-black text-base sm:text-3xl tracking-tighter uppercase leading-tight">{feature}</span>
                     </motion.div>
                   ))}
                 </div>
