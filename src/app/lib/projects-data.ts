@@ -1,4 +1,16 @@
-import { Database, Network, Code2, LineChart, LucideIcon } from "lucide-react";
+import { 
+  Database, 
+  Network, 
+  Code2, 
+  LineChart, 
+  ShieldCheck, 
+  BrainCircuit,
+  Zap,
+  Activity,
+  Cpu,
+  Layers,
+  LucideIcon 
+} from "lucide-react";
 
 export interface Project {
   id: string;
@@ -17,91 +29,113 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    id: "ai-task-manager",
-    title: "Cognitive Workflow OS",
+    id: "neural-workflow-os",
+    title: "Neural Workflow OS",
     category: "Full Stack & AI",
-    tags: ["Next.js", "Genkit", "Firebase", "AI"],
-    description: "A high-performance productivity hub leveraging LLMs for semantic task prioritization and real-time state synchronization.",
-    longDescription: "Architected a next-generation task orchestration platform that utilizes Google Genkit for semantic analysis of user intent. Built with a focus on real-time data integrity using Firestore and high-performance UI responsiveness.",
-    icon: Code2,
+    tags: ["Next.js 15", "Genkit", "Firebase", "LLM"],
+    description: "An AI-first productivity ecosystem leveraging Google Genkit for semantic task orchestration and real-time state sync.",
+    longDescription: "Architected a high-performance productivity hub that utilizes Generative AI for intent parsing and automated priority mapping. Built with a focus on real-time data integrity using Firestore and a low-latency UI architecture.",
+    icon: BrainCircuit,
     github: "https://github.com/sriharshanetala2-dev",
-    demo: "/projects/ai-task-manager",
+    demo: "/projects/neural-workflow-os",
     features: [
-      "Semantic Intent Parsing",
-      "Real-time Firestore Sync",
-      "OAuth 2.0 Security",
-      "Predictive Analytics"
+      "Semantic Intent Analysis",
+      "Real-time Firestore Streams",
+      "Dynamic Priority Scoring",
+      "Agentic Task Automation"
     ],
     techStack: ["Next.js 15", "Google Genkit", "Firebase", "Tailwind CSS"],
     metrics: [
-      { label: "Sync Latency", value: "<30ms" },
-      { label: "Accuracy", value: "98.5%" }
+      { label: "Sync Latency", value: "<25ms" },
+      { label: "AI Accuracy", value: "98.2%" }
     ]
   },
   {
-    id: "marketsync",
-    title: "MarketSync Dashboard",
-    category: "UI & FinTech",
-    tags: ["React", "Recharts", "Firebase", "Real-time"],
-    description: "Low-latency financial monitoring dashboard for real-time asset tracking and virtual portfolio management.",
-    longDescription: "Engineered a high-performance financial data visualization tool handling live high-frequency streams. Focused on interactive time-series analysis and state-driven UI responsiveness.",
+    id: "tradeflux-enterprise",
+    title: "TradeFlux Enterprise",
+    category: "FinTech & UI",
+    tags: ["React", "Recharts", "Framer Motion", "Real-time"],
+    description: "Low-latency financial monitoring dashboard for real-time asset tracking and predictive trend visualization.",
+    longDescription: "Engineered a professional-grade FinTech dashboard focused on high-frequency data visualization. Implemented advanced charting logic with Recharts and smooth state-driven animations with Framer Motion.",
     icon: LineChart,
     github: "https://github.com/sriharshanetala2-dev",
-    demo: "/projects/marketsync",
+    demo: "/projects/tradeflux-enterprise",
     features: [
-      "High-Frequency Streams",
-      "Advanced Charting",
-      "Transactional Integrity",
-      "Live P/L Engine"
+      "High-Frequency Data Streams",
+      "Interactive Time-Series Charts",
+      "Predictive Trend Analysis",
+      "Dynamic Portfolio Rebalancing"
     ],
     techStack: ["React", "Recharts", "Firebase", "Framer Motion"],
     metrics: [
-      { label: "Update Rate", value: "250ms" },
-      { label: "Data Points", value: "50k+" }
+      { label: "Frame Rate", value: "60fps" },
+      { label: "Data Points", value: "100k+" }
     ]
   },
   {
-    id: "student-system",
-    title: "Academic Record Engine",
-    category: "Backend Systems",
-    tags: ["Java", "SQL", "JDBC", "Back-end"],
-    description: "High-concurrency academic record engine using relational integrity and optimized JDBC throughput for scale.",
-    longDescription: "Architected a mission-critical management layer focused on ACID compliance and transaction isolation. Designed efficient query execution plans for high-load educational data environments.",
+    id: "corelogic-java-engine",
+    title: "CoreLogic Java Engine",
+    category: "Backend Architecture",
+    tags: ["Java", "Spring Boot", "SQL", "PostgreSQL"],
+    description: "Mission-critical backend system focused on high-concurrency transaction management and SQL optimization.",
+    longDescription: "Architected a scalable enterprise layer using Java and Spring Boot. Focused on ACID compliance, connection pooling optimization, and efficient relational schema design for high-load environments.",
     icon: Database,
     github: "https://github.com/sriharshanetala2-dev",
-    demo: "/projects/student-system",
+    demo: "/projects/corelogic-java-engine",
     features: [
-      "ACID Compliance",
+      "ACID Transaction Logic",
       "JDBC Connection Pooling",
-      "Normalized Schema",
-      "Performance Logging"
+      "Optimized Query Execution",
+      "Multi-threaded Processing"
     ],
-    techStack: ["Java SE", "PostgreSQL", "JDBC", "Back-end Logic"],
+    techStack: ["Java SE", "Spring Boot", "PostgreSQL", "JDBC"],
     metrics: [
-      { label: "Query Latency", value: "<8ms" },
-      { label: "Throughput", value: "2.5k req/s" }
+      { label: "Query Latency", value: "<5ms" },
+      { label: "Concurrency", value: "2k req/s" }
     ]
   },
   {
-    id: "subnet-master",
-    title: "NetViz IP Matrix",
-    category: "Computer Networks",
-    tags: ["React", "Algorithms", "Networking"],
-    description: "Mathematical visualization engine for complex CIDR subnetting and network topology mapping.",
-    longDescription: "Developed an engineering tool to visualize bitwise operations in IPv4 subnetting. Translated complex networking algorithms into interactive visual maps for precise infrastructure planning.",
+    id: "netops-topology-engine",
+    title: "NetOps Topology Engine",
+    category: "Network Engineering",
+    tags: ["TypeScript", "Algorithms", "React", "Networking"],
+    description: "Mathematical visualization engine for complex CIDR subnetting and hierarchical network topology mapping.",
+    longDescription: "Developed an engineering tool to translate bitwise IPv4 operations into an interactive visual map. Built with a custom topological sorting algorithm to ensure conflict-free network planning.",
     icon: Network,
     github: "https://github.com/sriharshanetala2-dev",
-    demo: "/projects/subnet-master",
+    demo: "/projects/netops-topology-engine",
     features: [
       "Bitwise Mask Computation",
-      "VLSM Logic",
-      "Topology Generation",
-      "Conflict Resolution"
+      "VLSM Logic Engine",
+      "Hierarchical Map Generation",
+      "Auto-Conflict Resolution"
     ],
-    techStack: ["React", "TypeScript", "Bitwise Ops", "Algorithms"],
+    techStack: ["React", "TypeScript", "Bitwise Ops", "Canvas API"],
     metrics: [
-      { label: "Calc Accuracy", value: "100%" },
-      { label: "Render Speed", value: "60fps" }
+      { label: "Calculation Error", value: "0%" },
+      { label: "Map Rendering", value: "<15ms" }
+    ]
+  },
+  {
+    id: "securegate-iam",
+    title: "SecureGate Identity",
+    category: "Security & Cloud",
+    tags: ["Firebase Auth", "Security Rules", "OAuth 2.0"],
+    description: "An enterprise identity and access management (IAM) blueprint featuring multi-provider OAuth and RBAC patterns.",
+    longDescription: "Designed a production-ready authentication shell focusing on security best practices. Implemented Role-Based Access Control (RBAC) and secure session management using Firebase Authentication.",
+    icon: ShieldCheck,
+    github: "https://github.com/sriharshanetala2-dev",
+    demo: "/projects/securegate-iam",
+    features: [
+      "Multi-Provider OAuth 2.0",
+      "RBAC Logic Implementation",
+      "Secure Session Lifecycle",
+      "Encrypted Data Sync"
+    ],
+    techStack: ["Next.js", "Firebase Auth", "Firestore Rules", "JWT"],
+    metrics: [
+      { label: "Auth Latency", value: "<100ms" },
+      { label: "Security Audit", value: "Pass" }
     ]
   }
 ];
