@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from "react";
@@ -6,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
-import { Sparkles, Loader2, Copy, Check, Terminal, Type, Box, ShieldCheck, Cpu, MessageSquareQuote } from "lucide-react";
+import { Sparkles, Loader2, Copy, Check, Terminal, ShieldCheck, Cpu, MessageSquareQuote } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { cn } from "@/lib/utils";
 
@@ -37,12 +38,17 @@ export function AITool() {
     setResult(null);
     try {
       const output = await generateProjectDescription(formData);
-      setResult(output);
-      toast({
-        title: "Narrative Synthesized",
-        description: "Project description has been successfully optimized.",
-      });
+      if (output && output.projectDescription) {
+        setResult(output);
+        toast({
+          title: "Narrative Synthesized",
+          description: "Project description has been successfully optimized.",
+        });
+      } else {
+        throw new Error("Invalid output received from the engine.");
+      }
     } catch (error: any) {
+      console.error("AI Error:", error);
       toast({
         title: "Synthesis Error",
         description: error.message || "The engine encountered an unexpected exception.",

@@ -119,7 +119,7 @@ export function About() {
             </div>
           </motion.div>
 
-          {/* Right Visual Matrix */}
+          {/* Right Visual Matrix (AI Tech Flows) */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -128,6 +128,36 @@ export function About() {
             className="relative"
           >
             <div className="relative aspect-square rounded-[3rem] overflow-hidden border border-border/50 shadow-3xl bg-secondary/5 data-flow-grid group">
+              <div className="absolute inset-0 opacity-20 pointer-events-none">
+                <div className="absolute top-0 left-0 w-full h-full" style={{ backgroundImage: 'radial-gradient(circle, hsl(var(--primary)) 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+                
+                {/* Moving Tech Flows */}
+                <motion.div 
+                  animate={{ 
+                    x: ["-100%", "100%"],
+                    opacity: [0, 0.5, 0]
+                  }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                  className="absolute top-1/4 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-primary to-transparent"
+                />
+                <motion.div 
+                  animate={{ 
+                    x: ["100%", "-100%"],
+                    opacity: [0, 0.4, 0]
+                  }}
+                  transition={{ duration: 6, repeat: Infinity, ease: "linear", delay: 1 }}
+                  className="absolute top-2/3 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-accent to-transparent"
+                />
+                <motion.div 
+                  animate={{ 
+                    y: ["-100%", "100%"],
+                    opacity: [0, 0.3, 0]
+                  }}
+                  transition={{ duration: 8, repeat: Infinity, ease: "linear", delay: 2 }}
+                  className="absolute left-1/3 top-0 bottom-0 w-[1px] bg-gradient-to-b from-transparent via-primary to-transparent"
+                />
+              </div>
+
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeNode.id}
@@ -137,24 +167,10 @@ export function About() {
                   transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
                   className="absolute inset-0 flex items-center justify-center"
                 >
-                  <div className="absolute inset-0 opacity-20 pointer-events-none">
-                    <div className="absolute top-0 left-0 w-full h-full" style={{ backgroundImage: 'radial-gradient(circle, hsl(var(--primary)) 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
-                    <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--primary)/0.05)_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--primary)/0.05)_1px,transparent_1px)] bg-[size:80px_80px]" />
-                    
-                    <motion.div 
-                      animate={{ 
-                        x: ["-100%", "100%"],
-                        opacity: [0, 0.3, 0]
-                      }}
-                      transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
-                      className="absolute top-1/4 left-0 right-0 h-px bg-primary"
-                    />
-                  </div>
-
                   <div className="relative z-10 flex flex-col items-center gap-10">
                     <motion.div 
                       animate={{ 
-                        boxShadow: ["0 0 20px hsl(var(--primary) / 0.2)", "0 0 50px hsl(var(--primary) / 0.4)", "0 0 20px hsl(var(--primary) / 0.2)"]
+                        boxShadow: ["0 0 20px hsl(var(--primary) / 0.2)", "0 0 60px hsl(var(--primary) / 0.5)", "0 0 20px hsl(var(--primary) / 0.2)"]
                       }}
                       transition={{ duration: 4, repeat: Infinity }}
                       className="relative p-12 rounded-[3.5rem] bg-card border border-border/50 shadow-2xl backdrop-blur-3xl"

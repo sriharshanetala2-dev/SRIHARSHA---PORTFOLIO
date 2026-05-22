@@ -1,3 +1,4 @@
+
 'use server';
 /**
  * @fileOverview A Genkit flow for generating professional project descriptions for portfolios.
@@ -45,7 +46,7 @@ const prompt = ai.definePrompt({
   output: {schema: GenerateProjectDescriptionOutputSchema},
   prompt: `You are a professional technical writer and copywriter specializing in creating concise and impactful project descriptions for technical portfolios.
 
-Based on the following technology stack and project scope, generate a professional, engaging, and concise project description. The description should highlight the project's key features, the technologies used, and its overall value or purpose, making it suitable for a professional portfolio.
+Based on the following technology stack and project scope, generate a professional, engaging, and concise project description. The description should highlight the project's key features, the technologies used, and its overall value or purpose, making it suitable for a professional portfolio. Use a tone that is technical yet accessible.
 
 Technology Stack: {{{technologyStack}}}
 Project Scope: {{{projectScope}}}`,
@@ -58,7 +59,13 @@ const generateProjectDescriptionFlow = ai.defineFlow(
     outputSchema: GenerateProjectDescriptionOutputSchema,
   },
   async input => {
-    const {output} = await prompt(input);
-    return output!;
+    try {
+      const {output} = await prompt(input);
+      if (!output) throw new Error("Synthesis failed: Model returned null output.");
+      return output;
+    } catch (e: any) {
+      console.error("[AI Flow Error]", e);
+      throw new Error("The Narrative Engine encountered a processing exception. Please verify your inputs.");
+    }
   }
 );

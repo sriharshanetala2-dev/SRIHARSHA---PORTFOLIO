@@ -2,4 +2,4 @@
 import { config } from 'dotenv';
 config();
 
-import '@/ai/flows/generate-brand-identity-flow';
+import '@/ai/flows/generate-project-description-flow';
