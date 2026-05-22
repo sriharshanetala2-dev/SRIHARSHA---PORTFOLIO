@@ -1,4 +1,3 @@
-
 "use client";
 
 import { use, useState, useEffect } from "react";
@@ -11,22 +10,27 @@ import {
   Layers, 
   Code2, 
   Zap,
-  Activity,
-  Terminal,
-  Cpu
+  Activity
 } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 
-export default function ProjectPage({ params }: { params: Promise<{ projectId: string }> }) {
+interface PageProps {
+  params: Promise<{ projectId: string }>;
+}
+
+export default function ProjectPage({ params }: PageProps) {
   const resolvedParams = use(params);
   const project = projects.find((p) => p.id === resolvedParams.projectId);
   const [mounted, setMounted] = useState(false);
+  const [sessionCode, setSessionCode] = useState("");
   
   useEffect(() => {
     setMounted(true);
+    // Move dynamic/random values to useEffect to avoid hydration mismatch
+    setSessionCode(Math.random().toString(36).substring(7).toUpperCase());
   }, []);
 
   if (!project) {
@@ -66,7 +70,7 @@ export default function ProjectPage({ params }: { params: Promise<{ projectId: s
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.1, duration: 0.8 }}
-              className="flex flex-wrap text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-headline font-black tracking-tighter uppercase leading-tight sm:leading-none"
+              className="flex flex-wrap text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-headline font-black tracking-tighter uppercase leading-tight sm:leading-tight"
             >
               {project.title.split(' ').map((word, i) => (
                 <span key={i} className={cn("inline-block mr-[0.3em] last:mr-0", i % 2 !== 0 ? "text-gradient" : "text-foreground")}>
@@ -113,7 +117,7 @@ export default function ProjectPage({ params }: { params: Promise<{ projectId: s
 
                 <div className="flex flex-col items-center gap-1">
                   <p className="text-[6px] sm:text-[10px] font-black uppercase tracking-[0.3em] sm:tracking-[0.6em] text-primary opacity-60">Architectural Node</p>
-                  <h3 className="text-[10px] sm:text-3xl font-black uppercase tracking-tighter text-center px-4">{project.title}</h3>
+                  <h3 className="text-xs sm:text-3xl font-black uppercase tracking-tighter text-center px-4">{project.title}</h3>
                 </div>
 
                 <div className="flex gap-2 sm:gap-6 px-3 sm:px-10 py-2 sm:py-5 glass-card rounded-xl sm:rounded-[2rem] border-white/5 bg-background/50 shadow-2xl backdrop-blur-md overflow-hidden max-w-[90vw]">
@@ -206,7 +210,7 @@ export default function ProjectPage({ params }: { params: Promise<{ projectId: s
 
                 <div className="pt-6 sm:pt-8 border-t border-border/50 text-center">
                    <p className="text-[7px] sm:text-[9px] text-muted-foreground font-black uppercase tracking-widest opacity-40">
-                     Check: {Math.random().toString(36).substring(7).toUpperCase()}
+                     Check: {sessionCode}
                    </p>
                 </div>
               </div>

@@ -1,18 +1,21 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import dynamic from 'next/dynamic'
 import { Navbar } from "@/components/layout/Navbar";
 import { Hero } from "@/components/sections/Hero";
-import { About } from "@/components/sections/About";
-import { Projects } from "@/components/sections/Projects";
-import { StudentDashboard } from "@/components/sections/StudentDashboard";
-import { Education } from "@/components/sections/Education";
-import { Experience } from "@/components/sections/Experience";
-import { Skills } from "@/components/sections/Skills";
-import { Contact } from "@/components/sections/Contact";
-import { Footer } from "@/components/layout/Footer";
-import { Toaster } from "@/components/ui/toaster";
 import { motion, AnimatePresence } from "framer-motion";
+
+const About = dynamic(() => import('@/components/sections/About').then(mod => mod.About));
+const Projects = dynamic(() => import('@/components/sections/Projects').then(mod => mod.Projects));
+const StudentDashboard = dynamic(() => import('@/components/sections/StudentDashboard').then(mod => mod.StudentDashboard));
+const Education = dynamic(() => import('@/components/sections/Education').then(mod => mod.Education));
+const Experience = dynamic(() => import('@/components/sections/Experience').then(mod => mod.Experience));
+const Skills = dynamic(() => import('@/components/sections/Skills').then(mod => mod.Skills));
+const Contact = dynamic(() => import('@/components/sections/Contact').then(mod => mod.Contact));
+const Footer = dynamic(() => import('@/components/layout/Footer').then(mod => mod.Footer));
+const Toaster = dynamic(() => import('@/components/ui/toaster').then(mod => mod.Toaster));
+
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);

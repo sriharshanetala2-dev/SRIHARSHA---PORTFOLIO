@@ -1,43 +1,10 @@
-
 "use client";
 
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowUpRight, Layers, Cpu } from "lucide-react";
-import { projects, Project } from "@/app/lib/projects-data";
-
-function ProjectLens({ project }: { project: Project }) {
-  return (
-    <div className="relative h-64 overflow-hidden bg-muted/20 border-b border-border flex items-center justify-center p-6 sm:p-8 group-hover:bg-primary/5 transition-all duration-500">
-      <div className="absolute inset-0 opacity-[0.05] pointer-events-none">
-        <div className="absolute top-0 left-0 w-full h-full" style={{ backgroundImage: 'radial-gradient(circle, currentColor 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
-      </div>
-
-      <div className="relative z-10 flex flex-col items-center gap-4">
-        <motion.div 
-          whileHover={{ scale: 1.1, rotate: 2 }}
-          className="relative p-6 sm:p-8 rounded-[1.5rem] sm:rounded-[2rem] bg-card border border-border shadow-xl transition-all duration-500"
-        >
-          <project.icon className="w-8 h-8 sm:w-12 sm:h-12 text-primary" />
-          <div className="absolute -top-1.5 -right-1.5 p-1.5 rounded-lg bg-accent text-accent-foreground shadow-lg border border-border">
-            <Cpu className="w-3.5 h-3.5" />
-          </div>
-        </motion.div>
-        <p className="text-[8px] sm:text-[10px] font-black uppercase tracking-[0.4em] text-primary opacity-60">System Lens</p>
-      </div>
-
-      <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 flex justify-between px-3 sm:px-6 py-2.5 sm:py-3 glass-card rounded-xl sm:rounded-2xl border-border bg-background/50 backdrop-blur-md overflow-hidden">
-         {project.metrics.map((m, i) => (
-           <div key={i} className="flex flex-col items-start px-2 sm:px-4 border-r last:border-0 border-border/20">
-             <span className="text-[5px] sm:text-[8px] font-black uppercase tracking-widest text-muted-foreground whitespace-nowrap">{m.label}</span>
-             <span className="text-[8px] sm:text-[11px] font-bold text-accent font-mono truncate max-w-[70px] sm:max-w-none">{m.value}</span>
-           </div>
-         ))}
-      </div>
-    </div>
-  );
-}
+import { ArrowUpRight, Layers } from "lucide-react";
+import { projectsShort, ProjectShort } from "@/app/lib/projects-data-short";
 
 export function Projects() {
   return (
@@ -63,7 +30,7 @@ export function Projects() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-          {projects.map((project, idx) => (
+          {projectsShort.map((project, idx) => (
             <motion.div 
               key={project.id}
               initial={{ opacity: 0, y: 30 }}
@@ -73,8 +40,6 @@ export function Projects() {
             >
               <Card className="glass-card overflow-hidden group hover:border-primary/40 transition-all flex flex-col h-full rounded-[2.5rem] bg-card/30">
                 <Link href={`/projects/${project.id}`} className="relative block flex-1">
-                  <ProjectLens project={project} />
-                  
                   <CardContent className="p-8 sm:p-10 space-y-8">
                     <div className="space-y-4">
                       <div className="flex items-center justify-between">
@@ -96,10 +61,6 @@ export function Projects() {
                           <ArrowUpRight className="w-5 h-5" />
                         </div>
                       </div>
-
-                      <p className="text-sm sm:text-lg text-muted-foreground leading-relaxed font-medium line-clamp-2">
-                        {project.description}
-                      </p>
                     </div>
 
                     <div className="flex flex-wrap gap-2 pt-8 border-t border-border/50">
