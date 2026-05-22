@@ -1,37 +1,30 @@
-# NETALA SRIHARSHA | Professional Portfolio & AI Architect
+# NETALA SRIHARSHA | Professional Portfolio
 
-A high-performance, AI-integrated portfolio showcasing expertise in Software Development, Full Stack Engineering, and Generative AI.
+A high-performance portfolio showcasing expertise in Software Development, Full Stack Engineering, and Computer Science.
 
 ## 🚀 Features
-- **Identity Architect Terminal**: A high-tech Genkit-powered command center that synthesizes project blueprints into full brand identities (tech stacks + visual marks).
 - **Enterprise Student Dashboard**: A simulated environment demonstrating complex data visualization using ShadCN UI and Recharts.
 - **Dynamic Projects**: Interactive showcase of Java, AI, and Network Engineering innovations.
 - **Firebase Integration**: Wired for Firestore to handle real-time contact management.
+
+## 🇮🇳 India-Optimized Deployment
+To ensure the fastest access for users in India, follow these steps when deploying via Firebase App Hosting:
+
+1. **Firebase Console**: Go to the [Firebase Console](https://console.firebase.google.com/).
+2. **Region Selection**: When creating your App Hosting backend, select **asia-south1 (Mumbai)** or **asia-south2 (Delhi)**.
+3. **Database Region**: Ensure your Firestore database is also provisioned in the **asia-south1** region.
+4. **Environment Variables**: Add your `NEXT_PUBLIC_FIREBASE_*` keys in the App Hosting dashboard under "Environment Variables".
 
 ## 🛠 Tech Stack
 - **Framework**: Next.js 15 (App Router)
 - **Styling**: Tailwind CSS, ShadCN UI, Lucide Icons
 - **Database**: Firebase Firestore
-- **AI Engine**: Google Genkit (Gemini 2.5 Flash & Imagen 4.0)
-
-## 🐞 Manual Debugging Guide
-
-To debug the application logic or inspect data flow:
-
-1.  **Browser Console**: Press `F12` or `Ctrl+Shift+I` and go to the **Console** tab. I have added `[CLIENT DEBUG]` logs for all AI interactions and Firebase events.
-2.  **Server Logs**: If running locally, check your terminal output. Look for `[DEBUG]` prefixes to see server-side Genkit flow logs.
-3.  **Network Tab**: Inspect the **Network** tab in DevTools to see the status of API calls to Firebase and server actions.
-4.  **Firebase Issues**: If the database isn't working, check the console for "Firebase configuration is missing" warnings. Ensure your `.env` keys are correct.
+- **AI Engine**: Google Genkit
 
 ## 💻 Running Locally
-
 1. **Install Dependencies**: `npm install`
 2. **Setup Env**: Create `.env.local` with your Firebase and Google AI keys.
-3. **Run**: `npm run dev` (Access at http://localhost:9002)
-
-## 🚀 Free Deployment
-
-See the full guide in the "Publishing" section of the Firebase console or use Vercel's one-click deployment for Next.js apps.
+3. **Run**: `npm run dev`
 
 ## 📝 License
 &copy; 2024 NETALA SRIHARSHA. All rights reserved.

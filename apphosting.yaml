@@ -2,6 +2,8 @@
 # https://firebase.google.com/docs/app-hosting/configure
 
 runConfig:
-  # Increase this value if you'd like to automatically spin up
-  # more instances in response to increased traffic.
-  maxInstances: 1
+  # Optimal for a professional portfolio
+  maxInstances: 10
+  minInstances: 0
+  memory: 512MiB
+  cpu: 1
