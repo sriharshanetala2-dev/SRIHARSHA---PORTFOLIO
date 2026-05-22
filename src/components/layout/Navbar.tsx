@@ -2,13 +2,15 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X, Terminal, Code2 } from "lucide-react";
+import { Menu, X, Code2, Moon, Sun } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTheme } from "next-themes";
 
 const navLinks = [
   { name: "About", href: "#about" },
   { name: "Experience", href: "#experience" },
+  { name: "Education", href: "#education" },
   { name: "Portfolio", href: "#portfolio" },
   { name: "Skills", href: "#skills" },
   { name: "Contact", href: "#contact" },
@@ -17,8 +19,11 @@ const navLinks = [
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -30,61 +35,79 @@ export function Navbar() {
       scrolled ? "py-4" : "py-6"
     )}>
       <div className={cn(
-        "max-w-7xl mx-auto flex items-center justify-between px-6 py-4 rounded-xl transition-all duration-300 border",
-        scrolled ? "bg-background/95 backdrop-blur-md border-border shadow-2xl" : "bg-transparent border-transparent"
+        "max-w-7xl mx-auto flex items-center justify-between px-6 py-3 rounded-xl transition-all duration-300 border",
+        scrolled ? "bg-background/95 backdrop-blur-md border-border shadow-lg" : "bg-transparent border-transparent"
       )}>
         <Link href="/" className="flex items-center gap-3 group">
           <div className="p-2 rounded bg-primary text-primary-foreground">
             <Code2 className="w-5 h-5" />
           </div>
           <div className="flex flex-col">
-            <span className="text-xl font-headline font-black tracking-tight uppercase leading-none">SRI HARSHA</span>
-            <span className="text-[9px] font-black uppercase tracking-[0.3em] text-primary">Full Stack Developer</span>
+            <span className="text-lg font-headline font-black tracking-tight uppercase leading-none">SRI HARSHA</span>
+            <span className="text-[8px] font-black uppercase tracking-[0.2em] text-primary">Full Stack Developer</span>
           </div>
         </Link>
 
-        <div className="hidden lg:flex items-center gap-10">
-          <div className="flex items-center gap-8">
+        <div className="hidden lg:flex items-center gap-8">
+          <div className="flex items-center gap-6">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-[10px] font-black text-foreground/70 hover:text-primary transition-all uppercase tracking-[0.2em] relative"
+                className="text-[10px] font-black text-foreground/70 hover:text-primary transition-all uppercase tracking-[0.1em]"
               >
                 {link.name}
               </a>
             ))}
           </div>
           
+          <div className="h-6 w-px bg-border" />
+          
+          <button 
+            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+            className="p-2 rounded-lg hover:bg-secondary transition-colors"
+            aria-label="Toggle Theme"
+          >
+            {mounted && (theme === 'dark' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />)}
+          </button>
+          
           <a 
             href="#contact"
-            className="px-6 py-2.5 rounded bg-primary text-primary-foreground text-[10px] font-black uppercase tracking-widest hover:brightness-110 transition-all"
+            className="px-5 py-2 rounded bg-primary text-primary-foreground text-[10px] font-black uppercase tracking-widest hover:brightness-110 transition-all shadow-md"
           >
-            Contact Node
+            Hire Node
           </a>
         </div>
 
-        <button 
-          className="lg:hidden p-2 rounded bg-secondary text-foreground border border-border"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-        </button>
+        <div className="flex items-center gap-3 lg:hidden">
+          <button 
+            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+            className="p-2 rounded-lg hover:bg-secondary transition-colors"
+          >
+            {mounted && (theme === 'dark' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />)}
+          </button>
+          <button 
+            className="p-2 rounded bg-secondary text-foreground border border-border"
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
+        </div>
       </div>
 
       <AnimatePresence>
         {isOpen && (
           <motion.div 
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="absolute top-full left-6 right-6 mt-4 bg-background border border-border rounded-2xl p-8 flex flex-col gap-6 lg:hidden shadow-3xl"
+            exit={{ opacity: 0, y: -10 }}
+            className="absolute top-full left-6 right-6 mt-2 bg-background border border-border rounded-xl p-6 flex flex-col gap-4 lg:hidden shadow-xl"
           >
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-xl font-headline font-black uppercase tracking-tight hover:text-primary transition-colors"
+                className="text-sm font-black uppercase tracking-widest hover:text-primary transition-colors py-2 border-b border-border/50 last:border-0"
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}
@@ -92,10 +115,10 @@ export function Navbar() {
             ))}
             <a 
               href="#contact"
-              className="w-full py-4 rounded bg-primary text-primary-foreground text-center font-black uppercase tracking-widest text-[10px]"
+              className="w-full py-3 rounded bg-primary text-primary-foreground text-center font-black uppercase tracking-widest text-[10px]"
               onClick={() => setIsOpen(false)}
             >
-              Contact Node
+              Hire Node
             </a>
           </motion.div>
         )}

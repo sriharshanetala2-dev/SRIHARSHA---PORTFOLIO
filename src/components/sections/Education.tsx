@@ -9,65 +9,69 @@ const education = [
     role: "B.Sc in Computer Science",
     company: "Glocal University",
     period: "2021 — 2024",
-    description: "Specialized in core computational theory, algorithms, and software development. Focused on relational database management and modern full-stack ecosystems.",
+    description: "Intensive focus on computational theory, algorithms, and advanced software engineering principles. Built a strong foundation in systems design and database logic.",
     icon: GraduationCap
   },
   {
     role: "Intermediate Education",
     company: "SRR & CVR Govt Jr College",
-    period: "Physics, Chemistry, Math",
-    description: "Focused on academic excellence with a strong emphasis on logical reasoning and mathematical foundations.",
+    period: "2019 — 2021",
+    description: "Core academic foundation focusing on analytical reasoning, logical problem solving, and mathematical modeling.",
     icon: BookOpen
   },
   {
-    role: "Secondary School Certificate (SSC)",
+    role: "Secondary School Certificate",
     company: "Christ the King High School",
-    period: "High Distinction",
-    description: "Completed secondary education with high academic standing, fostering an early passion for technology and logic.",
+    period: "Completed",
+    description: "Foundational academic training with early exposure to logic, technical sciences, and creative problem solving.",
     icon: BrainCircuit
   },
 ];
 
 export function Education() {
   return (
-    <section id="education" className="py-24 md:py-44 px-6 bg-secondary/5 relative overflow-hidden">
+    <section id="education" className="py-24 md:py-32 px-6 bg-secondary/30 relative overflow-hidden">
       <div className="absolute inset-0 neural-grid opacity-5 pointer-events-none" />
       <div className="max-w-5xl mx-auto">
-        <div className="text-center mb-24 space-y-6">
+        <div className="text-center mb-20 space-y-4">
           <motion.div 
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-accent/10 text-[11px] font-black text-accent uppercase tracking-[0.4em] border border-accent/20"
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-[10px] font-black text-primary uppercase tracking-[0.3em] border border-primary/20"
           >
             <BookOpen className="w-4 h-4" />
-            Education Registry
+            Academic Subsystem
           </motion.div>
-          <h2 className="text-4xl sm:text-6xl md:text-8xl font-headline font-black tracking-tighter uppercase">ACADEMIC <span className="text-accent">PATH</span></h2>
-          <p className="text-base sm:text-xl text-muted-foreground font-medium opacity-70">The technical foundation of my development career.</p>
+          <h2 className="text-4xl sm:text-6xl font-headline font-black tracking-tighter uppercase leading-none">
+            TECHNICAL <span className="text-primary">FOUNDATION</span>
+          </h2>
+          <p className="text-sm sm:text-lg text-muted-foreground font-medium opacity-70 uppercase tracking-widest">
+            The intellectual core mapping of my engineering career.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-8">
+        <div className="grid grid-cols-1 gap-6">
           {education.map((item, idx) => (
             <motion.div 
               key={idx}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.1 }}
               viewport={{ once: true }}
             >
-              <Card className="p-10 glass-card border-white/5 hover:border-accent/40 hover:bg-accent/5 transition-all group rounded-[3rem] shadow-3xl">
-                <div className="flex flex-col md:flex-row gap-10 items-start">
-                  <div className="p-6 rounded-2xl bg-accent/10 text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-all duration-500 shadow-xl">
-                    <item.icon className="w-8 h-8" />
+              <Card className="p-8 glass-card hover:border-primary/40 transition-all group rounded-2xl overflow-hidden">
+                <div className="flex flex-col md:flex-row gap-8 items-start">
+                  <div className="p-4 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 shadow-sm">
+                    <item.icon className="w-6 h-6" />
                   </div>
-                  <div className="space-y-4 flex-1">
-                    <div className="flex items-center justify-between">
-                      <h3 className="text-2xl sm:text-4xl font-headline font-black tracking-tight group-hover:text-accent transition-colors uppercase">{item.role}</h3>
-                      <span className="hidden sm:block text-[10px] font-black text-muted-foreground uppercase tracking-widest">{item.period}</span>
+                  <div className="space-y-3 flex-1">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                      <h3 className="text-xl sm:text-2xl font-headline font-black uppercase tracking-tight group-hover:text-primary transition-colors">{item.role}</h3>
+                      <span className="text-[9px] font-black text-muted-foreground uppercase tracking-widest bg-secondary/50 px-3 py-1 rounded-full">{item.period}</span>
                     </div>
-                    <p className="text-accent font-black text-lg tracking-widest uppercase opacity-80">{item.company}</p>
-                    <p className="text-base sm:text-xl text-muted-foreground leading-relaxed font-medium opacity-80">
+                    <p className="text-primary font-black text-xs uppercase tracking-widest opacity-80">{item.company}</p>
+                    <p className="text-sm sm:text-base text-muted-foreground leading-relaxed font-medium opacity-80">
                       {item.description}
                     </p>
                   </div>
