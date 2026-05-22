@@ -20,18 +20,17 @@ export function Contact() {
   const db = useFirestore();
 
   const userEmail = "sriharshanetala2@gmail.com";
-  const linkedInUrl = "https://www.linkedin.com/in/sriharsha-netala-dev/";
 
   const copyEmail = () => {
     navigator.clipboard.writeText(userEmail);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
-    toast({ description: "Email endpoint copied to clipboard." });
+    toast({ description: "Email address copied to clipboard." });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${userEmail}&su=Transmission from ${formData.name}&body=${encodeURIComponent(formData.message)}`;
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${userEmail}&su=Inquiry from ${formData.name}&body=${encodeURIComponent(formData.message)}`;
     
     setIsSubmitting(true);
     
@@ -46,13 +45,13 @@ export function Contact() {
       });
     }
 
-    toast({ title: "INITIATING UPLINK", description: "EXECUTING DATA TRANSMISSION..." });
+    toast({ title: "Sending Message", description: "Opening your email client..." });
     
     setTimeout(() => {
       window.open(gmailUrl, '_blank');
       setIsSubmitting(false);
       setFormData({ name: "", email: "", message: "" });
-    }, 1500);
+    }, 1200);
   };
 
   return (
@@ -67,14 +66,14 @@ export function Contact() {
         >
           <div className="space-y-8">
             <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-primary/10 border border-primary/20 text-[10px] font-black text-primary uppercase tracking-[0.4em]">
-              <Terminal className="w-4 h-4" />
-              Collaboration Gate
+              <Mail className="w-4 h-4" />
+              Get In Touch
             </div>
             <h2 className="text-5xl sm:text-7xl md:text-8xl font-headline font-black tracking-tighter leading-[1.05] uppercase">
-              REACH <span className="text-primary">OUT</span>
+              LET'S <span className="text-primary">TALK</span>
             </h2>
             <p className="text-lg sm:text-2xl text-muted-foreground leading-relaxed max-w-lg font-bold opacity-80 uppercase tracking-tight">
-              Initiate a high-speed technical transmission. Available for Full Stack opportunities.
+              Open for professional collaboration and Full Stack opportunities.
             </p>
           </div>
 
@@ -87,7 +86,7 @@ export function Contact() {
                 <Mail className="w-7 h-7" />
               </div>
               <div className="flex-1 overflow-hidden">
-                <p className="text-[11px] font-black uppercase text-primary tracking-[0.5em] mb-1">Email Endpoint</p>
+                <p className="text-[11px] font-black uppercase text-primary tracking-[0.5em] mb-1">Email Address</p>
                 <p className="font-black text-base sm:text-xl truncate tracking-tight">{userEmail}</p>
               </div>
               {copied ? <Check className="w-6 h-6 text-green-500" /> : <Copy className="w-6 h-6 opacity-20 group-hover:opacity-100 transition-opacity" />}
@@ -98,7 +97,7 @@ export function Contact() {
                 <Phone className="w-7 h-7" />
               </div>
               <div>
-                <p className="text-[11px] font-black uppercase text-primary tracking-[0.5em] mb-1">Voice Node</p>
+                <p className="text-[11px] font-black uppercase text-primary tracking-[0.5em] mb-1">Phone Number</p>
                 <p className="font-black text-base sm:text-xl tracking-tight">+91 9346759263</p>
               </div>
             </div>
@@ -115,10 +114,10 @@ export function Contact() {
           <form onSubmit={handleSubmit} className="space-y-10">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="space-y-3">
-                <label className="text-[11px] font-black uppercase text-muted-foreground tracking-[0.4em] ml-2">Developer Identity</label>
+                <label className="text-[11px] font-black uppercase text-muted-foreground tracking-[0.4em] ml-2">Full Name</label>
                 <div className="relative">
                   <Input 
-                    placeholder="ENTER NAME" 
+                    placeholder="NAME" 
                     required
                     className="bg-background/40 border-border focus:ring-primary h-16 rounded-xl text-base font-black pl-12 shadow-inner uppercase tracking-wider"
                     value={formData.name}
@@ -129,11 +128,11 @@ export function Contact() {
                 </div>
               </div>
               <div className="space-y-3">
-                <label className="text-[11px] font-black uppercase text-muted-foreground tracking-[0.4em] ml-2">Communication Endpoint</label>
+                <label className="text-[11px] font-black uppercase text-muted-foreground tracking-[0.4em] ml-2">Email Address</label>
                 <div className="relative">
                   <Input 
                     type="email" 
-                    placeholder="ENTER EMAIL" 
+                    placeholder="EMAIL" 
                     required
                     className="bg-background/40 border-border focus:ring-primary h-16 rounded-xl text-base font-black pl-12 shadow-inner uppercase tracking-wider"
                     value={formData.email}
@@ -145,9 +144,9 @@ export function Contact() {
               </div>
             </div>
             <div className="space-y-3">
-              <label className="text-[11px] font-black uppercase text-muted-foreground tracking-[0.4em] ml-2">Data Payload</label>
+              <label className="text-[11px] font-black uppercase text-muted-foreground tracking-[0.4em] ml-2">Message</label>
               <Textarea 
-                placeholder="INPUT MESSAGE..." 
+                placeholder="YOUR MESSAGE..." 
                 className="min-h-[180px] bg-background/40 border-border focus:ring-primary p-6 resize-none rounded-2xl text-base font-black leading-relaxed shadow-inner uppercase tracking-tight"
                 required
                 value={formData.message}
@@ -157,10 +156,10 @@ export function Contact() {
             </div>
             <Button 
               type="submit" 
-              className="w-full h-16 rounded-full font-black uppercase tracking-[0.4em] text-[12px] gap-4 shadow-xl transition-all bg-primary text-primary-foreground"
+              className="w-full h-16 rounded-full font-black uppercase tracking-[0.4em] text-[12px] gap-4 shadow-xl transition-all bg-primary text-primary-foreground hover:brightness-110"
               disabled={isSubmitting}
             >
-              {isSubmitting ? <Loader2 className="w-6 h-6 animate-spin" /> : <><Send className="w-5 h-5" /> Execute Transmission</>}
+              {isSubmitting ? <Loader2 className="w-6 h-6 animate-spin" /> : <><Send className="w-5 h-5" /> Send Message</>}
             </Button>
           </form>
         </motion.div>

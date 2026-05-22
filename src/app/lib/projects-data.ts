@@ -9,7 +9,8 @@ import {
   Server,
   Smartphone,
   Cloud,
-  Box
+  Box,
+  Flame
 } from 'lucide-react';
 
 export const projects = [
@@ -20,7 +21,7 @@ export const projects = [
     icon: Workflow,
     description: 'Autonomous task orchestration engine built with Next.js and Google Genkit for semantic intent parsing.',
     longDescription: 'Developed an enterprise-grade AI kernel that leverages Large Language Models for autonomous task management. The system uses Genkit for logic flows and Next.js for high-performance rendering.',
-    tags: ['Next.js', 'Genkit', 'TypeScript', 'React'],
+    tags: ['Next.js', 'Genkit', 'TypeScript', 'Tailwind'],
     techStack: ['Next.js', 'Google Genkit', 'TypeScript', 'Tailwind CSS'],
     features: [
       'Semantic Intent Resolution',

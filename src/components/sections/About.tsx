@@ -12,8 +12,8 @@ const synthesisNodes = [
     icon: Laptop, 
     color: "text-blue-500", 
     desc: "React & Next.js",
-    status: "Compiling UI",
-    metrics: ["120fps Performance", "Modern Orchestration", "Fluid Logic"]
+    status: "Active Rendering",
+    metrics: ["Performance: 120fps", "Modern Orchestration", "Zero-Lag Logic"]
   },
   { 
     id: "fullstack",
@@ -21,8 +21,8 @@ const synthesisNodes = [
     icon: Database, 
     color: "text-indigo-500", 
     desc: "Java & Spring Boot",
-    status: "Syncing Systems",
-    metrics: ["ACID Compliance", "Real-time Data", "Secure Core"]
+    status: "System Synced",
+    metrics: ["ACID Compliance", "Real-time Data", "Secure Systems"]
   },
   { 
     id: "uiux",
@@ -30,8 +30,8 @@ const synthesisNodes = [
     icon: Palette, 
     color: "text-purple-500", 
     desc: "UI Engineering",
-    status: "Mapping Logic",
-    metrics: ["Scalable CSS", "Precise UX", "Industrial Visuals"]
+    status: "Mapping Visuals",
+    metrics: ["Industrial Visuals", "Precise UX", "Scalable CSS"]
   },
   { 
     id: "ai",
@@ -39,8 +39,8 @@ const synthesisNodes = [
     icon: Cpu, 
     color: "text-orange-500", 
     desc: "Genkit AI Tools",
-    status: "Training Node",
-    metrics: ["LLM Integration", "Semantic Logic", "Tool Chaining"]
+    status: "Neural Active",
+    metrics: ["LLM Integration", "Semantic Parsing", "Tool Chaining"]
   }
 ];
 
@@ -117,35 +117,35 @@ export function About() {
                 transition={{ duration: 0.4 }}
                 className="w-full"
               >
-                <div className="p-10 rounded-[2.5rem] border border-border/50 bg-secondary/5 space-y-12">
-                  <div className="flex flex-col items-center gap-8">
-                    <div className="relative p-12 rounded-full bg-card border border-border shadow-xl">
-                      <activeNode.icon className={cn("w-20 h-20 transition-colors duration-500", activeNode.color)} />
-                      <div className="absolute -top-2 -right-2 p-3 rounded-xl bg-primary text-primary-foreground shadow-lg">
-                        <Zap className="w-5 h-5" />
+                <div className="p-8 md:p-12 rounded-[2.5rem] border border-border/50 bg-secondary/5 space-y-10 relative overflow-hidden">
+                  <div className="flex flex-col items-center gap-6 relative z-10">
+                    <div className="relative p-10 rounded-full bg-card border border-border shadow-xl">
+                      <activeNode.icon className={cn("w-16 h-16 transition-colors duration-500", activeNode.color)} />
+                      <div className="absolute -top-1 -right-1 p-2.5 rounded-xl bg-primary text-primary-foreground shadow-lg">
+                        <Zap className="w-4 h-4" />
                       </div>
                     </div>
-                    <div className="text-center space-y-2">
-                      <p className="text-[9px] font-black uppercase tracking-[0.6em] text-primary">Active Logic Node</p>
+                    <div className="text-center space-y-1">
+                      <p className="text-[9px] font-black uppercase tracking-[0.5em] text-primary">Technical Registry</p>
                       <h3 className="text-3xl sm:text-5xl font-headline font-black uppercase tracking-tighter">{activeNode.label}</h3>
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 gap-4">
+                  <div className="grid grid-cols-1 gap-3 relative z-10">
                     {activeNode.metrics.map((metric, i) => (
-                      <div key={i} className="flex items-center justify-between p-5 rounded-xl bg-background border border-border">
-                        <span className="text-[9px] font-black uppercase tracking-[0.5em] text-muted-foreground opacity-50">Technical Vector</span>
-                        <span className="text-[11px] font-black text-primary uppercase tracking-widest">{metric}</span>
+                      <div key={i} className="flex items-center justify-between p-4 rounded-xl bg-background border border-border">
+                        <span className="text-[9px] font-black uppercase tracking-[0.4em] text-muted-foreground opacity-50">Vector</span>
+                        <span className="text-[10px] font-black text-primary uppercase tracking-widest">{metric}</span>
                       </div>
                     ))}
                   </div>
 
-                  <div className="pt-8 border-t border-border/50 flex items-center justify-between">
+                  <div className="pt-6 border-t border-border/50 flex items-center justify-between relative z-10">
                     <div className="flex items-center gap-3">
                       <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
                       <div className="flex flex-col">
-                        <span className="text-[8px] font-black uppercase tracking-[0.4em] text-muted-foreground/40">Status Registry</span>
-                        <span className="text-[10px] font-black text-green-600 uppercase tracking-widest">{activeNode.status}</span>
+                        <span className="text-[8px] font-black uppercase tracking-[0.4em] text-muted-foreground/40">Status</span>
+                        <span className="text-[9px] font-black text-green-600 uppercase tracking-widest">{activeNode.status}</span>
                       </div>
                     </div>
                     <Activity className="w-4 h-4 text-green-500/40" />
