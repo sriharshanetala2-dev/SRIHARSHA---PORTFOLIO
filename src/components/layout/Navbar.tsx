@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, useEffect } from "react";
@@ -12,7 +11,7 @@ import { useTheme } from "next-themes";
 const navLinks = [
   { name: "About", href: "#about" },
   { name: "Showcase", href: "#portfolio" },
-  { name: "Education", href: "#education" },
+  { name: "Skills", href: "#skills" },
   { name: "Growth", href: "#experience" },
   { name: "Contact", href: "#contact" },
 ];
@@ -52,49 +51,49 @@ export function Navbar() {
     <nav
       className={cn(
         "fixed top-0 w-full z-50 transition-all duration-500",
-        scrolled ? "glass-nav py-3" : "bg-transparent py-8"
+        scrolled ? "glass-nav py-4" : "bg-transparent py-10"
       )}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-3 group">
-          <div className="w-9 h-9 transition-transform duration-500 group-hover:rotate-12">
+        <Link href="/" className="flex items-center gap-4 group">
+          <div className="w-11 h-11 transition-transform duration-700 group-hover:rotate-12">
             <Logo />
           </div>
           <div className="flex flex-col -space-y-1">
-            <span className="text-lg font-headline font-black tracking-tighter">
+            <span className="text-xl font-headline font-black tracking-tighter uppercase">
               SRI<span className="text-primary">HARSHA</span>
             </span>
-            <span className="text-[8px] font-black uppercase tracking-[0.2em] opacity-40">Software Architect</span>
+            <span className="text-[9px] font-black uppercase tracking-[0.3em] opacity-40">Software Developer</span>
           </div>
         </Link>
 
         {/* Desktop Nav */}
-        <div className="hidden lg:flex items-center gap-8">
-          <div className="flex items-center gap-6 px-6 py-2 rounded-full glass-card border-foreground/5">
+        <div className="hidden lg:flex items-center gap-10">
+          <div className="flex items-center gap-8 px-8 py-3 rounded-full glass-card border-white/5 shadow-xl">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={(e) => scrollToSection(e, link.href)}
-                className="text-[10px] font-black text-muted-foreground hover:text-primary transition-colors uppercase tracking-[0.2em]"
+                className="text-[10px] font-black text-muted-foreground hover:text-primary transition-colors uppercase tracking-[0.3em]"
               >
                 {link.name}
               </a>
             ))}
           </div>
           
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-5">
             <Button
               variant="ghost"
               size="icon"
-              className="rounded-full w-10 h-10 border border-foreground/5 hover:bg-foreground/5"
+              className="rounded-full w-12 h-12 border border-white/5 hover:bg-white/5 shadow-inner transition-all"
               onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
             >
-              {theme === 'dark' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+              {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
             </Button>
             <Button 
               asChild
-              className="rounded-full px-8 h-12 font-black text-[10px] uppercase tracking-widest shadow-xl shadow-primary/20"
+              className="rounded-full px-10 h-14 font-black text-[11px] uppercase tracking-[0.2em] shadow-2xl shadow-primary/20 hover:scale-105 transition-transform"
             >
               <a href="#contact" onClick={(e) => scrollToSection(e, "#contact")}>Hire Me</a>
             </Button>
@@ -102,39 +101,39 @@ export function Navbar() {
         </div>
 
         {/* Mobile Toggle */}
-        <div className="lg:hidden flex items-center gap-3">
+        <div className="lg:hidden flex items-center gap-4">
           <Button
             variant="ghost"
             size="icon"
-            className="rounded-full w-10 h-10 border border-foreground/5"
+            className="rounded-full w-12 h-12 border border-white/5"
             onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
           >
-            {theme === 'dark' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+            {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
           </Button>
           <button
-            className="p-2 glass-card rounded-xl text-foreground"
+            className="p-3 glass-card rounded-2xl text-foreground shadow-lg"
             onClick={() => setIsOpen(!isOpen)}
           >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
           </button>
         </div>
       </div>
 
       {/* Mobile Nav */}
       {isOpen && (
-        <div className="absolute top-full left-0 w-full glass-nav lg:hidden p-8 animate-in fade-in slide-in-from-top-4">
-          <div className="flex flex-col gap-6">
+        <div className="absolute top-full left-0 w-full glass-nav lg:hidden p-10 animate-in fade-in slide-in-from-top-6 shadow-3xl">
+          <div className="flex flex-col gap-8">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-2xl font-headline font-black hover:text-primary transition-colors"
+                className="text-3xl font-headline font-black hover:text-primary transition-colors tracking-tight"
                 onClick={(e) => scrollToSection(e, link.href)}
               >
                 {link.name}
               </a>
             ))}
-            <Button asChild className="w-full h-14 text-lg font-black rounded-2xl">
+            <Button asChild className="w-full h-16 text-lg font-black rounded-2xl shadow-xl shadow-primary/20">
               <a href="#contact" onClick={(e) => scrollToSection(e, "#contact")}>Hire Me</a>
             </Button>
           </div>
