@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState } from "react";
@@ -16,17 +15,26 @@ import { FirestorePermissionError } from '@/firebase/errors';
 export function Contact() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [copied, setCopied] = useState(false);
+  const [copiedEmail, setCopiedEmail] = useState(false);
+  const [copiedPhone, setCopiedPhone] = useState(false);
   const { toast } = useToast();
   const db = useFirestore();
 
   const userEmail = "sriharshanetala2@gmail.com";
+  const userPhone = "+91 9346759263";
 
   const copyEmail = () => {
     navigator.clipboard.writeText(userEmail);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+    setCopiedEmail(true);
+    setTimeout(() => setCopiedEmail(false), 2000);
     toast({ description: "Email address copied to clipboard." });
+  };
+
+  const copyPhone = () => {
+    navigator.clipboard.writeText(userPhone);
+    setCopiedPhone(true);
+    setTimeout(() => setCopiedPhone(false), 2000);
+    toast({ description: "Phone number copied to clipboard." });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -35,6 +43,7 @@ export function Contact() {
     
     setIsSubmitting(true);
     
+    // Attempt Firestore persistence if db is ready
     if (db) {
       addDoc(collection(db, 'messages'), {
         ...formData,
@@ -48,6 +57,7 @@ export function Contact() {
 
     toast({ title: "Sending Message", description: "Opening your email client..." });
     
+    // Simulate slight delay for professional feedback then redirect
     setTimeout(() => {
       window.open(gmailUrl, '_blank');
       setIsSubmitting(false);
@@ -56,99 +66,103 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 md:py-44 px-6 relative overflow-hidden bg-background border-t border-border">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 relative z-10">
+    <section id="contact" className="py-24 md:py-32 px-6 relative overflow-hidden bg-background border-t border-border">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 relative z-10">
         <motion.div 
-          initial={{ opacity: 0, x: -40 }}
+          initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="space-y-16"
+          className="space-y-12"
         >
-          <div className="space-y-10">
-            <div className="inline-flex items-center gap-4 px-6 py-2 rounded-full bg-primary/10 border border-primary/20 text-xs font-black text-primary uppercase tracking-widest">
-              <Mail className="w-5 h-5" />
-              Get In Touch
+          <div className="space-y-8">
+            <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-primary/10 border border-primary/20 text-xs font-black text-primary uppercase tracking-widest">
+              <Mail className="w-4 h-4" />
+              Contact Hub
             </div>
-            <h2 className="text-5xl sm:text-7xl lg:text-8xl font-headline font-black tracking-tighter leading-[1.05] uppercase">
-              LET'S <span className="text-primary">TALK</span>
+            <h2 className="text-4xl sm:text-6xl font-headline font-black tracking-tighter leading-none uppercase">
+              GET IN <span className="text-primary">TOUCH</span>
             </h2>
-            <p className="text-lg sm:text-2xl text-muted-foreground leading-relaxed max-w-lg font-bold opacity-80 uppercase tracking-tight">
-              Open for professional collaboration and Full Stack opportunities.
+            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-lg font-bold opacity-80 uppercase tracking-widest">
+              Open for professional Full Stack development opportunities and secure collaboration.
             </p>
           </div>
 
-          <div className="space-y-8">
+          <div className="space-y-6">
             <div 
               onClick={copyEmail}
-              className="flex items-center gap-8 p-10 glass-card rounded-3xl hover:border-primary transition-all cursor-pointer group shadow-lg border-border bg-card/10"
+              className="flex items-center gap-6 p-8 bg-secondary/30 rounded-3xl border border-border hover:border-primary transition-all cursor-pointer group shadow-sm"
             >
-              <div className="p-6 rounded-2xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 shadow-inner">
-                <Mail className="w-8 h-8" />
+              <div className="p-4 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all shadow-inner">
+                <Mail className="w-6 h-6" />
               </div>
-              <div className="flex-1 overflow-hidden">
-                <p className="text-xs font-black uppercase text-primary tracking-widest mb-2 opacity-60">Email Address</p>
-                <p className="font-black text-xl sm:text-2xl truncate tracking-tight">{userEmail}</p>
+              <div className="flex-1 min-w-0">
+                <p className="text-[10px] font-black uppercase text-primary tracking-widest mb-1 opacity-60">Professional Email</p>
+                <p className="font-black text-lg sm:text-xl truncate tracking-tight uppercase">{userEmail}</p>
               </div>
-              {copied ? <Check className="w-8 h-8 text-green-500" /> : <Copy className="w-8 h-8 opacity-20 group-hover:opacity-100 transition-opacity" />}
+              {copiedEmail ? <Check className="w-6 h-6 text-green-500" /> : <Copy className="w-6 h-6 opacity-20 group-hover:opacity-100 transition-opacity" />}
             </div>
 
-            <div className="flex items-center gap-8 p-10 glass-card rounded-3xl shadow-lg border-border bg-card/10">
-              <div className="p-6 rounded-2xl bg-primary/10 text-primary shadow-inner">
-                <Phone className="w-8 h-8" />
+            <div 
+              onClick={copyPhone}
+              className="flex items-center gap-6 p-8 bg-secondary/30 rounded-3xl border border-border hover:border-primary transition-all cursor-pointer group shadow-sm"
+            >
+              <div className="p-4 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all shadow-inner">
+                <Phone className="w-6 h-6" />
               </div>
-              <div>
-                <p className="text-xs font-black uppercase text-primary tracking-widest mb-2 opacity-60">Phone Number</p>
-                <p className="font-black text-xl sm:text-2xl tracking-tight">+91 9346759263</p>
+              <div className="flex-1">
+                <p className="text-[10px] font-black uppercase text-primary tracking-widest mb-1 opacity-60">Direct Line</p>
+                <p className="font-black text-lg sm:text-xl tracking-tight uppercase">{userPhone}</p>
               </div>
+              {copiedPhone ? <Check className="w-6 h-6 text-green-500" /> : <Copy className="w-6 h-6 opacity-20 group-hover:opacity-100 transition-opacity" />}
             </div>
           </div>
         </motion.div>
 
         <motion.div 
-          initial={{ opacity: 0, scale: 0.95 }}
+          initial={{ opacity: 0, scale: 0.98 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="glass-card p-10 md:p-14 rounded-[3rem] shadow-2xl border-border bg-card/30"
+          className="bg-card/50 border border-border p-8 md:p-12 rounded-[2.5rem] shadow-xl"
         >
-          <form onSubmit={handleSubmit} className="space-y-12">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-              <div className="space-y-4">
-                <label className="text-xs font-black uppercase text-muted-foreground tracking-widest ml-3">Full Name</label>
+          <form onSubmit={handleSubmit} className="space-y-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="space-y-3">
+                <label className="text-[10px] font-black uppercase text-muted-foreground tracking-widest ml-1">Full Name</label>
                 <div className="relative">
                   <Input 
-                    placeholder="NAME" 
+                    placeholder="ENTER NAME" 
                     required
-                    className="bg-background/40 border-border focus:ring-primary h-16 rounded-2xl text-base font-black pl-14 shadow-inner uppercase tracking-wider"
+                    className="bg-background/40 border-border focus:ring-primary h-14 rounded-xl text-sm font-black pl-12 shadow-inner uppercase tracking-wider"
                     value={formData.name}
                     onChange={(e) => setFormData({...formData, name: e.target.value})}
                     disabled={isSubmitting}
                   />
-                  <User className="absolute left-5 top-1/2 -translate-y-1/2 w-6 h-6 text-muted-foreground opacity-30" />
+                  <User className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground opacity-30" />
                 </div>
               </div>
-              <div className="space-y-4">
-                <label className="text-xs font-black uppercase text-muted-foreground tracking-widest ml-3">Email Address</label>
+              <div className="space-y-3">
+                <label className="text-[10px] font-black uppercase text-muted-foreground tracking-widest ml-1">Email Address</label>
                 <div className="relative">
                   <Input 
                     type="email" 
-                    placeholder="EMAIL" 
+                    placeholder="ENTER EMAIL" 
                     required
-                    className="bg-background/40 border-border focus:ring-primary h-16 rounded-2xl text-base font-black pl-14 shadow-inner uppercase tracking-wider"
+                    className="bg-background/40 border-border focus:ring-primary h-14 rounded-xl text-sm font-black pl-12 shadow-inner uppercase tracking-wider"
                     value={formData.email}
                     onChange={(e) => setFormData({...formData, email: e.target.value})}
                     disabled={isSubmitting}
                   />
-                  <Mail className="absolute left-5 top-1/2 -translate-y-1/2 w-6 h-6 text-muted-foreground opacity-30" />
+                  <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground opacity-30" />
                 </div>
               </div>
             </div>
-            <div className="space-y-4">
-              <label className="text-xs font-black uppercase text-muted-foreground tracking-widest ml-3">Message</label>
+            <div className="space-y-3">
+              <label className="text-[10px] font-black uppercase text-muted-foreground tracking-widest ml-1">Message Payload</label>
               <Textarea 
-                placeholder="YOUR MESSAGE..." 
-                className="min-h-[200px] bg-background/40 border-border focus:ring-primary p-8 resize-none rounded-3xl text-base font-black leading-relaxed shadow-inner uppercase tracking-tight"
+                placeholder="YOUR MESSAGE CONTENT..." 
+                className="min-h-[160px] bg-background/40 border-border focus:ring-primary p-6 resize-none rounded-2xl text-sm font-black leading-relaxed shadow-inner uppercase tracking-tight"
                 required
                 value={formData.message}
                 onChange={(e) => setFormData({...formData, message: e.target.value})}
@@ -157,10 +171,10 @@ export function Contact() {
             </div>
             <Button 
               type="submit" 
-              className="w-full h-18 rounded-full font-black uppercase tracking-widest text-sm gap-6 shadow-2xl transition-all bg-primary text-primary-foreground hover:brightness-110 py-8"
+              className="w-full h-16 rounded-full font-black uppercase tracking-widest text-xs gap-4 shadow-xl transition-all bg-primary text-primary-foreground hover:brightness-110"
               disabled={isSubmitting}
             >
-              {isSubmitting ? <Loader2 className="w-8 h-8 animate-spin" /> : <><Send className="w-6 h-6" /> Send Message</>}
+              {isSubmitting ? <Loader2 className="w-5 h-5 animate-spin" /> : <><Send className="w-4 h-4" /> Send Message</>}
             </Button>
           </form>
         </motion.div>
