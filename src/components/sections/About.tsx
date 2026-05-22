@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Laptop, Palette, Database, Cpu, BrainCircuit, Zap, Fingerprint } from "lucide-react";
+import { Laptop, Palette, Database, Cpu, BrainCircuit, Zap, Fingerprint, Activity } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const synthesisNodes = [
