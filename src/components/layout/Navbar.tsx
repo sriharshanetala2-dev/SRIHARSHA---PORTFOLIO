@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, useEffect } from "react";
@@ -32,20 +31,20 @@ export function Navbar() {
 
   return (
     <nav className={cn(
-      "fixed top-0 w-full z-50 transition-all duration-300 px-6",
-      scrolled ? "py-4" : "py-6"
+      "fixed top-0 w-full z-50 transition-all duration-300 px-4 sm:px-6",
+      scrolled ? "py-2 sm:py-4" : "py-4 sm:py-6"
     )}>
       <div className={cn(
-        "max-w-7xl mx-auto flex items-center justify-between px-6 py-3 rounded-xl transition-all duration-300 border",
+        "max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 py-2 sm:py-3 rounded-xl transition-all duration-300 border",
         scrolled ? "bg-background/95 backdrop-blur-md border-border shadow-md" : "bg-transparent border-transparent"
       )}>
-        <Link href="/" className="flex items-center gap-3 group">
-          <div className="p-2 rounded bg-primary text-primary-foreground">
-            <Code2 className="w-5 h-5" />
+        <Link href="/" className="flex items-center gap-2 sm:gap-3 group">
+          <div className="p-1.5 sm:p-2 rounded bg-primary text-primary-foreground">
+            <Code2 className="w-4 h-4 sm:w-5 sm:h-5" />
           </div>
           <div className="flex flex-col">
-            <span className="text-base font-headline font-black tracking-tight uppercase leading-none">SRI HARSHA</span>
-            <span className="text-xs font-black uppercase tracking-wider text-primary">Full Stack Developer</span>
+            <span className="text-sm sm:text-base font-headline font-black tracking-tight uppercase leading-none">SRI HARSHA</span>
+            <span className="text-[9px] sm:text-xs font-black uppercase tracking-wider text-primary">Full Stack Developer</span>
           </div>
         </Link>
 
@@ -80,18 +79,18 @@ export function Navbar() {
           </a>
         </div>
 
-        <div className="flex items-center gap-3 lg:hidden">
+        <div className="flex items-center gap-2 sm:gap-3 lg:hidden">
           <button 
             onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-            className="p-2 rounded-lg hover:bg-secondary transition-colors"
+            className="p-1.5 sm:p-2 rounded-lg hover:bg-secondary transition-colors"
           >
             {mounted && (theme === 'dark' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />)}
           </button>
           <button 
-            className="p-2 rounded bg-secondary text-foreground border border-border"
+            className="p-1.5 sm:p-2 rounded bg-secondary text-foreground border border-border"
             onClick={() => setIsOpen(!isOpen)}
           >
-            {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            {isOpen ? <X className="w-4 h-4 sm:w-5 sm:h-5" /> : <Menu className="w-4 h-4 sm:w-5 sm:h-5" />}
           </button>
         </div>
       </div>
@@ -102,13 +101,13 @@ export function Navbar() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="absolute top-full left-6 right-6 mt-2 bg-background border border-border rounded-xl p-6 flex flex-col gap-4 lg:hidden shadow-xl"
+            className="absolute top-full left-4 right-4 sm:left-6 sm:right-6 mt-2 bg-background border border-border rounded-xl p-4 sm:p-6 flex flex-col gap-2 sm:gap-4 lg:hidden shadow-xl"
           >
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-sm font-black uppercase tracking-widest hover:text-primary transition-colors py-3 border-b border-border/50 last:border-0"
+                className="text-xs sm:text-sm font-black uppercase tracking-widest hover:text-primary transition-colors py-2 sm:py-3 border-b border-border/50 last:border-0"
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}
@@ -116,7 +115,7 @@ export function Navbar() {
             ))}
             <a 
               href="#contact"
-              className="w-full py-4 rounded bg-primary text-primary-foreground text-center font-black uppercase tracking-widest text-xs"
+              className="w-full py-3 sm:py-4 rounded bg-primary text-primary-foreground text-center font-black uppercase tracking-widest text-[10px] sm:text-xs"
               onClick={() => setIsOpen(false)}
             >
               Hire Developer

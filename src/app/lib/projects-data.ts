@@ -1,16 +1,11 @@
 import { 
-  Cpu, 
   Database, 
-  Globe, 
   Workflow, 
-  Terminal,
-  Activity,
-  ShieldCheck,
-  Server,
   Smartphone,
+  ShieldCheck,
   Cloud,
-  Box,
-  Flame
+  Server,
+  Code2
 } from 'lucide-react';
 
 export const projects = [
