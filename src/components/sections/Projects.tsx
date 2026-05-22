@@ -17,7 +17,7 @@ const projects = [
     tags: ["Java", "SQL", "JDBC"],
     description: "An intelligent, high-performance database system designed for seamless academic lifecycle tracking and performance analytics.",
     icon: Database,
-    github: "https://github.com/sriharshanetala",
+    github: "https://github.com/sriharshanetala2-dev",
     demo: "#dashboard"
   },
   {
@@ -27,7 +27,7 @@ const projects = [
     tags: ["JavaScript", "OpenWeather API", "Neural Networks"],
     description: "A creative AI-powered weather forecasting application utilizing neural network architectures to predict atmospheric trends with a stunning, futuristic interface.",
     icon: Sparkles,
-    github: "https://github.com/sriharshanetala",
+    github: "https://github.com/sriharshanetala2-dev",
     demo: "https://weather.visualcrossing.com"
   },
   {
@@ -37,8 +37,8 @@ const projects = [
     tags: ["Next.js", "Genkit", "Firebase"],
     description: "A dynamic orchestration engine utilizing code-driven logic and LLMs to prioritize, categorize, and automate scheduling with predictive accuracy.",
     icon: Code2,
-    github: "https://github.com/sriharshanetala",
-    demo: "https://github.com/sriharshanetala"
+    github: "https://github.com/sriharshanetala2-dev",
+    demo: "https://github.com/sriharshanetala2-dev"
   },
   {
     id: "ecommerce-site",
@@ -47,8 +47,8 @@ const projects = [
     tags: ["React", "Tailwind", "Firebase"],
     description: "A professional marketing analytics platform integrating stock market trend analysis and real-time data visualization for digital asset management.",
     icon: LineChart,
-    github: "https://github.com/sriharshanetala",
-    demo: "https://github.com/sriharshanetala"
+    github: "https://github.com/sriharshanetala2-dev",
+    demo: "https://github.com/sriharshanetala2-dev"
   },
   {
     id: "subnet-master",
@@ -57,7 +57,7 @@ const projects = [
     tags: ["React", "Networking", "Subnetting"],
     description: "An autonomous network topology designer for precision IP subnetting, utilizing terminal-style logic and visual calculation engines.",
     icon: Network,
-    github: "https://github.com/sriharshanetala",
+    github: "https://github.com/sriharshanetala2-dev",
     demo: "https://www.subnet-calculator.com"
   },
   {
@@ -67,7 +67,7 @@ const projects = [
     tags: ["Python", "SQL", "Pandas"],
     description: "Advanced analytical engine for synthesizing complex business datasets into predictive visual insights through automated processing scripts.",
     icon: Search,
-    github: "https://github.com/sriharshanetala",
+    github: "https://github.com/sriharshanetala2-dev",
     demo: "https://public.tableau.com"
   }
 ];

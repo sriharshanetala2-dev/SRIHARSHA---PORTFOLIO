@@ -13,14 +13,14 @@ export function Footer() {
               </span>
             </div>
             <p className="text-muted-foreground text-center md:text-left max-w-sm">
-              Passionate Junior Developer focused on creating beautiful, functional, and user-centered digital experiences.
+              Passionate Software Developer focused on creating beautiful, functional, and user-centered digital experiences.
             </p>
           </div>
 
           <div className="flex gap-6">
             {[
-              { icon: Github, label: "GitHub", href: "https://github.com/sriharshanetala" },
-              { icon: Linkedin, label: "LinkedIn", href: "https://linkedin.com" },
+              { icon: Github, label: "GitHub", href: "https://github.com/sriharshanetala2-dev" },
+              { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/sriharshanetala/" },
               { icon: Mail, label: "Email", href: "mailto:sriharshanetala2@gmail.com" }
             ].map((social) => (
               <a 
