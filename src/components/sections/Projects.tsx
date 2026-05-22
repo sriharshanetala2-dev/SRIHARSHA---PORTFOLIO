@@ -8,7 +8,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import { ExternalLink, Github, Database, Sparkles, Network, Code2, LineChart, Search } from "lucide-react";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { cn } from "@/lib/utils";
-import { useToast } from "@/hooks/use-toast";
 
 const projects = [
   {
@@ -74,38 +73,10 @@ const projects = [
 ];
 
 function ProjectCard({ project, idx }: { project: any, idx: number }) {
-  const cardRef = useRef<HTMLDivElement>(null);
-  const { toast } = useToast();
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-    const rotateX = (y - centerY) / 10;
-    const rotateY = (centerX - x) / 10;
-
-    cardRef.current.style.setProperty("--rotate-x", `${rotateX}deg`);
-    cardRef.current.style.setProperty("--rotate-y", `${rotateY}deg`);
-  };
-
-  const handleMouseLeave = () => {
-    if (!cardRef.current) return;
-    cardRef.current.style.setProperty("--rotate-x", `0deg`);
-    cardRef.current.style.setProperty("--rotate-y", `0deg`);
-  };
-
   const imageData = PlaceHolderImages.find(img => img.id === project.id);
 
   return (
-    <div 
-      ref={cardRef}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      className="tilt-element h-full"
-    >
+    <div className="h-full">
       <Card 
         className={cn(
           "group border-border bg-card overflow-hidden hover:border-accent/40 transition-all duration-300 shadow-xl hover:shadow-2xl h-full flex flex-col",
