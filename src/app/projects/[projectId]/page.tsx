@@ -15,7 +15,8 @@ import {
   Database,
   Layers,
   Code2,
-  ChevronRight
+  ChevronRight,
+  ShieldCheck
 } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -50,11 +51,11 @@ export default function ProjectPage({ params }: { params: Promise<{ projectId: s
             className="inline-flex items-center gap-3 text-[11px] font-black text-primary uppercase tracking-[0.4em] hover:gap-5 transition-all group"
           >
             <ArrowLeft className="w-4 h-4" />
-            System Registry / {project.id}
+            Registry / {project.id}
           </Link>
         </motion.div>
 
-        {/* Core Architectural Header */}
+        {/* Engineering Header */}
         <div className="space-y-8 sm:space-y-10">
           <motion.div 
             initial={{ opacity: 0, y: 10 }}
@@ -84,25 +85,25 @@ export default function ProjectPage({ params }: { params: Promise<{ projectId: s
           </motion.p>
         </div>
 
-        {/* High-Visibility Metrics HUD - Fixed Horizontal Persistence */}
+        {/* CRITICAL: Persistent Horizontal Metrics HUD */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
-          className="grid grid-cols-3 gap-2 sm:gap-6 bg-secondary/10 p-4 sm:p-10 rounded-2xl sm:rounded-[3rem] border border-border/50"
+          className="grid grid-cols-3 gap-4 sm:gap-12 bg-secondary/10 p-6 sm:p-14 rounded-2xl sm:rounded-[3rem] border border-border/50 shadow-2xl backdrop-blur-sm"
         >
           {project.metrics.map((metric, i) => (
-            <div key={i} className="flex flex-col items-center justify-center text-center">
-              <span className="text-[9px] sm:text-[11px] font-black text-primary uppercase mb-2 tracking-[0.3em]">{metric.label}</span>
-              <span className="text-xs sm:text-2xl font-black text-foreground uppercase tracking-tighter">{metric.value}</span>
+            <div key={i} className="flex flex-col items-center justify-center text-center space-y-1 sm:space-y-2">
+              <span className="text-[9px] sm:text-[11px] font-black text-primary uppercase tracking-[0.3em] opacity-60">{metric.label}</span>
+              <span className="text-xs sm:text-3xl font-black text-foreground uppercase tracking-tighter">{metric.value}</span>
             </div>
           ))}
         </motion.div>
 
-        {/* Developer Blueprint Section */}
+        {/* Architectural Record Section */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
           <div className="lg:col-span-8 space-y-20">
-            {/* Terminal Interface Section */}
+            {/* System Logic Trace (Code Style for Developers) */}
             <section className="space-y-10">
               <div className="flex items-center gap-4">
                 <div className="p-3 rounded-xl bg-primary/10 text-primary">
@@ -111,7 +112,7 @@ export default function ProjectPage({ params }: { params: Promise<{ projectId: s
                 <h2 className="text-xl sm:text-2xl font-black uppercase tracking-tight">System Logic Trace</h2>
               </div>
               
-              <div className="bg-black/80 rounded-[2rem] sm:rounded-[3rem] border border-white/10 overflow-hidden shadow-3xl font-mono text-[10px] sm:text-sm">
+              <div className="bg-black/80 rounded-[2rem] sm:rounded-[3rem] border border-white/10 overflow-hidden shadow-3xl font-mono">
                 {/* Terminal Header */}
                 <div className="bg-secondary/40 px-6 py-4 border-b border-white/5 flex items-center justify-between">
                   <div className="flex gap-2">
@@ -120,24 +121,27 @@ export default function ProjectPage({ params }: { params: Promise<{ projectId: s
                     <div className="w-3 h-3 rounded-full bg-green-500/40" />
                   </div>
                   <div className="text-[10px] font-black uppercase tracking-widest text-muted-foreground/40">
-                    node --version 21.0.0
+                    root@dev-hub:~/projects/{project.id}
                   </div>
                 </div>
                 
-                {/* Terminal Content */}
-                <div className="p-6 sm:p-10 space-y-8 overflow-x-auto no-scrollbar">
-                  <div className="space-y-4">
-                    <div className="flex gap-4 text-green-500/60">
-                      <span className="opacity-40">01</span>
-                      <code className="whitespace-pre">{(project as any).codeSnippet}</code>
+                {/* Terminal Content - Pure Developer Logic */}
+                <div className="p-6 sm:p-12 space-y-10 overflow-x-auto no-scrollbar">
+                  <div className="space-y-6">
+                    <div className="flex gap-4">
+                      <span className="text-muted-foreground/30 text-xs">01</span>
+                      <pre className="text-green-500/80 text-xs sm:text-sm leading-relaxed whitespace-pre-wrap">
+                        <code>{project.codeSnippet}</code>
+                      </pre>
                     </div>
                   </div>
 
-                  <div className="space-y-2 pt-6 border-t border-white/5">
-                    {(project as any).systemLogs.map((log: string, i: number) => (
-                      <div key={i} className="flex gap-4">
-                        <span className="text-muted-foreground/30">{String(i + 1).padStart(2, '0')}</span>
-                        <span className="text-primary/70">{log}</span>
+                  <div className="pt-10 border-t border-white/5 space-y-3">
+                    <p className="text-[10px] font-black text-primary/40 uppercase tracking-[0.3em] mb-4">Neural Activity Logs</p>
+                    {project.systemLogs.map((log: string, i: number) => (
+                      <div key={i} className="flex gap-4 items-center">
+                        <span className="text-muted-foreground/20 text-[10px]">{String(i + 1).padStart(2, '0')}</span>
+                        <span className="text-primary/60 text-xs sm:text-sm font-bold tracking-tight">{log}</span>
                       </div>
                     ))}
                   </div>
@@ -151,7 +155,7 @@ export default function ProjectPage({ params }: { params: Promise<{ projectId: s
                 <div className="p-3 rounded-xl bg-primary/10 text-primary">
                   <Workflow className="w-6 h-6" />
                 </div>
-                <h2 className="text-xl sm:text-2xl font-black uppercase tracking-tight">Systemic Subsystems</h2>
+                <h2 className="text-xl sm:text-2xl font-black uppercase tracking-tight">Engineering Subsystems</h2>
               </div>
               <p className="text-base sm:text-lg text-muted-foreground leading-relaxed font-medium">
                 {project.longDescription}
@@ -160,7 +164,7 @@ export default function ProjectPage({ params }: { params: Promise<{ projectId: s
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {project.features.map((feature, i) => (
                   <div key={i} className="p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-secondary/30 border border-border/50 flex items-center gap-5 group hover:border-primary/50 transition-all shadow-inner">
-                    <div className="w-10 h-10 rounded-xl bg-background flex items-center justify-center text-primary">
+                    <div className="w-10 h-10 rounded-xl bg-background flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
                       <Zap className="w-5 h-5" />
                     </div>
                     <span className="font-bold text-sm sm:text-base tracking-tight">{feature}</span>
@@ -172,34 +176,36 @@ export default function ProjectPage({ params }: { params: Promise<{ projectId: s
 
           {/* Technical Parameter Sidebar */}
           <aside className="lg:col-span-4 space-y-8">
-            <div className="p-8 sm:p-10 rounded-[2.5rem] sm:rounded-[3rem] glass-card space-y-12 lg:sticky lg:top-32 border border-white/5 bg-card/40 backdrop-blur-3xl shadow-3xl">
-              <div className="space-y-8">
-                <p className="text-[10px] font-black text-primary uppercase tracking-[0.4em]">Technology Stack</p>
-                <div className="flex flex-wrap gap-2">
-                  {project.techStack.map((tech) => (
-                    <span key={tech} className="px-3 py-1.5 rounded-lg bg-secondary text-[10px] font-black uppercase tracking-widest border border-border">
-                      {tech}
-                    </span>
-                  ))}
+            <div className="p-8 sm:p-12 rounded-[2.5rem] sm:rounded-[4rem] glass-card space-y-12 lg:sticky lg:top-32 border border-white/5 bg-card/40 backdrop-blur-3xl shadow-3xl">
+              <div className="space-y-10">
+                <div className="space-y-4">
+                  <p className="text-[10px] font-black text-primary uppercase tracking-[0.4em]">Technology Stack</p>
+                  <div className="flex flex-wrap gap-2.5">
+                    {project.techStack.map((tech) => (
+                      <span key={tech} className="px-3.5 py-1.5 rounded-lg bg-secondary text-[10px] font-black uppercase tracking-widest border border-border">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
 
-              <div className="pt-10 border-t border-border/50 flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <div className="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse shadow-[0_0_10px_#22c55e]" />
-                  <span className="text-[9px] sm:text-[10px] font-black uppercase tracking-widest text-green-500">Node Secure</span>
+                <div className="pt-10 border-t border-border/50 flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <div className="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse shadow-[0_0_10px_#22c55e]" />
+                    <span className="text-[9px] sm:text-[10px] font-black uppercase tracking-widest text-green-500">Node Secure</span>
+                  </div>
+                  <div className="p-2.5 rounded-lg bg-secondary/50 border border-border opacity-40">
+                    <ShieldCheck className="w-4 h-4" />
+                  </div>
                 </div>
-                <div className="p-2 rounded-lg bg-secondary/50 border border-border opacity-40">
-                  <Shield className="w-4 h-4" />
-                </div>
-              </div>
 
-              <div className="pt-8 border-t border-border/50">
-                 <p className="text-[10px] font-black text-muted-foreground uppercase tracking-[0.4em] mb-4">Engineering Meta</p>
-                 <div className="flex items-center gap-4 text-xs font-bold opacity-60">
-                   <Activity className="w-4 h-4 text-primary" />
-                   <span>Orchestration: L4 Verified</span>
-                 </div>
+                <div className="pt-10 border-t border-border/50">
+                   <p className="text-[10px] font-black text-muted-foreground uppercase tracking-[0.4em] mb-4">Engineering Meta</p>
+                   <div className="flex items-center gap-4 text-xs font-bold opacity-60">
+                     <Activity className="w-4 h-4 text-primary" />
+                     <span>Orchestration: L4 Verified</span>
+                   </div>
+                </div>
               </div>
             </div>
           </aside>

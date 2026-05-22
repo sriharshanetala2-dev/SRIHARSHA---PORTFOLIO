@@ -6,7 +6,9 @@ import {
   Workflow, 
   Zap, 
   Shield, 
-  BarChart3 
+  BarChart3,
+  Terminal,
+  Activity
 } from 'lucide-react';
 
 export const projects = [
@@ -37,12 +39,11 @@ export const projects = [
       "[SYNC] Firestore state push latency: 12ms",
       "[AGENT] Task orchestration loop started."
     ],
-    codeSnippet: `class NeuralOrchestrator {
-  async processIntent(input: string) {
-    const intent = await genkit.parse(input);
-    const nodes = this.mapToPriority(intent);
-    return sync.distribute(nodes);
-  }
+    codeSnippet: `// Neural Core Logic
+export async function processSemanticIntent(rawInput: string) {
+  const kernel = await getNeuralKernel();
+  const intent = await kernel.parse(rawInput);
+  return await intent.executeTaskOrchestration();
 }`
   },
   {
@@ -72,12 +73,11 @@ export const projects = [
       "[STATS] Market volatility delta: +0.02%",
       "[W-WORKER] Chart re-render compute optimized."
     ],
-    codeSnippet: `async function commitTrade(tx: Transaction) {
-  const result = await db.transaction(async (client) => {
-    await client.query('UPDATE accounts SET balance = balance - $1', [tx.amount]);
-    return client.query('INSERT INTO audit_log ...');
-  });
-}`
+    codeSnippet: `// Reactive Stream Core
+const stream = db.from('market_data').stream();
+stream.on('mutation', (delta) => {
+  worker.postMessage({ type: 'COMPUTE', delta });
+});`
   },
   {
     id: 'corelogic-db',
@@ -106,13 +106,11 @@ export const projects = [
       "[SYNC] Worker thread cluster: ONLINE",
       "[FAILOVER] Secondary node heartbeat verified."
     ],
-    codeSnippet: `@Service
-public class TransactionCore {
-  @Transactional(propagation = Propagation.REQUIRED)
-  public void executeAtomic(Payload data) {
-    repository.save(data);
-    auditService.log(data.getId());
-  }
+    codeSnippet: `@Transactional
+public void atomicCommit(Payload p) {
+  db.persist(p);
+  audit.log(p.getMetadata());
+  eventBus.publish(new CommitEvent(p));
 }`
   },
   {
@@ -138,14 +136,14 @@ public class TransactionCore {
     systemLogs: [
       "[NET] Computing CIDR boundary for 192.168.0.0/24",
       "[MAP] Topological node graph generated.",
-      "[BITWISE] Subnet mask mask applied: 255.255.255.0",
+      "[BITWISE] Subnet mask applied: 255.255.255.0",
       "[SIM] Path simulation latency: 4ms",
       "[ZOD] Payload validation complete."
     ],
-    codeSnippet: `function calculateSubnet(ip: string, cidr: number) {
-  const mask = -1 << (32 - cidr);
-  const network = (ipToLong(ip) & mask) >>> 0;
-  return longToIp(network);
+    codeSnippet: `function solveSubnet(ip, cidr) {
+  const mask = 0xffffffff << (32 - cidr);
+  const net = (ipToInt(ip) & mask) >>> 0;
+  return intToIp(net);
 }`
   }
 ];
