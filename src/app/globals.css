@@ -4,24 +4,24 @@
 
 @layer base {
   :root {
-    --background: 230 40% 2%;
+    --background: 230 20% 4%;
     --foreground: 210 20% 98%;
-    --card: 230 40% 3%;
+    --card: 230 20% 6%;
     --card-foreground: 210 20% 98%;
-    --popover: 230 40% 2%;
+    --popover: 230 20% 4%;
     --popover-foreground: 210 20% 98%;
-    --primary: 191 100% 50%; /* Cyan */
-    --primary-foreground: 230 40% 2%;
+    --primary: 191 100% 50%;
+    --primary-foreground: 230 20% 4%;
     --secondary: 230 20% 10%;
     --secondary-foreground: 210 20% 98%;
-    --muted: 230 20% 15%;
+    --muted: 230 20% 12%;
     --muted-foreground: 217.9 10.6% 64.9%;
-    --accent: 280 100% 60%; /* Purple */
+    --accent: 280 100% 60%;
     --accent-foreground: 210 20% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 20% 98%;
-    --border: 230 20% 12%;
-    --input: 230 20% 12%;
+    --border: 230 20% 15%;
+    --input: 230 20% 15%;
     --ring: 191 100% 50%;
     --radius: 0.5rem;
   }
@@ -34,6 +34,10 @@
   body {
     @apply bg-background text-foreground font-body antialiased;
   }
+  /* Global Italics Removal */
+  em, i, .italic {
+    @apply not-italic;
+  }
 }
 
 .text-gradient {
@@ -41,15 +45,15 @@
 }
 
 .glass-card {
-  @apply bg-card/80 backdrop-blur-xl border border-white/10 shadow-xl;
+  @apply bg-card border border-white/10 shadow-xl;
 }
 
-.neural-grid {
-  background-image: radial-gradient(circle at 1px 1px, hsl(var(--primary) / 0.05) 1px, transparent 0);
+.industrial-grid {
+  background-image: linear-gradient(to right, hsl(var(--border) / 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, hsl(var(--border) / 0.1) 1px, transparent 1px);
   background-size: 40px 40px;
 }
 
-.data-flow {
-  background: linear-gradient(90deg, transparent, hsl(var(--primary) / 0.1), transparent);
-  background-size: 200% 100%;
+.section-divider {
+  @apply w-full h-px bg-gradient-to-r from-transparent via-border to-transparent my-20;
 }
