@@ -1,179 +1,267 @@
-
 "use client";
 
 import { useState } from "react";
-import { generateProjectDescription, type GenerateProjectDescriptionOutput, type GenerateProjectDescriptionInput } from "@/ai/flows/generate-project-description-flow";
+import { generateProjectDescription, type GenerateProjectDescriptionOutput } from "@/ai/flows/generate-project-description-flow";
+import { generateBrandIdentity, type BrandIdentityOutput } from "@/ai/flows/generate-brand-identity-flow";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
-import { Sparkles, Loader2, Copy, Check, Terminal, ShieldCheck, Cpu, MessageSquareQuote } from "lucide-react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Sparkles, Loader2, Copy, Check, Terminal, ShieldCheck, Cpu, Briefcase, Zap, Box } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { cn } from "@/lib/utils";
 
 export function AITool() {
-  const [formData, setFormData] = useState<GenerateProjectDescriptionInput>({
-    technologyStack: "",
-    projectScope: "",
-  });
-  
-  const [result, setResult] = useState<GenerateProjectDescriptionOutput | null>(null);
+  const [activeTool, setActiveTool] = useState("narrative");
   const [loading, setLoading] = useState(false);
   const [copied, setCopied] = useState(false);
   const { toast } = useToast();
 
-  const handleGenerate = async (e?: React.FormEvent) => {
-    e?.preventDefault();
-    
-    if (!formData.technologyStack || !formData.projectScope) {
-      toast({
-        title: "Input Required",
-        description: "Please provide the tech stack and project scope to synthesize.",
-        variant: "destructive",
-      });
-      return;
-    }
+  // Narrative Form
+  const [narrativeData, setNarrativeData] = useState({ techStack: "", scope: "" });
+  const [narrativeResult, setNarrativeResult] = useState<GenerateProjectDescriptionOutput | null>(null);
 
+  // Brand Form
+  const [brandData, setBrandData] = useState({ name: "", mission: "", audience: "", tone: "Professional" as any });
+  const [brandResult, setBrandResult] = useState<BrandIdentityOutput | null>(null);
+
+  const handleNarrative = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!narrativeData.techStack || !narrativeData.scope) return;
     setLoading(true);
-    setResult(null);
     try {
-      const output = await generateProjectDescription(formData);
-      if (output && output.projectDescription) {
-        setResult(output);
-        toast({
-          title: "Narrative Synthesized",
-          description: "Project description has been successfully optimized.",
-        });
-      } else {
-        throw new Error("Invalid output received from the engine.");
-      }
+      const output = await generateProjectDescription({ technologyStack: narrativeData.techStack, projectScope: narrativeData.scope });
+      setNarrativeResult(output);
+      toast({ title: "Synthesis Complete", description: "Project narrative has been optimized." });
     } catch (error: any) {
-      console.error("AI Error:", error);
-      toast({
-        title: "Synthesis Error",
-        description: error.message || "The engine encountered an unexpected exception.",
-        variant: "destructive",
-      });
+      toast({ title: "Error", description: error.message, variant: "destructive" });
     } finally {
       setLoading(false);
     }
   };
 
-  const copyResult = () => {
-    if (!result) return;
-    navigator.clipboard.writeText(result.projectDescription);
+  const handleBrand = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!brandData.name || !brandData.mission) return;
+    setLoading(true);
+    try {
+      const output = await generateBrandIdentity({ projectName: brandData.name, mission: brandData.mission, audience: brandData.audience, tone: brandData.tone });
+      setBrandResult(output);
+      toast({ title: "Identity Forged", description: "Brand architecture synthesized successfully." });
+    } catch (error: any) {
+      toast({ title: "Error", description: error.message, variant: "destructive" });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const copyToClipboard = (text: string) => {
+    navigator.clipboard.writeText(text);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
     toast({ description: "Copied to clipboard." });
   };
 
   return (
-    <section id="ai-narrative-engine" className="py-24 px-6 bg-background relative overflow-hidden scroll-mt-20">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(var(--primary),0.02),transparent)] pointer-events-none" />
+    <section id="architectural-toolkit" className="py-24 px-6 bg-background relative overflow-hidden scroll-mt-20">
+      <div className="absolute inset-0 data-flow-grid opacity-5 pointer-events-none" />
       
-      <div className="max-w-7xl mx-auto space-y-16">
-        <div className="flex flex-col items-center text-center space-y-4">
-          <div className="px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-[9px] font-black text-primary uppercase tracking-[0.4em] flex items-center gap-2">
-            <Cpu className="w-3.5 h-3.5" />
-            Project Narrative Synthesizer v1.0
+      <div className="max-w-7xl mx-auto space-y-20">
+        <div className="flex flex-col items-center text-center space-y-6">
+          <div className="px-5 py-2 rounded-full bg-primary/10 border border-primary/20 text-[11px] font-black text-primary uppercase tracking-[0.4em] flex items-center gap-3">
+            <Cpu className="w-4 h-4" />
+            Architectural AI Toolkit v2.0
           </div>
-          <h2 className="text-4xl sm:text-6xl md:text-7xl font-headline font-black tracking-tighter uppercase leading-none">
-            NARRATIVE <span className="text-gradient">ENGINE</span>
+          <h2 className="text-4xl sm:text-6xl md:text-8xl font-headline font-black tracking-tighter uppercase leading-none">
+            ENGINEERING <span className="text-gradient">SUBSYSTEMS</span>
           </h2>
-          <p className="text-muted-foreground max-w-2xl text-base sm:text-lg font-medium opacity-70 uppercase tracking-widest">
-            Convert technical specs into high-impact professional narratives.
+          <p className="text-muted-foreground max-w-3xl text-sm sm:text-lg font-medium opacity-70 uppercase tracking-[0.2em] leading-relaxed">
+            Professional utility nodes leveraging Google Genkit for automated project orchestration.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          {/* Input Panel */}
-          <Card className="glass-card border-border/50 bg-card/20 overflow-hidden rounded-[2.5rem]">
-            <CardContent className="p-8 space-y-8">
-              <div className="flex items-center gap-4">
-                <div className="p-3 rounded-2xl bg-primary/10 text-primary">
-                  <Terminal className="w-5 h-5" />
-                </div>
-                <h3 className="text-lg font-black uppercase tracking-tight">Source Parameters</h3>
-              </div>
+        <Tabs defaultValue="narrative" className="max-w-6xl mx-auto" onValueChange={setActiveTool}>
+          <div className="flex justify-center mb-12">
+            <TabsList className="bg-secondary/50 p-1.5 rounded-2xl h-16 border border-border/50">
+              <TabsTrigger value="narrative" className="px-8 rounded-xl font-black uppercase text-[10px] tracking-widest data-[state=active]:bg-background data-[state=active]:text-primary data-[state=active]:shadow-xl transition-all h-full">
+                Narrative Engine
+              </TabsTrigger>
+              <TabsTrigger value="brand" className="px-8 rounded-xl font-black uppercase text-[10px] tracking-widest data-[state=active]:bg-background data-[state=active]:text-primary data-[state=active]:shadow-xl transition-all h-full">
+                Brand Architect
+              </TabsTrigger>
+            </TabsList>
+          </div>
 
-              <form onSubmit={handleGenerate} className="space-y-6">
-                <div className="space-y-2">
-                  <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-1">
-                    Technology Stack
-                  </label>
-                  <Input 
-                    placeholder="e.g. Next.js, Firebase, Tailwind" 
-                    value={formData.technologyStack}
-                    onChange={(e) => setFormData({...formData, technologyStack: e.target.value})}
-                    className="h-14 bg-background/50 border-border rounded-xl font-bold focus:ring-primary"
-                    disabled={loading}
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-1">
-                    Project Scope
-                  </label>
-                  <Textarea 
-                    placeholder="Describe what the project does..." 
-                    value={formData.projectScope}
-                    onChange={(e) => setFormData({...formData, projectScope: e.target.value})}
-                    className="min-h-[120px] bg-background/50 border-border rounded-xl p-4 resize-none focus:ring-primary text-sm font-medium"
-                    disabled={loading}
-                  />
-                </div>
-
-                <Button 
-                  type="submit" 
-                  className="w-full h-14 rounded-full font-black uppercase tracking-[0.2em] shadow-xl hover:scale-[1.02] transition-all"
-                  disabled={loading}
-                >
-                  {loading ? <Loader2 className="w-5 h-5 animate-spin" /> : "Synthesize Narrative"}
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
-
-          {/* Result Panel */}
-          <Card className="glass-card border-border/50 bg-black/20 overflow-hidden rounded-[2.5rem] flex flex-col">
-            <CardContent className="p-8 flex-1 flex flex-col">
-              <div className="flex items-center justify-between mb-8">
-                <div className="flex items-center gap-4">
-                  <div className="p-3 rounded-2xl bg-accent/10 text-accent">
-                    <ShieldCheck className="w-5 h-5" />
-                  </div>
-                  <h3 className="text-lg font-black uppercase tracking-tight">Output Matrix</h3>
-                </div>
-                {result && (
-                  <Button variant="ghost" size="icon" onClick={copyResult} className="text-muted-foreground hover:text-primary transition-colors">
-                    {copied ? <Check className="w-4 h-4 text-green-500" /> : <Copy className="w-4 h-4" />}
-                  </Button>
-                )}
-              </div>
-
-              <div className="flex-1 flex flex-col justify-center">
-                {result ? (
-                  <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-700">
-                    <div className="p-6 rounded-2xl bg-background/40 border border-border/50 italic text-lg leading-relaxed font-medium">
-                      "{result.projectDescription}"
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+            {/* Input Panel */}
+            <div className="space-y-6">
+              <TabsContent value="narrative" className="m-0">
+                <Card className="glass-card border-border/50 bg-card/10 rounded-[2.5rem] overflow-hidden">
+                  <CardContent className="p-10 space-y-8">
+                    <div className="flex items-center gap-4">
+                      <div className="p-4 rounded-2xl bg-primary/10 text-primary shadow-inner">
+                        <Terminal className="w-6 h-6" />
+                      </div>
+                      <h3 className="text-xl font-black uppercase tracking-tight">System Parameters</h3>
                     </div>
-                    <div className="flex justify-center">
-                       <MessageSquareQuote className="w-8 h-8 text-primary/20" />
+                    <form onSubmit={handleNarrative} className="space-y-8">
+                      <div className="space-y-3">
+                        <label className="text-[11px] font-black uppercase tracking-[0.3em] text-muted-foreground ml-2">Tech Stack Matrix</label>
+                        <Input 
+                          placeholder="e.g. Next.js, Firebase, Genkit" 
+                          value={narrativeData.techStack}
+                          onChange={(e) => setNarrativeData({...narrativeData, techStack: e.target.value})}
+                          className="h-16 bg-background/50 border-border rounded-2xl font-bold focus:ring-primary shadow-inner text-base"
+                          disabled={loading}
+                        />
+                      </div>
+                      <div className="space-y-3">
+                        <label className="text-[11px] font-black uppercase tracking-[0.3em] text-muted-foreground ml-2">Architectural Scope</label>
+                        <Textarea 
+                          placeholder="Define the project mission and key features..." 
+                          value={narrativeData.scope}
+                          onChange={(e) => setNarrativeData({...narrativeData, scope: e.target.value})}
+                          className="min-h-[160px] bg-background/50 border-border rounded-[2rem] p-6 resize-none focus:ring-primary text-base font-medium shadow-inner"
+                          disabled={loading}
+                        />
+                      </div>
+                      <Button type="submit" className="w-full h-16 rounded-full font-black uppercase tracking-[0.3em] text-[12px] shadow-3xl hover:scale-[1.02] active:scale-95 transition-all" disabled={loading}>
+                        {loading ? <Loader2 className="w-6 h-6 animate-spin" /> : <><Zap className="w-5 h-5 mr-2" /> Synthesize Logic</>}
+                      </Button>
+                    </form>
+                  </CardContent>
+                </Card>
+              </TabsContent>
+
+              <TabsContent value="brand" className="m-0">
+                <Card className="glass-card border-border/50 bg-card/10 rounded-[2.5rem] overflow-hidden">
+                  <CardContent className="p-10 space-y-8">
+                    <div className="flex items-center gap-4">
+                      <div className="p-4 rounded-2xl bg-primary/10 text-primary shadow-inner">
+                        <Briefcase className="w-6 h-6" />
+                      </div>
+                      <h3 className="text-xl font-black uppercase tracking-tight">Brand Matrix</h3>
                     </div>
+                    <form onSubmit={handleBrand} className="space-y-8">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="space-y-3">
+                          <label className="text-[11px] font-black uppercase tracking-[0.3em] text-muted-foreground ml-2">Entity Name</label>
+                          <Input 
+                            placeholder="e.g. CloudScale" 
+                            value={brandData.name}
+                            onChange={(e) => setBrandData({...brandData, name: e.target.value})}
+                            className="h-14 bg-background/50 border-border rounded-xl font-bold"
+                          />
+                        </div>
+                        <div className="space-y-3">
+                          <label className="text-[11px] font-black uppercase tracking-[0.3em] text-muted-foreground ml-2">Persona Tone</label>
+                          <select 
+                            value={brandData.tone}
+                            onChange={(e) => setBrandData({...brandData, tone: e.target.value as any})}
+                            className="w-full h-14 bg-background/50 border border-border rounded-xl px-4 font-bold text-sm focus:outline-none focus:ring-2 focus:ring-primary/50"
+                          >
+                            <option>Professional</option>
+                            <option>Futuristic</option>
+                            <option>Minimalist</option>
+                            <option>Bold</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div className="space-y-3">
+                        <label className="text-[11px] font-black uppercase tracking-[0.3em] text-muted-foreground ml-2">Mission Statement</label>
+                        <Textarea 
+                          placeholder="What problem does this brand solve?" 
+                          value={brandData.mission}
+                          onChange={(e) => setBrandData({...brandData, mission: e.target.value})}
+                          className="min-h-[120px] bg-background/50 border-border rounded-2xl p-6 resize-none"
+                        />
+                      </div>
+                      <Button type="submit" className="w-full h-16 rounded-full font-black uppercase tracking-[0.3em] text-[12px] shadow-3xl hover:scale-[1.02] active:scale-95 transition-all" disabled={loading}>
+                        {loading ? <Loader2 className="w-6 h-6 animate-spin" /> : <><Sparkles className="w-5 h-5 mr-2" /> Forge Identity</>}
+                      </Button>
+                    </form>
+                  </CardContent>
+                </Card>
+              </TabsContent>
+            </div>
+
+            {/* Output Panel */}
+            <Card className="glass-card border-border/50 bg-black/30 rounded-[2.5rem] overflow-hidden flex flex-col shadow-3xl">
+              <CardContent className="p-10 flex-1 flex flex-col">
+                <div className="flex items-center justify-between mb-10">
+                  <div className="flex items-center gap-4">
+                    <div className="p-4 rounded-2xl bg-accent/10 text-accent">
+                      <ShieldCheck className="w-6 h-6" />
+                    </div>
+                    <h3 className="text-xl font-black uppercase tracking-tight">System Output</h3>
                   </div>
-                ) : (
-                  <div className="text-center space-y-6 opacity-30 py-12">
-                    <Sparkles className={cn("w-12 h-12 mx-auto text-muted-foreground", loading && "animate-pulse")} />
-                    <p className="text-sm font-black uppercase tracking-widest">
-                      {loading ? "Synthesizing..." : "Awaiting Parameters"}
-                    </p>
-                  </div>
-                )}
-              </div>
-            </CardContent>
-          </Card>
-        </div>
+                  {(narrativeResult || brandResult) && (
+                    <Button variant="ghost" size="icon" onClick={() => copyToClipboard(narrativeResult?.projectDescription || brandResult?.professionalDescription || "")} className="text-muted-foreground hover:text-primary h-12 w-12 rounded-xl border border-border/50">
+                      {copied ? <Check className="w-5 h-5 text-green-500" /> : <Copy className="w-5 h-5" />}
+                    </Button>
+                  )}
+                </div>
+
+                <div className="flex-1 flex flex-col justify-center">
+                  {activeTool === "narrative" ? (
+                    narrativeResult ? (
+                      <div className="space-y-8 animate-in fade-in slide-in-from-bottom-8 duration-700">
+                        <div className="p-8 rounded-3xl bg-background/40 border border-border/50 italic text-xl leading-relaxed font-medium shadow-2xl">
+                          "{narrativeResult.projectDescription}"
+                        </div>
+                        <div className="flex items-center gap-6 justify-center opacity-30">
+                          <div className="h-px flex-1 bg-border" />
+                          <Box className="w-8 h-8" />
+                          <div className="h-px flex-1 bg-border" />
+                        </div>
+                      </div>
+                    ) : (
+                      <EmptyState loading={loading} />
+                    )
+                  ) : (
+                    brandResult ? (
+                      <div className="space-y-10 animate-in fade-in slide-in-from-bottom-8 duration-700">
+                        <div className="grid grid-cols-2 gap-4">
+                          {brandResult.techStack.map(tech => (
+                            <div key={tech} className="px-5 py-3 rounded-xl bg-primary/10 border border-primary/20 text-[11px] font-black uppercase tracking-widest text-center">
+                              {tech}
+                            </div>
+                          ))}
+                        </div>
+                        <div className="p-8 rounded-3xl bg-background/40 border border-border/50 space-y-4 shadow-2xl">
+                           <p className="text-primary font-black text-[11px] uppercase tracking-[0.4em]">Professional Identity</p>
+                           <p className="text-lg leading-relaxed font-medium">{brandResult.professionalDescription}</p>
+                        </div>
+                        <div className="flex items-center gap-4 p-6 rounded-2xl bg-accent/5 border border-accent/20">
+                           <Sparkles className="w-5 h-5 text-accent" />
+                           <p className="text-xs font-bold italic opacity-80">{brandResult.uiConcept}</p>
+                        </div>
+                      </div>
+                    ) : (
+                      <EmptyState loading={loading} />
+                    )
+                  )}
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </Tabs>
       </div>
     </section>
+  );
+}
+
+function EmptyState({ loading }: { loading: boolean }) {
+  return (
+    <div className="text-center space-y-8 py-20">
+      <div className="relative inline-block">
+        <Sparkles className={cn("w-20 h-20 text-muted-foreground/20", loading && "animate-pulse")} />
+        {loading && <Loader2 className="absolute inset-0 w-20 h-20 animate-spin text-primary opacity-40" />}
+      </div>
+      <p className="text-sm font-black uppercase tracking-[0.6em] opacity-30">
+        {loading ? "Forging Subsystem..." : "Awaiting Parameters"}
+      </p>
+    </div>
   );
 }

@@ -20,7 +20,7 @@ export const projects = [
     title: 'Neural Workflow OS',
     category: 'Full Stack & AI',
     icon: Workflow,
-    description: 'An AI-first productivity ecosystem leveraging Google Genkit for semantic task orchestration and real-time state sync.',
+    description: 'An AI-orchestrated productivity ecosystem leveraging Google Genkit for semantic task management.',
     longDescription: 'Architected a high-performance productivity hub that utilizes Generative AI for intent parsing and automated priority mapping. Built with a focus on real-time data integrity using Firestore and a low-latency UI architecture that prioritizes developer velocity and cognitive ease.',
     tags: ['Next.js 15', 'Genkit', 'Firebase', 'LLM'],
     techStack: ['Next.js 15', 'Google Genkit', 'Firebase', 'Tailwind CSS'],
@@ -31,18 +31,18 @@ export const projects = [
       'Agentic Task Automation'
     ],
     metrics: [
-      { label: 'Sync Latency', value: '<25ms' },
-      { label: 'AI Accuracy', value: '98.2%' },
-      { label: 'Uptime', value: '99.99%' }
+      { label: 'Integrity', value: 'Verified' },
+      { label: 'Architecture', value: 'Neural' },
+      { label: 'Security', value: 'Enterprise' }
     ]
   },
   {
     id: 'tradeflux-enterprise',
     title: 'TradeFlux Enterprise',
-    category: 'FinTech',
+    category: 'FinTech Systems',
     icon: BarChart3,
-    description: 'A low-latency financial dashboard for high-frequency trading visualization and predictive market analysis.',
-    longDescription: 'Engineered an enterprise-grade financial monitoring system that aggregates complex market data into real-time visual insights. Optimized for 60fps rendering of data-heavy charts using Recharts and custom Web Worker logic for non-blocking data processing.',
+    description: 'A low-latency financial dashboard for enterprise-grade trading visualization and market analysis.',
+    longDescription: 'Engineered an enterprise-grade financial monitoring system that aggregates complex market data into real-time visual insights. Optimized for high-frequency rendering of data-heavy charts using Recharts and custom Web Worker logic for non-blocking data processing.',
     tags: ['Recharts', 'TypeScript', 'Web3', 'Node.js'],
     techStack: ['React', 'Node.js', 'PostgreSQL', 'Recharts'],
     features: [
@@ -52,9 +52,9 @@ export const projects = [
       'Multi-Asset Portfolio Sync'
     ],
     metrics: [
-      { label: 'Render Rate', value: '60fps' },
-      { label: 'Data Ingest', value: '100k/s' },
-      { label: 'Precision', value: '0.0001' }
+      { label: 'Standard', value: 'PCI-DSS' },
+      { label: 'Protocol', value: 'WSS/JSON' },
+      { label: 'Status', value: 'Stable' }
     ]
   },
   {
@@ -73,9 +73,9 @@ export const projects = [
       'Atomic Transaction Control'
     ],
     metrics: [
-      { label: 'Throughput', value: '15k TPS' },
-      { label: 'Concurrency', value: '5k nodes' },
-      { label: 'Integrity', value: '100%' }
+      { label: 'Type', value: 'ACID' },
+      { label: 'Core', value: 'Spring' },
+      { label: 'Nodes', value: 'Distributed' }
     ]
   },
   {
@@ -94,9 +94,9 @@ export const projects = [
       'Dynamic CIDR Orchestration'
     ],
     metrics: [
-      { label: 'Calc Speed', value: '<5ms' },
-      { label: 'Node Capacity', value: '10k' },
-      { label: 'Mask Accuracy', value: '100%' }
+      { label: 'Layer', value: 'L3/L4' },
+      { label: 'Logic', value: 'Bitwise' },
+      { label: 'Format', value: 'CIDR' }
     ]
   },
   {
@@ -115,9 +115,9 @@ export const projects = [
       'Automated Audit Logging'
     ],
     metrics: [
-      { label: 'Auth Time', value: '150ms' },
-      { label: 'Security Score', value: 'A+' },
-      { label: 'Encryption', value: 'AES-256' }
+      { label: 'Auth', value: 'OAuth 2.0' },
+      { label: 'Encryption', value: 'AES-256' },
+      { label: 'Strategy', value: 'ZTNA' }
     ]
   },
   {
@@ -125,7 +125,7 @@ export const projects = [
     title: 'CloudScale Monitor',
     category: 'Cloud Systems',
     icon: Server,
-    description: 'A specialized Kubernetes cluster monitoring dashboard for real-time resource allocation and auto-scaling.',
+    description: 'A specialized Kubernetes cluster monitoring dashboard for real-time resource allocation and health sync.',
     longDescription: 'Orchestrated a cloud-native monitoring suite that provides deep observability into containerized workloads. Features automated threshold alerts, resource consumption forecasting, and cluster-wide health synchronization.',
     tags: ['DevOps', 'Cloud', 'Monitoring', 'Next.js'],
     techStack: ['Next.js', 'Prometheus API', 'Docker', 'AWS'],
@@ -136,9 +136,9 @@ export const projects = [
       'Cluster Health Scoring'
     ],
     metrics: [
-      { label: 'Alert Latency', value: '<1s' },
-      { label: 'Forecast Accuracy', value: '92%' },
-      { label: 'Nodes', value: '500+' }
+      { label: 'Cluster', value: 'K8s' },
+      { label: 'Stack', value: 'TIG' },
+      { label: 'Health', value: '99.9%' }
     ]
   },
   {
@@ -146,7 +146,7 @@ export const projects = [
     title: 'AlgoViz Visualizer',
     category: 'Computer Science',
     icon: Zap,
-    description: 'A deep-dive visualization platform for complex data structures and sorting algorithms with step-by-step logic.',
+    description: 'A visualization platform for complex data structures and sorting algorithms with step-by-step logic.',
     longDescription: 'Created an educational tool that brings abstract CS concepts to life. Uses advanced React state management to animate complex pointer movements and tree traversals in real-time, helping developers debug logic visually.',
     tags: ['Algorithms', 'Data Structures', 'Education', 'UI'],
     techStack: ['React', 'Framer Motion', 'TypeScript', 'Tailwind'],
@@ -157,9 +157,9 @@ export const projects = [
       'Custom Scriptable Algorithms'
     ],
     metrics: [
-      { label: 'Anim Sync', value: '16ms' },
-      { label: 'Coverage', value: '50+ Algos' },
-      { label: 'FPS', value: '120' }
+      { label: 'Complexity', value: 'O(n log n)' },
+      { label: 'Mode', value: 'Visual' },
+      { label: 'Sync', value: 'Real-time' }
     ]
   },
   {
@@ -167,7 +167,7 @@ export const projects = [
     title: 'Sentinel Threat Node',
     category: 'Security Operations',
     icon: ShieldCheck,
-    description: 'A real-time threat detection and incident response dashboard for SecOps teams to mitigate risks at scale.',
+    description: 'A real-time threat detection and incident response dashboard for SecOps teams to mitigate risks.',
     longDescription: 'Developed a high-fidelity security operations center dashboard. Integrates multiple threat feeds into a unified neural interface for rapid incident prioritization, triage, and automated remediation playbooks.',
     tags: ['SecOps', 'Threat Intel', 'Next.js', 'Dashboard'],
     techStack: ['Next.js', 'Firebase', 'Radix UI', 'Lucide'],
@@ -178,9 +178,9 @@ export const projects = [
       'Remediation Playbooks'
     ],
     metrics: [
-      { label: 'Triage Time', value: '-40%' },
-      { label: 'Detection', value: 'Real-time' },
-      { label: 'Node Health', value: '99.9%' }
+      { label: 'Level', value: 'Critical' },
+      { label: 'Feed', value: 'OSINT' },
+      { label: 'Triage', value: 'Automated' }
     ]
   }
 ];
