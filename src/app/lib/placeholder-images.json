@@ -10,8 +10,8 @@
     {
       "id": "student-system",
       "description": "Intelligent Academic Lifecycle Management",
-      "imageUrl": "https://picsum.photos/seed/student_record_mgmt/800/600",
-      "imageHint": "student management"
+      "imageUrl": "https://picsum.photos/seed/academic_records_ui/800/600",
+      "imageHint": "student dashboard"
     },
     {
       "id": "weather-oracle",

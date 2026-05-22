@@ -1,52 +1,46 @@
 {
   "placeholderImages": [
     {
+      "id": "site-logo",
+      "description": "Professional Tech Brand Mark",
+      "imageUrl": "https://picsum.photos/seed/sri_logo_tech/200/200",
+      "imageHint": "tech logo"
+    },
+    {
       "id": "student-system",
       "description": "Intelligent Academic Lifecycle Management",
-      "imageUrl": "https://picsum.photos/seed/student_record_mgmt/800/600",
-      "imageHint": "student management"
+      "imageUrl": "https://picsum.photos/seed/academic_records_ui/800/600",
+      "imageHint": "student dashboard"
     },
     {
-      "id": "weather-app",
-      "description": "Graph Analysis of Weather Report",
-      "imageUrl": "https://picsum.photos/seed/weather_analytics_v9/800/600",
-      "imageHint": "weather graphs"
+      "id": "weather-oracle",
+      "description": "AI-Driven Atmospheric Insights",
+      "imageUrl": "https://picsum.photos/seed/sri_weather_v2/800/600",
+      "imageHint": "weather forecasting"
     },
     {
-      "id": "todo-app",
-      "description": "Dynamic Task Flow Orchestration",
-      "imageUrl": "https://picsum.photos/seed/task_flow_v2/800/600",
-      "imageHint": "flowing tasks"
+      "id": "ai-task-manager",
+      "description": "Cognitive Task Orchestration",
+      "imageUrl": "https://picsum.photos/seed/sri_task_v3/800/600",
+      "imageHint": "artificial intelligence"
     },
     {
-      "id": "data-analytics",
-      "description": "Predictive Business Intelligence",
-      "imageUrl": "https://picsum.photos/seed/dev_analytics_v4/800/600",
-      "imageHint": "data analytics"
-    },
-    {
-      "id": "ecommerce-site",
-      "description": "Adaptive Digital Marketplace",
-      "imageUrl": "https://picsum.photos/seed/dev_ecommerce_v4/800/600",
-      "imageHint": "online shopping"
-    },
-    {
-      "id": "retailer-app",
-      "description": "Smart Supply Chain Optimizer",
-      "imageUrl": "https://picsum.photos/seed/dev_logistics_v4/800/600",
-      "imageHint": "retail logistics"
+      "id": "marketsync",
+      "description": "Adaptive Financial Trading Hub",
+      "imageUrl": "https://picsum.photos/seed/sri_finance_v4/800/600",
+      "imageHint": "stock trading"
     },
     {
       "id": "subnet-master",
-      "description": "Autonomous Network Designer",
-      "imageUrl": "https://picsum.photos/seed/dev_subnet_v4/800/600",
-      "imageHint": "network master"
+      "description": "Visual IP Networking Engine",
+      "imageUrl": "https://picsum.photos/seed/sri_network_v5/800/600",
+      "imageHint": "computer networking"
     },
     {
-      "id": "networking-tool",
-      "description": "Real-time Neural Network Monitor",
-      "imageUrl": "https://picsum.photos/seed/dev_monitor_v4/800/600",
-      "imageHint": "it infrastructure"
+      "id": "data-analytics",
+      "description": "Predictive Data Synthesis Platform",
+      "imageUrl": "https://picsum.photos/seed/sri_analytics_v6/800/600",
+      "imageHint": "data science"
     }
   ]
 }
