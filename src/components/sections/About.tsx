@@ -1,24 +1,20 @@
-
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
-import { User, Code, Target, Zap, Layout, Database, Globe, MousePointer2, Sparkles } from "lucide-react";
+import { Code, Target, Zap, Layout, Database, Globe, Layers } from "lucide-react";
 import { PlaceHolderImages } from "@/app/lib/placeholder-images";
 
 export function About() {
   const [activeStep, setActiveStep] = useState(0);
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const containerRef = useRef<HTMLDivElement>(null);
-
   const creativeImage = PlaceHolderImages.find(img => img.id === "creative-process");
 
   const steps = [
-    { title: "Blueprint", icon: Layout, detail: "Architecting responsive layouts", label: "Dashboard" },
-    { title: "Logic", icon: Code, detail: "Writing clean, efficient code", label: "Editor" },
-    { title: "Backend", icon: Database, detail: "Securing data infrastructure", label: "Database" },
-    { title: "Deploy", icon: Globe, detail: "Launching to the world", label: "Hosting" }
+    { title: "Architect", icon: Layout, detail: "Defining structure and flow" },
+    { title: "Develop", icon: Code, detail: "Crafting clean, scalable logic" },
+    { title: "Integrate", icon: Database, detail: "Managing data ecosystems" },
+    { title: "Launch", icon: Globe, detail: "Optimizing for performance" }
   ];
 
   useEffect(() => {
@@ -26,158 +22,83 @@ export function About() {
       setActiveStep((prev) => (prev + 1) % steps.length);
     }, 4000);
     return () => clearInterval(interval);
-  }, [steps.length]);
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!containerRef.current) return;
-    const rect = containerRef.current.getBoundingClientRect();
-    setMousePos({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
-    });
-  };
+  }, []);
 
   return (
-    <section id="about" className="py-24 px-6 bg-background relative overflow-hidden">
-      <div className="max-w-7xl mx-auto space-y-16">
-        <div className="text-center space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-xs font-bold text-accent uppercase tracking-widest">
-            <User className="w-3 h-3" />
-            Who I Am
-          </div>
-          <h2 className="text-4xl md:text-5xl font-headline font-bold">About Me</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed">
-            I am a passionate Junior Developer with a mission to create impactful digital experiences through clean code and innovative design.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {[
-            { title: "Problem Solver", icon: Code, desc: "I enjoy tackling complex challenges and breaking them down into manageable, efficient solutions using modern web technologies." },
-            { title: "Quick Learner", icon: Zap, desc: "As a fresher, I am constantly learning and adapting to new frameworks and tools to stay at the forefront of the industry." },
-            { title: "Goal Oriented", icon: Target, desc: "My focus is on delivering high-quality software that meets user needs and adds real value to business processes." }
-          ].map((card, i) => (
-            <Card key={i} className="group border-border bg-card/50 hover:border-accent/30 transition-all duration-500 hover:-translate-y-2">
-              <CardContent className="p-8 space-y-4">
-                <div className="p-4 w-fit rounded-xl bg-accent/10 text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-all duration-300 transform group-hover:rotate-6">
-                  <card.icon className="w-6 h-6" />
-                </div>
-                <h3 className="text-xl font-headline font-bold">{card.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  {card.desc}
-                </p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-
-        <div 
-          ref={containerRef}
-          onMouseMove={handleMouseMove}
-          className="bg-secondary/10 rounded-3xl p-10 md:p-16 border border-border relative group/container transition-all duration-500 overflow-hidden"
-        >
-          {/* Interactive cursor follow effect */}
-          <div 
-            className="absolute pointer-events-none opacity-0 group-hover/container:opacity-20 transition-opacity duration-500 blur-[100px] w-64 h-64 bg-accent rounded-full -translate-x-1/2 -translate-y-1/2"
-            style={{ left: mousePos.x, top: mousePos.y }}
-          />
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
-            <div className="space-y-6">
-              <h3 className="text-3xl font-headline font-bold text-accent">My Creative Process</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                My workflow is built on a foundation of clarity and performance. I don't just write code; I build systems that solve real problems.
+    <section id="about" className="py-32 px-6 relative overflow-hidden bg-white/[0.01]">
+      <div className="max-w-7xl mx-auto space-y-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="space-y-10">
+            <div className="space-y-4">
+              <h2 className="text-4xl md:text-6xl font-headline font-bold">About My <span className="text-primary">Craft</span></h2>
+              <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
+                I am a passionate Junior Developer focused on bridging the gap between complex engineering requirements and intuitive user experiences. My approach combines foundational Java strength with modern AI innovation.
               </p>
-              
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {steps.map((step, idx) => (
-                  <div 
-                    key={step.title}
-                    className={`p-4 rounded-2xl border transition-all duration-500 flex items-center gap-4 cursor-pointer ${
-                      activeStep === idx 
-                      ? "bg-accent/20 border-accent text-accent shadow-[0_0_25px_rgba(var(--accent),0.1)] scale-[1.02]" 
-                      : "bg-card/50 border-border text-muted-foreground hover:border-accent/40"
-                    }`}
-                    onClick={() => setActiveStep(idx)}
-                  >
-                    <step.icon className={`w-5 h-5 ${activeStep === idx ? "animate-pulse" : ""}`} />
-                    <div>
-                      <p className="text-sm font-bold uppercase tracking-tight">{step.title}</p>
-                      <p className="text-[10px] opacity-70">{step.detail}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <div className="space-y-4 pt-4">
-                {[
-                  "Responsive & Accessible UI",
-                  "Performance First Architecture",
-                  "Secure & Scalable Backend logic",
-                  "Continuous Learning & Integration"
-                ].map((item, i) => (
-                  <div key={item} className="flex items-center gap-3 group/item">
-                    <div className="w-1.5 h-1.5 rounded-full bg-accent group-hover/item:scale-[2] transition-transform duration-300" />
-                    <span className="text-sm font-medium">{item}</span>
-                  </div>
-                ))}
-              </div>
             </div>
 
-            {/* Creative Visualization Container */}
-            <div 
-              className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl bg-card border border-border transition-transform duration-500 ease-out hover:scale-[1.02] hover:shadow-accent/10"
-              style={{
-                transform: `perspective(1000px) rotateX(${(mousePos.y - 300) / 50}deg) rotateY(${(mousePos.x - 400) / 50}deg)`
-              }}
-            >
-              {creativeImage && (
-                <Image 
-                  src={creativeImage.imageUrl}
-                  alt="Creative Process Illustration"
-                  fill
-                  className="object-cover opacity-90 group-hover:scale-110 transition-transform duration-[2000ms]"
-                  data-ai-hint={creativeImage.imageHint}
-                />
-              )}
-              
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60" />
-              
-              <div className="absolute top-6 left-6 right-6 flex justify-between items-start">
-                <div className="flex gap-2">
-                  <div className="w-2 h-2 rounded-full bg-red-500/80" />
-                  <div className="w-2 h-2 rounded-full bg-yellow-500/80" />
-                  <div className="w-2 h-2 rounded-full bg-green-500/80" />
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {[
+                { title: "Problem Solving", icon: Target, desc: "Breaking down complex logic into elegant solutions." },
+                { title: "Rapid Growth", icon: Zap, desc: "Constantly evolving with the latest tech stacks." },
+                { title: "Clean Code", icon: Code, desc: "Writing readable, maintainable, and efficient code." },
+                { title: "User Centric", icon: Layout, desc: "Designing for the human on the other side." }
+              ].map((item, i) => (
+                <div key={i} className="space-y-3 p-6 glass-card rounded-2xl hover:border-primary/30 transition-all group">
+                  <div className="p-3 w-fit rounded-xl bg-primary/10 text-primary group-hover:scale-110 transition-transform">
+                    <item.icon className="w-5 h-5" />
+                  </div>
+                  <h3 className="font-bold text-lg">{item.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
                 </div>
-                <div className="px-3 py-1 rounded-full bg-accent/20 backdrop-blur-md border border-accent/30 text-[10px] font-black text-accent uppercase tracking-widest flex items-center gap-2">
-                  <Sparkles className="w-3 h-3 animate-pulse" />
-                  {steps[activeStep].title} Mode
+              ))}
+            </div>
+          </div>
+
+          <div className="relative">
+            <div className="absolute -inset-4 bg-primary/20 blur-[100px] rounded-full -z-10 animate-pulse" />
+            <div className="glass-card rounded-[2.5rem] p-8 space-y-8">
+              <div className="flex items-center justify-between border-b border-white/5 pb-6">
+                <div className="flex items-center gap-3">
+                  <Layers className="w-6 h-6 text-primary" />
+                  <span className="font-bold uppercase tracking-widest text-xs">Work Sequence</span>
                 </div>
+                <div className="px-3 py-1 rounded-full glass-card text-[10px] font-bold text-primary">LIVE FLOW</div>
               </div>
 
-              <div className="absolute bottom-6 left-6 right-6">
-                <div className="bg-background/80 backdrop-blur-xl border border-accent/30 p-5 rounded-2xl shadow-2xl transform transition-all duration-500">
-                  <div className="flex items-center gap-4">
-                    <div className="p-3 bg-accent/10 rounded-xl text-accent">
-                      {(() => {
-                        const StepIcon = steps[activeStep].icon;
-                        return <StepIcon className="w-5 h-5" />;
-                      })()}
-                    </div>
-                    <div className="flex-1">
-                      <p className="text-[10px] font-black text-accent uppercase tracking-[0.2em] mb-1">Current Focus</p>
-                      <p className="text-sm font-bold text-foreground">{steps[activeStep].detail}</p>
-                    </div>
-                    <div className="relative">
-                      <div className="w-2 h-2 rounded-full bg-accent animate-ping absolute inset-0" />
-                      <div className="w-2 h-2 rounded-full bg-accent relative" />
-                    </div>
+              <div className="relative aspect-square rounded-3xl overflow-hidden group">
+                {creativeImage && (
+                  <Image 
+                    src={creativeImage.imageUrl}
+                    alt="Process Illustration"
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-[3000ms]"
+                    data-ai-hint={creativeImage.imageHint}
+                  />
+                )}
+                <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-60" />
+                
+                <div className="absolute bottom-6 left-6 right-6 p-6 glass-card rounded-2xl flex items-center gap-4 animate-in slide-in-from-bottom-4">
+                  <div className="p-3 bg-primary text-primary-foreground rounded-xl">
+                    {(() => {
+                      const Icon = steps[activeStep].icon;
+                      return <Icon className="w-5 h-5" />;
+                    })()}
+                  </div>
+                  <div>
+                    <p className="text-[10px] font-black uppercase text-primary tracking-widest mb-1">Active Step</p>
+                    <p className="font-bold text-sm">{steps[activeStep].detail}</p>
                   </div>
                 </div>
               </div>
-              
-              {/* Decorative Scanline effect */}
-              <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.1)_50%),linear-gradient(90deg,rgba(255,0,0,0.02),rgba(0,255,0,0.01),rgba(0,0,255,0.02))] bg-[length:100%_4px,3px_100%]" />
+
+              <div className="grid grid-cols-4 gap-2">
+                {steps.map((step, idx) => (
+                  <div 
+                    key={idx}
+                    className={`h-1 rounded-full transition-all duration-500 ${activeStep === idx ? "bg-primary w-full" : "bg-white/10"}`}
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </div>

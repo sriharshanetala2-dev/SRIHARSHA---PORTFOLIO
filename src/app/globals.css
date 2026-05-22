@@ -4,26 +4,26 @@
 
 @layer base {
   :root {
-    --background: 223 25% 12%;
+    --background: 230 25% 4%;
     --foreground: 210 20% 98%;
-    --card: 223 25% 15%;
+    --card: 230 25% 7%;
     --card-foreground: 210 20% 98%;
-    --popover: 223 25% 12%;
+    --popover: 230 25% 5%;
     --popover-foreground: 210 20% 98%;
-    --primary: 220 49% 60%;
-    --primary-foreground: 223 25% 12%;
-    --secondary: 223 15% 20%;
+    --primary: 210 100% 50%;
+    --primary-foreground: 230 25% 4%;
+    --secondary: 230 15% 12%;
     --secondary-foreground: 210 20% 98%;
-    --muted: 223 15% 20%;
+    --muted: 230 15% 15%;
     --muted-foreground: 215 15% 65%;
-    --accent: 190 69% 47%;
-    --accent-foreground: 223 25% 12%;
+    --accent: 180 100% 50%;
+    --accent-foreground: 230 25% 4%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 20% 98%;
-    --border: 223 15% 25%;
-    --input: 223 15% 25%;
-    --ring: 190 69% 47%;
-    --radius: 0.75rem;
+    --border: 230 15% 15%;
+    --input: 230 15% 15%;
+    --ring: 210 100% 50%;
+    --radius: 1rem;
   }
 }
 
@@ -32,11 +32,19 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground font-body transition-colors duration-500;
+    @apply bg-background text-foreground font-body antialiased;
   }
   h1, h2, h3, h4, h5, h6 {
     @apply font-headline tracking-tight;
   }
+}
+
+.glass-card {
+  @apply bg-card/40 backdrop-blur-xl border border-white/5 shadow-2xl;
+}
+
+.glass-nav {
+  @apply bg-background/60 backdrop-blur-md border-b border-white/5;
 }
 
 .no-scrollbar::-webkit-scrollbar {
@@ -48,65 +56,33 @@
 }
 
 @keyframes float {
-  0% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-15px) rotate(1deg); }
-  100% { transform: translateY(0px) rotate(0deg); }
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
 }
 
 .animate-float {
   animation: float 6s ease-in-out infinite;
 }
 
-.glow-cursor {
-  position: fixed;
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary;
+  background-size: 200% auto;
+  animation: shine 5s linear infinite;
+}
+
+@keyframes shine {
+  to { background-position: 200% center; }
+}
+
+.glow-mesh {
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  pointer-events: none;
-  background: radial-gradient(
-    600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    rgba(var(--primary), 0.08),
-    transparent 40%
-  );
-  z-index: 1;
-}
-
-.nav-link-underline {
-  position: relative;
-}
-
-.nav-link-underline::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: -4px;
-  left: 0;
-  background-color: hsl(var(--accent));
-  transition: width 0.3s ease;
-}
-
-.nav-link-underline:hover::after {
-  width: 100%;
-}
-
-.tilt-element {
-  transition: transform 0.2s ease-out;
-  transform-style: preserve-3d;
-}
-
-.tilt-element:hover {
-  transform: perspective(1000px) rotateX(var(--rotate-x, 0deg)) rotateY(var(--rotate-y, 0deg));
-}
-
-@keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
-}
-
-.animate-shimmer {
-  background: linear-gradient(90deg, transparent, rgba(var(--accent), 0.1), transparent);
-  background-size: 200% 100%;
-  animation: shimmer 2s infinite linear;
+  z-index: -1;
+  background-image: 
+    radial-gradient(at 0% 0%, hsla(210, 100%, 50%, 0.1) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, hsla(180, 100%, 50%, 0.1) 0px, transparent 50%);
 }

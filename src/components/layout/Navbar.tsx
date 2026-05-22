@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, useEffect } from "react";
@@ -10,7 +9,6 @@ import { cn } from "@/lib/utils";
 import { PlaceHolderImages } from "@/app/lib/placeholder-images";
 
 const navLinks = [
-  { name: "Home", href: "#" },
   { name: "About", href: "#about" },
   { name: "Projects", href: "#portfolio" },
   { name: "Dashboard", href: "#dashboard" },
@@ -37,24 +35,17 @@ export function Navbar() {
     e.preventDefault();
     setIsOpen(false);
     
-    if (href === "#" || href === "/") {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
+    if (href === "#") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
       return;
     }
 
     const element = document.querySelector(href);
     if (element) {
-      const offset = 80;
-      const bodyRect = document.body.getBoundingClientRect().top;
-      const elementRect = element.getBoundingClientRect().top;
-      const elementPosition = elementRect - bodyRect;
-      const offsetPosition = elementPosition - offset;
-
+      const offset = 100;
+      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
       window.scrollTo({
-        top: offsetPosition,
+        top: elementPosition - offset,
         behavior: "smooth"
       });
     }
@@ -63,44 +54,45 @@ export function Navbar() {
   return (
     <nav
       className={cn(
-        "fixed top-0 w-full z-50 transition-all duration-500 px-6 py-6",
-        scrolled ? "bg-background/80 backdrop-blur-md border-b py-4" : "bg-transparent"
+        "fixed top-0 w-full z-50 transition-all duration-300",
+        scrolled ? "glass-nav py-4" : "bg-transparent py-8"
       )}
     >
-      <div className="max-w-7xl mx-auto flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-3 group">
-          <div className="relative w-10 h-10 rounded-xl overflow-hidden bg-accent/10 border border-accent/20 group-hover:scale-110 transition-transform duration-500">
+          <div className="relative w-10 h-10 rounded-xl overflow-hidden glass-card group-hover:scale-105 transition-transform duration-300">
             {logoData && (
               <Image 
                 src={logoData.imageUrl} 
                 alt="Logo" 
                 fill 
-                className="object-cover opacity-80 group-hover:opacity-100 transition-opacity"
+                className="object-cover"
                 data-ai-hint={logoData.imageHint}
               />
             )}
           </div>
-          <span className="text-xl md:text-2xl font-headline font-bold tracking-tighter text-foreground uppercase">
-            NETALA <span className="text-accent">SRIHARSHA</span>
+          <span className="text-xl font-headline font-bold tracking-tight">
+            SRI<span className="text-primary">HARSHA</span>
           </span>
         </Link>
 
         {/* Desktop Nav */}
-        <div className="hidden lg:flex items-center gap-4 xl:gap-8">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              onClick={(e) => scrollToSection(e, link.href)}
-              className="text-[10px] xl:text-[11px] uppercase font-bold tracking-[0.2em] text-muted-foreground hover:text-accent transition-all duration-300 nav-link-underline whitespace-nowrap"
-            >
-              {link.name}
-            </a>
-          ))}
+        <div className="hidden lg:flex items-center gap-8">
+          <div className="flex items-center gap-6 px-6 py-2 rounded-full glass-card">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                onClick={(e) => scrollToSection(e, link.href)}
+                className="text-xs font-semibold text-muted-foreground hover:text-primary transition-colors uppercase tracking-widest"
+              >
+                {link.name}
+              </a>
+            ))}
+          </div>
           <Button 
             asChild
-            variant="default" 
-            className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold px-6 h-10 rounded-xl shadow-lg text-xs transform hover:scale-105 active:scale-95 transition-all"
+            className="rounded-full px-8 h-12 font-bold shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all"
           >
             <a href="#contact" onClick={(e) => scrollToSection(e, "#contact")}>Hire Me</a>
           </Button>
@@ -108,34 +100,28 @@ export function Navbar() {
 
         {/* Mobile Toggle */}
         <button
-          className="lg:hidden text-foreground p-2 rounded-xl hover:bg-secondary transition-colors"
+          className="lg:hidden p-2 glass-card rounded-xl text-foreground"
           onClick={() => setIsOpen(!isOpen)}
-          aria-label="Toggle menu"
         >
-          {isOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
+          {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
       </div>
 
       {/* Mobile Nav */}
       {isOpen && (
-        <div className="absolute top-full left-0 w-full bg-background/95 backdrop-blur-xl border-b lg:hidden animate-in fade-in slide-in-from-top-4 duration-500">
-          <div className="flex flex-col p-8 gap-6 max-h-[80vh] overflow-y-auto">
-            {navLinks.map((link, idx) => (
+        <div className="absolute top-full left-0 w-full glass-nav lg:hidden p-8 animate-in fade-in slide-in-from-top-4">
+          <div className="flex flex-col gap-6">
+            {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                style={{ animationDelay: `${idx * 50}ms` }}
-                className="text-2xl font-headline font-bold text-foreground hover:text-accent animate-in fade-in slide-in-from-left-4 duration-500"
+                className="text-xl font-headline font-bold hover:text-primary transition-colors"
                 onClick={(e) => scrollToSection(e, link.href)}
               >
                 {link.name}
               </a>
             ))}
-            <Button 
-              asChild
-              variant="default" 
-              className="w-full h-14 text-lg font-bold rounded-2xl mt-4"
-            >
+            <Button asChild className="w-full h-14 text-lg font-bold rounded-2xl">
               <a href="#contact" onClick={(e) => scrollToSection(e, "#contact")}>Hire Me</a>
             </Button>
           </div>
