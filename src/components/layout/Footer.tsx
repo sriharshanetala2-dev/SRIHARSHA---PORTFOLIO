@@ -15,7 +15,7 @@ export function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-12">
           <div className="flex flex-col items-center md:items-start gap-8">
             <Logo className="scale-[1.5] origin-left" />
-            <p className="text-muted-foreground text-center md:text-left max-w-md text-sm sm:text-base font-medium leading-relaxed opacity-70">
+            <p className="text-muted-foreground text-center md:text-left max-w-md text-sm font-medium leading-relaxed opacity-70">
               Architecting high-performance digital solutions with a focus on Full Stack integrity and UI precision.
             </p>
           </div>

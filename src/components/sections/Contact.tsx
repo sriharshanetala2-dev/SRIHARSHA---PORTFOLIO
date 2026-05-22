@@ -23,7 +23,7 @@ export function Contact() {
   const userEmail = "sriharshanetala2@gmail.com";
   const userPhone = "+91 9346759263";
 
-  // Gmail direct link logic
+  // Direct Gmail compose link
   const gmailComposeUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${userEmail}`;
 
   const copyEmail = () => {
@@ -55,15 +55,14 @@ export function Contact() {
       });
     }
 
-    toast({ title: "Sending Message", description: "Opening your Gmail client..." });
+    toast({ title: "Synchronizing Gateway", description: "Redirecting to Gmail compose..." });
     
     setTimeout(() => {
-      // Redirect to pre-filled Gmail compose
-      const mailUrl = `${gmailComposeUrl}&su=Inquiry from ${formData.name}&body=${encodeURIComponent(formData.message)}`;
+      const mailUrl = `${gmailComposeUrl}&su=Portfolio Inquiry: ${formData.name}&body=${encodeURIComponent(formData.message)}`;
       window.open(mailUrl, '_blank');
       setIsSubmitting(false);
       setFormData({ name: "", email: "", message: "" });
-    }, 1200);
+    }, 1000);
   };
 
   return (
@@ -79,9 +78,9 @@ export function Contact() {
           <div className="space-y-8">
             <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-primary/10 border border-primary/20 text-[10px] font-black text-primary uppercase tracking-widest">
               <Mail className="w-4 h-4" />
-              Contact Hub
+              Collaboration Gate
             </div>
-            <h2 className="text-4xl sm:text-5xl font-headline font-black tracking-tighter leading-none uppercase">
+            <h2 className="text-3xl sm:text-5xl font-headline font-black tracking-tighter leading-none uppercase">
               GET IN <span className="text-primary">TOUCH</span>
             </h2>
             <p className="text-sm sm:text-base text-muted-foreground leading-relaxed max-w-lg font-bold opacity-80 uppercase tracking-widest">
@@ -90,7 +89,8 @@ export function Contact() {
           </div>
 
           <div className="space-y-4">
-            <div 
+            <motion.div 
+              whileHover={{ scale: 1.02 }}
               onClick={copyEmail}
               className="flex items-center gap-4 p-6 bg-secondary/30 rounded-2xl border border-border hover:border-primary transition-all cursor-pointer group shadow-sm"
             >
@@ -102,9 +102,10 @@ export function Contact() {
                 <p className="font-black text-sm sm:text-base truncate tracking-tight uppercase">{userEmail}</p>
               </div>
               {copiedEmail ? <Check className="w-5 h-5 text-green-500" /> : <Copy className="w-5 h-5 opacity-20 group-hover:opacity-100 transition-opacity" />}
-            </div>
+            </motion.div>
 
-            <div 
+            <motion.div 
+              whileHover={{ scale: 1.02 }}
               onClick={copyPhone}
               className="flex items-center gap-4 p-6 bg-secondary/30 rounded-2xl border border-border hover:border-primary transition-all cursor-pointer group shadow-sm"
             >
@@ -116,7 +117,7 @@ export function Contact() {
                 <p className="font-black text-sm sm:text-base tracking-tight uppercase">{userPhone}</p>
               </div>
               {copiedPhone ? <Check className="w-5 h-5 text-green-500" /> : <Copy className="w-5 h-5 opacity-20 group-hover:opacity-100 transition-opacity" />}
-            </div>
+            </motion.div>
           </div>
         </motion.div>
 
@@ -127,7 +128,7 @@ export function Contact() {
           viewport={{ once: true }}
           className="bg-card/50 border border-border p-8 rounded-[2rem] shadow-xl"
         >
-          <form onSubmit={handleSubmit} className="space-y-8">
+          <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-2">
                 <label className="text-[10px] font-black uppercase text-muted-foreground tracking-widest ml-1">Full Name</label>

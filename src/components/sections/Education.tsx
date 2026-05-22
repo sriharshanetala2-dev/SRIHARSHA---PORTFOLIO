@@ -1,4 +1,3 @@
-
 "use client";
 
 import { motion } from "framer-motion";
@@ -27,6 +26,21 @@ const education = [
 ];
 
 export function Education() {
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const item = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100 } }
+  };
+
   return (
     <section id="education" className="py-24 md:py-32 px-6 bg-secondary/10 relative overflow-hidden border-y border-border/30">
       <div className="absolute inset-0 neural-grid opacity-[0.02] pointer-events-none" />
@@ -41,42 +55,40 @@ export function Education() {
             <BookOpen className="w-4 h-4" />
             Academic Registry
           </motion.div>
-          <h2 className="text-4xl sm:text-6xl font-headline font-black tracking-tighter uppercase leading-none">
+          <h2 className="text-3xl sm:text-5xl font-headline font-black tracking-tighter uppercase leading-none">
             TECHNICAL <span className="text-primary">FOUNDATION</span>
           </h2>
-          <p className="text-sm sm:text-lg text-muted-foreground font-bold opacity-70 uppercase tracking-widest">
+          <p className="text-sm sm:text-base text-muted-foreground font-bold opacity-70 uppercase tracking-widest">
             The core academic foundation of my software engineering career.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-8">
-          {education.map((item, idx) => (
-            <motion.div 
-              key={idx}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: idx * 0.1, type: "spring", stiffness: 100 }}
-              viewport={{ once: true }}
-            >
+        <motion.div 
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 gap-6"
+        >
+          {education.map((edu, idx) => (
+            <motion.div key={idx} variants={item}>
               <Card className="p-8 md:p-10 glass-card border-border/50 hover:border-primary/40 transition-all group rounded-3xl overflow-hidden shadow-md">
-                <div className="flex flex-col md:flex-row gap-10 items-start">
-                  <div className="p-5 rounded-2xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 shadow-inner">
-                    <item.icon className="w-8 h-8" />
+                <div className="flex flex-col md:flex-row gap-8 items-start">
+                  <div className="p-4 rounded-2xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
+                    <edu.icon className="w-6 h-6" />
                   </div>
-                  <div className="space-y-4 flex-1">
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                      <h3 className="text-2xl sm:text-3xl font-headline font-black uppercase tracking-tight group-hover:text-primary transition-colors">{item.role}</h3>
-                    </div>
-                    <p className="text-primary font-black text-xs uppercase tracking-widest opacity-80">{item.institution}</p>
-                    <p className="text-base sm:text-lg text-muted-foreground leading-relaxed font-bold opacity-80 uppercase tracking-tight">
-                      {item.description}
+                  <div className="space-y-2 flex-1">
+                    <h3 className="text-xl sm:text-2xl font-headline font-black uppercase tracking-tight group-hover:text-primary transition-colors">{edu.role}</h3>
+                    <p className="text-primary font-black text-xs uppercase tracking-widest opacity-80">{edu.institution}</p>
+                    <p className="text-sm sm:text-base text-muted-foreground leading-relaxed font-bold opacity-80 uppercase tracking-tight">
+                      {edu.description}
                     </p>
                   </div>
                 </div>
               </Card>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
