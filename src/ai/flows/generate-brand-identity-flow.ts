@@ -19,8 +19,9 @@ const BrandIdentityInputSchema = z.object({
 export type BrandIdentityInput = z.infer<typeof BrandIdentityInputSchema>;
 
 const BrandIdentityOutputSchema = z.object({
-  techStack: z.string().describe('Recommended technology stack, e.g. "React, Next.js, Firebase, Tailwind".'),
-  professionalDescription: z.string().describe('A professional, high-impact description of the project for a portfolio.'),
+  techStack: z.array(z.string()).describe('List of recommended technology stack components.'),
+  professionalDescription: z.string().describe('A professional, high-impact description of the project.'),
+  uiConcept: z.string().describe('A brief (1 sentence) description of the UI/UX direction.'),
   logoUrl: z.string().optional().describe('Data URI of the generated logo.'),
 });
 export type BrandIdentityOutput = z.infer<typeof BrandIdentityOutputSchema>;
@@ -35,16 +36,17 @@ const prompt = ai.definePrompt({
   name: 'brandIdentityPrompt',
   input: {schema: BrandIdentityInputSchema},
   output: {schema: BrandIdentityOutputSchema.omit({logoUrl: true})},
-  prompt: `You are an elite startup brand consultant and technical architect.
+  prompt: `You are an elite software architect and brand strategist.
   
-Project Name: "{{{projectName}}}"
-Mission: {{{mission}}}
-Target Audience: {{{audience}}}
-Desired Brand Tone: {{{tone}}}
+PROJECT NAME: "{{{projectName}}}"
+CORE MISSION: {{{mission}}}
+TARGET AUDIENCE: {{{audience}}}
+BRAND PERSONALITY: {{{tone}}}
 
 Your task is to:
-1. Architect a modern, production-grade technology stack (comma-separated list) optimized for this specific domain and mission.
-2. Draft a compelling, high-impact project description (2-3 sentences) that sounds like it came from a senior engineer's portfolio. The tone must strictly reflect the chosen "{{{tone}}}" personality.`,
+1. Select exactly 4 modern tech stack components (e.g. Next.js, Go, PostgreSQL, Tailwind) that best suit this mission.
+2. Write a single, high-impact sentence that defines the project's market position in a "{{{tone}}}" tone.
+3. Describe the UI/UX aesthetic direction in one punchy sentence.`,
 });
 
 const generateBrandIdentityFlow = ai.defineFlow(
@@ -57,21 +59,20 @@ const generateBrandIdentityFlow = ai.defineFlow(
     // 1. Generate textual identity
     const response = await prompt(input);
     const output = response.output;
-    if (!output) throw new Error("The identity architect failed to synthesize the requirements.");
+    if (!output) throw new Error("Synthesis failure: Neural core failed to resolve identity.");
 
     // 2. Generate a visual mark (Logo)
     let logoUrl = undefined;
     try {
       const { media } = await ai.generate({
         model: 'googleai/imagen-4.0-fast-generate-001',
-        prompt: `A high-end, ${input.tone} minimal software icon for a project named "${input.projectName}". 
-        Mission context: ${input.mission}. 
-        Style: Clean geometric vector, flat design, professional tech aesthetic, centered composition, high contrast, no text, no letters, no words.`,
+        prompt: `A high-end, ${input.tone} minimal vector software icon for a project named "${input.projectName}". 
+        Context: ${input.mission}. 
+        Style: Clean geometric design, solid background, tech aesthetic, no text, no letters, centered, professional.`,
       });
       logoUrl = media?.url;
     } catch (e) {
-      // Non-blocking: If image fails, text is still valuable
-      console.error("Visual asset generation bypassed due to engine limits.", e);
+      console.error("Visual generation bypassed.", e);
     }
 
     return {
