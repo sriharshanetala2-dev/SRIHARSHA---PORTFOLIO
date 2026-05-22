@@ -4,50 +4,38 @@
     {
       "id": "student-system",
       "description": "Intelligent Academic Lifecycle Management",
-      "imageUrl": "https://picsum.photos/seed/dev_student_v4/800/600",
-      "imageHint": "student records"
+      "imageUrl": "https://picsum.photos/seed/sri_student_v1/800/600",
+      "imageHint": "student database"
     },
     {
-      "id": "weather-app",
-      "description": "Graph Analysis of Weather Report",
-      "imageUrl": "https://picsum.photos/seed/weather_analytics_v9/800/600",
-      "imageHint": "weather graphs"
+      "id": "weather-oracle",
+      "description": "AI-Driven Atmospheric Insights",
+      "imageUrl": "https://picsum.photos/seed/sri_weather_v2/800/600",
+      "imageHint": "weather forecasting"
     },
     {
-      "id": "todo-app",
-      "description": "Coding Environment for Task Logic",
-      "imageUrl": "https://picsum.photos/seed/dev_coding_v1/800/600",
-      "imageHint": "software code"
+      "id": "ai-task-manager",
+      "description": "Cognitive Task Orchestration",
+      "imageUrl": "https://picsum.photos/seed/sri_task_v3/800/600",
+      "imageHint": "artificial intelligence"
     },
     {
-      "id": "ecommerce-site",
-      "description": "Marketing Analytics and Stock Market Trends",
-      "imageUrl": "https://picsum.photos/seed/dev_stocks_v5/800/600",
-      "imageHint": "stock marketing"
+      "id": "marketsync",
+      "description": "Adaptive Financial Trading Hub",
+      "imageUrl": "https://picsum.photos/seed/sri_finance_v4/800/600",
+      "imageHint": "stock trading"
     },
     {
       "id": "subnet-master",
-      "description": "Technical Terminal for Network Logic",
-      "imageUrl": "https://picsum.photos/seed/dev_terminal_v3/800/600",
-      "imageHint": "coding terminal"
+      "description": "Visual IP Networking Engine",
+      "imageUrl": "https://picsum.photos/seed/sri_network_v5/800/600",
+      "imageHint": "computer networking"
     },
     {
       "id": "data-analytics",
-      "description": "Predictive Business Intelligence",
-      "imageUrl": "https://picsum.photos/seed/dev_analytics_v4/800/600",
-      "imageHint": "data analytics"
-    },
-    {
-      "id": "retailer-app",
-      "description": "Smart Supply Chain Optimizer",
-      "imageUrl": "https://picsum.photos/seed/dev_logistics_v4/800/600",
-      "imageHint": "retail logistics"
-    },
-    {
-      "id": "networking-tool",
-      "description": "Real-time Neural Network Monitor",
-      "imageUrl": "https://picsum.photos/seed/dev_monitor_v4/800/600",
-      "imageHint": "it infrastructure"
+      "description": "Predictive Data Synthesis Platform",
+      "imageUrl": "https://picsum.photos/seed/sri_analytics_v6/800/600",
+      "imageHint": "data science"
     }
   ]
 }

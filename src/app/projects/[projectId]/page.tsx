@@ -6,14 +6,13 @@ import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { projects } from "@/app/lib/projects-data";
-import { PlaceHolderImages } from "@/lib/placeholder-images";
+import { PlaceHolderImages } from "@/app/lib/placeholder-images";
 import { Button } from "@/components/ui/button";
 import { 
   ArrowLeft, 
   Github, 
   ExternalLink, 
   CheckCircle2, 
-  Cpu, 
   Layers, 
   Code2 
 } from "lucide-react";
@@ -67,6 +66,7 @@ export default function ProjectPage({ params }: { params: Promise<{ projectId: s
                 fill 
                 className="object-cover group-hover:scale-105 transition-transform duration-1000"
                 priority
+                data-ai-hint={imageData.imageHint}
               />
             )}
             <div className="absolute inset-0 bg-gradient-to-t from-background/50 to-transparent" />
