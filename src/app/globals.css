@@ -1,29 +1,50 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
+    --background: 0 0% 100%;
+    --foreground: 230 25% 4%;
+    --card: 0 0% 98%;
+    --card-foreground: 230 25% 4%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 230 25% 4%;
+    --primary: 210 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 230 15% 96%;
+    --secondary-foreground: 230 25% 4%;
+    --muted: 230 15% 94%;
+    --muted-foreground: 215 15% 45%;
+    --accent: 180 100% 40%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 230 15% 90%;
+    --input: 230 15% 90%;
+    --ring: 210 100% 50%;
+    --radius: 1rem;
+  }
+
+  .dark {
     --background: 230 25% 4%;
     --foreground: 210 20% 98%;
-    --card: 230 25% 7%;
+    --card: 230 25% 6%;
     --card-foreground: 210 20% 98%;
-    --popover: 230 25% 5%;
+    --popover: 230 25% 4%;
     --popover-foreground: 210 20% 98%;
     --primary: 210 100% 50%;
     --primary-foreground: 230 25% 4%;
-    --secondary: 230 15% 12%;
+    --secondary: 230 15% 10%;
     --secondary-foreground: 210 20% 98%;
-    --muted: 230 15% 15%;
+    --muted: 230 15% 12%;
     --muted-foreground: 215 15% 65%;
     --accent: 180 100% 50%;
     --accent-foreground: 230 25% 4%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 20% 98%;
-    --border: 230 15% 15%;
-    --input: 230 15% 15%;
+    --border: 230 15% 14%;
+    --input: 230 15% 14%;
     --ring: 210 100% 50%;
-    --radius: 1.25rem;
   }
 }
 
@@ -32,7 +53,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground font-body antialiased selection:bg-primary selection:text-primary-foreground;
+    @apply bg-background text-foreground font-body antialiased selection:bg-primary selection:text-primary-foreground transition-colors duration-300;
   }
   h1, h2, h3, h4, h5, h6 {
     @apply font-headline tracking-tighter;
@@ -40,11 +61,15 @@
 }
 
 .glass-card {
-  @apply bg-card/40 backdrop-blur-2xl border border-white/5 shadow-2xl transition-all duration-500;
+  @apply bg-card/60 backdrop-blur-xl border border-foreground/5 shadow-xl transition-all duration-300;
+}
+
+.dark .glass-card {
+  @apply bg-card/40 border-white/5;
 }
 
 .glass-nav {
-  @apply bg-background/60 backdrop-blur-xl border-b border-white/5;
+  @apply bg-background/80 backdrop-blur-xl border-b border-foreground/5;
 }
 
 .text-gradient {
@@ -65,18 +90,17 @@
   height: 100%;
   z-index: -1;
   background-image: 
-    radial-gradient(at 0% 0%, hsla(210, 100%, 50%, 0.15) 0px, transparent 50%),
-    radial-gradient(at 100% 100%, hsla(180, 100%, 50%, 0.15) 0px, transparent 50%),
-    radial-gradient(at 50% 50%, hsla(230, 25%, 7%, 1) 0px, transparent 100%);
+    radial-gradient(at 0% 0%, hsla(var(--primary), 0.1) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, hsla(var(--accent), 0.1) 0px, transparent 50%);
 }
 
 .glow-cursor {
   position: fixed;
   top: var(--mouse-y);
   left: var(--mouse-x);
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, hsla(210, 100%, 50%, 0.05) 0%, transparent 70%);
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, hsla(var(--primary), 0.05) 0%, transparent 70%);
   transform: translate(-50%, -50%);
   pointer-events: none;
   z-index: 1;
@@ -92,18 +116,9 @@
 
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
+  50% { transform: translateY(-10px); }
 }
 
 .animate-float {
-  animation: float 8s ease-in-out infinite;
-}
-
-@keyframes spin-slow {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-.animate-spin-slow {
-  animation: spin-slow 12s linear infinite;
+  animation: float 6s ease-in-out infinite;
 }
