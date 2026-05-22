@@ -1,16 +1,15 @@
-
 "use client";
 
 import Link from "next/link";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { ExternalLink, Github, ArrowRight } from "lucide-react";
+import { ArrowRight, Github, Code2, BrainCircuit } from "lucide-react";
 import { PlaceHolderImages } from "@/app/lib/placeholder-images";
 import { cn } from "@/lib/utils";
-import { projects } from "@/app/lib/projects-data";
+import { projects, Project } from "@/app/lib/projects-data";
 
-function ProjectCard({ project, idx }: { project: any, idx: number }) {
+function ProjectCard({ project, idx }: { project: Project, idx: number }) {
   const imageData = PlaceHolderImages.find(img => img.id === project.id);
 
   return (
@@ -89,23 +88,56 @@ function ProjectCard({ project, idx }: { project: any, idx: number }) {
 }
 
 export function Projects() {
+  const learningProjects = projects.filter(p => p.phase === 'learning');
+  const fullstackProjects = projects.filter(p => p.phase === 'fullstack');
+
   return (
     <section id="portfolio" className="py-32 px-6 bg-background/50 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto">
-        <div className="space-y-6 text-center mb-20">
+      <div className="max-w-7xl mx-auto space-y-32">
+        <div className="space-y-6 text-center">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-xs font-bold text-accent uppercase tracking-widest">
-            Showcase Projects
+            Portfolio Timeline
           </div>
-          <h2 className="text-4xl md:text-5xl font-headline font-bold">Featured Innovations</h2>
+          <h2 className="text-4xl md:text-5xl font-headline font-bold">Project Architecture Journey</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed">
-            A curated collection of high-impact applications demonstrating creative technical proficiency and AI-level architectural thinking.
+            Exploring the evolution from core engineering foundations to high-performance modern web and AI solutions.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {projects.map((project, idx) => (
-            <ProjectCard key={project.id} project={project} idx={idx} />
-          ))}
+        {/* Full Stack Phase */}
+        <div className="space-y-12">
+          <div className="flex items-center gap-4">
+            <div className="p-3 rounded-2xl bg-accent/10 text-accent">
+              <BrainCircuit className="w-8 h-8" />
+            </div>
+            <div>
+              <h3 className="text-3xl font-headline font-bold">Phase 02: Full Stack & AI Mastery</h3>
+              <p className="text-muted-foreground font-medium uppercase text-[10px] tracking-widest">Modern Architectural Solutions</p>
+            </div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {fullstackProjects.map((project, idx) => (
+              <ProjectCard key={project.id} project={project} idx={idx} />
+            ))}
+          </div>
+        </div>
+
+        {/* Learning Phase */}
+        <div className="space-y-12">
+          <div className="flex items-center gap-4">
+            <div className="p-3 rounded-2xl bg-primary/10 text-primary">
+              <Code2 className="w-8 h-8" />
+            </div>
+            <div>
+              <h3 className="text-3xl font-headline font-bold">Phase 01: Core Learning & Engineering</h3>
+              <p className="text-muted-foreground font-medium uppercase text-[10px] tracking-widest">Foundation & Systems Building</p>
+            </div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {learningProjects.map((project, idx) => (
+              <ProjectCard key={project.id} project={project} idx={idx} />
+            ))}
+          </div>
         </div>
       </div>
     </section>
