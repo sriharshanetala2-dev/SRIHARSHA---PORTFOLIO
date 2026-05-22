@@ -1,5 +1,5 @@
-
 import { config } from 'dotenv';
 config();
 
-import '@/ai/flows/generate-project-description-flow';
+// Flows are registered by importing them. 
+// No active flows currently mapped to UI.
