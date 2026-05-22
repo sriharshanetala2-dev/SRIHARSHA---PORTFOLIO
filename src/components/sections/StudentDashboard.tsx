@@ -15,7 +15,6 @@ import {
   MoreVertical,
   FileText,
   BarChart3,
-  PieChart as PieChartIcon,
   Download,
   Filter,
   Activity
@@ -28,8 +27,6 @@ import {
   Area,
   BarChart,
   Bar,
-  ResponsiveContainer,
-  Tooltip as RechartsTooltip
 } from "recharts";
 import { ChartContainer, ChartTooltip, ChartTooltipContent, type ChartConfig } from "@/components/ui/chart";
 import { 
@@ -79,7 +76,7 @@ const chartConfig = {
 } satisfies ChartConfig;
 
 export function StudentDashboard() {
-  const [activeTab, setActiveTab] = useState("Student Data");
+  const [activeTab, setActiveTab] = useState("Overview");
   const [mounted, setMounted] = useState(false);
   const { toast } = useToast();
 
@@ -90,15 +87,15 @@ export function StudentDashboard() {
   const handleTabChange = (label: string) => {
     setActiveTab(label);
     toast({
-      title: `Switched to ${label}`,
-      description: `Accessing the ${label.toLowerCase()} module...`,
+      title: `Accessing Node: ${label}`,
+      description: `Switching to the ${label.toLowerCase()} subsystem...`,
     });
   };
 
   const handleSimulatedAction = (action: string) => {
     toast({
-      title: action,
-      description: "This operation is being processed by the system core.",
+      title: "Action Initiated",
+      description: `${action} is being processed by the core logic.`,
     });
   };
 
@@ -110,46 +107,42 @@ export function StudentDashboard() {
         return (
           <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
             <Card className="bg-background/50 border-border/50">
-              <CardHeader className="flex flex-row items-center justify-between">
-                <div>
-                  <CardTitle className="text-lg font-bold">Enrollment Registry</CardTitle>
-                  <CardDescription>Comprehensive list of all registered students</CardDescription>
+              <CardHeader className="flex flex-row items-center justify-between p-4 sm:p-6">
+                <div className="space-y-1">
+                  <CardTitle className="text-sm sm:text-lg font-black uppercase tracking-tight">Enrollment Registry</CardTitle>
+                  <CardDescription className="text-[10px] sm:text-xs">Live registered student database</CardDescription>
                 </div>
-                <div className="flex gap-2">
-                  <button onClick={() => handleSimulatedAction("Filter Applied")} className="p-2 rounded-lg border border-border hover:bg-secondary"><Filter className="w-4 h-4" /></button>
-                  <button onClick={() => handleSimulatedAction("Search Active")} className="p-2 rounded-lg border border-border hover:bg-secondary"><Search className="w-4 h-4" /></button>
+                <div className="flex gap-1.5">
+                  <button onClick={() => handleSimulatedAction("Filter Registry")} className="p-2 rounded-lg border border-border hover:bg-secondary"><Filter className="w-3.5 h-3.5" /></button>
+                  <button onClick={() => handleSimulatedAction("Query Registry")} className="p-2 rounded-lg border border-border hover:bg-secondary"><Search className="w-3.5 h-3.5" /></button>
                 </div>
               </CardHeader>
-              <CardContent>
+              <CardContent className="p-0 sm:p-6">
                 <div className="overflow-x-auto no-scrollbar">
                   <Table>
                     <TableHeader>
-                      <TableRow>
-                        <TableHead>ID</TableHead>
-                        <TableHead>Name</TableHead>
-                        <TableHead className="hidden sm:table-cell">Course</TableHead>
-                        <TableHead>GPA</TableHead>
-                        <TableHead className="hidden md:table-cell">Status</TableHead>
-                        <TableHead className="text-right">Actions</TableHead>
+                      <TableRow className="border-border/50">
+                        <TableHead className="text-[10px] font-black uppercase tracking-widest px-4">ID</TableHead>
+                        <TableHead className="text-[10px] font-black uppercase tracking-widest px-4">Name</TableHead>
+                        <TableHead className="hidden sm:table-cell text-[10px] font-black uppercase tracking-widest px-4">Course</TableHead>
+                        <TableHead className="text-[10px] font-black uppercase tracking-widest px-4">GPA</TableHead>
+                        <TableHead className="text-right px-4">Status</TableHead>
                       </TableRow>
                     </TableHeader>
                     <TableBody>
                       {studentActivity.map((student) => (
-                        <TableRow key={student.id}>
-                          <TableCell className="font-mono text-[10px] sm:text-xs">{student.id_num}</TableCell>
-                          <TableCell className="font-medium text-xs sm:text-sm">{student.name}</TableCell>
-                          <TableCell className="hidden sm:table-cell text-xs">{student.course}</TableCell>
-                          <TableCell className="font-bold text-primary text-xs sm:text-sm">{student.gpa}</TableCell>
-                          <TableCell className="hidden md:table-cell">
+                        <TableRow key={student.id} className="border-border/20 group hover:bg-primary/5 transition-colors">
+                          <TableCell className="font-mono text-[9px] sm:text-xs text-muted-foreground">{student.id_num}</TableCell>
+                          <TableCell className="font-bold text-[10px] sm:text-sm">{student.name}</TableCell>
+                          <TableCell className="hidden sm:table-cell text-[10px] font-medium opacity-60">{student.course}</TableCell>
+                          <TableCell className="font-black text-primary text-[10px] sm:text-sm">{student.gpa}</TableCell>
+                          <TableCell className="text-right">
                             <span className={cn(
-                              "px-2 py-0.5 rounded-full text-[9px] font-black uppercase",
+                              "px-2 py-0.5 rounded-md text-[8px] font-black uppercase",
                               student.status === "Active" ? "bg-green-500/10 text-green-500" : "bg-yellow-500/10 text-yellow-500"
                             )}>
                               {student.status}
                             </span>
-                          </TableCell>
-                          <TableCell className="text-right">
-                            <button onClick={() => handleSimulatedAction(`Viewing ${student.name}`)} className="text-accent hover:underline text-[9px] font-black uppercase">View</button>
                           </TableCell>
                         </TableRow>
                       ))}
@@ -163,31 +156,26 @@ export function StudentDashboard() {
 
       case "Academic Data":
         return (
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
-             <Card className="bg-background/50 border-border/50 col-span-1 lg:col-span-2">
-              <CardHeader>
-                <CardTitle className="text-lg font-bold">Grade Distribution (GPA vs Attendance)</CardTitle>
-                <CardDescription>Correlation between presence and academic performance</CardDescription>
+          <div className="grid grid-cols-1 gap-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
+             <Card className="bg-background/50 border-border/50">
+              <CardHeader className="p-4 sm:p-6">
+                <CardTitle className="text-sm sm:text-lg font-black uppercase tracking-tight">Grade Velocity</CardTitle>
+                <CardDescription className="text-[10px] sm:text-xs">Aggregate semester performance tracking</CardDescription>
               </CardHeader>
-              <CardContent className="h-64 sm:h-80 pt-6">
+              <CardContent className="h-[250px] sm:h-[350px] pt-4 px-2 sm:px-6">
                 <ChartContainer config={chartConfig} className="h-full w-full">
-                  <AreaChart data={gpaData} margin={{ left: -20, right: 10, top: 10 }}>
+                  <AreaChart data={gpaData} margin={{ left: -25, right: 10, top: 10 }}>
                     <defs>
                       <linearGradient id="colorGpa" x1="0" y1="0" x2="0" y2="1">
                         <stop offset="5%" stopColor="var(--color-gpa)" stopOpacity={0.4}/>
                         <stop offset="95%" stopColor="var(--color-gpa)" stopOpacity={0}/>
                       </linearGradient>
-                      <linearGradient id="colorAttendance" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="5%" stopColor="var(--color-attendance)" stopOpacity={0.4}/>
-                        <stop offset="95%" stopColor="var(--color-attendance)" stopOpacity={0}/>
-                      </linearGradient>
                     </defs>
-                    <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="hsl(var(--border) / 0.5)" />
-                    <XAxis dataKey="semester" axisLine={false} tickLine={false} tick={{ fontSize: 9, fill: "hsl(var(--muted-foreground))" }} />
-                    <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 9, fill: "hsl(var(--muted-foreground))" }} />
+                    <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="hsl(var(--border) / 0.3)" />
+                    <XAxis dataKey="semester" axisLine={false} tickLine={false} tick={{ fontSize: 8, fill: "hsl(var(--muted-foreground))" }} />
+                    <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 8, fill: "hsl(var(--muted-foreground))" }} />
                     <ChartTooltip content={<ChartTooltipContent />} />
                     <Area type="monotone" dataKey="gpa" stroke="var(--color-gpa)" fill="url(#colorGpa)" strokeWidth={3} />
-                    <Area type="monotone" dataKey="attendance" stroke="var(--color-attendance)" fill="url(#colorAttendance)" strokeWidth={3} />
                   </AreaChart>
                 </ChartContainer>
               </CardContent>
@@ -195,109 +183,30 @@ export function StudentDashboard() {
           </div>
         );
 
-      case "Analytical Data":
-        return (
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
-            <Card className="bg-background/50 border-border/50">
-              <CardHeader>
-                <CardTitle className="text-lg font-bold">Project Submission Velocity</CardTitle>
-                <CardDescription>Total submissions per module cluster</CardDescription>
-              </CardHeader>
-              <CardContent className="h-64">
-                <ChartContainer config={{ submissions: { label: "Submissions", color: "hsl(var(--primary))" } }} className="h-full w-full">
-                  <BarChart data={[
-                    { name: 'Core', submissions: 400 },
-                    { name: 'Adv', submissions: 300 },
-                    { name: 'Lab', submissions: 200 },
-                    { name: 'Proj', submissions: 278 },
-                  ]}>
-                    <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="hsl(var(--border) / 0.5)" />
-                    <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{ fontSize: 9 }} />
-                    <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 9 }} />
-                    <ChartTooltip content={<ChartTooltipContent />} />
-                    <Bar dataKey="submissions" fill="var(--color-submissions)" radius={[4, 4, 0, 0]} />
-                  </BarChart>
-                </ChartContainer>
-              </CardContent>
-            </Card>
-            <Card className="bg-background/50 border-border/50">
-              <CardHeader>
-                <CardTitle className="text-lg font-bold">Skill Acquisition Index</CardTitle>
-                <CardDescription>Mastery levels across core competencies</CardDescription>
-              </CardHeader>
-              <CardContent className="flex items-center justify-center p-6 sm:p-8">
-                <div className="space-y-4 w-full">
-                  {[
-                    { skill: "Data Structures", val: 88 },
-                    { skill: "Algorithm Design", val: 92 },
-                    { skill: "System Architecture", val: 75 },
-                    { skill: "UI/UX Logic", val: 82 }
-                  ].map((s) => (
-                    <div key={s.skill} className="space-y-1">
-                      <div className="flex justify-between text-[10px] font-black uppercase">
-                        <span>{s.skill}</span>
-                        <span className="text-primary">{s.val}%</span>
-                      </div>
-                      <div className="h-1.5 w-full bg-secondary rounded-full overflow-hidden">
-                        <div className="h-full bg-primary transition-all duration-1000" style={{ width: `${s.val}%` }} />
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        );
-
-      case "Report Data":
-        return (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
-            {reports.map((report) => (
-              <Card key={report.title} className="bg-background/50 border-border/50 hover:border-primary transition-all group cursor-pointer" onClick={() => handleSimulatedAction(`Downloading ${report.title}`)}>
-                <CardContent className="p-5 sm:p-6 flex items-center justify-between">
-                  <div className="flex items-center gap-3 sm:gap-4">
-                    <div className="p-2 sm:p-3 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all">
-                      <FileText className="w-4 h-4 sm:w-5 sm:h-5" />
-                    </div>
-                    <div>
-                      <h5 className="font-bold text-xs sm:text-sm">{report.title}</h5>
-                      <p className="text-[9px] text-muted-foreground uppercase font-black">{report.date} • {report.size}</p>
-                    </div>
-                  </div>
-                  <Download className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        );
-
       case "Overview":
       default:
         return (
-          <div className="space-y-8 animate-in fade-in duration-700">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+          <div className="space-y-6 sm:space-y-8 animate-in fade-in duration-700">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {[
-                { label: "Total Students", value: "24,512", change: "+1.2k", icon: Users, delay: "delay-100" },
-                { label: "Active Courses", value: "112", change: "+6", icon: BookOpen, delay: "delay-200" },
-                { label: "Avg. GPA Score", value: "3.72", change: "+0.1", icon: TrendingUp, delay: "delay-300" },
+                { label: "Total Students", value: "24,512", icon: Users, delay: "delay-100" },
+                { label: "Active Courses", value: "112", icon: BookOpen, delay: "delay-200" },
+                { label: "Avg. GPA", value: "3.72", icon: TrendingUp, delay: "delay-300" },
               ].map((stat) => (
                 <Card 
                   key={stat.label} 
                   className={cn(
-                    "bg-background/50 border-border/50 backdrop-blur-sm animate-in fade-in slide-in-from-bottom-2 duration-500 cursor-pointer hover:bg-background transition-colors",
+                    "bg-background/50 border-border/50 backdrop-blur-sm animate-in fade-in slide-in-from-bottom-2 duration-500 hover:bg-primary/5 transition-colors cursor-pointer",
                     stat.delay
                   )}
                   onClick={() => handleSimulatedAction(`Analyzing ${stat.label}`)}
                 >
                   <CardContent className="p-4 sm:p-6 flex items-center justify-between">
                     <div className="space-y-1">
-                      <p className="text-[9px] font-black text-muted-foreground uppercase tracking-widest">{stat.label}</p>
-                      <div className="flex items-baseline gap-2">
-                        <span className="text-xl sm:text-2xl font-black font-headline text-foreground">{stat.value}</span>
-                        <span className="text-[9px] font-bold text-green-500">{stat.change}</span>
-                      </div>
+                      <p className="text-[8px] sm:text-[9px] font-black text-muted-foreground uppercase tracking-widest">{stat.label}</p>
+                      <span className="text-xl sm:text-2xl font-black font-headline text-foreground">{stat.value}</span>
                     </div>
-                    <div className="p-2 sm:p-3 rounded-2xl bg-primary/10 text-primary">
+                    <div className="p-2 sm:p-3 rounded-xl bg-primary/10 text-primary">
                       <stat.icon className="w-4 h-4 sm:w-5 sm:h-5" />
                     </div>
                   </CardContent>
@@ -305,60 +214,47 @@ export function StudentDashboard() {
               ))}
             </div>
 
-            <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 sm:gap-8">
-              <Card className="bg-background/50 border-border/50 animate-in fade-in slide-in-from-left-4 duration-700 overflow-hidden">
-                <CardHeader className="flex flex-row items-center justify-between">
-                  <div>
-                    <CardTitle className="text-xs sm:text-sm font-black font-headline uppercase tracking-tight text-primary">Overview Trends</CardTitle>
-                    <CardDescription className="text-[10px]">Aggregate Academic Performance</CardDescription>
+            <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
+              <Card className="bg-background/50 border-border/50 animate-in fade-in slide-in-from-left-4 duration-700">
+                <CardHeader className="flex flex-row items-center justify-between p-4 sm:p-6">
+                  <div className="space-y-1">
+                    <CardTitle className="text-xs sm:text-sm font-black font-headline uppercase tracking-tight text-primary">System Trends</CardTitle>
+                    <CardDescription className="text-[9px]">Historical GPA metrics</CardDescription>
                   </div>
-                  <BarChart3 className="w-4 h-4 text-primary" />
+                  <BarChart3 className="w-4 h-4 text-primary opacity-50" />
                 </CardHeader>
-                <CardContent className="h-48 sm:h-64 pt-4">
+                <CardContent className="h-40 sm:h-56 pt-2 px-2 sm:px-6">
                   <ChartContainer config={chartConfig} className="h-full w-full">
-                    <AreaChart data={gpaData} margin={{ left: -20, right: 10, top: 10 }}>
-                      <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="hsl(var(--border) / 0.5)" />
-                      <XAxis dataKey="semester" axisLine={false} tickLine={false} tick={{ fontSize: 8 }} />
-                      <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 8 }} />
+                    <AreaChart data={gpaData} margin={{ left: -25, right: 10, top: 10 }}>
+                      <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="hsl(var(--border) / 0.2)" />
+                      <XAxis dataKey="semester" hide />
                       <ChartTooltip content={<ChartTooltipContent />} />
-                      <Area type="monotone" dataKey="gpa" stroke="var(--color-gpa)" fill="hsl(var(--primary)/0.15)" strokeWidth={3} />
+                      <Area type="monotone" dataKey="gpa" stroke="var(--color-gpa)" fill="hsl(var(--primary)/0.1)" strokeWidth={2} />
                     </AreaChart>
                   </ChartContainer>
                 </CardContent>
               </Card>
 
               <Card className="bg-background/50 border-border/50 animate-in fade-in slide-in-from-right-4 duration-700">
-                <CardHeader className="flex flex-row items-center justify-between">
-                  <div>
-                    <CardTitle className="text-xs sm:text-sm font-black font-headline uppercase tracking-tight text-primary">Security Logs</CardTitle>
-                    <CardDescription className="text-[10px]">Live data access verification</CardDescription>
-                  </div>
-                  <Settings className="w-4 h-4 text-primary animate-spin-slow" />
+                <CardHeader className="p-4 sm:p-6">
+                  <CardTitle className="text-xs sm:text-sm font-black font-headline uppercase tracking-tight text-primary">Live Activity</CardTitle>
+                  <CardDescription className="text-[9px]">Recent data access logs</CardDescription>
                 </CardHeader>
-                <CardContent>
-                  <div className="space-y-2 sm:space-y-3">
-                    {studentActivity.slice(0, 4).map((student, idx) => (
-                      <div 
-                        key={student.id} 
-                        onClick={() => handleSimulatedAction(`Viewing Data Record: ${student.name}`)}
-                        className={cn(
-                          "flex items-center justify-between p-2 sm:p-3 rounded-xl bg-secondary/20 border border-border/30 transition-all hover:bg-secondary/40 cursor-pointer",
-                          "animate-in fade-in slide-in-from-right-2 duration-500"
-                        )}
-                      >
-                        <div className="flex items-center gap-2 sm:gap-3">
-                          <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-primary/10 flex items-center justify-center text-[9px] font-black text-primary">
-                            {student.name.split(' ').map(n => n[0]).join('')}
-                          </div>
-                          <div>
-                            <p className="text-[10px] sm:text-xs font-bold text-foreground">{student.name}</p>
-                            <p className="text-[8px] text-muted-foreground uppercase font-black truncate max-w-[80px] sm:max-w-none">{student.course}</p>
-                          </div>
+                <CardContent className="p-2 sm:p-6 space-y-2">
+                  {studentActivity.slice(0, 3).map((student) => (
+                    <div key={student.id} className="flex items-center justify-between p-2.5 rounded-lg bg-secondary/20 border border-border/20 group hover:border-primary/50 transition-all cursor-pointer">
+                      <div className="flex items-center gap-3">
+                        <div className="w-7 h-7 rounded-md bg-primary/10 flex items-center justify-center text-[8px] font-black text-primary">
+                          {student.name.split(' ').map(n => n[0]).join('')}
                         </div>
-                        <MoreVertical className="w-3 h-3 sm:w-4 sm:h-4 text-muted-foreground" />
+                        <div className="flex flex-col">
+                          <span className="text-[10px] font-bold">{student.name}</span>
+                          <span className="text-[8px] uppercase font-black opacity-40">{student.id_num}</span>
+                        </div>
                       </div>
-                    ))}
-                  </div>
+                      <MoreVertical className="w-3 h-3 text-muted-foreground opacity-20 group-hover:opacity-100" />
+                    </div>
+                  ))}
                 </CardContent>
               </Card>
             </div>
@@ -378,20 +274,20 @@ export function StudentDashboard() {
           <h2 className="text-4xl sm:text-6xl md:text-7xl font-headline font-black tracking-tighter uppercase leading-none">
             INTELLIGENT <span className="text-gradient">DATA ECOSYSTEM</span>
           </h2>
-          <p className="text-sm sm:text-lg text-muted-foreground max-w-2xl mx-auto font-medium opacity-70 uppercase tracking-widest">
+          <p className="text-[10px] sm:text-base text-muted-foreground max-w-2xl mx-auto font-medium opacity-70 uppercase tracking-widest">
             A high-performance architectural simulation focusing on academic data integrity and predictive lifecycle analytics.
           </p>
         </div>
 
-        <div className="rounded-[2rem] sm:rounded-[3rem] overflow-hidden border border-border bg-card shadow-3xl animate-in fade-in zoom-in-95 duration-1000">
-          <div className="p-5 md:p-8 border-b border-border bg-secondary/20 flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div className="rounded-[1.5rem] sm:rounded-[3rem] overflow-hidden border border-border bg-card shadow-3xl animate-in fade-in zoom-in-95 duration-1000">
+          <div className="p-4 sm:p-8 border-b border-border bg-secondary/20 flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div className="flex items-center gap-4">
-              <div className="p-3 sm:p-4 rounded-2xl bg-primary text-primary-foreground shadow-2xl">
-                <Database className="w-6 h-6" />
+              <div className="p-2.5 sm:p-4 rounded-xl sm:rounded-2xl bg-primary text-primary-foreground shadow-2xl">
+                <Database className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
               <div>
-                <h3 className="text-lg sm:text-xl font-black font-headline uppercase tracking-tight text-foreground">EduSync Data Hub</h3>
-                <p className="text-[9px] text-muted-foreground uppercase tracking-widest font-black opacity-60">Central Intelligence Node</p>
+                <h3 className="text-base sm:text-xl font-black font-headline uppercase tracking-tight text-foreground">INTELLIGENT DATA ECOSYSTEM</h3>
+                <p className="text-[8px] text-muted-foreground uppercase tracking-widest font-black opacity-60">Architectural Node: Verified</p>
               </div>
             </div>
             
@@ -399,35 +295,32 @@ export function StudentDashboard() {
               <div className="relative hidden lg:block">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                 <input 
-                  placeholder="Query data records..." 
-                  onKeyDown={(e) => e.key === 'Enter' && handleSimulatedAction("Record Query Executed")}
-                  className="bg-background border border-border rounded-xl pl-10 pr-4 py-2 text-sm w-48 xl:w-64 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all font-medium"
+                  placeholder="Query system records..." 
+                  className="bg-background border border-border rounded-xl pl-10 pr-4 py-2 text-xs w-48 xl:w-64 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all font-medium"
                 />
               </div>
               <div className="flex items-center gap-2">
-                <button onClick={() => handleSimulatedAction("Alerts Toggled")} className="p-2.5 rounded-xl bg-background border border-border text-muted-foreground hover:text-primary transition-colors"><Bell className="w-5 h-5" /></button>
-                <div className="w-10 h-10 rounded-xl bg-primary/20 border border-primary/20 flex items-center justify-center text-primary font-black cursor-pointer text-xs" onClick={() => handleSimulatedAction("Security Profile")}>NS</div>
+                <button onClick={() => handleSimulatedAction("Alerts Node")} className="p-2 rounded-lg bg-background border border-border text-muted-foreground hover:text-primary transition-colors"><Bell className="w-4 h-4 sm:w-5 sm:h-5" /></button>
+                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-primary/20 border border-primary/20 flex items-center justify-center text-primary font-black cursor-pointer text-[10px]" onClick={() => handleSimulatedAction("User Identity Node")}>NS</div>
               </div>
             </div>
           </div>
 
-          <div className="flex flex-col lg:flex-row min-h-[500px] sm:min-h-[600px]">
-            <div className="w-full lg:w-64 border-b lg:border-b-0 lg:border-r border-border bg-secondary/10 p-4 lg:p-6">
-              <div className="flex lg:flex-col overflow-x-auto lg:overflow-x-visible gap-2 lg:space-y-2 no-scrollbar pb-2 lg:pb-0">
+          <div className="flex flex-col lg:flex-row min-h-[500px]">
+            <div className="w-full lg:w-64 border-b lg:border-b-0 lg:border-r border-border bg-secondary/10 p-4">
+              <div className="flex lg:flex-col overflow-x-auto lg:overflow-x-visible gap-1.5 lg:space-y-1.5 no-scrollbar pb-2 lg:pb-0">
                 {[
                   { icon: LayoutDashboard, label: "Overview" },
                   { icon: Users, label: "Student Data" },
                   { icon: BookOpen, label: "Academic Data" },
-                  { icon: TrendingUp, label: "Analytical Data" },
-                  { icon: FileText, label: "Report Data" },
                 ].map((item) => (
                   <button 
                     key={item.label}
                     onClick={() => handleTabChange(item.label)}
                     className={cn(
-                      "flex items-center gap-3 px-4 py-2.5 rounded-xl text-[9px] font-black transition-all whitespace-nowrap lg:w-full uppercase tracking-[0.2em]",
+                      "flex items-center gap-2.5 px-4 py-2.5 rounded-lg text-[8px] sm:text-[9px] font-black transition-all whitespace-nowrap lg:w-full uppercase tracking-[0.2em]",
                       activeTab === item.label
-                      ? "bg-primary text-primary-foreground shadow-xl shadow-primary/20" 
+                      ? "bg-primary text-primary-foreground shadow-lg" 
                       : "text-muted-foreground hover:bg-primary/10 hover:text-primary"
                     )}
                   >
@@ -438,16 +331,16 @@ export function StudentDashboard() {
               </div>
             </div>
 
-            <div className="flex-1 p-5 md:p-8 lg:p-12 space-y-8 bg-gradient-to-br from-background to-secondary/5">
+            <div className="flex-1 p-4 sm:p-8 lg:p-12 space-y-8 bg-gradient-to-br from-background to-secondary/5">
               <div className="flex items-center justify-between">
-                <h4 className="text-xl sm:text-2xl font-black font-headline text-foreground uppercase tracking-tight">
-                  {activeTab} Management
+                <h4 className="text-lg sm:text-2xl font-black font-headline text-foreground uppercase tracking-tight">
+                  {activeTab} Module
                 </h4>
                 <div className="flex gap-2">
-                  <button onClick={() => handleSimulatedAction("Syncing Records")} className="hidden sm:flex items-center gap-2 text-[9px] font-black px-4 py-2 rounded-lg border border-border hover:bg-secondary transition-colors uppercase tracking-widest">
+                  <button onClick={() => handleSimulatedAction("Data Sync")} className="hidden sm:flex items-center gap-2 text-[9px] font-black px-4 py-2 rounded-lg border border-border hover:bg-secondary transition-colors uppercase tracking-widest">
                     <TrendingUp className="w-3.5 h-3.5" /> Sync
                   </button>
-                  <button onClick={() => handleSimulatedAction("Exporting Data")} className="flex items-center gap-2 text-[9px] font-black px-4 py-2 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors uppercase tracking-widest shadow-xl">
+                  <button onClick={() => handleSimulatedAction("Data Export")} className="flex items-center gap-2 text-[9px] font-black px-4 py-2 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors uppercase tracking-widest shadow-xl">
                     <Download className="w-3.5 h-3.5" /> Export
                   </button>
                 </div>
