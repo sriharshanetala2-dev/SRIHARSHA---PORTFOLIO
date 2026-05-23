@@ -23,27 +23,8 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'SRI HARSHA | Full Stack Developer & Software Engineer',
-  description: 'Professional portfolio of Netala Sri Harsha, a B.Sc Computer Science graduate specializing in high-performance Full Stack Development, Java Systems, and AI Integration.',
-  keywords: ['Software Developer', 'Full Stack Developer', 'Java Engineer', 'Spring Boot', 'React Developer', 'Next.js', 'Firebase', 'GenAI'],
-  authors: [{ name: 'Netala Sri Harsha' }],
-  metadataBase: new URL('https://sriharsha-dev.web.app'),
-  alternates: {
-    canonical: '/',
-  },
-  openGraph: {
-    title: 'SRI HARSHA | Full Stack Developer',
-    description: 'B.Sc Computer Science graduate focused on enterprise-grade Full Stack Development and High-Performance UI Logic.',
-    url: '/',
-    siteName: 'SRI HARSHA Portfolio',
-    locale: 'en_US',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'SRI HARSHA | Software Developer',
-    description: 'Engineering digital ecosystems with code, logic, and precision.',
-  },
+  title: 'SRI HARSHA | Full Stack Developer & AI Engineer',
+  description: 'Professional portfolio of Netala Sri Harsha, specializing in high-performance Full Stack systems and AI orchestration.',
 };
 
 export const viewport: Viewport = {
@@ -61,8 +42,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} scroll-smooth`}>
-      <body className="font-body antialiased bg-background text-foreground selection:bg-primary/30">
+    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}>
+      <body className="font-body antialiased bg-background text-foreground selection:bg-primary/30 overflow-x-hidden">
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <FirebaseClientProvider>
             {children}

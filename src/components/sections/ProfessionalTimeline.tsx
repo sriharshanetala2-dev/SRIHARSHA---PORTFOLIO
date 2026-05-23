@@ -1,4 +1,3 @@
-
 'use client';
 
 import { motion } from "framer-motion";
@@ -100,7 +99,6 @@ export function ProfessionalTimeline() {
         </div>
 
         <div className="relative space-y-12 sm:space-y-24 max-w-6xl mx-auto">
-          {/* Vertical Spine Subsystem */}
           <div className="absolute left-10 sm:left-14 top-0 bottom-0 w-[2px] bg-border/40 hidden md:block" />
 
           {timelineItems.map((item, idx) => (
@@ -108,7 +106,7 @@ export function ProfessionalTimeline() {
               key={item.id}
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ delay: idx * 0.1, duration: 0.8, type: "spring", stiffness: 80 }}
+              transition={{ delay: idx * 0.1, duration: 0.8 }}
               viewport={{ once: true }}
               className="relative group"
             >
@@ -117,16 +115,12 @@ export function ProfessionalTimeline() {
                   <div className="text-[11px] font-black text-primary tracking-[0.4em] uppercase hidden md:block whitespace-nowrap">
                     NODE_{item.id}
                   </div>
-                  <div className="p-5 sm:p-8 rounded-[2rem] bg-secondary group-hover:bg-primary text-primary group-hover:text-primary-foreground transition-all duration-700 shadow-4xl border-2 border-border group-hover:border-primary group-hover:scale-110">
+                  <div className="p-5 sm:p-8 rounded-[2rem] bg-secondary group-hover:bg-primary text-primary group-hover:text-primary-foreground transition-all duration-700 shadow-4xl border-2 border-border group-hover:border-primary">
                     <item.icon className="w-8 h-8 sm:w-10 sm:h-10" />
                   </div>
                 </div>
 
                 <div className="flex-1 glass-card p-12 sm:p-20 rounded-[3.5rem] hover:border-primary/50 transition-all shadow-4xl relative overflow-hidden group-hover:bg-card/80">
-                  <div className="absolute -top-12 -right-12 p-32 opacity-5 group-hover:opacity-10 transition-opacity pointer-events-none">
-                    <Activity className="w-48 h-48" />
-                  </div>
-
                   <div className="space-y-12 relative z-10">
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-10">
                       <div className="space-y-4">
@@ -134,22 +128,22 @@ export function ProfessionalTimeline() {
                           <CheckCircle2 className="w-5 h-5" />
                           {item.period}
                         </div>
-                        <h3 className="text-2xl sm:text-5xl font-headline font-black uppercase tracking-tight group-hover:text-primary transition-colors leading-tight text-foreground">
+                        <h3 className="text-2xl sm:text-5xl font-headline font-black uppercase tracking-tight group-hover:text-primary transition-colors leading-tight text-foreground/90">
                           {item.role}
                         </h3>
                       </div>
-                      <div className="text-[10px] sm:text-[11px] font-black uppercase tracking-[0.5em] text-foreground bg-secondary/80 px-8 py-4 rounded-2xl border-2 border-border shadow-inner w-fit">
+                      <div className="text-[10px] sm:text-[11px] font-black uppercase tracking-[0.5em] text-primary bg-primary/5 px-8 py-4 rounded-2xl border-2 border-primary/20 shadow-inner w-fit">
                         {item.type === 'work' ? item.company : item.institution}
                       </div>
                     </div>
 
-                    <p className="text-sm sm:text-xl text-foreground/90 font-bold uppercase tracking-tight leading-relaxed max-w-5xl">
+                    <p className="text-sm sm:text-xl text-foreground/80 font-bold uppercase tracking-tight leading-relaxed max-w-5xl">
                       {item.description}
                     </p>
 
                     <div className="flex flex-wrap gap-4">
                       {item.tags.map(tag => (
-                        <span key={tag} className="px-8 py-4 bg-background/50 border-2 border-border rounded-xl text-[10px] sm:text-xs font-black uppercase tracking-[0.2em] text-foreground/70 shadow-lg hover:border-primary hover:text-primary transition-all">
+                        <span key={tag} className="px-8 py-4 bg-background/50 border-2 border-border rounded-xl text-[10px] sm:text-xs font-black uppercase tracking-[0.2em] text-primary/70 shadow-lg hover:border-primary hover:text-primary transition-all">
                           {tag}
                         </span>
                       ))}

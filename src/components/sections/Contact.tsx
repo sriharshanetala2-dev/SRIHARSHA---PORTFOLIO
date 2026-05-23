@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState } from "react";
@@ -38,13 +37,13 @@ export function Contact() {
 
   return (
     <section id="contact" className="py-24 sm:py-48 px-6 relative overflow-hidden bg-background border-t-2 border-border scroll-mt-20">
-      {/* Decorative Isolation Layer */}
+      {/* Decorative Isolation Layer - Locked Interaction */}
       <div className="absolute inset-0 pointer-events-none z-0">
         <div className="absolute inset-0 neural-grid opacity-[0.03] dark:opacity-[0.1]" />
         <div className="logic-scan-subsystem opacity-[0.05] dark:opacity-[0.2]" />
       </div>
       
-      <div className="max-w-7xl mx-auto space-y-24 sm:space-y-40 relative z-10">
+      <div className="max-w-7xl mx-auto space-y-24 relative z-10">
         <div className="flex flex-col items-center text-center space-y-12">
           <div className="inline-flex items-center gap-4 px-8 py-3 rounded-full bg-primary/10 border-2 border-primary/30 text-[11px] font-black text-primary uppercase tracking-[0.6em] shadow-xl backdrop-blur-md">
             <ShieldCheck className="w-5 h-5" />
@@ -58,8 +57,8 @@ export function Contact() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 sm:gap-40 items-start">
-          <div className="space-y-12 sm:space-y-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
+          <div className="space-y-12">
             <div className="grid grid-cols-1 gap-8">
               <a href={`https://mail.google.com/mail/?view=cm&fs=1&to=${userEmail}`} target="_blank" className="flex items-center gap-8 p-10 bg-card/40 backdrop-blur-2xl border-2 border-border rounded-[3rem] hover:border-primary transition-all group shadow-4xl relative overflow-hidden">
                 <div className="p-5 rounded-2xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all">
