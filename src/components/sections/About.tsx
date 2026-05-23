@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, useEffect } from "react";
@@ -11,7 +10,7 @@ const synthesisNodes = [
     id: "frontend",
     label: "Frontend Core", 
     icon: Laptop, 
-    color: "text-blue-500", 
+    color: "text-cyan-500", 
     desc: "Next.js & TypeScript Hub",
     status: "Active",
     metrics: ["High-Performance Next.js 15", "Atomic Component Logic"]
@@ -20,7 +19,7 @@ const synthesisNodes = [
     id: "systems",
     label: "Systems Core", 
     icon: Database, 
-    color: "text-indigo-500", 
+    color: "text-blue-500", 
     desc: "Java & Spring Boot Engine",
     status: "Synced",
     metrics: ["ACID-Compliant SQL Registry", "Spring Security Hardened"]
@@ -29,7 +28,7 @@ const synthesisNodes = [
     id: "mobile",
     label: "Mobile Core", 
     icon: Activity, 
-    color: "text-cyan-500", 
+    color: "text-purple-500", 
     desc: "Flutter & Dart Node",
     status: "Reactive",
     metrics: ["Multi-Platform Flutter Core", "Real-time Firebase Sync"]
@@ -56,7 +55,7 @@ export function About() {
   if (!mounted) return null;
 
   return (
-    <section id="about" className="py-20 sm:py-32 px-4 sm:px-6 relative overflow-hidden bg-background/50 border-t border-border scroll-mt-20">
+    <section id="about" className="py-20 sm:py-32 px-4 sm:px-6 relative overflow-hidden bg-transparent border-t border-border scroll-mt-20">
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-24 items-center">
           <motion.div 
@@ -71,7 +70,7 @@ export function About() {
                 <Fingerprint className="w-4 h-4" />
                 SYSTEM ARCHITECT PROFILE
               </div>
-              <h2 className="text-4xl sm:text-7xl lg:text-8xl font-headline font-black leading-[0.9] tracking-tighter uppercase">
+              <h2 className="text-4xl sm:text-6xl lg:text-8xl font-headline font-black leading-[0.9] tracking-tighter uppercase">
                 ARCHITECTING <br className="hidden sm:block" />
                 <span className="text-gradient">INTELLIGENCE</span>
               </h2>

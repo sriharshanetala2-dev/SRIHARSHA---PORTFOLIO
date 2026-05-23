@@ -10,22 +10,22 @@
     --card-foreground: 222 47% 11%;
     --popover: 0 0% 100%;
     --popover-foreground: 222 47% 11%;
-    --primary: 221 83% 45%;
+    --primary: 190 90% 45%;
     --primary-foreground: 210 40% 98%;
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222 47% 11.2%;
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 221 83% 45%;
+    --accent: 280 80% 60%;
     --accent-foreground: 222 47% 11.2%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 221.2 83.2% 53.3%;
+    --ring: 190 90% 45%;
     --radius: 0.75rem;
-    --grid-opacity: 0.15;
-    --scan-opacity: 0.1;
+    --grid-opacity: 0.25;
+    --scan-opacity: 0.2;
   }
 
   .dark {
@@ -35,21 +35,21 @@
     --card-foreground: 210 40% 98%;
     --popover: 222 47% 2%;
     --popover-foreground: 210 40% 98%;
-    --primary: 221 83% 53%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 190 90% 50%;
+    --primary-foreground: 222 47% 2%;
     --secondary: 217.2 32.6% 12%;
     --secondary-foreground: 210 40% 98%;
     --muted: 217.2 32.6% 12%;
     --muted-foreground: 215 20.2% 65.1%;
-    --accent: 190 90% 50%;
-    --accent-foreground: 222 47% 11%;
+    --accent: 280 80% 60%;
+    --accent-foreground: 210 40% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
     --border: 217.2 32.6% 15%;
     --input: 217.2 32.6% 15%;
-    --ring: 221 83% 53%;
-    --grid-opacity: 0.35;
-    --scan-opacity: 0.2;
+    --ring: 190 90% 50%;
+    --grid-opacity: 0.6;
+    --scan-opacity: 0.45;
   }
 }
 
@@ -80,8 +80,8 @@
 }
 
 .neural-grid {
-  background-image: linear-gradient(to right, hsl(var(--primary) / 0.1) 1px, transparent 1px),
-    linear-gradient(to bottom, hsl(var(--primary) / 0.1) 1px, transparent 1px);
+  background-image: linear-gradient(to right, hsl(var(--primary) / 0.15) 1px, transparent 1px),
+    linear-gradient(to bottom, hsl(var(--primary) / 0.15) 1px, transparent 1px);
   background-size: 80px 80px;
   animation: grid-drift 40s linear infinite;
   opacity: var(--grid-opacity);
@@ -93,7 +93,7 @@
   left: 0;
   width: 100%;
   height: 600px;
-  background: linear-gradient(to bottom, transparent, hsl(var(--primary) / 0.1), transparent);
+  background: linear-gradient(to bottom, transparent, hsl(var(--primary) / 0.15), transparent);
   animation: logic-sweep 12s cubic-bezier(0.4, 0, 0.2, 1) infinite;
   pointer-events: none;
   z-index: 1;
@@ -113,7 +113,7 @@
 }
 
 .text-gradient {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-blue-500 to-cyan-500;
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-cyan-400 to-accent;
 }
 
 .glass-card {
