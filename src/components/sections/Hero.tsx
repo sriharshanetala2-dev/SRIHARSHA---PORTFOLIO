@@ -70,7 +70,7 @@ export function Hero() {
             className="max-w-3xl mx-auto space-y-8"
           >
             <p className="text-base sm:text-2xl lg:text-3xl text-foreground font-black uppercase tracking-tight leading-snug">
-              Designing high-performance digital environments by merging <span className="text-primary">Full Stack Integrity</span> with autonomous <span className="text-primary">Neural Orchestration</span>.
+              Designing high-performance systems where <span className="text-primary">Full Stack Integrity</span> meets autonomous <span className="text-primary">Neural Orchestration</span>.
             </p>
             <div className="flex flex-wrap justify-center gap-2 pt-4">
               {["JAVA", "PYTHON", "SQL", "B.SC COMPUTER SCIENCE"].map((tech) => (

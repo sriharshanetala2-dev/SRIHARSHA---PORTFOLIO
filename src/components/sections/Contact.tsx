@@ -128,10 +128,10 @@ export function Contact() {
           <form onSubmit={handleSubmit} className="space-y-10 relative z-10">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="space-y-3">
-                <label className="text-[10px] font-black uppercase text-muted-foreground tracking-widest ml-4">FULL_NAME</label>
+                <label className="text-[10px] font-black uppercase text-muted-foreground tracking-widest ml-4">IDENTITY_REGISTRY</label>
                 <div className="relative group">
                   <Input 
-                    placeholder="IDENTIFY YOURSELF" 
+                    placeholder="FULL NAME" 
                     required
                     className="bg-background/20 border-border focus:border-primary h-16 rounded-xl text-[10px] font-black pl-14 uppercase tracking-widest transition-all cursor-text shadow-none"
                     value={formData.name}
@@ -142,11 +142,11 @@ export function Contact() {
                 </div>
               </div>
               <div className="space-y-3">
-                <label className="text-[10px] font-black uppercase text-muted-foreground tracking-widest ml-4">EMAIL_ADDRESS</label>
+                <label className="text-[10px] font-black uppercase text-muted-foreground tracking-widest ml-4">COMMUNICATION_ENDPOINT</label>
                 <div className="relative group">
                   <Input 
                     type="email" 
-                    placeholder="COMMUNICATION ENDPOINT" 
+                    placeholder="EMAIL ADDRESS" 
                     required
                     className="bg-background/20 border-border focus:border-primary h-16 rounded-xl text-[10px] font-black pl-14 uppercase tracking-widest transition-all cursor-text shadow-none"
                     value={formData.email}
@@ -158,9 +158,9 @@ export function Contact() {
               </div>
             </div>
             <div className="space-y-3">
-              <label className="text-[10px] font-black uppercase text-muted-foreground tracking-widest ml-4">MESSAGE_CONTENT</label>
+              <label className="text-[10px] font-black uppercase text-muted-foreground tracking-widest ml-4">TRANSMISSION_MANIFEST</label>
               <Textarea 
-                placeholder="DESCRIBE THE MISSION..." 
+                placeholder="MESSAGE CONTENT..." 
                 className="min-h-[200px] bg-background/20 border-border focus:border-primary p-8 resize-none rounded-2xl text-[10px] font-black uppercase tracking-tight transition-all cursor-text shadow-none"
                 required
                 value={formData.message}

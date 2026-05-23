@@ -98,12 +98,12 @@ export function AITool() {
 
         <Tabs defaultValue="narrative" className="max-w-6xl mx-auto" onValueChange={setActiveTool}>
           <div className="flex justify-center mb-12 sm:mb-16">
-            <TabsList className="bg-secondary/20 p-1.5 rounded-2xl h-14 sm:h-16 border border-border shadow-xl backdrop-blur-md">
-              <TabsTrigger value="narrative" className="px-6 sm:px-10 rounded-xl font-black uppercase text-[9px] sm:text-[10px] tracking-widest data-[state=active]:bg-background data-[state=active]:text-primary data-[state=active]:shadow-lg transition-all h-full">
-                Narrative Engine
+            <TabsList className="bg-secondary/20 p-1.5 rounded-2xl h-14 sm:h-20 border border-border shadow-xl backdrop-blur-md">
+              <TabsTrigger value="narrative" className="px-4 sm:px-12 rounded-xl font-black uppercase text-[9px] sm:text-[10px] tracking-widest data-[state=active]:bg-background data-[state=active]:text-primary data-[state=active]:shadow-lg transition-all h-full">
+                NEURAL NARRATIVE
               </TabsTrigger>
-              <TabsTrigger value="brand" className="px-6 sm:px-10 rounded-xl font-black uppercase text-[9px] sm:text-[10px] tracking-widest data-[state=active]:bg-background data-[state=active]:text-primary data-[state=active]:shadow-lg transition-all h-full">
-                Brand Architect
+              <TabsTrigger value="brand" className="px-4 sm:px-12 rounded-xl font-black uppercase text-[9px] sm:text-[10px] tracking-widest data-[state=active]:bg-background data-[state=active]:text-primary data-[state=active]:shadow-lg transition-all h-full">
+                STRUCTURAL IDENTITY
               </TabsTrigger>
             </TabsList>
           </div>
