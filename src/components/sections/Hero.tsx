@@ -30,13 +30,13 @@ export function Hero() {
           className="inline-flex items-center gap-3 px-6 py-2.5 rounded-full border-2 border-primary/20 bg-primary/5 text-[11px] sm:text-[12px] font-black tracking-[0.4em] text-primary uppercase shadow-[0_0_30px_rgba(var(--primary),0.1)]"
         >
           <Zap className="w-4 h-4 animate-pulse" />
-          Industrial Systems Architect
+          Full Stack Systems Architect
         </motion.div>
 
         <motion.div variants={container} initial="hidden" animate="show" className="space-y-6 sm:space-y-8">
           <motion.h1
             variants={item}
-            className="text-4xl sm:text-7xl md:text-8xl font-headline font-black tracking-tighter leading-[1.05] uppercase shimmer-text"
+            className="text-4xl sm:text-7xl md:text-8xl lg:text-9xl font-headline font-black tracking-tighter leading-[1.05] uppercase shimmer-text"
           >
             ENGINEERING <br className="hidden sm:block" />
             HYPER-SCALE LOGIC
@@ -46,7 +46,7 @@ export function Hero() {
             variants={item}
             className="max-w-3xl mx-auto text-sm sm:text-xl text-muted-foreground font-bold uppercase tracking-widest opacity-80 leading-relaxed px-4"
           >
-            Architecting high-performance digital ecosystems with Next.js, Spring Boot, and Flutter. Verified industrial stability for enterprise applications.
+            Architecting high-performance digital ecosystems with Next.js, Spring Boot, and Flutter. Industrial stability for enterprise applications.
           </motion.p>
         </motion.div>
 

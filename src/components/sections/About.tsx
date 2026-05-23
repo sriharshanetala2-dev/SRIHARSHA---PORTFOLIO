@@ -10,16 +10,16 @@ const synthesisNodes = [
     id: "frontend",
     label: "Frontend Core", 
     icon: Laptop, 
-    color: "text-emerald-500", 
+    color: "text-blue-500", 
     desc: "React & Next.js Ecosystem",
     status: "Active",
-    metrics: ["120fps Logic Engine", "Fluid Data Mapping"]
+    metrics: ["Hydrated Logic Engine", "Fluid Data Mapping"]
   },
   { 
     id: "fullstack",
     label: "Systems Core", 
     icon: Database, 
-    color: "text-blue-500", 
+    color: "text-indigo-500", 
     desc: "Java & Spring Boot Hub",
     status: "Synced",
     metrics: ["ACID Integrity Locked", "Atomic Operations"]
@@ -142,13 +142,13 @@ export function About() {
 
                   <div className="pt-10 border-t-2 border-border/50 flex items-center justify-between relative z-10">
                     <div className="flex items-center gap-5">
-                      <div className="w-3.5 h-3.5 rounded-full bg-green-500 animate-pulse shadow-[0_0_20px_rgba(34,197,94,0.6)]" />
+                      <div className="w-3.5 h-3.5 rounded-full bg-blue-500 animate-pulse shadow-[0_0_20px_rgba(59,130,246,0.6)]" />
                       <div className="flex flex-col">
                         <span className="text-[10px] font-black uppercase tracking-[0.4em] text-muted-foreground/50 leading-none mb-1.5">Node Status</span>
-                        <span className="text-[12px] font-black text-green-500 uppercase tracking-widest">{activeNode.status} Online</span>
+                        <span className="text-[12px] font-black text-blue-500 uppercase tracking-widest">{activeNode.status} Online</span>
                       </div>
                     </div>
-                    <Activity className="w-7 h-7 text-green-500/20" />
+                    <Activity className="w-7 h-7 text-blue-500/20" />
                   </div>
                 </div>
               </motion.div>
