@@ -19,11 +19,9 @@ export function AITool() {
   const [copied, setCopied] = useState(false);
   const { toast } = useToast();
 
-  // Narrative Form
   const [narrativeData, setNarrativeData] = useState({ techStack: "", scope: "" });
   const [narrativeResult, setNarrativeResult] = useState<GenerateProjectDescriptionOutput | null>(null);
 
-  // Brand Form
   const [brandData, setBrandData] = useState({ name: "", mission: "", audience: "", tone: "Professional" as any });
   const [brandResult, setBrandResult] = useState<BrandIdentityOutput | null>(null);
 
@@ -66,7 +64,7 @@ export function AITool() {
 
   return (
     <section id="architectural-toolkit" className="py-24 sm:py-48 px-6 bg-background relative overflow-hidden scroll-mt-20 border-t-2 border-border">
-      <div className="absolute inset-0 neural-grid opacity-5 pointer-events-none" />
+      <div className="absolute inset-0 neural-grid opacity-[0.05] pointer-events-none" />
       
       <div className="max-w-7xl mx-auto space-y-24 sm:space-y-40">
         <div className="flex flex-col items-center text-center space-y-10">
@@ -83,7 +81,7 @@ export function AITool() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl sm:text-7xl md:text-8xl lg:text-9xl font-headline font-black tracking-tighter uppercase leading-none shimmer-text"
+            className="text-4xl sm:text-7xl md:text-8xl font-headline font-black tracking-tighter uppercase leading-none shimmer-text"
           >
             ENGINEERING <span className="text-gradient">SUBSYSTEMS</span>
           </motion.h2>
@@ -99,7 +97,7 @@ export function AITool() {
 
         <Tabs defaultValue="narrative" className="max-w-6xl mx-auto" onValueChange={setActiveTool}>
           <div className="flex justify-center mb-16 sm:mb-24">
-            <TabsList className="bg-secondary/50 p-2 rounded-[2rem] h-20 border-2 border-border shadow-2xl">
+            <TabsList className="bg-secondary/40 p-2 rounded-[2rem] h-20 border-2 border-border shadow-2xl backdrop-blur-xl">
               <TabsTrigger value="narrative" className="px-12 rounded-[1.5rem] font-black uppercase text-[10px] sm:text-[11px] tracking-widest data-[state=active]:bg-background data-[state=active]:text-primary data-[state=active]:shadow-2xl transition-all h-full">
                 Narrative Engine
               </TabsTrigger>
@@ -109,7 +107,7 @@ export function AITool() {
             </TabsList>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-24">
             {/* Input Panel */}
             <motion.div 
               initial={{ opacity: 0, x: -30 }}
@@ -118,7 +116,7 @@ export function AITool() {
               className="space-y-8"
             >
               <TabsContent value="narrative" className="m-0">
-                <Card className="glass-card border-2 border-border/50 bg-card/10 rounded-[3rem] overflow-hidden shadow-4xl">
+                <Card className="glass-card border-2 border-border/50 bg-card/5 rounded-[3rem] overflow-hidden shadow-4xl hover:border-primary/40 transition-all">
                   <CardContent className="p-10 sm:p-16 space-y-12">
                     <div className="flex items-center gap-6">
                       <div className="p-5 rounded-2xl bg-primary/10 text-primary shadow-inner border border-primary/20">
@@ -128,26 +126,26 @@ export function AITool() {
                     </div>
                     <form onSubmit={handleNarrative} className="space-y-10">
                       <div className="space-y-4">
-                        <label className="text-[10px] sm:text-[11px] font-black uppercase tracking-[0.4em] text-muted-foreground ml-4">Tech Stack Matrix</label>
+                        <label className="text-[10px] sm:text-[11px] font-black uppercase tracking-[0.5em] text-muted-foreground ml-6">Tech Stack Matrix</label>
                         <Input 
                           placeholder="e.g. Next.js, Firebase, Genkit" 
                           value={narrativeData.techStack}
                           onChange={(e) => setNarrativeData({...narrativeData, techStack: e.target.value})}
-                          className="h-20 bg-background/50 border-2 border-border rounded-3xl font-black focus:ring-primary shadow-inner text-sm uppercase tracking-widest"
+                          className="h-24 bg-background/40 border-2 border-border rounded-[2rem] font-black focus:ring-primary shadow-inner text-xs sm:text-sm uppercase tracking-widest pl-8"
                           disabled={loading}
                         />
                       </div>
                       <div className="space-y-4">
-                        <label className="text-[10px] sm:text-[11px] font-black uppercase tracking-[0.4em] text-muted-foreground ml-4">Architectural Scope</label>
+                        <label className="text-[10px] sm:text-[11px] font-black uppercase tracking-[0.5em] text-muted-foreground ml-6">Architectural Scope</label>
                         <Textarea 
                           placeholder="Define the project mission and key features..." 
                           value={narrativeData.scope}
                           onChange={(e) => setNarrativeData({...narrativeData, scope: e.target.value})}
-                          className="min-h-[220px] bg-background/50 border-2 border-border rounded-[2.5rem] p-10 resize-none focus:ring-primary text-sm font-bold shadow-inner uppercase tracking-tight"
+                          className="min-h-[250px] bg-background/40 border-2 border-border rounded-[3rem] p-10 resize-none focus:ring-primary text-xs sm:text-sm font-bold shadow-inner uppercase tracking-tight leading-relaxed"
                           disabled={loading}
                         />
                       </div>
-                      <Button type="submit" className="w-full h-24 rounded-full font-black uppercase tracking-[0.5em] text-[12px] shadow-4xl hover:scale-[1.03] active:scale-95 transition-all bg-primary text-primary-foreground group" disabled={loading}>
+                      <Button type="submit" className="w-full h-24 rounded-full font-black uppercase tracking-[0.6em] text-[11px] shadow-4xl hover:scale-[1.02] active:scale-95 transition-all bg-primary text-primary-foreground group" disabled={loading}>
                         {loading ? <Loader2 className="w-8 h-8 animate-spin" /> : <><Zap className="w-7 h-7 mr-4 group-hover:scale-125 transition-transform" /> Synthesize Logic</>}
                       </Button>
                     </form>
@@ -156,7 +154,7 @@ export function AITool() {
               </TabsContent>
 
               <TabsContent value="brand" className="m-0">
-                <Card className="glass-card border-2 border-border/50 bg-card/10 rounded-[3rem] overflow-hidden shadow-4xl">
+                <Card className="glass-card border-2 border-border/50 bg-card/5 rounded-[3rem] overflow-hidden shadow-4xl hover:border-primary/40 transition-all">
                   <CardContent className="p-10 sm:p-16 space-y-12">
                     <div className="flex items-center gap-6">
                       <div className="p-5 rounded-2xl bg-primary/10 text-primary shadow-inner border border-primary/20">
@@ -167,20 +165,20 @@ export function AITool() {
                     <form onSubmit={handleBrand} className="space-y-10">
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <div className="space-y-4">
-                          <label className="text-[10px] sm:text-[11px] font-black uppercase tracking-[0.4em] text-muted-foreground ml-4">Entity Name</label>
+                          <label className="text-[10px] sm:text-[11px] font-black uppercase tracking-[0.5em] text-muted-foreground ml-6">Entity Name</label>
                           <Input 
                             placeholder="e.g. CloudScale" 
                             value={brandData.name}
                             onChange={(e) => setBrandData({...brandData, name: e.target.value})}
-                            className="h-20 bg-background/50 border-2 border-border rounded-2xl font-black uppercase tracking-widest text-sm"
+                            className="h-24 bg-background/40 border-2 border-border rounded-[2rem] font-black uppercase tracking-widest text-xs sm:text-sm pl-8"
                           />
                         </div>
                         <div className="space-y-4">
-                          <label className="text-[10px] sm:text-[11px] font-black uppercase tracking-[0.4em] text-muted-foreground ml-4">Persona Tone</label>
+                          <label className="text-[10px] sm:text-[11px] font-black uppercase tracking-[0.5em] text-muted-foreground ml-6">Persona Tone</label>
                           <select 
                             value={brandData.tone}
                             onChange={(e) => setBrandData({...brandData, tone: e.target.value as any})}
-                            className="w-full h-20 bg-background/50 border-2 border-border rounded-2xl px-8 font-black text-[11px] uppercase tracking-widest focus:outline-none focus:ring-4 focus:ring-primary/20 transition-all"
+                            className="w-full h-24 bg-background/40 border-2 border-border rounded-[2rem] px-8 font-black text-[11px] uppercase tracking-widest focus:outline-none focus:ring-4 focus:ring-primary/20 transition-all"
                           >
                             <option>Professional</option>
                             <option>Futuristic</option>
@@ -190,15 +188,15 @@ export function AITool() {
                         </div>
                       </div>
                       <div className="space-y-4">
-                        <label className="text-[10px] sm:text-[11px] font-black uppercase tracking-[0.4em] text-muted-foreground ml-4">Mission Statement</label>
+                        <label className="text-[10px] sm:text-[11px] font-black uppercase tracking-[0.5em] text-muted-foreground ml-6">Mission Statement</label>
                         <Textarea 
                           placeholder="What problem does this brand solve?" 
                           value={brandData.mission}
                           onChange={(e) => setBrandData({...brandData, mission: e.target.value})}
-                          className="min-h-[160px] bg-background/50 border-2 border-border rounded-[2.5rem] p-10 resize-none font-bold uppercase tracking-tight"
+                          className="min-h-[180px] bg-background/40 border-2 border-border rounded-[3rem] p-10 resize-none font-bold uppercase tracking-tight leading-relaxed"
                         />
                       </div>
-                      <Button type="submit" className="w-full h-24 rounded-full font-black uppercase tracking-[0.5em] text-[12px] shadow-4xl hover:scale-[1.03] active:scale-95 transition-all bg-primary text-primary-foreground group" disabled={loading}>
+                      <Button type="submit" className="w-full h-24 rounded-full font-black uppercase tracking-[0.6em] text-[11px] shadow-4xl hover:scale-[1.02] active:scale-95 transition-all bg-primary text-primary-foreground group" disabled={loading}>
                         {loading ? <Loader2 className="w-8 h-8 animate-spin" /> : <><Sparkles className="w-7 h-7 mr-4 group-hover:rotate-12 transition-transform" /> Forge Identity</>}
                       </Button>
                     </form>
@@ -213,7 +211,7 @@ export function AITool() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <Card className="glass-card border-2 border-border/50 bg-black/40 rounded-[3rem] overflow-hidden flex flex-col shadow-4xl h-full">
+              <Card className="glass-card border-2 border-border/50 bg-black/5 dark:bg-black/40 rounded-[3rem] overflow-hidden flex flex-col shadow-4xl h-full">
                 <CardContent className="p-10 sm:p-16 flex-1 flex flex-col">
                   <div className="flex items-center justify-between mb-16">
                     <div className="flex items-center gap-6">
@@ -238,7 +236,7 @@ export function AITool() {
                       {activeTool === "narrative" ? (
                         narrativeResult ? (
                           <motion.div key="narrative-output" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} className="space-y-12">
-                            <div className="p-10 sm:p-16 rounded-[3rem] bg-background/40 border-2 border-border/50 italic text-xl sm:text-3xl leading-relaxed font-bold shadow-4xl uppercase tracking-tight shimmer-text">
+                            <div className="p-10 sm:p-16 rounded-[3.5rem] bg-background/50 dark:bg-background/40 border-2 border-border/50 italic text-xl sm:text-2xl leading-relaxed font-bold shadow-4xl uppercase tracking-tight shimmer-text">
                               "{narrativeResult.projectDescription}"
                             </div>
                             <div className="flex items-center gap-10 justify-center opacity-20">
@@ -260,14 +258,14 @@ export function AITool() {
                                 </div>
                               ))}
                             </div>
-                            <div className="p-10 sm:p-14 rounded-[3rem] bg-background/40 border-2 border-border/50 space-y-6 shadow-4xl relative overflow-hidden">
+                            <div className="p-10 sm:p-14 rounded-[3rem] bg-background/50 dark:bg-background/40 border-2 border-border/50 space-y-6 shadow-4xl relative overflow-hidden">
                                <div className="absolute top-0 right-0 p-8 opacity-5"><Zap className="w-20 h-20" /></div>
-                               <p className="text-primary font-black text-[11px] uppercase tracking-[0.5em] opacity-60">Professional Identity</p>
-                               <p className="text-xl sm:text-2xl leading-relaxed font-bold uppercase tracking-tight">{brandResult.professionalDescription}</p>
+                               <p className="text-primary font-black text-[10px] sm:text-[11px] uppercase tracking-[0.5em] opacity-60">Professional Identity</p>
+                               <p className="text-lg sm:text-2xl leading-relaxed font-bold uppercase tracking-tight">{brandResult.professionalDescription}</p>
                             </div>
                             <div className="flex items-center gap-6 p-8 rounded-[2rem] bg-accent/10 border-2 border-accent/25 shadow-2xl">
                                <Sparkles className="w-7 h-7 text-accent animate-pulse" />
-                               <p className="text-xs sm:text-sm font-black uppercase tracking-[0.1em] italic opacity-80">{brandResult.uiConcept}</p>
+                               <p className="text-[11px] sm:text-sm font-black uppercase tracking-[0.1em] italic opacity-80">{brandResult.uiConcept}</p>
                             </div>
                           </motion.div>
                         ) : (
@@ -293,7 +291,7 @@ function EmptyState({ loading }: { loading: boolean }) {
         <Sparkles className={cn("w-28 h-28 text-muted-foreground/10", loading && "animate-pulse")} />
         {loading && <Loader2 className="absolute inset-0 w-28 h-28 animate-spin text-primary opacity-60" />}
       </div>
-      <p className="text-sm sm:text-base font-black uppercase tracking-[0.8em] opacity-30 animate-pulse">
+      <p className="text-[11px] sm:text-sm font-black uppercase tracking-[0.8em] opacity-30 animate-pulse">
         {loading ? "Forging Subsystem..." : "Awaiting Parameters"}
       </p>
     </div>

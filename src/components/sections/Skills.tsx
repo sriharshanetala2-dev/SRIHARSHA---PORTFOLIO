@@ -60,7 +60,7 @@ export function Skills() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl sm:text-7xl md:text-8xl lg:text-9xl font-headline font-black tracking-tighter uppercase leading-none shimmer-text"
+            className="text-4xl sm:text-7xl md:text-8xl font-headline font-black tracking-tighter uppercase leading-none shimmer-text"
           >
             TECHNICAL <span className="text-primary">REGISTRY</span>
           </motion.h2>
@@ -68,7 +68,7 @@ export function Skills() {
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-sm sm:text-xl lg:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed font-bold opacity-80 uppercase tracking-[0.25em] px-4"
+            className="text-sm sm:text-xl lg:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed font-bold uppercase tracking-[0.25em] px-4 opacity-80"
           >
             Professional mapping of systems core, AI agents, and high-performance industrial orchestration.
           </motion.p>
@@ -88,26 +88,26 @@ export function Skills() {
                   <motion.div 
                     variants={itemVariants}
                     whileHover={{ scale: 1.05, translateY: -5 }}
-                    className="group relative flex items-center gap-6 px-8 py-6 rounded-[2rem] bg-secondary/30 border-2 border-border hover:border-primary transition-all cursor-pointer overflow-hidden shadow-2xl backdrop-blur-xl"
+                    className="group relative flex items-center gap-6 px-10 py-8 rounded-[2.5rem] bg-secondary/30 dark:bg-secondary/20 border-2 border-border hover:border-primary transition-all cursor-pointer overflow-hidden shadow-2xl backdrop-blur-xl"
                   >
-                    <div className="p-3 rounded-xl bg-background border border-border/50 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500">
-                      <skill.icon className="w-6 h-6 group-hover:scale-110 transition-transform" />
+                    <div className="p-4 rounded-2xl bg-background border border-border/50 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500 shadow-inner">
+                      <skill.icon className="w-6 h-6 sm:w-8 sm:h-8 group-hover:scale-110 transition-transform" />
                     </div>
-                    <span className="font-black tracking-tight text-sm sm:text-xl uppercase whitespace-nowrap">{skill.name}</span>
+                    <span className="font-black tracking-tight text-base sm:text-2xl uppercase whitespace-nowrap">{skill.name}</span>
                     <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity" />
                   </motion.div>
                 </TooltipTrigger>
-                <TooltipContent className="glass-card p-10 border-2 border-border rounded-[2.5rem] w-80 space-y-8 shadow-4xl backdrop-blur-3xl bg-background/95">
-                  <div className="space-y-3">
-                    <p className="text-[10px] font-black uppercase text-primary tracking-[0.6em] opacity-60 leading-none">{skill.category}</p>
-                    <p className="font-black text-2xl tracking-tighter uppercase">{skill.name}</p>
-                  </div>
+                <TooltipContent className="glass-card p-10 border-2 border-border rounded-[3rem] w-80 space-y-10 shadow-4xl backdrop-blur-3xl bg-background/95">
                   <div className="space-y-4">
-                    <div className="flex justify-between items-center text-[10px] font-black uppercase tracking-[0.4em] text-muted-foreground">
+                    <p className="text-[10px] sm:text-[11px] font-black uppercase text-primary tracking-[0.6em] opacity-60 leading-none">{skill.category}</p>
+                    <p className="font-black text-3xl tracking-tighter uppercase">{skill.name}</p>
+                  </div>
+                  <div className="space-y-6">
+                    <div className="flex justify-between items-center text-[10px] sm:text-[11px] font-black uppercase tracking-[0.4em] text-muted-foreground">
                       <span>INTEGRITY_LEVEL</span>
                       <span className="text-primary">{skill.level}</span>
                     </div>
-                    <div className="h-3 w-full bg-secondary rounded-full overflow-hidden shadow-inner border border-border/50">
+                    <div className="h-4 w-full bg-secondary rounded-full overflow-hidden shadow-inner border border-border/50">
                       <motion.div 
                         initial={{ width: 0 }}
                         whileInView={{ width: skill.level === 'Expert' ? '100%' : skill.level === 'Advanced' ? '85%' : '65%' }}
@@ -126,7 +126,7 @@ export function Skills() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 0.8 }}
           viewport={{ once: true }}
-          className="flex flex-wrap justify-center gap-10 sm:gap-20 pt-16 px-6 border-t-2 border-border/50"
+          className="flex flex-wrap justify-center gap-10 sm:gap-24 pt-20 px-6 border-t-2 border-border/50"
         >
           {[
             { label: "Neural Orchestration", color: "bg-primary" },
@@ -136,7 +136,7 @@ export function Skills() {
           ].map(type => (
             <div key={type.label} className="flex items-center gap-4">
               <div className={cn("w-4 h-4 rounded-full animate-pulse shadow-lg", type.color)} />
-              <span className="text-[10px] sm:text-[11px] font-black uppercase tracking-[0.4em] whitespace-nowrap text-foreground/60">{type.label}</span>
+              <span className="text-[10px] sm:text-[11px] font-black uppercase tracking-[0.5em] whitespace-nowrap text-foreground/60">{type.label}</span>
             </div>
           ))}
         </motion.div>

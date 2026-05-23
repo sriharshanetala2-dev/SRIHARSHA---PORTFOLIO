@@ -69,8 +69,8 @@
 
 @keyframes logic-sweep {
   0% { transform: translateY(-100%) skewY(-5deg); opacity: 0; }
-  10% { opacity: 0.4; }
-  90% { opacity: 0.4; }
+  10% { opacity: 0.3; }
+  90% { opacity: 0.3; }
   100% { transform: translateY(300%) skewY(-5deg); opacity: 0; }
 }
 
@@ -80,19 +80,19 @@
 }
 
 @keyframes ambient-pulse {
-  0%, 100% { transform: scale(1); opacity: 0.2; }
-  50% { transform: scale(1.15); opacity: 0.4; }
+  0%, 100% { transform: scale(1); opacity: 0.15; }
+  50% { transform: scale(1.1); opacity: 0.3; }
 }
 
 .neural-grid {
-  background-image: linear-gradient(to right, hsl(var(--primary) / 0.3) 1px, transparent 1px),
-    linear-gradient(to bottom, hsl(var(--primary) / 0.3) 1px, transparent 1px);
+  background-image: linear-gradient(to right, hsl(var(--primary) / 0.15) 1px, transparent 1px),
+    linear-gradient(to bottom, hsl(var(--primary) / 0.15) 1px, transparent 1px);
   background-size: 80px 80px;
   animation: grid-drift 30s linear infinite;
 }
 
 .data-packet-layer {
-  background-image: radial-gradient(hsl(var(--primary) / 0.6) 1.5px, transparent 1.5px);
+  background-image: radial-gradient(hsl(var(--primary) / 0.4) 1.5px, transparent 1.5px);
   background-size: 20px 20px;
   mask-image: linear-gradient(to right, transparent, black, transparent);
   animation: packet-flow 10s linear infinite;
@@ -104,16 +104,16 @@
   left: 0;
   width: 100%;
   height: 600px;
-  background: linear-gradient(to bottom, transparent, hsl(var(--primary) / 0.2), transparent);
-  animation: logic-sweep 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  background: linear-gradient(to bottom, transparent, hsl(var(--primary) / 0.15), transparent);
+  animation: logic-sweep 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
   pointer-events: none;
   z-index: 1;
 }
 
 .ambient-glow-node {
-  @apply absolute rounded-full blur-[200px] pointer-events-none;
-  background: radial-gradient(circle, hsl(var(--primary) / 0.3) 0%, transparent 70%);
-  animation: ambient-pulse 12s ease-in-out infinite;
+  @apply absolute rounded-full blur-[250px] pointer-events-none;
+  background: radial-gradient(circle, hsl(var(--primary) / 0.2) 0%, transparent 70%);
+  animation: ambient-pulse 15s ease-in-out infinite;
 }
 
 .shimmer-text {
@@ -138,13 +138,13 @@
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 ::-webkit-scrollbar-track {
   @apply bg-background;
 }
 ::-webkit-scrollbar-thumb {
-  @apply bg-primary/40 rounded-full hover:bg-primary/60 transition-colors;
+  @apply bg-primary/30 rounded-full hover:bg-primary/50 transition-colors;
 }
 
 .no-scrollbar::-webkit-scrollbar {

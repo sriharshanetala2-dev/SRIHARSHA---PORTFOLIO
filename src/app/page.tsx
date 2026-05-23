@@ -29,28 +29,28 @@ export default function Home() {
   return (
     <AnimatePresence mode="wait">
       <div className="min-h-screen bg-background relative overflow-x-hidden">
-        {/* High-Performance Industrial Background Subsystem */}
+        {/* Adaptive Industrial Background Subsystem */}
         <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
-          {/* Neural Logic Layers */}
-          <div className="absolute inset-0 neural-grid opacity-[0.4] dark:opacity-[0.2]" />
-          <div className="absolute inset-0 data-packet-layer" />
+          {/* Neural Logic Layers with Dynamic Theme Opacity */}
+          <div className="absolute inset-0 neural-grid opacity-[0.1] dark:opacity-[0.3]" />
+          <div className="absolute inset-0 data-packet-layer opacity-[0.2] dark:opacity-[0.4]" />
           
-          {/* Programmer-Level Ambient Glows */}
+          {/* Volumetric Ambient Glows */}
           <div 
-            className="ambient-glow-node top-[-10%] left-[-5%] w-[1000px] h-[1000px]" 
-            style={{ animationDelay: '0s', animationDuration: '12s' }} 
+            className="ambient-glow-node top-[-15%] left-[-10%] w-[1200px] h-[1200px]" 
+            style={{ animationDelay: '0s', animationDuration: '15s' }} 
           />
           <div 
-            className="ambient-glow-node bottom-[-20%] right-[-10%] w-[1200px] h-[1200px]" 
-            style={{ animationDelay: '-4s', animationDuration: '18s' }} 
+            className="ambient-glow-node bottom-[-25%] right-[-15%] w-[1500px] h-[1500px]" 
+            style={{ animationDelay: '-5s', animationDuration: '20s' }} 
           />
           <div 
-            className="ambient-glow-node top-[40%] left-[20%] w-[600px] h-[600px] bg-primary/5" 
-            style={{ animationDelay: '-8s', animationDuration: '15s' }} 
+            className="ambient-glow-node top-[30%] left-[15%] w-[800px] h-[800px] bg-primary/10" 
+            style={{ animationDelay: '-10s', animationDuration: '18s' }} 
           />
 
-          {/* Logic Scan Registry */}
-          <div className="logic-scan-subsystem" />
+          {/* Dynamic Logic Scan Registry */}
+          <div className="logic-scan-subsystem opacity-[0.1] dark:opacity-[0.2]" />
         </div>
 
         <Navbar />

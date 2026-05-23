@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ChevronDown, ArrowRight, Zap, BrainCircuit, Cpu, ShieldCheck } from "lucide-react";
+import { ChevronDown, ArrowRight, Zap, ShieldCheck } from "lucide-react";
 
 export function Hero() {
   const container = {
@@ -22,22 +22,22 @@ export function Hero() {
 
   return (
     <section className="min-h-screen flex items-center justify-center pt-24 px-6 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto text-center space-y-12 sm:space-y-20 relative z-10">
+      <div className="max-w-7xl mx-auto text-center space-y-12 sm:space-y-24 relative z-10">
         {/* Elite Status Badge */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, ease: "circOut" }}
-          className="inline-flex items-center gap-4 px-8 py-3 rounded-full border-2 border-primary/30 bg-primary/10 text-[10px] sm:text-xs font-black tracking-[0.6em] text-primary uppercase shadow-3xl backdrop-blur-xl"
+          className="inline-flex items-center gap-4 px-8 py-3 rounded-full border-2 border-primary/20 bg-primary/5 text-[10px] sm:text-[11px] font-black tracking-[0.6em] text-primary uppercase shadow-3xl backdrop-blur-xl mx-auto"
         >
           <ShieldCheck className="w-5 h-5 text-primary animate-pulse" />
           FULL STACK AI ARCHITECT v3.0 // INITIALIZED
         </motion.div>
 
-        <motion.div variants={container} initial="hidden" animate="show" className="space-y-10 sm:space-y-14">
+        <motion.div variants={container} initial="hidden" animate="show" className="space-y-12 sm:space-y-20">
           <motion.h1
             variants={item}
-            className="text-4xl sm:text-7xl md:text-8xl lg:text-9xl font-headline font-black tracking-tighter leading-[0.95] uppercase shimmer-text"
+            className="text-4xl sm:text-7xl md:text-8xl lg:text-9xl font-headline font-black tracking-tighter leading-[0.9] uppercase shimmer-text"
           >
             ENGINEERING <br className="hidden sm:block" />
             <span className="text-gradient">NEURAL</span> ECOSYSTEMS
@@ -47,17 +47,21 @@ export function Hero() {
             variants={item}
             className="max-w-5xl mx-auto space-y-12 px-4"
           >
-            <p className="text-base sm:text-2xl lg:text-3xl text-foreground font-black uppercase tracking-tight leading-relaxed">
-              Designing high-performance digital environments by merging <span className="text-primary underline underline-offset-8">Full Stack Integrity</span> with autonomous <span className="text-primary underline underline-offset-8">Neural Orchestration</span>.
+            <p className="text-lg sm:text-2xl lg:text-3xl text-foreground font-black uppercase tracking-tight leading-relaxed">
+              Designing high-performance digital environments by merging <span className="text-primary underline underline-offset-[12px] decoration-2">Full Stack Integrity</span> with autonomous <span className="text-primary underline underline-offset-[12px] decoration-2">Neural Orchestration</span>.
             </p>
-            <div className="space-y-8">
-              <p className="text-xs sm:text-base lg:text-lg text-muted-foreground font-bold uppercase tracking-[0.25em] opacity-80 leading-relaxed max-w-4xl mx-auto">
+            <div className="space-y-10">
+              <p className="text-xs sm:text-base lg:text-lg text-muted-foreground font-bold uppercase tracking-[0.3em] opacity-80 leading-relaxed max-w-4xl mx-auto">
                 Mastery in assembling enterprise-grade digital kernels using <span className="text-foreground">Next.js, Spring Boot, and Flutter</span>, synchronized with AI agents across 
                 <span className="text-primary"> Claude 3.5, Gemini 2.0, GPT-4o, and n8n</span>.
               </p>
-              <p className="text-[10px] sm:text-xs lg:text-sm text-primary/80 font-black uppercase tracking-[0.8em]">
-                FOUNDATION: JAVA // PYTHON // SQL // B.SC COMPUTER SCIENCE
-              </p>
+              <div className="flex flex-wrap justify-center gap-4 pt-4">
+                {["JAVA", "PYTHON", "SQL", "B.SC COMPUTER SCIENCE"].map((tech) => (
+                  <span key={tech} className="text-[10px] sm:text-[11px] text-primary font-black uppercase tracking-[0.5em] px-4 py-2 bg-primary/5 border border-primary/10 rounded-lg">
+                    {tech}
+                  </span>
+                ))}
+              </div>
             </div>
           </motion.div>
         </motion.div>
@@ -66,19 +70,19 @@ export function Hero() {
           variants={item}
           initial="hidden"
           animate="show"
-          className="flex flex-col items-center gap-16 sm:gap-28 pt-10"
+          className="flex flex-col items-center gap-16 sm:gap-32 pt-12"
         >
           <div className="flex flex-col sm:flex-row gap-8 w-full sm:w-auto px-6 sm:px-0">
             <a
               href="#portfolio"
-              className="flex items-center justify-center gap-6 px-12 py-7 rounded-2xl bg-primary text-primary-foreground font-black text-xs tracking-[0.5em] uppercase transition-all hover:scale-105 active:scale-95 shadow-4xl shadow-primary/50 group"
+              className="flex items-center justify-center gap-6 px-14 py-8 rounded-2xl bg-primary text-primary-foreground font-black text-[11px] tracking-[0.5em] uppercase transition-all hover:scale-105 active:scale-95 shadow-4xl shadow-primary/40 group"
             >
               ACCESS REGISTRY
               <ArrowRight className="w-5 h-5 group-hover:translate-x-3 transition-transform" />
             </a>
             <a
               href="#contact"
-              className="flex items-center justify-center gap-6 px-12 py-7 rounded-2xl bg-secondary/50 text-foreground font-black text-xs tracking-[0.5em] uppercase border-2 border-border hover:border-primary/50 transition-all shadow-3xl backdrop-blur-xl"
+              className="flex items-center justify-center gap-6 px-14 py-8 rounded-2xl bg-secondary/40 text-foreground font-black text-[11px] tracking-[0.5em] uppercase border-2 border-border hover:border-primary/50 transition-all shadow-3xl backdrop-blur-xl"
             >
               SYSTEM SYNC
               <Zap className="w-5 h-5 text-primary" />
@@ -88,7 +92,7 @@ export function Hero() {
           <motion.div
             animate={{ y: [0, 15, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            className="flex flex-col items-center gap-6 opacity-40 pt-16"
+            className="flex flex-col items-center gap-6 opacity-40 pt-12"
           >
             <span className="text-[11px] font-black uppercase tracking-[1em]">INITIALIZE SCROLL</span>
             <ChevronDown className="w-6 h-6" />
