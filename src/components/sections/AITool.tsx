@@ -79,7 +79,7 @@ export function AITool() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl sm:text-7xl font-headline font-black tracking-tighter uppercase leading-none shimmer-text"
+            className="text-3xl sm:text-5xl lg:text-6xl font-headline font-black tracking-tighter uppercase leading-none shimmer-text"
           >
             SYSTEM <span className="text-gradient">SYNTHESIS</span>
           </motion.h2>
