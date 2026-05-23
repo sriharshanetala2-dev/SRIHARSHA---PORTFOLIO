@@ -1,3 +1,4 @@
+
 "use client";
 
 import { motion } from "framer-motion";
@@ -60,7 +61,7 @@ const timelineItems = [
     type: "edu",
     role: "Intermediate Education",
     institution: "SRR & CVR Govt Jr College",
-    period: "MPC Registry",
+    period: "Pre-University Registry",
     description: "Advanced computational mathematics and core algorithmic logic processing foundation.",
     icon: BookOpen,
     tags: ["Mathematics", "Logic"]
@@ -100,6 +101,7 @@ export function ProfessionalTimeline() {
         </div>
 
         <div className="relative space-y-8 sm:space-y-12 max-w-5xl mx-auto">
+          {/* Central spine visible on larger screens */}
           <div className="absolute left-10 sm:left-14 top-0 bottom-0 w-px bg-border/40 hidden md:block" />
 
           {timelineItems.map((item, idx) => (
@@ -112,6 +114,7 @@ export function ProfessionalTimeline() {
               className="relative group"
             >
               <div className="flex flex-col md:flex-row gap-8 md:gap-20 items-start">
+                {/* Node ID and Icon */}
                 <div className="flex items-center gap-6 md:w-40 shrink-0 relative z-10">
                   <div className="text-xs font-black text-primary/40 tracking-widest uppercase hidden md:block whitespace-nowrap">
                     NODE_{item.id}
@@ -121,6 +124,7 @@ export function ProfessionalTimeline() {
                   </div>
                 </div>
 
+                {/* Content Card */}
                 <div className="flex-1 glass-card p-8 sm:p-14 rounded-[2.5rem] hover:border-primary/60 transition-all shadow-3xl relative overflow-hidden group-hover:bg-card/70 group-hover:translate-x-2">
                   <div className="absolute -top-10 -right-10 p-20 opacity-5 group-hover:opacity-10 transition-opacity pointer-events-none">
                     <Activity className="w-24 h-24" />
@@ -137,7 +141,7 @@ export function ProfessionalTimeline() {
                           {item.role}
                         </h3>
                       </div>
-                      <div className="text-xs font-black uppercase tracking-[0.3em] text-muted-foreground bg-secondary/80 px-5 py-2.5 rounded-xl border border-border shadow-inner">
+                      <div className="text-[10px] sm:text-xs font-black uppercase tracking-[0.3em] text-muted-foreground bg-secondary/80 px-5 py-2.5 rounded-xl border border-border shadow-inner w-fit">
                         {item.type === 'work' ? item.company : item.institution}
                       </div>
                     </div>
@@ -148,7 +152,7 @@ export function ProfessionalTimeline() {
 
                     <div className="flex flex-wrap gap-3">
                       {item.tags.map(tag => (
-                        <span key={tag} className="px-5 py-2.5 bg-background/50 border border-border rounded-xl text-xs font-black uppercase tracking-widest opacity-70 shadow-sm">
+                        <span key={tag} className="px-5 py-2.5 bg-background/50 border border-border rounded-xl text-[9px] sm:text-xs font-black uppercase tracking-widest opacity-70 shadow-sm">
                           {tag}
                         </span>
                       ))}

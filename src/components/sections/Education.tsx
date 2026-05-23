@@ -1,3 +1,4 @@
+
 "use client";
 
 import { motion } from "framer-motion";
@@ -9,19 +10,22 @@ const education = [
     role: "B.Sc in Computer Science",
     institution: "Glocal University",
     description: "Foundational Computer Science registry focused on high-performance systems and engineering logic.",
-    icon: GraduationCap
+    icon: GraduationCap,
+    period: "Academic Registry"
   },
   {
     role: "Intermediate Education",
     institution: "SRR & CVR Govt Jr College",
-    description: "Pre-university curriculum focusing on advanced computational mathematics and logic.",
-    icon: BookOpen
+    description: "Pre-university curriculum focusing on advanced computational mathematics and logic foundation.",
+    icon: BookOpen,
+    period: "Pre-University Registry"
   },
   {
     role: "Secondary School Certificate",
     institution: "Christ the King High School",
     description: "Initial academic registry and logic processing foundation.",
-    icon: BrainCircuit
+    icon: BrainCircuit,
+    period: "Foundational Registry"
   },
 ];
 
@@ -78,6 +82,9 @@ export function Education() {
                     <edu.icon className="w-8 h-8 sm:w-10 sm:h-10" />
                   </div>
                   <div className="space-y-2 sm:space-y-4 flex-1 min-w-0">
+                    <div className="text-[10px] font-black text-primary uppercase tracking-widest opacity-60">
+                      {edu.period}
+                    </div>
                     <h3 className="text-xl sm:text-4xl font-headline font-black uppercase tracking-tight group-hover:text-primary transition-colors leading-tight">{edu.role}</h3>
                     <p className="text-primary font-black text-[11px] sm:text-base uppercase tracking-widest opacity-80">{edu.institution}</p>
                     <p className="text-[11px] sm:text-lg text-muted-foreground leading-relaxed font-bold opacity-80 uppercase tracking-tight">
