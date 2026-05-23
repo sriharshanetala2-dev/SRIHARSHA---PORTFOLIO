@@ -24,8 +24,8 @@
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
     --ring: 221.2 83.2% 53.3%;
-    --radius: 1.5rem;
-    --grid-opacity: 0.04;
+    --radius: 1rem;
+    --grid-opacity: 0.03;
     --scan-opacity: 0.02;
   }
 
@@ -49,8 +49,8 @@
     --border: 217.2 32.6% 15%;
     --input: 217.2 32.6% 15%;
     --ring: 221 83% 53%;
-    --grid-opacity: 0.25;
-    --scan-opacity: 0.12;
+    --grid-opacity: 0.15;
+    --scan-opacity: 0.08;
   }
 }
 
@@ -87,22 +87,22 @@
 
 @keyframes ambient-pulse {
   0%, 100% { transform: scale(1); opacity: 0.1; }
-  50% { transform: scale(1.1); opacity: 0.25; }
+  50% { transform: scale(1.1); opacity: 0.2; }
 }
 
 .neural-grid {
-  background-image: linear-gradient(to right, hsl(var(--primary) / 0.15) 1px, transparent 1px),
-    linear-gradient(to bottom, hsl(var(--primary) / 0.15) 1px, transparent 1px);
+  background-image: linear-gradient(to right, hsl(var(--primary) / 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, hsl(var(--primary) / 0.1) 1px, transparent 1px);
   background-size: 80px 80px;
-  animation: grid-drift 30s linear infinite;
+  animation: grid-drift 40s linear infinite;
   opacity: var(--grid-opacity);
 }
 
 .data-packet-layer {
-  background-image: radial-gradient(hsl(var(--primary) / 0.4) 1.5px, transparent 1.5px);
+  background-image: radial-gradient(hsl(var(--primary) / 0.3) 1px, transparent 1px);
   background-size: 20px 20px;
   mask-image: linear-gradient(to right, transparent, black, transparent);
-  animation: packet-flow 10s linear infinite;
+  animation: packet-flow 15s linear infinite;
   opacity: var(--grid-opacity);
 }
 
@@ -112,16 +112,16 @@
   left: 0;
   width: 100%;
   height: 600px;
-  background: linear-gradient(to bottom, transparent, hsl(var(--primary) / 0.15), transparent);
-  animation: logic-sweep 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  background: linear-gradient(to bottom, transparent, hsl(var(--primary) / 0.1), transparent);
+  animation: logic-sweep 10s cubic-bezier(0.4, 0, 0.2, 1) infinite;
   pointer-events: none;
   z-index: 1;
 }
 
 .ambient-glow-node {
-  @apply absolute rounded-full blur-[250px] pointer-events-none;
-  background: radial-gradient(circle, hsl(var(--primary) / 0.2) 0%, transparent 70%);
-  animation: ambient-pulse 15s ease-in-out infinite;
+  @apply absolute rounded-full blur-[200px] pointer-events-none;
+  background: radial-gradient(circle, hsl(var(--primary) / 0.15) 0%, transparent 70%);
+  animation: ambient-pulse 20s ease-in-out infinite;
 }
 
 .shimmer-text {
@@ -129,7 +129,7 @@
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: shimmer 5s linear infinite;
+  animation: shimmer 8s linear infinite;
 }
 
 @keyframes shimmer {
@@ -142,17 +142,17 @@
 }
 
 .glass-card {
-  @apply bg-card/40 backdrop-blur-3xl border-2 border-border/60 shadow-2xl transition-all duration-500 hover:border-primary/50 hover:bg-card/60;
+  @apply bg-card/40 backdrop-blur-2xl border-2 border-border/50 shadow-xl transition-all duration-500 hover:border-primary/40 hover:bg-card/60;
 }
 
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 ::-webkit-scrollbar-track {
   @apply bg-background;
 }
 ::-webkit-scrollbar-thumb {
-  @apply bg-primary/30 rounded-full hover:bg-primary/50 transition-colors;
+  @apply bg-primary/20 rounded-full hover:bg-primary/40 transition-colors;
 }
 
 .no-scrollbar::-webkit-scrollbar {
