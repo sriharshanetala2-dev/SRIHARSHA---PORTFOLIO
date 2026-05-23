@@ -61,11 +61,11 @@ const studentActivity = [
 const chartConfig = {
   gpa: {
     label: "GPA Score",
-    color: "hsl(var(--accent))",
+    color: "hsl(var(--primary))",
   },
   attendance: {
     label: "Attendance %",
-    color: "hsl(var(--primary))",
+    color: "hsl(var(--accent))",
   }
 } satisfies ChartConfig;
 
@@ -100,40 +100,42 @@ export function StudentDashboard() {
       case "Student Data":
         return (
           <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
-            <Card className="bg-background/50 border-border/50 overflow-hidden">
+            <Card className="bg-background/40 border-border/50 overflow-hidden backdrop-blur-xl">
               <CardHeader className="flex flex-row items-center justify-between p-4 sm:p-6">
                 <div className="space-y-1">
                   <CardTitle className="text-sm sm:text-lg font-black uppercase tracking-tight">Enrollment Registry</CardTitle>
-                  <CardDescription className="text-xs">Live registered student database</CardDescription>
+                  <CardDescription className="text-xs uppercase font-black opacity-50 tracking-widest">Live registered student database</CardDescription>
                 </div>
-                <div className="flex gap-1.5">
-                  <button onClick={() => handleSimulatedAction("Filter Registry")} className="p-2 rounded-lg border border-border hover:bg-secondary"><Filter className="w-3.5 h-3.5" /></button>
-                  <button onClick={() => handleSimulatedAction("Query Registry")} className="p-2 rounded-lg border border-border hover:bg-secondary"><Search className="w-3.5 h-3.5" /></button>
+                <div className="flex gap-2">
+                  <button onClick={() => handleSimulatedAction("Filter Registry")} className="p-2.5 rounded-lg border border-border hover:bg-secondary transition-all"><Filter className="w-4 h-4" /></button>
+                  <button onClick={() => handleSimulatedAction("Query Registry")} className="p-2.5 rounded-lg border border-border hover:bg-secondary transition-all"><Search className="w-4 h-4" /></button>
                 </div>
               </CardHeader>
               <CardContent className="p-0 sm:p-6 overflow-hidden">
                 <div className="overflow-x-auto no-scrollbar w-full">
                   <Table className="min-w-[600px] sm:min-w-full">
                     <TableHeader>
-                      <TableRow className="border-border/50">
+                      <TableRow className="border-border/50 hover:bg-transparent">
                         <TableHead className="text-[10px] font-black uppercase tracking-widest px-4">ID</TableHead>
                         <TableHead className="text-[10px] font-black uppercase tracking-widest px-4">Name</TableHead>
                         <TableHead className="hidden sm:table-cell text-[10px] font-black uppercase tracking-widest px-4">Course</TableHead>
                         <TableHead className="text-[10px] font-black uppercase tracking-widest px-4">GPA</TableHead>
-                        <TableHead className="text-right px-4 text-[10px] font-black uppercase">Status</TableHead>
+                        <TableHead className="text-right px-4 text-[10px] font-black uppercase tracking-widest">Status</TableHead>
                       </TableRow>
                     </TableHeader>
                     <TableBody>
                       {studentActivity.map((student) => (
                         <TableRow key={student.id} className="border-border/20 group hover:bg-primary/5 transition-colors">
                           <TableCell className="font-mono text-[10px] text-muted-foreground">{student.id_num}</TableCell>
-                          <TableCell className="font-bold text-xs sm:text-sm">{student.name}</TableCell>
-                          <TableCell className="hidden sm:table-cell text-xs font-medium opacity-60">{student.course}</TableCell>
+                          <TableCell className="font-black text-xs sm:text-sm uppercase tracking-tight">{student.name}</TableCell>
+                          <TableCell className="hidden sm:table-cell text-[11px] font-black uppercase opacity-60 tracking-wider">{student.course}</TableCell>
                           <TableCell className="font-black text-primary text-xs sm:text-sm">{student.gpa}</TableCell>
                           <TableCell className="text-right">
                             <span className={cn(
-                              "px-2 py-0.5 rounded-md text-[9px] font-black uppercase",
-                              student.status === "Active" ? "bg-green-500/10 text-green-500" : "bg-yellow-500/10 text-yellow-500"
+                              "px-3 py-1 rounded-md text-[9px] font-black uppercase tracking-widest border",
+                              student.status === "Active" 
+                                ? "bg-primary/5 border-primary/20 text-primary" 
+                                : "bg-accent/5 border-accent/20 text-accent"
                             )}>
                               {student.status}
                             </span>
@@ -151,10 +153,10 @@ export function StudentDashboard() {
       case "Academic Data":
         return (
           <div className="grid grid-cols-1 gap-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
-             <Card className="bg-background/50 border-border/50 overflow-hidden">
+             <Card className="bg-background/40 border-border/50 overflow-hidden backdrop-blur-xl">
               <CardHeader className="p-4 sm:p-6">
                 <CardTitle className="text-sm sm:text-lg font-black uppercase tracking-tight">Grade Velocity</CardTitle>
-                <CardDescription className="text-xs">Aggregate semester performance tracking</CardDescription>
+                <CardDescription className="text-xs uppercase font-black opacity-50 tracking-widest">Aggregate semester performance tracking</CardDescription>
               </CardHeader>
               <CardContent className="h-[250px] sm:h-[400px] pt-4 px-2 sm:px-6">
                 <ChartContainer config={chartConfig} className="h-full w-full">
@@ -166,8 +168,8 @@ export function StudentDashboard() {
                       </linearGradient>
                     </defs>
                     <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="hsl(var(--border) / 0.3)" />
-                    <XAxis dataKey="semester" axisLine={false} tickLine={false} tick={{ fontSize: 10, fill: "hsl(var(--muted-foreground))" }} />
-                    <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 10, fill: "hsl(var(--muted-foreground))" }} />
+                    <XAxis dataKey="semester" axisLine={false} tickLine={false} tick={{ fontSize: 10, fontWeight: 900, fill: "hsl(var(--muted-foreground))" }} />
+                    <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 10, fontWeight: 900, fill: "hsl(var(--muted-foreground))" }} />
                     <ChartTooltip content={<ChartTooltipContent />} />
                     <Area type="monotone" dataKey="gpa" stroke="var(--color-gpa)" fill="url(#colorGpa)" strokeWidth={3} />
                   </AreaChart>
@@ -181,7 +183,7 @@ export function StudentDashboard() {
       default:
         return (
           <div className="space-y-6 sm:space-y-8 animate-in fade-in duration-700">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
                 { label: "Total Students", value: "24,512", icon: Users, delay: "delay-100" },
                 { label: "Active Courses", value: "112", icon: BookOpen, delay: "delay-200" },
@@ -190,63 +192,63 @@ export function StudentDashboard() {
                 <Card 
                   key={stat.label} 
                   className={cn(
-                    "bg-background/50 border-border/50 backdrop-blur-sm animate-in fade-in slide-in-from-bottom-2 duration-500 hover:bg-primary/5 transition-colors cursor-pointer",
+                    "bg-background/40 border-border/50 backdrop-blur-xl animate-in fade-in slide-in-from-bottom-2 duration-500 hover:border-primary/50 transition-all cursor-pointer group shadow-xl",
                     stat.delay
                   )}
                   onClick={() => handleSimulatedAction(`Analyzing ${stat.label}`)}
                 >
-                  <CardContent className="p-4 sm:p-6 flex items-center justify-between">
-                    <div className="space-y-1">
-                      <p className="text-[10px] font-black text-muted-foreground uppercase tracking-widest">{stat.label}</p>
-                      <span className="text-xl sm:text-2xl font-black font-headline text-foreground">{stat.value}</span>
+                  <CardContent className="p-6 sm:p-8 flex items-center justify-between">
+                    <div className="space-y-2">
+                      <p className="text-[10px] font-black text-muted-foreground uppercase tracking-[0.3em]">{stat.label}</p>
+                      <span className="text-2xl sm:text-4xl font-black font-headline text-foreground leading-none">{stat.value}</span>
                     </div>
-                    <div className="p-2 sm:p-3 rounded-xl bg-primary/10 text-primary">
-                      <stat.icon className="w-4 h-4 sm:w-5 sm:h-5" />
+                    <div className="p-4 rounded-2xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500 shadow-inner">
+                      <stat.icon className="w-6 h-6" />
                     </div>
                   </CardContent>
                 </Card>
               ))}
             </div>
 
-            <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
-              <Card className="bg-background/50 border-border/50 animate-in fade-in slide-in-from-left-4 duration-700 overflow-hidden">
-                <CardHeader className="flex flex-row items-center justify-between p-4 sm:p-6">
+            <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
+              <Card className="bg-background/40 border-border/50 animate-in fade-in slide-in-from-left-4 duration-700 overflow-hidden backdrop-blur-xl">
+                <CardHeader className="flex flex-row items-center justify-between p-6">
                   <div className="space-y-1">
-                    <CardTitle className="text-xs sm:text-sm font-black font-headline uppercase tracking-tight text-primary">System Trends</CardTitle>
-                    <CardDescription className="text-[10px]">Historical GPA metrics</CardDescription>
+                    <CardTitle className="text-xs sm:text-sm font-black font-headline uppercase tracking-[0.4em] text-primary">System Trends</CardTitle>
+                    <CardDescription className="text-[10px] font-black uppercase opacity-40">Historical GPA metrics</CardDescription>
                   </div>
-                  <BarChart3 className="w-4 h-4 text-primary opacity-50" />
+                  <BarChart3 className="w-5 h-5 text-primary opacity-30" />
                 </CardHeader>
-                <CardContent className="h-40 sm:h-56 pt-2 px-2 sm:px-6">
+                <CardContent className="h-40 sm:h-64 pt-2 px-4">
                   <ChartContainer config={chartConfig} className="h-full w-full">
                     <AreaChart data={gpaData} margin={{ left: -25, right: 10, top: 10 }}>
                       <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="hsl(var(--border) / 0.2)" />
                       <XAxis dataKey="semester" hide />
                       <ChartTooltip content={<ChartTooltipContent />} />
-                      <Area type="monotone" dataKey="gpa" stroke="var(--color-gpa)" fill="hsl(var(--primary)/0.1)" strokeWidth={2} />
+                      <Area type="monotone" dataKey="gpa" stroke="var(--color-gpa)" fill="hsl(var(--primary)/0.05)" strokeWidth={3} />
                     </AreaChart>
                   </ChartContainer>
                 </CardContent>
               </Card>
 
-              <Card className="bg-background/50 border-border/50 animate-in fade-in slide-in-from-right-4 duration-700 overflow-hidden">
-                <CardHeader className="p-4 sm:p-6">
-                  <CardTitle className="text-xs sm:text-sm font-black font-headline uppercase tracking-tight text-primary">Live Activity</CardTitle>
-                  <CardDescription className="text-[10px]">Recent data access logs</CardDescription>
+              <Card className="bg-background/40 border-border/50 animate-in fade-in slide-in-from-right-4 duration-700 overflow-hidden backdrop-blur-xl">
+                <CardHeader className="p-6">
+                  <CardTitle className="text-xs sm:text-sm font-black font-headline uppercase tracking-[0.4em] text-primary">Live Activity</CardTitle>
+                  <CardDescription className="text-[10px] font-black uppercase opacity-40">Recent data access logs</CardDescription>
                 </CardHeader>
-                <CardContent className="p-3 sm:p-6 space-y-2">
+                <CardContent className="p-6 space-y-3">
                   {studentActivity.slice(0, 3).map((student) => (
-                    <div key={student.id} className="flex items-center justify-between p-3 rounded-lg bg-secondary/20 border border-border/20 group hover:border-primary/50 transition-all cursor-pointer">
-                      <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 rounded-md bg-primary/10 flex items-center justify-center text-[11px] font-black text-primary">
+                    <div key={student.id} className="flex items-center justify-between p-4 rounded-xl bg-secondary/20 border border-border/40 group hover:border-primary/60 transition-all cursor-pointer">
+                      <div className="flex items-center gap-4">
+                        <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-[12px] font-black text-primary border border-primary/20">
                           {student.name.split(' ').map(n => n[0]).join('')}
                         </div>
                         <div className="flex flex-col">
-                          <span className="text-[11px] font-bold">{student.name}</span>
-                          <span className="text-[10px] uppercase font-black opacity-40">{student.id_num}</span>
+                          <span className="text-[11px] font-black uppercase tracking-tight">{student.name}</span>
+                          <span className="text-[10px] uppercase font-black opacity-40 tracking-widest">{student.id_num}</span>
                         </div>
                       </div>
-                      <MoreVertical className="w-3 h-3 text-muted-foreground opacity-20 group-hover:opacity-100" />
+                      <MoreVertical className="w-4 h-4 text-muted-foreground opacity-20 group-hover:opacity-100 transition-opacity" />
                     </div>
                   ))}
                 </CardContent>
@@ -258,51 +260,51 @@ export function StudentDashboard() {
   };
 
   return (
-    <section id="dashboard" className="py-24 px-4 sm:px-6 bg-accent/5 overflow-hidden scroll-mt-20">
-      <div className="max-w-7xl mx-auto space-y-12">
-        <div className="text-center space-y-4 animate-in fade-in slide-in-from-bottom-4 duration-700">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-[11px] font-black text-primary uppercase tracking-[0.4em]">
+    <section id="dashboard" className="py-24 px-4 sm:px-6 bg-secondary/5 border-t border-border overflow-hidden scroll-mt-20">
+      <div className="max-w-7xl mx-auto space-y-16">
+        <div className="text-center space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
+          <div className="inline-flex items-center gap-4 px-6 py-2 rounded-full bg-primary/10 border border-primary/25 text-[11px] font-black text-primary uppercase tracking-[0.5em] shadow-lg">
             <Activity className="w-4 h-4" />
             Core Analytics Node
           </div>
-          <h2 className="text-3xl sm:text-6xl md:text-7xl font-headline font-black tracking-tighter uppercase leading-tight">
+          <h2 className="text-4xl sm:text-6xl md:text-8xl font-headline font-black tracking-tighter uppercase leading-[0.9] shimmer-text">
             INTELLIGENT <span className="text-gradient">DATA ECOSYSTEM</span>
           </h2>
-          <p className="text-[11px] sm:text-base text-muted-foreground max-w-2xl mx-auto font-medium opacity-70 uppercase tracking-[0.2em] sm:tracking-widest">
+          <p className="text-[10px] sm:text-base text-muted-foreground max-w-3xl mx-auto font-black opacity-70 uppercase tracking-[0.3em] leading-relaxed px-4">
             A high-performance architectural simulation focusing on academic data integrity and predictive lifecycle analytics.
           </p>
         </div>
 
-        <div className="rounded-[2rem] sm:rounded-[3rem] overflow-hidden border border-border bg-card shadow-3xl animate-in fade-in zoom-in-95 duration-1000">
-          <div className="p-6 sm:p-8 border-b border-border bg-secondary/20 flex flex-col md:flex-row md:items-center justify-between gap-6">
-            <div className="flex items-center gap-4">
-              <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-primary text-primary-foreground shadow-2xl">
-                <Database className="w-6 h-6" />
+        <div className="rounded-[2.5rem] sm:rounded-[4rem] overflow-hidden border-2 border-border bg-card shadow-4xl animate-in fade-in zoom-in-95 duration-1000">
+          <div className="p-8 sm:p-10 border-b border-border bg-secondary/30 flex flex-col md:flex-row md:items-center justify-between gap-8">
+            <div className="flex items-center gap-6">
+              <div className="p-4 sm:p-5 rounded-2xl bg-primary text-primary-foreground shadow-2xl">
+                <Database className="w-7 h-7" />
               </div>
               <div>
-                <h3 className="text-sm sm:text-xl font-black font-headline uppercase tracking-tight text-foreground">INTELLIGENT DATA ECOSYSTEM</h3>
-                <p className="text-[10px] text-muted-foreground uppercase tracking-widest font-black opacity-60">Architectural Node: Verified</p>
+                <h3 className="text-lg sm:text-2xl font-black font-headline uppercase tracking-tight text-foreground">ANALYTICS ENGINE v3.0</h3>
+                <p className="text-[10px] text-primary uppercase tracking-[0.5em] font-black opacity-80 mt-1">Node Status: Verified // SYNCED</p>
               </div>
             </div>
             
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-4">
               <div className="relative hidden lg:block">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground opacity-50" />
                 <input 
-                  placeholder="Query system records..." 
-                  className="bg-background border border-border rounded-xl pl-10 pr-4 py-2 text-xs w-48 xl:w-64 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all font-medium"
+                  placeholder="QUERY REGISTRY..." 
+                  className="bg-background/50 border border-border rounded-xl pl-12 pr-6 py-3 text-[10px] w-48 xl:w-72 focus:outline-none focus:border-primary transition-all font-black uppercase tracking-widest"
                 />
               </div>
-              <div className="flex items-center gap-2">
-                <button onClick={() => handleSimulatedAction("Alerts Node")} className="p-2.5 rounded-lg bg-background border border-border text-muted-foreground hover:text-primary transition-colors"><Bell className="w-5 h-5" /></button>
-                <div className="w-10 h-10 rounded-lg bg-primary/20 border border-primary/20 flex items-center justify-center text-primary font-black cursor-pointer text-[11px]" onClick={() => handleSimulatedAction("User Identity Node")}>NS</div>
+              <div className="flex items-center gap-3">
+                <button onClick={() => handleSimulatedAction("Alerts Node")} className="p-3.5 rounded-xl bg-background border border-border text-muted-foreground hover:text-primary transition-all shadow-md"><Bell className="w-5 h-5" /></button>
+                <div className="w-12 h-12 rounded-xl bg-primary/20 border-2 border-primary/20 flex items-center justify-center text-primary font-black cursor-pointer text-[12px] shadow-lg hover:scale-105 transition-all" onClick={() => handleSimulatedAction("User Identity Node")}>NS</div>
               </div>
             </div>
           </div>
 
-          <div className="flex flex-col lg:flex-row min-h-[500px]">
-            <div className="w-full lg:w-64 border-b lg:border-b-0 lg:border-r border-border bg-secondary/10 p-4">
-              <div className="flex lg:flex-col overflow-x-auto lg:overflow-x-visible gap-1.5 lg:space-y-1.5 no-scrollbar pb-2 lg:pb-0">
+          <div className="flex flex-col lg:flex-row min-h-[600px]">
+            <div className="w-full lg:w-72 border-b lg:border-b-0 lg:border-r-2 border-border bg-secondary/10 p-6">
+              <div className="flex lg:flex-col overflow-x-auto lg:overflow-x-visible gap-2 lg:space-y-3 no-scrollbar pb-2 lg:pb-0">
                 {[
                   { icon: LayoutDashboard, label: "Overview" },
                   { icon: Users, label: "Student Data" },
@@ -312,29 +314,29 @@ export function StudentDashboard() {
                     key={item.label}
                     onClick={() => handleTabChange(item.label)}
                     className={cn(
-                      "flex items-center gap-2.5 px-4 py-3 rounded-lg text-[10px] sm:text-[11px] font-black transition-all whitespace-nowrap lg:w-full uppercase tracking-[0.2em]",
+                      "flex items-center gap-3.5 px-6 py-4 rounded-xl text-[10px] sm:text-[11px] font-black transition-all whitespace-nowrap lg:w-full uppercase tracking-[0.3em] shadow-sm",
                       activeTab === item.label
-                      ? "bg-primary text-primary-foreground shadow-lg" 
-                      : "text-muted-foreground hover:bg-primary/10 hover:text-primary"
+                      ? "bg-primary text-primary-foreground shadow-xl scale-[1.02]" 
+                      : "text-muted-foreground hover:bg-primary/10 hover:text-primary border border-transparent hover:border-primary/20"
                     )}
                   >
-                    <item.icon className="w-4 h-4" />
+                    <item.icon className="w-5 h-5" />
                     {item.label}
                   </button>
                 ))}
               </div>
             </div>
 
-            <div className="flex-1 p-6 sm:p-12 space-y-8 bg-gradient-to-br from-background to-secondary/5 overflow-hidden">
-              <div className="flex items-center justify-between gap-4">
-                <h4 className="text-lg sm:text-2xl font-black font-headline text-foreground uppercase tracking-tight">
-                  {activeTab} Module
+            <div className="flex-1 p-8 sm:p-14 space-y-10 bg-gradient-to-br from-background via-background to-secondary/5 overflow-hidden">
+              <div className="flex items-center justify-between gap-6">
+                <h4 className="text-2xl sm:text-4xl font-black font-headline text-foreground uppercase tracking-tight leading-none">
+                  {activeTab} <span className="text-primary opacity-30">Subsystem</span>
                 </h4>
-                <div className="flex gap-2">
-                  <button onClick={() => handleSimulatedAction("Data Sync")} className="hidden sm:flex items-center gap-2 text-[10px] font-black px-4 py-2.5 rounded-lg border border-border hover:bg-secondary transition-colors uppercase tracking-widest">
+                <div className="flex gap-3">
+                  <button onClick={() => handleSimulatedAction("Data Sync")} className="hidden sm:flex items-center gap-3 text-[10px] font-black px-6 py-3 rounded-xl border-2 border-border hover:border-primary hover:text-primary transition-all uppercase tracking-widest shadow-md">
                     <TrendingUp className="w-4 h-4" /> Sync
                   </button>
-                  <button onClick={() => handleSimulatedAction("Data Export")} className="flex items-center gap-2 text-[10px] font-black px-4 py-2.5 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors uppercase tracking-widest shadow-xl">
+                  <button onClick={() => handleSimulatedAction("Data Export")} className="flex items-center gap-3 text-[10px] font-black px-6 py-3 rounded-xl bg-primary text-primary-foreground hover:brightness-110 transition-all uppercase tracking-widest shadow-2xl">
                     <Download className="w-4 h-4" /> Export
                   </button>
                 </div>
