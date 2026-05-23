@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, useEffect } from "react";
@@ -267,7 +266,7 @@ export function StudentDashboard() {
             <Activity className="w-4 h-4" />
             Core Analytics Node
           </div>
-          <h2 className="text-4xl sm:text-6xl md:text-8xl font-headline font-black tracking-tighter uppercase leading-[0.9] shimmer-text">
+          <h2 className="text-3xl sm:text-5xl md:text-6xl font-headline font-black tracking-tighter uppercase leading-[0.9] shimmer-text">
             INTELLIGENT <span className="text-gradient">DATA ECOSYSTEM</span>
           </h2>
           <p className="text-[10px] sm:text-base text-muted-foreground max-w-3xl mx-auto font-black opacity-70 uppercase tracking-[0.3em] leading-relaxed px-4">
