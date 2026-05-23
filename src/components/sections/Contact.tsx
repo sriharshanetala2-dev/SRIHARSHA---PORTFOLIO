@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, Send, Phone, Copy, Check, Loader2, User, ExternalLink, ShieldCheck, Activity } from "lucide-react";
+import { Mail, Send, Phone, Copy, Check, Loader2, User, ExternalLink, ShieldCheck } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 export function Contact() {
@@ -43,9 +43,12 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 sm:py-32 px-6 relative overflow-hidden bg-background border-t border-border scroll-mt-20">
-      <div className="absolute inset-0 neural-grid opacity-[0.03] pointer-events-none z-0" />
-      <div className="absolute inset-0 logic-scan-subsystem pointer-events-none z-0" />
+    <section id="contact" className="py-24 sm:py-48 px-6 relative overflow-hidden bg-background border-t-2 border-border scroll-mt-20">
+      {/* Isolated Decorative Subsystem - Strictly no interaction */}
+      <div className="absolute inset-0 pointer-events-none z-0">
+        <div className="absolute inset-0 neural-grid opacity-[0.03] dark:opacity-[0.1]" />
+        <div className="absolute inset-0 logic-scan-subsystem opacity-[0.05] dark:opacity-[0.2]" />
+      </div>
       
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 sm:gap-32 relative z-10">
         <motion.div 
@@ -56,12 +59,12 @@ export function Contact() {
           className="space-y-16"
         >
           <div className="space-y-8 text-center lg:text-left">
-            <div className="inline-flex items-center gap-3 px-6 py-2 rounded-full bg-primary/10 border border-primary/20 text-[10px] font-black text-primary uppercase tracking-[0.4em] mx-auto lg:mx-0 shadow-lg backdrop-blur-md">
-              <ShieldCheck className="w-4 h-4 animate-pulse" />
+            <div className="inline-flex items-center gap-3 px-6 py-2 rounded-full bg-primary/10 border border-primary/20 text-[10px] font-black text-primary uppercase tracking-[0.5em] mx-auto lg:mx-0 shadow-lg backdrop-blur-md">
+              <ShieldCheck className="w-4 h-4" />
               COLLABORATION HUB
             </div>
-            <h2 className="text-4xl sm:text-7xl font-headline font-black tracking-tighter leading-none uppercase shimmer-text">
-              LET'S <span className="text-gradient">CONNECT</span>
+            <h2 className="text-4xl sm:text-7xl lg:text-8xl font-headline font-black tracking-tighter leading-none uppercase shimmer-text">
+              SYSTEM <span className="text-gradient">SYNC</span>
             </h2>
             <p className="text-sm sm:text-xl text-muted-foreground leading-relaxed max-w-xl font-bold uppercase tracking-tight opacity-80 mx-auto lg:mx-0">
               Direct recruitment and project synchronization available. Optimized for elite engineering partnerships.
@@ -74,7 +77,7 @@ export function Contact() {
               href={gmailComposeUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-6 p-8 bg-card/20 dark:bg-card/40 backdrop-blur-xl border border-border rounded-[2rem] hover:border-primary transition-all group shadow-xl relative"
+              className="flex items-center gap-6 p-8 bg-card/20 dark:bg-card/40 backdrop-blur-xl border border-border rounded-[2rem] hover:border-primary transition-all group shadow-xl relative cursor-pointer"
             >
               <div className="p-4 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
                 <Mail className="w-6 h-6" />
@@ -120,45 +123,45 @@ export function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
           viewport={{ once: true }}
-          className="glass-card p-8 sm:p-12 rounded-[2.5rem] shadow-2xl relative border border-border/50"
+          className="glass-card p-8 sm:p-14 rounded-[3rem] shadow-3xl relative border border-border/50"
         >
-          <form onSubmit={handleSubmit} className="space-y-8 relative z-10">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <form onSubmit={handleSubmit} className="space-y-10 relative z-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="space-y-3">
-                <label className="text-[10px] font-black uppercase text-muted-foreground tracking-widest ml-4">NAME_KEY</label>
+                <label className="text-[10px] font-black uppercase text-muted-foreground tracking-widest ml-4">FULL_NAME</label>
                 <div className="relative group">
                   <Input 
-                    placeholder="NAME" 
+                    placeholder="IDENTIFY YOURSELF" 
                     required
-                    className="bg-background/20 border-border focus:border-primary h-16 rounded-xl text-xs font-black pl-14 uppercase tracking-widest transition-all cursor-text"
+                    className="bg-background/20 border-border focus:border-primary h-16 rounded-xl text-[10px] font-black pl-14 uppercase tracking-widest transition-all cursor-text shadow-none"
                     value={formData.name}
                     onChange={(e) => setFormData({...formData, name: e.target.value})}
                     disabled={isSubmitting}
                   />
-                  <User className="absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-primary opacity-40 group-focus-within:opacity-100 transition-opacity" />
+                  <User className="absolute left-5 top-1/2 -translate-y-1/2 w-4 h-4 text-primary opacity-40 group-focus-within:opacity-100 transition-opacity" />
                 </div>
               </div>
               <div className="space-y-3">
-                <label className="text-[10px] font-black uppercase text-muted-foreground tracking-widest ml-4">EMAIL_KEY</label>
+                <label className="text-[10px] font-black uppercase text-muted-foreground tracking-widest ml-4">EMAIL_ADDRESS</label>
                 <div className="relative group">
                   <Input 
                     type="email" 
-                    placeholder="EMAIL" 
+                    placeholder="COMMUNICATION ENDPOINT" 
                     required
-                    className="bg-background/20 border-border focus:border-primary h-16 rounded-xl text-xs font-black pl-14 uppercase tracking-widest transition-all cursor-text"
+                    className="bg-background/20 border-border focus:border-primary h-16 rounded-xl text-[10px] font-black pl-14 uppercase tracking-widest transition-all cursor-text shadow-none"
                     value={formData.email}
                     onChange={(e) => setFormData({...formData, email: e.target.value})}
                     disabled={isSubmitting}
                   />
-                  <Mail className="absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-primary opacity-40 group-focus-within:opacity-100 transition-opacity" />
+                  <Mail className="absolute left-5 top-1/2 -translate-y-1/2 w-4 h-4 text-primary opacity-40 group-focus-within:opacity-100 transition-opacity" />
                 </div>
               </div>
             </div>
             <div className="space-y-3">
-              <label className="text-[10px] font-black uppercase text-muted-foreground tracking-widest ml-4">MESSAGE_BODY</label>
+              <label className="text-[10px] font-black uppercase text-muted-foreground tracking-widest ml-4">MESSAGE_CONTENT</label>
               <Textarea 
-                placeholder="MESSAGE_CONTENT..." 
-                className="min-h-[200px] bg-background/20 border-border focus:border-primary p-8 resize-none rounded-2xl text-xs font-black uppercase tracking-tight transition-all cursor-text"
+                placeholder="DESCRIBE THE MISSION..." 
+                className="min-h-[200px] bg-background/20 border-border focus:border-primary p-8 resize-none rounded-2xl text-[10px] font-black uppercase tracking-tight transition-all cursor-text shadow-none"
                 required
                 value={formData.message}
                 onChange={(e) => setFormData({...formData, message: e.target.value})}
@@ -167,10 +170,10 @@ export function Contact() {
             </div>
             <Button 
               type="submit" 
-              className="w-full h-16 rounded-full font-black uppercase tracking-[0.4em] text-[10px] gap-4 shadow-xl transition-all bg-primary text-primary-foreground hover:scale-[1.01] active:scale-95 group relative overflow-hidden cursor-pointer"
+              className="w-full h-20 rounded-full font-black uppercase tracking-[0.5em] text-[10px] gap-4 shadow-xl transition-all bg-primary text-primary-foreground hover:scale-[1.01] active:scale-95 group relative overflow-hidden cursor-pointer"
               disabled={isSubmitting}
             >
-              {isSubmitting ? <Loader2 className="w-5 h-5 animate-spin" /> : <><Send className="w-5 h-5 group-hover:translate-x-1.5 transition-transform" /> SYNC_MESSAGE</>}
+              {isSubmitting ? <Loader2 className="w-5 h-5 animate-spin" /> : <><Send className="w-5 h-5 group-hover:translate-x-1.5 transition-transform" /> SEND_MESSAGE</>}
             </Button>
           </form>
         </motion.div>
