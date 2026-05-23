@@ -85,7 +85,7 @@ export function ProfessionalTimeline() {
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="px-8 py-3 rounded-full bg-primary/15 border-2 border-primary/25 text-xs font-black text-primary uppercase tracking-[0.6em] flex items-center gap-4 shadow-2xl"
+            className="px-8 py-3 rounded-full bg-primary/10 border-2 border-primary/30 text-[10px] sm:text-[11px] font-black text-primary uppercase tracking-[0.6em] flex items-center gap-4 shadow-xl"
           >
             <Terminal className="w-5 h-5" />
             PROFESSIONAL GROWTH REGISTRY
@@ -93,8 +93,8 @@ export function ProfessionalTimeline() {
           <h2 className="text-4xl sm:text-7xl md:text-8xl font-headline font-black tracking-tighter uppercase leading-none">
             TECHNICAL <span className="text-gradient">JOURNEY</span>
           </h2>
-          <p className="text-foreground/80 max-w-3xl text-sm sm:text-xl font-bold uppercase tracking-[0.25em] leading-relaxed opacity-90 px-4">
-            A high-precision mapping of development milestones, academic foundations, and specialized AI systems integration.
+          <p className="text-foreground max-w-3xl text-sm sm:text-xl font-bold uppercase tracking-[0.2em] leading-relaxed opacity-100 px-4">
+            A high-precision mapping of <span className="text-primary">development milestones</span>, academic foundations, and specialized AI systems integration.
           </p>
         </div>
 
@@ -114,7 +114,7 @@ export function ProfessionalTimeline() {
               <div className="flex flex-col md:flex-row gap-10 md:gap-24 items-start">
                 {/* Node Identifier */}
                 <div className="flex items-center gap-8 md:w-48 shrink-0 relative z-10">
-                  <div className="text-[11px] font-black text-primary/50 tracking-widest uppercase hidden md:block whitespace-nowrap">
+                  <div className="text-[11px] font-black text-primary/70 tracking-[0.4em] uppercase hidden md:block whitespace-nowrap">
                     NODE_{item.id}
                   </div>
                   <div className="p-5 sm:p-6 rounded-2xl bg-secondary group-hover:bg-primary text-primary group-hover:text-primary-foreground transition-all duration-700 shadow-4xl border-2 border-border group-hover:border-primary group-hover:scale-110">
@@ -123,7 +123,7 @@ export function ProfessionalTimeline() {
                 </div>
 
                 {/* Registry Card */}
-                <div className="flex-1 glass-card p-10 sm:p-16 rounded-[3rem] hover:border-primary/70 transition-all shadow-4xl relative overflow-hidden group-hover:bg-card/80">
+                <div className="flex-1 glass-card p-10 sm:p-16 rounded-[3rem] hover:border-primary/50 transition-all shadow-4xl relative overflow-hidden group-hover:bg-card/80">
                   <div className="absolute -top-12 -right-12 p-24 opacity-5 group-hover:opacity-10 transition-opacity pointer-events-none">
                     <Activity className="w-32 h-32" />
                   </div>
@@ -131,26 +131,26 @@ export function ProfessionalTimeline() {
                   <div className="space-y-10 relative z-10">
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-8">
                       <div className="space-y-3">
-                        <div className="flex items-center gap-4 text-xs font-black text-primary uppercase tracking-[0.5em] opacity-90">
-                          <CheckCircle2 className="w-5 h-5" />
+                        <div className="flex items-center gap-4 text-[10px] sm:text-xs font-black text-primary uppercase tracking-[0.5em]">
+                          <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5" />
                           {item.period}
                         </div>
-                        <h3 className="text-2xl sm:text-5xl font-headline font-black uppercase tracking-tight group-hover:text-primary transition-colors leading-tight">
+                        <h3 className="text-2xl sm:text-5xl font-headline font-black uppercase tracking-tight group-hover:text-primary transition-colors leading-tight text-foreground">
                           {item.role}
                         </h3>
                       </div>
-                      <div className="text-[11px] font-black uppercase tracking-[0.4em] text-muted-foreground bg-secondary/80 px-6 py-3 rounded-2xl border-2 border-border shadow-inner w-fit">
+                      <div className="text-[10px] sm:text-[11px] font-black uppercase tracking-[0.4em] text-foreground/80 bg-secondary/80 px-6 py-3 rounded-2xl border-2 border-border shadow-inner w-fit">
                         {item.type === 'work' ? item.company : item.institution}
                       </div>
                     </div>
 
-                    <p className="text-sm sm:text-xl text-foreground font-bold uppercase tracking-tight leading-relaxed opacity-90 max-w-4xl">
+                    <p className="text-sm sm:text-xl text-foreground/90 font-bold uppercase tracking-tight leading-relaxed max-w-4xl">
                       {item.description}
                     </p>
 
                     <div className="flex flex-wrap gap-4">
                       {item.tags.map(tag => (
-                        <span key={tag} className="px-6 py-3 bg-background/50 border-2 border-border rounded-xl text-xs font-black uppercase tracking-widest opacity-90 shadow-lg hover:border-primary transition-colors">
+                        <span key={tag} className="px-6 py-3 bg-background/50 border-2 border-border rounded-xl text-[10px] sm:text-xs font-black uppercase tracking-widest text-foreground/70 shadow-lg hover:border-primary hover:text-primary transition-colors">
                           {tag}
                         </span>
                       ))}
