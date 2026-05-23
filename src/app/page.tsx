@@ -5,7 +5,7 @@ import dynamic from 'next/dynamic';
 import { Navbar } from "@/components/layout/Navbar";
 import { Hero } from "@/components/sections/Hero";
 import { Footer } from "@/components/layout/Footer";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 const About = dynamic(() => import('@/components/sections/About').then(mod => mod.About), { ssr: false });
 const Experience = dynamic(() => import('@/components/sections/Experience').then(mod => mod.Experience), { ssr: false });
@@ -29,7 +29,13 @@ export default function Home() {
   return (
     <AnimatePresence>
       <div className="min-h-screen bg-background relative overflow-x-hidden">
-        <div className="fixed inset-0 neural-grid pointer-events-none z-0" />
+        {/* Animated Background Subsystem */}
+        <div className="fixed inset-0 z-0 pointer-events-none">
+          <div className="absolute inset-0 neural-grid opacity-20" />
+          <div className="absolute inset-0 logic-scan-line" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[150px] animate-pulse" />
+        </div>
+
         <Navbar />
         <main className="relative z-10">
           <Hero />

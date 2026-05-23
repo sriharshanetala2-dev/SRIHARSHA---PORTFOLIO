@@ -4,34 +4,11 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 160 100% 35%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 160 100% 25%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 160 100% 35%;
-    --radius: 1.5rem;
-  }
-
-  .dark {
-    --background: 222.2 47.4% 6%;
+    --background: 222 47% 4%;
     --foreground: 210 40% 98%;
-    --card: 222.2 47.4% 8%;
+    --card: 222 47% 6%;
     --card-foreground: 210 40% 98%;
-    --popover: 222.2 47.4% 8%;
+    --popover: 222 47% 4%;
     --popover-foreground: 210 40% 98%;
     --primary: 160 100% 45%;
     --primary-foreground: 222.2 47.4% 11.2%;
@@ -46,6 +23,16 @@
     --border: 217.2 32.6% 15%;
     --input: 217.2 32.6% 15%;
     --ring: 160 100% 45%;
+    --radius: 1.5rem;
+  }
+
+  .dark {
+    --background: 222 47% 3%;
+    --foreground: 210 40% 98%;
+    --card: 222 47% 5%;
+    --card-foreground: 210 40% 98%;
+    --primary: 160 100% 45%;
+    --accent: 160 100% 35%;
   }
 }
 
@@ -63,18 +50,55 @@
   }
 }
 
+@keyframes grid-scan {
+  from { transform: translateY(0); }
+  to { transform: translateY(50px); }
+}
+
+@keyframes logic-sweep {
+  0% { transform: translateX(-100%) skewX(-45deg); opacity: 0; }
+  20% { opacity: 0.5; }
+  80% { opacity: 0.5; }
+  100% { transform: translateX(200%) skewX(-45deg); opacity: 0; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.neural-grid {
+  background-image: linear-gradient(to right, hsl(var(--primary) / 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, hsl(var(--primary) / 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: grid-scan 10s linear infinite;
+}
+
+.logic-scan-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 100%;
+  background: linear-gradient(to right, transparent, hsl(var(--primary) / 0.1), transparent);
+  animation: logic-sweep 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.shimmer-text {
+  background: linear-gradient(90deg, hsl(var(--foreground)), hsl(var(--primary)), hsl(var(--foreground)));
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 4s linear infinite;
+}
+
 .text-gradient {
   @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-emerald-400;
 }
 
 .glass-card {
   @apply bg-card/60 backdrop-blur-xl border border-border shadow-2xl;
-}
-
-.neural-grid {
-  background-image: linear-gradient(to right, hsl(var(--border) / 0.15) 1px, transparent 1px),
-    linear-gradient(to bottom, hsl(var(--border) / 0.15) 1px, transparent 1px);
-  background-size: 50px 50px;
 }
 
 .data-flow-grid {
