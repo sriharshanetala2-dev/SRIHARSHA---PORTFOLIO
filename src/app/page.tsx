@@ -24,11 +24,11 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background relative">
-      {/* Universal Neural Subsystem */}
+    <div className="min-h-screen bg-background relative selection:bg-primary/20">
+      {/* Universal Neural Subsystem - Locked for Cursor Precision */}
       <div className="fixed inset-0 z-0 pointer-events-none">
-        <div className="absolute inset-0 neural-grid opacity-[0.03] dark:opacity-[0.12]" />
-        <div className="logic-scan-subsystem opacity-[0.05] dark:opacity-[0.1]" />
+        <div className="absolute inset-0 neural-grid" />
+        <div className="logic-scan-subsystem" />
       </div>
 
       <Navbar />
