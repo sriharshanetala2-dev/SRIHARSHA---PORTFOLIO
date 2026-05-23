@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Laptop, Database, Cpu, Zap, Fingerprint, Activity, Workflow } from "lucide-react";
+import { Laptop, Database, Cpu, Zap, Fingerprint, Activity, Code2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const synthesisNodes = [
@@ -11,18 +11,18 @@ const synthesisNodes = [
     label: "Frontend Core", 
     icon: Laptop, 
     color: "text-blue-500", 
-    desc: "React & Next.js Ecosystem",
+    desc: "Next.js & TypeScript Hub",
     status: "Active",
-    metrics: ["Hydrated Logic Engine", "Fluid Data Mapping"]
+    metrics: ["High-Performance Next.js 15", "Atomic Component Logic"]
   },
   { 
-    id: "fullstack",
+    id: "systems",
     label: "Systems Core", 
     icon: Database, 
     color: "text-indigo-500", 
-    desc: "Java & Spring Boot Hub",
+    desc: "Java & Spring Boot Engine",
     status: "Synced",
-    metrics: ["ACID Integrity Locked", "Atomic Operations"]
+    metrics: ["ACID-Compliant SQL Registry", "Spring Security Hardened"]
   },
   { 
     id: "mobile",
@@ -31,16 +31,16 @@ const synthesisNodes = [
     color: "text-cyan-500", 
     desc: "Flutter & Dart Node",
     status: "Reactive",
-    metrics: ["Multi-Platform Sync", "Hardware Logic Access"]
+    metrics: ["Multi-Platform Flutter Core", "Real-time Firebase Sync"]
   },
   { 
-    id: "ai",
+    id: "neural",
     label: "Neural Core", 
     icon: Cpu, 
     color: "text-primary", 
-    desc: "Genkit & LLM Integration",
+    desc: "AI & Logic Automation",
     status: "Operational",
-    metrics: ["Gemini & Claude Pipelines", "n8n Workflow Automation"]
+    metrics: ["Gemini 2.0 & Claude 3.5", "n8n Workflow Orchestration"]
   }
 ];
 
@@ -68,14 +68,14 @@ export function About() {
             <div className="space-y-8 text-center lg:text-left">
               <div className="inline-flex items-center gap-4 px-6 py-2.5 rounded-full bg-primary/10 text-[10px] sm:text-xs font-black tracking-[0.5em] text-primary uppercase border-2 border-primary/20 mx-auto lg:mx-0 shadow-2xl backdrop-blur-sm">
                 <Fingerprint className="w-5 h-5" />
-                ENGINEERING PROFILE
+                SYSTEM ARCHITECT PROFILE
               </div>
               <h2 className="text-4xl sm:text-7xl font-headline font-black leading-[1.0] tracking-tighter uppercase">
-                SYSTEM <br className="hidden sm:block" />
-                <span className="text-gradient">ARCHITECTURE</span>
+                ARCHITECTING <br className="hidden sm:block" />
+                <span className="text-gradient">INTELLIGENCE</span>
               </h2>
               <p className="text-xs sm:text-lg text-muted-foreground leading-relaxed font-bold max-w-xl mx-auto lg:mx-0 opacity-80 uppercase tracking-[0.2em]">
-                Architecting digital ecosystems where <span className="text-primary font-black">high-performance logic</span> meets industrial-grade stability and <span className="text-primary font-black">AI intelligence</span>.
+                Engineering digital ecosystems where <span className="text-primary font-black">robust systems logic</span> meets the high-performance orchestration of <span className="text-primary font-black">AI agents</span> and autonomous workflows.
               </p>
             </div>
 

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ChevronDown, ArrowRight, Zap, BrainCircuit, Cpu, Sparkles } from "lucide-react";
+import { ChevronDown, ArrowRight, Zap, BrainCircuit, Cpu, ShieldCheck } from "lucide-react";
 
 export function Hero() {
   const container = {
@@ -30,7 +30,7 @@ export function Hero() {
           animate="show"
           className="inline-flex items-center gap-4 px-6 py-2.5 rounded-full border-2 border-primary/20 bg-primary/5 text-[10px] sm:text-xs font-black tracking-[0.5em] text-primary uppercase shadow-2xl backdrop-blur-md"
         >
-          <BrainCircuit className="w-5 h-5 text-primary animate-pulse" />
+          <ShieldCheck className="w-5 h-5 text-primary animate-pulse" />
           FULL STACK AI ARCHITECT v3.0 // INITIALIZED
         </motion.div>
 
@@ -40,19 +40,19 @@ export function Hero() {
             className="text-4xl sm:text-6xl md:text-7xl lg:text-9xl font-headline font-black tracking-tighter leading-[0.9] uppercase shimmer-text"
           >
             ENGINEERING <br className="hidden sm:block" />
-            <span className="text-gradient">INTELLIGENT</span> SYSTEMS
+            <span className="text-gradient">NEURAL</span> ECOSYSTEMS
           </motion.h1>
 
           <motion.div
             variants={item}
-            className="max-w-5xl mx-auto space-y-6 px-4"
+            className="max-w-5xl mx-auto space-y-8 px-4"
           >
             <p className="text-sm sm:text-lg lg:text-2xl text-foreground font-black uppercase tracking-tight leading-relaxed opacity-90">
-              Specializing in high-performance <span className="text-primary">Full Stack Ecosystems</span> and <span className="text-primary">Neural Orchestration</span>. 
+              Developing high-performance digital architectures by merging <span className="text-primary">Full Stack Integrity</span> with advanced <span className="text-primary">Neural Intelligence</span>.
             </p>
-            <p className="text-xs sm:text-base lg:text-lg text-muted-foreground font-bold uppercase tracking-[0.2em] opacity-70 leading-relaxed">
-              Mastery in <span className="text-foreground">Next.js, Spring Boot, Flutter</span>, and AI agents using 
-              <span className="text-primary"> Claude 3.5, Gemini 2.0, GPT-4o, and n8n</span>.
+            <p className="text-xs sm:text-base lg:text-lg text-muted-foreground font-bold uppercase tracking-[0.2em] opacity-70 leading-relaxed max-w-4xl mx-auto">
+              Mastery in assembling enterprise-grade ecosystems using <span className="text-foreground">Next.js, Spring Boot, and Flutter</span>, integrated with autonomous AI agents across 
+              <span className="text-primary"> Claude 3.5, Gemini 2.0, GPT-4o, and n8n</span>. Backed by a deep foundation in <span className="text-foreground">Java, Python, and SQL</span> within a B.Sc Computer Science registry.
             </p>
           </motion.div>
         </motion.div>
@@ -68,7 +68,7 @@ export function Hero() {
               href="#portfolio"
               className="flex items-center justify-center gap-5 px-10 py-6 rounded-2xl bg-primary text-primary-foreground font-black text-xs tracking-[0.4em] uppercase transition-all hover:scale-105 active:scale-95 shadow-3xl shadow-primary/40 group"
             >
-              ACCESS ARCHIVE
+              ACCESS REGISTRY
               <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
             </a>
             <a

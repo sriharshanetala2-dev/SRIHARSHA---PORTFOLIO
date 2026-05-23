@@ -22,7 +22,7 @@ const timelineItems = [
     role: "Full Stack & AI Developer",
     company: "NxtWave Academy",
     period: "2025 — 2026",
-    description: "Architecting enterprise systems with Java 21, Spring Boot, and AI orchestration. Integrating Claude, Gemini, and GPT-4o for intelligent task automation.",
+    description: "Architecting enterprise systems with Java 21, Spring Boot, and Neural Orchestration. Integrating Claude, Gemini, and GPT-4o for high-performance task automation.",
     icon: BrainCircuit,
     tags: ["Java", "Claude", "Gemini", "n8n"]
   },
@@ -32,9 +32,9 @@ const timelineItems = [
     role: "Generative AI Specialist",
     company: "AI Buildathons",
     period: "2025 — 2026",
-    description: "Developing autonomous agents and semantic search pipelines. Expertise in Google Genkit and LLM workflow orchestration with n8n.",
+    description: "Developing autonomous agents and semantic search pipelines using Google Genkit. Mastery of LLM workflow orchestration and Python logic cores.",
     icon: Workflow,
-    tags: ["Genkit", "n8n", "GPT-4o", "Agents"]
+    tags: ["Genkit", "n8n", "GPT-4o", "Python"]
   },
   {
     id: "03",
@@ -42,9 +42,9 @@ const timelineItems = [
     role: "Full Stack Software Developer",
     company: "Independent Projects",
     period: "2024 — 2025",
-    description: "Building responsive Next.js applications with atomic backend cores. Integrated real-time data sync using Firebase and PostgreSQL.",
+    description: "Building responsive Next.js applications with atomic SQL backend cores. Expertise in TypeScript and high-speed Firebase data synchronization.",
     icon: Code2,
-    tags: ["Next.js", "Firebase", "TypeScript"]
+    tags: ["Next.js", "SQL", "Firebase", "TS"]
   },
   {
     id: "04",
@@ -52,7 +52,7 @@ const timelineItems = [
     role: "B.Sc in Computer Science",
     institution: "Glocal University",
     period: "Academic Registry",
-    description: "Foundational mastery of computational logic, data structures, and systems engineering. Graduated with high honors.",
+    description: "Mastery of computational logic, data structures, and systems engineering. Graduated with honors in Computer Science foundation.",
     icon: GraduationCap,
     tags: ["CS Core", "Systems Design"]
   },
@@ -62,9 +62,9 @@ const timelineItems = [
     role: "Intermediate Education",
     institution: "SRR & CVR Govt Jr College",
     period: "Pre-University Registry",
-    description: "Advanced computational mathematics and algorithmic logic foundation. Specialized in MPC stream.",
+    description: "Advanced computational mathematics and algorithmic logic foundation. Specialized in structured logical registry.",
     icon: BookOpen,
-    tags: ["Mathematics", "Logic"]
+    tags: ["Logic", "Mathematics"]
   },
   {
     id: "06",
@@ -72,7 +72,7 @@ const timelineItems = [
     role: "Secondary School Certificate",
     institution: "Christ the King High School",
     period: "Foundational Registry",
-    description: "Initial logic processing and basic computational registry foundations.",
+    description: "Initial academic registry and logic processing foundations.",
     icon: History,
     tags: ["SSC", "Foundational"]
   }
@@ -90,13 +90,13 @@ export function ProfessionalTimeline() {
             className="px-6 py-2 rounded-full bg-primary/10 border border-primary/20 text-[10px] sm:text-xs font-black text-primary uppercase tracking-[0.5em] flex items-center gap-3 shadow-lg"
           >
             <Terminal className="w-4 h-4" />
-            INDUSTRIAL GROWTH REGISTRY
+            PROFESSIONAL GROWTH REGISTRY
           </motion.div>
           <h2 className="text-4xl sm:text-6xl md:text-7xl font-headline font-black tracking-tighter uppercase leading-none">
             TECHNICAL <span className="text-gradient">JOURNEY</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl text-xs sm:text-lg font-bold opacity-70 uppercase tracking-[0.2em] leading-relaxed">
-            A chronological mapping of professional growth, full stack milestones, and AI integration registries.
+            A chronological mapping of professional milestones, academic registries, and elite AI systems integration.
           </p>
         </div>
 

@@ -6,17 +6,17 @@ import { Tooltip, TooltipProvider, TooltipContent, TooltipTrigger } from "@/comp
 import { cn } from "@/lib/utils";
 
 const skills = [
-  { name: "Claude 3.5", level: "Expert", category: "Neural Integration", icon: BrainCircuit },
-  { name: "Gemini 2.0", level: "Expert", category: "Neural Integration", icon: BrainCircuit },
-  { name: "GPT-4o", level: "Advanced", category: "Neural Integration", icon: BrainCircuit },
+  { name: "Claude 3.5", level: "Expert", category: "Neural Orchestration", icon: BrainCircuit },
+  { name: "Gemini 2.0", level: "Expert", category: "Neural Orchestration", icon: BrainCircuit },
+  { name: "GPT-4o", level: "Advanced", category: "Neural Orchestration", icon: BrainCircuit },
   { name: "n8n Automation", level: "Advanced", category: "Logic Workflows", icon: Workflow },
+  { name: "Java 21", level: "Expert", category: "Systems Core", icon: Code2 },
+  { name: "Python", level: "Advanced", category: "Logic Systems", icon: Terminal },
   { name: "Next.js 15", level: "Expert", category: "Frontend Core", icon: Layout },
+  { name: "SQL / Postgres", level: "Expert", category: "Data Registry", icon: Database },
   { name: "Spring Boot", level: "Advanced", category: "Systems Core", icon: Database },
-  { name: "Java 21", level: "Advanced", category: "Language Logic", icon: Code2 },
-  { name: "SQL / Postgres", level: "Advanced", category: "Data Registry", icon: Database },
-  { name: "Flutter / Dart", level: "Intermediate", category: "Mobile Interface", icon: Globe },
+  { name: "Flutter / Dart", level: "Advanced", category: "Mobile Interface", icon: Globe },
   { name: "Firebase", level: "Advanced", category: "Serverless Node", icon: Zap },
-  { name: "TypeScript", level: "Advanced", category: "Type Integrity", icon: Terminal },
   { name: "Systems Design", level: "Advanced", category: "Architectural", icon: ShieldCheck },
 ];
 
@@ -68,7 +68,7 @@ export function Skills() {
             viewport={{ once: true }}
             className="text-[11px] sm:text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed font-bold opacity-70 uppercase tracking-[0.2em] px-4"
           >
-            Professional mapping of Full Stack tools, automated n8n workflows, and high-performance neural orchestration.
+            Professional mapping of systems core, AI agents, and high-performance industrial orchestration.
           </motion.p>
         </div>
 
@@ -123,9 +123,9 @@ export function Skills() {
           className="flex flex-wrap justify-center gap-8 pt-12 px-4 border-t-2 border-border/40"
         >
           {[
-            { label: "Neural Integration", color: "bg-primary" },
+            { label: "Neural Orchestration", color: "bg-primary" },
             { label: "Systems Core", color: "bg-blue-500" },
-            { label: "Frontend Core", color: "bg-cyan-500" },
+            { label: "Data Integrity", color: "bg-cyan-500" },
             { label: "Logic Workflows", color: "bg-indigo-500" }
           ].map(type => (
             <div key={type.label} className="flex items-center gap-3">
