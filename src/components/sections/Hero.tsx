@@ -44,7 +44,7 @@ export function Hero() {
           className="inline-flex items-center gap-4 px-6 py-2.5 rounded-full border-2 border-primary/20 bg-primary/5 text-[10px] sm:text-[11px] font-black tracking-[0.5em] text-primary uppercase shadow-2xl backdrop-blur-xl mx-auto"
         >
           <ShieldCheck className="w-4 h-4 text-primary animate-pulse" />
-          FULL STACK AI ARCHITECT // SYSTEM_CORE_v3.0
+          FULL STACK & AI ENGINEER // SYSTEM_v3.0
         </motion.div>
 
         <motion.div variants={container} initial="hidden" animate="show" className="space-y-10 sm:space-y-14">
@@ -70,12 +70,11 @@ export function Hero() {
             className="max-w-4xl mx-auto space-y-10 px-4"
           >
             <p className="text-lg sm:text-2xl lg:text-3xl text-foreground font-black uppercase tracking-tight leading-snug">
-              Engineering high-performance digital systems through robust <span className="text-primary underline underline-offset-[8px] decoration-2">Full Stack Integrity</span> and autonomous <span className="text-primary underline underline-offset-[8px] decoration-2">AI Orchestration</span>.
+              Architecting high-performance digital systems through <span className="text-primary underline underline-offset-[8px] decoration-2">Full Stack integrity</span> and <span className="text-primary underline underline-offset-[8px] decoration-2">AI orchestration</span>.
             </p>
             <div className="space-y-8">
               <p className="text-xs sm:text-base lg:text-lg text-muted-foreground font-bold uppercase tracking-[0.25em] opacity-80 leading-relaxed max-w-3xl mx-auto">
-                Specializing in scalable software kernels using <span className="text-foreground">Next.js, Spring Boot, and Flutter</span>, synchronized with neural agents across 
-                <span className="text-primary"> Claude 3.5, Gemini 2.0, and n8n</span>.
+                Next.js, Spring Boot, and Flutter kernels synchronized with neural agents across Claude 3.5, Gemini 2.0, and n8n.
               </p>
               <div className="flex flex-wrap justify-center gap-3 pt-4">
                 {["JAVA", "PYTHON", "SQL", "B.SC COMPUTER SCIENCE"].map((tech) => (
