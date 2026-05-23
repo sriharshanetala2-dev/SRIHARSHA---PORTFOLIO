@@ -1,4 +1,3 @@
-
 "use client";
 
 import { motion } from "framer-motion";
@@ -11,7 +10,8 @@ import {
   History,
   Terminal,
   Activity,
-  CheckCircle2
+  CheckCircle2,
+  Workflow
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -19,22 +19,22 @@ const timelineItems = [
   {
     id: "01",
     type: "work",
-    role: "Java Full Stack Developer",
+    role: "Full Stack & AI Developer",
     company: "NxtWave Academy",
     period: "2025 — 2026",
-    description: "Architecting enterprise-grade systems with Java 21, Spring Boot, and high-performance UI logic kernels.",
-    icon: Code2,
-    tags: ["Java 21", "Spring Boot", "SQL"]
+    description: "Architecting enterprise systems with Java 21, Spring Boot, and AI orchestration. Integrating Claude, Gemini, and GPT-4o for intelligent task automation.",
+    icon: BrainCircuit,
+    tags: ["Java", "Claude", "Gemini", "n8n"]
   },
   {
     id: "02",
     type: "work",
-    role: "Generative AI Developer",
-    company: "NxtWave Academy",
+    role: "Generative AI Specialist",
+    company: "AI Buildathons",
     period: "2025 — 2026",
-    description: "Neural integration specialist focusing on semantic intent parsing and Genkit AI logic orchestration.",
-    icon: BrainCircuit,
-    tags: ["Genkit", "LLMs", "AI Agents"]
+    description: "Developing autonomous agents and semantic search pipelines. Expertise in Google Genkit and LLM workflow orchestration with n8n.",
+    icon: Workflow,
+    tags: ["Genkit", "n8n", "GPT-4o", "Agents"]
   },
   {
     id: "03",
@@ -42,8 +42,8 @@ const timelineItems = [
     role: "Full Stack Software Developer",
     company: "Independent Projects",
     period: "2024 — 2025",
-    description: "Developing atomic backend cores and reactive interfaces for industrial-scale interactive platforms.",
-    icon: Layers,
+    description: "Building responsive Next.js applications with atomic backend cores. Integrated real-time data sync using Firebase and PostgreSQL.",
+    icon: Code2,
     tags: ["Next.js", "Firebase", "TypeScript"]
   },
   {
@@ -52,7 +52,7 @@ const timelineItems = [
     role: "B.Sc in Computer Science",
     institution: "Glocal University",
     period: "Academic Registry",
-    description: "Foundational mastery of computational logic, data structures, and high-performance systems engineering.",
+    description: "Foundational mastery of computational logic, data structures, and systems engineering. Graduated with high honors.",
     icon: GraduationCap,
     tags: ["CS Core", "Systems Design"]
   },
@@ -62,7 +62,7 @@ const timelineItems = [
     role: "Intermediate Education",
     institution: "SRR & CVR Govt Jr College",
     period: "Pre-University Registry",
-    description: "Advanced computational mathematics and core algorithmic logic processing foundation.",
+    description: "Advanced computational mathematics and algorithmic logic foundation. Specialized in MPC stream.",
     icon: BookOpen,
     tags: ["Mathematics", "Logic"]
   },
@@ -72,7 +72,7 @@ const timelineItems = [
     role: "Secondary School Certificate",
     institution: "Christ the King High School",
     period: "Foundational Registry",
-    description: "Initial academic registry and primary computational logic processing foundation.",
+    description: "Initial logic processing and basic computational registry foundations.",
     icon: History,
     tags: ["SSC", "Foundational"]
   }
@@ -87,7 +87,7 @@ export function ProfessionalTimeline() {
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="px-6 py-2 rounded-full bg-primary/10 border border-primary/20 text-xs font-black text-primary uppercase tracking-[0.5em] flex items-center gap-3 shadow-lg"
+            className="px-6 py-2 rounded-full bg-primary/10 border border-primary/20 text-[10px] sm:text-xs font-black text-primary uppercase tracking-[0.5em] flex items-center gap-3 shadow-lg"
           >
             <Terminal className="w-4 h-4" />
             INDUSTRIAL GROWTH REGISTRY
@@ -96,12 +96,11 @@ export function ProfessionalTimeline() {
             TECHNICAL <span className="text-gradient">JOURNEY</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl text-xs sm:text-lg font-bold opacity-70 uppercase tracking-[0.2em] leading-relaxed">
-            A verified chronological mapping of professional milestones and foundational academic registries.
+            A chronological mapping of professional growth, full stack milestones, and AI integration registries.
           </p>
         </div>
 
         <div className="relative space-y-8 sm:space-y-12 max-w-5xl mx-auto">
-          {/* Central spine visible on larger screens */}
           <div className="absolute left-10 sm:left-14 top-0 bottom-0 w-px bg-border/40 hidden md:block" />
 
           {timelineItems.map((item, idx) => (
@@ -114,9 +113,8 @@ export function ProfessionalTimeline() {
               className="relative group"
             >
               <div className="flex flex-col md:flex-row gap-8 md:gap-20 items-start">
-                {/* Node ID and Icon */}
                 <div className="flex items-center gap-6 md:w-40 shrink-0 relative z-10">
-                  <div className="text-xs font-black text-primary/40 tracking-widest uppercase hidden md:block whitespace-nowrap">
+                  <div className="text-[10px] font-black text-primary/40 tracking-widest uppercase hidden md:block whitespace-nowrap">
                     NODE_{item.id}
                   </div>
                   <div className="p-4 sm:p-5 rounded-2xl bg-secondary group-hover:bg-primary text-primary group-hover:text-primary-foreground transition-all duration-500 shadow-2xl border-2 border-border/50 group-hover:border-primary group-hover:scale-110">
@@ -124,7 +122,6 @@ export function ProfessionalTimeline() {
                   </div>
                 </div>
 
-                {/* Content Card */}
                 <div className="flex-1 glass-card p-8 sm:p-14 rounded-[2.5rem] hover:border-primary/60 transition-all shadow-3xl relative overflow-hidden group-hover:bg-card/70 group-hover:translate-x-2">
                   <div className="absolute -top-10 -right-10 p-20 opacity-5 group-hover:opacity-10 transition-opacity pointer-events-none">
                     <Activity className="w-24 h-24" />
@@ -133,7 +130,7 @@ export function ProfessionalTimeline() {
                   <div className="space-y-8 relative z-10">
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
                       <div className="space-y-2">
-                        <div className="flex items-center gap-3 text-xs font-black text-primary uppercase tracking-[0.4em] opacity-80">
+                        <div className="flex items-center gap-3 text-[10px] font-black text-primary uppercase tracking-[0.4em] opacity-80">
                           <CheckCircle2 className="w-4 h-4" />
                           {item.period}
                         </div>

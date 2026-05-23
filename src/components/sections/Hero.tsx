@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ChevronDown, ArrowRight, Cpu, Zap, Activity } from "lucide-react";
+import { ChevronDown, ArrowRight, Cpu, Zap, Activity, BrainCircuit } from "lucide-react";
 
 export function Hero() {
   const container = {
@@ -16,7 +16,7 @@ export function Hero() {
   };
 
   const item = {
-    hidden: { opacity: 0, y: 40 },
+    hidden: { opacity: 0, y: 30 },
     show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 70, damping: 15 } }
   };
 
@@ -27,10 +27,10 @@ export function Hero() {
           variants={item}
           initial="hidden"
           animate="show"
-          className="inline-flex items-center gap-4 px-6 py-2.5 rounded-full border border-primary/20 bg-primary/5 text-xs font-black tracking-[0.5em] text-primary uppercase shadow-2xl backdrop-blur-sm"
+          className="inline-flex items-center gap-4 px-6 py-2.5 rounded-full border border-primary/20 bg-primary/5 text-[10px] sm:text-xs font-black tracking-[0.5em] text-primary uppercase shadow-2xl backdrop-blur-sm"
         >
-          <Cpu className="w-5 h-5 text-primary animate-pulse" />
-          SYSTEMS KERNEL v2.5 // INITIALIZED
+          <BrainCircuit className="w-5 h-5 text-primary animate-pulse" />
+          FULL STACK AI ARCHITECT v3.0 // INITIALIZED
         </motion.div>
 
         <motion.div variants={container} initial="hidden" animate="show" className="space-y-8 sm:space-y-12">
@@ -39,14 +39,16 @@ export function Hero() {
             className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-headline font-black tracking-tighter leading-[0.9] uppercase shimmer-text"
           >
             ENGINEERING <br className="hidden sm:block" />
-            <span className="text-gradient">INDUSTRIAL</span> LOGIC
+            <span className="text-gradient">INTELLIGENT</span> SYSTEMS
           </motion.h1>
 
           <motion.p
             variants={item}
-            className="max-w-4xl mx-auto text-xs sm:text-lg lg:text-xl text-muted-foreground font-bold uppercase tracking-[0.2em] opacity-80 leading-relaxed px-4"
+            className="max-w-4xl mx-auto text-xs sm:text-lg lg:text-xl text-muted-foreground font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em] opacity-80 leading-relaxed px-4"
           >
-            Architecting high-performance digital ecosystems with Next.js, Spring Boot, and Flutter. Verified stability for enterprise-grade automation.
+            Specializing in high-performance Full Stack Ecosystems and Neural Orchestration. 
+            Mastery in <span className="text-primary">Next.js, Spring Boot, Flutter</span>, and AI agents using 
+            <span className="text-primary"> Claude 3.5, Gemini 2.0, GPT-4o, and n8n</span>.
           </motion.p>
         </motion.div>
 

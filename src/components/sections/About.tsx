@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Laptop, Database, Cpu, Zap, Fingerprint, Activity } from "lucide-react";
+import { Laptop, Database, Cpu, Zap, Fingerprint, Activity, Workflow } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const synthesisNodes = [
@@ -38,9 +38,9 @@ const synthesisNodes = [
     label: "Neural Core", 
     icon: Cpu, 
     color: "text-primary", 
-    desc: "Genkit AI Integration",
-    status: "Active",
-    metrics: ["Semantic Intent Parsing", "LLM Native Pipelines"]
+    desc: "Genkit & LLM Integration",
+    status: "Operational",
+    metrics: ["Gemini & Claude Pipelines", "n8n Workflow Automation"]
   }
 ];
 
@@ -66,7 +66,7 @@ export function About() {
             className="space-y-12"
           >
             <div className="space-y-8 text-center lg:text-left">
-              <div className="inline-flex items-center gap-4 px-6 py-2.5 rounded-full bg-primary/10 text-xs font-black tracking-[0.5em] text-primary uppercase border-2 border-primary/20 mx-auto lg:mx-0 shadow-2xl backdrop-blur-sm">
+              <div className="inline-flex items-center gap-4 px-6 py-2.5 rounded-full bg-primary/10 text-[10px] sm:text-xs font-black tracking-[0.5em] text-primary uppercase border-2 border-primary/20 mx-auto lg:mx-0 shadow-2xl backdrop-blur-sm">
                 <Fingerprint className="w-5 h-5" />
                 ENGINEERING PROFILE
               </div>
@@ -75,7 +75,7 @@ export function About() {
                 <span className="text-gradient">ARCHITECTURE</span>
               </h2>
               <p className="text-xs sm:text-lg text-muted-foreground leading-relaxed font-bold max-w-xl mx-auto lg:mx-0 opacity-80 uppercase tracking-[0.2em]">
-                Architecting digital ecosystems where <span className="text-primary font-black">high-performance logic</span> meets industrial-grade stability.
+                Architecting digital ecosystems where <span className="text-primary font-black">high-performance logic</span> meets industrial-grade stability and <span className="text-primary font-black">AI intelligence</span>.
               </p>
             </div>
 
@@ -136,7 +136,7 @@ export function About() {
                   <div className="grid grid-cols-1 gap-5 relative z-10">
                     {activeNode.metrics.map((metric, i) => (
                       <div key={i} className="flex items-center justify-between p-8 rounded-3xl bg-background border-2 border-border shadow-2xl hover:border-primary transition-all group">
-                        <span className="text-xs font-black uppercase tracking-[0.6em] text-muted-foreground opacity-50">LOGIC_VECTOR</span>
+                        <span className="text-[10px] font-black uppercase tracking-[0.6em] text-muted-foreground opacity-50">LOGIC_VECTOR</span>
                         <span className="text-xs sm:text-lg font-black text-primary uppercase tracking-widest">{metric}</span>
                       </div>
                     ))}

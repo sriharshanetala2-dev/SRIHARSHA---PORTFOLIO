@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useEffect, useState } from "react";
@@ -29,11 +28,12 @@ export default function Home() {
   return (
     <AnimatePresence>
       <div className="min-h-screen bg-background relative overflow-x-hidden">
-        {/* Animated Background Subsystem */}
-        <div className="fixed inset-0 z-0 pointer-events-none">
-          <div className="absolute inset-0 neural-grid opacity-20" />
+        {/* Kinetic Industrial Background Subsystem */}
+        <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+          <div className="absolute inset-0 neural-grid opacity-[0.15]" />
           <div className="absolute inset-0 logic-scan-line" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[150px] animate-pulse" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] bg-primary/5 rounded-full blur-[180px] animate-pulse" />
+          <div className="absolute inset-0 data-flow-grid opacity-10" />
         </div>
 
         <Navbar />

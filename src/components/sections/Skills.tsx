@@ -1,24 +1,22 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Code2, Database, Globe, Cpu, Layout, Terminal, ShieldCheck } from "lucide-react";
+import { Code2, Database, Globe, Cpu, Layout, Terminal, ShieldCheck, Workflow, BrainCircuit } from "lucide-react";
 import { Tooltip, TooltipProvider, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
 
 const skills = [
+  { name: "Claude 3.5", level: "Advanced", category: "AI Tool", icon: BrainCircuit },
+  { name: "Gemini 2.0", level: "Expert", category: "AI Tool", icon: BrainCircuit },
+  { name: "GPT-4o", level: "Advanced", category: "AI Tool", icon: BrainCircuit },
+  { name: "n8n Automation", level: "Advanced", category: "AI Tool", icon: Workflow },
   { name: "React / Next.js", level: "Advanced", category: "Frontend", icon: Layout },
   { name: "Spring Boot", level: "Intermediate", category: "Backend", icon: Database },
   { name: "Java / JDBC", level: "Advanced", category: "Language", icon: Code2 },
-  { name: "Python / Pandas", level: "Intermediate", category: "Language", icon: Terminal },
-  { name: "JavaScript (ES6+)", level: "Advanced", category: "Language", icon: Code2 },
   { name: "SQL / PostgreSQL", level: "Advanced", category: "Database", icon: Database },
-  { name: "HTML5 / CSS3", level: "Expert", category: "Frontend", icon: Layout },
-  { name: "Tailwind CSS", level: "Advanced", category: "Frontend", icon: Layout },
+  { name: "Python / Pandas", level: "Intermediate", category: "Language", icon: Terminal },
   { name: "Flutter / Dart", level: "Intermediate", category: "Mobile", icon: Globe },
   { name: "Firebase", level: "Advanced", category: "Backend", icon: Database },
-  { name: "Git / GitHub", level: "Advanced", category: "Tools", icon: Terminal },
-  { name: "Data Structures", level: "Advanced", category: "Fundamentals", icon: Code2 },
-  { name: "Networking", level: "Intermediate", category: "Fundamentals", icon: Globe },
   { name: "Systems Design", level: "Intermediate", category: "Fundamentals", icon: ShieldCheck },
 ];
 
@@ -51,7 +49,7 @@ export function Skills() {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-3 px-6 py-2 rounded-full bg-primary/10 text-xs font-black text-primary uppercase tracking-widest border border-primary/20 mx-auto"
+            className="inline-flex items-center gap-3 px-6 py-2 rounded-full bg-primary/10 text-[10px] sm:text-xs font-black text-primary uppercase tracking-widest border border-primary/20 mx-auto"
           >
             <Cpu className="w-4 h-4" />
             Engineering Registry
@@ -68,9 +66,9 @@ export function Skills() {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-xs sm:text-sm text-muted-foreground max-w-2xl mx-auto leading-relaxed font-bold opacity-60 uppercase tracking-widest px-4"
+            className="text-[10px] sm:text-sm text-muted-foreground max-w-2xl mx-auto leading-relaxed font-bold opacity-60 uppercase tracking-widest px-4"
           >
-            Professional normalized mapping of software development toolkit and core systems engineering foundation.
+            Professional mapping of full stack tools, automated workflows, and high-performance neural orchestration.
           </motion.p>
         </div>
 
@@ -125,14 +123,14 @@ export function Skills() {
           className="flex flex-wrap justify-center gap-6 pt-8 px-4"
         >
           {[
+            { label: "AI Tools", color: "bg-primary" },
             { label: "Frontend", color: "bg-blue-500" },
             { label: "Backend", color: "bg-indigo-500" },
-            { label: "Language", color: "bg-primary" },
             { label: "Fundamentals", color: "bg-accent" }
           ].map(type => (
             <div key={type.label} className="flex items-center gap-2">
               <div className={cn("w-2 h-2 rounded-full", type.color)} />
-              <span className="text-xs font-black uppercase tracking-widest whitespace-nowrap">{type.label}</span>
+              <span className="text-[10px] font-black uppercase tracking-widest whitespace-nowrap">{type.label}</span>
             </div>
           ))}
         </motion.div>
