@@ -29,7 +29,7 @@ export function Projects() {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-4 px-6 py-2 rounded-xl bg-primary/10 border border-primary/20 text-[10px] font-black tracking-[0.6em] text-primary uppercase mx-auto"
+            className="inline-flex items-center gap-4 px-6 py-2 rounded-xl bg-primary/10 border border-primary/20 text-[11px] font-black tracking-[0.6em] text-primary uppercase mx-auto"
           >
             <Cpu className="w-4 h-4" />
             PROJECT REGISTRY
@@ -39,7 +39,7 @@ export function Projects() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl sm:text-6xl lg:text-7xl font-headline font-black tracking-tighter uppercase leading-none shimmer-text"
+            className="text-3xl sm:text-4xl lg:text-5xl font-headline font-black tracking-tighter uppercase leading-none shimmer-text"
           >
             TECHNICAL <span className="text-gradient">RECORDS</span>
           </motion.h2>
@@ -48,7 +48,7 @@ export function Projects() {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="max-w-3xl text-xs sm:text-xl text-muted-foreground font-bold uppercase tracking-tight mx-auto opacity-70"
+            className="max-w-3xl text-sm sm:text-lg text-muted-foreground font-bold uppercase tracking-tight mx-auto opacity-70"
           >
             High-performance software systems engineered for enterprise stability and technical integrity.
           </motion.p>
@@ -62,7 +62,6 @@ export function Projects() {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-10"
         >
           {projects.map((project) => {
-            // PascalCase mapping for React components
             const IconComponent = iconMap[project.icon] || Code2;
             return (
               <motion.div key={project.id} variants={item}>
@@ -73,13 +72,13 @@ export function Projects() {
                         <div className="p-4 rounded-2xl bg-secondary/80 border border-border text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500">
                           <IconComponent className="w-7 h-7" />
                         </div>
-                        <span className="text-[9px] font-black uppercase tracking-widest text-primary bg-primary/5 px-4 py-2 rounded-full border border-primary/20">
+                        <span className="text-[11px] font-black uppercase tracking-widest text-primary bg-primary/5 px-4 py-2 rounded-full border border-primary/20">
                           {project.category}
                         </span>
                       </div>
 
                       <div className="space-y-4 flex-grow">
-                        <h3 className="text-xl sm:text-3xl font-headline font-black uppercase tracking-tight group-hover:text-primary transition-colors leading-tight">
+                        <h3 className="text-xl sm:text-2xl font-headline font-black uppercase tracking-tight group-hover:text-primary transition-colors leading-tight">
                           {project.title}
                         </h3>
                         <p className="text-muted-foreground font-bold uppercase tracking-tight text-xs sm:text-sm opacity-60 line-clamp-3">
@@ -89,14 +88,14 @@ export function Projects() {
 
                       <div className="flex flex-wrap gap-2">
                         {project.tags.slice(0, 3).map(tag => (
-                          <span key={tag} className="text-[8px] font-black uppercase tracking-widest px-3 py-1.5 bg-secondary/40 border border-border rounded-lg">
+                          <span key={tag} className="text-[10px] font-black uppercase tracking-widest px-3 py-1.5 bg-secondary/40 border border-border rounded-lg">
                             {tag}
                           </span>
                         ))}
                       </div>
 
                       <div className="pt-6 border-t border-border/50 flex items-center justify-between">
-                        <span className="text-[10px] font-black uppercase tracking-[0.4em] text-primary opacity-50">ACCESS_CORE</span>
+                        <span className="text-[11px] font-black uppercase tracking-[0.4em] text-primary opacity-50">ACCESS_CORE</span>
                         <div className="w-10 h-10 rounded-full bg-primary/5 flex items-center justify-center border border-primary/10 group-hover:bg-primary group-hover:text-primary-foreground transition-all">
                           <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </div>

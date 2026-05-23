@@ -55,7 +55,7 @@ export function About() {
   if (!mounted) return null;
 
   return (
-    <section id="about" className="py-20 sm:py-32 px-4 sm:px-6 relative overflow-hidden bg-transparent border-t border-border scroll-mt-20">
+    <section id="about" className="py-24 sm:py-32 px-4 sm:px-6 relative overflow-hidden bg-transparent border-t border-border scroll-mt-20">
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-24 items-center">
           <motion.div 
@@ -66,15 +66,15 @@ export function About() {
             className="space-y-10"
           >
             <div className="space-y-6 text-center lg:text-left">
-              <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-primary/10 text-[11px] font-black tracking-[0.6em] text-primary uppercase border border-primary/20 mx-auto lg:mx-0 shadow-lg backdrop-blur-sm">
+              <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-primary/10 text-[11px] font-black tracking-[0.5em] text-primary uppercase border border-primary/20 mx-auto lg:mx-0 shadow-lg backdrop-blur-sm">
                 <Fingerprint className="w-4 h-4" />
                 SYSTEM ARCHITECT PROFILE
               </div>
-              <h2 className="text-3xl sm:text-5xl lg:text-7xl font-headline font-black leading-[0.9] tracking-tighter uppercase">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-headline font-black leading-[0.9] tracking-tighter uppercase">
                 ARCHITECTING <br className="hidden sm:block" />
                 <span className="text-gradient">INTELLIGENCE</span>
               </h2>
-              <p className="text-sm sm:text-xl text-muted-foreground leading-relaxed font-bold max-w-xl mx-auto lg:mx-0 opacity-80 uppercase tracking-tight">
+              <p className="text-sm sm:text-lg text-muted-foreground leading-relaxed font-bold max-w-xl mx-auto lg:mx-0 opacity-80 uppercase tracking-tight">
                 Engineering digital ecosystems where <span className="text-primary font-black">robust systems logic</span> meets high-performance <span className="text-primary font-black">AI orchestration</span>.
               </p>
             </div>
@@ -100,7 +100,7 @@ export function About() {
                   </div>
                   <div className="flex flex-col min-w-0">
                     <span className="font-black text-[11px] uppercase tracking-[0.3em] leading-none mb-1">{node.label}</span>
-                    <span className="text-[10px] text-muted-foreground uppercase tracking-[0.3em] font-black opacity-50 truncate">{node.desc}</span>
+                    <span className="text-[11px] text-muted-foreground uppercase tracking-[0.3em] font-black opacity-50 truncate">{node.desc}</span>
                   </div>
                 </button>
               ))}
@@ -118,8 +118,6 @@ export function About() {
                 className="w-full"
               >
                 <div className="p-8 sm:p-14 rounded-[2rem] sm:rounded-[3rem] border-2 border-border bg-card space-y-10 sm:space-y-12 relative overflow-hidden shadow-2xl">
-                  {/* Background neural-grid removed for cleaner UI as requested */}
-                  
                   <div className="flex flex-col items-center gap-6 relative z-10">
                     <div className="relative p-8 rounded-full bg-background border border-border shadow-xl group">
                       <activeNode.icon className={cn("w-16 h-16 sm:w-20 sm:h-20 transition-colors duration-500", activeNode.color)} />
@@ -128,8 +126,8 @@ export function About() {
                       </div>
                     </div>
                     <div className="text-center space-y-2">
-                      <p className="text-[11px] font-black uppercase tracking-[0.6em] text-primary opacity-50">NODE_ACTIVE</p>
-                      <h3 className="text-2xl sm:text-5xl font-headline font-black uppercase tracking-tight">{activeNode.label}</h3>
+                      <p className="text-[11px] font-black uppercase tracking-[0.5em] text-primary opacity-50">NODE_ACTIVE</p>
+                      <h3 className="text-2xl sm:text-4xl font-headline font-black uppercase tracking-tight">{activeNode.label}</h3>
                     </div>
                   </div>
 

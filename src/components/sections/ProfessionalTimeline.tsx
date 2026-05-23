@@ -78,10 +78,10 @@ export function ProfessionalTimeline() {
             <Terminal className="w-4 h-4" />
             GROWTH MATRIX
           </motion.div>
-          <h2 className="text-3xl sm:text-6xl font-headline font-black tracking-tighter uppercase leading-none shimmer-text">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-headline font-black tracking-tighter uppercase leading-none shimmer-text">
             PROFESSIONAL <span className="text-gradient">JOURNEY</span>
           </h2>
-          <p className="text-sm sm:text-xl text-muted-foreground font-bold uppercase tracking-tight opacity-70 max-w-2xl">
+          <p className="text-sm sm:text-lg text-muted-foreground font-bold uppercase tracking-tight opacity-70 max-w-2xl">
             A high-precision mapping of <span className="text-primary">development milestones</span> and academic foundations.
           </p>
         </div>
@@ -109,26 +109,26 @@ export function ProfessionalTimeline() {
                 <div className="space-y-6">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                     <div className="space-y-1">
-                      <div className="flex items-center gap-3 text-[10px] font-black text-primary uppercase tracking-widest">
-                        <CheckCircle2 className="w-3.5 h-3.5" />
+                      <div className="flex items-center gap-3 text-[11px] font-black text-primary uppercase tracking-widest">
+                        <CheckCircle2 className="w-4 h-4" />
                         {item.period}
                       </div>
-                      <h3 className="text-xl sm:text-3xl font-headline font-black uppercase tracking-tight text-foreground/90">
+                      <h3 className="text-xl sm:text-3xl font-headline font-black uppercase tracking-tight text-foreground/90 leading-tight">
                         {item.role}
                       </h3>
                     </div>
-                    <div className="text-[9px] font-black uppercase tracking-[0.4em] text-primary bg-primary/5 px-4 py-2 rounded-lg border border-primary/10 w-fit">
+                    <div className="text-[11px] font-black uppercase tracking-[0.4em] text-primary bg-primary/5 px-4 py-2 rounded-lg border border-primary/10 w-fit">
                       {item.type === 'work' ? item.company : item.institution}
                     </div>
                   </div>
 
-                  <p className="text-xs sm:text-lg text-foreground/80 font-bold uppercase tracking-tight leading-relaxed max-w-3xl">
+                  <p className="text-sm sm:text-lg text-foreground/80 font-bold uppercase tracking-tight leading-relaxed max-w-3xl">
                     {item.description}
                   </p>
 
                   <div className="flex flex-wrap gap-2">
                     {item.tags.map(tag => (
-                      <span key={tag} className="px-3 py-1.5 bg-background border border-border rounded-lg text-[9px] font-black uppercase tracking-widest text-primary/70">
+                      <span key={tag} className="px-3 py-1.5 bg-background border border-border rounded-lg text-[11px] font-black uppercase tracking-widest text-primary/70">
                         {tag}
                       </span>
                     ))}
