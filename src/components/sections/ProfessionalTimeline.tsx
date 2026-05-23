@@ -3,7 +3,16 @@
 
 import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
-import { Briefcase, Calendar, Code2, BrainCircuit, Layers, GraduationCap, BookOpen, Activity } from "lucide-react";
+import { 
+  Briefcase, 
+  Code2, 
+  BrainCircuit, 
+  Layers, 
+  GraduationCap, 
+  BookOpen, 
+  Activity,
+  History
+} from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const timelineItems = [
@@ -24,14 +33,6 @@ const timelineItems = [
     icon: BrainCircuit
   },
   {
-    type: "edu",
-    role: "B.Sc in Computer Science",
-    institution: "Glocal University",
-    period: "Foundational Registry",
-    description: "Core Computer Science foundation focusing on computational logic and systems engineering.",
-    icon: GraduationCap
-  },
-  {
     type: "work",
     role: "Full Stack Developer",
     company: "Independent Projects",
@@ -41,11 +42,27 @@ const timelineItems = [
   },
   {
     type: "edu",
+    role: "B.Sc in Computer Science",
+    institution: "Glocal University",
+    period: "University Registry",
+    description: "Core Computer Science foundation focusing on computational logic, data structures, and systems engineering.",
+    icon: GraduationCap
+  },
+  {
+    type: "edu",
     role: "Intermediate Education",
     institution: "SRR & CVR Govt Jr College",
-    period: "Registry Sync",
+    period: "Intermediate Registry",
     description: "Advanced computational mathematics and logic foundation.",
     icon: BookOpen
+  },
+  {
+    type: "edu",
+    role: "Secondary School Certificate",
+    institution: "Christ the King High School",
+    period: "Foundation Registry",
+    description: "Initial academic registry and logic processing foundation.",
+    icon: History
   }
 ];
 
@@ -64,7 +81,7 @@ export function ProfessionalTimeline() {
   };
 
   return (
-    <section id="timeline" className="py-24 sm:py-32 px-4 sm:px-6 bg-background relative overflow-hidden border-t border-border/50 scroll-mt-20">
+    <section id="experience" className="py-24 sm:py-32 px-4 sm:px-6 bg-background relative overflow-hidden border-t border-border/50 scroll-mt-20">
       <div className="absolute inset-0 neural-grid opacity-[0.03] pointer-events-none" />
       
       <div className="max-w-5xl mx-auto space-y-16 sm:space-y-24">
@@ -73,7 +90,7 @@ export function ProfessionalTimeline() {
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-3 px-6 py-2 rounded-full bg-primary/10 border border-primary/20 text-xs font-black text-primary uppercase tracking-widest"
+            className="inline-flex items-center gap-3 px-6 py-2 rounded-full bg-primary/10 border border-primary/20 text-[10px] sm:text-xs font-black text-primary uppercase tracking-[0.2em]"
           >
             <Activity className="w-4 h-4" />
             Growth Matrix & Academic Registry
@@ -111,18 +128,21 @@ export function ProfessionalTimeline() {
                       "flex flex-col gap-6",
                       idx % 2 === 0 ? "items-start" : "items-start md:items-end"
                     )}>
-                      <div className="flex items-center gap-4">
+                      <div className={cn(
+                        "flex items-center gap-4",
+                        idx % 2 === 0 ? "flex-row" : "flex-row md:flex-row-reverse"
+                      )}>
                         <div className="p-4 rounded-2xl bg-secondary group-hover:bg-primary text-primary group-hover:text-primary-foreground transition-all duration-500 border border-border/50">
                           <entry.icon className="w-6 h-6" />
                         </div>
                         <div className={cn("flex flex-col", idx % 2 === 0 ? "items-start" : "items-start md:items-end")}>
-                          <span className="text-xs font-black text-primary uppercase tracking-widest">{entry.period}</span>
+                          <span className="text-[10px] font-black text-primary uppercase tracking-widest leading-none mb-1.5">{entry.period}</span>
                           <h3 className="text-xl sm:text-2xl font-headline font-black uppercase tracking-tight leading-tight">{entry.role}</h3>
                         </div>
                       </div>
                       
                       <div className="space-y-4">
-                        <p className="text-foreground/50 font-black text-xs uppercase tracking-widest">
+                        <p className="text-foreground/50 font-black text-[10px] uppercase tracking-widest">
                           {entry.type === 'work' ? entry.company : entry.institution}
                         </p>
                         <p className="text-sm sm:text-base text-muted-foreground leading-relaxed font-bold opacity-80 uppercase tracking-tight">
