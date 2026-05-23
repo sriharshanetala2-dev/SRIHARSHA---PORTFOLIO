@@ -29,20 +29,39 @@ export default function Home() {
   return (
     <AnimatePresence mode="wait">
       <div className="min-h-screen bg-background relative overflow-x-hidden">
-        {/* Kinetic Industrial Background Subsystem v3.0 */}
+        {/* Elite Kinetic Interface Subsystem v3.5 */}
         <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
           {/* Base Grid Layers */}
           <div className="absolute inset-0 neural-grid opacity-[0.12]" />
           <div className="absolute inset-0 data-flow-grid opacity-[0.08]" />
           
+          {/* Logic Matrix Code Stream */}
+          <div className="matrix-overlay">
+            <div className="matrix-content">
+              {Array.from({ length: 40 }).map((_, i) => (
+                <div key={i} className="flex gap-4 opacity-50">
+                  {Array.from({ length: 10 }).map((_, j) => (
+                    <span key={j} className="uppercase">
+                      {Math.random().toString(36).substring(2, 15)} // SYNC_BLOCK_{i}_{j} // [SYSTEM_LOGIC_ACTIVE]
+                    </span>
+                  ))}
+                </div>
+              ))}
+            </div>
+          </div>
+          
           {/* Professional Running Glares */}
           <div 
-            className="running-glare top-[-10%] left-[-10%] w-[800px] h-[800px] bg-primary/10" 
+            className="running-glare top-[-10%] left-[-10%] w-[800px] h-[800px] bg-primary/15" 
             style={{ animationDelay: '0s' }} 
           />
           <div 
-            className="running-glare bottom-[-20%] right-[-10%] w-[1000px] h-[1000px] bg-accent/5" 
+            className="running-glare bottom-[-20%] right-[-10%] w-[1000px] h-[1000px] bg-accent/10" 
             style={{ animationDelay: '-5s', animationDuration: '25s' }} 
+          />
+          <div 
+            className="running-glare top-[20%] right-[10%] w-[600px] h-[600px] bg-blue-500/5" 
+            style={{ animationDelay: '-12s', animationDuration: '30s' }} 
           />
 
           {/* Logic Scan Subsystem */}
