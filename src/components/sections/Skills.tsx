@@ -46,7 +46,7 @@ export function Skills() {
             <Cpu className="w-4 h-4 animate-pulse" />
             ENGINEERING CAPABILITIES v3.0
           </motion.div>
-          <h2 className="text-4xl sm:text-7xl lg:text-9xl font-headline font-black tracking-tighter uppercase leading-none shimmer-text">
+          <h2 className="text-3xl sm:text-6xl lg:text-7xl font-headline font-black tracking-tighter uppercase leading-none shimmer-text">
             TECHNICAL <span className="text-gradient">REGISTRY</span>
           </h2>
           <p className="text-sm sm:text-xl text-muted-foreground max-w-3xl mx-auto font-bold uppercase tracking-[0.2em] opacity-70">
