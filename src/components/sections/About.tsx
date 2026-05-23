@@ -118,7 +118,7 @@ export function About() {
                 className="w-full"
               >
                 <div className="p-8 sm:p-14 rounded-[2rem] sm:rounded-[3rem] border-2 border-border bg-card space-y-10 sm:space-y-12 relative overflow-hidden shadow-2xl">
-                  <div className="absolute inset-0 neural-grid opacity-[0.03] pointer-events-none" />
+                  {/* Background neural-grid removed for cleaner UI as requested */}
                   
                   <div className="flex flex-col items-center gap-6 relative z-10">
                     <div className="relative p-8 rounded-full bg-background border border-border shadow-xl group">
