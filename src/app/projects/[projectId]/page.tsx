@@ -39,12 +39,12 @@ export default function ProjectPage({ params }: { params: Promise<{ projectId: s
 
   return (
     <div className="min-h-screen bg-background text-foreground relative">
-      {/* Logic Mesh Subsystem for Persistence */}
+      {/* High-Performance Industrial Background Subsystem */}
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
-        <div className="absolute inset-0 neural-grid opacity-[0.15]" />
-        <div className="absolute inset-0 logic-mesh opacity-[0.3]" />
-        <div className="running-glare top-[-10%] left-[-5%] w-[1000px] h-[1000px] bg-primary/10" />
-        <div className="absolute inset-0 logic-scan-line" />
+        <div className="absolute inset-0 neural-grid opacity-[0.3] dark:opacity-[0.15]" />
+        <div className="absolute inset-0 data-packet-layer" />
+        <div className="ambient-glow-node top-[-10%] left-[-5%] w-[800px] h-[800px]" />
+        <div className="logic-scan-subsystem" />
       </div>
 
       <Navbar />

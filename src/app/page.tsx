@@ -29,28 +29,28 @@ export default function Home() {
   return (
     <AnimatePresence mode="wait">
       <div className="min-h-screen bg-background relative overflow-x-hidden">
-        {/* Elite Logic Mesh Subsystem v3.5 */}
+        {/* High-Performance Industrial Background Subsystem */}
         <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
-          {/* Base Mesh Layers */}
-          <div className="absolute inset-0 neural-grid opacity-[0.2]" />
-          <div className="absolute inset-0 logic-mesh opacity-[0.4]" />
+          {/* Neural Logic Layers */}
+          <div className="absolute inset-0 neural-grid opacity-[0.4] dark:opacity-[0.2]" />
+          <div className="absolute inset-0 data-packet-layer" />
           
-          {/* Professional Running Glares */}
+          {/* Programmer-Level Ambient Glows */}
           <div 
-            className="running-glare top-[-10%] left-[-5%] w-[1000px] h-[1000px] bg-primary/20" 
-            style={{ animationDelay: '0s', animationDuration: '18s' }} 
+            className="ambient-glow-node top-[-10%] left-[-5%] w-[1000px] h-[1000px]" 
+            style={{ animationDelay: '0s', animationDuration: '12s' }} 
           />
           <div 
-            className="running-glare bottom-[-20%] right-[-10%] w-[1200px] h-[1200px] bg-accent/15" 
-            style={{ animationDelay: '-6s', animationDuration: '25s' }} 
+            className="ambient-glow-node bottom-[-20%] right-[-10%] w-[1200px] h-[1200px]" 
+            style={{ animationDelay: '-4s', animationDuration: '18s' }} 
           />
           <div 
-            className="running-glare top-[30%] right-[10%] w-[800px] h-[800px] bg-cyan-500/10" 
-            style={{ animationDelay: '-12s', animationDuration: '30s' }} 
+            className="ambient-glow-node top-[40%] left-[20%] w-[600px] h-[600px] bg-primary/5" 
+            style={{ animationDelay: '-8s', animationDuration: '15s' }} 
           />
 
-          {/* Logic Scan Subsystem */}
-          <div className="absolute inset-0 logic-scan-line" />
+          {/* Logic Scan Registry */}
+          <div className="logic-scan-subsystem" />
         </div>
 
         <Navbar />
