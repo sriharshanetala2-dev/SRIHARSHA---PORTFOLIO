@@ -50,15 +50,15 @@ export function Education() {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2 rounded-full bg-primary/10 text-[9px] sm:text-xs font-black text-primary uppercase tracking-widest border border-primary/20"
+            className="inline-flex items-center gap-3 px-6 py-2 rounded-full bg-primary/10 text-xs font-black text-primary uppercase tracking-widest border border-primary/20"
           >
-            <BookOpen className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+            <BookOpen className="w-4 h-4" />
             Academic Registry
           </motion.div>
           <h2 className="text-3xl sm:text-5xl font-headline font-black tracking-tighter uppercase leading-none">
             TECHNICAL <span className="text-primary">FOUNDATION</span>
           </h2>
-          <p className="text-[10px] sm:text-sm lg:text-base text-muted-foreground font-bold opacity-70 uppercase tracking-widest px-4">
+          <p className="text-sm sm:text-base text-muted-foreground font-bold opacity-70 uppercase tracking-widest px-4">
             The core academic foundation of my software engineering career.
           </p>
         </div>
@@ -74,13 +74,13 @@ export function Education() {
             <motion.div key={idx} variants={item}>
               <Card className="p-6 sm:p-10 glass-card border-border/50 hover:border-primary/40 transition-all group rounded-2xl sm:rounded-3xl overflow-hidden shadow-md">
                 <div className="flex flex-col md:flex-row gap-6 sm:gap-8 items-start">
-                  <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
-                    <edu.icon className="w-5 h-5 sm:w-6 sm:h-6" />
+                  <div className="p-4 rounded-xl sm:rounded-2xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
+                    <edu.icon className="w-6 h-6 sm:w-8 sm:h-8" />
                   </div>
                   <div className="space-y-2 flex-1 min-w-0">
-                    <h3 className="text-lg sm:text-2xl font-headline font-black uppercase tracking-tight group-hover:text-primary transition-colors leading-tight">{edu.role}</h3>
-                    <p className="text-primary font-black text-[10px] sm:text-xs uppercase tracking-widest opacity-80">{edu.institution}</p>
-                    <p className="text-xs sm:text-base text-muted-foreground leading-relaxed font-bold opacity-80 uppercase tracking-tight">
+                    <h3 className="text-xl sm:text-3xl font-headline font-black uppercase tracking-tight group-hover:text-primary transition-colors leading-tight">{edu.role}</h3>
+                    <p className="text-primary font-black text-xs sm:text-sm uppercase tracking-widest opacity-80">{edu.institution}</p>
+                    <p className="text-sm sm:text-base text-muted-foreground leading-relaxed font-bold opacity-80 uppercase tracking-tight">
                       {edu.description}
                     </p>
                   </div>

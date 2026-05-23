@@ -54,15 +54,15 @@ export function Experience() {
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2 rounded-full bg-primary/10 border border-primary/20 text-[9px] sm:text-xs font-black text-primary uppercase tracking-widest"
+            className="inline-flex items-center gap-3 px-6 py-2 rounded-full bg-primary/10 border border-primary/20 text-xs font-black text-primary uppercase tracking-widest"
           >
-            <Briefcase className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+            <Briefcase className="w-4 h-4" />
             Developer Timeline
           </motion.div>
-          <h2 className="text-3xl sm:text-5xl font-headline font-black tracking-tighter uppercase leading-none">
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-headline font-black tracking-tighter uppercase leading-none">
             GROWTH <span className="text-gradient">MATRIX</span>
           </h2>
-          <p className="text-[10px] sm:text-sm lg:text-base text-muted-foreground font-black max-w-2xl mx-auto opacity-60 uppercase tracking-widest leading-relaxed px-4">
+          <p className="text-sm sm:text-base lg:text-lg text-muted-foreground font-black max-w-2xl mx-auto opacity-60 uppercase tracking-widest leading-relaxed px-4">
             A technical mapping of development milestones and high-level project integration.
           </p>
         </div>
@@ -82,19 +82,19 @@ export function Experience() {
                 className="p-6 sm:p-10 glass-card bg-card/30 border-border/50 hover:border-primary/40 transition-all rounded-2xl sm:rounded-[2.5rem] overflow-hidden shadow-lg group"
               >
                 <div className="flex flex-col md:flex-row md:items-start gap-6 sm:gap-8 md:gap-12 relative z-10">
-                  <div className="p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-secondary group-hover:bg-primary text-primary group-hover:text-primary-foreground transition-all duration-500 w-fit border border-border/50">
-                    <exp.icon className="w-6 h-6 sm:w-8 sm:h-8" />
+                  <div className="p-5 rounded-2xl bg-secondary group-hover:bg-primary text-primary group-hover:text-primary-foreground transition-all duration-500 w-fit border border-border/50">
+                    <exp.icon className="w-8 h-8" />
                   </div>
                   <div className="space-y-3 sm:space-y-4 flex-1 min-w-0">
-                    <div className="flex items-center gap-2 sm:gap-4 text-[9px] sm:text-[10px] font-black text-primary uppercase tracking-widest">
-                      <Calendar className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                    <div className="flex items-center gap-3 text-xs font-black text-primary uppercase tracking-widest">
+                      <Calendar className="w-4 h-4" />
                       {exp.period}
                     </div>
                     <div className="space-y-1">
-                      <h3 className="text-xl sm:text-2xl md:text-3xl font-headline font-black tracking-tight uppercase group-hover:text-primary transition-colors leading-tight">{exp.role}</h3>
-                      <p className="text-foreground/50 font-black text-[10px] sm:text-sm sm:tracking-widest uppercase">{exp.company}</p>
+                      <h3 className="text-2xl sm:text-3xl font-headline font-black tracking-tight uppercase group-hover:text-primary transition-colors leading-tight">{exp.role}</h3>
+                      <p className="text-foreground/50 font-black text-xs sm:text-sm uppercase tracking-widest">{exp.company}</p>
                     </div>
-                    <p className="text-xs sm:text-base text-muted-foreground leading-relaxed font-bold opacity-80 max-w-3xl uppercase tracking-tight">
+                    <p className="text-sm sm:text-base text-muted-foreground leading-relaxed font-bold opacity-80 max-w-3xl uppercase tracking-tight">
                       {exp.description}
                     </p>
                   </div>

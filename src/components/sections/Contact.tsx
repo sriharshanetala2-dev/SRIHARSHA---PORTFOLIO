@@ -76,47 +76,47 @@ export function Contact() {
           className="space-y-8 sm:space-y-12"
         >
           <div className="space-y-6 sm:space-y-8 text-center lg:text-left">
-            <div className="inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-5 py-2 rounded-full bg-primary/10 border border-primary/20 text-[9px] sm:text-[10px] font-black text-primary uppercase tracking-widest mx-auto lg:mx-0">
-              <Mail className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+            <div className="inline-flex items-center gap-3 px-6 py-2 rounded-full bg-primary/10 border border-primary/20 text-xs font-black text-primary uppercase tracking-widest mx-auto lg:mx-0">
+              <Mail className="w-4 h-4" />
               Collaboration Gate
             </div>
             <h2 className="text-3xl sm:text-5xl font-headline font-black tracking-tighter leading-none uppercase">
               GET IN <span className="text-primary">TOUCH</span>
             </h2>
-            <p className="text-xs sm:text-base text-muted-foreground leading-relaxed max-w-lg font-bold opacity-80 uppercase tracking-widest mx-auto lg:mx-0">
+            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed max-w-lg font-bold opacity-80 uppercase tracking-widest mx-auto lg:mx-0">
               Open for professional Full Stack development opportunities and secure collaboration.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-3 sm:gap-4 px-2 sm:px-0">
+          <div className="grid grid-cols-1 gap-4 px-2 sm:px-0">
             <motion.div 
               whileHover={{ scale: 1.01 }}
               onClick={copyEmail}
-              className="flex items-center gap-3 sm:gap-4 p-4 sm:p-6 bg-secondary/30 rounded-xl sm:rounded-2xl border border-border hover:border-primary transition-all cursor-pointer group shadow-sm"
+              className="flex items-center gap-4 p-5 sm:p-6 bg-secondary/30 rounded-2xl border border-border hover:border-primary transition-all cursor-pointer group shadow-sm"
             >
-              <div className="p-2.5 sm:p-3 rounded-lg sm:rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all">
-                <Mail className="w-4 h-4 sm:w-5 sm:h-5" />
+              <div className="p-3 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all">
+                <Mail className="w-5 h-5" />
               </div>
               <div className="flex-1 min-w-0">
-                <p className="text-[8px] sm:text-[9px] font-black uppercase text-primary tracking-widest mb-1 opacity-60">Professional Email</p>
-                <p className="font-black text-xs sm:text-base truncate tracking-tight uppercase">{userEmail}</p>
+                <p className="text-[10px] font-black uppercase text-primary tracking-widest mb-1 opacity-60">Professional Email</p>
+                <p className="font-black text-sm sm:text-lg truncate tracking-tight uppercase">{userEmail}</p>
               </div>
-              {copiedEmail ? <Check className="w-4 h-4 sm:w-5 sm:h-5 text-green-500" /> : <Copy className="w-4 h-4 sm:w-5 sm:h-5 opacity-20 group-hover:opacity-100 transition-opacity" />}
+              {copiedEmail ? <Check className="w-5 h-5 text-green-500" /> : <Copy className="w-5 h-5 opacity-20 group-hover:opacity-100 transition-opacity" />}
             </motion.div>
 
             <motion.div 
               whileHover={{ scale: 1.01 }}
               onClick={copyPhone}
-              className="flex items-center gap-3 sm:gap-4 p-4 sm:p-6 bg-secondary/30 rounded-xl sm:rounded-2xl border border-border hover:border-primary transition-all cursor-pointer group shadow-sm"
+              className="flex items-center gap-4 p-5 sm:p-6 bg-secondary/30 rounded-2xl border border-border hover:border-primary transition-all cursor-pointer group shadow-sm"
             >
-              <div className="p-2.5 sm:p-3 rounded-lg sm:rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all">
-                <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
+              <div className="p-3 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all">
+                <Phone className="w-5 h-5" />
               </div>
               <div className="flex-1">
-                <p className="text-[8px] sm:text-[9px] font-black uppercase text-primary tracking-widest mb-1 opacity-60">Direct Line</p>
-                <p className="font-black text-xs sm:text-base tracking-tight uppercase">{userPhone}</p>
+                <p className="text-[10px] font-black uppercase text-primary tracking-widest mb-1 opacity-60">Direct Line</p>
+                <p className="font-black text-sm sm:text-lg tracking-tight uppercase">{userPhone}</p>
               </div>
-              {copiedPhone ? <Check className="w-4 h-4 sm:w-5 sm:h-5 text-green-500" /> : <Copy className="w-4 h-4 sm:w-5 sm:h-5 opacity-20 group-hover:opacity-100 transition-opacity" />}
+              {copiedPhone ? <Check className="w-5 h-5 text-green-500" /> : <Copy className="w-5 h-5 opacity-20 group-hover:opacity-100 transition-opacity" />}
             </motion.div>
           </div>
         </motion.div>
@@ -126,45 +126,45 @@ export function Contact() {
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="bg-card/50 border border-border p-6 sm:p-8 rounded-2xl sm:rounded-[2rem] shadow-xl mx-2 sm:mx-0"
+          className="bg-card/50 border border-border p-6 sm:p-10 rounded-2xl sm:rounded-[2.5rem] shadow-xl mx-2 sm:mx-0"
         >
-          <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-              <div className="space-y-1.5 sm:space-y-2">
-                <label className="text-[9px] sm:text-[10px] font-black uppercase text-muted-foreground tracking-widest ml-1">Full Name</label>
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="space-y-2">
+                <label className="text-xs font-black uppercase text-muted-foreground tracking-widest ml-1">Full Name</label>
                 <div className="relative">
                   <Input 
                     placeholder="ENTER NAME" 
                     required
-                    className="bg-background/40 border-border focus:ring-primary h-11 sm:h-12 rounded-lg sm:rounded-xl text-[10px] sm:text-xs font-black pl-10 shadow-inner uppercase tracking-wider"
+                    className="bg-background/40 border-border focus:ring-primary h-14 rounded-xl text-sm font-black pl-12 shadow-inner uppercase tracking-wider"
                     value={formData.name}
                     onChange={(e) => setFormData({...formData, name: e.target.value})}
                     disabled={isSubmitting}
                   />
-                  <User className="absolute left-3.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 sm:w-4 sm:h-4 text-muted-foreground opacity-30" />
+                  <User className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground opacity-30" />
                 </div>
               </div>
-              <div className="space-y-1.5 sm:space-y-2">
-                <label className="text-[9px] sm:text-[10px] font-black uppercase text-muted-foreground tracking-widest ml-1">Email Address</label>
+              <div className="space-y-2">
+                <label className="text-xs font-black uppercase text-muted-foreground tracking-widest ml-1">Email Address</label>
                 <div className="relative">
                   <Input 
                     type="email" 
                     placeholder="ENTER EMAIL" 
                     required
-                    className="bg-background/40 border-border focus:ring-primary h-11 sm:h-12 rounded-lg sm:rounded-xl text-[10px] sm:text-xs font-black pl-10 shadow-inner uppercase tracking-wider"
+                    className="bg-background/40 border-border focus:ring-primary h-14 rounded-xl text-sm font-black pl-12 shadow-inner uppercase tracking-wider"
                     value={formData.email}
                     onChange={(e) => setFormData({...formData, email: e.target.value})}
                     disabled={isSubmitting}
                   />
-                  <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 sm:w-4 sm:h-4 text-muted-foreground opacity-30" />
+                  <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground opacity-30" />
                 </div>
               </div>
             </div>
-            <div className="space-y-1.5 sm:space-y-2">
-              <label className="text-[9px] sm:text-[10px] font-black uppercase text-muted-foreground tracking-widest ml-1">Message</label>
+            <div className="space-y-2">
+              <label className="text-xs font-black uppercase text-muted-foreground tracking-widest ml-1">Message</label>
               <Textarea 
                 placeholder="YOUR MESSAGE CONTENT..." 
-                className="min-h-[120px] sm:min-h-[140px] bg-background/40 border-border focus:ring-primary p-4 sm:p-5 resize-none rounded-lg sm:rounded-xl text-[10px] sm:text-xs font-black leading-relaxed shadow-inner uppercase tracking-tight"
+                className="min-h-[160px] bg-background/40 border-border focus:ring-primary p-6 resize-none rounded-xl text-sm font-black leading-relaxed shadow-inner uppercase tracking-tight"
                 required
                 value={formData.message}
                 onChange={(e) => setFormData({...formData, message: e.target.value})}
@@ -173,10 +173,10 @@ export function Contact() {
             </div>
             <Button 
               type="submit" 
-              className="w-full h-12 sm:h-14 rounded-full font-black uppercase tracking-widest text-[10px] sm:text-[11px] gap-2 sm:gap-3 shadow-lg transition-all bg-primary text-primary-foreground hover:brightness-110"
+              className="w-full h-16 rounded-full font-black uppercase tracking-widest text-xs gap-3 shadow-lg transition-all bg-primary text-primary-foreground hover:brightness-110"
               disabled={isSubmitting}
             >
-              {isSubmitting ? <Loader2 className="w-4 h-4 animate-spin" /> : <><Send className="w-3.5 h-3.5 sm:w-4 sm:h-4" /> Send Message</>}
+              {isSubmitting ? <Loader2 className="w-5 h-5 animate-spin" /> : <><Send className="w-4 h-4" /> Send Message</>}
             </Button>
           </form>
         </motion.div>

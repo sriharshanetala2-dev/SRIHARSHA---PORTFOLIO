@@ -81,3 +81,14 @@
   background-image: radial-gradient(hsl(var(--primary) / 0.1) 1px, transparent 1px);
   background-size: 20px 20px;
 }
+
+/* Scrollbar Customization */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-background;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-border rounded-full hover:bg-muted-foreground transition-colors;
+}

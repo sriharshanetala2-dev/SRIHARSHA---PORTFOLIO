@@ -51,9 +51,9 @@ export function Skills() {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-5 py-2 rounded-full bg-primary/10 text-[9px] sm:text-[10px] font-black text-primary uppercase tracking-widest border border-primary/20 mx-auto"
+            className="inline-flex items-center gap-3 px-6 py-2 rounded-full bg-primary/10 text-xs font-black text-primary uppercase tracking-widest border border-primary/20 mx-auto"
           >
-            <Cpu className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+            <Cpu className="w-4 h-4" />
             Engineering Stack
           </motion.div>
           <motion.h2 
@@ -68,7 +68,7 @@ export function Skills() {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-[10px] sm:text-sm text-muted-foreground max-w-2xl mx-auto leading-relaxed font-bold opacity-60 uppercase tracking-widest px-4"
+            className="text-xs sm:text-sm text-muted-foreground max-w-2xl mx-auto leading-relaxed font-bold opacity-60 uppercase tracking-widest px-4"
           >
             A high-density mapping of my software development toolkit and core systems engineering foundation.
           </motion.p>
@@ -79,7 +79,7 @@ export function Skills() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="flex flex-wrap justify-center gap-2 sm:gap-3 px-2 sm:px-0"
+          className="flex flex-wrap justify-center gap-3 px-2 sm:px-0"
         >
           <TooltipProvider delayDuration={0}>
             {skills.map((skill) => (
@@ -87,23 +87,23 @@ export function Skills() {
                 <TooltipTrigger asChild>
                   <motion.div 
                     variants={itemVariants}
-                    className="group relative flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg sm:rounded-xl bg-secondary/20 border border-border hover:border-primary/50 transition-all cursor-pointer overflow-hidden shadow-sm"
+                    className="group relative flex items-center gap-3 px-5 py-3 rounded-xl bg-secondary/20 border border-border hover:border-primary/50 transition-all cursor-pointer overflow-hidden shadow-sm"
                   >
-                    <skill.icon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary group-hover:scale-110 transition-transform" />
-                    <span className="font-black tracking-tight text-[10px] sm:text-sm uppercase whitespace-nowrap">{skill.name}</span>
+                    <skill.icon className="w-4 h-4 text-primary group-hover:scale-110 transition-transform" />
+                    <span className="font-black tracking-tight text-xs sm:text-sm uppercase whitespace-nowrap">{skill.name}</span>
                   </motion.div>
                 </TooltipTrigger>
-                <TooltipContent className="glass-card p-4 sm:p-5 border-border rounded-xl w-52 sm:w-60 space-y-3 shadow-xl backdrop-blur-xl bg-background/95">
-                  <div className="space-y-0.5">
-                    <p className="text-[8px] sm:text-[9px] font-black uppercase text-primary tracking-widest opacity-60">{skill.category}</p>
-                    <p className="font-black text-xs sm:text-sm tracking-tight uppercase">{skill.name}</p>
+                <TooltipContent className="glass-card p-5 border-border rounded-xl w-60 space-y-3 shadow-xl backdrop-blur-xl bg-background/95">
+                  <div className="space-y-1">
+                    <p className="text-[10px] font-black uppercase text-primary tracking-widest opacity-60">{skill.category}</p>
+                    <p className="font-black text-sm tracking-tight uppercase">{skill.name}</p>
                   </div>
                   <div className="space-y-2">
-                    <div className="flex justify-between items-center text-[8px] sm:text-[9px] font-black uppercase tracking-widest opacity-50">
+                    <div className="flex justify-between items-center text-[10px] font-black uppercase tracking-widest opacity-50">
                       <span>Expertise</span>
                       <span>{skill.level}</span>
                     </div>
-                    <div className="h-1 sm:h-1.5 w-full bg-primary/10 rounded-full overflow-hidden shadow-inner">
+                    <div className="h-2 w-full bg-primary/10 rounded-full overflow-hidden shadow-inner">
                       <motion.div 
                         initial={{ width: 0 }}
                         whileInView={{ width: skill.level === 'Expert' ? '100%' : skill.level === 'Advanced' ? '85%' : '65%' }}
@@ -122,7 +122,7 @@ export function Skills() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 0.5 }}
           viewport={{ once: true }}
-          className="flex flex-wrap justify-center gap-4 sm:gap-6 pt-4 sm:pt-8 px-4"
+          className="flex flex-wrap justify-center gap-6 pt-8 px-4"
         >
           {[
             { label: "Frontend", color: "bg-blue-500" },
@@ -130,9 +130,9 @@ export function Skills() {
             { label: "Language", color: "bg-primary" },
             { label: "Fundamentals", color: "bg-accent" }
           ].map(type => (
-            <div key={type.label} className="flex items-center gap-1.5 sm:gap-2">
-              <div className={cn("w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full", type.color)} />
-              <span className="text-[8px] sm:text-[9px] font-black uppercase tracking-widest whitespace-nowrap">{type.label}</span>
+            <div key={type.label} className="flex items-center gap-2">
+              <div className={cn("w-2 h-2 rounded-full", type.color)} />
+              <span className="text-[10px] font-black uppercase tracking-widest whitespace-nowrap">{type.label}</span>
             </div>
           ))}
         </motion.div>
