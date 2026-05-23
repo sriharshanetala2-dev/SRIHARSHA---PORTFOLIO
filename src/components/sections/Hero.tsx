@@ -21,7 +21,7 @@ export function Hero() {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center pt-20 px-4 sm:px-6 relative overflow-hidden bg-background">
+    <section className="min-h-[90vh] sm:min-h-screen flex items-center justify-center pt-24 sm:pt-20 px-4 sm:px-6 relative overflow-hidden bg-background">
       <div className="absolute inset-0 neural-grid opacity-[0.03] pointer-events-none" />
       <motion.div 
         variants={container}
@@ -31,7 +31,7 @@ export function Hero() {
       >
         <motion.div
           variants={item}
-          className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full border border-primary/20 bg-primary/5 text-[11px] font-black tracking-[0.3em] text-primary uppercase"
+          className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full border border-primary/20 bg-primary/5 text-[10px] sm:text-[11px] font-black tracking-[0.3em] text-primary uppercase"
         >
           <Code2 className="w-4 h-4" />
           Full Stack Developer // Industrial Grade
@@ -41,32 +41,32 @@ export function Hero() {
           variants={item}
           className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-headline font-black tracking-tighter leading-[1.05] uppercase"
         >
-          ENGINEERING <br />
+          ENGINEERING <br className="hidden sm:block" />
           <span className="text-primary">SYSTEMS</span>
         </motion.h1>
 
         <motion.p
           variants={item}
-          className="max-w-2xl mx-auto text-sm sm:text-lg text-muted-foreground font-bold uppercase tracking-[0.2em] opacity-80 leading-relaxed px-4"
+          className="max-w-2xl mx-auto text-sm sm:text-lg text-muted-foreground font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em] opacity-80 leading-relaxed px-4"
         >
           High-performance Full Stack solutions where technical logic meets industrial engineering. Building stable software ecosystems and zero-lag infrastructure.
         </motion.p>
 
         <motion.div
           variants={item}
-          className="flex flex-col items-center gap-10 pt-8"
+          className="flex flex-col items-center gap-8 sm:gap-10 pt-4 sm:pt-8"
         >
-          <div className="flex flex-col sm:flex-row gap-5 w-full sm:w-auto px-6 sm:px-0">
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 w-full sm:w-auto px-4 sm:px-0">
             <a
               href="#portfolio"
-              className="flex items-center justify-center gap-3 px-10 py-5 rounded-xl bg-primary text-primary-foreground font-black text-[11px] tracking-widest uppercase transition-all hover:scale-105 active:scale-95 shadow-2xl"
+              className="flex items-center justify-center gap-3 px-8 sm:px-10 py-4 sm:py-5 rounded-xl bg-primary text-primary-foreground font-black text-[10px] sm:text-[11px] tracking-widest uppercase transition-all hover:scale-105 active:scale-95 shadow-2xl"
             >
               Access Registry
               <ArrowRight className="w-4 h-4" />
             </a>
             <a
               href="#about"
-              className="flex items-center justify-center gap-3 px-10 py-5 rounded-xl bg-secondary text-foreground font-black text-[11px] tracking-widest uppercase border border-border hover:bg-secondary/80 transition-all"
+              className="flex items-center justify-center gap-3 px-8 sm:px-10 py-4 sm:py-5 rounded-xl bg-secondary text-foreground font-black text-[10px] sm:text-[11px] tracking-widest uppercase border border-border hover:bg-secondary/80 transition-all"
             >
               Developer Profile
             </a>
@@ -75,9 +75,9 @@ export function Hero() {
           <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-            className="flex flex-col items-center gap-3 opacity-30"
+            className="flex flex-col items-center gap-3 opacity-30 pt-8"
           >
-            <span className="text-[10px] font-black uppercase tracking-[0.6em]">Initialize Scroll</span>
+            <span className="text-[9px] sm:text-[10px] font-black uppercase tracking-[0.6em]">Initialize Scroll</span>
             <ChevronDown className="w-4 h-4" />
           </motion.div>
         </motion.div>

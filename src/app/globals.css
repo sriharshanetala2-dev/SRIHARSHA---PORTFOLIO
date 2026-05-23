@@ -56,7 +56,7 @@
   body {
     @apply bg-background text-foreground font-body antialiased;
   }
-  /* Global Zero-Italic & Upright Policy */
+  /* Absolute Upright Typography Policy */
   em, i, .italic, [style*="italic"] {
     @apply not-italic !important;
     font-style: normal !important;
@@ -82,7 +82,7 @@
   background-size: 20px 20px;
 }
 
-/* Scrollbar Customization */
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
