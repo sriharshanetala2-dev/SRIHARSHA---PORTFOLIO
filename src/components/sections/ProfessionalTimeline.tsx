@@ -13,7 +13,6 @@ import {
   CheckCircle2,
   Workflow
 } from "lucide-react";
-import { cn } from "@/lib/utils";
 
 const timelineItems = [
   {
@@ -22,7 +21,7 @@ const timelineItems = [
     role: "Full Stack & AI Developer",
     company: "NxtWave Academy",
     period: "2025 — 2026",
-    description: "Architecting enterprise systems with Java 21, Spring Boot, and Neural Orchestration. Integrating Claude, Gemini, and GPT-4o for high-performance task automation.",
+    description: "Architecting enterprise systems with Java 21, Spring Boot, and Neural Orchestration. Integrating Claude 3.5, Gemini 2.0, and GPT-4o for high-performance task automation.",
     icon: BrainCircuit,
     tags: ["Java", "Claude", "Gemini", "n8n"]
   },

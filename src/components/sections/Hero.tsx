@@ -9,15 +9,15 @@ export function Hero() {
     show: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.3
+        staggerChildren: 0.12,
+        delayChildren: 0.2
       }
     }
   };
 
   const item = {
-    hidden: { opacity: 0, y: 30 },
-    show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 70, damping: 15 } }
+    hidden: { opacity: 0, y: 40 },
+    show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 80, damping: 20 } }
   };
 
   return (
@@ -25,9 +25,9 @@ export function Hero() {
       <div className="max-w-7xl mx-auto text-center space-y-12 sm:space-y-20 relative z-10">
         {/* Elite Status Badge */}
         <motion.div
-          variants={item}
-          initial="hidden"
-          animate="show"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, ease: "circOut" }}
           className="inline-flex items-center gap-4 px-6 py-2.5 rounded-full border-2 border-primary/20 bg-primary/5 text-[10px] sm:text-xs font-black tracking-[0.5em] text-primary uppercase shadow-2xl backdrop-blur-md"
         >
           <ShieldCheck className="w-5 h-5 text-primary animate-pulse" />
@@ -37,7 +37,7 @@ export function Hero() {
         <motion.div variants={container} initial="hidden" animate="show" className="space-y-8 sm:space-y-12">
           <motion.h1
             variants={item}
-            className="text-4xl sm:text-6xl md:text-7xl lg:text-9xl font-headline font-black tracking-tighter leading-[0.9] uppercase shimmer-text"
+            className="text-4xl sm:text-6xl md:text-7xl lg:text-9xl font-headline font-black tracking-tighter leading-[0.95] uppercase shimmer-text"
           >
             ENGINEERING <br className="hidden sm:block" />
             <span className="text-gradient">NEURAL</span> ECOSYSTEMS
@@ -45,15 +45,20 @@ export function Hero() {
 
           <motion.div
             variants={item}
-            className="max-w-5xl mx-auto space-y-8 px-4"
+            className="max-w-5xl mx-auto space-y-10 px-4"
           >
-            <p className="text-sm sm:text-lg lg:text-2xl text-foreground font-black uppercase tracking-tight leading-relaxed opacity-90">
-              Developing high-performance digital architectures by merging <span className="text-primary">Full Stack Integrity</span> with advanced <span className="text-primary">Neural Intelligence</span>.
+            <p className="text-sm sm:text-lg lg:text-2xl text-foreground font-black uppercase tracking-tight leading-relaxed opacity-95">
+              Developing high-performance digital architectures by merging <span className="text-primary">Full Stack Integrity</span> with advanced <span className="text-primary">Neural Orchestration</span>.
             </p>
-            <p className="text-xs sm:text-base lg:text-lg text-muted-foreground font-bold uppercase tracking-[0.2em] opacity-70 leading-relaxed max-w-4xl mx-auto">
-              Mastery in assembling enterprise-grade ecosystems using <span className="text-foreground">Next.js, Spring Boot, and Flutter</span>, integrated with autonomous AI agents across 
-              <span className="text-primary"> Claude 3.5, Gemini 2.0, GPT-4o, and n8n</span>. Backed by a deep foundation in <span className="text-foreground">Java, Python, and SQL</span> within a B.Sc Computer Science registry.
-            </p>
+            <div className="space-y-6">
+              <p className="text-xs sm:text-base lg:text-lg text-muted-foreground font-bold uppercase tracking-[0.2em] opacity-70 leading-relaxed max-w-4xl mx-auto">
+                Mastery in assembling enterprise-grade ecosystems using <span className="text-foreground">Next.js, Spring Boot, and Flutter</span>, integrated with autonomous AI agents across 
+                <span className="text-primary"> Claude 3.5, Gemini 2.0, GPT-4o, and n8n</span>.
+              </p>
+              <p className="text-[10px] sm:text-xs lg:text-sm text-primary/60 font-black uppercase tracking-[0.6em] animate-pulse">
+                FOUNDATION: JAVA // PYTHON // SQL // B.SC COMPUTER SCIENCE
+              </p>
+            </div>
           </motion.div>
         </motion.div>
 
@@ -82,7 +87,7 @@ export function Hero() {
 
           <motion.div
             animate={{ y: [0, 15, 0] }}
-            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
             className="flex flex-col items-center gap-4 opacity-30 pt-12"
           >
             <span className="text-[10px] font-black uppercase tracking-[0.8em]">INITIALIZE SCROLL</span>
