@@ -70,7 +70,7 @@ export function About() {
                 <Fingerprint className="w-4 h-4" />
                 SYSTEM ARCHITECT PROFILE
               </div>
-              <h2 className="text-4xl sm:text-6xl lg:text-8xl font-headline font-black leading-[0.9] tracking-tighter uppercase">
+              <h2 className="text-3xl sm:text-5xl lg:text-7xl font-headline font-black leading-[0.9] tracking-tighter uppercase">
                 ARCHITECTING <br className="hidden sm:block" />
                 <span className="text-gradient">INTELLIGENCE</span>
               </h2>
