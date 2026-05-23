@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ChevronDown, ArrowRight, Cpu, Zap, Activity, BrainCircuit } from "lucide-react";
+import { ChevronDown, ArrowRight, Zap, BrainCircuit, Cpu, Sparkles } from "lucide-react";
 
 export function Hero() {
   const container = {
@@ -23,11 +23,12 @@ export function Hero() {
   return (
     <section className="min-h-screen flex items-center justify-center pt-24 px-6 relative overflow-hidden">
       <div className="max-w-7xl mx-auto text-center space-y-12 sm:space-y-20 relative z-10">
+        {/* Elite Status Badge */}
         <motion.div
           variants={item}
           initial="hidden"
           animate="show"
-          className="inline-flex items-center gap-4 px-6 py-2.5 rounded-full border border-primary/20 bg-primary/5 text-[10px] sm:text-xs font-black tracking-[0.5em] text-primary uppercase shadow-2xl backdrop-blur-sm"
+          className="inline-flex items-center gap-4 px-6 py-2.5 rounded-full border-2 border-primary/20 bg-primary/5 text-[10px] sm:text-xs font-black tracking-[0.5em] text-primary uppercase shadow-2xl backdrop-blur-md"
         >
           <BrainCircuit className="w-5 h-5 text-primary animate-pulse" />
           FULL STACK AI ARCHITECT v3.0 // INITIALIZED
@@ -36,20 +37,24 @@ export function Hero() {
         <motion.div variants={container} initial="hidden" animate="show" className="space-y-8 sm:space-y-12">
           <motion.h1
             variants={item}
-            className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-headline font-black tracking-tighter leading-[0.9] uppercase shimmer-text"
+            className="text-4xl sm:text-6xl md:text-7xl lg:text-9xl font-headline font-black tracking-tighter leading-[0.9] uppercase shimmer-text"
           >
             ENGINEERING <br className="hidden sm:block" />
             <span className="text-gradient">INTELLIGENT</span> SYSTEMS
           </motion.h1>
 
-          <motion.p
+          <motion.div
             variants={item}
-            className="max-w-4xl mx-auto text-xs sm:text-lg lg:text-xl text-muted-foreground font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em] opacity-80 leading-relaxed px-4"
+            className="max-w-5xl mx-auto space-y-6 px-4"
           >
-            Specializing in high-performance Full Stack Ecosystems and Neural Orchestration. 
-            Mastery in <span className="text-primary">Next.js, Spring Boot, Flutter</span>, and AI agents using 
-            <span className="text-primary"> Claude 3.5, Gemini 2.0, GPT-4o, and n8n</span>.
-          </motion.p>
+            <p className="text-sm sm:text-lg lg:text-2xl text-foreground font-black uppercase tracking-tight leading-relaxed opacity-90">
+              Specializing in high-performance <span className="text-primary">Full Stack Ecosystems</span> and <span className="text-primary">Neural Orchestration</span>. 
+            </p>
+            <p className="text-xs sm:text-base lg:text-lg text-muted-foreground font-bold uppercase tracking-[0.2em] opacity-70 leading-relaxed">
+              Mastery in <span className="text-foreground">Next.js, Spring Boot, Flutter</span>, and AI agents using 
+              <span className="text-primary"> Claude 3.5, Gemini 2.0, GPT-4o, and n8n</span>.
+            </p>
+          </motion.div>
         </motion.div>
 
         <motion.div
@@ -68,7 +73,7 @@ export function Hero() {
             </a>
             <a
               href="#contact"
-              className="flex items-center justify-center gap-5 px-10 py-6 rounded-2xl bg-secondary text-foreground font-black text-xs tracking-[0.4em] uppercase border border-border hover:bg-secondary/80 transition-all shadow-2xl backdrop-blur-sm"
+              className="flex items-center justify-center gap-5 px-10 py-6 rounded-2xl bg-secondary text-foreground font-black text-xs tracking-[0.4em] uppercase border-2 border-border hover:border-primary/40 transition-all shadow-2xl backdrop-blur-sm"
             >
               SYSTEM SYNC
               <Zap className="w-5 h-5 text-primary" />
