@@ -44,7 +44,7 @@ export function Navbar() {
           </div>
           <div className="flex flex-col">
             <span className="text-sm sm:text-base font-headline font-black tracking-tight uppercase leading-none">SRI HARSHA</span>
-            <span className="text-[9px] sm:text-xs font-black uppercase tracking-wider text-primary">Full Stack Developer</span>
+            <span className="text-[10px] font-black uppercase tracking-widest text-primary">Full Stack Developer</span>
           </div>
         </Link>
 
@@ -54,7 +54,7 @@ export function Navbar() {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-xs font-black text-foreground/70 hover:text-primary transition-all uppercase tracking-widest"
+                className="text-[11px] font-black text-foreground/70 hover:text-primary transition-all uppercase tracking-widest"
               >
                 {link.name}
               </a>
@@ -73,7 +73,7 @@ export function Navbar() {
           
           <a 
             href="#contact"
-            className="px-6 py-2 rounded bg-primary text-primary-foreground text-xs font-black uppercase tracking-widest hover:brightness-110 transition-all shadow-md"
+            className="px-6 py-2 rounded bg-primary text-primary-foreground text-[11px] font-black uppercase tracking-widest hover:brightness-110 transition-all shadow-md"
           >
             Hire Developer
           </a>
@@ -107,7 +107,7 @@ export function Navbar() {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-xs sm:text-sm font-black uppercase tracking-widest hover:text-primary transition-colors py-2 sm:py-3 border-b border-border/50 last:border-0"
+                className="text-[11px] font-black uppercase tracking-widest hover:text-primary transition-colors py-2 sm:py-3 border-b border-border/50 last:border-0"
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}
@@ -115,7 +115,7 @@ export function Navbar() {
             ))}
             <a 
               href="#contact"
-              className="w-full py-3 sm:py-4 rounded bg-primary text-primary-foreground text-center font-black uppercase tracking-widest text-[10px] sm:text-xs"
+              className="w-full py-3 sm:py-4 rounded bg-primary text-primary-foreground text-center font-black uppercase tracking-widest text-[11px]"
               onClick={() => setIsOpen(false)}
             >
               Hire Developer
