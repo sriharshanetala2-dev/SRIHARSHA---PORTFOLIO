@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useEffect, useState } from "react";
@@ -8,8 +9,7 @@ import { Footer } from "@/components/layout/Footer";
 import { AnimatePresence, motion } from "framer-motion";
 
 const About = dynamic(() => import('@/components/sections/About').then(mod => mod.About), { ssr: false });
-const Experience = dynamic(() => import('@/components/sections/Experience').then(mod => mod.Experience), { ssr: false });
-const Education = dynamic(() => import('@/components/sections/Education').then(mod => mod.Education), { ssr: false });
+const ProfessionalTimeline = dynamic(() => import('@/components/sections/ProfessionalTimeline').then(mod => mod.ProfessionalTimeline), { ssr: false });
 const Projects = dynamic(() => import('@/components/sections/Projects').then(mod => mod.Projects), { ssr: false });
 const Skills = dynamic(() => import('@/components/sections/Skills').then(mod => mod.Skills), { ssr: false });
 const AITool = dynamic(() => import('@/components/sections/AITool').then(mod => mod.AITool), { ssr: false });
@@ -40,8 +40,7 @@ export default function Home() {
         <main className="relative z-10">
           <Hero />
           <About />
-          <Experience />
-          <Education />
+          <ProfessionalTimeline />
           <Projects />
           <AITool />
           <StudentDashboard />

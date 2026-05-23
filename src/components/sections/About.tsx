@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect } from "react";
@@ -66,7 +67,7 @@ export function About() {
             className="space-y-12"
           >
             <div className="space-y-8 text-center lg:text-left">
-              <div className="inline-flex items-center gap-4 px-6 py-2.5 rounded-full bg-primary/10 text-[11px] font-black tracking-[0.5em] text-primary uppercase border-2 border-primary/20 mx-auto lg:mx-0 shadow-lg">
+              <div className="inline-flex items-center gap-4 px-6 py-2.5 rounded-full bg-primary/10 text-xs font-black tracking-[0.5em] text-primary uppercase border-2 border-primary/20 mx-auto lg:mx-0 shadow-lg">
                 <Fingerprint className="w-5 h-5" />
                 Engineering Profile
               </div>
@@ -99,8 +100,8 @@ export function About() {
                     <node.icon className="w-6 h-6" />
                   </div>
                   <div className="flex flex-col min-w-0">
-                    <span className="font-black text-[12px] uppercase tracking-widest leading-none mb-1.5">{node.label}</span>
-                    <span className="text-[10px] text-muted-foreground uppercase tracking-widest font-black opacity-50 truncate">{node.desc}</span>
+                    <span className="font-black text-xs uppercase tracking-widest leading-none mb-1.5">{node.label}</span>
+                    <span className="text-xs text-muted-foreground uppercase tracking-widest font-black opacity-50 truncate">{node.desc}</span>
                   </div>
                 </button>
               ))}
@@ -126,26 +127,27 @@ export function About() {
                       </div>
                     </div>
                     <div className="text-center space-y-3">
-                      <p className="text-[11px] font-black uppercase tracking-[0.6em] text-primary opacity-60">System Registry Node</p>
-                      <h3 className="text-3xl sm:text-6xl font-headline font-black uppercase tracking-tighter">{activeNode.label}</h3>
+                      <p className="text-xs font-black uppercase tracking-[0.6em] text-primary opacity-60">System Registry Node</p>
+                      <h3 className="text-3xl sm:text-5xl font-headline font-black uppercase tracking-tighter">{activeNode.label}</h3>
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 gap-4 relative z-10">
                     {activeNode.metrics.map((metric, i) => (
                       <div key={i} className="flex items-center justify-between p-6 rounded-2xl bg-background border-2 border-border shadow-xl group hover:border-primary transition-all">
-                        <span className="text-[10px] font-black uppercase tracking-[0.6em] text-muted-foreground opacity-40">Logic Vector</span>
-                        <span className="text-[12px] sm:text-base font-black text-primary uppercase tracking-widest">{metric}</span>
+                        <span className="text-xs font-black uppercase tracking-[0.6em] text-muted-foreground opacity-40">Logic Vector</span>
+                        <span className="text-xs sm:text-base font-black text-primary uppercase tracking-widest">{metric}</span>
                       </div>
                     ))}
                   </div>
 
+                  {/* Status Block - Integrated to avoid mixing */}
                   <div className="pt-10 border-t-2 border-border/50 flex items-center justify-between relative z-10">
                     <div className="flex items-center gap-5">
                       <div className="w-3.5 h-3.5 rounded-full bg-blue-500 animate-pulse shadow-[0_0_20px_rgba(59,130,246,0.6)]" />
                       <div className="flex flex-col">
-                        <span className="text-[10px] font-black uppercase tracking-[0.4em] text-muted-foreground/50 leading-none mb-1.5">Node Status</span>
-                        <span className="text-[12px] font-black text-blue-500 uppercase tracking-widest">{activeNode.status} Online</span>
+                        <span className="text-xs font-black uppercase tracking-[0.4em] text-muted-foreground/50 leading-none mb-1.5">Node Status</span>
+                        <span className="text-xs font-black text-blue-500 uppercase tracking-widest">{activeNode.status} Online</span>
                       </div>
                     </div>
                     <Activity className="w-7 h-7 text-blue-500/20" />

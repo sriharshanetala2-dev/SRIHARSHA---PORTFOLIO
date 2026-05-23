@@ -1,3 +1,4 @@
+
 "use client";
 
 import { motion } from "framer-motion";
@@ -27,7 +28,7 @@ export function Hero() {
           variants={item}
           initial="hidden"
           animate="show"
-          className="inline-flex items-center gap-3 px-6 py-2.5 rounded-full border-2 border-primary/20 bg-primary/5 text-[11px] sm:text-[12px] font-black tracking-[0.4em] text-primary uppercase shadow-[0_0_30px_rgba(var(--primary),0.1)]"
+          className="inline-flex items-center gap-3 px-6 py-2.5 rounded-full border-2 border-primary/20 bg-primary/5 text-xs font-black tracking-[0.4em] text-primary uppercase shadow-[0_0_30px_rgba(var(--primary),0.1)]"
         >
           <Zap className="w-4 h-4 animate-pulse" />
           Full Stack Systems Architect
@@ -36,7 +37,7 @@ export function Hero() {
         <motion.div variants={container} initial="hidden" animate="show" className="space-y-6 sm:space-y-8">
           <motion.h1
             variants={item}
-            className="text-4xl sm:text-7xl md:text-8xl lg:text-9xl font-headline font-black tracking-tighter leading-[1.05] uppercase shimmer-text"
+            className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-headline font-black tracking-tighter leading-[1.05] uppercase shimmer-text"
           >
             ENGINEERING <br className="hidden sm:block" />
             HYPER-SCALE LOGIC
@@ -59,14 +60,14 @@ export function Hero() {
           <div className="flex flex-col sm:flex-row gap-6 w-full sm:w-auto px-6 sm:px-0">
             <a
               href="#portfolio"
-              className="flex items-center justify-center gap-4 px-10 py-5 rounded-2xl bg-primary text-primary-foreground font-black text-[12px] tracking-[0.3em] uppercase transition-all hover:scale-105 active:scale-95 shadow-3xl shadow-primary/30"
+              className="flex items-center justify-center gap-4 px-10 py-5 rounded-2xl bg-primary text-primary-foreground font-black text-xs tracking-[0.3em] uppercase transition-all hover:scale-105 active:scale-95 shadow-3xl shadow-primary/30"
             >
               Access Archive
               <ArrowRight className="w-5 h-5" />
             </a>
             <a
               href="#about"
-              className="flex items-center justify-center gap-4 px-10 py-5 rounded-2xl bg-secondary text-foreground font-black text-[12px] tracking-[0.3em] uppercase border-2 border-border hover:bg-secondary/80 transition-all shadow-xl"
+              className="flex items-center justify-center gap-4 px-10 py-5 rounded-2xl bg-secondary text-foreground font-black text-xs tracking-[0.3em] uppercase border-2 border-border hover:bg-secondary/80 transition-all shadow-xl"
             >
               System Specs
             </a>
@@ -77,7 +78,7 @@ export function Hero() {
             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
             className="flex flex-col items-center gap-4 opacity-30 pt-16"
           >
-            <span className="text-[10px] font-black uppercase tracking-[0.8em]">Initialize Scroll</span>
+            <span className="text-xs font-black uppercase tracking-[0.8em]">Initialize Scroll</span>
             <ChevronDown className="w-5 h-5" />
           </motion.div>
         </motion.div>
