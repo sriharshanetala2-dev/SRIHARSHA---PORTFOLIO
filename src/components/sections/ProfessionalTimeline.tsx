@@ -1,4 +1,5 @@
-"use client";
+
+'use client';
 
 import { motion } from "framer-motion";
 import { 
@@ -80,27 +81,27 @@ export function ProfessionalTimeline() {
   return (
     <section id="experience" className="py-24 sm:py-48 px-6 relative overflow-hidden bg-background/50 border-t-2 border-border scroll-mt-20">
       <div className="max-w-7xl mx-auto space-y-24 sm:space-y-40">
-        <div className="flex flex-col items-center text-center space-y-8">
+        <div className="flex flex-col items-center text-center space-y-12">
           <motion.div 
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="px-8 py-3 rounded-full bg-primary/10 border-2 border-primary/30 text-[10px] sm:text-[11px] font-black text-primary uppercase tracking-[0.6em] flex items-center gap-4 shadow-xl"
+            className="px-8 py-3 rounded-full bg-primary/10 border-2 border-primary/30 text-[11px] font-black text-primary uppercase tracking-[0.6em] flex items-center gap-4 shadow-xl backdrop-blur-md"
           >
             <Terminal className="w-5 h-5" />
-            PROFESSIONAL GROWTH REGISTRY
+            TECHNICAL JOURNEY REGISTRY
           </motion.div>
-          <h2 className="text-4xl sm:text-7xl md:text-8xl font-headline font-black tracking-tighter uppercase leading-none">
-            TECHNICAL <span className="text-gradient">JOURNEY</span>
+          <h2 className="text-3xl sm:text-6xl lg:text-7xl font-headline font-black tracking-tighter uppercase leading-[0.9] shimmer-text">
+            PROFESSIONAL <span className="text-gradient">GROWTH</span>
           </h2>
-          <p className="text-foreground max-w-3xl text-sm sm:text-xl font-bold uppercase tracking-[0.2em] leading-relaxed opacity-100 px-4">
+          <p className="text-sm sm:text-xl text-muted-foreground leading-relaxed font-bold uppercase tracking-tight opacity-80 max-w-4xl">
             A high-precision mapping of <span className="text-primary">development milestones</span>, academic foundations, and specialized AI systems integration.
           </p>
         </div>
 
-        <div className="relative space-y-12 sm:space-y-20 max-w-6xl mx-auto">
-          {/* Vertical Spine */}
-          <div className="absolute left-10 sm:left-14 top-0 bottom-0 w-[2px] bg-border/60 hidden md:block" />
+        <div className="relative space-y-12 sm:space-y-24 max-w-6xl mx-auto">
+          {/* Vertical Spine Subsystem */}
+          <div className="absolute left-10 sm:left-14 top-0 bottom-0 w-[2px] bg-border/40 hidden md:block" />
 
           {timelineItems.map((item, idx) => (
             <motion.div
@@ -112,45 +113,43 @@ export function ProfessionalTimeline() {
               className="relative group"
             >
               <div className="flex flex-col md:flex-row gap-10 md:gap-24 items-start">
-                {/* Node Identifier */}
-                <div className="flex items-center gap-8 md:w-48 shrink-0 relative z-10">
-                  <div className="text-[11px] font-black text-primary/70 tracking-[0.4em] uppercase hidden md:block whitespace-nowrap">
+                <div className="flex items-center gap-8 md:w-56 shrink-0 relative z-10">
+                  <div className="text-[11px] font-black text-primary tracking-[0.4em] uppercase hidden md:block whitespace-nowrap">
                     NODE_{item.id}
                   </div>
-                  <div className="p-5 sm:p-6 rounded-2xl bg-secondary group-hover:bg-primary text-primary group-hover:text-primary-foreground transition-all duration-700 shadow-4xl border-2 border-border group-hover:border-primary group-hover:scale-110">
-                    <item.icon className="w-7 h-7 sm:w-8 sm:h-8" />
+                  <div className="p-5 sm:p-8 rounded-[2rem] bg-secondary group-hover:bg-primary text-primary group-hover:text-primary-foreground transition-all duration-700 shadow-4xl border-2 border-border group-hover:border-primary group-hover:scale-110">
+                    <item.icon className="w-8 h-8 sm:w-10 sm:h-10" />
                   </div>
                 </div>
 
-                {/* Registry Card */}
-                <div className="flex-1 glass-card p-10 sm:p-16 rounded-[3rem] hover:border-primary/50 transition-all shadow-4xl relative overflow-hidden group-hover:bg-card/80">
-                  <div className="absolute -top-12 -right-12 p-24 opacity-5 group-hover:opacity-10 transition-opacity pointer-events-none">
-                    <Activity className="w-32 h-32" />
+                <div className="flex-1 glass-card p-12 sm:p-20 rounded-[3.5rem] hover:border-primary/50 transition-all shadow-4xl relative overflow-hidden group-hover:bg-card/80">
+                  <div className="absolute -top-12 -right-12 p-32 opacity-5 group-hover:opacity-10 transition-opacity pointer-events-none">
+                    <Activity className="w-48 h-48" />
                   </div>
 
-                  <div className="space-y-10 relative z-10">
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-8">
-                      <div className="space-y-3">
-                        <div className="flex items-center gap-4 text-[10px] sm:text-xs font-black text-primary uppercase tracking-[0.5em]">
-                          <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5" />
+                  <div className="space-y-12 relative z-10">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-10">
+                      <div className="space-y-4">
+                        <div className="flex items-center gap-4 text-[11px] font-black text-primary uppercase tracking-[0.6em]">
+                          <CheckCircle2 className="w-5 h-5" />
                           {item.period}
                         </div>
                         <h3 className="text-2xl sm:text-5xl font-headline font-black uppercase tracking-tight group-hover:text-primary transition-colors leading-tight text-foreground">
                           {item.role}
                         </h3>
                       </div>
-                      <div className="text-[10px] sm:text-[11px] font-black uppercase tracking-[0.4em] text-foreground/80 bg-secondary/80 px-6 py-3 rounded-2xl border-2 border-border shadow-inner w-fit">
+                      <div className="text-[10px] sm:text-[11px] font-black uppercase tracking-[0.5em] text-foreground bg-secondary/80 px-8 py-4 rounded-2xl border-2 border-border shadow-inner w-fit">
                         {item.type === 'work' ? item.company : item.institution}
                       </div>
                     </div>
 
-                    <p className="text-sm sm:text-xl text-foreground/90 font-bold uppercase tracking-tight leading-relaxed max-w-4xl">
+                    <p className="text-sm sm:text-xl text-foreground/90 font-bold uppercase tracking-tight leading-relaxed max-w-5xl">
                       {item.description}
                     </p>
 
                     <div className="flex flex-wrap gap-4">
                       {item.tags.map(tag => (
-                        <span key={tag} className="px-6 py-3 bg-background/50 border-2 border-border rounded-xl text-[10px] sm:text-xs font-black uppercase tracking-widest text-foreground/70 shadow-lg hover:border-primary hover:text-primary transition-colors">
+                        <span key={tag} className="px-8 py-4 bg-background/50 border-2 border-border rounded-xl text-[10px] sm:text-xs font-black uppercase tracking-[0.2em] text-foreground/70 shadow-lg hover:border-primary hover:text-primary transition-all">
                           {tag}
                         </span>
                       ))}
