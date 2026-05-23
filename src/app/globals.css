@@ -23,7 +23,7 @@
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
     --ring: 221.2 83.2% 53.3%;
-    --radius: 1.5rem;
+    --radius: 1rem;
   }
 
   .dark {
@@ -70,31 +70,26 @@
 
 @keyframes logic-sweep {
   0% { transform: translateX(-100%) skewX(-45deg); opacity: 0; }
-  20% { opacity: 0.5; }
-  80% { opacity: 0.5; }
+  20% { opacity: 0.3; }
+  80% { opacity: 0.3; }
   100% { transform: translateX(200%) skewX(-45deg); opacity: 0; }
-}
-
-@keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
 }
 
 .neural-grid {
   background-image: linear-gradient(to right, hsl(var(--primary) / 0.1) 1px, transparent 1px),
     linear-gradient(to bottom, hsl(var(--primary) / 0.1) 1px, transparent 1px);
   background-size: 50px 50px;
-  animation: grid-scan 10s linear infinite;
+  animation: grid-scan 15s linear infinite;
 }
 
 .logic-scan-line {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100px;
+  width: 150px;
   height: 100%;
-  background: linear-gradient(to right, transparent, hsl(var(--primary) / 0.1), transparent);
-  animation: logic-sweep 8s ease-in-out infinite;
+  background: linear-gradient(to right, transparent, hsl(var(--primary) / 0.05), transparent);
+  animation: logic-sweep 12s ease-in-out infinite;
   pointer-events: none;
 }
 
@@ -106,27 +101,32 @@
   animation: shimmer 4s linear infinite;
 }
 
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
 .text-gradient {
   @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-cyan-400;
 }
 
 .glass-card {
-  @apply bg-card/60 backdrop-blur-xl border border-border shadow-2xl transition-all duration-300;
+  @apply bg-card/40 backdrop-blur-xl border border-border/50 shadow-2xl transition-all duration-300;
 }
 
 .data-flow-grid {
-  background-image: radial-gradient(hsl(var(--primary) / 0.15) 1px, transparent 1px);
-  background-size: 25px 25px;
+  background-image: radial-gradient(hsl(var(--primary) / 0.1) 1px, transparent 1px);
+  background-size: 30px 30px;
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 ::-webkit-scrollbar-track {
   @apply bg-background;
 }
 ::-webkit-scrollbar-thumb {
-  @apply bg-primary/20 rounded-full hover:bg-primary/40 transition-colors;
+  @apply bg-primary/10 rounded-full hover:bg-primary/20 transition-colors;
 }
 
 .no-scrollbar::-webkit-scrollbar {

@@ -46,7 +46,7 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 sm:py-40 px-4 sm:px-6 relative overflow-hidden bg-background border-t-2 border-border scroll-mt-20">
+    <section id="contact" className="py-24 sm:py-40 px-4 sm:px-6 relative overflow-hidden bg-background border-t border-border/50 scroll-mt-20">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 sm:gap-24 relative z-10">
         <motion.div 
           initial={{ opacity: 0, x: -30 }}
@@ -56,14 +56,14 @@ export function Contact() {
           className="space-y-12"
         >
           <div className="space-y-8 text-center lg:text-left">
-            <div className="inline-flex items-center gap-3 px-6 py-2.5 rounded-full bg-primary/10 border-2 border-primary/20 text-xs font-black text-primary uppercase tracking-[0.5em] mx-auto lg:mx-0 shadow-lg">
+            <div className="inline-flex items-center gap-3 px-6 py-2.5 rounded-full bg-primary/10 border border-primary/20 text-xs font-black text-primary uppercase tracking-[0.5em] mx-auto lg:mx-0 shadow-lg">
               <Mail className="w-5 h-5" />
               Collaboration Hub
             </div>
             <h2 className="text-4xl sm:text-7xl font-headline font-black tracking-tighter leading-none uppercase shimmer-text">
               LET'S <span className="text-gradient">CONNECT</span>
             </h2>
-            <p className="text-sm sm:text-lg text-muted-foreground leading-relaxed max-w-lg font-bold uppercase tracking-widest opacity-80 mx-auto lg:mx-0">
+            <p className="text-sm sm:text-lg text-muted-foreground leading-relaxed max-w-lg font-bold uppercase tracking-widest opacity-70 mx-auto lg:mx-0">
               Direct recruitment and project synchronization available. Optimized for high-performance development partnerships.
             </p>
           </div>
@@ -73,7 +73,7 @@ export function Contact() {
               href={gmailComposeUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-6 p-8 bg-card border-2 border-border rounded-[2rem] hover:border-primary transition-all cursor-pointer group shadow-2xl"
+              className="flex items-center gap-6 p-8 bg-card border border-border/50 rounded-[2.5rem] hover:border-primary transition-all cursor-pointer group shadow-2xl"
             >
               <div className="p-4 rounded-2xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all">
                 <Mail className="w-6 h-6" />
@@ -87,7 +87,7 @@ export function Contact() {
 
             <div 
               onClick={copyPhone}
-              className="flex items-center gap-6 p-8 bg-card border-2 border-border rounded-[2rem] hover:border-primary transition-all cursor-pointer group shadow-2xl"
+              className="flex items-center gap-6 p-8 bg-card border border-border/50 rounded-[2.5rem] hover:border-primary transition-all cursor-pointer group shadow-2xl"
             >
               <div className="p-4 rounded-2xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all">
                 <Phone className="w-6 h-6" />
@@ -108,7 +108,7 @@ export function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="bg-card border-2 border-border p-8 sm:p-14 rounded-[3rem] shadow-3xl relative"
+          className="bg-card border border-border/50 p-8 sm:p-14 rounded-[3rem] shadow-3xl relative"
         >
           <form onSubmit={handleSubmit} className="space-y-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -118,7 +118,7 @@ export function Contact() {
                   <Input 
                     placeholder="ENTER NAME" 
                     required
-                    className="bg-background border-2 border-border focus:ring-primary h-16 rounded-2xl text-sm font-black pl-14 shadow-inner uppercase tracking-widest"
+                    className="bg-background border border-border focus:ring-primary h-16 rounded-2xl text-sm font-black pl-14 shadow-inner uppercase tracking-widest"
                     value={formData.name}
                     onChange={(e) => setFormData({...formData, name: e.target.value})}
                     disabled={isSubmitting}
@@ -133,7 +133,7 @@ export function Contact() {
                     type="email" 
                     placeholder="ENTER EMAIL" 
                     required
-                    className="bg-background border-2 border-border focus:ring-primary h-16 rounded-2xl text-sm font-black pl-14 shadow-inner uppercase tracking-widest"
+                    className="bg-background border border-border focus:ring-primary h-16 rounded-2xl text-sm font-black pl-14 shadow-inner uppercase tracking-widest"
                     value={formData.email}
                     onChange={(e) => setFormData({...formData, email: e.target.value})}
                     disabled={isSubmitting}
@@ -146,7 +146,7 @@ export function Contact() {
               <label className="text-xs font-black uppercase text-muted-foreground tracking-[0.4em] ml-2">Message</label>
               <Textarea 
                 placeholder="TYPE YOUR MESSAGE..." 
-                className="min-h-[180px] bg-background border-2 border-border focus:ring-primary p-8 resize-none rounded-[2rem] text-sm font-black leading-relaxed shadow-inner uppercase tracking-tight"
+                className="min-h-[180px] bg-background border border-border focus:ring-primary p-8 resize-none rounded-[2.5rem] text-sm font-black leading-relaxed shadow-inner uppercase tracking-tight"
                 required
                 value={formData.message}
                 onChange={(e) => setFormData({...formData, message: e.target.value})}
