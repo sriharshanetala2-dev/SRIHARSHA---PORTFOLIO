@@ -9,76 +9,78 @@ export function Hero() {
     show: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.2
+        staggerChildren: 0.1,
+        delayChildren: 0.3
       }
     }
   };
 
   const item = {
-    hidden: { opacity: 0, y: 30 },
-    show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 80, damping: 12 } }
+    hidden: { opacity: 0, y: 40 },
+    show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 70, damping: 15 } }
   };
 
   return (
-    <section className="min-h-[90vh] sm:min-h-screen flex items-center justify-center pt-24 sm:pt-20 px-4 sm:px-6 relative overflow-hidden bg-background">
-      <div className="absolute inset-0 neural-grid opacity-[0.03] pointer-events-none" />
+    <section className="min-h-screen flex items-center justify-center pt-24 px-4 sm:px-6 relative overflow-hidden bg-background">
+      <div className="absolute inset-0 neural-grid opacity-[0.05] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] pointer-events-none animate-pulse" />
+      
       <motion.div 
         variants={container}
         initial="hidden"
         animate="show"
-        className="max-w-7xl mx-auto text-center space-y-8 sm:space-y-12 relative z-10"
+        className="max-w-7xl mx-auto text-center space-y-12 relative z-10"
       >
         <motion.div
           variants={item}
-          className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full border border-primary/20 bg-primary/5 text-[10px] sm:text-[11px] font-black tracking-[0.3em] text-primary uppercase"
+          className="inline-flex items-center gap-3 px-6 py-2.5 rounded-full border-2 border-primary/20 bg-primary/5 text-[12px] font-black tracking-[0.4em] text-primary uppercase shadow-[0_0_20px_rgba(var(--primary),0.1)]"
         >
           <Code2 className="w-4 h-4" />
-          Full Stack Developer // Industrial Grade
+          Full Stack & Mobile Developer
         </motion.div>
 
         <motion.h1
           variants={item}
-          className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-headline font-black tracking-tighter leading-[1.05] uppercase"
+          className="text-4xl sm:text-6xl md:text-8xl font-headline font-black tracking-tighter leading-[1.05] uppercase"
         >
           ENGINEERING <br className="hidden sm:block" />
-          <span className="text-primary">SYSTEMS</span>
+          <span className="text-gradient">INDUSTRIAL SYSTEMS</span>
         </motion.h1>
 
         <motion.p
           variants={item}
-          className="max-w-2xl mx-auto text-sm sm:text-lg text-muted-foreground font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em] opacity-80 leading-relaxed px-4"
+          className="max-w-3xl mx-auto text-sm sm:text-xl text-muted-foreground font-bold uppercase tracking-widest opacity-80 leading-relaxed px-4"
         >
-          High-performance Full Stack solutions where technical logic meets industrial engineering. Building stable software ecosystems and zero-lag infrastructure.
+          Architecting high-performance digital ecosystems with Next.js, Spring Boot, and Flutter. Zero-lag infrastructure for enterprise-grade applications.
         </motion.p>
 
         <motion.div
           variants={item}
-          className="flex flex-col items-center gap-8 sm:gap-10 pt-4 sm:pt-8"
+          className="flex flex-col items-center gap-12 pt-8"
         >
-          <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 w-full sm:w-auto px-4 sm:px-0">
+          <div className="flex flex-col sm:flex-row gap-6 w-full sm:w-auto px-6 sm:px-0">
             <a
               href="#portfolio"
-              className="flex items-center justify-center gap-3 px-8 sm:px-10 py-4 sm:py-5 rounded-xl bg-primary text-primary-foreground font-black text-[10px] sm:text-[11px] tracking-widest uppercase transition-all hover:scale-105 active:scale-95 shadow-2xl"
+              className="flex items-center justify-center gap-4 px-10 py-5 rounded-2xl bg-primary text-primary-foreground font-black text-[12px] tracking-[0.3em] uppercase transition-all hover:scale-105 active:scale-95 shadow-3xl shadow-primary/20"
             >
               Access Registry
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-5 h-5" />
             </a>
             <a
               href="#about"
-              className="flex items-center justify-center gap-3 px-8 sm:px-10 py-4 sm:py-5 rounded-xl bg-secondary text-foreground font-black text-[10px] sm:text-[11px] tracking-widest uppercase border border-border hover:bg-secondary/80 transition-all"
+              className="flex items-center justify-center gap-4 px-10 py-5 rounded-2xl bg-secondary text-foreground font-black text-[12px] tracking-[0.3em] uppercase border-2 border-border hover:bg-secondary/80 transition-all shadow-xl"
             >
               Developer Profile
             </a>
           </div>
 
           <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-            className="flex flex-col items-center gap-3 opacity-30 pt-8"
+            animate={{ y: [0, 15, 0] }}
+            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+            className="flex flex-col items-center gap-4 opacity-40 pt-12"
           >
-            <span className="text-[9px] sm:text-[10px] font-black uppercase tracking-[0.6em]">Initialize Scroll</span>
-            <ChevronDown className="w-4 h-4" />
+            <span className="text-[10px] font-black uppercase tracking-[0.8em]">Initialize Scroll</span>
+            <ChevronDown className="w-5 h-5" />
           </motion.div>
         </motion.div>
       </motion.div>

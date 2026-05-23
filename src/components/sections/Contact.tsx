@@ -31,119 +31,119 @@ export function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
     
-    toast({ title: "Secure Gateway Active", description: "Synchronizing with Gmail compose module..." });
+    toast({ title: "Initializing Secure Connection", description: "Drafting communication in Gmail module..." });
     
     setTimeout(() => {
       const mailUrl = `${gmailComposeUrl}&su=Inquiry from Portfolio: ${formData.name}&body=${encodeURIComponent(formData.message)}`;
       window.open(mailUrl, '_blank');
       setIsSubmitting(false);
       setFormData({ name: "" , email: "" , message: "" });
-    }, 1200);
+    }, 1500);
   };
 
   return (
-    <section id="contact" className="py-20 sm:py-32 px-4 sm:px-6 relative overflow-hidden bg-background border-t border-border scroll-mt-20">
-      <div className="absolute inset-0 data-flow-grid opacity-[0.03] pointer-events-none" />
+    <section id="contact" className="py-24 sm:py-32 px-4 sm:px-6 relative overflow-hidden bg-background border-t-2 border-border scroll-mt-20">
+      <div className="absolute inset-0 data-flow-grid opacity-[0.05] pointer-events-none" />
       
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-24 relative z-10">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 sm:gap-24 relative z-10">
         <motion.div 
-          initial={{ opacity: 0, x: -40 }}
+          initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, type: "spring" }}
+          transition={{ duration: 1, type: "spring" }}
           viewport={{ once: true }}
-          className="space-y-8 sm:space-y-12"
+          className="space-y-12"
         >
-          <div className="space-y-6 sm:space-y-8 text-center lg:text-left">
-            <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-primary/10 border border-primary/20 text-[10px] sm:text-[11px] font-black text-primary uppercase tracking-[0.4em] mx-auto lg:mx-0">
-              <Mail className="w-4 h-4" />
+          <div className="space-y-8 text-center lg:text-left">
+            <div className="inline-flex items-center gap-3 px-6 py-2.5 rounded-full bg-primary/10 border-2 border-primary/20 text-[12px] font-black text-primary uppercase tracking-[0.5em] mx-auto lg:mx-0 shadow-lg">
+              <Mail className="w-5 h-5" />
               Collaboration Gate
             </div>
-            <h2 className="text-3xl sm:text-6xl font-headline font-black tracking-tighter leading-none uppercase">
-              GET IN <span className="text-primary">TOUCH</span>
+            <h2 className="text-4xl sm:text-7xl font-headline font-black tracking-tighter leading-none uppercase">
+              GET IN <span className="text-gradient">TOUCH</span>
             </h2>
-            <p className="text-sm sm:text-lg text-muted-foreground leading-relaxed max-w-lg font-bold opacity-80 uppercase tracking-widest mx-auto lg:mx-0">
-              Available for high-performance Full Stack development and secure digital orchestration.
+            <p className="text-sm sm:text-lg text-muted-foreground leading-relaxed max-w-lg font-bold uppercase tracking-widest opacity-80 mx-auto lg:mx-0">
+              Direct recruitment and project synchronization available. Optimized for high-performance development partnerships.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-4 sm:gap-5">
+          <div className="grid grid-cols-1 gap-6">
             <a 
               href={gmailComposeUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-5 sm:gap-6 p-6 sm:p-8 bg-secondary/30 rounded-2xl sm:rounded-3xl border-2 border-border hover:border-primary transition-all cursor-pointer group shadow-xl"
+              className="flex items-center gap-6 p-8 bg-card border-2 border-border rounded-[2rem] hover:border-primary transition-all cursor-pointer group shadow-2xl"
             >
-              <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all shadow-inner">
-                <Mail className="w-5 h-5 sm:w-6 sm:h-6" />
+              <div className="p-4 rounded-2xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all shadow-inner">
+                <Mail className="w-6 h-6" />
               </div>
               <div className="flex-1 min-w-0">
-                <p className="text-[9px] sm:text-[10px] font-black uppercase text-primary tracking-[0.3em] mb-1 sm:mb-2 opacity-60">Email Address</p>
+                <p className="text-[10px] font-black uppercase text-primary tracking-[0.4em] mb-2 opacity-60">Professional Email</p>
                 <p className="font-black text-xs sm:text-xl truncate tracking-widest uppercase">{userEmail}</p>
               </div>
-              <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 opacity-20 group-hover:opacity-100 transition-opacity" />
+              <ExternalLink className="w-5 h-5 opacity-20 group-hover:opacity-100 transition-opacity" />
             </a>
 
             <motion.div 
               whileHover={{ scale: 1.02 }}
               onClick={copyPhone}
-              className="flex items-center gap-5 sm:gap-6 p-6 sm:p-8 bg-secondary/30 rounded-2xl sm:rounded-3xl border-2 border-border hover:border-primary transition-all cursor-pointer group shadow-xl"
+              className="flex items-center gap-6 p-8 bg-card border-2 border-border rounded-[2rem] hover:border-primary transition-all cursor-pointer group shadow-2xl"
             >
-              <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all shadow-inner">
-                <Phone className="w-5 h-5 sm:w-6 sm:h-6" />
+              <div className="p-4 rounded-2xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all shadow-inner">
+                <Phone className="w-6 h-6" />
               </div>
               <div className="flex-1 min-w-0">
-                <p className="text-[9px] sm:text-[10px] font-black uppercase text-primary tracking-[0.3em] mb-1 sm:mb-2 opacity-60">Phone Number</p>
+                <p className="text-[10px] font-black uppercase text-primary tracking-[0.4em] mb-2 opacity-60">Technical Support Line</p>
                 <p className="font-black text-xs sm:text-xl tracking-widest uppercase">{userPhone}</p>
               </div>
-              {copiedPhone ? <Check className="w-5 h-5 sm:w-6 sm:h-6 text-green-500" /> : <Copy className="w-4 h-4 sm:w-6 sm:h-6 opacity-20 group-hover:opacity-100 transition-opacity" />}
+              {copiedPhone ? <Check className="w-6 h-6 text-green-500" /> : <Copy className="w-6 h-6 opacity-20 group-hover:opacity-100 transition-opacity" />}
             </motion.div>
           </div>
         </motion.div>
 
         <motion.div 
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 60 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, type: "spring" }}
+          transition={{ duration: 1, type: "spring" }}
           viewport={{ once: true }}
-          className="bg-card/50 border-2 border-border p-6 sm:p-14 rounded-2xl sm:rounded-[3rem] shadow-2xl relative"
+          className="bg-card border-2 border-border p-8 sm:p-14 rounded-[3rem] shadow-3xl relative"
         >
-          <form onSubmit={handleSubmit} className="space-y-6 sm:space-y-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-              <div className="space-y-2">
-                <label className="text-[10px] sm:text-[11px] font-black uppercase text-muted-foreground tracking-[0.3em] ml-2">Full Name</label>
+          <form onSubmit={handleSubmit} className="space-y-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="space-y-3">
+                <label className="text-[12px] font-black uppercase text-muted-foreground tracking-[0.4em] ml-2">Full Name</label>
                 <div className="relative">
                   <Input 
                     placeholder="IDENTITY" 
                     required
-                    className="bg-background/40 border-border focus:ring-primary h-14 sm:h-16 rounded-xl sm:rounded-2xl text-xs sm:text-sm font-black pl-12 sm:pl-14 shadow-inner uppercase tracking-widest"
+                    className="bg-background border-2 border-border focus:ring-primary h-16 rounded-2xl text-sm font-black pl-14 shadow-inner uppercase tracking-widest"
                     value={formData.name}
                     onChange={(e) => setFormData({...formData, name: e.target.value})}
                     disabled={isSubmitting}
                   />
-                  <User className="absolute left-4 sm:left-5 top-1/2 -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 text-primary opacity-30" />
+                  <User className="absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-primary opacity-30" />
                 </div>
               </div>
-              <div className="space-y-2">
-                <label className="text-[10px] sm:text-[11px] font-black uppercase text-muted-foreground tracking-[0.3em] ml-2">Email Address</label>
+              <div className="space-y-3">
+                <label className="text-[12px] font-black uppercase text-muted-foreground tracking-[0.4em] ml-2">Email Address</label>
                 <div className="relative">
                   <Input 
                     type="email" 
                     placeholder="GATEWAY" 
                     required
-                    className="bg-background/40 border-border focus:ring-primary h-14 sm:h-16 rounded-xl sm:rounded-2xl text-xs sm:text-sm font-black pl-12 sm:pl-14 shadow-inner uppercase tracking-widest"
+                    className="bg-background border-2 border-border focus:ring-primary h-16 rounded-2xl text-sm font-black pl-14 shadow-inner uppercase tracking-widest"
                     value={formData.email}
                     onChange={(e) => setFormData({...formData, email: e.target.value})}
                     disabled={isSubmitting}
                   />
-                  <Mail className="absolute left-4 sm:left-5 top-1/2 -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 text-primary opacity-30" />
+                  <Mail className="absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-primary opacity-30" />
                 </div>
               </div>
             </div>
-            <div className="space-y-2">
-              <label className="text-[10px] sm:text-[11px] font-black uppercase text-muted-foreground tracking-[0.3em] ml-2">Message</label>
+            <div className="space-y-3">
+              <label className="text-[12px] font-black uppercase text-muted-foreground tracking-[0.4em] ml-2">Message</label>
               <Textarea 
-                placeholder="YOUR MESSAGE CONTENT..." 
-                className="min-h-[140px] sm:min-h-[180px] bg-background/40 border-border focus:ring-primary p-6 sm:p-8 resize-none rounded-2xl sm:rounded-[2rem] text-xs sm:text-sm font-black leading-relaxed shadow-inner uppercase tracking-tight"
+                placeholder="YOUR DATA PAYLOAD..." 
+                className="min-h-[180px] bg-background border-2 border-border focus:ring-primary p-8 resize-none rounded-[2rem] text-sm font-black leading-relaxed shadow-inner uppercase tracking-tight"
                 required
                 value={formData.message}
                 onChange={(e) => setFormData({...formData, message: e.target.value})}
@@ -152,10 +152,10 @@ export function Contact() {
             </div>
             <Button 
               type="submit" 
-              className="w-full h-16 sm:h-20 rounded-full font-black uppercase tracking-[0.4em] text-[11px] sm:text-[12px] gap-3 sm:gap-4 shadow-3xl transition-all bg-primary text-primary-foreground hover:scale-[1.02] active:scale-95"
+              className="w-full h-20 rounded-full font-black uppercase tracking-[0.5em] text-[12px] gap-4 shadow-3xl transition-all bg-primary text-primary-foreground hover:scale-[1.02] active:scale-95 shadow-primary/30"
               disabled={isSubmitting}
             >
-              {isSubmitting ? <Loader2 className="w-5 h-5 sm:w-6 sm:h-6 animate-spin" /> : <><Send className="w-4 h-4 sm:w-5 sm:h-5" /> Send Message</>}
+              {isSubmitting ? <Loader2 className="w-7 h-7 animate-spin" /> : <><Send className="w-6 h-6" /> Send Message</>}
             </Button>
           </form>
         </motion.div>
