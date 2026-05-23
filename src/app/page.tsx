@@ -5,8 +5,9 @@ import dynamic from 'next/dynamic';
 import { Navbar } from "@/components/layout/Navbar";
 import { Hero } from "@/components/sections/Hero";
 import { Footer } from "@/components/layout/Footer";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 
+// High-performance dynamic imports to prevent hydration mismatches
 const About = dynamic(() => import('@/components/sections/About').then(mod => mod.About), { ssr: false });
 const ProfessionalTimeline = dynamic(() => import('@/components/sections/ProfessionalTimeline').then(mod => mod.ProfessionalTimeline), { ssr: false });
 const Projects = dynamic(() => import('@/components/sections/Projects').then(mod => mod.Projects), { ssr: false });
@@ -26,13 +27,13 @@ export default function Home() {
   if (!mounted) return null;
 
   return (
-    <AnimatePresence>
+    <AnimatePresence mode="wait">
       <div className="min-h-screen bg-background relative overflow-x-hidden">
-        {/* Kinetic Industrial Background Subsystem */}
+        {/* Kinetic Industrial Background Subsystem v3.0 */}
         <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
           {/* Base Grid Layers */}
-          <div className="absolute inset-0 neural-grid opacity-[0.15]" />
-          <div className="absolute inset-0 data-flow-grid opacity-10" />
+          <div className="absolute inset-0 neural-grid opacity-[0.12]" />
+          <div className="absolute inset-0 data-flow-grid opacity-[0.08]" />
           
           {/* Professional Running Glares */}
           <div 
@@ -42,10 +43,6 @@ export default function Home() {
           <div 
             className="running-glare bottom-[-20%] right-[-10%] w-[1000px] h-[1000px] bg-accent/5" 
             style={{ animationDelay: '-5s', animationDuration: '25s' }} 
-          />
-          <div 
-            className="running-glare top-[30%] right-[15%] w-[600px] h-[600px] bg-primary/5" 
-            style={{ animationDelay: '-10s', animationDuration: '30s' }} 
           />
 
           {/* Logic Scan Subsystem */}

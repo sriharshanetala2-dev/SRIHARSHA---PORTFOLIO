@@ -18,22 +18,22 @@ const timelineItems = [
   {
     id: "01",
     type: "work",
-    role: "Full Stack & AI Developer",
+    role: "Java Full Stack Developer",
     company: "NxtWave Academy",
     period: "2025 — 2026",
-    description: "Architecting enterprise systems with Java 21, Spring Boot, and Neural Orchestration. Integrating Claude 3.5, Gemini 2.0, and GPT-4o for high-performance task automation.",
-    icon: BrainCircuit,
-    tags: ["Java", "Claude", "Gemini", "n8n"]
+    description: "Architecting high-performance enterprise systems with Java 21, Spring Boot, and PostgreSQL. Mastering the orchestration of complex full-stack ecosystems.",
+    icon: Code2,
+    tags: ["Java 21", "Spring Boot", "SQL", "Next.js"]
   },
   {
     id: "02",
     type: "work",
     role: "Generative AI Specialist",
-    company: "AI Buildathons",
+    company: "AI Buildathons & Academy",
     period: "2025 — 2026",
-    description: "Developing autonomous agents and semantic search pipelines using Google Genkit. Mastery of LLM workflow orchestration and Python logic cores.",
-    icon: Workflow,
-    tags: ["Genkit", "n8n", "GPT-4o", "Python"]
+    description: "Developing autonomous task agents and semantic intent layers using Google Genkit, Claude 3.5, and Gemini 2.0. Expert in n8n logic workflow automation.",
+    icon: BrainCircuit,
+    tags: ["Genkit", "Claude 3.5", "Gemini", "n8n"]
   },
   {
     id: "03",
@@ -41,9 +41,9 @@ const timelineItems = [
     role: "Full Stack Software Developer",
     company: "Independent Projects",
     period: "2024 — 2025",
-    description: "Building responsive Next.js applications with atomic SQL backend cores. Expertise in TypeScript and high-speed Firebase data synchronization.",
-    icon: Code2,
-    tags: ["Next.js", "SQL", "Firebase", "TS"]
+    description: "Building responsive digital platforms with React, Node.js, and Python. Focusing on atomic data mutations and real-time interface logic.",
+    icon: Layers,
+    tags: ["React", "Python", "Firebase", "TS"]
   },
   {
     id: "04",
@@ -51,9 +51,9 @@ const timelineItems = [
     role: "B.Sc in Computer Science",
     institution: "Glocal University",
     period: "Academic Registry",
-    description: "Mastery of computational logic, data structures, and systems engineering. Graduated with honors in Computer Science foundation.",
+    description: "Mastery of core computational logic, data structures, and systems engineering principles. Graduated with honors in Computer Science foundation.",
     icon: GraduationCap,
-    tags: ["CS Core", "Systems Design"]
+    tags: ["CS Core", "Systems Design", "Logic"]
   },
   {
     id: "05",
@@ -61,9 +61,9 @@ const timelineItems = [
     role: "Intermediate Education",
     institution: "SRR & CVR Govt Jr College",
     period: "Pre-University Registry",
-    description: "Advanced computational mathematics and algorithmic logic foundation. Specialized in structured logical registry.",
+    description: "Advanced computational mathematics and algorithmic foundation. Specialized in structured logical registry and logic processing.",
     icon: BookOpen,
-    tags: ["Logic", "Mathematics"]
+    tags: ["Mathematics", "Logic", "Registry"]
   },
   {
     id: "06",
@@ -71,7 +71,7 @@ const timelineItems = [
     role: "Secondary School Certificate",
     institution: "Christ the King High School",
     period: "Foundational Registry",
-    description: "Initial academic registry and logic processing foundations.",
+    description: "Initial academic registry and foundational logic processing. Established the core mathematical baseline for engineering.",
     icon: History,
     tags: ["SSC", "Foundational"]
   }
@@ -86,20 +86,21 @@ export function ProfessionalTimeline() {
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="px-6 py-2 rounded-full bg-primary/10 border border-primary/20 text-[10px] sm:text-xs font-black text-primary uppercase tracking-[0.5em] flex items-center gap-3 shadow-lg"
+            className="px-6 py-2 rounded-full bg-primary/10 border border-primary/20 text-xs font-black text-primary uppercase tracking-[0.5em] flex items-center gap-3 shadow-lg"
           >
             <Terminal className="w-4 h-4" />
             PROFESSIONAL GROWTH REGISTRY
           </motion.div>
-          <h2 className="text-4xl sm:text-6xl md:text-7xl font-headline font-black tracking-tighter uppercase leading-none">
+          <h2 className="text-4xl sm:text-7xl md:text-8xl font-headline font-black tracking-tighter uppercase leading-none">
             TECHNICAL <span className="text-gradient">JOURNEY</span>
           </h2>
-          <p className="text-muted-foreground max-w-2xl text-xs sm:text-lg font-bold opacity-70 uppercase tracking-[0.2em] leading-relaxed">
-            A chronological mapping of professional milestones, academic registries, and elite AI systems integration.
+          <p className="text-muted-foreground max-w-2xl text-[10px] sm:text-lg font-bold opacity-70 uppercase tracking-[0.2em] leading-relaxed">
+            A chronological mapping of professional milestones, academic registries, and elite systems integration.
           </p>
         </div>
 
         <div className="relative space-y-8 sm:space-y-12 max-w-5xl mx-auto">
+          {/* Vertical Spine */}
           <div className="absolute left-10 sm:left-14 top-0 bottom-0 w-px bg-border/40 hidden md:block" />
 
           {timelineItems.map((item, idx) => (
@@ -112,8 +113,9 @@ export function ProfessionalTimeline() {
               className="relative group"
             >
               <div className="flex flex-col md:flex-row gap-8 md:gap-20 items-start">
+                {/* Node Identifier */}
                 <div className="flex items-center gap-6 md:w-40 shrink-0 relative z-10">
-                  <div className="text-[10px] font-black text-primary/40 tracking-widest uppercase hidden md:block whitespace-nowrap">
+                  <div className="text-xs font-black text-primary/40 tracking-widest uppercase hidden md:block whitespace-nowrap">
                     NODE_{item.id}
                   </div>
                   <div className="p-4 sm:p-5 rounded-2xl bg-secondary group-hover:bg-primary text-primary group-hover:text-primary-foreground transition-all duration-500 shadow-2xl border-2 border-border/50 group-hover:border-primary group-hover:scale-110">
@@ -121,6 +123,7 @@ export function ProfessionalTimeline() {
                   </div>
                 </div>
 
+                {/* Registry Card */}
                 <div className="flex-1 glass-card p-8 sm:p-14 rounded-[2.5rem] hover:border-primary/60 transition-all shadow-3xl relative overflow-hidden group-hover:bg-card/70 group-hover:translate-x-2">
                   <div className="absolute -top-10 -right-10 p-20 opacity-5 group-hover:opacity-10 transition-opacity pointer-events-none">
                     <Activity className="w-24 h-24" />
@@ -129,7 +132,7 @@ export function ProfessionalTimeline() {
                   <div className="space-y-8 relative z-10">
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
                       <div className="space-y-2">
-                        <div className="flex items-center gap-3 text-[10px] font-black text-primary uppercase tracking-[0.4em] opacity-80">
+                        <div className="flex items-center gap-3 text-xs font-black text-primary uppercase tracking-[0.4em] opacity-80">
                           <CheckCircle2 className="w-4 h-4" />
                           {item.period}
                         </div>
@@ -137,7 +140,7 @@ export function ProfessionalTimeline() {
                           {item.role}
                         </h3>
                       </div>
-                      <div className="text-[10px] sm:text-xs font-black uppercase tracking-[0.3em] text-muted-foreground bg-secondary/80 px-5 py-2.5 rounded-xl border border-border shadow-inner w-fit">
+                      <div className="text-xs font-black uppercase tracking-[0.3em] text-muted-foreground bg-secondary/80 px-5 py-2.5 rounded-xl border border-border shadow-inner w-fit">
                         {item.type === 'work' ? item.company : item.institution}
                       </div>
                     </div>
@@ -148,7 +151,7 @@ export function ProfessionalTimeline() {
 
                     <div className="flex flex-wrap gap-3">
                       {item.tags.map(tag => (
-                        <span key={tag} className="px-5 py-2.5 bg-background/50 border border-border rounded-xl text-[9px] sm:text-xs font-black uppercase tracking-widest opacity-70 shadow-sm">
+                        <span key={tag} className="px-5 py-2.5 bg-background/50 border border-border rounded-xl text-xs font-black uppercase tracking-widest opacity-70 shadow-sm">
                           {tag}
                         </span>
                       ))}
