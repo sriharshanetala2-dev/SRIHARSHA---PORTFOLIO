@@ -19,7 +19,7 @@ const navLinks = [
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const { theme, setTheme } = useTheme();
+  const { theme, setTheme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -28,6 +28,10 @@ export function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const toggleTheme = () => {
+    setTheme(resolvedTheme === "dark" ? "light" : "dark");
+  };
 
   return (
     <nav className={cn(
@@ -64,11 +68,11 @@ export function Navbar() {
           <div className="h-6 w-px bg-border" />
           
           <button 
-            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+            onClick={toggleTheme}
             className="p-2 rounded-lg hover:bg-secondary transition-colors"
             aria-label="Toggle Theme"
           >
-            {mounted && (theme === 'dark' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />)}
+            {mounted && (resolvedTheme === 'dark' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />)}
           </button>
           
           <a 
@@ -81,10 +85,10 @@ export function Navbar() {
 
         <div className="flex items-center gap-2 sm:gap-3 lg:hidden">
           <button 
-            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+            onClick={toggleTheme}
             className="p-1.5 sm:p-2 rounded-lg hover:bg-secondary transition-colors"
           >
-            {mounted && (theme === 'dark' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />)}
+            {mounted && (resolvedTheme === 'dark' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />)}
           </button>
           <button 
             className="p-1.5 sm:p-2 rounded bg-secondary text-foreground border border-border"
