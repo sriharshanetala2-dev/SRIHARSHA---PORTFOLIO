@@ -74,9 +74,11 @@
   100% { transform: translateX(250%) skewX(-30deg); opacity: 0; }
 }
 
-@keyframes data-pulse {
-  0%, 100% { opacity: 0.15; transform: scale(1); }
-  50% { opacity: 0.35; transform: scale(1.05); }
+@keyframes glare-movement {
+  0% { transform: translate(-10%, -10%) scale(1); opacity: 0.2; }
+  33% { transform: translate(15%, 5%) scale(1.1); opacity: 0.4; }
+  66% { transform: translate(-5%, 15%) scale(0.9); opacity: 0.3; }
+  100% { transform: translate(-10%, -10%) scale(1); opacity: 0.2; }
 }
 
 .neural-grid {
@@ -95,6 +97,11 @@
   background: linear-gradient(to right, transparent, hsl(var(--primary) / 0.15), transparent);
   animation: logic-sweep 10s cubic-bezier(0.4, 0, 0.2, 1) infinite;
   pointer-events: none;
+}
+
+.running-glare {
+  @apply absolute rounded-full blur-[150px] pointer-events-none mix-blend-screen;
+  animation: glare-movement 20s ease-in-out infinite;
 }
 
 .shimmer-text {

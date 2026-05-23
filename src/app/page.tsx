@@ -30,10 +30,29 @@ export default function Home() {
       <div className="min-h-screen bg-background relative overflow-x-hidden">
         {/* Kinetic Industrial Background Subsystem */}
         <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+          {/* Base Grid Layers */}
           <div className="absolute inset-0 neural-grid opacity-[0.15]" />
-          <div className="absolute inset-0 logic-scan-line" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] bg-primary/5 rounded-full blur-[180px] animate-pulse" />
           <div className="absolute inset-0 data-flow-grid opacity-10" />
+          
+          {/* Professional Running Glares */}
+          <div 
+            className="running-glare top-[-10%] left-[-10%] w-[800px] h-[800px] bg-primary/10" 
+            style={{ animationDelay: '0s' }} 
+          />
+          <div 
+            className="running-glare bottom-[-20%] right-[-10%] w-[1000px] h-[1000px] bg-accent/5" 
+            style={{ animationDelay: '-5s', animationDuration: '25s' }} 
+          />
+          <div 
+            className="running-glare top-[30%] right-[15%] w-[600px] h-[600px] bg-primary/5" 
+            style={{ animationDelay: '-10s', animationDuration: '30s' }} 
+          />
+
+          {/* Logic Scan Subsystem */}
+          <div className="absolute inset-0 logic-scan-line" />
+          
+          {/* Central Pulse Node */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] bg-primary/5 rounded-full blur-[180px] animate-pulse" />
         </div>
 
         <Navbar />
