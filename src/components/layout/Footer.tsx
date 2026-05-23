@@ -9,16 +9,20 @@ export function Footer() {
 
   return (
     <footer className="py-16 sm:py-32 px-4 sm:px-8 border-t border-border bg-transparent relative overflow-hidden">
-      {/* Neural Lens Effect Subsystem - High Intensity Refraction */}
-      <div className="absolute inset-0 bg-primary/10 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] pointer-events-none" />
+      {/* Professional Horizon Flux Subsystem */}
+      <div className="absolute inset-0 bg-gradient-to-t from-primary/5 to-transparent pointer-events-none" />
       
-      {/* Anamorphic Glow Layers */}
-      <div className="absolute -top-24 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[120px] pointer-events-none animate-pulse" />
-      <div className="absolute -bottom-24 right-1/4 w-96 h-96 bg-accent/15 rounded-full blur-[120px] pointer-events-none" />
+      {/* Static Logic Nodes */}
+      <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/30 to-transparent opacity-50" />
       
-      {/* High-Luminance Anamorphic Streak */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[400px] bg-primary/10 rounded-[100%] blur-[140px] pointer-events-none rotate-12" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1px] bg-gradient-to-r from-transparent via-primary/40 to-transparent pointer-events-none -rotate-12" />
+      {/* Deep Atmospheric Glows */}
+      <div className="absolute -bottom-48 left-1/2 -translate-x-1/2 w-[120%] h-96 bg-primary/10 rounded-[100%] blur-[120px] pointer-events-none" />
+      <div className="absolute -bottom-24 left-1/4 w-64 h-64 bg-accent/10 rounded-full blur-[100px] pointer-events-none animate-pulse" />
+      
+      {/* Local Logic Scan Sweep */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-0 left-0 w-[200%] h-full bg-[linear-gradient(45deg,transparent_25%,rgba(var(--primary),0.05)_50%,transparent_75%)] bg-[length:250%_250%] animate-[shimmer_15s_infinite_linear] opacity-30" />
+      </div>
       
       <div className="max-w-7xl mx-auto space-y-12 sm:space-y-16 relative z-10">
         <div className="flex flex-col md:flex-row items-center justify-between gap-10 sm:gap-16">
