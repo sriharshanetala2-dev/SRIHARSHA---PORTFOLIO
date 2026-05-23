@@ -16,7 +16,7 @@ export function Hero() {
   };
 
   const item = {
-    hidden: { opacity: 0, y: 50 },
+    hidden: { opacity: 0, y: 30 },
     show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100, damping: 25 } }
   };
 
@@ -37,7 +37,7 @@ export function Hero() {
         <motion.div variants={container} initial="hidden" animate="show" className="space-y-10 sm:space-y-14">
           <motion.h1
             variants={item}
-            className="text-4xl sm:text-7xl md:text-8xl lg:text-9xl font-headline font-black tracking-tighter leading-[0.9] uppercase shimmer-text"
+            className="text-4xl sm:text-7xl md:text-8xl lg:text-9xl font-headline font-black tracking-tighter leading-[0.95] uppercase shimmer-text"
           >
             ENGINEERING <br className="hidden sm:block" />
             <span className="text-gradient">NEURAL</span> ECOSYSTEMS
@@ -47,7 +47,7 @@ export function Hero() {
             variants={item}
             className="max-w-5xl mx-auto space-y-12 px-4"
           >
-            <p className="text-base sm:text-2xl lg:text-3xl text-foreground font-black uppercase tracking-tight leading-relaxed opacity-100">
+            <p className="text-base sm:text-2xl lg:text-3xl text-foreground font-black uppercase tracking-tight leading-relaxed">
               Designing high-performance digital environments by merging <span className="text-primary underline underline-offset-8">Full Stack Integrity</span> with autonomous <span className="text-primary underline underline-offset-8">Neural Orchestration</span>.
             </p>
             <div className="space-y-8">
@@ -55,7 +55,7 @@ export function Hero() {
                 Mastery in assembling enterprise-grade digital kernels using <span className="text-foreground">Next.js, Spring Boot, and Flutter</span>, synchronized with AI agents across 
                 <span className="text-primary"> Claude 3.5, Gemini 2.0, GPT-4o, and n8n</span>.
               </p>
-              <p className="text-[10px] sm:text-xs lg:text-sm text-primary/80 font-black uppercase tracking-[0.8em] animate-pulse">
+              <p className="text-[10px] sm:text-xs lg:text-sm text-primary/80 font-black uppercase tracking-[0.8em]">
                 FOUNDATION: JAVA // PYTHON // SQL // B.SC COMPUTER SCIENCE
               </p>
             </div>
@@ -78,7 +78,7 @@ export function Hero() {
             </a>
             <a
               href="#contact"
-              className="flex items-center justify-center gap-6 px-12 py-7 rounded-2xl bg-secondary text-foreground font-black text-xs tracking-[0.5em] uppercase border-2 border-border hover:border-primary/50 transition-all shadow-3xl backdrop-blur-xl"
+              className="flex items-center justify-center gap-6 px-12 py-7 rounded-2xl bg-secondary/50 text-foreground font-black text-xs tracking-[0.5em] uppercase border-2 border-border hover:border-primary/50 transition-all shadow-3xl backdrop-blur-xl"
             >
               SYSTEM SYNC
               <Zap className="w-5 h-5 text-primary" />
@@ -86,7 +86,7 @@ export function Hero() {
           </div>
 
           <motion.div
-            animate={{ y: [0, 20, 0] }}
+            animate={{ y: [0, 15, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
             className="flex flex-col items-center gap-6 opacity-40 pt-16"
           >

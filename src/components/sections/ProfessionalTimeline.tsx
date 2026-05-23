@@ -10,8 +10,7 @@ import {
   History,
   Terminal,
   Activity,
-  CheckCircle2,
-  Workflow
+  CheckCircle2
 } from "lucide-react";
 
 const timelineItems = [
@@ -106,7 +105,7 @@ export function ProfessionalTimeline() {
           {timelineItems.map((item, idx) => (
             <motion.div
               key={item.id}
-              initial={{ opacity: 0, x: -50 }}
+              initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ delay: idx * 0.1, duration: 0.8, type: "spring", stiffness: 80 }}
               viewport={{ once: true }}
@@ -118,14 +117,14 @@ export function ProfessionalTimeline() {
                   <div className="text-[11px] font-black text-primary/50 tracking-widest uppercase hidden md:block whitespace-nowrap">
                     NODE_{item.id}
                   </div>
-                  <div className="p-5 sm:p-6 rounded-2xl bg-secondary group-hover:bg-primary text-primary group-hover:text-primary-foreground transition-all duration-700 shadow-4xl border-2 border-border group-hover:border-primary group-hover:scale-110 group-hover:rotate-6">
+                  <div className="p-5 sm:p-6 rounded-2xl bg-secondary group-hover:bg-primary text-primary group-hover:text-primary-foreground transition-all duration-700 shadow-4xl border-2 border-border group-hover:border-primary group-hover:scale-110">
                     <item.icon className="w-7 h-7 sm:w-8 sm:h-8" />
                   </div>
                 </div>
 
                 {/* Registry Card */}
-                <div className="flex-1 glass-card p-10 sm:p-16 rounded-[3rem] hover:border-primary/70 transition-all shadow-4xl relative overflow-hidden group-hover:bg-card/80 group-hover:translate-x-3">
-                  <div className="absolute -top-12 -right-12 p-24 opacity-10 group-hover:opacity-20 transition-opacity pointer-events-none">
+                <div className="flex-1 glass-card p-10 sm:p-16 rounded-[3rem] hover:border-primary/70 transition-all shadow-4xl relative overflow-hidden group-hover:bg-card/80">
+                  <div className="absolute -top-12 -right-12 p-24 opacity-5 group-hover:opacity-10 transition-opacity pointer-events-none">
                     <Activity className="w-32 h-32" />
                   </div>
 
@@ -140,7 +139,7 @@ export function ProfessionalTimeline() {
                           {item.role}
                         </h3>
                       </div>
-                      <div className="text-[11px] font-black uppercase tracking-[0.4em] text-muted-foreground bg-secondary/90 px-6 py-3 rounded-2xl border-2 border-border shadow-inner w-fit">
+                      <div className="text-[11px] font-black uppercase tracking-[0.4em] text-muted-foreground bg-secondary/80 px-6 py-3 rounded-2xl border-2 border-border shadow-inner w-fit">
                         {item.type === 'work' ? item.company : item.institution}
                       </div>
                     </div>
@@ -151,7 +150,7 @@ export function ProfessionalTimeline() {
 
                     <div className="flex flex-wrap gap-4">
                       {item.tags.map(tag => (
-                        <span key={tag} className="px-6 py-3 bg-background/60 border-2 border-border rounded-xl text-xs font-black uppercase tracking-widest opacity-90 shadow-lg hover:border-primary transition-colors">
+                        <span key={tag} className="px-6 py-3 bg-background/50 border-2 border-border rounded-xl text-xs font-black uppercase tracking-widest opacity-90 shadow-lg hover:border-primary transition-colors">
                           {tag}
                         </span>
                       ))}
