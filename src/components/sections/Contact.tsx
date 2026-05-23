@@ -17,23 +17,27 @@ export function Contact() {
   const userEmail = "sriharshanetala2@gmail.com";
   const userPhone = "+91 9346759263";
 
-  // Direct Gmail compose link logic
+  // Direct Gmail compose link
   const gmailComposeUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${userEmail}`;
 
   const copyPhone = () => {
     navigator.clipboard.writeText(userPhone);
     setCopiedPhone(true);
     setTimeout(() => setCopiedPhone(false), 2000);
-    toast({ description: "Registry data copied to clipboard." });
+    toast({ 
+      title: "Registry Data Copied",
+      description: "Mobile subsystem digits copied to clipboard." 
+    });
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    toast({ title: "Initializing Communication Subsystem", description: "Drafting payload in Gmail module..." });
+    toast({ title: "Initializing Communication", description: "Synchronizing data with Gmail module..." });
     
     setTimeout(() => {
+      // Logic for pre-filled Gmail compose
       const mailUrl = `${gmailComposeUrl}&su=Inquiry from Portfolio: ${formData.name}&body=${encodeURIComponent(formData.message)}`;
       window.open(mailUrl, '_blank');
       setIsSubmitting(false);
@@ -52,9 +56,9 @@ export function Contact() {
           className="space-y-12"
         >
           <div className="space-y-8 text-center lg:text-left">
-            <div className="inline-flex items-center gap-3 px-6 py-2.5 rounded-full bg-primary/10 border-2 border-primary/20 text-[11px] font-black text-primary uppercase tracking-[0.5em] mx-auto lg:mx-0 shadow-lg">
+            <div className="inline-flex items-center gap-3 px-6 py-2.5 rounded-full bg-primary/10 border-2 border-primary/20 text-xs font-black text-primary uppercase tracking-[0.5em] mx-auto lg:mx-0 shadow-lg">
               <Mail className="w-5 h-5" />
-              Collaboration Node
+              Collaboration Hub
             </div>
             <h2 className="text-4xl sm:text-7xl font-headline font-black tracking-tighter leading-none uppercase shimmer-text">
               LET'S <span className="text-gradient">CONNECT</span>
@@ -92,7 +96,9 @@ export function Contact() {
                 <p className="text-[10px] font-black uppercase text-primary tracking-[0.4em] mb-2 opacity-60">Mobile Subsystem</p>
                 <p className="font-black text-xs sm:text-xl tracking-widest uppercase">{userPhone}</p>
               </div>
-              {copiedPhone ? <Check className="w-6 h-6 text-green-500" /> : <Copy className="w-6 h-6 opacity-20 group-hover:opacity-100 transition-opacity" />}
+              <div className="flex items-center gap-3">
+                {copiedPhone ? <Check className="w-6 h-6 text-green-500" /> : <Copy className="w-6 h-6 opacity-20 group-hover:opacity-100 transition-opacity" />}
+              </div>
             </div>
           </div>
         </motion.div>
@@ -107,10 +113,10 @@ export function Contact() {
           <form onSubmit={handleSubmit} className="space-y-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="space-y-3">
-                <label className="text-[11px] font-black uppercase text-muted-foreground tracking-[0.4em] ml-2">Full Name</label>
+                <label className="text-xs font-black uppercase text-muted-foreground tracking-[0.4em] ml-2">Full Name</label>
                 <div className="relative">
                   <Input 
-                    placeholder="IDENTITY" 
+                    placeholder="ENTER NAME" 
                     required
                     className="bg-background border-2 border-border focus:ring-primary h-16 rounded-2xl text-sm font-black pl-14 shadow-inner uppercase tracking-widest"
                     value={formData.name}
@@ -121,11 +127,11 @@ export function Contact() {
                 </div>
               </div>
               <div className="space-y-3">
-                <label className="text-[11px] font-black uppercase text-muted-foreground tracking-[0.4em] ml-2">Email Address</label>
+                <label className="text-xs font-black uppercase text-muted-foreground tracking-[0.4em] ml-2">Email Address</label>
                 <div className="relative">
                   <Input 
                     type="email" 
-                    placeholder="ENDPOINT" 
+                    placeholder="ENTER EMAIL" 
                     required
                     className="bg-background border-2 border-border focus:ring-primary h-16 rounded-2xl text-sm font-black pl-14 shadow-inner uppercase tracking-widest"
                     value={formData.email}
@@ -137,9 +143,9 @@ export function Contact() {
               </div>
             </div>
             <div className="space-y-3">
-              <label className="text-[11px] font-black uppercase text-muted-foreground tracking-[0.4em] ml-2">Message</label>
+              <label className="text-xs font-black uppercase text-muted-foreground tracking-[0.4em] ml-2">Message</label>
               <Textarea 
-                placeholder="DATA PAYLOAD..." 
+                placeholder="TYPE YOUR MESSAGE..." 
                 className="min-h-[180px] bg-background border-2 border-border focus:ring-primary p-8 resize-none rounded-[2rem] text-sm font-black leading-relaxed shadow-inner uppercase tracking-tight"
                 required
                 value={formData.message}
@@ -149,7 +155,7 @@ export function Contact() {
             </div>
             <Button 
               type="submit" 
-              className="w-full h-20 rounded-full font-black uppercase tracking-[0.5em] text-[12px] gap-4 shadow-3xl transition-all bg-primary text-primary-foreground hover:scale-[1.02] active:scale-95 shadow-primary/30"
+              className="w-full h-20 rounded-full font-black uppercase tracking-[0.5em] text-xs gap-4 shadow-3xl transition-all bg-primary text-primary-foreground hover:scale-[1.02] active:scale-95 shadow-primary/30"
               disabled={isSubmitting}
             >
               {isSubmitting ? <Loader2 className="w-7 h-7 animate-spin" /> : <><Send className="w-6 h-6" /> Send Message</>}

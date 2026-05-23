@@ -4,9 +4,9 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 210 40% 98%;
     --foreground: 222 47% 11%;
-    --card: 0 0% 98%;
+    --card: 0 0% 100%;
     --card-foreground: 222 47% 11%;
     --popover: 0 0% 100%;
     --popover-foreground: 222 47% 11%;
@@ -54,7 +54,7 @@
     @apply border-border outline-none;
   }
   body {
-    @apply bg-background text-foreground font-body antialiased;
+    @apply bg-background text-foreground font-body antialiased transition-colors duration-500;
   }
   /* Absolute Upright Typography Policy */
   em, i, .italic, [style*="italic"] {
@@ -111,7 +111,7 @@
 }
 
 .glass-card {
-  @apply bg-card/60 backdrop-blur-xl border border-border shadow-2xl;
+  @apply bg-card/60 backdrop-blur-xl border border-border shadow-2xl transition-all duration-300;
 }
 
 .data-flow-grid {
@@ -127,4 +127,12 @@
 }
 ::-webkit-scrollbar-thumb {
   @apply bg-primary/20 rounded-full hover:bg-primary/40 transition-colors;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

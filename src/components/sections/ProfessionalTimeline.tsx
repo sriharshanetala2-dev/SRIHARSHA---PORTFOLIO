@@ -1,10 +1,8 @@
-
 "use client";
 
 import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
 import { 
-  Briefcase, 
   Code2, 
   BrainCircuit, 
   Layers, 
@@ -61,7 +59,7 @@ const timelineItems = [
     role: "Secondary School Certificate",
     institution: "Christ the King High School",
     period: "Foundation Registry",
-    description: "Initial academic registry and logic processing foundation.",
+    description: "Initial academic registry and foundational logic processing foundation (SSC).",
     icon: History
   }
 ];
@@ -90,7 +88,7 @@ export function ProfessionalTimeline() {
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-3 px-6 py-2 rounded-full bg-primary/10 border border-primary/20 text-[10px] sm:text-xs font-black text-primary uppercase tracking-[0.2em]"
+            className="inline-flex items-center gap-3 px-6 py-2 rounded-full bg-primary/10 border border-primary/20 text-xs font-black text-primary uppercase tracking-[0.2em]"
           >
             <Activity className="w-4 h-4" />
             Growth Matrix & Academic Registry
@@ -99,7 +97,7 @@ export function ProfessionalTimeline() {
             TECHNICAL <span className="text-gradient">JOURNEY</span>
           </h2>
           <p className="text-sm sm:text-lg text-muted-foreground font-black max-w-2xl mx-auto opacity-60 uppercase tracking-widest leading-relaxed">
-            A unified timeline of professional milestones and foundational academic registries.
+            A unified chronological timeline of professional milestones and foundational academic registries.
           </p>
         </div>
 

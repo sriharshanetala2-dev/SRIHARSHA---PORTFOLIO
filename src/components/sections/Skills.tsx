@@ -43,7 +43,7 @@ export function Skills() {
   };
 
   return (
-    <section id="skills" className="py-20 sm:py-24 px-4 sm:px-6 relative overflow-hidden bg-background">
+    <section id="skills" className="py-20 sm:py-32 px-4 sm:px-6 relative overflow-hidden bg-background">
       <div className="absolute inset-0 data-flow-grid opacity-[0.03] pointer-events-none" />
       <div className="max-w-7xl mx-auto space-y-12 sm:space-y-16">
         <div className="text-center space-y-4 sm:space-y-6">
@@ -54,13 +54,13 @@ export function Skills() {
             className="inline-flex items-center gap-3 px-6 py-2 rounded-full bg-primary/10 text-xs font-black text-primary uppercase tracking-widest border border-primary/20 mx-auto"
           >
             <Cpu className="w-4 h-4" />
-            Engineering Stack
+            Engineering Registry
           </motion.div>
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl sm:text-5xl font-headline font-black tracking-tighter uppercase leading-none"
+            className="text-3xl sm:text-6xl font-headline font-black tracking-tighter uppercase leading-none"
           >
             TECHNICAL <span className="text-primary">CAPABILITIES</span>
           </motion.h2>
@@ -70,7 +70,7 @@ export function Skills() {
             viewport={{ once: true }}
             className="text-xs sm:text-sm text-muted-foreground max-w-2xl mx-auto leading-relaxed font-bold opacity-60 uppercase tracking-widest px-4"
           >
-            A high-density mapping of my software development toolkit and core systems engineering foundation.
+            Professional normalized mapping of software development toolkit and core systems engineering foundation.
           </motion.p>
         </div>
 
@@ -100,7 +100,7 @@ export function Skills() {
                   </div>
                   <div className="space-y-2">
                     <div className="flex justify-between items-center text-[10px] font-black uppercase tracking-widest opacity-50">
-                      <span>Expertise</span>
+                      <span>Integrity Level</span>
                       <span>{skill.level}</span>
                     </div>
                     <div className="h-2 w-full bg-primary/10 rounded-full overflow-hidden shadow-inner">
@@ -132,7 +132,7 @@ export function Skills() {
           ].map(type => (
             <div key={type.label} className="flex items-center gap-2">
               <div className={cn("w-2 h-2 rounded-full", type.color)} />
-              <span className="text-[10px] font-black uppercase tracking-widest whitespace-nowrap">{type.label}</span>
+              <span className="text-xs font-black uppercase tracking-widest whitespace-nowrap">{type.label}</span>
             </div>
           ))}
         </motion.div>
