@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -37,7 +37,6 @@ export function Contact() {
 
   return (
     <section id="contact" className="py-24 sm:py-48 px-6 relative overflow-hidden bg-background border-t-2 border-border scroll-mt-20">
-      {/* Decorative Isolation Layer - Locked Interaction */}
       <div className="absolute inset-0 pointer-events-none z-0">
         <div className="absolute inset-0 neural-grid opacity-[0.03] dark:opacity-[0.1]" />
         <div className="logic-scan-subsystem opacity-[0.05] dark:opacity-[0.2]" />

@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { motion } from "framer-motion";
 import { 
@@ -9,7 +9,6 @@ import {
   BookOpen, 
   History,
   Terminal,
-  Activity,
   CheckCircle2
 } from "lucide-react";
 
