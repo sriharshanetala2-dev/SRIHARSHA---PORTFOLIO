@@ -1,11 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, Send, Phone, Copy, Check, Loader2, User, ExternalLink, ShieldCheck } from "lucide-react";
+import { Mail, Send, Phone, Copy, Check, Loader2, User, ExternalLink, ShieldCheck, Activity } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 export function Contact() {
@@ -45,109 +45,130 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 sm:py-40 px-6 relative overflow-hidden bg-background border-t-2 border-border scroll-mt-20">
-      <div className="absolute inset-0 data-flow-grid opacity-5 pointer-events-none" />
+    <section id="contact" className="py-24 sm:py-48 px-6 relative overflow-hidden bg-background border-t-2 border-border scroll-mt-20">
+      <div className="absolute inset-0 neural-grid opacity-5 pointer-events-none" />
+      <div className="absolute inset-0 logic-scan-subsystem opacity-20 pointer-events-none" />
       
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 sm:gap-32 relative z-10">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 sm:gap-40 relative z-10">
         <motion.div 
-          initial={{ opacity: 0, x: -40 }}
+          initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 1, type: "spring" }}
           viewport={{ once: true }}
-          className="space-y-16"
+          className="space-y-20 sm:space-y-32"
         >
-          <div className="space-y-8 text-center lg:text-left">
-            <div className="inline-flex items-center gap-4 px-6 py-2.5 rounded-full bg-primary/10 border border-primary/20 text-xs font-black text-primary uppercase tracking-[0.5em] mx-auto lg:mx-0 shadow-2xl backdrop-blur-sm">
-              <ShieldCheck className="w-5 h-5" />
+          <div className="space-y-12 text-center lg:text-left">
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              className="inline-flex items-center gap-4 px-8 py-3 rounded-full bg-primary/15 border-2 border-primary/25 text-[10px] sm:text-[11px] font-black text-primary uppercase tracking-[0.6em] mx-auto lg:mx-0 shadow-2xl backdrop-blur-xl"
+            >
+              <ShieldCheck className="w-5 h-5 animate-pulse" />
               COLLABORATION HUB
-            </div>
-            <h2 className="text-4xl sm:text-7xl font-headline font-black tracking-tighter leading-none uppercase shimmer-text">
+            </motion.div>
+            <h2 className="text-4xl sm:text-7xl md:text-8xl lg:text-9xl font-headline font-black tracking-tighter leading-none uppercase shimmer-text">
               LET'S <span className="text-gradient">CONNECT</span>
             </h2>
-            <p className="text-xs sm:text-lg text-muted-foreground leading-relaxed max-w-lg font-bold uppercase tracking-[0.2em] opacity-80 mx-auto lg:mx-0">
+            <p className="text-sm sm:text-xl lg:text-2xl text-muted-foreground leading-relaxed max-w-2xl font-bold uppercase tracking-[0.2em] opacity-90 mx-auto lg:mx-0">
               Direct recruitment and project synchronization available. Optimized for high-performance development partnerships.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-8">
-            <a 
+          <div className="grid grid-cols-1 gap-10">
+            <motion.a 
+              whileHover={{ scale: 1.02, translateX: 10 }}
               href={gmailComposeUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-8 p-10 bg-card/60 backdrop-blur-xl border border-border/50 rounded-[3rem] hover:border-primary transition-all cursor-pointer group shadow-3xl"
+              className="flex items-center gap-10 p-12 bg-card/40 backdrop-blur-3xl border-2 border-border/50 rounded-[3.5rem] hover:border-primary transition-all cursor-pointer group shadow-4xl relative overflow-hidden"
             >
-              <div className="p-5 rounded-2xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all shadow-inner">
-                <Mail className="w-7 h-7" />
+              <div className="absolute top-0 right-0 p-10 opacity-5 group-hover:opacity-10 transition-opacity"><Activity className="w-24 h-24" /></div>
+              <div className="p-6 rounded-[1.5rem] bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500 shadow-inner border border-primary/20">
+                <Mail className="w-8 h-8" />
               </div>
               <div className="flex-1 min-w-0">
-                <p className="text-[10px] font-black uppercase text-primary tracking-[0.5em] mb-2 opacity-60">PRIMARY ENDPOINT</p>
-                <p className="font-black text-xs sm:text-2xl truncate tracking-widest uppercase">{userEmail}</p>
+                <p className="text-[10px] font-black uppercase text-primary tracking-[0.6em] mb-3 opacity-60">PRIMARY ENDPOINT</p>
+                <p className="font-black text-xs sm:text-3xl truncate tracking-tight uppercase leading-none">{userEmail}</p>
               </div>
-              <ExternalLink className="w-6 h-6 opacity-20 group-hover:opacity-100 transition-opacity" />
-            </a>
+              <ExternalLink className="w-8 h-8 opacity-20 group-hover:opacity-100 transition-all group-hover:translate-x-2" />
+            </motion.a>
 
-            <div 
+            <motion.div 
+              whileHover={{ scale: 1.02, translateX: 10 }}
               onClick={copyPhone}
-              className="flex items-center gap-8 p-10 bg-card/60 backdrop-blur-xl border border-border/50 rounded-[3rem] hover:border-primary transition-all cursor-pointer group shadow-3xl"
+              className="flex items-center gap-10 p-12 bg-card/40 backdrop-blur-3xl border-2 border-border/50 rounded-[3.5rem] hover:border-primary transition-all cursor-pointer group shadow-4xl relative overflow-hidden"
             >
-              <div className="p-5 rounded-2xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all shadow-inner">
-                <Phone className="w-7 h-7" />
+              <div className="absolute top-0 right-0 p-10 opacity-5 group-hover:opacity-10 transition-opacity"><Activity className="w-24 h-24 rotate-90" /></div>
+              <div className="p-6 rounded-[1.5rem] bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500 shadow-inner border border-primary/20">
+                <Phone className="w-8 h-8" />
               </div>
               <div className="flex-1 min-w-0">
-                <p className="text-[10px] font-black uppercase text-primary tracking-[0.5em] mb-2 opacity-60">MOBILE SUBSYSTEM</p>
-                <p className="font-black text-xs sm:text-2xl tracking-widest uppercase">{userPhone}</p>
+                <p className="text-[10px] font-black uppercase text-primary tracking-[0.6em] mb-3 opacity-60">MOBILE SUBSYSTEM</p>
+                <p className="font-black text-xs sm:text-3xl tracking-tight uppercase leading-none">{userPhone}</p>
               </div>
-              <div className="flex items-center gap-4">
-                {copiedPhone ? <Check className="w-7 h-7 text-green-500" /> : <Copy className="w-7 h-7 opacity-20 group-hover:opacity-100 transition-opacity" />}
+              <div className="flex items-center gap-6">
+                <AnimatePresence mode="wait">
+                  {copiedPhone ? (
+                    <motion.div key="checked" initial={{ scale: 0.5 }} animate={{ scale: 1 }} exit={{ scale: 0.5 }}>
+                      <Check className="w-8 h-8 text-green-500" />
+                    </motion.div>
+                  ) : (
+                    <motion.div key="copy" initial={{ scale: 0.5 }} animate={{ scale: 1 }} exit={{ scale: 0.5 }}>
+                      <Copy className="w-8 h-8 opacity-20 group-hover:opacity-100 transition-all" />
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
-            </div>
+            </motion.div>
           </div>
         </motion.div>
 
         <motion.div 
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 60 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 1, type: "spring", stiffness: 80 }}
           viewport={{ once: true }}
-          className="glass-card p-8 sm:p-16 rounded-[4rem] shadow-4xl relative"
+          className="glass-card p-10 sm:p-20 rounded-[5rem] shadow-4xl relative overflow-hidden border-2 border-border/60"
         >
-          <form onSubmit={handleSubmit} className="space-y-10">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-              <div className="space-y-4">
-                <label className="text-[10px] font-black uppercase text-muted-foreground tracking-[0.5em] ml-3">FULL NAME</label>
-                <div className="relative">
+          <div className="absolute inset-0 bg-primary/5 [mask-image:radial-gradient(circle_at_top_right,black,transparent)] pointer-events-none" />
+          
+          <form onSubmit={handleSubmit} className="space-y-12 relative z-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+              <div className="space-y-5">
+                <label className="text-[10px] sm:text-[11px] font-black uppercase text-muted-foreground tracking-[0.6em] ml-6">FULL NAME</label>
+                <div className="relative group">
                   <Input 
                     placeholder="ENTER NAME" 
                     required
-                    className="bg-background/40 border-2 border-border/50 focus:border-primary h-20 rounded-3xl text-xs font-black pl-16 shadow-inner uppercase tracking-widest transition-all"
+                    className="bg-background/40 border-2 border-border/50 focus:border-primary h-24 rounded-[2.5rem] text-xs sm:text-sm font-black pl-20 shadow-inner uppercase tracking-widest transition-all backdrop-blur-xl group-hover:bg-background/60"
                     value={formData.name}
                     onChange={(e) => setFormData({...formData, name: e.target.value})}
                     disabled={isSubmitting}
                   />
-                  <User className="absolute left-6 top-1/2 -translate-y-1/2 w-6 h-6 text-primary opacity-40" />
+                  <User className="absolute left-8 top-1/2 -translate-y-1/2 w-7 h-7 text-primary opacity-40 group-focus-within:opacity-100 transition-opacity" />
                 </div>
               </div>
-              <div className="space-y-4">
-                <label className="text-[10px] font-black uppercase text-muted-foreground tracking-[0.5em] ml-3">EMAIL ADDRESS</label>
-                <div className="relative">
+              <div className="space-y-5">
+                <label className="text-[10px] sm:text-[11px] font-black uppercase text-muted-foreground tracking-[0.6em] ml-6">EMAIL ADDRESS</label>
+                <div className="relative group">
                   <Input 
                     type="email" 
                     placeholder="ENTER EMAIL" 
                     required
-                    className="bg-background/40 border-2 border-border/50 focus:border-primary h-20 rounded-3xl text-xs font-black pl-16 shadow-inner uppercase tracking-widest transition-all"
+                    className="bg-background/40 border-2 border-border/50 focus:border-primary h-24 rounded-[2.5rem] text-xs sm:text-sm font-black pl-20 shadow-inner uppercase tracking-widest transition-all backdrop-blur-xl group-hover:bg-background/60"
                     value={formData.email}
                     onChange={(e) => setFormData({...formData, email: e.target.value})}
                     disabled={isSubmitting}
                   />
-                  <Mail className="absolute left-6 top-1/2 -translate-y-1/2 w-6 h-6 text-primary opacity-40" />
+                  <Mail className="absolute left-8 top-1/2 -translate-y-1/2 w-7 h-7 text-primary opacity-40 group-focus-within:opacity-100 transition-opacity" />
                 </div>
               </div>
             </div>
-            <div className="space-y-4">
-              <label className="text-[10px] font-black uppercase text-muted-foreground tracking-[0.5em] ml-3">MESSAGE SUBSYSTEM</label>
+            <div className="space-y-5">
+              <label className="text-[10px] sm:text-[11px] font-black uppercase text-muted-foreground tracking-[0.6em] ml-6">MESSAGE SUBSYSTEM</label>
               <Textarea 
                 placeholder="TYPE YOUR MESSAGE..." 
-                className="min-h-[200px] bg-background/40 border-2 border-border/50 focus:border-primary p-10 resize-none rounded-[3rem] text-xs font-black leading-relaxed shadow-inner uppercase tracking-tight transition-all"
+                className="min-h-[250px] bg-background/40 border-2 border-border/50 focus:border-primary p-12 resize-none rounded-[4rem] text-xs sm:text-sm font-black leading-relaxed shadow-inner uppercase tracking-tight transition-all backdrop-blur-xl hover:bg-background/60"
                 required
                 value={formData.message}
                 onChange={(e) => setFormData({...formData, message: e.target.value})}
@@ -156,10 +177,11 @@ export function Contact() {
             </div>
             <Button 
               type="submit" 
-              className="w-full h-24 rounded-full font-black uppercase tracking-[0.6em] text-xs gap-5 shadow-4xl transition-all bg-primary text-primary-foreground hover:scale-[1.03] active:scale-95 shadow-primary/40 group"
+              className="w-full h-28 rounded-full font-black uppercase tracking-[0.8em] text-xs sm:text-sm gap-8 shadow-4xl transition-all bg-primary text-primary-foreground hover:scale-[1.03] active:scale-95 shadow-primary/40 group overflow-hidden"
               disabled={isSubmitting}
             >
-              {isSubmitting ? <Loader2 className="w-8 h-8 animate-spin" /> : <><Send className="w-7 h-7 group-hover:translate-x-3 transition-transform" /> SEND MESSAGE</>}
+              <div className="absolute inset-0 bg-white/10 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-in-out" />
+              {isSubmitting ? <Loader2 className="w-10 h-10 animate-spin" /> : <><Send className="w-8 h-8 group-hover:translate-x-5 transition-transform" /> SEND MESSAGE</>}
             </Button>
           </form>
         </motion.div>
