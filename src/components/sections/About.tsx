@@ -135,9 +135,9 @@ export function About() {
 
                   <div className="grid grid-cols-1 gap-3 sm:gap-5 relative z-10">
                     {activeNode.metrics.map((metric, i) => (
-                      <div key={i} className="flex items-center justify-between p-5 sm:p-8 rounded-xl sm:rounded-3xl bg-background border-2 border-border shadow-2xl hover:border-primary transition-all group">
-                        <span className="text-[9px] font-black uppercase tracking-[0.6em] text-muted-foreground opacity-50">LOGIC_VECTOR</span>
-                        <span className="text-[10px] sm:text-lg font-black text-primary uppercase tracking-widest">{metric}</span>
+                      <div key={i} className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 p-4 sm:p-8 rounded-xl sm:rounded-3xl bg-background border-2 border-border shadow-2xl hover:border-primary transition-all group">
+                        <span className="text-[8px] sm:text-[9px] font-black uppercase tracking-[0.5em] text-muted-foreground opacity-50">LOGIC_VECTOR</span>
+                        <span className="text-[10px] sm:text-lg font-black text-primary uppercase tracking-widest text-left sm:text-right">{metric}</span>
                       </div>
                     ))}
                   </div>
