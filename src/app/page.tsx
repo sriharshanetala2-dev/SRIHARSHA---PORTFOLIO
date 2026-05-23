@@ -32,17 +32,17 @@ export default function Home() {
         {/* Elite Kinetic Interface Subsystem v3.5 */}
         <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
           {/* Base Grid Layers */}
-          <div className="absolute inset-0 neural-grid opacity-[0.12]" />
-          <div className="absolute inset-0 data-flow-grid opacity-[0.08]" />
+          <div className="absolute inset-0 neural-grid opacity-[0.25]" />
+          <div className="absolute inset-0 data-flow-grid opacity-[0.15]" />
           
           {/* Logic Matrix Code Stream */}
           <div className="matrix-overlay">
             <div className="matrix-content">
               {Array.from({ length: 40 }).map((_, i) => (
-                <div key={i} className="flex gap-4 opacity-50">
-                  {Array.from({ length: 10 }).map((_, j) => (
-                    <span key={j} className="uppercase">
-                      {Math.random().toString(36).substring(2, 15)} // SYNC_BLOCK_{i}_{j} // [SYSTEM_LOGIC_ACTIVE]
+                <div key={i} className="flex gap-8 opacity-60">
+                  {Array.from({ length: 12 }).map((_, j) => (
+                    <span key={j} className="uppercase font-mono tracking-widest">
+                      {Math.random().toString(36).substring(2, 15).toUpperCase()} // LOGIC_NODE_{i}_{j} // [SYSTEM_KERNEL_SYNCED]
                     </span>
                   ))}
                 </div>
@@ -52,23 +52,23 @@ export default function Home() {
           
           {/* Professional Running Glares */}
           <div 
-            className="running-glare top-[-10%] left-[-10%] w-[800px] h-[800px] bg-primary/15" 
-            style={{ animationDelay: '0s' }} 
+            className="running-glare top-[-15%] left-[-15%] w-[900px] h-[900px] bg-primary/25" 
+            style={{ animationDelay: '0s', animationDuration: '12s' }} 
           />
           <div 
-            className="running-glare bottom-[-20%] right-[-10%] w-[1000px] h-[1000px] bg-accent/10" 
-            style={{ animationDelay: '-5s', animationDuration: '25s' }} 
+            className="running-glare bottom-[-25%] right-[-10%] w-[1100px] h-[1100px] bg-accent/20" 
+            style={{ animationDelay: '-4s', animationDuration: '20s' }} 
           />
           <div 
-            className="running-glare top-[20%] right-[10%] w-[600px] h-[600px] bg-blue-500/5" 
-            style={{ animationDelay: '-12s', animationDuration: '30s' }} 
+            className="running-glare top-[25%] right-[15%] w-[700px] h-[700px] bg-blue-500/15" 
+            style={{ animationDelay: '-10s', animationDuration: '25s' }} 
           />
 
           {/* Logic Scan Subsystem */}
           <div className="absolute inset-0 logic-scan-line" />
           
           {/* Central Pulse Node */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] bg-primary/5 rounded-full blur-[180px] animate-pulse" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1300px] h-[1300px] bg-primary/10 rounded-full blur-[200px] animate-pulse" />
         </div>
 
         <Navbar />
