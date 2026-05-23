@@ -25,13 +25,20 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-background relative selection:bg-primary/20">
-      {/* Refined Neural Subsystem - High-Fidelity Logic Architecture */}
+      {/* High-Fidelity Neural OS Backdrop - Triple Layer Flux Architecture */}
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+        {/* Layer 1: Neural Node Matrix */}
         <div className="absolute inset-0 neural-grid" />
+        
+        {/* Layer 2: Ambient Flux Radials */}
         <div className="ambient-glow-1" />
         <div className="ambient-glow-2" />
+        
+        {/* Layer 3: High-Frequency Logic Scan */}
         <div className="logic-scan-subsystem" />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/5 to-background pointer-events-none" />
+        
+        {/* Environmental Depth Mask */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background/20 pointer-events-none" />
       </div>
 
       <Navbar />
