@@ -9,7 +9,13 @@ export function Footer() {
 
   return (
     <footer className="py-16 sm:py-32 px-4 sm:px-8 border-t border-border bg-transparent relative overflow-hidden">
+      {/* Neural Lens Effect Subsystem */}
       <div className="absolute inset-0 bg-primary/5 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] pointer-events-none" />
+      
+      {/* Anamorphic Glow Layers */}
+      <div className="absolute -top-24 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[100px] pointer-events-none animate-pulse" />
+      <div className="absolute -bottom-24 right-1/4 w-96 h-96 bg-accent/10 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[300px] bg-primary/5 rounded-[100%] blur-[120px] pointer-events-none rotate-12" />
       
       <div className="max-w-7xl mx-auto space-y-12 sm:space-y-16 relative z-10">
         <div className="flex flex-col md:flex-row items-center justify-between gap-10 sm:gap-16">
