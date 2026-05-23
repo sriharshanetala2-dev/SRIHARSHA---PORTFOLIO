@@ -130,7 +130,7 @@ export function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, type: "spring", stiffness: 80 }}
           viewport={{ once: true }}
-          className="glass-card p-8 sm:p-16 rounded-[4rem] shadow-4xl relative overflow-hidden border-2 border-border/60"
+          className="glass-card p-8 sm:p-16 rounded-[3rem] lg:rounded-[4rem] shadow-4xl relative overflow-hidden border-2 border-border/60"
         >
           <div className="absolute inset-0 bg-primary/5 [mask-image:radial-gradient(circle_at_top_right,black,transparent)] pointer-events-none" />
           
@@ -142,7 +142,7 @@ export function Contact() {
                   <Input 
                     placeholder="ENTER NAME" 
                     required
-                    className="bg-background/30 dark:bg-background/40 border-2 border-border/50 focus:border-primary h-20 rounded-[2rem] text-[11px] sm:text-xs font-black pl-16 shadow-inner uppercase tracking-widest transition-all backdrop-blur-xl group-hover:bg-background/60 cursor-text"
+                    className="bg-background/40 border-2 border-border/50 focus:border-primary h-20 rounded-2xl lg:rounded-[2rem] text-[11px] sm:text-xs font-black pl-16 uppercase tracking-widest transition-all hover:bg-background/60 cursor-text"
                     value={formData.name}
                     onChange={(e) => setFormData({...formData, name: e.target.value})}
                     disabled={isSubmitting}
@@ -157,7 +157,7 @@ export function Contact() {
                     type="email" 
                     placeholder="ENTER EMAIL" 
                     required
-                    className="bg-background/30 dark:bg-background/40 border-2 border-border/50 focus:border-primary h-20 rounded-[2rem] text-[11px] sm:text-xs font-black pl-16 shadow-inner uppercase tracking-widest transition-all backdrop-blur-xl group-hover:bg-background/60 cursor-text"
+                    className="bg-background/40 border-2 border-border/50 focus:border-primary h-20 rounded-2xl lg:rounded-[2rem] text-[11px] sm:text-xs font-black pl-16 uppercase tracking-widest transition-all hover:bg-background/60 cursor-text"
                     value={formData.email}
                     onChange={(e) => setFormData({...formData, email: e.target.value})}
                     disabled={isSubmitting}
@@ -170,7 +170,7 @@ export function Contact() {
               <label className="text-[10px] sm:text-[11px] font-black uppercase text-muted-foreground tracking-[0.5em] ml-6">MESSAGE SUBSYSTEM</label>
               <Textarea 
                 placeholder="TYPE YOUR MESSAGE..." 
-                className="min-h-[220px] bg-background/30 dark:bg-background/40 border-2 border-border/50 focus:border-primary p-10 resize-none rounded-[3rem] text-[11px] sm:text-xs font-black leading-relaxed shadow-inner uppercase tracking-tight transition-all backdrop-blur-xl hover:bg-background/60 cursor-text"
+                className="min-h-[220px] bg-background/40 border-2 border-border/50 focus:border-primary p-10 resize-none rounded-[2.5rem] lg:rounded-[3rem] text-[11px] sm:text-xs font-black leading-relaxed uppercase tracking-tight transition-all hover:bg-background/60 cursor-text"
                 required
                 value={formData.message}
                 onChange={(e) => setFormData({...formData, message: e.target.value})}
