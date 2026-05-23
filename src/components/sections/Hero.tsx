@@ -20,6 +20,19 @@ export function Hero() {
     show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100, damping: 25 } }
   };
 
+  const headlineVariants = {
+    hidden: { opacity: 0, x: -20 },
+    show: (i: number) => ({
+      opacity: 1,
+      x: 0,
+      transition: {
+        delay: 0.5 + i * 0.1,
+        duration: 0.8,
+        ease: [0.215, 0.61, 0.355, 1]
+      }
+    })
+  };
+
   return (
     <section className="min-h-screen flex items-center justify-center pt-24 px-6 relative overflow-hidden">
       <div className="max-w-7xl mx-auto text-center space-y-12 sm:space-y-24 relative z-10">
@@ -35,13 +48,26 @@ export function Hero() {
         </motion.div>
 
         <motion.div variants={container} initial="hidden" animate="show" className="space-y-12 sm:space-y-20">
-          <motion.h1
-            variants={item}
-            className="text-4xl sm:text-7xl md:text-8xl lg:text-9xl font-headline font-black tracking-tighter leading-[0.9] uppercase shimmer-text"
-          >
-            ENGINEERING <br className="hidden sm:block" />
-            <span className="text-gradient">NEURAL</span> ECOSYSTEMS
-          </motion.h1>
+          <div className="overflow-hidden">
+            <motion.h1
+              custom={0}
+              variants={headlineVariants}
+              initial="hidden"
+              animate="show"
+              className="text-4xl sm:text-7xl md:text-8xl lg:text-9xl font-headline font-black tracking-tighter leading-[0.9] uppercase shimmer-text"
+            >
+              ENGINEERING
+            </motion.h1>
+            <motion.h1
+              custom={1}
+              variants={headlineVariants}
+              initial="hidden"
+              animate="show"
+              className="text-4xl sm:text-7xl md:text-8xl lg:text-9xl font-headline font-black tracking-tighter leading-[0.9] uppercase text-gradient"
+            >
+              NEURAL ECOSYSTEMS
+            </motion.h1>
+          </div>
 
           <motion.div
             variants={item}
@@ -75,14 +101,14 @@ export function Hero() {
           <div className="flex flex-col sm:flex-row gap-8 w-full sm:w-auto px-6 sm:px-0">
             <a
               href="#portfolio"
-              className="flex items-center justify-center gap-6 px-14 py-8 rounded-2xl bg-primary text-primary-foreground font-black text-[11px] tracking-[0.5em] uppercase transition-all hover:scale-105 active:scale-95 shadow-4xl shadow-primary/40 group"
+              className="flex items-center justify-center gap-6 px-14 py-8 rounded-2xl bg-primary text-primary-foreground font-black text-[11px] tracking-[0.5em] uppercase transition-all hover:scale-105 active:scale-95 shadow-4xl shadow-primary/40 group cursor-pointer"
             >
               ACCESS REGISTRY
               <ArrowRight className="w-5 h-5 group-hover:translate-x-3 transition-transform" />
             </a>
             <a
               href="#contact"
-              className="flex items-center justify-center gap-6 px-14 py-8 rounded-2xl bg-secondary/40 text-foreground font-black text-[11px] tracking-[0.5em] uppercase border-2 border-border hover:border-primary/50 transition-all shadow-3xl backdrop-blur-xl"
+              className="flex items-center justify-center gap-6 px-14 py-8 rounded-2xl bg-secondary/40 text-foreground font-black text-[11px] tracking-[0.5em] uppercase border-2 border-border hover:border-primary/50 transition-all shadow-3xl backdrop-blur-xl cursor-pointer"
             >
               SYSTEM SYNC
               <Zap className="w-5 h-5 text-primary" />

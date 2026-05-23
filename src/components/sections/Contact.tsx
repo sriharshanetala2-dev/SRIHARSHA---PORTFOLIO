@@ -44,7 +44,7 @@ export function Contact() {
   return (
     <section id="contact" className="py-24 sm:py-48 px-6 relative overflow-hidden bg-background border-t-2 border-border scroll-mt-20">
       <div className="absolute inset-0 neural-grid opacity-[0.05] pointer-events-none" />
-      <div className="absolute inset-0 logic-scan-subsystem opacity-[0.1] pointer-events-none" />
+      <div className="absolute inset-0 logic-scan-subsystem pointer-events-none" />
       
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 sm:gap-40 relative z-10">
         <motion.div 
@@ -79,7 +79,9 @@ export function Contact() {
               rel="noopener noreferrer"
               className="flex items-center gap-10 p-12 bg-card/10 dark:bg-card/40 backdrop-blur-3xl border-2 border-border/50 rounded-[3.5rem] hover:border-primary transition-all cursor-pointer group shadow-4xl relative overflow-hidden"
             >
-              <div className="absolute top-0 right-0 p-10 opacity-5 group-hover:opacity-10 transition-opacity"><Activity className="w-24 h-24" /></div>
+              <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-5 group-hover:opacity-10 transition-opacity">
+                <Activity className="absolute top-0 right-0 w-24 h-24 m-10" />
+              </div>
               <div className="p-6 rounded-[1.5rem] bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500 shadow-inner border border-primary/20">
                 <Mail className="w-8 h-8" />
               </div>
@@ -95,7 +97,9 @@ export function Contact() {
               onClick={copyPhone}
               className="flex items-center gap-10 p-12 bg-card/10 dark:bg-card/40 backdrop-blur-3xl border-2 border-border/50 rounded-[3.5rem] hover:border-primary transition-all cursor-pointer group shadow-4xl relative overflow-hidden"
             >
-              <div className="absolute top-0 right-0 p-10 opacity-5 group-hover:opacity-10 transition-opacity"><Activity className="w-24 h-24 rotate-90" /></div>
+              <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-5 group-hover:opacity-10 transition-opacity">
+                <Activity className="absolute top-0 right-0 w-24 h-24 m-10 rotate-90" />
+              </div>
               <div className="p-6 rounded-[1.5rem] bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500 shadow-inner border border-primary/20">
                 <Phone className="w-8 h-8" />
               </div>
@@ -137,7 +141,7 @@ export function Contact() {
                   <Input 
                     placeholder="ENTER NAME" 
                     required
-                    className="bg-background/30 dark:bg-background/40 border-2 border-border/50 focus:border-primary h-24 rounded-[2.5rem] text-xs sm:text-sm font-black pl-20 shadow-inner uppercase tracking-widest transition-all backdrop-blur-xl group-hover:bg-background/60"
+                    className="bg-background/30 dark:bg-background/40 border-2 border-border/50 focus:border-primary h-24 rounded-[2.5rem] text-xs sm:text-sm font-black pl-20 shadow-inner uppercase tracking-widest transition-all backdrop-blur-xl group-hover:bg-background/60 cursor-text"
                     value={formData.name}
                     onChange={(e) => setFormData({...formData, name: e.target.value})}
                     disabled={isSubmitting}
@@ -152,7 +156,7 @@ export function Contact() {
                     type="email" 
                     placeholder="ENTER EMAIL" 
                     required
-                    className="bg-background/30 dark:bg-background/40 border-2 border-border/50 focus:border-primary h-24 rounded-[2.5rem] text-xs sm:text-sm font-black pl-20 shadow-inner uppercase tracking-widest transition-all backdrop-blur-xl group-hover:bg-background/60"
+                    className="bg-background/30 dark:bg-background/40 border-2 border-border/50 focus:border-primary h-24 rounded-[2.5rem] text-xs sm:text-sm font-black pl-20 shadow-inner uppercase tracking-widest transition-all backdrop-blur-xl group-hover:bg-background/60 cursor-text"
                     value={formData.email}
                     onChange={(e) => setFormData({...formData, email: e.target.value})}
                     disabled={isSubmitting}
@@ -165,7 +169,7 @@ export function Contact() {
               <label className="text-[10px] sm:text-[11px] font-black uppercase text-muted-foreground tracking-[0.6em] ml-8">MESSAGE SUBSYSTEM</label>
               <Textarea 
                 placeholder="TYPE YOUR MESSAGE..." 
-                className="min-h-[250px] bg-background/30 dark:bg-background/40 border-2 border-border/50 focus:border-primary p-12 resize-none rounded-[4rem] text-xs sm:text-sm font-black leading-relaxed shadow-inner uppercase tracking-tight transition-all backdrop-blur-xl hover:bg-background/60"
+                className="min-h-[250px] bg-background/30 dark:bg-background/40 border-2 border-border/50 focus:border-primary p-12 resize-none rounded-[4rem] text-xs sm:text-sm font-black leading-relaxed shadow-inner uppercase tracking-tight transition-all backdrop-blur-xl hover:bg-background/60 cursor-text"
                 required
                 value={formData.message}
                 onChange={(e) => setFormData({...formData, message: e.target.value})}
@@ -174,7 +178,7 @@ export function Contact() {
             </div>
             <Button 
               type="submit" 
-              className="w-full h-28 rounded-full font-black uppercase tracking-[0.8em] text-[11px] sm:text-sm gap-8 shadow-4xl transition-all bg-primary text-primary-foreground hover:scale-[1.03] active:scale-95 shadow-primary/40 group overflow-hidden"
+              className="w-full h-28 rounded-full font-black uppercase tracking-[0.8em] text-[11px] sm:text-sm gap-8 shadow-4xl transition-all bg-primary text-primary-foreground hover:scale-[1.03] active:scale-95 shadow-primary/40 group overflow-hidden cursor-pointer"
               disabled={isSubmitting}
             >
               <div className="absolute inset-0 bg-white/10 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-in-out" />
