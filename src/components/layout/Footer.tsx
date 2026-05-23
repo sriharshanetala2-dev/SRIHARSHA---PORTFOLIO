@@ -8,7 +8,7 @@ export function Footer() {
   const gmailComposeUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}`;
 
   return (
-    <footer className="py-16 sm:py-32 px-4 sm:px-8 border-t border-border bg-background relative overflow-hidden">
+    <footer className="py-16 sm:py-32 px-4 sm:px-8 border-t border-border bg-transparent relative overflow-hidden">
       <div className="absolute inset-0 bg-primary/5 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] pointer-events-none" />
       
       <div className="max-w-7xl mx-auto space-y-12 sm:space-y-16 relative z-10">
