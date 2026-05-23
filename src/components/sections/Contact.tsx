@@ -44,7 +44,7 @@ export function Contact() {
 
   return (
     <section id="contact" className="py-24 sm:py-48 px-6 relative overflow-hidden bg-background border-t-2 border-border scroll-mt-20">
-      {/* Decorative Subsystem - Strictly no interaction to fix cursor issues */}
+      {/* Decorative Subsystem - Strictly isolated to fix cursor interaction */}
       <div className="absolute inset-0 pointer-events-none z-0">
         <div className="absolute inset-0 neural-grid opacity-[0.03] dark:opacity-[0.1]" />
         <div className="absolute inset-0 data-packet-layer opacity-[0.02] dark:opacity-[0.05]" />
@@ -60,11 +60,11 @@ export function Contact() {
           className="space-y-16"
         >
           <div className="space-y-8 text-center lg:text-left">
-            <div className="inline-flex items-center gap-3 px-6 py-2 rounded-full bg-primary/10 border border-primary/20 text-[10px] font-black text-primary uppercase tracking-[0.5em] mx-auto lg:mx-0 shadow-lg backdrop-blur-md">
+            <div className="inline-flex items-center gap-3 px-6 py-2 rounded-full bg-primary/10 border border-primary/20 text-[11px] font-black text-primary uppercase tracking-[0.6em] mx-auto lg:mx-0 shadow-lg backdrop-blur-md">
               <ShieldCheck className="w-4 h-4" />
               SYSTEM SYNC V3.0
             </div>
-            <h2 className="text-4xl sm:text-7xl lg:text-8xl font-headline font-black tracking-tighter leading-none uppercase shimmer-text">
+            <h2 className="text-5xl sm:text-8xl lg:text-[10rem] font-headline font-black tracking-tighter leading-[0.9] uppercase shimmer-text">
               COLLABORATION <span className="text-gradient">NODE</span>
             </h2>
             <p className="text-sm sm:text-xl text-muted-foreground leading-relaxed max-w-xl font-bold uppercase tracking-tight opacity-80 mx-auto lg:mx-0">
@@ -84,7 +84,7 @@ export function Contact() {
                 <Mail className="w-6 h-6" />
               </div>
               <div className="flex-1 min-w-0">
-                <p className="text-[9px] font-black uppercase text-primary tracking-widest mb-1 opacity-50">REGISTRY_ENDPOINT</p>
+                <p className="text-[11px] font-black uppercase text-primary tracking-[0.6em] mb-1 opacity-50">REGISTRY_ENDPOINT</p>
                 <p className="font-black text-xs sm:text-xl truncate uppercase tracking-tight">{userEmail}</p>
               </div>
               <ExternalLink className="w-5 h-5 opacity-20 group-hover:opacity-100 transition-all" />
@@ -99,7 +99,7 @@ export function Contact() {
                 <Phone className="w-6 h-6" />
               </div>
               <div className="flex-1 min-w-0">
-                <p className="text-[9px] font-black uppercase text-primary tracking-widest mb-1 opacity-50">MOBILE_PORT</p>
+                <p className="text-[11px] font-black uppercase text-primary tracking-[0.6em] mb-1 opacity-50">MOBILE_PORT</p>
                 <p className="font-black text-xs sm:text-xl uppercase tracking-tight">{userPhone}</p>
               </div>
               <div className="flex items-center gap-3">
@@ -129,12 +129,12 @@ export function Contact() {
           <form onSubmit={handleSubmit} className="space-y-10 relative z-10">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="space-y-3">
-                <label className="text-[10px] font-black uppercase text-muted-foreground tracking-widest ml-4">IDENTITY_ROOT</label>
+                <label className="text-[11px] font-black uppercase text-muted-foreground tracking-[0.6em] ml-4">IDENTITY_ROOT</label>
                 <div className="relative group">
                   <Input 
                     placeholder="ENTER FULL NAME" 
                     required
-                    className="bg-background/40 border-border focus:border-primary h-16 rounded-xl text-[10px] font-black pl-14 uppercase tracking-widest transition-all cursor-text shadow-none"
+                    className="bg-background/40 border-border focus:border-primary h-16 rounded-xl text-[11px] font-black pl-14 uppercase tracking-widest transition-all cursor-text shadow-none"
                     value={formData.name}
                     onChange={(e) => setFormData({...formData, name: e.target.value})}
                     disabled={isSubmitting}
@@ -143,13 +143,13 @@ export function Contact() {
                 </div>
               </div>
               <div className="space-y-3">
-                <label className="text-[10px] font-black uppercase text-muted-foreground tracking-widest ml-4">COMMUNICATION_PORT</label>
+                <label className="text-[11px] font-black uppercase text-muted-foreground tracking-[0.6em] ml-4">COMMUNICATION_PORT</label>
                 <div className="relative group">
                   <Input 
                     type="email" 
                     placeholder="ENTER EMAIL ADDRESS" 
                     required
-                    className="bg-background/40 border-border focus:border-primary h-16 rounded-xl text-[10px] font-black pl-14 uppercase tracking-widest transition-all cursor-text shadow-none"
+                    className="bg-background/40 border-border focus:border-primary h-16 rounded-xl text-[11px] font-black pl-14 uppercase tracking-widest transition-all cursor-text shadow-none"
                     value={formData.email}
                     onChange={(e) => setFormData({...formData, email: e.target.value})}
                     disabled={isSubmitting}
@@ -159,11 +159,11 @@ export function Contact() {
               </div>
             </div>
             <div className="space-y-3">
-              <label className="text-[10px] font-black uppercase text-muted-foreground tracking-widest ml-4">MANIFEST_TRANSMISSION</label>
+              <label className="text-[11px] font-black uppercase text-muted-foreground tracking-[0.6em] ml-4">MANIFEST_TRANSMISSION</label>
               <div className="relative group">
                 <Textarea 
                   placeholder="TRANSMIT MESSAGE CONTENT..." 
-                  className="min-h-[200px] bg-background/40 border-border focus:border-primary p-8 resize-none rounded-2xl text-[10px] font-black uppercase tracking-tight transition-all cursor-text shadow-none"
+                  className="min-h-[200px] bg-background/40 border-border focus:border-primary p-8 resize-none rounded-2xl text-[11px] font-black uppercase tracking-tight transition-all cursor-text shadow-none"
                   required
                   value={formData.message}
                   onChange={(e) => setFormData({...formData, message: e.target.value})}
@@ -174,7 +174,7 @@ export function Contact() {
             </div>
             <Button 
               type="submit" 
-              className="w-full h-20 rounded-full font-black uppercase tracking-[0.5em] text-[10px] gap-4 shadow-xl transition-all bg-primary text-primary-foreground hover:brightness-110 active:scale-95 group relative overflow-hidden cursor-pointer"
+              className="w-full h-20 rounded-full font-black uppercase tracking-[0.6em] text-[11px] gap-4 shadow-xl transition-all bg-primary text-primary-foreground hover:brightness-110 active:scale-95 group relative overflow-hidden cursor-pointer"
               disabled={isSubmitting}
             >
               {isSubmitting ? <Loader2 className="w-5 h-5 animate-spin" /> : <><Send className="w-5 h-5 group-hover:translate-x-1.5 transition-transform" /> START_TRANSMISSION</>}

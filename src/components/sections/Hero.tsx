@@ -41,7 +41,7 @@ export function Hero() {
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
-          className="inline-flex items-center gap-3 px-6 py-2 rounded-full border border-primary/20 bg-primary/5 text-[10px] sm:text-[11px] font-black tracking-[0.4em] text-primary uppercase shadow-xl backdrop-blur-md mx-auto"
+          className="inline-flex items-center gap-3 px-6 py-2 rounded-full border border-primary/20 bg-primary/5 text-[11px] font-black tracking-[0.6em] text-primary uppercase shadow-xl backdrop-blur-md mx-auto"
         >
           <ShieldCheck className="w-4 h-4 text-primary animate-pulse" />
           FULL STACK & AI ENGINEER // v3.0
@@ -52,14 +52,14 @@ export function Hero() {
             <motion.h1
               custom={0}
               variants={headlineVariants}
-              className="text-4xl sm:text-7xl md:text-8xl lg:text-9xl font-headline font-black tracking-tighter uppercase shimmer-text"
+              className="text-5xl sm:text-8xl md:text-9xl lg:text-[11rem] font-headline font-black tracking-tighter uppercase shimmer-text leading-[0.9]"
             >
               CLEAN CODE
             </motion.h1>
             <motion.h1
               custom={1}
               variants={headlineVariants}
-              className="text-4xl sm:text-7xl md:text-8xl lg:text-9xl font-headline font-black tracking-tighter uppercase text-gradient"
+              className="text-5xl sm:text-8xl md:text-9xl lg:text-[11rem] font-headline font-black tracking-tighter uppercase text-gradient leading-[0.9]"
             >
               NEURAL LOGIC
             </motion.h1>
@@ -74,7 +74,7 @@ export function Hero() {
             </p>
             <div className="flex flex-wrap justify-center gap-2 pt-4">
               {["JAVA", "PYTHON", "SQL", "B.SC COMPUTER SCIENCE"].map((tech) => (
-                <span key={tech} className="text-[9px] sm:text-[10px] text-primary font-black uppercase tracking-[0.4em] px-5 py-2.5 bg-primary/5 border border-primary/10 rounded-lg shadow-sm">
+                <span key={tech} className="text-[11px] text-primary font-black uppercase tracking-[0.6em] px-5 py-2.5 bg-primary/5 border border-primary/10 rounded-lg shadow-sm">
                   {tech}
                 </span>
               ))}
@@ -91,14 +91,14 @@ export function Hero() {
           <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto px-6 sm:px-0">
             <a
               href="#portfolio"
-              className="flex items-center justify-center gap-4 px-10 py-5 rounded-2xl bg-primary text-primary-foreground font-black text-[10px] tracking-[0.3em] uppercase transition-all hover:scale-[1.02] active:scale-95 shadow-xl group cursor-pointer"
+              className="flex items-center justify-center gap-4 px-10 py-5 rounded-2xl bg-primary text-primary-foreground font-black text-[11px] tracking-[0.4em] uppercase transition-all hover:scale-[1.02] active:scale-95 shadow-xl group cursor-pointer"
             >
               TECHNICAL RECORDS
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1.5 transition-transform" />
             </a>
             <a
               href="#contact"
-              className="flex items-center justify-center gap-4 px-10 py-5 rounded-2xl bg-secondary/30 text-foreground font-black text-[10px] tracking-[0.3em] uppercase border border-border hover:border-primary/30 transition-all shadow-lg backdrop-blur-md cursor-pointer"
+              className="flex items-center justify-center gap-4 px-10 py-5 rounded-2xl bg-secondary/30 text-foreground font-black text-[11px] tracking-[0.4em] uppercase border border-border hover:border-primary/30 transition-all shadow-lg backdrop-blur-md cursor-pointer"
             >
               SYSTEM SYNC
               <Zap className="w-5 h-5 text-primary" />
@@ -110,7 +110,7 @@ export function Hero() {
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
             className="flex flex-col items-center gap-2 opacity-20 pt-4"
           >
-            <span className="text-[9px] font-black uppercase tracking-[0.5em]">SCROLL_TO_LOAD</span>
+            <span className="text-[11px] font-black uppercase tracking-[0.6em]">SCROLL_TO_LOAD</span>
             <ChevronDown className="w-4 h-4" />
           </motion.div>
         </motion.div>
