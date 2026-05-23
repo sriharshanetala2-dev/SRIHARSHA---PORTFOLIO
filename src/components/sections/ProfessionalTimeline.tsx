@@ -7,7 +7,6 @@ import {
   Layers, 
   GraduationCap, 
   BookOpen, 
-  History,
   Terminal,
   CheckCircle2
 } from "lucide-react";
@@ -67,7 +66,7 @@ const timelineItems = [
 
 export function ProfessionalTimeline() {
   return (
-    <section id="experience" className="py-24 sm:py-32 px-6 relative overflow-hidden bg-background border-t border-border scroll-mt-20">
+    <section id="experience" className="py-24 sm:py-32 px-6 relative overflow-hidden bg-transparent border-t border-border scroll-mt-20">
       <div className="max-w-6xl mx-auto space-y-16 sm:space-y-24 relative z-10">
         <div className="flex flex-col items-center text-center space-y-8">
           <motion.div 

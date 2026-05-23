@@ -36,13 +36,7 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 sm:py-32 px-6 relative overflow-hidden bg-background border-t border-border scroll-mt-20">
-      {/* Background Isolation Layer */}
-      <div className="absolute inset-0 pointer-events-none z-0">
-        <div className="absolute inset-0 neural-grid opacity-[0.03] dark:opacity-[0.1]" />
-        <div className="logic-scan-subsystem opacity-[0.05] dark:opacity-[0.2]" />
-      </div>
-      
+    <section id="contact" className="py-24 sm:py-32 px-6 relative overflow-hidden bg-transparent border-t border-border scroll-mt-20">
       <div className="max-w-7xl mx-auto space-y-16 sm:space-y-24 relative z-10">
         <div className="flex flex-col items-center text-center space-y-8">
           <div className="inline-flex items-center gap-4 px-6 py-2 rounded-full bg-primary/10 border border-primary/25 text-[11px] font-black text-primary uppercase tracking-[0.5em]">

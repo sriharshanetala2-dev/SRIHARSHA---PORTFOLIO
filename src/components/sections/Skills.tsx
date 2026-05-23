@@ -39,7 +39,7 @@ const skills = [
 
 export function Skills() {
   return (
-    <section id="skills" className="py-24 sm:py-48 px-4 sm:px-6 relative overflow-hidden bg-background border-t-2 border-border scroll-mt-20">
+    <section id="skills" className="py-24 sm:py-48 px-4 sm:px-6 relative overflow-hidden bg-transparent border-t-2 border-border scroll-mt-20">
       <div className="max-w-7xl mx-auto space-y-24 relative z-10">
         <div className="text-center space-y-8">
           <motion.div className="inline-flex items-center gap-4 px-6 py-2 rounded-xl bg-primary/10 text-[11px] font-black text-primary uppercase tracking-[0.5em] border-2 border-primary/20 mx-auto shadow-2xl">

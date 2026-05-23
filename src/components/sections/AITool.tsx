@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState } from "react";
@@ -64,10 +63,8 @@ export function AITool() {
   };
 
   return (
-    <section id="architectural-toolkit" className="py-24 sm:py-32 px-4 sm:px-6 bg-background relative overflow-hidden border-t border-border scroll-mt-20">
-      <div className="absolute inset-0 neural-grid opacity-[0.02] pointer-events-none" />
-      
-      <div className="max-w-7xl mx-auto space-y-16 sm:space-y-24">
+    <section id="architectural-toolkit" className="py-24 sm:py-32 px-4 sm:px-6 bg-transparent relative overflow-hidden border-t border-border scroll-mt-20">
+      <div className="max-w-7xl mx-auto space-y-16 sm:space-y-24 relative z-10">
         <div className="flex flex-col items-center text-center space-y-8">
           <motion.div 
             initial={{ opacity: 0, y: 10 }}
