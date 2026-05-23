@@ -25,10 +25,13 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-background relative selection:bg-primary/20">
-      {/* Universal Neural Subsystem - High Performance Ambient Logic */}
+      {/* Triple-Layer Neural Subsystem - High Performance Ambient Logic */}
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
-        <div className="absolute inset-0 neural-grid" />
+        <div className="absolute inset-0 neural-grid">
+          <div className="grid-overlay" />
+        </div>
         <div className="logic-scan-subsystem" />
+        <div className="noise-overlay" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/20 to-background pointer-events-none" />
       </div>
 

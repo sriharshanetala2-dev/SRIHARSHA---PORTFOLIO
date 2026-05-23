@@ -24,8 +24,8 @@
     --input: 214.3 31.8% 91.4%;
     --ring: 190 90% 45%;
     --radius: 0.75rem;
-    --grid-opacity: 0.35;
-    --scan-opacity: 0.25;
+    --grid-opacity: 0.45;
+    --scan-opacity: 0.35;
   }
 
   .dark {
@@ -48,8 +48,8 @@
     --border: 217.2 32.6% 15%;
     --input: 217.2 32.6% 15%;
     --ring: 190 90% 50%;
-    --grid-opacity: 0.8;
-    --scan-opacity: 0.6;
+    --grid-opacity: 0.85;
+    --scan-opacity: 0.7;
   }
 }
 
@@ -68,13 +68,13 @@
 }
 
 @keyframes grid-drift {
-  0% { background-position: 0 0; }
-  100% { background-position: 120px 120px; }
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(60px, 60px, 0); }
 }
 
-@keyframes pulse-node {
-  0%, 100% { opacity: 0.2; transform: scale(1); }
-  50% { opacity: 0.8; transform: scale(1.5); }
+@keyframes grid-pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
 }
 
 @keyframes logic-sweep {
@@ -86,18 +86,39 @@
 
 @keyframes horizon-scan {
   0% { transform: translateX(-100%) skewX(45deg); opacity: 0; }
-  50% { opacity: 0.15; }
+  50% { opacity: 0.25; }
   100% { transform: translateX(200%) skewX(45deg); opacity: 0; }
+}
+
+@keyframes noise-grain {
+  0%, 100% { transform: translate(0, 0); }
+  10% { transform: translate(-5%, -5%); }
+  20% { transform: translate(-10%, 5%); }
+  30% { transform: translate(5%, -10%); }
+  40% { transform: translate(-5%, 15%); }
+  50% { transform: translate(-10%, 5%); }
+  60% { transform: translate(15%, 0); }
+  70% { transform: translate(0, 10%); }
+  80% { transform: translate(-15%, 0); }
+  90% { transform: translate(10%, 5%); }
 }
 
 .neural-grid {
   background-image: 
-    radial-gradient(circle at 1px 1px, hsl(var(--primary) / 0.25) 1.5px, transparent 0),
-    linear-gradient(to right, hsl(var(--primary) / 0.1) 1px, transparent 1px),
-    linear-gradient(to bottom, hsl(var(--primary) / 0.1) 1px, transparent 1px);
+    radial-gradient(circle at 1px 1px, hsl(var(--primary) / 0.4) 1.5px, transparent 0),
+    linear-gradient(to right, hsl(var(--primary) / 0.15) 1px, transparent 1px),
+    linear-gradient(to bottom, hsl(var(--primary) / 0.15) 1px, transparent 1px);
   background-size: 60px 60px, 60px 60px, 60px 60px;
-  animation: grid-drift 60s linear infinite;
+  animation: grid-drift 40s linear infinite;
   opacity: var(--grid-opacity);
+  will-change: transform;
+}
+
+.grid-overlay {
+  position: absolute;
+  inset: 0;
+  animation: grid-pulse 10s ease-in-out infinite;
+  background: radial-gradient(circle at 50% 50%, transparent 20%, hsl(var(--background) / 0.4) 80%);
 }
 
 .logic-scan-subsystem {
@@ -106,10 +127,11 @@
   left: 0;
   width: 100%;
   height: 800px;
-  background: linear-gradient(to bottom, transparent, hsl(var(--primary) / 0.2), hsl(var(--accent) / 0.1), transparent);
-  animation: logic-sweep 15s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  background: linear-gradient(to bottom, transparent, hsl(var(--primary) / 0.3), hsl(var(--accent) / 0.15), transparent);
+  animation: logic-sweep 12s cubic-bezier(0.4, 0, 0.2, 1) infinite;
   pointer-events: none;
   z-index: 1;
+  will-change: transform;
 }
 
 .logic-scan-subsystem::after {
@@ -120,7 +142,20 @@
   width: 200%;
   height: 2px;
   background: linear-gradient(to right, transparent, hsl(var(--primary)), transparent);
-  animation: horizon-scan 8s linear infinite;
+  animation: horizon-scan 6s linear infinite;
+}
+
+.noise-overlay {
+  position: fixed;
+  inset: -100%;
+  width: 300%;
+  height: 300%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.05;
+  pointer-events: none;
+  z-index: 2;
+  animation: noise-grain 8s steps(10) infinite;
+  will-change: transform;
 }
 
 .shimmer-text {
