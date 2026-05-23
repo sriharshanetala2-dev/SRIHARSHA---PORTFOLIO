@@ -52,14 +52,14 @@ export function Hero() {
             <motion.h1
               custom={0}
               variants={headlineVariants}
-              className="text-5xl sm:text-8xl md:text-9xl lg:text-[11rem] font-headline font-black tracking-tighter uppercase shimmer-text leading-[0.9]"
+              className="text-4xl sm:text-7xl lg:text-9xl font-headline font-black tracking-tighter uppercase shimmer-text leading-[0.9]"
             >
               CLEAN CODE
             </motion.h1>
             <motion.h1
               custom={1}
               variants={headlineVariants}
-              className="text-5xl sm:text-8xl md:text-9xl lg:text-[11rem] font-headline font-black tracking-tighter uppercase text-gradient leading-[0.9]"
+              className="text-4xl sm:text-7xl lg:text-9xl font-headline font-black tracking-tighter uppercase text-gradient leading-[0.9]"
             >
               NEURAL LOGIC
             </motion.h1>

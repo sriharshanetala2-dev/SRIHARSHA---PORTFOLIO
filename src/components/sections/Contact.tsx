@@ -64,7 +64,7 @@ export function Contact() {
               <ShieldCheck className="w-4 h-4" />
               SYSTEM SYNC V3.0
             </div>
-            <h2 className="text-5xl sm:text-8xl lg:text-[10rem] font-headline font-black tracking-tighter leading-[0.9] uppercase shimmer-text">
+            <h2 className="text-3xl sm:text-6xl lg:text-7xl font-headline font-black tracking-tighter leading-[0.9] uppercase shimmer-text">
               COLLABORATION <span className="text-gradient">NODE</span>
             </h2>
             <p className="text-sm sm:text-xl text-muted-foreground leading-relaxed max-w-xl font-bold uppercase tracking-tight opacity-80 mx-auto lg:mx-0">
