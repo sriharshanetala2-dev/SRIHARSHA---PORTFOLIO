@@ -9,13 +9,11 @@ import { Toaster } from "@/components/ui/toaster";
 import { motion, AnimatePresence } from "framer-motion";
 
 const About = dynamic(() => import('@/components/sections/About').then(mod => mod.About), { ssr: false });
-const ProfessionalTimeline = dynamic(() => import('@/components/sections/ProfessionalTimeline').then(mod => mod.ProfessionalTimeline), { ssr: false });
-const Education = dynamic(() => import('@/components/sections/Education').then(mod => mod.Education), { ssr: false });
+const SystemRegistry = dynamic(() => import('@/components/sections/ProfessionalTimeline').then(mod => mod.SystemRegistry), { ssr: false });
 const Projects = dynamic(() => import('@/components/sections/Projects').then(mod => mod.Projects), { ssr: false });
 const AITool = dynamic(() => import('@/components/sections/AITool').then(mod => mod.AITool), { ssr: false });
 const StudentDashboard = dynamic(() => import('@/components/sections/StudentDashboard').then(mod => mod.StudentDashboard), { ssr: false });
 const Skills = dynamic(() => import('@/components/sections/Skills').then(mod => mod.Skills), { ssr: false });
-const Contact = dynamic(() => import('@/components/sections/Contact').then(mod => mod.Contact), { ssr: false });
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
@@ -44,13 +42,11 @@ export default function Home() {
               transition={{ duration: 1 }}
             >
               <About />
-              <ProfessionalTimeline />
-              <Education />
+              <SystemRegistry />
               <Projects />
               <AITool />
               <StudentDashboard />
               <Skills />
-              <Contact />
             </motion.div>
           )}
         </AnimatePresence>
