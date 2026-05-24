@@ -39,7 +39,7 @@ export function Projects() {
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl sm:text-6xl font-black leading-tight shimmer-text"
+            className="text-4xl sm:text-6xl font-black leading-tight tracking-tighter shimmer-text"
           >
             TECHNICAL RECORDS
           </motion.h2>

@@ -36,10 +36,10 @@ export function Hero() {
 
         <motion.div variants={container} initial="hidden" animate="show" className="space-y-6">
           <motion.div variants={item} className="space-y-2">
-            <h1 className="text-5xl sm:text-7xl lg:text-9xl font-black leading-[0.9] shimmer-text">
+            <h1 className="text-5xl sm:text-7xl lg:text-9xl font-black leading-[0.9] tracking-tighter shimmer-text">
               ENGINEERING
             </h1>
-            <h1 className="text-5xl sm:text-7xl lg:text-9xl font-black leading-[0.9] text-gradient">
+            <h1 className="text-5xl sm:text-7xl lg:text-9xl font-black leading-[0.9] tracking-tighter text-gradient">
               INTELLIGENCE
             </h1>
           </motion.div>

@@ -75,7 +75,7 @@ export function About() {
                 <Fingerprint className="w-3.5 h-3.5" />
                 SYSTEM ARCHITECT PROFILE
               </motion.div>
-              <h2 className="text-4xl sm:text-6xl font-black leading-tight shimmer-text">
+              <h2 className="text-4xl sm:text-6xl font-black leading-tight tracking-tighter shimmer-text">
                 ARCHITECTING <br className="hidden sm:block" />
                 INTELLIGENCE
               </h2>

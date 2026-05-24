@@ -79,7 +79,7 @@ export function Experience() {
           {experience.map((exp, idx) => (
             <motion.div key={idx} variants={item}>
               <Card 
-                className="p-6 sm:p-10 glass-card bg-card/30 border-border/50 hover:border-primary/40 transition-all rounded-2xl sm:rounded-[2.5rem] overflow-hidden shadow-lg group"
+                className="p-8 sm:p-12 glass-card bg-card/30 border-border/50 hover:border-primary/40 transition-all rounded-2xl sm:rounded-[2.5rem] overflow-hidden shadow-lg group"
               >
                 <div className="flex flex-col md:flex-row md:items-start gap-6 sm:gap-8 md:gap-12 relative z-10">
                   <div className="p-5 rounded-2xl bg-secondary group-hover:bg-primary text-primary group-hover:text-primary-foreground transition-all duration-500 w-fit border border-border/50">
