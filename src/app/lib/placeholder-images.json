@@ -2,16 +2,40 @@
 {
   "placeholderImages": [
     {
+      "id": "site-logo",
+      "description": "Professional Tech Brand Mark",
+      "imageUrl": "https://picsum.photos/seed/sri_logo_tech/200/200",
+      "imageHint": "tech logo"
+    },
+    {
+      "id": "system-backdrop",
+      "description": "Professional System Architecture Backdrop",
+      "imageUrl": "https://picsum.photos/seed/sri_industrial_bg/1920/1080",
+      "imageHint": "server architecture"
+    },
+    {
       "id": "neural-workflow-os",
       "description": "AI Logic System Orchestration",
       "imageUrl": "https://picsum.photos/seed/sri_ai_v2/1600/900",
       "imageHint": "artificial intelligence"
     },
     {
+      "id": "skyguard-mobile",
+      "description": "Flutter Fleet Management Hub",
+      "imageUrl": "https://picsum.photos/seed/fleet_tracker/1600/900",
+      "imageHint": "mobile app"
+    },
+    {
       "id": "sentinel-iam-hub",
       "description": "Enterprise Authentication Hub",
       "imageUrl": "https://picsum.photos/seed/sri_security_v2/1600/900",
       "imageHint": "security architecture"
+    },
+    {
+      "id": "cloudsync-vault",
+      "description": "Atomic Document Cloud Storage",
+      "imageUrl": "https://picsum.photos/seed/cloud_vault/1600/900",
+      "imageHint": "cloud database"
     },
     {
       "id": "pulse-analytics-node",

@@ -1,11 +1,14 @@
+
 'use client';
 
 import { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
+import Image from 'next/image';
 import { Navbar } from "@/components/layout/Navbar";
 import { Hero } from "@/components/sections/Hero";
 import { Footer } from "@/components/layout/Footer";
 import { Toaster } from "@/components/ui/toaster";
+import { PlaceHolderImages } from "@/app/lib/placeholder-images";
 
 // Streaming Component Registry
 const About = dynamic(() => import('@/components/sections/About').then(mod => mod.About), { ssr: false });
@@ -18,6 +21,7 @@ const Contact = dynamic(() => import('@/components/sections/Contact').then(mod =
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
+  const bgImage = PlaceHolderImages.find(img => img.id === 'system-backdrop');
 
   useEffect(() => {
     setMounted(true);
@@ -27,18 +31,32 @@ export default function Home() {
     <div className="min-h-screen bg-background relative selection:bg-primary/20">
       {/* High-Fidelity Neural OS Backdrop - Triple Layer Flux Architecture */}
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
-        {/* Layer 1: Neural Node Matrix */}
+        {/* Layer 1: Atmospheric Base Image */}
+        {bgImage && (
+          <div className="absolute inset-0 grayscale opacity-10 blur-[2px]">
+            <Image 
+              src={bgImage.imageUrl} 
+              alt="System Logic Backdrop" 
+              fill 
+              className="object-cover"
+              priority
+              data-ai-hint={bgImage.imageHint}
+            />
+          </div>
+        )}
+
+        {/* Layer 2: Neural Node Matrix */}
         <div className="absolute inset-0 neural-grid" />
-        
-        {/* Layer 2: Ambient Flux Radials */}
-        <div className="ambient-glow-1" />
-        <div className="ambient-glow-2" />
         
         {/* Layer 3: High-Frequency Logic Scan */}
         <div className="logic-scan-subsystem" />
         
-        {/* Environmental Depth Mask */}
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background/20 pointer-events-none" />
+        {/* Environmental Depth Mask & Vignette */}
+        <div className="atmospheric-mask" />
+        
+        {/* Lens Optics */}
+        <div className="lens-flare top-[-10%] left-[-10%]" />
+        <div className="lens-flare bottom-[-10%] right-[-10%] opacity-40" />
       </div>
 
       <Navbar />
