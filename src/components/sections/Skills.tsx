@@ -31,7 +31,7 @@ const skillCategories = [
     title: "Frontend Node",
     icon: Layout,
     skills: [
-      { name: "Next.js 15", level: "High", icon: globe },
+      { name: "Next.js 15", level: "High", icon: Globe },
       { name: "TypeScript", level: "Core", icon: Code2 },
       { name: "React 19", level: "Core", icon: Activity },
       { name: "Tailwind CSS", level: "High", icon: Layout }
