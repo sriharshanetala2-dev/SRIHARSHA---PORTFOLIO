@@ -2,17 +2,17 @@ import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import { FirebaseClientProvider } from '@/firebase';
 import { ThemeProvider } from 'next-themes';
-import { Inter, Space_Grotesk, JetBrains_Mono } from 'next/font/google';
+import { Plus_Jakarta_Sans, Outfit, JetBrains_Mono } from 'next/font/google';
 
-const inter = Inter({
+const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ['latin'],
-  variable: '--font-inter',
+  variable: '--font-plus-jakarta',
   display: 'swap',
 });
 
-const spaceGrotesk = Space_Grotesk({
+const outfit = Outfit({
   subsets: ['latin'],
-  variable: '--font-space-grotesk',
+  variable: '--font-outfit',
   display: 'swap',
 });
 
@@ -42,7 +42,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`${plusJakartaSans.variable} ${outfit.variable} ${jetbrainsMono.variable}`}>
       <body className="font-body antialiased bg-background text-foreground selection:bg-primary/30 overflow-x-hidden">
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <FirebaseClientProvider>
