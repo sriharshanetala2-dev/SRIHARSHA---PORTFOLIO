@@ -67,98 +67,96 @@ const timelineItems = [
 
 export function ProfessionalTimeline() {
   return (
-    <section id="experience" className="py-24 sm:py-40 px-6 relative overflow-hidden bg-transparent border-t border-border scroll-mt-20">
-      <div className="max-w-7xl mx-auto space-y-24 sm:space-y-40 relative z-10">
-        <div className="flex flex-col items-center text-center space-y-12">
+    <section id="experience" className="py-20 sm:py-32 px-6 relative overflow-hidden bg-transparent border-t border-border scroll-mt-20">
+      <div className="max-w-6xl mx-auto space-y-16 sm:space-y-24 relative z-10">
+        <div className="flex flex-col items-center text-center space-y-6">
           <motion.div 
-            initial={{ opacity: 0, y: 15 }}
+            initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="section-label"
           >
-            <Terminal className="w-4 h-4" />
+            <Terminal className="w-3.5 h-3.5" />
             GROWTH MATRIX_v3.0
           </motion.div>
           <motion.h2 
-            initial={{ opacity: 0, y: 25 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-5xl sm:text-7xl lg:text-9xl font-headline font-black tracking-tighter uppercase leading-[0.8] shimmer-text"
-          >
-            PROFESSIONAL <span className="text-gradient">JOURNEY</span>
-          </motion.h2>
-          <motion.p 
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-lg sm:text-2xl text-muted-foreground font-bold uppercase tracking-tight opacity-95 max-w-3xl px-6 leading-relaxed"
+            className="text-4xl sm:text-6xl font-black leading-tight shimmer-text"
+          >
+            PROFESSIONAL JOURNEY
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-sm sm:text-lg text-muted-foreground font-bold uppercase tracking-tight opacity-90 max-w-2xl px-6 leading-relaxed"
           >
             A high-precision mapping of <span className="text-primary">industrial development milestones</span> and academic foundations.
           </motion.p>
         </div>
 
-        <div className="relative space-y-12 sm:space-y-16">
+        <div className="space-y-8 relative">
           {timelineItems.map((item, idx) => (
             <motion.div
               key={item.id}
-              initial={{ opacity: 0, x: -50 }}
+              initial={{ opacity: 0, x: -10 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ delay: idx * 0.15, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ delay: idx * 0.1, duration: 0.6 }}
               viewport={{ once: true }}
-              className="flex flex-col lg:flex-row gap-10 lg:gap-24 items-start group"
+              className="flex flex-col lg:flex-row gap-6 lg:gap-12 items-stretch"
             >
-              <div className="lg:w-80 shrink-0 flex items-center gap-10">
-                <div className="p-8 rounded-[2rem] bg-secondary/40 border border-border text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-700 shadow-2xl group-hover:shadow-primary/30 group-hover:rotate-6">
-                  <item.icon className="w-10 h-10 group-hover:scale-110 transition-transform duration-500" />
+              <div className="lg:w-64 shrink-0 flex flex-row lg:flex-col items-center lg:items-start gap-6 lg:gap-4 p-6 rounded-2xl bg-secondary/10 border border-border/40">
+                <div className="p-4 rounded-xl bg-primary/10 text-primary border border-primary/20">
+                  <item.icon className="w-6 h-6" />
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-[13px] font-black text-primary tracking-[0.6em] uppercase">NODE_{item.id}</span>
-                  <span className="text-[11px] font-black text-muted-foreground/50 uppercase tracking-[0.4em]">{item.type.toUpperCase()}</span>
+                  <span className="text-[10px] font-black text-primary tracking-[0.4em] uppercase">NODE_{item.id}</span>
+                  <span className="text-[9px] font-black text-muted-foreground/50 uppercase tracking-widest">{item.type.toUpperCase()}</span>
                 </div>
               </div>
 
-              <div className="flex-1 glass-card p-12 sm:p-20 rounded-[3.5rem] hover:border-primary/60 transition-all duration-700 border border-border/50 bg-card/40 backdrop-blur-3xl shadow-4xl">
-                <div className="space-y-12">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-10">
-                    <div className="space-y-4">
-                      <div className="flex items-center gap-5 text-[13px] font-black text-primary uppercase tracking-[0.4em] opacity-80">
-                        <CalendarDays className="w-5 h-5" />
-                        {item.period}
-                      </div>
-                      <h3 className="text-3xl sm:text-6xl font-headline font-black uppercase tracking-tight text-foreground leading-none">
-                        {item.role}
-                      </h3>
+              <div className="flex-1 glass-card p-8 sm:p-12 rounded-3xl border border-border/40 space-y-8">
+                <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-6">
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-3 text-[10px] font-black text-primary uppercase tracking-widest opacity-80">
+                      <CalendarDays className="w-3.5 h-3.5" />
+                      {item.period}
                     </div>
-                    <div className="text-[11px] sm:text-[14px] font-black uppercase tracking-[0.5em] text-primary bg-primary/10 px-8 py-4 rounded-2xl border border-primary/30 w-fit backdrop-blur-2xl shadow-xl">
+                    <h3 className="text-xl sm:text-3xl font-black uppercase tracking-tight leading-tight">
+                      {item.role}
+                    </h3>
+                    <div className="text-[10px] font-black uppercase tracking-widest text-primary/70 bg-primary/5 px-3 py-1.5 rounded-md border border-primary/10 w-fit">
                       {item.type === 'work' ? item.company : item.institution}
                     </div>
                   </div>
+                </div>
 
-                  <p className="text-lg sm:text-3xl text-foreground font-bold uppercase tracking-tight leading-relaxed max-w-5xl opacity-95">
-                    {item.description}
-                  </p>
+                <p className="text-sm sm:text-base text-muted-foreground font-bold uppercase tracking-tight leading-relaxed opacity-95">
+                  {item.description}
+                </p>
 
-                  <div className="flex flex-wrap gap-4 pt-4">
-                    {item.tags.map(tag => (
-                      <span key={tag} className="px-6 py-3 bg-background/60 border border-border rounded-xl text-[12px] font-black uppercase tracking-[0.4em] text-primary hover:border-primary/60 hover:bg-primary/10 transition-all cursor-default shadow-lg">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
+                <div className="flex flex-wrap gap-2 pt-2">
+                  {item.tags.map(tag => (
+                    <span key={tag} className="px-4 py-2 bg-background/50 border border-border/40 rounded-lg text-[9px] font-black uppercase tracking-widest text-primary/80">
+                      {tag}
+                    </span>
+                  ))}
                 </div>
               </div>
             </motion.div>
           ))}
         </div>
 
-        <div className="flex justify-center pt-20">
+        <div className="flex justify-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            className="flex items-center gap-6 px-10 py-5 rounded-full bg-secondary/20 border border-border/50 backdrop-blur-3xl"
+            className="flex items-center gap-4 px-6 py-3 rounded-full bg-secondary/20 border border-border/40 backdrop-blur-md"
           >
-            <Activity className="w-6 h-6 text-primary animate-pulse" />
-            <span className="text-[11px] font-black uppercase tracking-[0.6em] text-muted-foreground">END_OF_JOURNEY_REGISTRY</span>
+            <Activity className="w-4 h-4 text-primary animate-pulse" />
+            <span className="text-[9px] font-black uppercase tracking-[0.4em] text-muted-foreground opacity-60">END_OF_JOURNEY_REGISTRY</span>
           </motion.div>
         </div>
       </div>

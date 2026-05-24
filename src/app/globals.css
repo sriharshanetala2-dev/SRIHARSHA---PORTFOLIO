@@ -4,7 +4,6 @@
 
 @layer base {
   :root {
-    /* Enterprise Titanium & Cobalt Palette */
     --background: 220 20% 98%;
     --foreground: 224 71% 4%;
     --card: 0 0% 100%;
@@ -17,20 +16,19 @@
     --secondary-foreground: 222.2 47.4% 11.2%;
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 142.1 76.2% 36.3%; /* Neural Emerald */
+    --accent: 142.1 76.2% 36.3%;
     --accent-foreground: 210 40% 98%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
     --ring: 221.2 83.2% 53.3%;
-    --radius: 1.25rem;
+    --radius: 1rem;
     --grid-opacity: 0.04;
     --scan-opacity: 0.015;
   }
 
   .dark {
-    /* Industrial Deep Space & Arctic Cobalt Palette */
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
     --card: 222.2 84% 6.9%;
@@ -43,7 +41,7 @@
     --secondary-foreground: 210 40% 98%;
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
-    --accent: 142.1 70.6% 45.3%; /* Neural Emerald */
+    --accent: 142.1 70.6% 45.3%;
     --accent-foreground: 144.9 80.4% 10%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
@@ -64,14 +62,12 @@
     font-size: 16px;
     line-height: 1.6;
   }
-  /* Strict "No Italic" Policy */
   em, i, .italic, [style*="italic"] {
     @apply not-italic !important;
     font-style: normal !important;
   }
 }
 
-/* Moving Background Logic */
 @keyframes logic-sweep {
   0% { transform: translateY(-100%) skewY(-3deg); opacity: 0; }
   30% { opacity: var(--scan-opacity); }
@@ -116,13 +112,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom, 
-    transparent, 
-    hsl(var(--primary) / 0.05), 
-    hsl(var(--primary) / 0.15), 
-    hsl(var(--primary) / 0.05), 
-    transparent
-  );
+  background: linear-gradient(to bottom, transparent, hsl(var(--primary) / 0.05), hsl(var(--primary) / 0.1), transparent);
   animation: logic-sweep 18s cubic-bezier(0.4, 0, 0.2, 1) infinite;
   pointer-events: none;
   z-index: 1;
@@ -143,29 +133,19 @@
   position: absolute;
   width: 140%;
   height: 140%;
-  background: radial-gradient(circle at 50% 50%, 
-    hsl(var(--primary) / 0.12) 0%, 
-    hsl(var(--accent) / 0.04) 30%, 
-    transparent 70%
-  );
-  filter: blur(100px);
+  background: radial-gradient(circle at 50% 50%, hsl(var(--primary) / 0.1) 0%, transparent 70%);
+  filter: blur(80px);
   animation: flare-drift 30s ease-in-out infinite;
   pointer-events: none;
   z-index: 0;
 }
 
 .shimmer-text {
-  background: linear-gradient(90deg, 
-    hsl(var(--foreground)) 0%, 
-    hsl(var(--primary)) 25%, 
-    hsl(var(--accent)) 50%, 
-    hsl(var(--primary)) 75%, 
-    hsl(var(--foreground)) 100%
-  );
+  background: linear-gradient(90deg, hsl(var(--foreground)) 0%, hsl(var(--primary)) 50%, hsl(var(--foreground)) 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: shimmer 10s linear infinite;
+  animation: shimmer 8s linear infinite;
 }
 
 .text-gradient {
@@ -173,17 +153,17 @@
 }
 
 .glass-card {
-  @apply bg-card/40 backdrop-blur-3xl border border-border/50 shadow-2xl transition-all duration-700 hover:border-primary/50 hover:bg-card/60 hover:scale-[1.01];
+  @apply bg-card/60 backdrop-blur-xl border border-border/50 shadow-2xl transition-all duration-500 hover:border-primary/40 hover:bg-card/70;
   position: relative;
   overflow: hidden;
 }
 
 .section-label {
-  @apply text-[10px] sm:text-[12px] font-black uppercase tracking-[0.5em] text-primary bg-primary/10 border border-primary/20 px-6 py-2.5 rounded-full inline-flex items-center gap-3 shadow-xl backdrop-blur-2xl;
+  @apply text-[10px] font-black uppercase tracking-[0.4em] text-primary bg-primary/10 border border-primary/20 px-5 py-2 rounded-full inline-flex items-center gap-3 shadow-md backdrop-blur-md;
 }
 
 .magnetic-button {
-  @apply relative overflow-hidden transition-all duration-500 active:scale-95 shadow-2xl;
+  @apply relative overflow-hidden transition-all duration-500 active:scale-95 shadow-xl;
 }
 
 ::-webkit-scrollbar {
@@ -193,9 +173,9 @@
   @apply bg-background;
 }
 ::-webkit-scrollbar-thumb {
-  @apply bg-primary/20 rounded-full hover:bg-primary/40 transition-colors;
+  @apply bg-primary/20 rounded-full hover:bg-primary/40;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  @apply font-headline;
+  @apply font-headline font-black uppercase tracking-tight;
 }
