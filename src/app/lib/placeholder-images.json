@@ -1,3 +1,4 @@
+
 {
   "placeholderImages": [
     {
@@ -9,8 +10,8 @@
     {
       "id": "system-backdrop",
       "description": "Professional System Architecture Backdrop",
-      "imageUrl": "https://picsum.photos/seed/sri_professional_architecture/1920/1080",
-      "imageHint": "server architecture"
+      "imageUrl": "https://picsum.photos/seed/industrial_tech_nexus/1920/1080",
+      "imageHint": "server hardware"
     },
     {
       "id": "neural-workflow-os",

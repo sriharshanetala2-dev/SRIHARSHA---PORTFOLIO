@@ -41,6 +41,12 @@
       "description": "Java Spring Boot System",
       "imageUrl": "https://picsum.photos/seed/sri_java_v2/1600/900",
       "imageHint": "software engineering"
+    },
+    {
+      "id": "system-backdrop",
+      "description": "Professional System Architecture Backdrop",
+      "imageUrl": "https://picsum.photos/seed/industrial_tech_nexus/1920/1080",
+      "imageHint": "server hardware"
     }
   ]
 }
