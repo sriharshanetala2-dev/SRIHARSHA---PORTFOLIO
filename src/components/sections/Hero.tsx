@@ -125,12 +125,12 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 1.2 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8 px-6"
         >
-          <Button size="lg" className="w-full sm:w-auto rounded-2xl h-14 sm:h-18 px-12 text-[10px] font-black uppercase tracking-[0.3em] shadow-2xl shadow-primary/20 hover:scale-105 transition-all group" asChild>
+          <Button size="lg" className="w-full sm:w-auto rounded-2xl h-14 sm:h-18 px-12 text-[12px] font-black uppercase tracking-[0.3em] shadow-2xl shadow-primary/20 hover:scale-105 transition-all group" asChild>
             <a href="#portfolio">
               System Registry <ArrowRight className="ml-4 w-5 h-5 group-hover:translate-x-2 transition-transform" />
             </a>
           </Button>
-          <Button variant="outline" size="lg" className="w-full sm:w-auto rounded-2xl h-14 sm:h-18 px-12 text-[10px] font-black uppercase tracking-[0.3em] border-2 border-border hover:bg-secondary/40 transition-all" asChild>
+          <Button variant="outline" size="lg" className="w-full sm:w-auto rounded-2xl h-14 sm:h-18 px-12 text-[12px] font-black uppercase tracking-[0.3em] border-2 border-border hover:bg-secondary/40 transition-all" asChild>
             <a href="#contact">Initiate Sync</a>
           </Button>
         </motion.div>
