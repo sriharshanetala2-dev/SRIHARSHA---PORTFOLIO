@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X, Sun, Moon, Activity } from "lucide-react";
+import { Menu, X, Sun, Moon, Code2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "next-themes";
@@ -38,24 +38,24 @@ export function Navbar() {
       scrolled ? "py-6" : "py-10"
     )}>
       <div className={cn(
-        "max-w-7xl mx-auto flex items-center justify-between px-8 py-4 rounded-3xl transition-all duration-700 border",
+        "max-w-7xl mx-auto flex items-center justify-between px-6 sm:px-8 py-4 rounded-3xl transition-all duration-700 border",
         scrolled 
           ? "bg-background/80 backdrop-blur-3xl border-border/60 shadow-2xl" 
           : "bg-transparent border-transparent"
       )}>
-        <Link href="/" className="flex items-center gap-5 group">
+        <Link href="/" className="flex items-center gap-4 sm:gap-5 group">
           <motion.div 
-            whileHover={{ rotate: 180, scale: 1.1 }}
+            whileHover={{ rotate: 15, scale: 1.1 }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
             className="p-3 rounded-2xl bg-primary text-primary-foreground shadow-xl flex items-center justify-center"
           >
-            <Activity className="w-6 h-6" />
+            <Code2 className="w-5 h-5 sm:w-6 sm:h-6" />
           </motion.div>
           <div className="flex flex-col">
             <span className="text-sm sm:text-xl font-headline font-black tracking-normal uppercase leading-none shimmer-text">
               SRI HARSHA
             </span>
-            <span className="text-[10px] font-mono font-bold uppercase tracking-[0.3em] text-primary/80 mt-1.5">
+            <span className="text-[9px] sm:text-[10px] font-mono font-bold uppercase tracking-[0.2em] text-primary/80 mt-1">
               Full Stack Developer
             </span>
           </div>
@@ -106,20 +106,20 @@ export function Navbar() {
         </div>
 
         {/* Mobile Interface Controls */}
-        <div className="flex items-center gap-5 lg:hidden">
+        <div className="flex items-center gap-4 lg:hidden">
           <motion.button 
             whileTap={{ scale: 0.9 }}
             onClick={toggleTheme}
-            className="p-3.5 rounded-2xl bg-secondary/40 border border-border/60"
+            className="p-3 rounded-2xl bg-secondary/40 border border-border/60"
           >
-            {mounted && (resolvedTheme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />)}
+            {mounted && (resolvedTheme === 'dark' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />)}
           </motion.button>
           <motion.button 
             whileTap={{ scale: 0.9 }}
-            className="p-3.5 rounded-2xl bg-primary text-primary-foreground shadow-xl"
+            className="p-3 rounded-2xl bg-primary text-primary-foreground shadow-xl"
             onClick={() => setIsOpen(!isOpen)}
           >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </motion.button>
         </div>
       </div>
@@ -131,7 +131,7 @@ export function Navbar() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: -20 }}
             transition={{ type: "spring", duration: 0.5, bounce: 0.3 }}
-            className="absolute top-full left-4 right-4 mt-6 bg-background/95 backdrop-blur-3xl border border-border/60 rounded-[2.5rem] p-10 flex flex-col gap-8 lg:hidden shadow-[0_40px_80px_rgba(0,0,0,0.5)] overflow-hidden"
+            className="absolute top-full left-4 right-4 mt-6 bg-background/95 backdrop-blur-3xl border border-border/60 rounded-[2.5rem] p-10 flex flex-col gap-6 lg:hidden shadow-[0_40px_80px_rgba(0,0,0,0.5)] overflow-hidden"
           >
             {navLinks.map((link, i) => (
               <motion.a
@@ -140,7 +140,7 @@ export function Navbar() {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: i * 0.1 }}
-                className="text-xs font-black uppercase tracking-[0.4em] text-muted-foreground hover:text-primary py-5 border-b border-border/20 last:border-0"
+                className="text-[11px] font-black uppercase tracking-[0.3em] text-muted-foreground hover:text-primary py-4 border-b border-border/20 last:border-0"
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}
@@ -150,11 +150,11 @@ export function Navbar() {
               href="#contact"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-              className="w-full py-6 rounded-2xl bg-primary text-primary-foreground text-center font-black uppercase tracking-[0.4em] text-[11px] shadow-2xl shadow-primary/30"
+              transition={{ delay: 0.4 }}
+              className="w-full py-5 rounded-2xl bg-primary text-primary-foreground text-center font-black uppercase tracking-[0.3em] text-[10px] shadow-2xl shadow-primary/30"
               onClick={() => setIsOpen(false)}
             >
-              Initialize Sync
+              Initiate Sync
             </motion.a>
           </motion.div>
         )}

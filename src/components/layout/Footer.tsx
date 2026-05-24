@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail, Sparkles, Activity } from "lucide-react";
+import { Github, Linkedin, Mail, Sparkles, Code2 } from "lucide-react";
 import { Logo } from "@/components/ui/logo";
 
 export function Footer() {
@@ -10,7 +10,6 @@ export function Footer() {
     <footer className="py-20 sm:py-32 px-4 sm:px-8 border-t border-border bg-transparent relative overflow-hidden">
       {/* Neural Optic Subsystem */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="lens-flare top-[-50%] left-[-20%] opacity-20" />
         <div className="absolute inset-0 bg-gradient-to-t from-primary/5 via-transparent to-transparent" />
       </div>
       
@@ -22,7 +21,7 @@ export function Footer() {
           <div className="flex flex-col items-center lg:items-start gap-8">
             <div className="flex items-center gap-4">
               <Logo className="scale-[1.5] origin-center lg:origin-left" />
-              <Activity className="w-6 h-6 text-primary/20 animate-pulse hidden sm:block" />
+              <Code2 className="w-6 h-6 text-primary/20 animate-pulse hidden sm:block" />
             </div>
             <p className="text-muted-foreground text-center lg:text-left max-w-lg text-[11px] sm:text-xs font-black leading-relaxed opacity-70 uppercase tracking-[0.2em] px-4 lg:px-0">
               Architecting high-performance digital ecosystems with a focus on Full Stack integrity and UI precision.

@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from "framer-motion";
-import { ArrowRight, Activity, Code2, Cpu, Zap, Box } from "lucide-react";
+import { ArrowRight, Code2, Cpu, Zap, Box } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export function Hero() {
@@ -12,7 +12,7 @@ export function Hero() {
       {/* Structural Background Layer */}
       <div className="absolute inset-0 neural-grid opacity-[0.03] pointer-events-none" />
       
-      {/* Modern Optical Effects - Limited for clarity */}
+      {/* Modern Optical Effects */}
       {glares.map((_, i) => (
         <div 
           key={i} 
@@ -36,7 +36,7 @@ export function Hero() {
           transition={{ duration: 0.6 }}
           className="section-label mx-auto"
         >
-          <Activity className="w-4 h-4" />
+          <Code2 className="w-4 h-4" />
           FULL_STACK_DEVELOPER_v4.0 // LIVE_NODE
         </motion.div>
 
@@ -77,7 +77,7 @@ export function Hero() {
           </Button>
         </motion.div>
 
-        {/* Technical Data Matrix - Responsive Grid */}
+        {/* Technical Data Matrix */}
         <div className="pt-12 sm:pt-24 grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-10 max-w-5xl mx-auto px-4">
           {[
             { label: "Core Logic", value: "Neural", icon: Cpu },
