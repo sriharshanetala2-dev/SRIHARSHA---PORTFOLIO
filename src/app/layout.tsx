@@ -23,7 +23,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'SRI HARSHA | Full Stack Developer & AI Engineer',
+  title: 'SRI HARSHA | Full Stack Architect',
   description: 'Professional portfolio of Netala Sri Harsha, specializing in high-performance Full Stack systems and AI orchestration.',
 };
 
