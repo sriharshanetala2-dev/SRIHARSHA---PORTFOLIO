@@ -30,7 +30,7 @@ export default function Home() {
     <div className="min-h-screen bg-background relative selection:bg-primary/20">
       {/* High-Fidelity Industrial OS Backdrop */}
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
-        {/* Layer 1: Professional Moving Workspace */}
+        {/* Layer 1: Professional Moving Workspace (Parallax Drift) */}
         {bgImage && (
           <div className="absolute inset-0 grayscale contrast-[1.1] brightness-[0.4] dark:brightness-[0.2] opacity-[0.25] transition-all duration-1000 parallax-container">
             <Image 
@@ -47,7 +47,7 @@ export default function Home() {
         {/* Layer 2: Neural Logic Matrix (Animated) */}
         <div className="absolute inset-0 neural-grid" />
         
-        {/* Layer 3: Dynamic Lens Flare System */}
+        {/* Layer 3: Dynamic Lens Flare System (Floating) */}
         <div className="lens-flare top-[-25%] left-[-20%] opacity-40 scale-150 blur-[120px]" />
         <div className="lens-flare bottom-[-30%] right-[-15%] opacity-30 scale-125 blur-[100px] [animation-delay:-10s]" />
         <div className="lens-flare top-[30%] left-[55%] opacity-15 scale-75 blur-[80px] [animation-delay:-20s]" />
