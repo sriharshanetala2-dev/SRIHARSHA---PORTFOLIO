@@ -46,12 +46,12 @@ export function Navbar() {
         <Link href="/" className="flex items-center gap-3 group">
           <motion.div 
             whileHover={{ rotate: 90, scale: 1.1 }}
-            className="p-2.5 rounded-xl bg-primary text-primary-foreground shadow-lg hidden sm:flex"
+            className="p-2.5 rounded-xl bg-primary text-primary-foreground shadow-lg flex items-center justify-center"
           >
-            <Code2 className="w-5 h-5" />
+            <Activity className="w-5 h-5" />
           </motion.div>
           <div className="flex flex-col">
-            <span className="text-lg sm:text-xl font-headline font-black tracking-normal uppercase leading-none shimmer-text">
+            <span className="text-base sm:text-xl font-headline font-black tracking-normal uppercase leading-none shimmer-text">
               SRI HARSHA
             </span>
             <span className="text-[9px] font-mono font-bold uppercase tracking-[0.2em] text-primary/80 mt-1">
