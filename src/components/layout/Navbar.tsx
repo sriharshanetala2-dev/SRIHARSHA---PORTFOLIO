@@ -10,7 +10,6 @@ import { useTheme } from "next-themes";
 const navLinks = [
   { name: "About", href: "#about" },
   { name: "Experience", href: "#experience" },
-  { name: "Education", href: "#education" },
   { name: "Portfolio", href: "#portfolio" },
   { name: "Skills", href: "#skills" },
   { name: "Contact", href: "#contact" },
