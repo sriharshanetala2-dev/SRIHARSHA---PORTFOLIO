@@ -4,26 +4,26 @@
 
 @layer base {
   :root {
-    --background: 222 47% 2%;
-    --foreground: 210 40% 98%;
-    --card: 222 47% 3%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222 47% 3%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 210 100% 50%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 10%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 10%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 210 100% 50%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    --primary: 45 93% 47%;
+    --primary-foreground: 222 47% 11%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222 47% 11%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 45 93% 47%;
+    --accent-foreground: 222 47% 11%;
+    --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 12%;
-    --input: 217.2 32.6% 12%;
-    --ring: 210 100% 50%;
-    --radius: 1.5rem;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 45 93% 47%;
+    --radius: 1rem;
   }
 }
 
@@ -32,7 +32,7 @@
     @apply border-border outline-none;
   }
   body {
-    @apply bg-background text-foreground font-body antialiased selection:bg-primary/20 overflow-x-hidden;
+    @apply bg-background text-foreground font-body antialiased selection:bg-primary/30 overflow-x-hidden;
     font-size: 16px;
     line-height: 1.6;
   }
@@ -45,7 +45,7 @@
 .shimmer-text {
   background-size: 200% auto;
   animation: shimmer 5s linear infinite;
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-foreground via-primary/50 to-foreground;
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-foreground via-primary/40 to-foreground;
 }
 
 @keyframes shimmer {
@@ -54,7 +54,7 @@
 }
 
 .section-label {
-  @apply text-[9px] font-black uppercase tracking-[0.4em] text-primary bg-primary/10 px-5 py-2 rounded-full inline-flex items-center gap-2.5 border border-primary/20 shadow-lg backdrop-blur-md;
+  @apply text-[9px] font-black uppercase tracking-[0.4em] text-primary bg-primary/10 px-5 py-2 rounded-full inline-flex items-center gap-2.5 border border-primary/20 shadow-sm backdrop-blur-md;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -62,22 +62,22 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .glass-card {
-  @apply bg-card/60 border border-border/50 backdrop-blur-2xl shadow-2xl transition-all duration-700 hover:border-primary/40 overflow-hidden;
+  @apply bg-card border border-border/80 backdrop-blur-2xl shadow-xl transition-all duration-500 hover:border-primary/40 overflow-hidden;
 }
 
 .neural-grid {
   background-image: 
-    linear-gradient(to right, hsl(var(--border) / 0.15) 1px, transparent 1px),
-    linear-gradient(to bottom, hsl(var(--border) / 0.15) 1px, transparent 1px);
-  background-size: 50px 50px;
+    linear-gradient(to right, hsl(var(--border) / 0.5) 1px, transparent 1px),
+    linear-gradient(to bottom, hsl(var(--border) / 0.5) 1px, transparent 1px);
+  background-size: 60px 60px;
 }
 
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 6px;
 }
 ::-webkit-scrollbar-track {
   @apply bg-background;
 }
 ::-webkit-scrollbar-thumb {
-  @apply bg-primary/20 rounded-full hover:bg-primary/40 transition-colors;
+  @apply bg-primary/30 rounded-full hover:bg-primary/50 transition-colors;
 }

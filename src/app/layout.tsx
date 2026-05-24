@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import { FirebaseClientProvider } from '@/firebase';
-import { ThemeProvider } from 'next-themes';
 import { Inter, Outfit, JetBrains_Mono } from 'next/font/google';
 
 const inter = Inter({
@@ -28,10 +27,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
-    { media: '(prefers-color-scheme: dark)', color: '#000000' },
-  ],
+  themeColor: '#ffffff',
   width: 'device-width',
   initialScale: 1,
 };
@@ -42,13 +38,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${outfit.variable} ${jetbrainsMono.variable}`}>
+    <html lang="en" className={`${inter.variable} ${outfit.variable} ${jetbrainsMono.variable}`}>
       <body className="font-body antialiased bg-background text-foreground selection:bg-primary/30 overflow-x-hidden">
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-          <FirebaseClientProvider>
-            {children}
-          </FirebaseClientProvider>
-        </ThemeProvider>
+        <FirebaseClientProvider>
+          {children}
+        </FirebaseClientProvider>
       </body>
     </html>
   );
