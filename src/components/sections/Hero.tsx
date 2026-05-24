@@ -1,3 +1,4 @@
+
 'use client';
 
 import { motion } from "framer-motion";
@@ -5,8 +6,40 @@ import { ArrowRight, Code2, Cpu, Zap, Box } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export function Hero() {
+  const title = "Engineering";
+  const subtitle = "Intelligence";
+
+  const container = {
+    hidden: { opacity: 0 },
+    visible: (i = 1) => ({
+      opacity: 1,
+      transition: { staggerChildren: 0.04, delayChildren: 0.04 * i },
+    }),
+  };
+
+  const child = {
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        damping: 12,
+        stiffness: 100,
+      },
+    },
+    hidden: {
+      opacity: 0,
+      y: 20,
+      transition: {
+        type: "spring",
+        damping: 12,
+        stiffness: 100,
+      },
+    },
+  };
+
   return (
-    <section className="min-h-screen flex items-center justify-center pt-32 pb-20 px-6 relative overflow-hidden bg-background">
+    <section className="min-h-screen flex items-center justify-center pt-40 pb-20 px-6 relative overflow-hidden bg-background">
       {/* Structural Background Layer */}
       <div className="absolute inset-0 neural-grid opacity-[0.03] pointer-events-none" />
       
@@ -26,19 +59,31 @@ export function Hero() {
 
         <div className="space-y-8 sm:space-y-12">
           <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="text-[2.5rem] leading-[1.1] sm:text-7xl lg:text-9xl font-headline font-black tracking-tight uppercase"
+            className="text-[2.5rem] leading-[1.1] sm:text-7xl lg:text-9xl font-headline font-black tracking-tight uppercase flex flex-col items-center"
+            variants={container}
+            initial="hidden"
+            animate="visible"
           >
-            Engineering <br className="hidden sm:block" />
-            <span className="text-gradient">Intelligence</span>
+            <span className="flex flex-wrap justify-center overflow-hidden">
+              {title.split("").map((letter, index) => (
+                <motion.span key={index} variants={child} className="inline-block hover:text-primary transition-colors cursor-default">
+                  {letter}
+                </motion.span>
+              ))}
+            </span>
+            <span className="flex flex-wrap justify-center overflow-hidden text-gradient">
+              {subtitle.split("").map((letter, index) => (
+                <motion.span key={index} variants={child} className="inline-block hover:scale-110 transition-transform cursor-default">
+                  {letter}
+                </motion.span>
+              ))}
+            </span>
           </motion.h1>
           
           <motion.p
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
             className="text-sm sm:text-xl lg:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed font-bold uppercase tracking-tight opacity-90 px-4"
           >
             Building high-performance digital ecosystems where technical integrity meets autonomous orchestration.
@@ -48,7 +93,7 @@ export function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
+          transition={{ duration: 0.8, delay: 1 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8 px-6"
         >
           <Button size="lg" className="w-full sm:w-auto rounded-2xl h-14 sm:h-18 px-12 text-[10px] font-black uppercase tracking-[0.3em] shadow-2xl shadow-primary/20 hover:scale-105 transition-all group" asChild>
@@ -73,7 +118,7 @@ export function Hero() {
               key={i}
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.8 + (i * 0.1), duration: 0.5 }}
+              transition={{ delay: 1.2 + (i * 0.1), duration: 0.5 }}
               className="space-y-4 p-5 sm:p-7 rounded-[2rem] bg-secondary/10 border border-border/50 text-left hover:border-primary/40 transition-all group backdrop-blur-md shadow-xl"
             >
               <stat.icon className="w-5 h-5 text-primary opacity-70 group-hover:opacity-100 transition-opacity" />
