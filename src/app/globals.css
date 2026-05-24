@@ -4,52 +4,52 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11.2%;
     --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
+    --card-foreground: 222 47% 11.2%;
     --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-    --primary: 24 100% 50%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-    --accent: 190 100% 50%;
-    --accent-foreground: 240 5.9% 10%;
+    --popover-foreground: 222 47% 11.2%;
+    --primary: 221 83% 53%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222 47% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 217 91% 60%;
+    --accent-foreground: 222 47% 11.2%;
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 24 100% 50%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221 83% 53%;
     --radius: 0.75rem;
     --grid-opacity: 0.08;
-    --scan-opacity: 0.05;
+    --scan-opacity: 0.03;
   }
 
   .dark {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 240 10% 5%;
-    --card-foreground: 0 0% 98%;
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 24 100% 55%;
-    --primary-foreground: 240 10% 3.9%;
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-    --accent: 190 100% 50%;
-    --accent-foreground: 0 0% 98%;
+    --background: 222 47% 6%;
+    --foreground: 210 40% 98%;
+    --card: 222 47% 8%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 47% 6%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 222 47% 6%;
+    --secondary: 217.2 32.6% 12%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 213 27% 84%;
+    --accent-foreground: 222 47% 6%;
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 24 100% 55%;
-    --grid-opacity: 0.2;
-    --scan-opacity: 0.1;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+    --grid-opacity: 0.15;
+    --scan-opacity: 0.05;
   }
 }
 
@@ -93,7 +93,7 @@
 }
 
 .neural-grid {
-  background-image: radial-gradient(circle at 1px 1px, hsl(var(--primary) / 0.25) 1px, transparent 0);
+  background-image: radial-gradient(circle at 1px 1px, hsl(var(--primary) / 0.15) 1px, transparent 0);
   background-size: 48px 48px;
   opacity: var(--grid-opacity);
   animation: node-pulse 12s ease-in-out infinite;
@@ -106,7 +106,7 @@
   left: 5%;
   width: 50vw;
   height: 50vw;
-  background: radial-gradient(circle at center, hsl(var(--primary) / 0.06), transparent 70%);
+  background: radial-gradient(circle at center, hsl(var(--primary) / 0.04), transparent 70%);
   animation: ambient-drift 35s ease-in-out infinite;
   filter: blur(140px);
   pointer-events: none;
@@ -119,7 +119,7 @@
   right: 5%;
   width: 60vw;
   height: 60vw;
-  background: radial-gradient(circle at center, hsl(var(--accent) / 0.05), transparent 70%);
+  background: radial-gradient(circle at center, hsl(var(--accent) / 0.03), transparent 70%);
   animation: ambient-drift 40s ease-in-out infinite reverse;
   filter: blur(160px);
   pointer-events: none;
@@ -132,7 +132,7 @@
   left: 0;
   width: 100%;
   height: 1200px;
-  background: linear-gradient(to bottom, transparent, hsl(var(--primary) / 0.04), hsl(var(--accent) / 0.02), transparent);
+  background: linear-gradient(to bottom, transparent, hsl(var(--primary) / 0.03), hsl(var(--accent) / 0.015), transparent);
   animation: logic-sweep 25s cubic-bezier(0.4, 0, 0.2, 1) infinite;
   pointer-events: none;
   z-index: 1;
