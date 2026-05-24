@@ -69,12 +69,28 @@ const timelineItems = [
 ];
 
 export function ProfessionalTimeline() {
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, x: -30 },
+    show: { opacity: 1, x: 0, transition: { type: "spring", stiffness: 100, damping: 20 } }
+  };
+
   return (
     <section id="experience" className="py-24 sm:py-32 px-6 border-t border-border bg-background relative overflow-hidden">
       <div className="absolute inset-0 neural-grid opacity-[0.05] pointer-events-none" />
       
-      <div className="max-w-4xl mx-auto space-y-20 relative z-10">
-        <div className="text-center space-y-6">
+      <div className="max-w-4xl mx-auto space-y-24 relative z-10">
+        <div className="text-center space-y-8">
           <motion.div 
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -95,48 +111,51 @@ export function ProfessionalTimeline() {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-sm sm:text-lg text-muted-foreground font-bold uppercase tracking-wide opacity-70"
+            className="text-base sm:text-xl text-muted-foreground font-bold uppercase tracking-wide opacity-70"
           >
             A technical mapping of development milestones and academic foundations.
           </motion.p>
         </div>
 
-        <div className="relative space-y-12">
+        <motion.div 
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="relative space-y-16"
+        >
           <div className="absolute left-8 top-0 bottom-0 w-px bg-border hidden md:block" />
-          {timelineItems.map((item, idx) => (
+          {timelineItems.map((item) => (
             <motion.div
               key={item.id}
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ delay: idx * 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              viewport={{ once: true }}
-              className="relative flex flex-col md:flex-row gap-8 pl-0 md:pl-20"
+              variants={itemVariants}
+              className="relative flex flex-col md:flex-row gap-8 pl-0 md:pl-24"
             >
-              <div className="absolute left-6 top-10 w-4 h-4 rounded-full bg-primary border-4 border-background hidden md:block shadow-[0_0_15px_rgba(var(--primary),0.5)]" />
+              <div className="absolute left-6 top-12 w-5 h-5 rounded-full bg-primary border-4 border-background hidden md:block shadow-[0_0_15px_rgba(var(--primary),0.5)] z-20" />
               
-              <div className="flex-1 space-y-6 bg-card/40 p-8 sm:p-12 rounded-[2.5rem] border border-border shadow-2xl backdrop-blur-3xl group hover:border-primary/40 transition-all duration-500">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
-                  <div className="flex items-center gap-6">
-                    <div className="p-4 rounded-2xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-700 shadow-xl">
-                      <item.icon className="w-7 h-7" />
+              <div className="flex-1 space-y-8 bg-card/40 p-10 sm:p-14 rounded-[3rem] border border-border shadow-2xl backdrop-blur-3xl group hover:border-primary/40 transition-all duration-500">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-8">
+                  <div className="flex items-center gap-8">
+                    <div className="p-5 rounded-2xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-700 shadow-xl">
+                      <item.icon className="w-8 h-8" />
                     </div>
-                    <div className="space-y-1">
-                      <h3 className="text-xl sm:text-2xl font-headline font-black uppercase tracking-tight leading-none">{item.role}</h3>
-                      <p className="text-[10px] font-mono font-black text-primary uppercase tracking-[0.2em] mt-1">{item.company || item.institution}</p>
+                    <div className="space-y-2">
+                      <h3 className="text-2xl sm:text-3xl font-headline font-black uppercase tracking-tight leading-none group-hover:text-primary transition-colors">{item.role}</h3>
+                      <p className="text-[12px] font-mono font-black text-primary uppercase tracking-[0.3em] mt-1">{item.company || item.institution}</p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-2.5 text-[9px] font-black text-muted-foreground bg-secondary/60 border border-border/40 px-4 py-2 rounded-full w-fit uppercase tracking-[0.2em]">
-                    <CalendarDays className="w-3.5 h-3.5" />
+                  <div className="flex items-center gap-3 text-[11px] font-black text-muted-foreground bg-secondary/60 border border-border/40 px-6 py-3 rounded-full w-fit uppercase tracking-[0.3em] shadow-sm">
+                    <CalendarDays className="w-4 h-4" />
                     {item.period}
                   </div>
                 </div>
-                <p className="text-xs sm:text-base text-muted-foreground leading-relaxed font-bold uppercase tracking-tight opacity-80">
+                <p className="text-sm sm:text-lg text-muted-foreground leading-relaxed font-bold uppercase tracking-tight opacity-80">
                   {item.description}
                 </p>
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

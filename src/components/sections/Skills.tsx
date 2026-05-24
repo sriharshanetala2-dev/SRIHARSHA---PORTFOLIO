@@ -17,29 +17,72 @@ const skills = [
 ];
 
 export function Skills() {
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.05
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, scale: 0.9 },
+    show: { opacity: 1, scale: 1, transition: { type: "spring", stiffness: 100 } }
+  };
+
   return (
-    <section id="skills" className="py-24 px-6 border-t border-border bg-background">
-      <div className="max-w-6xl mx-auto space-y-16">
-        <div className="text-center space-y-4">
-          <div className="section-label mx-auto">TECHNICAL REGISTRY</div>
-          <h2 className="text-4xl sm:text-6xl font-headline font-black tracking-tighter uppercase leading-none">Skill Matrix</h2>
+    <section id="skills" className="py-24 sm:py-32 px-6 border-t border-border bg-background relative overflow-hidden">
+      <div className="max-w-7xl mx-auto space-y-20 relative z-10">
+        <div className="text-center space-y-8">
+          <motion.div 
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="section-label mx-auto"
+          >
+            TECHNICAL_REGISTRY_V4
+          </motion.div>
+          <motion.h2 
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-4xl sm:text-7xl font-headline font-black tracking-tighter uppercase leading-none"
+          >
+            Skill <span className="text-gradient">Matrix</span>
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-base sm:text-xl text-muted-foreground font-black max-w-3xl mx-auto opacity-70 uppercase tracking-widest leading-relaxed"
+          >
+            A high-density technical audit of my core competencies and systems proficiency.
+          </motion.p>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-4">
-          {skills.map((skill, idx) => (
+        <motion.div 
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="flex flex-wrap justify-center gap-6"
+        >
+          {skills.map((skill) => (
             <motion.div
               key={skill.name}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ delay: idx * 0.05 }}
-              viewport={{ once: true }}
-              className="flex items-center gap-4 px-8 py-5 rounded-2xl bg-card border border-border shadow-xl hover:border-primary transition-all group cursor-default backdrop-blur-xl"
+              variants={itemVariants}
+              className="flex items-center gap-6 px-10 py-6 rounded-3xl bg-card border border-border shadow-2xl hover:border-primary hover:shadow-primary/10 transition-all group cursor-default backdrop-blur-xl scale-100 hover:scale-105"
             >
-              <skill.icon className="w-6 h-6 text-muted-foreground group-hover:text-primary transition-colors" />
-              <span className="font-black text-xs sm:text-sm uppercase tracking-[0.2em]">{skill.name}</span>
+              <skill.icon className="w-7 h-7 text-muted-foreground group-hover:text-primary transition-colors" />
+              <div className="flex flex-col">
+                <span className="font-black text-sm sm:text-base uppercase tracking-[0.2em] leading-none">{skill.name}</span>
+                <span className="text-[11px] font-mono font-black text-primary/40 uppercase tracking-[0.3em] mt-2 group-hover:text-primary/60">{skill.category}</span>
+              </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

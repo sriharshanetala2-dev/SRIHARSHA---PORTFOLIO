@@ -77,9 +77,9 @@ export function Hero() {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="section-label mx-auto text-[10px] sm:text-[12px] px-6 py-2.5"
+          className="section-label mx-auto text-[12px] px-8 py-3"
         >
-          <Code2 className="w-4 h-4" />
+          <Code2 className="w-5 h-5" />
           FULL_STACK_DEVELOPER_v4.0 // LIVE_NODE
         </motion.div>
 
@@ -90,7 +90,7 @@ export function Hero() {
             initial="hidden"
             animate="visible"
           >
-            <span className="flex flex-wrap justify-center overflow-hidden mb-4 sm:mb-10">
+            <span className="flex flex-wrap justify-center overflow-hidden mb-6 sm:mb-12">
               {title.split("").map((letter, index) => (
                 <motion.span 
                   key={index} 
@@ -103,7 +103,7 @@ export function Hero() {
                 </motion.span>
               ))}
             </span>
-            <span className="flex flex-wrap justify-center overflow-hidden shimmer-text py-2">
+            <span className="flex flex-wrap justify-center overflow-hidden shimmer-text py-4">
               {subtitle.split("").map((letter, index) => (
                 <motion.span 
                   key={index} 
@@ -122,9 +122,9 @@ export function Hero() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1 }}
-            className="text-base sm:text-xl lg:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed font-bold uppercase tracking-wide opacity-90 px-4"
+            className="text-lg sm:text-2xl lg:text-3xl text-muted-foreground max-w-4xl mx-auto leading-relaxed font-bold uppercase tracking-wide opacity-90 px-4"
           >
-            Building high-performance digital ecosystems where technical integrity meets autonomous orchestration.
+            Architecting high-performance digital ecosystems where technical integrity meets autonomous orchestration.
           </motion.p>
         </div>
 
@@ -132,20 +132,20 @@ export function Hero() {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.2 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8 px-6"
+          className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-10 px-6"
         >
-          <Button size="lg" className="w-full sm:w-auto rounded-2xl h-16 sm:h-20 px-14 text-[16px] sm:text-[18px] font-black uppercase tracking-[0.3em] shadow-2xl shadow-primary/20 hover:scale-105 transition-all group" asChild>
+          <Button size="lg" className="w-full sm:w-auto rounded-3xl h-18 sm:h-24 px-16 text-[18px] sm:text-[20px] font-black uppercase tracking-[0.4em] shadow-2xl shadow-primary/20 hover:scale-105 transition-all group" asChild>
             <a href="#portfolio">
-              System Registry <ArrowRight className="ml-4 w-6 h-6 group-hover:translate-x-2 transition-transform" />
+              System Registry <ArrowRight className="ml-5 w-7 h-7 group-hover:translate-x-3 transition-transform" />
             </a>
           </Button>
-          <Button variant="outline" size="lg" className="w-full sm:w-auto rounded-2xl h-16 sm:h-20 px-14 text-[16px] sm:text-[18px] font-black uppercase tracking-[0.3em] border-2 border-border hover:bg-secondary/40 transition-all" asChild>
+          <Button variant="outline" size="lg" className="w-full sm:w-auto rounded-3xl h-18 sm:h-24 px-16 text-[18px] sm:text-[20px] font-black uppercase tracking-[0.4em] border-2 border-border hover:bg-secondary/40 transition-all" asChild>
             <a href="#contact">Initiate Sync</a>
           </Button>
         </motion.div>
 
         {/* Technical Data Matrix */}
-        <div className="pt-12 sm:pt-24 grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-10 max-w-5xl mx-auto px-4">
+        <div className="pt-16 sm:pt-32 grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-12 max-w-6xl mx-auto px-4">
           {[
             { label: "Core Logic", value: "Neural", icon: Cpu },
             { label: "Integrity", value: "Verified", icon: Code2 },
@@ -157,12 +157,12 @@ export function Hero() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 1.5 + (i * 0.1), duration: 0.5 }}
-              className="space-y-4 p-8 sm:p-10 rounded-[2.5rem] bg-secondary/10 border border-border/50 text-left hover:border-primary/40 transition-all group backdrop-blur-md shadow-xl"
+              className="space-y-5 p-10 sm:p-12 rounded-[3rem] bg-secondary/10 border border-border/50 text-left hover:border-primary/40 transition-all group backdrop-blur-md shadow-xl"
             >
-              <stat.icon className="w-6 h-6 text-primary opacity-70 group-hover:opacity-100 transition-opacity" />
-              <div className="space-y-1">
-                <p className="text-[12px] font-mono font-black uppercase tracking-[0.3em] text-muted-foreground">{stat.label}</p>
-                <p className="text-base sm:text-lg font-black uppercase text-foreground font-mono">{stat.value}</p>
+              <stat.icon className="w-7 h-7 text-primary opacity-70 group-hover:opacity-100 transition-opacity" />
+              <div className="space-y-2">
+                <p className="text-[13px] font-mono font-black uppercase tracking-[0.4em] text-muted-foreground">{stat.label}</p>
+                <p className="text-lg sm:text-xl font-black uppercase text-foreground font-mono">{stat.value}</p>
               </div>
             </motion.div>
           ))}

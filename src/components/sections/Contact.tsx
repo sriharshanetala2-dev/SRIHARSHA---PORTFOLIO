@@ -27,92 +27,106 @@ export function Contact() {
     }, 1000);
   };
 
+  const variants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+  };
+
   return (
     <section id="contact" className="py-24 sm:py-32 px-6 bg-secondary/5 border-t border-border relative overflow-hidden">
-      <div className="max-w-6xl mx-auto space-y-20 relative z-10">
-        <div className="text-center space-y-6">
-          <div className="section-label mx-auto">COLLABORATION NODE</div>
-          <h2 className="text-4xl sm:text-6xl font-headline font-black tracking-tighter uppercase leading-none">Get In <span className="text-gradient">Touch</span></h2>
-          <p className="text-sm sm:text-lg text-muted-foreground max-w-2xl mx-auto font-black uppercase tracking-widest leading-relaxed opacity-70">
+      <div className="max-w-6xl mx-auto space-y-24 relative z-10">
+        <div className="text-center space-y-8">
+          <motion.div 
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="section-label mx-auto"
+          >
+            COLLABORATION_NODE_SYNC
+          </motion.div>
+          <h2 className="text-4xl sm:text-7xl font-headline font-black tracking-tighter uppercase leading-none">Get In <span className="text-gradient">Touch</span></h2>
+          <p className="text-base sm:text-xl text-muted-foreground max-w-2xl mx-auto font-black uppercase tracking-widest leading-relaxed opacity-70">
             Ready to synchronize on your next high-performance engineering project.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true }}
-            className="space-y-6"
+            variants={variants}
+            className="space-y-8"
           >
-            <div className="p-10 rounded-[2.5rem] bg-card/40 border border-border/60 backdrop-blur-3xl flex items-center gap-8 group hover:border-primary/40 transition-all">
-              <div className="p-5 rounded-2xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500 shadow-xl">
-                <Mail className="w-7 h-7" />
+            <div className="p-12 rounded-[3rem] bg-card/40 border border-border/60 backdrop-blur-3xl flex items-center gap-10 group hover:border-primary/40 transition-all shadow-xl">
+              <div className="p-6 rounded-2xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500 shadow-xl">
+                <Mail className="w-8 h-8" />
               </div>
-              <div className="space-y-1">
-                <p className="text-[10px] font-black text-muted-foreground uppercase tracking-[0.3em]">Email Port</p>
-                <p className="text-sm sm:text-lg font-black uppercase tracking-tight text-foreground">{userEmail}</p>
+              <div className="space-y-2">
+                <p className="text-[12px] font-black text-muted-foreground uppercase tracking-[0.4em]">Email Port</p>
+                <p className="text-sm sm:text-xl font-black uppercase tracking-tight text-foreground">{userEmail}</p>
               </div>
             </div>
             
-            <div className="p-10 rounded-[2.5rem] bg-card/40 border border-border/60 backdrop-blur-3xl flex items-center gap-8 group hover:border-primary/40 transition-all">
-              <div className="p-5 rounded-2xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500 shadow-xl">
-                <Phone className="w-7 h-7" />
+            <div className="p-12 rounded-[3rem] bg-card/40 border border-border/60 backdrop-blur-3xl flex items-center gap-10 group hover:border-primary/40 transition-all shadow-xl">
+              <div className="p-6 rounded-2xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500 shadow-xl">
+                <Phone className="w-8 h-8" />
               </div>
-              <div className="space-y-1">
-                <p className="text-[10px] font-black text-muted-foreground uppercase tracking-[0.3em]">Contact Node</p>
-                <p className="text-sm sm:text-lg font-black uppercase tracking-tight text-foreground">+91 9346759263</p>
+              <div className="space-y-2">
+                <p className="text-[12px] font-black text-muted-foreground uppercase tracking-[0.4em]">Contact Node</p>
+                <p className="text-sm sm:text-xl font-black uppercase tracking-tight text-foreground">+91 9346759263</p>
               </div>
             </div>
 
-            <div className="p-8 rounded-[2rem] bg-primary/5 border border-primary/20 flex items-center gap-6 opacity-60">
-              <Activity className="w-6 h-6 text-primary animate-pulse" />
-              <p className="text-[10px] font-black uppercase tracking-[0.4em] text-primary">Awaiting Connection Signal...</p>
+            <div className="p-10 rounded-[2.5rem] bg-primary/5 border border-primary/20 flex items-center gap-8 opacity-60">
+              <Activity className="w-7 h-7 text-primary animate-pulse" />
+              <p className="text-[12px] font-black uppercase tracking-[0.5em] text-primary">Awaiting Connection Signal...</p>
             </div>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true }}
-            className="p-8 sm:p-14 rounded-[3.5rem] bg-card border border-border shadow-4xl backdrop-blur-3xl"
+            variants={variants}
+            className="p-10 sm:p-16 rounded-[4rem] bg-card border border-border shadow-4xl backdrop-blur-3xl"
           >
-            <form onSubmit={handleSubmit} className="space-y-8">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                <div className="space-y-3">
-                  <label className="text-[10px] font-black uppercase tracking-[0.4em] text-muted-foreground ml-2">Full Identity</label>
+            <form onSubmit={handleSubmit} className="space-y-10">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
+                <div className="space-y-4">
+                  <label className="text-[12px] font-black uppercase tracking-[0.5em] text-muted-foreground ml-3">Full Identity</label>
                   <Input 
                     required 
                     placeholder="JOHN DOE" 
-                    className="h-14 sm:h-16 rounded-2xl bg-background/50 border-border/60 font-black text-xs uppercase tracking-widest px-6 focus:border-primary" 
+                    className="h-16 sm:h-20 rounded-2xl bg-background/50 border-border/60 font-black text-sm uppercase tracking-widest px-8 focus:border-primary" 
                     value={formData.name} 
                     onChange={(e) => setFormData({...formData, name: e.target.value})} 
                   />
                 </div>
-                <div className="space-y-3">
-                  <label className="text-[10px] font-black uppercase tracking-[0.4em] text-muted-foreground ml-2">Email Port</label>
+                <div className="space-y-4">
+                  <label className="text-[12px] font-black uppercase tracking-[0.5em] text-muted-foreground ml-3">Email Port</label>
                   <Input 
                     type="email" 
                     required 
                     placeholder="JOHN@EXAMPLE.COM" 
-                    className="h-14 sm:h-16 rounded-2xl bg-background/50 border-border/60 font-black text-xs uppercase tracking-widest px-6 focus:border-primary" 
+                    className="h-16 sm:h-20 rounded-2xl bg-background/50 border-border/60 font-black text-sm uppercase tracking-widest px-8 focus:border-primary" 
                     value={formData.email} 
                     onChange={(e) => setFormData({...formData, email: e.target.value})} 
                   />
                 </div>
               </div>
-              <div className="space-y-3">
-                <label className="text-[10px] font-black uppercase tracking-[0.4em] text-muted-foreground ml-2">Manifest Content</label>
+              <div className="space-y-4">
+                <label className="text-[12px] font-black uppercase tracking-[0.5em] text-muted-foreground ml-3">Manifest Content</label>
                 <Textarea 
                   required 
                   placeholder="YOUR MESSAGE..." 
-                  className="min-h-[160px] sm:min-h-[220px] rounded-3xl bg-background/50 border-border/60 p-6 sm:p-8 font-bold text-xs sm:text-sm uppercase tracking-tight resize-none focus:border-primary" 
+                  className="min-h-[200px] sm:min-h-[260px] rounded-[2.5rem] bg-background/50 border-border/60 p-8 sm:p-10 font-bold text-sm sm:text-base uppercase tracking-tight resize-none focus:border-primary" 
                   value={formData.message} 
                   onChange={(e) => setFormData({...formData, message: e.target.value})} 
                 />
               </div>
-              <Button type="submit" className="w-full h-16 sm:h-20 rounded-full text-xs font-black uppercase tracking-[0.4em] shadow-2xl shadow-primary/20" disabled={isSubmitting}>
-                {isSubmitting ? <Loader2 className="w-5 h-5 animate-spin" /> : <><Send className="w-5 h-5 mr-4" /> Start Transmission</>}
+              <Button type="submit" className="w-full h-18 sm:h-24 rounded-full text-sm font-black uppercase tracking-[0.5em] shadow-2xl shadow-primary/20 hover:scale-105 transition-all" disabled={isSubmitting}>
+                {isSubmitting ? <Loader2 className="w-6 h-6 animate-spin" /> : <><Send className="w-6 h-6 mr-5" /> Start Transmission</>}
               </Button>
             </form>
           </motion.div>
