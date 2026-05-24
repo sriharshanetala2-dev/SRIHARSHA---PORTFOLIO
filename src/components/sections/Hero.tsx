@@ -1,4 +1,3 @@
-
 'use client';
 
 import { motion } from "framer-motion";
@@ -61,12 +60,12 @@ export function Hero() {
 
         <div className="space-y-8 sm:space-y-12">
           <motion.h1
-            className="text-[2.75rem] leading-[1.1] sm:text-7xl lg:text-9xl font-headline font-black tracking-tight uppercase flex flex-col items-center select-none"
+            className="text-[2.75rem] leading-[1.2] sm:text-7xl lg:text-9xl font-headline font-black tracking-tight uppercase flex flex-col items-center select-none"
             variants={container}
             initial="hidden"
             animate="visible"
           >
-            <span className="flex flex-wrap justify-center overflow-hidden">
+            <span className="flex flex-wrap justify-center overflow-hidden mb-4 sm:mb-8">
               {title.split("").map((letter, index) => (
                 <motion.span 
                   key={index} 
@@ -87,7 +86,7 @@ export function Hero() {
                 </motion.span>
               ))}
             </span>
-            <span className="flex flex-wrap justify-center overflow-hidden shimmer-text">
+            <span className="flex flex-wrap justify-center overflow-hidden shimmer-text py-2">
               {subtitle.split("").map((letter, index) => (
                 <motion.span 
                   key={index} 

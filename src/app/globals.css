@@ -45,7 +45,8 @@
 .shimmer-text {
   background-size: 200% auto;
   animation: shimmer 3s linear infinite;
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-foreground via-primary to-foreground;
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-foreground via-primary to-foreground font-black;
+  text-shadow: 0 0 1px rgba(0,0,0,0.1);
 }
 
 @keyframes shimmer {
