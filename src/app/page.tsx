@@ -14,6 +14,7 @@ const Projects = dynamic(() => import('@/components/sections/Projects').then(mod
 const AITool = dynamic(() => import('@/components/sections/AITool').then(mod => mod.AITool), { ssr: false });
 const StudentDashboard = dynamic(() => import('@/components/sections/StudentDashboard').then(mod => mod.StudentDashboard), { ssr: false });
 const Skills = dynamic(() => import('@/components/sections/Skills').then(mod => mod.Skills), { ssr: false });
+const Contact = dynamic(() => import('@/components/sections/Contact').then(mod => mod.Contact), { ssr: false });
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
@@ -47,6 +48,7 @@ export default function Home() {
               <AITool />
               <StudentDashboard />
               <Skills />
+              <Contact />
             </motion.div>
           )}
         </AnimatePresence>
