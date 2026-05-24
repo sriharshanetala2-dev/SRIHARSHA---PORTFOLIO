@@ -45,7 +45,7 @@ export function Contact() {
             COLLABORATION_NODE_SYNC
           </motion.div>
           <h2 className="text-4xl sm:text-7xl font-headline font-black tracking-tighter uppercase leading-none">Get In <span className="text-gradient">Touch</span></h2>
-          <p className="text-base sm:text-xl text-muted-foreground max-w-2xl mx-auto font-black uppercase tracking-widest leading-relaxed opacity-70">
+          <p className="text-lg sm:text-2xl text-muted-foreground max-w-2xl mx-auto font-black uppercase tracking-widest leading-relaxed opacity-70">
             Ready to synchronize on your next high-performance engineering project.
           </p>
         </div>
@@ -63,8 +63,8 @@ export function Contact() {
                 <Mail className="w-8 h-8" />
               </div>
               <div className="space-y-2">
-                <p className="text-[12px] font-black text-muted-foreground uppercase tracking-[0.4em]">Email Port</p>
-                <p className="text-sm sm:text-xl font-black uppercase tracking-tight text-foreground">{userEmail}</p>
+                <p className="text-[14px] font-black text-muted-foreground uppercase tracking-[0.4em]">Email Port</p>
+                <p className="text-base sm:text-2xl font-black uppercase tracking-tight text-foreground">{userEmail}</p>
               </div>
             </div>
             
@@ -73,14 +73,14 @@ export function Contact() {
                 <Phone className="w-8 h-8" />
               </div>
               <div className="space-y-2">
-                <p className="text-[12px] font-black text-muted-foreground uppercase tracking-[0.4em]">Contact Node</p>
-                <p className="text-sm sm:text-xl font-black uppercase tracking-tight text-foreground">+91 9346759263</p>
+                <p className="text-[14px] font-black text-muted-foreground uppercase tracking-[0.4em]">Contact Node</p>
+                <p className="text-base sm:text-2xl font-black uppercase tracking-tight text-foreground">+91 9346759263</p>
               </div>
             </div>
 
             <div className="p-10 rounded-[2.5rem] bg-primary/5 border border-primary/20 flex items-center gap-8 opacity-60">
               <Activity className="w-7 h-7 text-primary animate-pulse" />
-              <p className="text-[12px] font-black uppercase tracking-[0.5em] text-primary">Awaiting Connection Signal...</p>
+              <p className="text-[14px] font-black uppercase tracking-[0.5em] text-primary">Awaiting Connection Signal...</p>
             </div>
           </motion.div>
 
@@ -94,38 +94,38 @@ export function Contact() {
             <form onSubmit={handleSubmit} className="space-y-10">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
                 <div className="space-y-4">
-                  <label className="text-[12px] font-black uppercase tracking-[0.5em] text-muted-foreground ml-3">Full Identity</label>
+                  <label className="text-[14px] font-black uppercase tracking-[0.5em] text-muted-foreground ml-3">Full Identity</label>
                   <Input 
                     required 
                     placeholder="JOHN DOE" 
-                    className="h-16 sm:h-20 rounded-2xl bg-background/50 border-border/60 font-black text-sm uppercase tracking-widest px-8 focus:border-primary" 
+                    className="h-16 sm:h-20 rounded-2xl bg-background/50 border-border/60 font-black text-base uppercase tracking-widest px-8 focus:border-primary" 
                     value={formData.name} 
                     onChange={(e) => setFormData({...formData, name: e.target.value})} 
                   />
                 </div>
                 <div className="space-y-4">
-                  <label className="text-[12px] font-black uppercase tracking-[0.5em] text-muted-foreground ml-3">Email Port</label>
+                  <label className="text-[14px] font-black uppercase tracking-[0.5em] text-muted-foreground ml-3">Email Port</label>
                   <Input 
                     type="email" 
                     required 
                     placeholder="JOHN@EXAMPLE.COM" 
-                    className="h-16 sm:h-20 rounded-2xl bg-background/50 border-border/60 font-black text-sm uppercase tracking-widest px-8 focus:border-primary" 
+                    className="h-16 sm:h-20 rounded-2xl bg-background/50 border-border/60 font-black text-base uppercase tracking-widest px-8 focus:border-primary" 
                     value={formData.email} 
                     onChange={(e) => setFormData({...formData, email: e.target.value})} 
                   />
                 </div>
               </div>
               <div className="space-y-4">
-                <label className="text-[12px] font-black uppercase tracking-[0.5em] text-muted-foreground ml-3">Manifest Content</label>
+                <label className="text-[14px] font-black uppercase tracking-[0.5em] text-muted-foreground ml-3">Manifest Content</label>
                 <Textarea 
                   required 
                   placeholder="YOUR MESSAGE..." 
-                  className="min-h-[200px] sm:min-h-[260px] rounded-[2.5rem] bg-background/50 border-border/60 p-8 sm:p-10 font-bold text-sm sm:text-base uppercase tracking-tight resize-none focus:border-primary" 
+                  className="min-h-[200px] sm:min-h-[260px] rounded-[2.5rem] bg-background/50 border-border/60 p-8 sm:p-10 font-bold text-base sm:text-lg uppercase tracking-tight resize-none focus:border-primary" 
                   value={formData.message} 
                   onChange={(e) => setFormData({...formData, message: e.target.value})} 
                 />
               </div>
-              <Button type="submit" className="w-full h-18 sm:h-24 rounded-full text-sm font-black uppercase tracking-[0.5em] shadow-2xl shadow-primary/20 hover:scale-105 transition-all" disabled={isSubmitting}>
+              <Button type="submit" className="w-full h-18 sm:h-24 rounded-full text-base font-black uppercase tracking-[0.5em] shadow-2xl shadow-primary/20 hover:scale-105 transition-all" disabled={isSubmitting}>
                 {isSubmitting ? <Loader2 className="w-6 h-6 animate-spin" /> : <><Send className="w-6 h-6 mr-5" /> Start Transmission</>}
               </Button>
             </form>

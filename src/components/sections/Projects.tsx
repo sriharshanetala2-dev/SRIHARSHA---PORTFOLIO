@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, Code2, Activity } from "lucide-react";
+import { ArrowRight, Code2, Activity, Terminal } from "lucide-react";
 import { projects } from "@/app/lib/projects-data";
 import { iconMap } from "@/app/lib/icon-map";
 
@@ -48,7 +48,7 @@ export function Projects() {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-base sm:text-xl text-muted-foreground max-w-3xl mx-auto font-black opacity-70 uppercase tracking-widest leading-relaxed"
+            className="text-lg sm:text-2xl text-muted-foreground max-w-3xl mx-auto font-black opacity-70 uppercase tracking-widest leading-relaxed"
           >
             High-performance software systems engineered for enterprise stability and technical integrity.
           </motion.p>
@@ -83,20 +83,25 @@ export function Projects() {
                       
                       <div className="space-y-4 flex-grow">
                         <h3 className="text-3xl font-headline font-black uppercase tracking-tight group-hover:text-primary transition-colors leading-tight">{project.title}</h3>
-                        <p className="text-sm sm:text-base text-muted-foreground leading-relaxed font-bold uppercase tracking-tight opacity-80 line-clamp-4">
+                        <p className="text-sm sm:text-lg text-muted-foreground leading-relaxed font-bold uppercase tracking-tight opacity-80 line-clamp-4">
                           {project.description}
                         </p>
                       </div>
                       
-                      <div className="flex flex-wrap gap-4">
-                        {project.tags.slice(0, 3).map(tag => (
-                          <span key={tag} className="text-[12px] font-black uppercase tracking-widest text-muted-foreground/40 font-mono">
-                            #{tag}
-                          </span>
-                        ))}
+                      <div className="space-y-4">
+                        <div className="flex items-center gap-3 text-[11px] font-black text-primary uppercase tracking-[0.2em] opacity-40">
+                          <Terminal className="w-3.5 h-3.5" /> SYSTEM_LOGS
+                        </div>
+                        <div className="flex flex-wrap gap-4">
+                          {project.tags.slice(0, 3).map(tag => (
+                            <span key={tag} className="text-[13px] font-black uppercase tracking-widest text-muted-foreground/40 font-mono">
+                              #{tag}
+                            </span>
+                          ))}
+                        </div>
                       </div>
                       
-                      <div className="pt-8 border-t border-border/50 flex items-center justify-between text-[13px] font-black uppercase tracking-[0.3em] text-primary group-hover:gap-4 transition-all">
+                      <div className="pt-8 border-t border-border/50 flex items-center justify-between text-[14px] font-black uppercase tracking-[0.3em] text-primary group-hover:gap-4 transition-all">
                         Access System Details <ArrowRight className="w-6 h-6 group-hover:translate-x-3 transition-transform" />
                       </div>
                     </CardContent>

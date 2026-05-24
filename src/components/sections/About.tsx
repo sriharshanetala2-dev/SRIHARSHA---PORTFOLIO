@@ -33,10 +33,10 @@ export function About() {
           >
             <div className="space-y-8">
               <div className="section-label">FULL_STACK_DEVELOPER_CORE</div>
-              <h2 className="text-4xl sm:text-6xl font-headline font-black leading-tight uppercase">
+              <h2 className="text-4xl sm:text-7xl font-headline font-black leading-tight uppercase">
                 Architecting <br className="hidden sm:block" /> <span className="text-gradient">Digital Intelligence</span>
               </h2>
-              <p className="text-base sm:text-xl text-muted-foreground leading-relaxed font-bold uppercase tracking-normal opacity-80 max-w-xl">
+              <p className="text-lg sm:text-2xl text-muted-foreground leading-relaxed font-bold uppercase tracking-normal opacity-80 max-w-xl">
                 Engineering high-performance ecosystems where robust systems logic meets autonomous AI orchestration.
               </p>
             </div>
@@ -54,8 +54,8 @@ export function About() {
                   )}
                 >
                   <node.icon className={cn("w-7 h-7 mb-5", activeNode.id === node.id ? "text-primary-foreground" : "text-primary")} />
-                  <div className="font-black text-sm uppercase tracking-[0.1em]">{node.label}</div>
-                  <div className={cn("text-[11px] font-black uppercase tracking-widest mt-2 opacity-60", activeNode.id === node.id ? "text-primary-foreground" : "text-muted-foreground")}>{node.desc}</div>
+                  <div className="font-black text-base uppercase tracking-[0.1em]">{node.label}</div>
+                  <div className={cn("text-[12px] font-black uppercase tracking-widest mt-2 opacity-60", activeNode.id === node.id ? "text-primary-foreground" : "text-muted-foreground")}>{node.desc}</div>
                 </button>
               ))}
             </div>
@@ -76,7 +76,7 @@ export function About() {
               </div>
               <div className="space-y-2">
                 <h3 className="text-3xl sm:text-5xl font-headline font-black uppercase tracking-tight">{activeNode.label} Core</h3>
-                <p className="text-[12px] font-black text-primary uppercase tracking-[0.5em] flex items-center gap-3">
+                <p className="text-[14px] font-black text-primary uppercase tracking-[0.5em] flex items-center gap-3">
                   <Terminal className="w-4 h-4" /> NODE_STATUS: ACTIVE
                 </p>
               </div>
@@ -87,7 +87,7 @@ export function About() {
                 <div key={i} className="flex flex-col sm:flex-row sm:items-center justify-between p-7 rounded-[1.5rem] bg-background/50 border border-border/50 group/metric hover:border-primary/40 transition-all gap-5">
                   <div className="flex items-center gap-5">
                     <div className="w-3 h-3 rounded-full bg-primary animate-pulse" />
-                    <span className="font-black text-xs sm:text-sm uppercase tracking-[0.1em] text-foreground">{metric}</span>
+                    <span className="font-black text-sm sm:text-base uppercase tracking-[0.1em] text-foreground">{metric}</span>
                   </div>
                   <Zap className="w-4 h-4 text-primary opacity-30 group-hover/metric:opacity-100 transition-opacity hidden sm:block" />
                 </div>
@@ -95,8 +95,8 @@ export function About() {
             </div>
 
             <div className="pt-10 border-t border-border/50 relative z-10 flex items-center justify-between">
-              <span className="text-[11px] font-black text-muted-foreground uppercase tracking-[0.4em]">SYSTEM_SYNC: ACTIVE</span>
-              <span className="text-[11px] font-black text-primary uppercase tracking-[0.4em]">v4.0.2</span>
+              <span className="text-[12px] font-black text-muted-foreground uppercase tracking-[0.4em]">SYSTEM_SYNC: ACTIVE</span>
+              <span className="text-[12px] font-black text-primary uppercase tracking-[0.4em]">v4.0.2</span>
             </div>
           </motion.div>
         </div>

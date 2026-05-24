@@ -8,7 +8,8 @@ import {
   GraduationCap, 
   BookOpen,
   CalendarDays,
-  CircleDot
+  CircleDot,
+  ArrowDown
 } from "lucide-react";
 
 const timelineItems = [
@@ -103,7 +104,7 @@ export function ProfessionalTimeline() {
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl sm:text-6xl font-headline font-black tracking-tighter uppercase leading-none shimmer-text"
+            className="text-4xl sm:text-7xl font-headline font-black tracking-tighter uppercase leading-none shimmer-text"
           >
             Professional Registry
           </motion.h2>
@@ -111,7 +112,7 @@ export function ProfessionalTimeline() {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-base sm:text-xl text-muted-foreground font-bold uppercase tracking-wide opacity-70"
+            className="text-lg sm:text-2xl text-muted-foreground font-bold uppercase tracking-wide opacity-70"
           >
             A technical mapping of development milestones and academic foundations.
           </motion.p>
@@ -140,16 +141,16 @@ export function ProfessionalTimeline() {
                       <item.icon className="w-8 h-8" />
                     </div>
                     <div className="space-y-2">
-                      <h3 className="text-2xl sm:text-3xl font-headline font-black uppercase tracking-tight leading-none group-hover:text-primary transition-colors">{item.role}</h3>
-                      <p className="text-[12px] font-mono font-black text-primary uppercase tracking-[0.3em] mt-1">{item.company || item.institution}</p>
+                      <h3 className="text-2xl sm:text-4xl font-headline font-black uppercase tracking-tight leading-none group-hover:text-primary transition-colors">{item.role}</h3>
+                      <p className="text-[14px] font-mono font-black text-primary uppercase tracking-[0.3em] mt-1">{item.company || item.institution}</p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-3 text-[11px] font-black text-muted-foreground bg-secondary/60 border border-border/40 px-6 py-3 rounded-full w-fit uppercase tracking-[0.3em] shadow-sm">
+                  <div className="flex items-center gap-3 text-[12px] font-black text-muted-foreground bg-secondary/60 border border-border/40 px-6 py-3 rounded-full w-fit uppercase tracking-[0.3em] shadow-sm">
                     <CalendarDays className="w-4 h-4" />
                     {item.period}
                   </div>
                 </div>
-                <p className="text-sm sm:text-lg text-muted-foreground leading-relaxed font-bold uppercase tracking-tight opacity-80">
+                <p className="text-sm sm:text-xl text-muted-foreground leading-relaxed font-bold uppercase tracking-tight opacity-80">
                   {item.description}
                 </p>
               </div>
