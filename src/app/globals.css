@@ -4,31 +4,6 @@
 
 @layer base {
   :root {
-    --background: 210 40% 98%;
-    --foreground: 222 47% 11.2%;
-    --card: 0 0% 100%;
-    --card-foreground: 222 47% 11.2%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11.2%;
-    --primary: 221 83% 53%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222 47% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 217 91% 60%;
-    --accent-foreground: 222 47% 11.2%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 221 83% 53%;
-    --radius: 0.75rem;
-    --grid-opacity: 0.08;
-    --scan-opacity: 0.03;
-  }
-
-  .dark {
     --background: 222 47% 6%;
     --foreground: 210 40% 98%;
     --card: 222 47% 8%;
@@ -48,8 +23,20 @@
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 224.3 76.3% 48%;
-    --grid-opacity: 0.15;
-    --scan-opacity: 0.05;
+    --radius: 0.75rem;
+    --grid-opacity: 0.12;
+    --scan-opacity: 0.04;
+  }
+
+  .dark {
+    --background: 222 47% 4%;
+    --foreground: 210 40% 98%;
+    --card: 222 47% 6%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 47% 4%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 222 47% 4%;
   }
 }
 
@@ -58,7 +45,7 @@
     @apply border-border outline-none;
   }
   body {
-    @apply bg-background text-foreground font-body antialiased transition-colors duration-500 overflow-x-hidden;
+    @apply bg-background text-foreground font-body antialiased transition-colors duration-700 overflow-x-hidden;
     font-size: 15px;
   }
   em, i, .italic, [style*="italic"] {
@@ -74,56 +61,29 @@
   100% { transform: translateY(400%) skewY(-5deg); opacity: 0; }
 }
 
-@keyframes horizon-scan {
-  0% { transform: translateX(-100%) skewX(45deg); opacity: 0; }
-  50% { opacity: 0.15; }
-  100% { transform: translateX(200%) skewX(45deg); opacity: 0; }
-}
-
-@keyframes ambient-drift {
-  0% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(4vw, -6vh) scale(1.05); }
-  66% { transform: translate(-3vw, 5vh) scale(0.98); }
-  100% { transform: translate(0, 0) scale(1); }
-}
-
 @keyframes node-pulse {
   0%, 100% { opacity: var(--grid-opacity); }
-  50% { opacity: calc(var(--grid-opacity) * 1.3); }
+  50% { opacity: calc(var(--grid-opacity) * 1.5); }
+}
+
+@keyframes flare-drift {
+  0% { transform: translate(-10%, -10%) rotate(0deg); opacity: 0.3; }
+  50% { transform: translate(10%, 10%) rotate(5deg); opacity: 0.5; }
+  100% { transform: translate(-10%, -10%) rotate(0deg); opacity: 0.3; }
+}
+
+@keyframes glint {
+  0% { left: -100%; opacity: 0; }
+  50% { opacity: 0.5; }
+  100% { left: 100%; opacity: 0; }
 }
 
 .neural-grid {
   background-image: radial-gradient(circle at 1px 1px, hsl(var(--primary) / 0.15) 1px, transparent 0);
   background-size: 48px 48px;
   opacity: var(--grid-opacity);
-  animation: node-pulse 12s ease-in-out infinite;
+  animation: node-pulse 10s ease-in-out infinite;
   will-change: opacity;
-}
-
-.ambient-glow-1 {
-  position: absolute;
-  top: 10%;
-  left: 5%;
-  width: 50vw;
-  height: 50vw;
-  background: radial-gradient(circle at center, hsl(var(--primary) / 0.04), transparent 70%);
-  animation: ambient-drift 35s ease-in-out infinite;
-  filter: blur(140px);
-  pointer-events: none;
-  will-change: transform;
-}
-
-.ambient-glow-2 {
-  position: absolute;
-  bottom: 5%;
-  right: 5%;
-  width: 60vw;
-  height: 60vw;
-  background: radial-gradient(circle at center, hsl(var(--accent) / 0.03), transparent 70%);
-  animation: ambient-drift 40s ease-in-out infinite reverse;
-  filter: blur(160px);
-  pointer-events: none;
-  will-change: transform;
 }
 
 .logic-scan-subsystem {
@@ -131,12 +91,27 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 1200px;
-  background: linear-gradient(to bottom, transparent, hsl(var(--primary) / 0.03), hsl(var(--accent) / 0.015), transparent);
-  animation: logic-sweep 25s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent, hsl(var(--primary) / 0.03), transparent);
+  animation: logic-sweep 20s cubic-bezier(0.4, 0, 0.2, 1) infinite;
   pointer-events: none;
   z-index: 1;
   will-change: transform;
+}
+
+.lens-flare {
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  background: radial-gradient(circle at 50% 50%, 
+    hsl(var(--primary) / 0.05) 0%, 
+    hsl(var(--primary) / 0.02) 20%, 
+    transparent 50%
+  );
+  filter: blur(100px);
+  animation: flare-drift 30s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .shimmer-text {
@@ -144,7 +119,7 @@
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: shimmer 12s linear infinite;
+  animation: shimmer 8s linear infinite;
 }
 
 @keyframes shimmer {
@@ -157,7 +132,20 @@
 }
 
 .glass-card {
-  @apply bg-card/40 backdrop-blur-2xl border border-border/50 shadow-2xl transition-all duration-500 hover:border-primary/40 hover:bg-card/60;
+  @apply bg-card/40 backdrop-blur-2xl border border-border/50 shadow-2xl transition-all duration-500 hover:border-primary/40 hover:bg-card/60 hover:scale-[1.01];
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(90deg, transparent, hsl(var(--primary) / 0.05), transparent);
+  animation: glint 5s infinite;
+  pointer-events: none;
 }
 
 ::-webkit-scrollbar {
