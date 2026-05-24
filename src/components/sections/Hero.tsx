@@ -1,3 +1,4 @@
+
 'use client';
 
 import { motion } from "framer-motion";
@@ -72,6 +73,15 @@ export function Hero() {
                   variants={child} 
                   className="inline-block hover:text-primary transition-colors cursor-default"
                   whileHover={{ y: -15, scale: 1.15, rotate: 2 }}
+                  animate={{
+                    y: [0, -10, 0],
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    delay: index * 0.12,
+                    ease: "easeInOut"
+                  }}
                 >
                   {letter}
                 </motion.span>
@@ -85,12 +95,12 @@ export function Hero() {
                   className="inline-block cursor-default"
                   whileHover={{ scale: 1.2, rotate: -3, color: "hsl(var(--primary))" }}
                   animate={{
-                    y: [0, -8, 0],
+                    y: [0, -10, 0],
                   }}
                   transition={{
-                    duration: 2.5,
+                    duration: 3,
                     repeat: Infinity,
-                    delay: index * 0.12,
+                    delay: (index + title.length) * 0.12,
                     ease: "easeInOut"
                   }}
                 >
