@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, Code2, Activity, Terminal } from "lucide-react";
+import { ArrowRight, Code2, Terminal, Activity } from "lucide-react";
 import { projects } from "@/app/lib/projects-data";
 import { iconMap } from "@/app/lib/icon-map";
 
@@ -13,42 +13,42 @@ export function Projects() {
     show: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2
+        staggerChildren: 0.15,
+        delayChildren: 0.3
       }
     }
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
+    hidden: { opacity: 0, y: 30 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
   };
 
   return (
-    <section id="portfolio" className="py-24 sm:py-32 px-6 bg-secondary/5 border-t border-border relative overflow-hidden">
-      <div className="max-w-7xl mx-auto space-y-24 relative z-10">
-        <div className="text-center space-y-8">
+    <section id="portfolio" className="py-32 sm:py-48 px-8 bg-secondary/10 border-t border-border relative overflow-hidden">
+      <div className="max-w-7xl mx-auto space-y-32 relative z-10">
+        <div className="text-center space-y-10">
           <motion.div 
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="section-label mx-auto"
           >
-            PROJECT_REGISTRY_V4
+            PROJECT_REGISTRY_v5.0
           </motion.div>
           <motion.h2 
-            initial={{ opacity: 0, y: 15 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl sm:text-7xl font-headline font-black tracking-tighter uppercase leading-none"
+            className="text-5xl sm:text-8xl font-headline font-black tracking-tighter uppercase leading-none"
           >
-            TECHNICAL <span className="text-gradient">RECORDS</span>
+            Technical <span className="text-gradient">Records</span>
           </motion.h2>
           <motion.p 
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-lg sm:text-2xl text-muted-foreground max-w-3xl mx-auto font-black opacity-70 uppercase tracking-widest leading-relaxed"
+            className="text-xl sm:text-3xl text-muted-foreground max-w-4xl mx-auto font-black opacity-80 uppercase tracking-widest leading-relaxed"
           >
             High-performance software systems engineered for enterprise stability and technical integrity.
           </motion.p>
@@ -59,7 +59,7 @@ export function Projects() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12"
         >
           {projects.map((project) => {
             const Icon = iconMap[project.icon] || Code2;
@@ -70,39 +70,39 @@ export function Projects() {
                 className="h-full"
               >
                 <Link href={`/projects/${project.id}`} className="group h-full block">
-                  <Card className="h-full rounded-[2.5rem] overflow-hidden glass-card hover:translate-y-[-10px] transition-all duration-500 shadow-2xl">
-                    <CardContent className="p-12 space-y-10 flex flex-col h-full relative">
+                  <Card className="h-full rounded-[3.5rem] overflow-hidden glass-card hover:translate-y-[-15px] transition-all duration-700 shadow-4xl">
+                    <CardContent className="p-16 space-y-14 flex flex-col h-full relative">
                       <div className="flex justify-between items-start">
-                        <div className="p-5 rounded-2xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500 shadow-xl">
-                          <Icon className="w-8 h-8" />
+                        <div className="p-6 rounded-[1.5rem] bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-700 shadow-2xl">
+                          <Icon className="w-10 h-10" />
                         </div>
-                        <span className="text-[12px] font-black uppercase tracking-[0.3em] text-primary/60 bg-primary/5 px-5 py-2 rounded-full border border-primary/10">
+                        <span className="text-[14px] font-black uppercase tracking-[0.4em] text-primary bg-primary/5 px-8 py-3 rounded-full border border-primary/20">
                           {project.category}
                         </span>
                       </div>
                       
-                      <div className="space-y-4 flex-grow">
-                        <h3 className="text-3xl font-headline font-black uppercase tracking-tight group-hover:text-primary transition-colors leading-tight">{project.title}</h3>
-                        <p className="text-sm sm:text-lg text-muted-foreground leading-relaxed font-bold uppercase tracking-tight opacity-80 line-clamp-4">
+                      <div className="space-y-6 flex-grow">
+                        <h3 className="text-4xl font-headline font-black uppercase tracking-tight group-hover:text-primary transition-colors leading-tight">{project.title}</h3>
+                        <p className="text-base sm:text-xl text-muted-foreground leading-relaxed font-bold uppercase tracking-tight opacity-90 line-clamp-5">
                           {project.description}
                         </p>
                       </div>
                       
-                      <div className="space-y-4">
-                        <div className="flex items-center gap-3 text-[11px] font-black text-primary uppercase tracking-[0.2em] opacity-40">
-                          <Terminal className="w-3.5 h-3.5" /> SYSTEM_LOGS
+                      <div className="space-y-6">
+                        <div className="flex items-center gap-4 text-[13px] font-black text-primary uppercase tracking-[0.3em] opacity-50">
+                          <Terminal className="w-5 h-5" /> SYSTEM_LOGS
                         </div>
-                        <div className="flex flex-wrap gap-4">
+                        <div className="flex flex-wrap gap-5">
                           {project.tags.slice(0, 3).map(tag => (
-                            <span key={tag} className="text-[13px] font-black uppercase tracking-widest text-muted-foreground/40 font-mono">
+                            <span key={tag} className="text-[15px] font-black uppercase tracking-[0.4em] text-muted-foreground/50 font-mono">
                               #{tag}
                             </span>
                           ))}
                         </div>
                       </div>
                       
-                      <div className="pt-8 border-t border-border/50 flex items-center justify-between text-[14px] font-black uppercase tracking-[0.3em] text-primary group-hover:gap-4 transition-all">
-                        Access System Details <ArrowRight className="w-6 h-6 group-hover:translate-x-3 transition-transform" />
+                      <div className="pt-10 border-t border-border/60 flex items-center justify-between text-[16px] font-black uppercase tracking-[0.4em] text-primary group-hover:gap-6 transition-all">
+                        Registry Archive <ArrowRight className="w-8 h-8 group-hover:translate-x-4 transition-transform" />
                       </div>
                     </CardContent>
                   </Card>

@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from "framer-motion";
-import { ArrowRight, Code2, Cpu, Zap, Box } from "lucide-react";
+import { ArrowRight, Code2, Cpu, Zap, Terminal, Activity } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export function Hero() {
@@ -12,7 +12,7 @@ export function Hero() {
     hidden: { opacity: 0 },
     visible: (i = 1) => ({
       opacity: 1,
-      transition: { staggerChildren: 0.1, delayChildren: 0.3 * i },
+      transition: { staggerChildren: 0.1, delayChildren: 0.4 * i },
     }),
   };
 
@@ -29,7 +29,7 @@ export function Hero() {
     },
     hidden: {
       opacity: 0,
-      y: 40,
+      y: 60,
       scale: 0.8,
       transition: {
         type: "spring",
@@ -41,7 +41,7 @@ export function Hero() {
 
   const neuralPulse = (index: number) => ({
     color: ["hsl(var(--foreground))", "hsl(var(--primary))", "hsl(var(--foreground))"],
-    scale: [1, 1.1, 1],
+    scale: [1, 1.15, 1],
     transition: {
       duration: 3,
       repeat: Infinity,
@@ -51,61 +51,61 @@ export function Hero() {
   });
 
   const activeWave = (index: number) => ({
-    y: [0, -15, 0],
-    scale: [1, 1.15, 1],
+    y: [0, -25, 0],
+    scale: [1, 1.25, 1],
     transition: {
-      duration: 2.5,
+      duration: 3,
       repeat: Infinity,
-      delay: (index + title.length) * 0.1,
+      delay: (index + title.length) * 0.15,
       ease: "easeInOut"
     }
   });
 
   return (
-    <section className="min-h-screen flex items-center justify-center pt-48 pb-24 px-6 relative overflow-hidden bg-background">
-      <div className="absolute inset-0 neural-grid opacity-[0.04] pointer-events-none" />
+    <section className="min-h-screen flex items-center justify-center pt-56 pb-32 px-8 relative overflow-hidden bg-background">
+      <div className="absolute inset-0 neural-grid opacity-[0.06] pointer-events-none" />
       
-      <div className="absolute top-[5%] left-[-10%] w-[60%] h-[60%] bg-primary/5 rounded-full blur-[160px] pointer-events-none" />
-      <div className="absolute bottom-[-5%] right-[-10%] w-[50%] h-[50%] bg-primary/5 rounded-full blur-[160px] pointer-events-none" />
+      <div className="absolute top-[10%] left-[-15%] w-[70%] h-[70%] bg-primary/5 rounded-full blur-[180px] pointer-events-none" />
+      <div className="absolute bottom-[-10%] right-[-15%] w-[60%] h-[60%] bg-primary/5 rounded-full blur-[180px] pointer-events-none" />
       
-      <div className="max-w-7xl mx-auto text-center space-y-16 relative z-20">
+      <div className="max-w-7xl mx-auto text-center space-y-20 relative z-20">
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 1 }}
           className="section-label mx-auto"
         >
-          <Code2 className="w-5 h-5" />
-          FULL_STACK_DEVELOPER_v4.0 // LIVE_NODE
+          <Activity className="w-6 h-6" />
+          SYSTEM_ARCHITECT_v5.0 // CORE_ONLINE
         </motion.div>
 
-        <div className="space-y-12 lg:space-y-16">
+        <div className="space-y-16 lg:space-y-24">
           <motion.h1
-            className="text-[3.5rem] leading-[1.1] sm:text-7xl lg:text-9xl font-headline font-black tracking-tight uppercase flex flex-col items-center select-none"
+            className="text-[4rem] leading-[1] sm:text-8xl lg:text-[11rem] font-headline font-black tracking-tight uppercase flex flex-col items-center select-none"
             variants={container}
             initial="hidden"
             animate="visible"
           >
-            <span className="flex flex-wrap justify-center mb-8 lg:mb-12">
+            <span className="flex flex-wrap justify-center mb-10 lg:mb-16">
               {title.split("").map((letter, index) => (
                 <motion.span 
                   key={index} 
                   variants={child} 
-                  className="inline-block hover:text-primary transition-colors cursor-default drop-shadow-xl"
-                  whileHover={{ y: -20, scale: 1.3, rotate: 5 }}
+                  className="inline-block hover:text-primary transition-all cursor-default drop-shadow-2xl"
+                  whileHover={{ y: -30, scale: 1.4, rotate: 8 }}
                   animate={neuralPulse(index)}
                 >
                   {letter}
                 </motion.span>
               ))}
             </span>
-            <span className="flex flex-wrap justify-center shimmer-text py-6 px-4">
+            <span className="flex flex-wrap justify-center shimmer-text py-10 px-6">
               {subtitle.split("").map((letter, index) => (
                 <motion.span 
                   key={index} 
                   variants={child} 
-                  className="inline-block cursor-default drop-shadow-2xl"
-                  whileHover={{ scale: 1.3, rotate: -5 }}
+                  className="inline-block cursor-default drop-shadow-4xl"
+                  whileHover={{ scale: 1.4, rotate: -8 }}
                   animate={activeWave(index)}
                 >
                   {letter}
@@ -115,52 +115,52 @@ export function Hero() {
           </motion.h1>
           
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 1 }}
-            className="text-xl sm:text-2xl lg:text-4xl text-muted-foreground max-w-5xl mx-auto leading-relaxed font-bold uppercase tracking-wide opacity-90 px-4"
+            transition={{ duration: 1, delay: 1.2 }}
+            className="text-2xl sm:text-3xl lg:text-5xl text-muted-foreground max-w-6xl mx-auto leading-relaxed font-bold uppercase tracking-tight opacity-90 px-6"
           >
             Architecting high-performance digital ecosystems where technical integrity meets autonomous orchestration.
           </motion.p>
         </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 25 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 1.2 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-12 px-6"
+          transition={{ duration: 1, delay: 1.5 }}
+          className="flex flex-col sm:flex-row items-center justify-center gap-10 sm:gap-16 px-8"
         >
-          <Button size="lg" className="w-full sm:w-auto rounded-full h-20 sm:h-28 px-14 sm:px-20 text-[20px] sm:text-[26px] font-black uppercase tracking-[0.4em] shadow-4xl shadow-primary/30 hover:scale-105 transition-all group" asChild>
+          <Button size="lg" className="w-full sm:w-auto rounded-full h-24 sm:h-32 px-16 sm:px-24 text-[24px] sm:text-[32px] font-black uppercase tracking-[0.5em] shadow-4xl shadow-primary/40 hover:scale-105 transition-all group" asChild>
             <a href="#portfolio">
-              System Registry <ArrowRight className="ml-6 w-8 h-8 group-hover:translate-x-4 transition-transform" />
+              Archive <ArrowRight className="ml-8 w-10 h-10 group-hover:translate-x-6 transition-transform" />
             </a>
           </Button>
-          <Button variant="outline" size="lg" className="w-full sm:w-auto rounded-full h-20 sm:h-28 px-14 sm:px-20 text-[20px] sm:text-[26px] font-black uppercase tracking-[0.4em] border-2 border-border hover:bg-secondary/50 transition-all shadow-xl" asChild>
-            <a href="#contact">Initiate Sync</a>
+          <Button variant="outline" size="lg" className="w-full sm:w-auto rounded-full h-24 sm:h-32 px-16 sm:px-24 text-[24px] sm:text-[32px] font-black uppercase tracking-[0.5em] border-4 border-border hover:bg-secondary/60 transition-all shadow-2xl" asChild>
+            <a href="#contact">Contact</a>
           </Button>
         </motion.div>
 
-        <div className="pt-24 sm:pt-40 grid grid-cols-2 lg:grid-cols-4 gap-10 sm:gap-14 max-w-7xl mx-auto px-6">
+        <div className="pt-32 sm:pt-48 grid grid-cols-2 lg:grid-cols-4 gap-12 sm:gap-16 max-w-7xl mx-auto px-8">
           {[
-            { label: "Core Logic", value: "Neural", icon: Cpu },
-            { label: "Integrity", value: "Verified", icon: Code2 },
-            { label: "Subsystem", value: "Active", icon: Zap },
-            { label: "Latency", value: "14ms", icon: Box }
+            { label: "Core Kernel", value: "Neural_v5", icon: Cpu },
+            { label: "Integrity", value: "Hardened", icon: Code2 },
+            { label: "Subsystem", value: "Verified", icon: Zap },
+            { label: "Latency", value: "0.4ms", icon: Terminal }
           ].map((stat, i) => (
             <motion.div 
               key={i}
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              initial={{ opacity: 0, scale: 0.9, y: 30 }}
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 1.5 + (i * 0.1), duration: 0.6 }}
-              className="space-y-6 p-10 sm:p-14 rounded-[3.5rem] bg-secondary/20 border border-border/60 text-left hover:border-primary/50 transition-all group backdrop-blur-2xl shadow-3xl hover:-translate-y-3"
+              transition={{ delay: 1.8 + (i * 0.15), duration: 0.8 }}
+              className="space-y-8 p-12 sm:p-16 rounded-[4rem] bg-secondary/30 border border-border/80 text-left hover:border-primary/60 transition-all group backdrop-blur-3xl shadow-4xl hover:-translate-y-4"
             >
-              <stat.icon className="w-8 h-8 text-primary opacity-80 group-hover:opacity-100 transition-opacity" />
-              <div className="space-y-3">
-                <p className="text-[14px] font-mono font-black uppercase tracking-[0.5em] text-muted-foreground">{stat.label}</p>
-                <p className="text-lg sm:text-2xl font-black uppercase text-foreground font-mono leading-none">{stat.value}</p>
+              <stat.icon className="w-10 h-10 text-primary opacity-80 group-hover:opacity-100 transition-opacity" />
+              <div className="space-y-4">
+                <p className="text-[16px] font-mono font-black uppercase tracking-[0.6em] text-muted-foreground/60">{stat.label}</p>
+                <p className="text-xl sm:text-3xl font-black uppercase text-foreground font-mono leading-none">{stat.value}</p>
               </div>
             </motion.div>
           ))}
