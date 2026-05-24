@@ -64,6 +64,7 @@
     font-size: 16px;
     line-height: 1.6;
   }
+  /* Strict "No Italic" Policy */
   em, i, .italic, [style*="italic"] {
     @apply not-italic !important;
     font-style: normal !important;
