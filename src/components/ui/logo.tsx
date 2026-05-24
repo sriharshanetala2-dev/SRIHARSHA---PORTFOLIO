@@ -11,7 +11,7 @@ export function Logo({ className }: { className?: string }) {
       </div>
       <div className="flex flex-col -space-y-1">
         <span className="text-sm font-headline font-black tracking-tighter uppercase leading-none">SRI</span>
-        <span className="text-[10px] font-mono font-bold text-primary tracking-widest uppercase">CORE</span>
+        <span className="text-[10px] font-mono font-bold text-primary tracking-widest uppercase">DEV</span>
       </div>
     </div>
   );

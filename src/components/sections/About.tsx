@@ -26,7 +26,7 @@ export function About() {
             className="space-y-10"
           >
             <div className="space-y-6">
-              <div className="section-label">SYSTEM_ARCHITECT</div>
+              <div className="section-label">FULL_STACK_DEVELOPER</div>
               <h2 className="text-4xl sm:text-6xl font-headline font-black leading-tight uppercase">
                 Architecting <br className="hidden sm:block" /> <span className="text-gradient">Digital Intelligence</span>
               </h2>

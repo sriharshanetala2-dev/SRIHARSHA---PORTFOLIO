@@ -56,12 +56,12 @@ export function Navbar() {
               SRI HARSHA
             </span>
             <span className="text-[9px] font-mono font-bold uppercase tracking-[0.3em] text-primary/80 mt-1.5">
-              Full Stack Architect
+              Full Stack Developer
             </span>
           </div>
         </Link>
 
-        {/* Desktop Navigation Node */}
+        {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center gap-12">
           <div className="flex items-center gap-8">
             {navLinks.map((link) => (

@@ -37,7 +37,7 @@ export function Hero() {
           className="section-label mx-auto"
         >
           <Activity className="w-3.5 h-3.5" />
-          SYSTEM_ARCHITECT_v4.0 // LIVE_NODE
+          FULL_STACK_DEVELOPER_v4.0 // LIVE_NODE
         </motion.div>
 
         <div className="space-y-6 sm:space-y-10">
@@ -57,7 +57,7 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-sm sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-bold uppercase tracking-normal opacity-90 px-4"
           >
-            Architecting digital ecosystems where Full Stack integrity meets autonomous neural orchestration.
+            Building digital ecosystems where Full Stack integrity meets autonomous neural orchestration.
           </motion.p>
         </div>
 
@@ -80,7 +80,7 @@ export function Hero() {
         {/* Technical Data Matrix */}
         <div className="pt-8 sm:pt-16 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-4xl mx-auto px-4">
           {[
-            { label: "Architecture", value: "Neural", icon: Cpu },
+            { label: "Core Logic", value: "Neural", icon: Cpu },
             { label: "Integrity", value: "Verified", icon: Code2 },
             { label: "Subsystem", value: "Active", icon: Zap },
             { label: "Latency", value: "14ms", icon: Box }
