@@ -5,62 +5,6 @@ import { ArrowRight, Code2, Cpu, Zap, Terminal, Activity } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export function Hero() {
-  const title = "Engineering";
-  const subtitle = "Intelligence";
-
-  const container = {
-    hidden: { opacity: 0 },
-    visible: (i = 1) => ({
-      opacity: 1,
-      transition: { staggerChildren: 0.1, delayChildren: 0.4 * i },
-    }),
-  };
-
-  const child = {
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        type: "spring",
-        damping: 15,
-        stiffness: 150,
-      },
-    },
-    hidden: {
-      opacity: 0,
-      y: 40,
-      scale: 0.9,
-      transition: {
-        type: "spring",
-        damping: 15,
-        stiffness: 150,
-      },
-    },
-  };
-
-  const neuralPulse = (index: number) => ({
-    color: ["hsl(var(--foreground))", "hsl(var(--primary))", "hsl(var(--foreground))"],
-    scale: [1, 1.05, 1],
-    transition: {
-      duration: 3,
-      repeat: Infinity,
-      delay: index * 0.1,
-      ease: "easeInOut",
-    }
-  });
-
-  const activeWave = (index: number) => ({
-    y: [0, -15, 0],
-    scale: [1, 1.1, 1],
-    transition: {
-      duration: 3,
-      repeat: Infinity,
-      delay: (index + title.length) * 0.15,
-      ease: "easeInOut"
-    }
-  });
-
   return (
     <section className="min-h-screen flex items-center justify-center pt-48 pb-24 px-8 relative overflow-hidden bg-background">
       <div className="absolute inset-0 neural-grid opacity-[0.06] pointer-events-none" />
@@ -82,35 +26,15 @@ export function Hero() {
         <div className="space-y-12">
           <motion.h1
             className="text-5xl leading-[1.1] sm:text-7xl lg:text-9xl font-headline font-black tracking-tight uppercase flex flex-col items-center select-none"
-            variants={container}
-            initial="hidden"
-            animate="visible"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
           >
-            <span className="flex flex-wrap justify-center mb-6 lg:mb-10">
-              {title.split("").map((letter, index) => (
-                <motion.span 
-                  key={index} 
-                  variants={child} 
-                  className="inline-block hover:text-primary transition-all cursor-default"
-                  whileHover={{ y: -10, scale: 1.1, rotate: 5 }}
-                  animate={neuralPulse(index)}
-                >
-                  {letter}
-                </motion.span>
-              ))}
+            <span className="mb-6 lg:mb-10 text-foreground">
+              Engineering
             </span>
-            <span className="flex flex-wrap justify-center shimmer-text py-4 px-6">
-              {subtitle.split("").map((letter, index) => (
-                <motion.span 
-                  key={index} 
-                  variants={child} 
-                  className="inline-block cursor-default"
-                  whileHover={{ scale: 1.1, rotate: -5 }}
-                  animate={activeWave(index)}
-                >
-                  {letter}
-                </motion.span>
-              ))}
+            <span className="shimmer-text py-4 px-6">
+              Intelligence
             </span>
           </motion.h1>
           
@@ -118,7 +42,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 1, delay: 1 }}
+            transition={{ duration: 1, delay: 0.2 }}
             className="text-lg sm:text-xl lg:text-3xl text-muted-foreground max-w-4xl mx-auto leading-relaxed font-bold uppercase tracking-tight opacity-90 px-6"
           >
             Architecting high-performance digital ecosystems where technical integrity meets autonomous orchestration.
@@ -129,7 +53,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 1, delay: 1.2 }}
+          transition={{ duration: 1, delay: 0.4 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-6 px-8"
         >
           <Button size="lg" className="w-full sm:w-auto rounded-full h-16 sm:h-20 px-10 sm:px-14 text-sm sm:text-lg font-black uppercase tracking-[0.4em] shadow-2xl shadow-primary/30 hover:scale-105 transition-all group" asChild>
@@ -154,7 +78,7 @@ export function Hero() {
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 1.4 + (i * 0.1), duration: 0.8 }}
+              transition={{ delay: 0.6 + (i * 0.1), duration: 0.8 }}
               className="space-y-4 p-8 sm:p-10 rounded-[3rem] bg-secondary/30 border border-border/80 text-left hover:border-primary/60 transition-all group backdrop-blur-3xl shadow-xl hover:-translate-y-2"
             >
               <stat.icon className="w-8 h-8 text-primary opacity-80 group-hover:opacity-100 transition-opacity" />
