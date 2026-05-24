@@ -1,35 +1,9 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 222 47% 4%;
-    --foreground: 210 40% 98%;
-    --card: 222 47% 6%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222 47% 4%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 217 91% 60%;
-    --primary-foreground: 222 47% 4%;
-    --secondary: 217.2 32.6% 12%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 180 10% 80%;
-    --accent-foreground: 222 47% 4%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 224.3 76.3% 48%;
-    --radius: 0.75rem;
-    --grid-opacity: 0.08;
-    --scan-opacity: 0.03;
-  }
-
-  .dark {
     --background: 222 47% 2%;
     --foreground: 210 40% 98%;
     --card: 222 47% 4%;
@@ -37,7 +11,27 @@
     --popover: 222 47% 2%;
     --popover-foreground: 210 40% 98%;
     --primary: 217 91% 60%;
-    --primary-foreground: 222 47% 2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 217.2 32.6% 12%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 210 20% 80%;
+    --accent-foreground: 222 47% 2%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+    --radius: 0.5rem;
+    --grid-opacity: 0.05;
+    --scan-opacity: 0.02;
+  }
+
+  .dark {
+    --background: 222 47% 1%;
+    --foreground: 210 40% 98%;
+    --primary: 217 91% 60%;
   }
 }
 
@@ -56,34 +50,34 @@
 }
 
 @keyframes logic-sweep {
-  0% { transform: translateY(-100%) skewY(-2deg); opacity: 0; }
+  0% { transform: translateY(-100%) skewY(-1deg); opacity: 0; }
   20% { opacity: var(--scan-opacity); }
   80% { opacity: var(--scan-opacity); }
-  100% { transform: translateY(400%) skewY(-2deg); opacity: 0; }
+  100% { transform: translateY(400%) skewY(-1deg); opacity: 0; }
 }
 
 @keyframes node-pulse {
   0%, 100% { opacity: var(--grid-opacity); }
-  50% { opacity: calc(var(--grid-opacity) * 1.5); }
+  50% { opacity: calc(var(--grid-opacity) * 1.8); }
 }
 
 @keyframes flare-drift {
-  0% { transform: translate(-5%, -5%) rotate(0deg); opacity: 0.2; }
-  50% { transform: translate(5%, 5%) rotate(2deg); opacity: 0.4; }
-  100% { transform: translate(-5%, -5%) rotate(0deg); opacity: 0.2; }
+  0% { transform: translate(-2%, -2%) rotate(0deg); opacity: 0.1; }
+  50% { transform: translate(2%, 2%) rotate(1deg); opacity: 0.25; }
+  100% { transform: translate(-2%, -2%) rotate(0deg); opacity: 0.1; }
 }
 
 @keyframes glint {
   0% { left: -100%; opacity: 0; }
-  50% { opacity: 0.3; }
+  50% { opacity: 0.1; }
   100% { left: 100%; opacity: 0; }
 }
 
 .neural-grid {
-  background-image: radial-gradient(circle at 1px 1px, hsl(var(--primary) / 0.1) 1px, transparent 0);
-  background-size: 64px 64px;
+  background-image: radial-gradient(circle at 1px 1px, hsl(var(--primary) / 0.15) 1px, transparent 0);
+  background-size: 48px 48px;
   opacity: var(--grid-opacity);
-  animation: node-pulse 12s ease-in-out infinite;
+  animation: node-pulse 10s ease-in-out infinite;
   will-change: opacity;
 }
 
@@ -93,8 +87,8 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom, transparent, hsl(var(--primary) / 0.02), transparent);
-  animation: logic-sweep 25s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  background: linear-gradient(to bottom, transparent, hsl(var(--primary) / 0.03), transparent);
+  animation: logic-sweep 20s cubic-bezier(0.4, 0, 0.2, 1) infinite;
   pointer-events: none;
   z-index: 1;
   will-change: transform;
@@ -102,15 +96,15 @@
 
 .lens-flare {
   position: absolute;
-  width: 150%;
-  height: 150%;
+  width: 120%;
+  height: 120%;
   background: radial-gradient(circle at 50% 50%, 
-    hsl(var(--primary) / 0.04) 0%, 
-    hsl(var(--primary) / 0.01) 30%, 
-    transparent 60%
+    hsl(var(--primary) / 0.03) 0%, 
+    hsl(var(--primary) / 0.01) 40%, 
+    transparent 70%
   );
-  filter: blur(120px);
-  animation: flare-drift 40s ease-in-out infinite;
+  filter: blur(100px);
+  animation: flare-drift 30s ease-in-out infinite;
   pointer-events: none;
   z-index: 0;
 }
@@ -120,7 +114,7 @@
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: shimmer 10s linear infinite;
+  animation: shimmer 12s linear infinite;
 }
 
 @keyframes shimmer {
@@ -129,11 +123,11 @@
 }
 
 .text-gradient {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary/80 to-accent;
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary/90 to-accent/80;
 }
 
 .glass-card {
-  @apply bg-card/30 backdrop-blur-3xl border border-white/5 shadow-2xl transition-all duration-500 hover:border-primary/30 hover:bg-card/40 hover:scale-[1.005];
+  @apply bg-card/40 backdrop-blur-2xl border border-white/10 shadow-2xl transition-all duration-500 hover:border-primary/40 hover:bg-card/60 hover:scale-[1.002];
   position: relative;
   overflow: hidden;
 }
@@ -144,8 +138,8 @@
   top: 0;
   height: 100%;
   width: 100%;
-  background: linear-gradient(90deg, transparent, hsl(var(--primary) / 0.03), transparent);
-  animation: glint 8s infinite;
+  background: linear-gradient(90deg, transparent, hsl(var(--primary) / 0.05), transparent);
+  animation: glint 10s infinite;
   pointer-events: none;
 }
 
@@ -153,16 +147,16 @@
   position: fixed;
   inset: 0;
   z-index: -1;
-  background: radial-gradient(circle at 50% 50%, transparent 20%, hsl(var(--background)) 100%);
+  background: radial-gradient(circle at 50% 50%, transparent 10%, hsl(var(--background)) 90%);
   pointer-events: none;
 }
 
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 5px;
 }
 ::-webkit-scrollbar-track {
   @apply bg-background;
 }
 ::-webkit-scrollbar-thumb {
-  @apply bg-primary/10 rounded-full hover:bg-primary/25;
+  @apply bg-primary/20 rounded-full hover:bg-primary/40 transition-colors;
 }

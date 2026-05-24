@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -29,14 +28,14 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-background relative selection:bg-primary/20">
-      {/* High-Fidelity Neural OS Backdrop - Triple Layer Flux Architecture */}
+      {/* High-Fidelity Industrial OS Backdrop */}
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
-        {/* Layer 1: Atmospheric Base Image */}
+        {/* Layer 1: Professional Atmospheric Base */}
         {bgImage && (
-          <div className="absolute inset-0 grayscale opacity-10 blur-[2px]">
+          <div className="absolute inset-0 grayscale contrast-[1.2] opacity-[0.08] scale-105">
             <Image 
               src={bgImage.imageUrl} 
-              alt="System Logic Backdrop" 
+              alt="System Architecture Backdrop" 
               fill 
               className="object-cover"
               priority
@@ -45,18 +44,18 @@ export default function Home() {
           </div>
         )}
 
-        {/* Layer 2: Neural Node Matrix */}
+        {/* Layer 2: Neural Logic Matrix */}
         <div className="absolute inset-0 neural-grid" />
         
-        {/* Layer 3: High-Frequency Logic Scan */}
+        {/* Layer 3: Industrial Logic Scan */}
         <div className="logic-scan-subsystem" />
         
-        {/* Environmental Depth Mask & Vignette */}
+        {/* Environmental Vignette & Focus Mask */}
         <div className="atmospheric-mask" />
         
-        {/* Lens Optics */}
-        <div className="lens-flare top-[-10%] left-[-10%]" />
-        <div className="lens-flare bottom-[-10%] right-[-10%] opacity-40" />
+        {/* Optic Optics */}
+        <div className="lens-flare top-[-15%] left-[-15%] opacity-40" />
+        <div className="lens-flare bottom-[-15%] right-[-15%] opacity-20" />
       </div>
 
       <Navbar />
