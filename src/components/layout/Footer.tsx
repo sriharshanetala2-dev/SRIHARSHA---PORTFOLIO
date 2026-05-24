@@ -29,7 +29,7 @@ export function Footer() {
             </p>
           </div>
 
-          <div className="flex gap-5 sm:gap-8">
+          <div className="flex gap-3 sm:gap-4">
             {[
               { icon: Github, label: "GitHub", href: "https://github.com/sriharshanetala2-dev" },
               { icon: Linkedin, label: "Linkedin", href: linkedInUrl },
@@ -40,11 +40,11 @@ export function Footer() {
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-5 sm:p-10 rounded-2xl sm:rounded-[3rem] bg-secondary/40 border border-border hover:border-primary hover:bg-primary hover:text-primary-foreground hover:scale-110 transition-all duration-700 shadow-2xl group relative overflow-hidden"
+                className="p-3 sm:p-5 rounded-xl sm:rounded-2xl bg-secondary/40 border border-border hover:border-primary hover:bg-primary hover:text-primary-foreground hover:scale-110 transition-all duration-700 shadow-xl group relative overflow-hidden"
                 aria-label={social.label}
               >
-                <social.icon className="w-6 h-6 sm:w-7 sm:h-7 group-hover:rotate-6 transition-transform relative z-10" />
-                <Sparkles className="absolute -top-2 -right-2 w-10 h-10 opacity-0 group-hover:opacity-20 transition-opacity" />
+                <social.icon className="w-5 h-5 sm:w-6 sm:h-6 group-hover:rotate-6 transition-transform relative z-10" />
+                <Sparkles className="absolute -top-1 -right-1 w-6 h-6 opacity-0 group-hover:opacity-20 transition-opacity" />
               </a>
             ))}
           </div>
