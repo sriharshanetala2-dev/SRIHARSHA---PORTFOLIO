@@ -75,23 +75,23 @@ export function SystemRegistry() {
     show: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
+        staggerChildren: 0.1,
         delayChildren: 0.2
       }
     }
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 20 },
     show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100, damping: 20 } }
   };
 
   return (
-    <section id="experience" className="py-24 sm:py-32 px-6 border-t border-border bg-background relative overflow-hidden scroll-mt-20">
+    <section id="experience" className="py-20 sm:py-32 px-6 border-t border-border bg-background relative overflow-hidden scroll-mt-20">
       <div className="absolute inset-0 neural-grid opacity-[0.05] pointer-events-none" />
       
-      <div className="max-w-4xl mx-auto space-y-24 relative z-10">
-        <div className="text-center space-y-8">
+      <div className="max-w-4xl mx-auto space-y-16 sm:space-y-24 relative z-10">
+        <div className="text-center space-y-6 sm:space-y-8">
           <motion.div 
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -113,7 +113,7 @@ export function SystemRegistry() {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-base sm:text-lg text-muted-foreground font-bold uppercase tracking-widest opacity-80 max-w-2xl mx-auto"
+            className="text-sm sm:text-lg text-muted-foreground font-bold uppercase tracking-widest opacity-80 max-w-2xl mx-auto px-4"
           >
             A high-fidelity audit of professional milestones and academic foundation nodes.
           </motion.p>
@@ -124,35 +124,35 @@ export function SystemRegistry() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="space-y-12 relative"
+          className="space-y-8 sm:space-y-12 relative"
         >
-          <div className="absolute left-8 top-0 bottom-0 w-px bg-border/40 hidden md:block" />
+          <div className="absolute left-6 sm:left-8 top-0 bottom-0 w-px bg-border/40 hidden md:block" />
           
           {timelineItems.map((item) => (
             <motion.div
               key={item.id}
               variants={itemVariants}
-              className="relative flex flex-col md:flex-row gap-8 pl-0 md:pl-24 group"
+              className="relative flex flex-col md:flex-row gap-6 sm:gap-8 pl-0 md:pl-24 group"
             >
               <div className="absolute left-6 top-10 w-4 h-4 rounded-full bg-primary border-4 border-background hidden md:block z-20 shadow-[0_0_15px_rgba(var(--primary),0.4)] group-hover:scale-150 transition-transform" />
               
-              <div className="flex-1 space-y-8 bg-card/40 p-10 sm:p-12 rounded-[2.5rem] border border-border/60 shadow-2xl backdrop-blur-3xl group-hover:border-primary/40 transition-all duration-500">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
-                  <div className="flex items-center gap-6">
-                    <div className="p-4 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-700 shadow-xl">
-                      <item.icon className="w-7 h-7" />
+              <div className="flex-1 space-y-6 sm:space-y-8 bg-card/40 p-8 sm:p-12 rounded-[2rem] sm:rounded-[2.5rem] border border-border/60 shadow-2xl backdrop-blur-3xl group-hover:border-primary/40 transition-all duration-500">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 sm:gap-6">
+                  <div className="flex items-center gap-4 sm:gap-6">
+                    <div className="p-3 sm:p-4 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-700 shadow-xl">
+                      <item.icon className="w-6 h-6 sm:w-7 sm:h-7" />
                     </div>
                     <div className="space-y-1">
-                      <h3 className="text-xl sm:text-2xl font-headline font-black uppercase tracking-tight leading-none group-hover:text-primary transition-colors">{item.role}</h3>
-                      <p className="text-[12px] font-mono font-black text-primary/60 uppercase tracking-[0.3em] mt-1">{item.company || item.institution}</p>
+                      <h3 className="text-lg sm:text-2xl font-headline font-black uppercase tracking-tight leading-none group-hover:text-primary transition-colors">{item.role}</h3>
+                      <p className="text-[10px] sm:text-[12px] font-mono font-black text-primary/60 uppercase tracking-[0.2em] sm:tracking-[0.3em] mt-1">{item.company || item.institution}</p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-3 text-[11px] font-black text-muted-foreground bg-secondary/40 border border-border/40 px-5 py-2.5 rounded-full w-fit uppercase tracking-[0.3em]">
-                    <CalendarDays className="w-4 h-4 opacity-50" />
+                  <div className="flex items-center gap-2 sm:gap-3 text-[10px] sm:text-[11px] font-black text-muted-foreground bg-secondary/40 border border-border/40 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full w-fit uppercase tracking-[0.3em]">
+                    <CalendarDays className="w-3.5 h-3.5 sm:w-4 sm:h-4 opacity-50" />
                     {item.period}
                   </div>
                 </div>
-                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed font-bold uppercase tracking-tight opacity-70">
+                <p className="text-xs sm:text-base text-muted-foreground leading-relaxed font-bold uppercase tracking-tight opacity-70">
                   {item.description}
                 </p>
               </div>
