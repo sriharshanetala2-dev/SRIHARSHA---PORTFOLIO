@@ -127,57 +127,58 @@ export function About() {
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeNode.id}
-                initial={{ opacity: 0, scale: 0.95, y: 40 }}
+                initial={{ opacity: 0, scale: 0.9, y: 30 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 1.05, y: -40 }}
+                exit={{ opacity: 0, scale: 1.05, y: -30 }}
+                whileHover={{ y: -8, transition: { duration: 0.4, ease: "easeOut" } }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                 className="w-full"
               >
-                <div className="p-12 sm:p-20 rounded-[4rem] border-2 border-border/50 bg-card/40 backdrop-blur-3xl space-y-20 relative overflow-hidden shadow-4xl group">
-                  <div className="absolute top-0 right-0 p-16 opacity-10 group-hover:opacity-30 transition-all duration-1000 group-hover:scale-125 group-hover:rotate-12">
-                    <Sparkles className="w-28 h-28 text-primary" />
+                <div className="p-8 sm:p-12 rounded-[2.5rem] border-2 border-border/50 bg-card/40 backdrop-blur-3xl space-y-12 relative overflow-hidden shadow-4xl group">
+                  <div className="absolute top-0 right-0 p-12 opacity-5 group-hover:opacity-20 transition-all duration-1000 group-hover:scale-125 group-hover:rotate-12">
+                    <Sparkles className="w-24 h-24 text-primary" />
                   </div>
                   
-                  <div className="flex flex-col items-center gap-12 relative z-10">
-                    <div className={cn("relative p-16 rounded-full bg-background/60 border border-border shadow-3xl transition-all duration-700 group-hover:scale-110 group-hover:shadow-primary/30")}>
-                      <activeNode.icon className={cn("w-28 h-28 sm:w-36 sm:h-36 transition-colors duration-700", activeNode.color)} />
-                      <div className="absolute -top-3 -right-3 p-5 rounded-3xl bg-primary text-primary-foreground shadow-3xl animate-pulse">
-                        <Zap className="w-10 h-10" />
+                  <div className="flex flex-col items-center gap-8 relative z-10">
+                    <div className={cn("relative p-8 sm:p-12 rounded-full bg-background/60 border border-border shadow-3xl transition-all duration-700 group-hover:scale-105 group-hover:shadow-primary/30")}>
+                      <activeNode.icon className={cn("w-16 h-16 sm:w-24 sm:h-24 transition-colors duration-700", activeNode.color)} />
+                      <div className="absolute -top-1 -right-1 p-3 rounded-2xl bg-primary text-primary-foreground shadow-3xl animate-pulse">
+                        <Zap className="w-6 h-6" />
                       </div>
                     </div>
-                    <div className="text-center space-y-5">
-                      <p className="text-[12px] font-black uppercase tracking-[0.8em] text-primary opacity-70">NODE_STATUS: ACTIVE</p>
-                      <h3 className="text-4xl sm:text-6xl font-headline font-black uppercase tracking-tight shimmer-text leading-none">{activeNode.label}</h3>
+                    <div className="text-center space-y-3">
+                      <p className="text-[10px] font-black uppercase tracking-[0.6em] text-primary opacity-60">NODE_STATUS: ACTIVE</p>
+                      <h3 className="text-2xl sm:text-4xl font-headline font-black uppercase tracking-tight shimmer-text leading-none">{activeNode.label}</h3>
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 gap-6 relative z-10">
+                  <div className="grid grid-cols-1 gap-4 relative z-10">
                     {activeNode.metrics.map((metric, i) => (
                       <motion.div 
                         key={i} 
-                        initial={{ opacity: 0, x: -30 }}
+                        initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.4 + (i * 0.1) }}
-                        className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5 p-10 rounded-3xl bg-background/60 border border-border shadow-2xl hover:border-primary/60 transition-all group/metric"
+                        transition={{ delay: 0.3 + (i * 0.1) }}
+                        className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 p-6 rounded-2xl bg-background/60 border border-border shadow-2xl hover:border-primary/60 transition-all group/metric"
                       >
-                        <div className="flex items-center gap-5">
-                          <Binary className="w-6 h-6 text-primary opacity-30 group-hover/metric:opacity-100 transition-opacity" />
-                          <span className="text-[11px] font-black uppercase tracking-[0.5em] text-muted-foreground opacity-70">LOGIC_VECTOR</span>
+                        <div className="flex items-center gap-4">
+                          <Binary className="w-5 h-5 text-primary opacity-30 group-hover/metric:opacity-100 transition-opacity" />
+                          <span className="text-[10px] font-black uppercase tracking-[0.4em] text-muted-foreground opacity-60">LOGIC_VECTOR</span>
                         </div>
-                        <span className="text-sm sm:text-2xl font-black text-foreground uppercase tracking-wider text-left sm:text-right leading-tight">{metric}</span>
+                        <span className="text-xs sm:text-lg font-black text-foreground uppercase tracking-wider text-left sm:text-right leading-tight">{metric}</span>
                       </motion.div>
                     ))}
                   </div>
 
-                  <div className="pt-16 border-t border-border/50 flex items-center justify-between relative z-10">
-                    <div className="flex items-center gap-8">
-                      <div className="w-6 h-6 rounded-full bg-primary animate-ping opacity-60" />
+                  <div className="pt-10 border-t border-border/50 flex items-center justify-between relative z-10">
+                    <div className="flex items-center gap-6">
+                      <div className="w-4 h-4 rounded-full bg-primary animate-ping opacity-40" />
                       <div className="flex flex-col">
-                        <span className="text-[11px] font-black uppercase tracking-[0.6em] text-muted-foreground opacity-60 leading-none mb-3">SYSTEM_SYNC</span>
-                        <span className="text-[12px] font-black text-primary uppercase tracking-widest">{activeNode.status} // LATENCY_MINIMAL</span>
+                        <span className="text-[9px] font-black uppercase tracking-[0.5em] text-muted-foreground opacity-50 leading-none mb-2">SYSTEM_SYNC</span>
+                        <span className="text-[10px] font-black text-primary uppercase tracking-widest">{activeNode.status} // LATENCY_MINIMAL</span>
                       </div>
                     </div>
-                    <Activity className="w-10 h-10 text-primary/40 animate-pulse" />
+                    <Activity className="w-8 h-8 text-primary/30 animate-pulse" />
                   </div>
                 </div>
               </motion.div>
