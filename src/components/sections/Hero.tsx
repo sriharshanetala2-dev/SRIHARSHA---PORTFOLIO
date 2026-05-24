@@ -39,29 +39,27 @@ export function Hero() {
     },
   };
 
-  // Continuous typing/running animation for first word
-  const typingAnimation = (index: number) => ({
-    opacity: [0, 1, 1, 0],
-    y: [0, -5, 0],
-    scale: [1, 1.05, 1],
+  // Continuous "Neural Pulse" animation for first word
+  const neuralPulse = (index: number) => ({
+    color: ["hsl(var(--foreground))", "hsl(var(--primary))", "hsl(var(--foreground))"],
+    scale: [1, 1.1, 1],
     transition: {
-      duration: 4,
+      duration: 3,
       repeat: Infinity,
-      times: [0, 0.2, 0.8, 1],
-      delay: index * 0.1,
+      delay: index * 0.15,
       ease: "easeInOut",
     }
   });
 
-  // Continuous "running" animation for second word
-  const subtitleAnimation = (index: number) => ({
-    y: [0, -15, 0],
-    scale: [1, 1.1, 1],
-    filter: ["brightness(1)", "brightness(1.5)", "brightness(1)"],
+  // Continuous "Active Wave" animation for second word
+  const activeWave = (index: number) => ({
+    y: [0, -12, 0],
+    opacity: [0.7, 1, 0.7],
+    scale: [1, 1.05, 1],
     transition: {
-      duration: 3,
+      duration: 2.5,
       repeat: Infinity,
-      delay: (index + title.length) * 0.1,
+      delay: (index + title.length) * 0.15,
       ease: "easeInOut"
     }
   });
@@ -79,7 +77,7 @@ export function Hero() {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="section-label mx-auto text-[8px] sm:text-[10px]"
+          className="section-label mx-auto text-[10px] sm:text-[12px] px-6 py-2.5"
         >
           <Code2 className="w-4 h-4" />
           FULL_STACK_DEVELOPER_v4.0 // LIVE_NODE
@@ -92,14 +90,14 @@ export function Hero() {
             initial="hidden"
             animate="visible"
           >
-            <span className="flex flex-wrap justify-center overflow-hidden mb-4 sm:mb-8">
+            <span className="flex flex-wrap justify-center overflow-hidden mb-4 sm:mb-10">
               {title.split("").map((letter, index) => (
                 <motion.span 
                   key={index} 
                   variants={child} 
-                  className="inline-block hover:text-primary transition-colors cursor-default"
-                  whileHover={{ y: -15, scale: 1.15, rotate: 2 }}
-                  animate={typingAnimation(index)}
+                  className="inline-block hover:text-primary transition-colors cursor-default drop-shadow-sm"
+                  whileHover={{ y: -15, scale: 1.2, rotate: 2 }}
+                  animate={neuralPulse(index)}
                 >
                   {letter}
                 </motion.span>
@@ -110,9 +108,9 @@ export function Hero() {
                 <motion.span 
                   key={index} 
                   variants={child} 
-                  className="inline-block cursor-default"
-                  whileHover={{ scale: 1.2, rotate: -3, color: "hsl(var(--primary))" }}
-                  animate={subtitleAnimation(index)}
+                  className="inline-block cursor-default drop-shadow-sm"
+                  whileHover={{ scale: 1.25, rotate: -3, color: "hsl(var(--primary))" }}
+                  animate={activeWave(index)}
                 >
                   {letter}
                 </motion.span>
@@ -124,7 +122,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1 }}
-            className="text-sm sm:text-xl lg:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed font-bold uppercase tracking-normal opacity-90 px-4"
+            className="text-base sm:text-xl lg:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed font-bold uppercase tracking-wide opacity-90 px-4"
           >
             Building high-performance digital ecosystems where technical integrity meets autonomous orchestration.
           </motion.p>
@@ -136,12 +134,12 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 1.2 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8 px-6"
         >
-          <Button size="lg" className="w-full sm:w-auto rounded-2xl h-14 sm:h-18 px-12 text-[14px] sm:text-[16px] font-black uppercase tracking-[0.3em] shadow-2xl shadow-primary/20 hover:scale-105 transition-all group" asChild>
+          <Button size="lg" className="w-full sm:w-auto rounded-2xl h-16 sm:h-20 px-14 text-[16px] sm:text-[18px] font-black uppercase tracking-[0.3em] shadow-2xl shadow-primary/20 hover:scale-105 transition-all group" asChild>
             <a href="#portfolio">
-              System Registry <ArrowRight className="ml-4 w-5 h-5 group-hover:translate-x-2 transition-transform" />
+              System Registry <ArrowRight className="ml-4 w-6 h-6 group-hover:translate-x-2 transition-transform" />
             </a>
           </Button>
-          <Button variant="outline" size="lg" className="w-full sm:w-auto rounded-2xl h-14 sm:h-18 px-12 text-[14px] sm:text-[16px] font-black uppercase tracking-[0.3em] border-2 border-border hover:bg-secondary/40 transition-all" asChild>
+          <Button variant="outline" size="lg" className="w-full sm:w-auto rounded-2xl h-16 sm:h-20 px-14 text-[16px] sm:text-[18px] font-black uppercase tracking-[0.3em] border-2 border-border hover:bg-secondary/40 transition-all" asChild>
             <a href="#contact">Initiate Sync</a>
           </Button>
         </motion.div>
@@ -159,12 +157,12 @@ export function Hero() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 1.5 + (i * 0.1), duration: 0.5 }}
-              className="space-y-4 p-6 sm:p-8 rounded-[2rem] bg-secondary/10 border border-border/50 text-left hover:border-primary/40 transition-all group backdrop-blur-md shadow-xl"
+              className="space-y-4 p-8 sm:p-10 rounded-[2.5rem] bg-secondary/10 border border-border/50 text-left hover:border-primary/40 transition-all group backdrop-blur-md shadow-xl"
             >
               <stat.icon className="w-6 h-6 text-primary opacity-70 group-hover:opacity-100 transition-opacity" />
               <div className="space-y-1">
-                <p className="text-[12px] font-mono font-black uppercase tracking-[0.2em] text-muted-foreground">{stat.label}</p>
-                <p className="text-sm sm:text-base font-black uppercase text-foreground font-mono">{stat.value}</p>
+                <p className="text-[12px] font-mono font-black uppercase tracking-[0.3em] text-muted-foreground">{stat.label}</p>
+                <p className="text-base sm:text-lg font-black uppercase text-foreground font-mono">{stat.value}</p>
               </div>
             </motion.div>
           ))}
