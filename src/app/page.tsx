@@ -33,12 +33,12 @@ export default function Home() {
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
         {/* Layer 1: Developer AI Workspace (Moving Parallax) */}
         {bgImage && (
-          <div className="absolute inset-[-5%] grayscale contrast-[1.15] brightness-[0.35] dark:brightness-[0.18] opacity-30 transition-all duration-1000 parallax-container">
+          <div className="absolute inset-[-5%] grayscale contrast-[1.2] brightness-[0.4] dark:brightness-[0.15] opacity-25 transition-all duration-1000 parallax-container">
             <Image 
               src={bgImage.imageUrl} 
               alt="Developer AI Environment" 
               fill 
-              className="object-cover blur-[1.5px] scale-110"
+              className="object-cover blur-[2px] scale-110"
               priority
               data-ai-hint={bgImage.imageHint}
             />
@@ -51,13 +51,12 @@ export default function Home() {
         {/* Layer 3: Dynamic Lens Flare System (Floating Optics) */}
         <div className="lens-flare top-[-20%] left-[-15%] opacity-40 scale-150 blur-[120px]" />
         <div className="lens-flare bottom-[-25%] right-[-10%] opacity-35 scale-125 blur-[100px] [animation-delay:-8s]" />
-        <div className="lens-flare top-[40%] left-[50%] opacity-20 scale-75 blur-[90px] [animation-delay:-15s]" />
         
         {/* Layer 4: Industrial Logic Scan (Active Sweep) */}
         <div className="logic-scan-subsystem" />
         
         {/* Layer 5: Focus Calibration Mask */}
-        <div className="atmospheric-mask" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background opacity-60" />
       </div>
 
       <Navbar />

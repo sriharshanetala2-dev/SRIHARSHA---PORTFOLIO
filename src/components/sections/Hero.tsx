@@ -48,7 +48,7 @@ export function Hero() {
 
           <motion.div variants={item} className="max-w-4xl mx-auto space-y-12">
             <p className="text-base sm:text-2xl lg:text-3xl text-muted-foreground font-bold uppercase tracking-tight leading-relaxed max-w-3xl mx-auto px-6 opacity-95">
-              Architecting digital ecosystems where <span className="text-primary font-black">Full Stack Integrity</span> meets autonomous <span className="text-primary font-black">Neural Orchestration</span>.
+              Architecting digital ecosystems where <span className="text-primary font-black">Full Stack Integrity</span> meets autonomous <span className="text-accent font-black">Neural Orchestration</span>.
             </p>
             
             <div className="flex flex-wrap justify-center gap-4 px-4">
@@ -86,7 +86,7 @@ export function Hero() {
               className="magnetic-button flex items-center justify-center gap-4 px-14 py-7 rounded-2xl bg-secondary/50 text-foreground font-black text-xs tracking-[0.3em] uppercase border border-border hover:border-primary transition-all shadow-2xl backdrop-blur-3xl group"
             >
               INITIATE SYNC
-              <Zap className="w-5 h-5 text-primary group-hover:rotate-12 transition-transform duration-500" />
+              <Zap className="w-5 h-5 text-accent group-hover:rotate-12 transition-transform duration-500" />
             </a>
           </div>
           
@@ -108,7 +108,7 @@ export function Hero() {
           <span className="text-[10px] font-black uppercase tracking-widest">NETWORK_LATENCY: 14ms</span>
         </div>
         <div className="flex items-center gap-4 px-5 py-3 bg-background/50 border border-border rounded-xl backdrop-blur-2xl shadow-xl">
-          <Zap className="w-4 h-4 text-primary" />
+          <Zap className="w-4 h-4 text-accent" />
           <span className="text-[10px] font-black uppercase tracking-widest">NEURAL_KERNEL: STABLE</span>
         </div>
       </div>

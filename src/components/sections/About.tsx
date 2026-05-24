@@ -10,7 +10,8 @@ const synthesisNodes = [
     id: "frontend",
     label: "Frontend Core", 
     icon: Laptop, 
-    color: "text-cyan-400", 
+    color: "text-blue-400", 
+    accent: "bg-blue-400/10 border-blue-400/20",
     desc: "Next.js & TypeScript Hub",
     status: "Active",
     metrics: ["Next.js 15 High-Performance", "Atomic Component Subsystems"]
@@ -19,7 +20,8 @@ const synthesisNodes = [
     id: "systems",
     label: "Systems Core", 
     icon: Database, 
-    color: "text-blue-400", 
+    color: "text-indigo-400", 
+    accent: "bg-indigo-400/10 border-indigo-400/20",
     desc: "Java & Spring Boot Engine",
     status: "Synced",
     metrics: ["ACID-Compliant SQL Registry", "Spring Security Hardened"]
@@ -29,6 +31,7 @@ const synthesisNodes = [
     label: "Mobile Core", 
     icon: Activity, 
     color: "text-purple-400", 
+    accent: "bg-purple-400/10 border-purple-400/20",
     desc: "Flutter & Dart Node",
     status: "Reactive",
     metrics: ["Multi-Platform Flutter Core", "Real-time Firebase Sync"]
@@ -37,7 +40,8 @@ const synthesisNodes = [
     id: "neural",
     label: "Neural Core", 
     icon: Cpu, 
-    color: "text-primary", 
+    color: "text-emerald-400", 
+    accent: "bg-emerald-400/10 border-emerald-400/20",
     desc: "AI & Logic Automation",
     status: "Operational",
     metrics: ["Genkit Logic Orchestration", "n8n Autonomous Workflows"]
@@ -80,7 +84,7 @@ export function About() {
                 INTELLIGENCE
               </h2>
               <p className="text-lg sm:text-2xl text-muted-foreground leading-relaxed font-bold max-w-xl mx-auto lg:mx-0 opacity-95 uppercase tracking-tight">
-                Engineering digital ecosystems where <span className="text-primary font-black">robust systems logic</span> meets high-performance <span className="text-primary font-black">AI orchestration</span>.
+                Engineering digital ecosystems where <span className="text-primary font-black">robust systems logic</span> meets high-performance <span className="text-accent font-black">AI orchestration</span>.
               </p>
             </div>
 
@@ -96,8 +100,8 @@ export function About() {
                   className={cn(
                     "flex items-center gap-6 p-7 rounded-[2rem] border transition-all text-left group shadow-2xl relative overflow-hidden",
                     activeNode.id === node.id 
-                      ? "bg-card border-primary shadow-primary/30 scale-[1.03]" 
-                      : "bg-secondary/25 border-border hover:border-primary/50"
+                      ? "bg-card border-primary/50 shadow-primary/20 scale-[1.03]" 
+                      : "bg-secondary/15 border-border/50 hover:border-primary/40"
                   )}
                 >
                   <div className={cn(
@@ -112,7 +116,7 @@ export function About() {
                     <span className="text-[10px] text-muted-foreground uppercase tracking-[0.2em] font-black opacity-60 truncate">{node.desc}</span>
                   </div>
                   {activeNode.id === node.id && (
-                    <motion.div layoutId="node-glow" className="absolute inset-0 bg-primary/10 pointer-events-none" />
+                    <motion.div layoutId="node-glow" className="absolute inset-0 bg-primary/5 pointer-events-none" />
                   )}
                 </motion.button>
               ))}
@@ -129,13 +133,13 @@ export function About() {
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                 className="w-full"
               >
-                <div className="p-12 sm:p-20 rounded-[4rem] border-2 border-border bg-card/40 backdrop-blur-3xl space-y-20 relative overflow-hidden shadow-4xl group">
-                  <div className="absolute top-0 right-0 p-16 opacity-15 group-hover:opacity-40 transition-all duration-1000 group-hover:scale-125 group-hover:rotate-12">
+                <div className="p-12 sm:p-20 rounded-[4rem] border-2 border-border/50 bg-card/40 backdrop-blur-3xl space-y-20 relative overflow-hidden shadow-4xl group">
+                  <div className="absolute top-0 right-0 p-16 opacity-10 group-hover:opacity-30 transition-all duration-1000 group-hover:scale-125 group-hover:rotate-12">
                     <Sparkles className="w-28 h-28 text-primary" />
                   </div>
                   
                   <div className="flex flex-col items-center gap-12 relative z-10">
-                    <div className="relative p-16 rounded-full bg-background/60 border border-border shadow-3xl transition-all duration-700 group-hover:scale-110 group-hover:shadow-primary/30">
+                    <div className={cn("relative p-16 rounded-full bg-background/60 border border-border shadow-3xl transition-all duration-700 group-hover:scale-110 group-hover:shadow-primary/30")}>
                       <activeNode.icon className={cn("w-28 h-28 sm:w-36 sm:h-36 transition-colors duration-700", activeNode.color)} />
                       <div className="absolute -top-3 -right-3 p-5 rounded-3xl bg-primary text-primary-foreground shadow-3xl animate-pulse">
                         <Zap className="w-10 h-10" />

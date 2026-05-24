@@ -4,21 +4,21 @@
 
 @layer base {
   :root {
-    /* Professional Enterprise Palette - Titanium Slate & Cobalt */
-    --background: 210 20% 98%;
-    --foreground: 222 47% 11%;
+    /* Enterprise Titanium & Cobalt Palette */
+    --background: 220 20% 98%;
+    --foreground: 224 71% 4%;
     --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
+    --card-foreground: 224 71% 4%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
+    --popover-foreground: 224 71% 4%;
     --primary: 221.2 83.2% 53.3%;
     --primary-foreground: 210 40% 98%;
     --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222 47% 11.2%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 222 47% 11.2%;
+    --accent: 142.1 76.2% 36.3%; /* Neural Emerald */
+    --accent-foreground: 210 40% 98%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
     --border: 214.3 31.8% 91.4%;
@@ -30,12 +30,12 @@
   }
 
   .dark {
-    /* Industrial Command Palette - Deep Space & Arctic Cobalt */
-    --background: 222.2 84% 3.9%;
+    /* Industrial Deep Space & Arctic Cobalt Palette */
+    --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
-    --card: 222.2 84% 5.9%;
+    --card: 222.2 84% 6.9%;
     --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 3.9%;
+    --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
     --primary: 217.2 91.2% 59.8%;
     --primary-foreground: 222.2 47.4% 11.2%;
@@ -43,15 +43,15 @@
     --secondary-foreground: 210 40% 98%;
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 142.1 70.6% 45.3%; /* Neural Emerald */
+    --accent-foreground: 144.9 80.4% 10%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 224.3 76.3% 48%;
-    --grid-opacity: 0.08;
-    --scan-opacity: 0.025;
+    --grid-opacity: 0.1;
+    --scan-opacity: 0.035;
   }
 }
 
@@ -61,7 +61,7 @@
   }
   body {
     @apply bg-background text-foreground font-body antialiased transition-colors duration-500 overflow-x-hidden;
-    font-size: 15px;
+    font-size: 16px;
     line-height: 1.6;
   }
   em, i, .italic, [style*="italic"] {
@@ -70,35 +70,30 @@
   }
 }
 
+/* Moving Background Logic */
 @keyframes logic-sweep {
-  0% { transform: translateY(-100%) skewY(-2deg); opacity: 0; }
-  20% { opacity: var(--scan-opacity); }
-  80% { opacity: var(--scan-opacity); }
-  100% { transform: translateY(400%) skewY(-2deg); opacity: 0; }
+  0% { transform: translateY(-100%) skewY(-3deg); opacity: 0; }
+  30% { opacity: var(--scan-opacity); }
+  70% { opacity: var(--scan-opacity); }
+  100% { transform: translateY(400%) skewY(-3deg); opacity: 0; }
 }
 
 @keyframes node-pulse {
   0%, 100% { opacity: var(--grid-opacity); transform: scale(1); }
-  50% { opacity: calc(var(--grid-opacity) * 1.8); transform: scale(1.05); }
+  50% { opacity: calc(var(--grid-opacity) * 1.5); transform: scale(1.02); }
 }
 
 @keyframes flare-drift {
-  0% { transform: translate(-5%, -5%) rotate(0deg) scale(1); opacity: 0.1; }
-  33% { transform: translate(5%, 2%) rotate(1deg) scale(1.1); opacity: 0.35; }
-  66% { transform: translate(-2%, 5%) rotate(-1deg) scale(0.95); opacity: 0.25; }
-  100% { transform: translate(-5%, -5%) rotate(0deg) scale(1); opacity: 0.1; }
+  0% { transform: translate(-10%, -10%) rotate(0deg) scale(1); opacity: 0.1; }
+  33% { transform: translate(10%, 5%) rotate(2deg) scale(1.2); opacity: 0.4; }
+  66% { transform: translate(-5%, 10%) rotate(-2deg) scale(0.9); opacity: 0.2; }
+  100% { transform: translate(-10%, -10%) rotate(0deg) scale(1); opacity: 0.1; }
 }
 
 @keyframes parallax-drift {
   0% { transform: scale(1.1) translate(0%, 0%); }
-  50% { transform: scale(1.15) translate(1%, 0.5%); }
+  50% { transform: scale(1.15) translate(2%, 1%); }
   100% { transform: scale(1.1) translate(0%, 0%); }
-}
-
-@keyframes glint {
-  0% { left: -100%; opacity: 0; }
-  20% { opacity: 0.2; }
-  100% { left: 100%; opacity: 0; }
 }
 
 @keyframes shimmer {
@@ -107,11 +102,10 @@
 }
 
 .neural-grid {
-  background-image: radial-gradient(circle at 1px 1px, hsl(var(--primary) / 0.25) 1.5px, transparent 0);
-  background-size: 50px 50px;
+  background-image: radial-gradient(circle at 1px 1px, hsl(var(--primary) / 0.15) 1.5px, transparent 0);
+  background-size: 60px 60px;
   opacity: var(--grid-opacity);
-  animation: node-pulse 10s ease-in-out infinite;
-  will-change: opacity, transform;
+  animation: node-pulse 12s ease-in-out infinite;
 }
 
 .logic-scan-subsystem {
@@ -122,117 +116,77 @@
   height: 100%;
   background: linear-gradient(to bottom, 
     transparent, 
-    hsl(var(--primary) / 0.03), 
-    hsl(var(--primary) / 0.1), 
-    hsl(var(--primary) / 0.03), 
+    hsl(var(--primary) / 0.05), 
+    hsl(var(--primary) / 0.15), 
+    hsl(var(--primary) / 0.05), 
     transparent
   );
-  animation: logic-sweep 15s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation: logic-sweep 18s cubic-bezier(0.4, 0, 0.2, 1) infinite;
   pointer-events: none;
   z-index: 1;
-  will-change: transform;
 }
 
 .lens-flare {
   position: absolute;
-  width: 150%;
-  height: 150%;
+  width: 140%;
+  height: 140%;
   background: radial-gradient(circle at 50% 50%, 
-    hsl(var(--primary) / 0.1) 0%, 
-    hsl(var(--primary) / 0.04) 30%, 
-    hsl(var(--primary) / 0.01) 65%, 
-    transparent 90%
+    hsl(var(--primary) / 0.15) 0%, 
+    hsl(var(--accent) / 0.05) 30%, 
+    transparent 70%
   );
-  filter: blur(80px);
-  animation: flare-drift 25s ease-in-out infinite;
+  filter: blur(100px);
+  animation: flare-drift 30s ease-in-out infinite;
   pointer-events: none;
   z-index: 0;
-  will-change: transform, opacity;
 }
 
 .parallax-container {
-  animation: parallax-drift 35s ease-in-out infinite;
-  will-change: transform;
+  animation: parallax-drift 40s ease-in-out infinite;
 }
 
 .shimmer-text {
   background: linear-gradient(90deg, 
     hsl(var(--foreground)) 0%, 
-    hsl(var(--primary)) 50%, 
+    hsl(var(--primary)) 25%, 
+    hsl(var(--accent)) 50%, 
+    hsl(var(--primary)) 75%, 
     hsl(var(--foreground)) 100%
   );
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: shimmer 8s linear infinite;
+  animation: shimmer 10s linear infinite;
 }
 
 .text-gradient {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary/80 to-primary/60;
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary/60;
 }
 
 .glass-card {
-  @apply bg-card/60 backdrop-blur-3xl border border-border shadow-2xl transition-all duration-700 hover:border-primary/50 hover:bg-card/80 hover:scale-[1.01];
+  @apply bg-card/40 backdrop-blur-3xl border border-border/50 shadow-2xl transition-all duration-700 hover:border-primary/50 hover:bg-card/60 hover:scale-[1.01];
   position: relative;
   overflow: hidden;
 }
 
-.glass-card::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  background: linear-gradient(90deg, transparent, hsl(var(--primary) / 0.1), transparent);
-  animation: glint 6s infinite;
-  pointer-events: none;
+.section-label {
+  @apply text-[10px] sm:text-[12px] font-black uppercase tracking-[0.5em] text-primary bg-primary/10 border border-primary/20 px-6 py-2.5 rounded-full inline-flex items-center gap-3 shadow-xl backdrop-blur-2xl;
 }
 
-.atmospheric-mask {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  background: radial-gradient(circle at 50% 50%, 
-    transparent 0%, 
-    hsl(var(--background) / 0.2) 60%, 
-    hsl(var(--background)) 100%
-  );
-  pointer-events: none;
+.magnetic-button {
+  @apply relative overflow-hidden transition-all duration-500 active:scale-95 shadow-2xl;
 }
 
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 6px;
 }
 ::-webkit-scrollbar-track {
   @apply bg-background;
 }
 ::-webkit-scrollbar-thumb {
-  @apply bg-primary/30 rounded-full hover:bg-primary/50 transition-colors;
+  @apply bg-primary/20 rounded-full hover:bg-primary/40 transition-colors;
 }
 
 h1, h2, h3, h4, h5, h6 {
   @apply font-headline;
-}
-
-.section-label {
-  @apply text-[10px] sm:text-[11px] font-black uppercase tracking-[0.6em] text-primary bg-primary/10 border border-primary/30 px-6 py-2.5 rounded-full inline-flex items-center gap-3 shadow-2xl backdrop-blur-2xl;
-}
-
-.magnetic-button {
-  @apply relative overflow-hidden transition-all duration-500 active:scale-95 shadow-xl;
-}
-
-.magnetic-button::before {
-  content: "";
-  @apply absolute inset-0 bg-white/10 opacity-0 transition-opacity duration-300;
-}
-
-.magnetic-button:hover::before {
-  @apply opacity-100;
-}
-
-.shimmer-bg {
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-  background-size: 200% 100%;
-  animation: shimmer 3s infinite;
 }
