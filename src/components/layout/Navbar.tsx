@@ -40,20 +40,25 @@ export function Navbar() {
       <div className={cn(
         "max-w-7xl mx-auto flex items-center justify-between px-6 py-3 rounded-2xl transition-all duration-500 border",
         scrolled 
-          ? "bg-background/80 backdrop-blur-2xl border-border shadow-2xl scale-[0.98] sm:scale-100" 
+          ? "bg-background/90 backdrop-blur-xl border-border shadow-lg" 
           : "bg-transparent border-transparent"
       )}>
         <Link href="/" className="flex items-center gap-3 group">
           <motion.div 
-            whileHover={{ rotate: 180 }}
+            whileHover={{ rotate: 180, scale: 1.1 }}
             transition={{ duration: 0.6, ease: "anticipate" }}
-            className="p-2 rounded-xl bg-primary text-primary-foreground shadow-lg shadow-primary/20"
+            className="p-2 rounded-xl bg-primary text-primary-foreground shadow-md"
           >
             <Code2 className="w-5 h-5" />
           </motion.div>
           <div className="flex flex-col">
-            <span className="text-sm sm:text-lg font-headline font-black tracking-tight uppercase leading-none shimmer-text">SRI HARSHA</span>
-            <span className="text-[9px] font-black uppercase tracking-[0.3em] text-primary/80">Full Stack Architect</span>
+            <motion.span 
+              whileHover={{ scale: 1.02 }}
+              className="text-sm sm:text-lg font-headline font-black tracking-tight uppercase leading-none text-gradient shimmer-text"
+            >
+              SRI HARSHA
+            </motion.span>
+            <span className="text-[9px] font-black uppercase tracking-[0.3em] text-muted-foreground">Full Stack Architect</span>
           </div>
         </Link>
 
@@ -64,20 +69,20 @@ export function Navbar() {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-[11px] font-black text-foreground/60 hover:text-primary transition-all uppercase tracking-[0.3em] relative group"
+                className="text-[11px] font-bold text-foreground/70 hover:text-primary transition-all uppercase tracking-[0.2em] relative group"
               >
                 {link.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full" />
+                <span className="absolute -bottom-1 left-0 w-0 h-[1.5px] bg-primary transition-all duration-300 group-hover:w-full" />
               </a>
             ))}
           </div>
           
-          <div className="h-6 w-px bg-border/50" />
+          <div className="h-4 w-px bg-border/50" />
           
           <div className="flex items-center gap-4">
             <button 
               onClick={toggleTheme}
-              className="p-2.5 rounded-xl bg-secondary/50 border border-border hover:border-primary/50 transition-all"
+              className="p-2 rounded-xl bg-secondary/50 border border-border hover:border-primary/50 transition-all"
               aria-label="Toggle Theme"
             >
               {mounted && (resolvedTheme === 'dark' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />)}
@@ -85,9 +90,9 @@ export function Navbar() {
             
             <a 
               href="#contact"
-              className="magnetic-button px-8 py-3 rounded-xl bg-primary text-primary-foreground text-[11px] font-black uppercase tracking-[0.2em] hover:shadow-[0_0_30px_rgba(var(--primary),0.3)]"
+              className="px-6 py-2.5 rounded-xl bg-primary text-primary-foreground text-[11px] font-black uppercase tracking-[0.1em] hover:brightness-110 transition-all shadow-sm"
             >
-              Initialize Sync
+              Contact
             </a>
           </div>
         </div>
@@ -101,7 +106,7 @@ export function Navbar() {
             {mounted && (resolvedTheme === 'dark' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />)}
           </button>
           <button 
-            className="p-2 rounded-xl bg-primary text-primary-foreground shadow-lg"
+            className="p-2 rounded-xl bg-primary text-primary-foreground shadow-sm"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -112,35 +117,28 @@ export function Navbar() {
       <AnimatePresence>
         {isOpen && (
           <motion.div 
-            initial={{ opacity: 0, scale: 0.95, y: -20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95, y: -20 }}
-            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="absolute top-full left-4 right-4 mt-4 bg-background/95 backdrop-blur-3xl border border-border rounded-[2rem] p-8 flex flex-col gap-6 lg:hidden shadow-3xl"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="absolute top-full left-4 right-4 mt-4 bg-background border border-border rounded-2xl p-6 flex flex-col gap-4 lg:hidden shadow-xl"
           >
             {navLinks.map((link, idx) => (
-              <motion.a
+              <a
                 key={link.name}
                 href={link.href}
-                initial={{ opacity: 0, x: -10 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: idx * 0.1 }}
-                className="text-sm font-black uppercase tracking-[0.4em] text-foreground/70 hover:text-primary transition-colors py-4 border-b border-border/50 last:border-0"
+                className="text-xs font-bold uppercase tracking-[0.2em] text-foreground/70 hover:text-primary transition-colors py-3 border-b border-border last:border-0"
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}
-              </motion.a>
+              </a>
             ))}
-            <motion.a 
+            <a 
               href="#contact"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-              className="w-full py-5 rounded-2xl bg-primary text-primary-foreground text-center font-black uppercase tracking-[0.3em] text-xs shadow-xl"
+              className="w-full py-4 rounded-xl bg-primary text-primary-foreground text-center font-black uppercase tracking-[0.2em] text-[10px]"
               onClick={() => setIsOpen(false)}
             >
-              Initialize Sync
-            </motion.a>
+              Contact Me
+            </a>
           </motion.div>
         )}
       </AnimatePresence>
