@@ -35,7 +35,7 @@ export function Navbar() {
   return (
     <nav className={cn(
       "fixed top-0 w-full z-[100] transition-all duration-700 px-4 sm:px-10",
-      scrolled ? "py-6" : "py-10"
+      scrolled ? "py-4 sm:py-6" : "py-6 sm:py-10"
     )}>
       <div className={cn(
         "max-w-7xl mx-auto flex items-center justify-between px-6 sm:px-8 py-4 rounded-3xl transition-all duration-700 border",
@@ -43,7 +43,7 @@ export function Navbar() {
           ? "bg-background/80 backdrop-blur-3xl border-border/60 shadow-2xl" 
           : "bg-transparent border-transparent"
       )}>
-        <Link href="/" className="flex items-center gap-4 sm:gap-5 group">
+        <Link href="/" className="flex items-center gap-4 group">
           <motion.div 
             whileHover={{ rotate: 15, scale: 1.1 }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}

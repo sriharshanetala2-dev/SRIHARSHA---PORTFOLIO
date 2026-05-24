@@ -51,11 +51,11 @@ const timelineItems = [
 
 export function ProfessionalTimeline() {
   return (
-    <section id="experience" className="py-24 px-6 border-t border-border">
+    <section id="experience" className="py-24 px-6 border-t border-border bg-background">
       <div className="max-w-4xl mx-auto space-y-16">
         <div className="text-center space-y-4">
           <div className="section-label mx-auto">DEVELOPER JOURNEY</div>
-          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight">Professional Registry</h2>
+          <h2 className="text-4xl sm:text-6xl font-headline font-black tracking-tighter uppercase leading-none shimmer-text">Professional Registry</h2>
         </div>
 
         <div className="relative space-y-12">
@@ -70,23 +70,23 @@ export function ProfessionalTimeline() {
               className="relative flex flex-col md:flex-row gap-8 pl-0 md:pl-20"
             >
               <div className="absolute left-6 top-0 w-4 h-4 rounded-full bg-primary border-4 border-background hidden md:block" />
-              <div className="flex-1 space-y-4 bg-card p-8 rounded-2xl border border-border shadow-sm">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                  <div className="flex items-center gap-4">
-                    <div className="p-3 rounded-lg bg-primary/10 text-primary">
-                      <item.icon className="w-6 h-6" />
+              <div className="flex-1 space-y-4 bg-card/40 p-8 sm:p-12 rounded-3xl border border-border shadow-2xl backdrop-blur-3xl group hover:border-primary/40 transition-all">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+                  <div className="flex items-center gap-6">
+                    <div className="p-4 rounded-2xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500 shadow-xl">
+                      <item.icon className="w-7 h-7" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold leading-none">{item.role}</h3>
-                      <p className="text-sm text-primary font-bold mt-2">{item.company || item.institution}</p>
+                      <h3 className="text-xl sm:text-2xl font-headline font-black uppercase tracking-tight">{item.role}</h3>
+                      <p className="text-[10px] font-black text-primary uppercase tracking-[0.3em] mt-2">{item.company || item.institution}</p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-2 text-xs font-bold text-muted-foreground bg-muted px-3 py-1 rounded-full w-fit">
+                  <div className="flex items-center gap-2 text-[9px] font-black text-muted-foreground bg-secondary/60 border border-border/40 px-4 py-1.5 rounded-full w-fit uppercase tracking-[0.2em]">
                     <CalendarDays className="w-3 h-3" />
                     {item.period}
                   </div>
                 </div>
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-xs sm:text-base text-muted-foreground leading-relaxed font-bold uppercase tracking-tight opacity-70">
                   {item.description}
                 </p>
               </div>

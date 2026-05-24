@@ -18,11 +18,11 @@ const skills = [
 
 export function Skills() {
   return (
-    <section id="skills" className="py-24 px-6 border-t border-border">
+    <section id="skills" className="py-24 px-6 border-t border-border bg-background">
       <div className="max-w-6xl mx-auto space-y-16">
         <div className="text-center space-y-4">
           <div className="section-label mx-auto">TECHNICAL REGISTRY</div>
-          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight">Skill Matrix</h2>
+          <h2 className="text-4xl sm:text-6xl font-headline font-black tracking-tighter uppercase leading-none">Skill Matrix</h2>
         </div>
 
         <div className="flex flex-wrap justify-center gap-4">
@@ -33,10 +33,10 @@ export function Skills() {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ delay: idx * 0.05 }}
               viewport={{ once: true }}
-              className="flex items-center gap-3 px-6 py-4 rounded-xl bg-card border border-border shadow-sm hover:border-primary transition-all group cursor-default"
+              className="flex items-center gap-4 px-8 py-5 rounded-2xl bg-card border border-border shadow-xl hover:border-primary transition-all group cursor-default backdrop-blur-xl"
             >
-              <skill.icon className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
-              <span className="font-bold text-sm uppercase tracking-widest">{skill.name}</span>
+              <skill.icon className="w-6 h-6 text-muted-foreground group-hover:text-primary transition-colors" />
+              <span className="font-black text-xs sm:text-sm uppercase tracking-[0.2em]">{skill.name}</span>
             </motion.div>
           ))}
         </div>
