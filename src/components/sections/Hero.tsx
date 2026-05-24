@@ -24,19 +24,17 @@ export function Hero() {
         </motion.div>
 
         <div className="space-y-12">
-          <motion.h1
-            className="text-5xl leading-[1.1] sm:text-7xl lg:text-9xl font-headline font-black tracking-tight uppercase flex flex-col items-center select-none"
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+            className="space-y-4"
           >
-            <span className="mb-6 lg:mb-10 text-foreground">
-              Engineering
-            </span>
-            <span className="shimmer-text py-4 px-6">
-              Intelligence
-            </span>
-          </motion.h1>
+            <h1 className="text-5xl leading-[1.1] sm:text-7xl lg:text-9xl font-headline font-black tracking-tight uppercase flex flex-col items-center select-none">
+              <span className="text-foreground">Engineering</span>
+              <span className="shimmer-text py-4 px-6">Intelligence</span>
+            </h1>
+          </motion.div>
           
           <motion.p
             initial={{ opacity: 0, y: 20 }}

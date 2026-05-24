@@ -38,7 +38,7 @@ export function Navbar() {
         <Link href="/" className="flex items-center gap-4 group">
           <motion.div 
             whileHover={{ rotate: 10, scale: 1.1 }}
-            transition={{ type: "spring", stiffness: 400, stiffness: 400, damping: 25 }}
+            transition={{ type: "spring", stiffness: 400, damping: 25 }}
             className="p-3 rounded-[1rem] bg-primary text-primary-foreground shadow-xl flex items-center justify-center"
           >
             <Code2 className="w-6 h-6" />
