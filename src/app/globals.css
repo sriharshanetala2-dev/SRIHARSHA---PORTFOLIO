@@ -180,3 +180,25 @@
 ::-webkit-scrollbar-thumb {
   @apply bg-primary/20 rounded-full hover:bg-primary/40 transition-colors;
 }
+
+/* Professional Typography Scaling */
+h1, h2, h3, h4, h5, h6 {
+  @apply font-headline;
+}
+
+.section-label {
+  @apply text-[10px] sm:text-[11px] font-black uppercase tracking-[0.5em] text-primary bg-primary/10 border border-primary/20 px-6 py-2 rounded-full inline-flex items-center gap-3 shadow-lg backdrop-blur-md;
+}
+
+.magnetic-button {
+  @apply relative overflow-hidden transition-all duration-500 active:scale-95;
+}
+
+.magnetic-button::before {
+  content: "";
+  @apply absolute inset-0 bg-white/10 opacity-0 transition-opacity duration-300;
+}
+
+.magnetic-button:hover::before {
+  @apply opacity-100;
+}

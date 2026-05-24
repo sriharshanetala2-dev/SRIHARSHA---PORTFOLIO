@@ -8,7 +8,8 @@ import {
   GraduationCap, 
   BookOpen, 
   Terminal,
-  CheckCircle2
+  CheckCircle2,
+  CalendarDays
 } from "lucide-react";
 
 const timelineItems = [
@@ -66,69 +67,70 @@ const timelineItems = [
 
 export function ProfessionalTimeline() {
   return (
-    <section id="experience" className="py-24 sm:py-32 px-6 relative overflow-hidden bg-transparent border-t border-border scroll-mt-20">
-      <div className="max-w-6xl mx-auto space-y-16 sm:space-y-24 relative z-10">
-        <div className="flex flex-col items-center text-center space-y-8">
+    <section id="experience" className="py-24 sm:py-40 px-6 relative overflow-hidden bg-transparent border-t border-border scroll-mt-20">
+      <div className="max-w-6xl mx-auto space-y-20 sm:space-y-32 relative z-10">
+        <div className="flex flex-col items-center text-center space-y-10">
           <motion.div 
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="px-6 py-2 rounded-full bg-primary/10 border border-primary/20 text-[11px] font-black text-primary uppercase tracking-[0.6em]"
+            className="section-label"
           >
             <Terminal className="w-4 h-4" />
-            GROWTH MATRIX
+            GROWTH MATRIX_v2
           </motion.div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-headline font-black tracking-tighter uppercase leading-none shimmer-text">
+          <h2 className="text-4xl sm:text-6xl lg:text-7xl font-headline font-black tracking-tighter uppercase leading-[0.85] shimmer-text">
             PROFESSIONAL <span className="text-gradient">JOURNEY</span>
           </h2>
-          <p className="text-sm sm:text-lg text-muted-foreground font-bold uppercase tracking-tight opacity-70 max-w-2xl">
+          <p className="text-base sm:text-xl text-muted-foreground font-bold uppercase tracking-tight opacity-90 max-w-2xl px-4">
             A high-precision mapping of <span className="text-primary">development milestones</span> and academic foundations.
           </p>
         </div>
 
-        <div className="relative space-y-12">
+        <div className="relative space-y-10">
           {timelineItems.map((item, idx) => (
             <motion.div
               key={item.id}
-              initial={{ opacity: 0, x: -20 }}
+              initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ delay: idx * 0.05 }}
+              transition={{ delay: idx * 0.1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               viewport={{ once: true }}
-              className="flex flex-col md:flex-row gap-8 md:gap-16 items-start"
+              className="flex flex-col lg:row gap-10 lg:gap-20 items-start group"
             >
-              <div className="md:w-48 shrink-0 flex items-center gap-6">
-                <div className="p-4 rounded-2xl bg-secondary border border-border text-primary group hover:bg-primary hover:text-primary-foreground transition-all duration-500">
-                  <item.icon className="w-7 h-7" />
+              <div className="lg:w-64 shrink-0 flex items-center gap-8">
+                <div className="p-6 rounded-2xl bg-secondary border border-border text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-700 shadow-xl group-hover:shadow-primary/20">
+                  <item.icon className="w-8 h-8 group-hover:scale-110 transition-transform" />
                 </div>
-                <div className="text-[11px] font-black text-primary tracking-[0.4em] uppercase whitespace-nowrap">
-                  NODE_{item.id}
+                <div className="flex flex-col">
+                  <span className="text-[12px] font-black text-primary tracking-[0.5em] uppercase">NODE_{item.id}</span>
+                  <span className="text-[10px] font-black text-muted-foreground/60 uppercase tracking-[0.3em]">{item.type.toUpperCase()}</span>
                 </div>
               </div>
 
-              <div className="flex-1 glass-card p-8 sm:p-12 rounded-[2.5rem] hover:border-primary/40 transition-all border border-border/50">
-                <div className="space-y-6">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                    <div className="space-y-1">
-                      <div className="flex items-center gap-3 text-[11px] font-black text-primary uppercase tracking-widest">
-                        <CheckCircle2 className="w-4 h-4" />
+              <div className="flex-1 glass-card p-10 sm:p-16 rounded-[3rem] hover:border-primary/50 transition-all border border-border/50 bg-card/40 backdrop-blur-3xl shadow-3xl">
+                <div className="space-y-10">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-8">
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-4 text-[12px] font-black text-primary uppercase tracking-[0.3em] opacity-80">
+                        <CalendarDays className="w-4 h-4" />
                         {item.period}
                       </div>
-                      <h3 className="text-xl sm:text-3xl font-headline font-black uppercase tracking-tight text-foreground/90 leading-tight">
+                      <h3 className="text-2xl sm:text-5xl font-headline font-black uppercase tracking-tight text-foreground leading-none">
                         {item.role}
                       </h3>
                     </div>
-                    <div className="text-[11px] font-black uppercase tracking-[0.4em] text-primary bg-primary/5 px-4 py-2 rounded-lg border border-primary/10 w-fit">
+                    <div className="text-[11px] sm:text-[13px] font-black uppercase tracking-[0.4em] text-primary bg-primary/5 px-6 py-3 rounded-xl border border-primary/20 w-fit backdrop-blur-md">
                       {item.type === 'work' ? item.company : item.institution}
                     </div>
                   </div>
 
-                  <p className="text-sm sm:text-lg text-foreground/80 font-bold uppercase tracking-tight leading-relaxed max-w-3xl">
+                  <p className="text-base sm:text-2xl text-foreground font-bold uppercase tracking-tight leading-relaxed max-w-4xl opacity-90">
                     {item.description}
                   </p>
 
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-3">
                     {item.tags.map(tag => (
-                      <span key={tag} className="px-3 py-1.5 bg-background border border-border rounded-lg text-[11px] font-black uppercase tracking-widest text-primary/70">
+                      <span key={tag} className="px-5 py-2.5 bg-background/50 border border-border rounded-xl text-[11px] font-black uppercase tracking-[0.3em] text-primary/80 hover:border-primary/40 hover:bg-primary/5 transition-all cursor-default">
                         {tag}
                       </span>
                     ))}
