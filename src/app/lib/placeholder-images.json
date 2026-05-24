@@ -10,8 +10,8 @@
     {
       "id": "system-backdrop",
       "description": "Professional System Architecture Backdrop",
-      "imageUrl": "https://picsum.photos/seed/professional_tech_grid/1920/1080",
-      "imageHint": "abstract technology"
+      "imageUrl": "https://picsum.photos/seed/enterprise_server_hub/1920/1080",
+      "imageHint": "datacenter hardware"
     },
     {
       "id": "neural-workflow-os",
