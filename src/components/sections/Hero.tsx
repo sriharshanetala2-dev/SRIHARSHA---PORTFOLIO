@@ -29,7 +29,7 @@ export function Hero() {
     },
     hidden: {
       opacity: 0,
-      y: 30,
+      y: 40,
       scale: 0.8,
       transition: {
         type: "spring",
@@ -39,77 +39,78 @@ export function Hero() {
     },
   };
 
-  // Continuous "Neural Pulse" animation for first word
+  // Continuous "Neural Pulse" animation for Engineering
   const neuralPulse = (index: number) => ({
     color: ["hsl(var(--foreground))", "hsl(var(--primary))", "hsl(var(--foreground))"],
-    scale: [1, 1.1, 1],
+    scale: [1, 1.15, 1],
+    y: [0, -5, 0],
     transition: {
       duration: 3,
       repeat: Infinity,
-      delay: index * 0.15,
+      delay: index * 0.1,
       ease: "easeInOut",
     }
   });
 
-  // Continuous "Active Wave" animation for second word
+  // High-Visibility "Active Wave" animation for Intelligence
   const activeWave = (index: number) => ({
-    y: [0, -12, 0],
-    opacity: [0.7, 1, 0.7],
-    scale: [1, 1.05, 1],
+    y: [0, -20, 0],
+    scale: [1, 1.2, 1],
+    opacity: [1, 1, 1], // Constant visibility
     transition: {
       duration: 2.5,
       repeat: Infinity,
-      delay: (index + title.length) * 0.15,
+      delay: (index + title.length) * 0.1,
       ease: "easeInOut"
     }
   });
 
   return (
-    <section className="min-h-screen flex items-center justify-center pt-44 pb-20 px-6 relative overflow-hidden bg-background">
+    <section className="min-h-screen flex items-center justify-center pt-48 pb-24 px-6 relative overflow-hidden bg-background">
       {/* Structural Background Layer */}
-      <div className="absolute inset-0 neural-grid opacity-[0.03] pointer-events-none" />
+      <div className="absolute inset-0 neural-grid opacity-[0.04] pointer-events-none" />
       
       <div className="absolute top-[5%] left-[-10%] w-[60%] h-[60%] bg-primary/5 rounded-full blur-[160px] pointer-events-none" />
       <div className="absolute bottom-[-5%] right-[-10%] w-[50%] h-[50%] bg-primary/5 rounded-full blur-[160px] pointer-events-none" />
       
-      <div className="max-w-7xl mx-auto text-center space-y-12 sm:space-y-16 relative z-20">
+      <div className="max-w-7xl mx-auto text-center space-y-16 relative z-20">
         <motion.div
-          initial={{ opacity: 0, y: -10 }}
+          initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="section-label mx-auto text-[12px] px-8 py-3"
+          className="section-label mx-auto"
         >
           <Code2 className="w-5 h-5" />
           FULL_STACK_DEVELOPER_v4.0 // LIVE_NODE
         </motion.div>
 
-        <div className="space-y-8 sm:space-y-12">
+        <div className="space-y-12 lg:space-y-16">
           <motion.h1
-            className="text-[2.75rem] leading-[1.2] sm:text-7xl lg:text-9xl font-headline font-black tracking-tight uppercase flex flex-col items-center select-none"
+            className="text-[3.25rem] leading-[1.2] sm:text-7xl lg:text-9xl font-headline font-black tracking-tight uppercase flex flex-col items-center select-none"
             variants={container}
             initial="hidden"
             animate="visible"
           >
-            <span className="flex flex-wrap justify-center overflow-hidden mb-6 sm:mb-12">
+            <span className="flex flex-wrap justify-center overflow-hidden mb-8 lg:mb-12">
               {title.split("").map((letter, index) => (
                 <motion.span 
                   key={index} 
                   variants={child} 
-                  className="inline-block hover:text-primary transition-colors cursor-default drop-shadow-sm"
-                  whileHover={{ y: -15, scale: 1.2, rotate: 2 }}
+                  className="inline-block hover:text-primary transition-colors cursor-default drop-shadow-xl"
+                  whileHover={{ y: -20, scale: 1.3, rotate: 5 }}
                   animate={neuralPulse(index)}
                 >
                   {letter}
                 </motion.span>
               ))}
             </span>
-            <span className="flex flex-wrap justify-center overflow-hidden shimmer-text py-4">
+            <span className="flex flex-wrap justify-center overflow-hidden shimmer-text py-6 px-4">
               {subtitle.split("").map((letter, index) => (
                 <motion.span 
                   key={index} 
                   variants={child} 
-                  className="inline-block cursor-default drop-shadow-sm"
-                  whileHover={{ scale: 1.25, rotate: -3, color: "hsl(var(--primary))" }}
+                  className="inline-block cursor-default drop-shadow-2xl"
+                  whileHover={{ scale: 1.35, rotate: -5, color: "hsl(var(--foreground))" }}
                   animate={activeWave(index)}
                 >
                   {letter}
@@ -119,33 +120,35 @@ export function Hero() {
           </motion.h1>
           
           <motion.p
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 1 }}
-            className="text-lg sm:text-2xl lg:text-3xl text-muted-foreground max-w-4xl mx-auto leading-relaxed font-bold uppercase tracking-wide opacity-90 px-4"
+            className="text-xl sm:text-2xl lg:text-4xl text-muted-foreground max-w-5xl mx-auto leading-relaxed font-bold uppercase tracking-wide opacity-90 px-4"
           >
             Architecting high-performance digital ecosystems where technical integrity meets autonomous orchestration.
           </motion.p>
         </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 1.2 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-10 px-6"
+          className="flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-12 px-6"
         >
-          <Button size="lg" className="w-full sm:w-auto rounded-3xl h-18 sm:h-24 px-16 text-[18px] sm:text-[20px] font-black uppercase tracking-[0.4em] shadow-2xl shadow-primary/20 hover:scale-105 transition-all group" asChild>
+          <Button size="lg" className="w-full sm:w-auto rounded-full h-20 sm:h-28 px-20 text-[20px] sm:text-[24px] font-black uppercase tracking-[0.4em] shadow-4xl shadow-primary/30 hover:scale-105 transition-all group" asChild>
             <a href="#portfolio">
-              System Registry <ArrowRight className="ml-5 w-7 h-7 group-hover:translate-x-3 transition-transform" />
+              System Registry <ArrowRight className="ml-6 w-8 h-8 group-hover:translate-x-4 transition-transform" />
             </a>
           </Button>
-          <Button variant="outline" size="lg" className="w-full sm:w-auto rounded-3xl h-18 sm:h-24 px-16 text-[18px] sm:text-[20px] font-black uppercase tracking-[0.4em] border-2 border-border hover:bg-secondary/40 transition-all" asChild>
+          <Button variant="outline" size="lg" className="w-full sm:w-auto rounded-full h-20 sm:h-28 px-20 text-[20px] sm:text-[24px] font-black uppercase tracking-[0.4em] border-2 border-border hover:bg-secondary/50 transition-all shadow-xl" asChild>
             <a href="#contact">Initiate Sync</a>
           </Button>
         </motion.div>
 
         {/* Technical Data Matrix */}
-        <div className="pt-16 sm:pt-32 grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-12 max-w-6xl mx-auto px-4">
+        <div className="pt-24 sm:pt-40 grid grid-cols-2 lg:grid-cols-4 gap-10 sm:gap-14 max-w-7xl mx-auto px-6">
           {[
             { label: "Core Logic", value: "Neural", icon: Cpu },
             { label: "Integrity", value: "Verified", icon: Code2 },
@@ -154,15 +157,16 @@ export function Hero() {
           ].map((stat, i) => (
             <motion.div 
               key={i}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 1.5 + (i * 0.1), duration: 0.5 }}
-              className="space-y-5 p-10 sm:p-12 rounded-[3rem] bg-secondary/10 border border-border/50 text-left hover:border-primary/40 transition-all group backdrop-blur-md shadow-xl"
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 1.5 + (i * 0.1), duration: 0.6 }}
+              className="space-y-6 p-12 sm:p-14 rounded-[3.5rem] bg-secondary/20 border border-border/60 text-left hover:border-primary/50 transition-all group backdrop-blur-2xl shadow-3xl hover:-translate-y-3"
             >
-              <stat.icon className="w-7 h-7 text-primary opacity-70 group-hover:opacity-100 transition-opacity" />
-              <div className="space-y-2">
-                <p className="text-[13px] font-mono font-black uppercase tracking-[0.4em] text-muted-foreground">{stat.label}</p>
-                <p className="text-lg sm:text-xl font-black uppercase text-foreground font-mono">{stat.value}</p>
+              <stat.icon className="w-8 h-8 text-primary opacity-80 group-hover:opacity-100 transition-opacity" />
+              <div className="space-y-3">
+                <p className="text-[14px] font-mono font-black uppercase tracking-[0.5em] text-muted-foreground">{stat.label}</p>
+                <p className="text-xl sm:text-2xl font-black uppercase text-foreground font-mono leading-none">{stat.value}</p>
               </div>
             </motion.div>
           ))}
