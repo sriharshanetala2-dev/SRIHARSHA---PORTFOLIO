@@ -79,12 +79,22 @@ export function ProfessionalTimeline() {
             <Terminal className="w-4 h-4" />
             GROWTH MATRIX_v2
           </motion.div>
-          <h2 className="text-4xl sm:text-6xl lg:text-7xl font-headline font-black tracking-tighter uppercase leading-[0.85] shimmer-text">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-4xl sm:text-6xl lg:text-7xl font-headline font-black tracking-tighter uppercase leading-[0.85] shimmer-text"
+          >
             PROFESSIONAL <span className="text-gradient">JOURNEY</span>
-          </h2>
-          <p className="text-base sm:text-xl text-muted-foreground font-bold uppercase tracking-tight opacity-90 max-w-2xl px-4">
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-base sm:text-xl text-muted-foreground font-bold uppercase tracking-tight opacity-90 max-w-2xl px-4"
+          >
             A high-precision mapping of <span className="text-primary">development milestones</span> and academic foundations.
-          </p>
+          </motion.p>
         </div>
 
         <div className="relative space-y-10">
@@ -95,7 +105,7 @@ export function ProfessionalTimeline() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ delay: idx * 0.1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               viewport={{ once: true }}
-              className="flex flex-col lg:row gap-10 lg:gap-20 items-start group"
+              className="flex flex-col lg:flex-row gap-10 lg:gap-20 items-start group"
             >
               <div className="lg:w-64 shrink-0 flex items-center gap-8">
                 <div className="p-6 rounded-2xl bg-secondary border border-border text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-700 shadow-xl group-hover:shadow-primary/20">
