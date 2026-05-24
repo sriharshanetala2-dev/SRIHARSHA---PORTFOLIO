@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -33,12 +32,12 @@ export default function Home() {
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
         {/* Layer 1: Professional Atmospheric Base */}
         {bgImage && (
-          <div className="absolute inset-0 grayscale contrast-[1.1] brightness-[0.4] dark:brightness-[0.2] opacity-[0.12] scale-110 transition-all duration-1000">
+          <div className="absolute inset-0 grayscale contrast-[1.2] brightness-[0.4] dark:brightness-[0.25] opacity-[0.18] scale-105 transition-all duration-1000">
             <Image 
               src={bgImage.imageUrl} 
               alt="System Architecture Backdrop" 
               fill 
-              className="object-cover blur-[2px]"
+              className="object-cover blur-[1px]"
               priority
               data-ai-hint={bgImage.imageHint}
             />
@@ -54,9 +53,10 @@ export default function Home() {
         {/* Environmental Vignette & Focus Mask */}
         <div className="atmospheric-mask" />
         
-        {/* Optic Optics */}
-        <div className="lens-flare top-[-15%] left-[-15%] opacity-40" />
-        <div className="lens-flare bottom-[-15%] right-[-15%] opacity-20" />
+        {/* Optic Optics - Multi-Lens System */}
+        <div className="lens-flare top-[-20%] left-[-15%] opacity-40 scale-150" />
+        <div className="lens-flare bottom-[-25%] right-[-15%] opacity-30 scale-125" />
+        <div className="lens-flare top-[40%] left-[60%] opacity-15 scale-75 animate-pulse" />
       </div>
 
       <Navbar />

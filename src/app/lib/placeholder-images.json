@@ -1,4 +1,3 @@
-
 {
   "placeholderImages": [
     {
@@ -10,8 +9,8 @@
     {
       "id": "system-backdrop",
       "description": "Developer AI Systems Environment",
-      "imageUrl": "https://picsum.photos/seed/dev_ai_env_ultimate/1920/1080",
-      "imageHint": "developer ai"
+      "imageUrl": "https://picsum.photos/seed/dev_ai_workspace_v4/1920/1080",
+      "imageHint": "coding workspace"
     },
     {
       "id": "neural-workflow-os",
