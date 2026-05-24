@@ -80,7 +80,7 @@
 }
 
 h1, h2, h3, h4, h5, h6 {
-  @apply font-headline font-black tracking-tight uppercase leading-[0.9] sm:leading-none;
+  @apply font-headline font-black tracking-normal uppercase leading-[1.1] sm:leading-none;
 }
 
 .glass-card {
