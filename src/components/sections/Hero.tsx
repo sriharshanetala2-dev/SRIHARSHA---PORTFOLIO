@@ -39,15 +39,30 @@ export function Hero() {
     },
   };
 
-  // Continuous typing animation logic
+  // Continuous typing/running animation for first word
   const typingAnimation = (index: number) => ({
     opacity: [0, 1, 1, 0],
+    y: [0, -5, 0],
+    scale: [1, 1.05, 1],
     transition: {
-      duration: 6,
+      duration: 4,
       repeat: Infinity,
-      times: [0, 0.1, 0.85, 1],
-      delay: index * 0.15,
+      times: [0, 0.2, 0.8, 1],
+      delay: index * 0.1,
       ease: "easeInOut",
+    }
+  });
+
+  // Continuous "running" animation for second word
+  const subtitleAnimation = (index: number) => ({
+    y: [0, -15, 0],
+    scale: [1, 1.1, 1],
+    filter: ["brightness(1)", "brightness(1.5)", "brightness(1)"],
+    transition: {
+      duration: 3,
+      repeat: Infinity,
+      delay: (index + title.length) * 0.1,
+      ease: "easeInOut"
     }
   });
 
@@ -97,15 +112,7 @@ export function Hero() {
                   variants={child} 
                   className="inline-block cursor-default"
                   whileHover={{ scale: 1.2, rotate: -3, color: "hsl(var(--primary))" }}
-                  animate={{
-                    y: [0, -10, 0],
-                  }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    delay: (index + title.length) * 0.12,
-                    ease: "easeInOut"
-                  }}
+                  animate={subtitleAnimation(index)}
                 >
                   {letter}
                 </motion.span>
@@ -156,7 +163,7 @@ export function Hero() {
             >
               <stat.icon className="w-6 h-6 text-primary opacity-70 group-hover:opacity-100 transition-opacity" />
               <div className="space-y-1">
-                <p className="text-[14px] sm:text-xs font-mono font-black uppercase tracking-[0.2em] text-muted-foreground">{stat.label}</p>
+                <p className="text-[12px] font-mono font-black uppercase tracking-[0.2em] text-muted-foreground">{stat.label}</p>
                 <p className="text-sm sm:text-base font-black uppercase text-foreground font-mono">{stat.value}</p>
               </div>
             </motion.div>
