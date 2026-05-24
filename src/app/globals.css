@@ -23,7 +23,7 @@
     --border: 217.2 32.6% 15%;
     --input: 217.2 32.6% 15%;
     --ring: 224.3 76.3% 48%;
-    --radius: 1rem;
+    --radius: 1.25rem;
   }
 }
 
@@ -35,7 +35,6 @@
     @apply bg-background text-foreground font-body antialiased selection:bg-primary/20 overflow-x-hidden;
     font-size: 16px;
     line-height: 1.6;
-    letter-spacing: normal;
   }
 }
 
@@ -46,7 +45,7 @@
 .shimmer-text {
   background-size: 200% auto;
   animation: shimmer 5s linear infinite;
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-foreground via-primary to-foreground;
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-foreground via-primary/50 to-foreground;
 }
 
 @keyframes shimmer {
@@ -55,44 +54,26 @@
 }
 
 .section-label {
-  @apply text-[10px] font-black uppercase tracking-[0.3em] text-primary bg-primary/10 px-4 py-1.5 rounded-full inline-flex items-center gap-2 border border-primary/20 shadow-sm whitespace-nowrap;
+  @apply text-[9px] font-black uppercase tracking-[0.4em] text-primary bg-primary/10 px-5 py-2 rounded-full inline-flex items-center gap-2.5 border border-primary/20 shadow-lg backdrop-blur-md;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  @apply font-headline font-black tracking-tight uppercase leading-[1.1];
+  @apply font-headline font-black tracking-tighter uppercase leading-[1.1];
 }
 
 .glass-card {
-  @apply bg-card/60 border border-border/50 backdrop-blur-2xl shadow-2xl transition-all duration-500 hover:border-primary/30 overflow-hidden;
+  @apply bg-card/60 border border-border/50 backdrop-blur-2xl shadow-2xl transition-all duration-700 hover:border-primary/40 overflow-hidden;
 }
 
 .neural-grid {
   background-image: 
     linear-gradient(to right, hsl(var(--border) / 0.1) 1px, transparent 1px),
     linear-gradient(to bottom, hsl(var(--border) / 0.1) 1px, transparent 1px);
-  background-size: 40px 40px;
-}
-
-.glare-streak {
-  position: absolute;
-  width: 1px;
-  height: 200px;
-  background: linear-gradient(to bottom, transparent, hsl(var(--primary)), transparent);
-  opacity: 0.2;
-  filter: blur(2px);
-  pointer-events: none;
-  animation: flash linear infinite;
-}
-
-@keyframes flash {
-  0% { transform: translate(-100vw, -100vh) rotate(45deg); opacity: 0; }
-  10% { opacity: 0.4; }
-  90% { opacity: 0.4; }
-  100% { transform: translate(100vw, 100vh) rotate(45deg); opacity: 0; }
+  background-size: 50px 50px;
 }
 
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 5px;
 }
 ::-webkit-scrollbar-track {
   @apply bg-background;

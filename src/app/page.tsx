@@ -10,6 +10,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const About = dynamic(() => import('@/components/sections/About').then(mod => mod.About), { ssr: false });
 const ProfessionalTimeline = dynamic(() => import('@/components/sections/ProfessionalTimeline').then(mod => mod.ProfessionalTimeline), { ssr: false });
+const Education = dynamic(() => import('@/components/sections/Education').then(mod => mod.Education), { ssr: false });
 const Projects = dynamic(() => import('@/components/sections/Projects').then(mod => mod.Projects), { ssr: false });
 const AITool = dynamic(() => import('@/components/sections/AITool').then(mod => mod.AITool), { ssr: false });
 const StudentDashboard = dynamic(() => import('@/components/sections/StudentDashboard').then(mod => mod.StudentDashboard), { ssr: false });
@@ -40,10 +41,11 @@ export default function Home() {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 1 }}
             >
               <About />
               <ProfessionalTimeline />
+              <Education />
               <Projects />
               <AITool />
               <StudentDashboard />
