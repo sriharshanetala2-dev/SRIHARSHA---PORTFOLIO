@@ -34,7 +34,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="section-label mx-auto text-[8px] sm:text-[10px] mt-8"
+          className="section-label mx-auto text-[8px] sm:text-[10px] mt-2"
         >
           <Code2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
           FULL_STACK_DEVELOPER_v4.0 // LIVE_NODE
@@ -67,12 +67,12 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8 px-6"
         >
-          <Button size="lg" className="w-full sm:w-auto rounded-2xl h-16 px-12 text-[10px] font-black uppercase tracking-[0.2em] shadow-2xl shadow-primary/20 hover:scale-105 transition-all group" asChild>
+          <Button size="lg" className="w-full sm:w-auto rounded-2xl h-14 sm:h-16 px-12 text-[10px] font-black uppercase tracking-[0.2em] shadow-2xl shadow-primary/20 hover:scale-105 transition-all group" asChild>
             <a href="#portfolio">
               System Registry <ArrowRight className="ml-4 w-5 h-5 group-hover:translate-x-2 transition-transform" />
             </a>
           </Button>
-          <Button variant="outline" size="lg" className="w-full sm:w-auto rounded-2xl h-16 px-12 text-[10px] font-black uppercase tracking-[0.2em] border-2 border-border hover:bg-secondary/40 transition-all" asChild>
+          <Button variant="outline" size="lg" className="w-full sm:w-auto rounded-2xl h-14 sm:h-16 px-12 text-[10px] font-black uppercase tracking-[0.2em] border-2 border-border hover:bg-secondary/40 transition-all" asChild>
             <a href="#contact">Initiate Sync</a>
           </Button>
         </motion.div>
@@ -90,7 +90,7 @@ export function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 + (i * 0.1) }}
-              className="space-y-4 p-6 rounded-2xl bg-secondary/10 border border-border/50 text-left hover:border-primary/40 transition-all group backdrop-blur-md"
+              className="space-y-4 p-4 sm:p-6 rounded-2xl bg-secondary/10 border border-border/50 text-left hover:border-primary/40 transition-all group backdrop-blur-md"
             >
               <stat.icon className="w-5 h-5 text-primary opacity-70 group-hover:opacity-100 transition-opacity" />
               <div className="space-y-1">
