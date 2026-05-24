@@ -54,9 +54,10 @@
     @apply border-border outline-none;
   }
   body {
-    @apply bg-background text-foreground font-body antialiased selection:bg-primary/30;
+    @apply bg-background text-foreground font-body antialiased selection:bg-primary/30 overflow-x-hidden;
     font-size: 16px;
     line-height: 1.6;
+    letter-spacing: 0.015em;
   }
 }
 
@@ -75,30 +76,48 @@
 }
 
 .section-label {
-  @apply text-[10px] font-black uppercase tracking-[0.4em] text-primary bg-primary/10 px-6 py-2 rounded-full inline-flex items-center gap-2 border border-primary/20 shadow-sm;
+  @apply text-[10px] sm:text-[11px] font-black uppercase tracking-[0.4em] text-primary bg-primary/5 px-6 py-2 rounded-full inline-flex items-center gap-2 border border-primary/20 shadow-sm whitespace-nowrap;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  @apply font-headline font-black tracking-tighter uppercase;
+  @apply font-headline font-black tracking-tight uppercase leading-[0.9] sm:leading-none;
 }
 
 .glass-card {
-  @apply bg-card/40 border border-border/50 backdrop-blur-xl shadow-2xl transition-all duration-500 hover:border-primary/30 hover:shadow-primary/5;
+  @apply bg-card/40 border border-border/50 backdrop-blur-2xl shadow-2xl transition-all duration-500 hover:border-primary/30 hover:shadow-primary/5 overflow-hidden;
+}
+
+.glare-streak {
+  position: absolute;
+  width: 2px;
+  height: 150px;
+  background: linear-gradient(to bottom, transparent, hsl(var(--primary)), transparent);
+  opacity: 0.15;
+  filter: blur(2px);
+  pointer-events: none;
+  animation: flash linear infinite;
+}
+
+@keyframes flash {
+  0% { transform: translate(-100vw, -100vh) rotate(45deg); opacity: 0; }
+  20% { opacity: 0.3; }
+  80% { opacity: 0.3; }
+  100% { transform: translate(100vw, 100vh) rotate(45deg); opacity: 0; }
+}
+
+.neural-grid {
+  background-image: 
+    linear-gradient(to right, hsl(var(--border) / 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, hsl(var(--border) / 0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
 }
 
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 ::-webkit-scrollbar-track {
   @apply bg-background;
 }
 ::-webkit-scrollbar-thumb {
-  @apply bg-muted rounded-full hover:bg-muted-foreground/20;
-}
-
-.neural-grid {
-  background-image: 
-    linear-gradient(to right, hsl(var(--border) / 0.1) 1px, transparent 1px),
-    linear-gradient(to bottom, hsl(var(--border) / 0.1) 1px, transparent 1px);
-  background-size: 40px 40px;
+  @apply bg-muted-foreground/20 rounded-full hover:bg-primary/30 transition-colors;
 }

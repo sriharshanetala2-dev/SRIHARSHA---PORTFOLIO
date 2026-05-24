@@ -9,7 +9,7 @@ const experience = [
     role: "Java Full Stack Developer",
     company: "NxtWave Academy",
     period: "2025 — 2026",
-    description: "Intensive development program focused on building robust full-stack systems. Mastery of Java, Spring Boot, JDBC, and SQL, coupled with modern high-performance frontend orchestration.",
+    description: "Architecting high-performance enterprise systems with Java 21, Spring Boot, and PostgreSQL. Mastering the orchestration of complex full-stack ecosystems.",
     icon: Code2
   },
   {
@@ -34,7 +34,7 @@ export function Experience() {
     show: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1
+        staggerChildren: 0.15
       }
     }
   };
@@ -45,24 +45,24 @@ export function Experience() {
   };
 
   return (
-    <section id="experience" className="py-20 sm:py-32 px-4 sm:px-6 bg-background relative overflow-hidden">
+    <section id="experience" className="py-24 sm:py-32 px-6 bg-background relative overflow-hidden border-t border-border">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_0%_50%,hsl(var(--primary)/0.03),transparent)] pointer-events-none" />
       
-      <div className="max-w-5xl mx-auto">
-        <div className="text-center mb-16 sm:mb-24 space-y-4 sm:space-y-6">
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-20 sm:mb-28 space-y-6">
           <motion.div 
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-3 px-6 py-2 rounded-full bg-primary/10 border border-primary/20 text-xs font-black text-primary uppercase tracking-widest"
+            className="section-label mx-auto"
           >
             <Briefcase className="w-4 h-4" />
             Developer Timeline
           </motion.div>
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-headline font-black tracking-tighter uppercase leading-none">
+          <h2 className="text-4xl sm:text-6xl font-headline font-black tracking-tighter uppercase leading-none">
             GROWTH <span className="text-gradient">MATRIX</span>
           </h2>
-          <p className="text-sm sm:text-base lg:text-lg text-muted-foreground font-black max-w-2xl mx-auto opacity-60 uppercase tracking-widest leading-relaxed px-4">
+          <p className="text-sm sm:text-lg text-muted-foreground font-black max-w-2xl mx-auto opacity-70 uppercase tracking-widest leading-relaxed">
             A technical mapping of development milestones and high-level project integration.
           </p>
         </div>
@@ -72,29 +72,29 @@ export function Experience() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="space-y-6 sm:space-y-8 relative"
+          className="space-y-8 relative"
         >
-          <div className="absolute left-6 md:left-12 top-0 bottom-0 w-[1px] bg-border hidden sm:block" />
+          <div className="absolute left-8 sm:left-14 top-0 bottom-0 w-[1px] bg-border/60 hidden sm:block" />
 
           {experience.map((exp, idx) => (
             <motion.div key={idx} variants={item}>
               <Card 
-                className="p-8 sm:p-12 glass-card bg-card/30 border-border/50 hover:border-primary/40 transition-all rounded-2xl sm:rounded-[2.5rem] overflow-hidden shadow-lg group"
+                className="p-8 sm:p-14 glass-card bg-card/30 border-border/50 hover:border-primary/40 transition-all rounded-[2rem] sm:rounded-[3rem] overflow-hidden shadow-2xl group"
               >
-                <div className="flex flex-col md:flex-row md:items-start gap-6 sm:gap-8 md:gap-12 relative z-10">
-                  <div className="p-5 rounded-2xl bg-secondary group-hover:bg-primary text-primary group-hover:text-primary-foreground transition-all duration-500 w-fit border border-border/50">
-                    <exp.icon className="w-8 h-8" />
+                <div className="flex flex-col md:flex-row md:items-start gap-10 sm:gap-14 relative z-10">
+                  <div className="p-6 rounded-3xl bg-secondary group-hover:bg-primary text-primary group-hover:text-primary-foreground transition-all duration-700 w-fit border border-border/50 shadow-xl">
+                    <exp.icon className="w-10 h-10" />
                   </div>
-                  <div className="space-y-3 sm:space-y-4 flex-1 min-w-0">
-                    <div className="flex items-center gap-3 text-xs font-black text-primary uppercase tracking-widest">
+                  <div className="space-y-6 flex-1 min-w-0">
+                    <div className="flex items-center gap-4 text-xs font-black text-primary uppercase tracking-[0.3em]">
                       <Calendar className="w-4 h-4" />
                       {exp.period}
                     </div>
-                    <div className="space-y-1">
-                      <h3 className="text-2xl sm:text-3xl font-headline font-black tracking-tight uppercase group-hover:text-primary transition-colors leading-tight">{exp.role}</h3>
-                      <p className="text-foreground/50 font-black text-xs sm:text-sm uppercase tracking-widest">{exp.company}</p>
+                    <div className="space-y-2">
+                      <h3 className="text-2xl sm:text-4xl font-headline font-black tracking-tight uppercase group-hover:text-primary transition-colors leading-tight">{exp.role}</h3>
+                      <p className="text-foreground/60 font-black text-xs sm:text-sm uppercase tracking-widest">{exp.company}</p>
                     </div>
-                    <p className="text-sm sm:text-base text-muted-foreground leading-relaxed font-bold opacity-80 max-w-3xl uppercase tracking-tight">
+                    <p className="text-sm sm:text-lg text-muted-foreground leading-relaxed font-bold opacity-80 max-w-4xl uppercase tracking-tight">
                       {exp.description}
                     </p>
                   </div>
