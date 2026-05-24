@@ -125,12 +125,12 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 1.2 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8 px-6"
         >
-          <Button size="lg" className="w-full sm:w-auto rounded-2xl h-14 sm:h-18 px-12 text-[12px] font-black uppercase tracking-[0.3em] shadow-2xl shadow-primary/20 hover:scale-105 transition-all group" asChild>
+          <Button size="lg" className="w-full sm:w-auto rounded-2xl h-14 sm:h-18 px-12 text-sm sm:text-base font-black uppercase tracking-[0.3em] shadow-2xl shadow-primary/20 hover:scale-105 transition-all group" asChild>
             <a href="#portfolio">
               System Registry <ArrowRight className="ml-4 w-5 h-5 group-hover:translate-x-2 transition-transform" />
             </a>
           </Button>
-          <Button variant="outline" size="lg" className="w-full sm:w-auto rounded-2xl h-14 sm:h-18 px-12 text-[12px] font-black uppercase tracking-[0.3em] border-2 border-border hover:bg-secondary/40 transition-all" asChild>
+          <Button variant="outline" size="lg" className="w-full sm:w-auto rounded-2xl h-14 sm:h-18 px-12 text-sm sm:text-base font-black uppercase tracking-[0.3em] border-2 border-border hover:bg-secondary/40 transition-all" asChild>
             <a href="#contact">Initiate Sync</a>
           </Button>
         </motion.div>
@@ -148,12 +148,12 @@ export function Hero() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 1.5 + (i * 0.1), duration: 0.5 }}
-              className="space-y-4 p-5 sm:p-7 rounded-[2rem] bg-secondary/10 border border-border/50 text-left hover:border-primary/40 transition-all group backdrop-blur-md shadow-xl"
+              className="space-y-4 p-6 sm:p-8 rounded-[2rem] bg-secondary/10 border border-border/50 text-left hover:border-primary/40 transition-all group backdrop-blur-md shadow-xl"
             >
-              <stat.icon className="w-5 h-5 text-primary opacity-70 group-hover:opacity-100 transition-opacity" />
+              <stat.icon className="w-6 h-6 text-primary opacity-70 group-hover:opacity-100 transition-opacity" />
               <div className="space-y-1">
-                <p className="text-[10px] font-mono font-black uppercase tracking-[0.2em] text-muted-foreground">{stat.label}</p>
-                <p className="text-xs font-black uppercase text-foreground font-mono">{stat.value}</p>
+                <p className="text-[12px] sm:text-xs font-mono font-black uppercase tracking-[0.2em] text-muted-foreground">{stat.label}</p>
+                <p className="text-sm sm:text-base font-black uppercase text-foreground font-mono">{stat.value}</p>
               </div>
             </motion.div>
           ))}
