@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -32,12 +33,12 @@ export default function Home() {
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
         {/* Layer 1: Professional Atmospheric Base */}
         {bgImage && (
-          <div className="absolute inset-0 grayscale contrast-[1.2] opacity-[0.08] scale-105">
+          <div className="absolute inset-0 grayscale contrast-[1.1] brightness-[0.4] dark:brightness-[0.2] opacity-[0.12] scale-110 transition-all duration-1000">
             <Image 
               src={bgImage.imageUrl} 
               alt="System Architecture Backdrop" 
               fill 
-              className="object-cover"
+              className="object-cover blur-[2px]"
               priority
               data-ai-hint={bgImage.imageHint}
             />
