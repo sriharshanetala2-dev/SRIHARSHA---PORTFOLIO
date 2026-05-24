@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X, Code2, Moon, Sun, Activity } from "lucide-react";
+import { Menu, X, Sun, Moon, Activity } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "next-themes";
@@ -34,109 +34,128 @@ export function Navbar() {
 
   return (
     <nav className={cn(
-      "fixed top-0 w-full z-50 transition-all duration-500 px-4 sm:px-8",
-      scrolled ? "py-3" : "py-6"
+      "fixed top-0 w-full z-50 transition-all duration-700 px-4 sm:px-8",
+      scrolled ? "py-4" : "py-8"
     )}>
       <div className={cn(
-        "max-w-7xl mx-auto flex items-center justify-between px-6 py-3 rounded-2xl transition-all duration-500 border",
+        "max-w-7xl mx-auto flex items-center justify-between px-6 py-4 rounded-[1.5rem] transition-all duration-700 border",
         scrolled 
-          ? "bg-background/80 backdrop-blur-xl border-border shadow-2xl" 
+          ? "bg-background/80 backdrop-blur-2xl border-border shadow-[0_20px_50px_rgba(0,0,0,0.2)]" 
           : "bg-transparent border-transparent"
       )}>
-        <Link href="/" className="flex items-center gap-3 group">
+        <Link href="/" className="flex items-center gap-4 group">
           <motion.div 
-            whileHover={{ rotate: 90, scale: 1.1 }}
-            className="p-2.5 rounded-xl bg-primary text-primary-foreground shadow-lg flex items-center justify-center"
+            whileHover={{ rotate: 180, scale: 1.1 }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            className="p-3 rounded-2xl bg-primary text-primary-foreground shadow-2xl flex items-center justify-center"
           >
             <Activity className="w-5 h-5" />
           </motion.div>
           <div className="flex flex-col">
-            <span className="text-base sm:text-xl font-headline font-black tracking-normal uppercase leading-none shimmer-text">
+            <span className="text-sm sm:text-xl font-headline font-black tracking-normal uppercase leading-none shimmer-text">
               SRI HARSHA
             </span>
-            <span className="text-[9px] font-mono font-bold uppercase tracking-[0.2em] text-primary/80 mt-1">
+            <span className="text-[9px] font-mono font-bold uppercase tracking-[0.3em] text-primary/80 mt-1.5">
               Full Stack Architect
             </span>
           </div>
         </Link>
 
-        {/* Desktop Navigation */}
-        <div className="hidden lg:flex items-center gap-10">
+        {/* Desktop Navigation Node */}
+        <div className="hidden lg:flex items-center gap-12">
           <div className="flex items-center gap-8">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-[10px] font-bold text-muted-foreground hover:text-primary transition-colors uppercase tracking-[0.2em] relative group"
+                className="text-[10px] font-bold text-muted-foreground hover:text-primary transition-all uppercase tracking-[0.2em] relative group"
               >
                 {link.name}
-                <span className="absolute -bottom-1.5 left-0 w-0 h-[1px] bg-primary transition-all duration-300 group-hover:w-full" />
+                <motion.span 
+                  className="absolute -bottom-2 left-0 h-[2px] bg-primary rounded-full"
+                  initial={{ width: 0 }}
+                  whileHover={{ width: "100%" }}
+                  transition={{ duration: 0.3, ease: "circOut" }}
+                />
               </a>
             ))}
           </div>
           
-          <div className="h-5 w-px bg-border/50" />
+          <div className="h-6 w-px bg-border/40" />
           
-          <div className="flex items-center gap-5">
-            <button 
+          <div className="flex items-center gap-6">
+            <motion.button 
+              whileHover={{ scale: 1.1, rotate: 15 }}
+              whileTap={{ scale: 0.9 }}
               onClick={toggleTheme}
-              className="p-2.5 rounded-xl bg-secondary/50 border border-border hover:border-primary/40 transition-all"
+              className="p-3 rounded-2xl bg-secondary/40 border border-border hover:border-primary/40 transition-all"
               aria-label="Toggle Theme"
             >
               {mounted && (resolvedTheme === 'dark' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />)}
-            </button>
+            </motion.button>
             
-            <a 
+            <motion.a 
               href="#contact"
-              className="px-6 py-2.5 rounded-xl bg-primary text-primary-foreground text-[9px] font-black uppercase tracking-[0.2em] hover:scale-105 transition-all shadow-lg"
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-8 py-3.5 rounded-2xl bg-primary text-primary-foreground text-[10px] font-black uppercase tracking-[0.2em] shadow-xl shadow-primary/20 hover:shadow-primary/40 transition-all"
             >
               Sync Node
-            </a>
+            </motion.a>
           </div>
         </div>
 
-        {/* Mobile Controls */}
-        <div className="flex items-center gap-3 lg:hidden">
-          <button 
+        {/* Mobile Interface Controls */}
+        <div className="flex items-center gap-4 lg:hidden">
+          <motion.button 
+            whileTap={{ scale: 0.9 }}
             onClick={toggleTheme}
-            className="p-2.5 rounded-xl bg-secondary/50 border border-border"
+            className="p-3 rounded-2xl bg-secondary/40 border border-border"
           >
             {mounted && (resolvedTheme === 'dark' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />)}
-          </button>
-          <button 
-            className="p-2.5 rounded-xl bg-primary text-primary-foreground shadow-lg"
+          </motion.button>
+          <motion.button 
+            whileTap={{ scale: 0.9 }}
+            className="p-3 rounded-2xl bg-primary text-primary-foreground shadow-xl"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
+          </motion.button>
         </div>
       </div>
 
       <AnimatePresence>
         {isOpen && (
           <motion.div 
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            className="absolute top-full left-4 right-4 mt-3 bg-background/95 backdrop-blur-2xl border border-border rounded-2xl p-6 flex flex-col gap-4 lg:hidden shadow-3xl"
+            initial={{ opacity: 0, scale: 0.95, y: -20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95, y: -20 }}
+            transition={{ type: "spring", duration: 0.5, bounce: 0.3 }}
+            className="absolute top-full left-4 right-4 mt-4 bg-background/95 backdrop-blur-3xl border border-border rounded-[2rem] p-8 flex flex-col gap-6 lg:hidden shadow-[0_30px_60px_rgba(0,0,0,0.4)] overflow-hidden"
           >
-            {navLinks.map((link) => (
-              <a
+            {navLinks.map((link, i) => (
+              <motion.a
                 key={link.name}
                 href={link.href}
-                className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground hover:text-primary py-3 border-b border-border/40 last:border-0"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: i * 0.1 }}
+                className="text-xs font-black uppercase tracking-[0.3em] text-muted-foreground hover:text-primary py-4 border-b border-border/20 last:border-0"
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}
-              </a>
+              </motion.a>
             ))}
-            <a 
+            <motion.a 
               href="#contact"
-              className="w-full py-4 rounded-xl bg-primary text-primary-foreground text-center font-black uppercase tracking-[0.2em] text-[10px]"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+              className="w-full py-5 rounded-2xl bg-primary text-primary-foreground text-center font-black uppercase tracking-[0.3em] text-[10px] shadow-2xl shadow-primary/20"
               onClick={() => setIsOpen(false)}
             >
               Initialize Sync
-            </a>
+            </motion.a>
           </motion.div>
         )}
       </AnimatePresence>
