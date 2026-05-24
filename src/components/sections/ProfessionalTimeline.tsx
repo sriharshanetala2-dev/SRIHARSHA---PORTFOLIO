@@ -6,10 +6,8 @@ import {
   BrainCircuit, 
   Layers, 
   GraduationCap, 
-  BookOpen, 
-  Terminal,
-  CalendarDays,
-  Activity
+  BookOpen,
+  CalendarDays
 } from "lucide-react";
 
 const timelineItems = [
@@ -19,9 +17,8 @@ const timelineItems = [
     role: "Java Full Stack Developer",
     company: "NxtWave Academy",
     period: "2025 — 2026",
-    description: "Architecting high-performance enterprise systems with Java 21, Spring Boot, and PostgreSQL. Mastering the orchestration of complex full-stack ecosystems with SQL integrity.",
-    icon: Code2,
-    tags: ["Java 21", "Spring Boot", "SQL", "Next.js"]
+    description: "Architecting high-performance enterprise systems with Java 21, Spring Boot, and PostgreSQL. Mastering the orchestration of complex full-stack ecosystems.",
+    icon: Code2
   },
   {
     id: "02",
@@ -29,9 +26,8 @@ const timelineItems = [
     role: "Generative AI Specialist",
     company: "AI Buildathons & Academy",
     period: "2025 — 2026",
-    description: "Developing autonomous task agents and semantic intent layers using Google Genkit, Claude 3.5, and Gemini 2.0. Expert in n8n logic workflow automation and prompt engineering.",
-    icon: BrainCircuit,
-    tags: ["Genkit", "Claude 3.5", "Gemini", "n8n"]
+    description: "Developing autonomous task agents and semantic intent layers using Google Genkit, Claude 3.5, and Gemini 2.0.",
+    icon: BrainCircuit
   },
   {
     id: "03",
@@ -39,9 +35,8 @@ const timelineItems = [
     role: "Full Stack Software Developer",
     company: "Independent Projects",
     period: "2024 — 2025",
-    description: "Building responsive digital platforms with React, Node.js, and Python. Focusing on atomic data mutations, real-time interface logic, and Python predictive pipelines.",
-    icon: Layers,
-    tags: ["React", "Python", "Firebase", "TS"]
+    description: "Building responsive digital platforms with React, Node.js, and Python focusing on atomic data mutations and real-time logic.",
+    icon: Layers
   },
   {
     id: "04",
@@ -49,115 +44,54 @@ const timelineItems = [
     role: "B.Sc in Computer Science",
     institution: "Glocal University",
     period: "Academic Registry",
-    description: "Mastery of core computational logic, data structures, and systems engineering principles. Graduated with honors in Computer Science foundation and registry logic.",
-    icon: GraduationCap,
-    tags: ["CS Core", "Systems Design", "Logic"]
-  },
-  {
-    id: "05",
-    type: "edu",
-    role: "Intermediate Education",
-    institution: "SRR & CVR Govt Jr College",
-    period: "Pre-University Registry",
-    description: "Advanced computational mathematics and algorithmic foundation. Specialized in structured logical registry and high-level logic processing.",
-    icon: BookOpen,
-    tags: ["Mathematics", "Logic", "Registry"]
+    description: "Graduated with honors focusing on computational logic, data structures, and systems engineering principles.",
+    icon: GraduationCap
   }
 ];
 
 export function ProfessionalTimeline() {
   return (
-    <section id="experience" className="py-20 sm:py-32 px-6 relative overflow-hidden bg-transparent border-t border-border scroll-mt-20">
-      <div className="max-w-6xl mx-auto space-y-16 sm:space-y-24 relative z-10">
-        <div className="flex flex-col items-center text-center space-y-6">
-          <motion.div 
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="section-label"
-          >
-            <Terminal className="w-3.5 h-3.5" />
-            GROWTH MATRIX_v3.0
-          </motion.div>
-          <motion.h2 
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-4xl sm:text-6xl font-black leading-tight shimmer-text"
-          >
-            PROFESSIONAL JOURNEY
-          </motion.h2>
-          <motion.p 
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-sm sm:text-lg text-muted-foreground font-bold uppercase tracking-tight opacity-90 max-w-2xl px-6 leading-relaxed"
-          >
-            A high-precision mapping of <span className="text-primary">industrial development milestones</span> and academic foundations.
-          </motion.p>
+    <section id="experience" className="py-24 px-6 border-t border-border">
+      <div className="max-w-4xl mx-auto space-y-16">
+        <div className="text-center space-y-4">
+          <div className="section-label mx-auto">DEVELOPER JOURNEY</div>
+          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight">Professional Registry</h2>
         </div>
 
-        <div className="space-y-8 relative">
+        <div className="relative space-y-12">
+          <div className="absolute left-8 top-0 bottom-0 w-px bg-border hidden md:block" />
           {timelineItems.map((item, idx) => (
             <motion.div
               key={item.id}
-              initial={{ opacity: 0, x: -10 }}
+              initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ delay: idx * 0.1, duration: 0.6 }}
+              transition={{ delay: idx * 0.1 }}
               viewport={{ once: true }}
-              className="flex flex-col lg:flex-row gap-6 lg:gap-12 items-stretch"
+              className="relative flex flex-col md:flex-row gap-8 pl-0 md:pl-20"
             >
-              <div className="lg:w-64 shrink-0 flex flex-row lg:flex-col items-center lg:items-start gap-6 lg:gap-4 p-6 rounded-2xl bg-secondary/10 border border-border/40">
-                <div className="p-4 rounded-xl bg-primary/10 text-primary border border-primary/20">
-                  <item.icon className="w-6 h-6" />
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-[10px] font-black text-primary tracking-[0.4em] uppercase">NODE_{item.id}</span>
-                  <span className="text-[9px] font-black text-muted-foreground/50 uppercase tracking-widest">{item.type.toUpperCase()}</span>
-                </div>
-              </div>
-
-              <div className="flex-1 glass-card p-8 sm:p-12 rounded-3xl border border-border/40 space-y-8">
-                <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-6">
-                  <div className="space-y-2">
-                    <div className="flex items-center gap-3 text-[10px] font-black text-primary uppercase tracking-widest opacity-80">
-                      <CalendarDays className="w-3.5 h-3.5" />
-                      {item.period}
+              <div className="absolute left-6 top-0 w-4 h-4 rounded-full bg-primary border-4 border-background hidden md:block" />
+              <div className="flex-1 space-y-4 bg-card p-8 rounded-2xl border border-border shadow-sm">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                  <div className="flex items-center gap-4">
+                    <div className="p-3 rounded-lg bg-primary/10 text-primary">
+                      <item.icon className="w-6 h-6" />
                     </div>
-                    <h3 className="text-xl sm:text-3xl font-black uppercase tracking-tight leading-tight">
-                      {item.role}
-                    </h3>
-                    <div className="text-[10px] font-black uppercase tracking-widest text-primary/70 bg-primary/5 px-3 py-1.5 rounded-md border border-primary/10 w-fit">
-                      {item.type === 'work' ? item.company : item.institution}
+                    <div>
+                      <h3 className="text-xl font-bold leading-none">{item.role}</h3>
+                      <p className="text-sm text-primary font-bold mt-2">{item.company || item.institution}</p>
                     </div>
                   </div>
+                  <div className="flex items-center gap-2 text-xs font-bold text-muted-foreground bg-muted px-3 py-1 rounded-full w-fit">
+                    <CalendarDays className="w-3 h-3" />
+                    {item.period}
+                  </div>
                 </div>
-
-                <p className="text-sm sm:text-base text-muted-foreground font-bold uppercase tracking-tight leading-relaxed opacity-95">
+                <p className="text-muted-foreground leading-relaxed">
                   {item.description}
                 </p>
-
-                <div className="flex flex-wrap gap-2 pt-2">
-                  {item.tags.map(tag => (
-                    <span key={tag} className="px-4 py-2 bg-background/50 border border-border/40 rounded-lg text-[9px] font-black uppercase tracking-widest text-primary/80">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
               </div>
             </motion.div>
           ))}
-        </div>
-
-        <div className="flex justify-center">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            className="flex items-center gap-4 px-6 py-3 rounded-full bg-secondary/20 border border-border/40 backdrop-blur-md"
-          >
-            <Activity className="w-4 h-4 text-primary animate-pulse" />
-            <span className="text-[9px] font-black uppercase tracking-[0.4em] text-muted-foreground opacity-60">END_OF_JOURNEY_REGISTRY</span>
-          </motion.div>
         </div>
       </div>
     </section>
