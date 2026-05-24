@@ -1,4 +1,3 @@
-
 'use client';
 
 import { motion } from "framer-motion";
@@ -66,14 +65,32 @@ export function Hero() {
           >
             <span className="flex flex-wrap justify-center overflow-hidden">
               {title.split("").map((letter, index) => (
-                <motion.span key={index} variants={child} className="inline-block hover:text-primary transition-colors cursor-default">
+                <motion.span 
+                  key={index} 
+                  variants={child} 
+                  className="inline-block hover:text-primary transition-colors cursor-default"
+                  whileHover={{ y: -10, scale: 1.1, rotate: 5 }}
+                >
                   {letter}
                 </motion.span>
               ))}
             </span>
-            <span className="flex flex-wrap justify-center overflow-hidden text-gradient">
+            <span className="flex flex-wrap justify-center overflow-hidden text-gradient shimmer-text">
               {subtitle.split("").map((letter, index) => (
-                <motion.span key={index} variants={child} className="inline-block hover:scale-110 transition-transform cursor-default">
+                <motion.span 
+                  key={index} 
+                  variants={child} 
+                  className="inline-block cursor-default"
+                  whileHover={{ scale: 1.2, rotate: -5 }}
+                  animate={{
+                    y: [0, -5, 0],
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    delay: index * 0.1,
+                  }}
+                >
                   {letter}
                 </motion.span>
               ))}
