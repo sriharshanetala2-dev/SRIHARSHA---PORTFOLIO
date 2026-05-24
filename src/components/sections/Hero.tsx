@@ -39,7 +39,7 @@ export function Hero() {
     },
   };
 
-  // Continuous "Neural Pulse" animation for Engineering
+  // Continuous "Neural Pulse" animation for Engineering - 100% Opacity
   const neuralPulse = (index: number) => ({
     color: ["hsl(var(--foreground))", "hsl(var(--primary))", "hsl(var(--foreground))"],
     scale: [1, 1.15, 1],
@@ -52,11 +52,10 @@ export function Hero() {
     }
   });
 
-  // High-Visibility "Active Wave" animation for Intelligence
+  // High-Visibility "Active Wave" animation for Intelligence - 100% Constant Opacity
   const activeWave = (index: number) => ({
     y: [0, -20, 0],
     scale: [1, 1.2, 1],
-    opacity: [1, 1, 1], // Constant visibility
     transition: {
       duration: 2.5,
       repeat: Infinity,
@@ -104,7 +103,8 @@ export function Hero() {
                 </motion.span>
               ))}
             </span>
-            <span className="flex flex-wrap justify-center overflow-hidden shimmer-text py-6 px-4">
+            {/* Intelligence node with improved visibility and no clipping */}
+            <span className="flex flex-wrap justify-center shimmer-text py-6 px-4">
               {subtitle.split("").map((letter, index) => (
                 <motion.span 
                   key={index} 
@@ -137,12 +137,12 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 1.2 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-12 px-6"
         >
-          <Button size="lg" className="w-full sm:w-auto rounded-full h-20 sm:h-28 px-20 text-[20px] sm:text-[24px] font-black uppercase tracking-[0.4em] shadow-4xl shadow-primary/30 hover:scale-105 transition-all group" asChild>
+          <Button size="lg" className="w-full sm:w-auto rounded-full h-20 sm:h-28 px-14 sm:px-20 text-[18px] sm:text-[24px] font-black uppercase tracking-[0.4em] shadow-4xl shadow-primary/30 hover:scale-105 transition-all group" asChild>
             <a href="#portfolio">
               System Registry <ArrowRight className="ml-6 w-8 h-8 group-hover:translate-x-4 transition-transform" />
             </a>
           </Button>
-          <Button variant="outline" size="lg" className="w-full sm:w-auto rounded-full h-20 sm:h-28 px-20 text-[20px] sm:text-[24px] font-black uppercase tracking-[0.4em] border-2 border-border hover:bg-secondary/50 transition-all shadow-xl" asChild>
+          <Button variant="outline" size="lg" className="w-full sm:w-auto rounded-full h-20 sm:h-28 px-14 sm:px-20 text-[18px] sm:text-[24px] font-black uppercase tracking-[0.4em] border-2 border-border hover:bg-secondary/50 transition-all shadow-xl" asChild>
             <a href="#contact">Initiate Sync</a>
           </Button>
         </motion.div>
@@ -161,12 +161,12 @@ export function Hero() {
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 1.5 + (i * 0.1), duration: 0.6 }}
-              className="space-y-6 p-12 sm:p-14 rounded-[3.5rem] bg-secondary/20 border border-border/60 text-left hover:border-primary/50 transition-all group backdrop-blur-2xl shadow-3xl hover:-translate-y-3"
+              className="space-y-6 p-10 sm:p-14 rounded-[3.5rem] bg-secondary/20 border border-border/60 text-left hover:border-primary/50 transition-all group backdrop-blur-2xl shadow-3xl hover:-translate-y-3"
             >
               <stat.icon className="w-8 h-8 text-primary opacity-80 group-hover:opacity-100 transition-opacity" />
               <div className="space-y-3">
-                <p className="text-[14px] font-mono font-black uppercase tracking-[0.5em] text-muted-foreground">{stat.label}</p>
-                <p className="text-xl sm:text-2xl font-black uppercase text-foreground font-mono leading-none">{stat.value}</p>
+                <p className="text-[12px] font-mono font-black uppercase tracking-[0.5em] text-muted-foreground">{stat.label}</p>
+                <p className="text-sm sm:text-2xl font-black uppercase text-foreground font-mono leading-none">{stat.value}</p>
               </div>
             </motion.div>
           ))}
