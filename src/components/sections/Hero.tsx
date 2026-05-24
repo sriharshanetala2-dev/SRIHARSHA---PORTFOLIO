@@ -9,8 +9,10 @@ export function Hero() {
 
   return (
     <section className="min-h-screen flex items-center justify-center pt-24 pb-16 px-4 sm:px-6 relative overflow-hidden bg-background">
+      {/* Structural Background Layer */}
       <div className="absolute inset-0 neural-grid opacity-[0.05] pointer-events-none" />
       
+      {/* Modern Optical Effects */}
       {glares.map((_, i) => (
         <div 
           key={i} 
@@ -53,7 +55,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-xs sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-bold uppercase tracking-normal opacity-90 px-4"
+            className="text-sm sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-bold uppercase tracking-normal opacity-90 px-4"
           >
             Architecting digital ecosystems where Full Stack integrity meets autonomous neural orchestration.
           </motion.p>
@@ -75,6 +77,7 @@ export function Hero() {
           </Button>
         </motion.div>
 
+        {/* Technical Data Matrix */}
         <div className="pt-8 sm:pt-16 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-4xl mx-auto px-4">
           {[
             { label: "Architecture", value: "Neural", icon: Cpu },
