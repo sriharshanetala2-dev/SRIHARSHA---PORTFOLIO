@@ -4,32 +4,9 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 224 71.4% 4.1%;
-    --card: 0 0% 100%;
-    --card-foreground: 224 71.4% 4.1%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 224 71.4% 4.1%;
-    --primary: 221.2 83.2% 53.3%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 221.2 83.2% 53.3%;
-    --radius: 1rem;
-  }
-
-  .dark {
     --background: 222 47% 4%;
     --foreground: 210 40% 98%;
-    --card: 222 47% 4%;
+    --card: 222 47% 5%;
     --card-foreground: 210 40% 98%;
     --popover: 222 47% 5%;
     --popover-foreground: 210 40% 98%;
@@ -46,6 +23,7 @@
     --border: 217.2 32.6% 15%;
     --input: 217.2 32.6% 15%;
     --ring: 224.3 76.3% 48%;
+    --radius: 1rem;
   }
 }
 
@@ -54,20 +32,21 @@
     @apply border-border outline-none;
   }
   body {
-    @apply bg-background text-foreground font-body antialiased selection:bg-primary/30 overflow-x-hidden;
+    @apply bg-background text-foreground font-body antialiased selection:bg-primary/20 overflow-x-hidden;
     font-size: 16px;
     line-height: 1.6;
-    letter-spacing: 0.015em;
+    letter-spacing: normal;
   }
 }
 
 .text-gradient {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary/90 to-primary/60;
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary/80 to-primary/60;
 }
 
 .shimmer-text {
   background-size: 200% auto;
-  animation: shimmer 4s linear infinite;
+  animation: shimmer 5s linear infinite;
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-foreground via-primary to-foreground;
 }
 
 @keyframes shimmer {
@@ -76,23 +55,30 @@
 }
 
 .section-label {
-  @apply text-[10px] sm:text-[11px] font-black uppercase tracking-[0.4em] text-primary bg-primary/5 px-6 py-2 rounded-full inline-flex items-center gap-2 border border-primary/20 shadow-sm whitespace-nowrap;
+  @apply text-[10px] font-black uppercase tracking-[0.3em] text-primary bg-primary/10 px-4 py-1.5 rounded-full inline-flex items-center gap-2 border border-primary/20 shadow-sm whitespace-nowrap;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  @apply font-headline font-black tracking-normal uppercase leading-[1.1] sm:leading-none;
+  @apply font-headline font-black tracking-tight uppercase leading-[1.1];
 }
 
 .glass-card {
-  @apply bg-card/40 border border-border/50 backdrop-blur-2xl shadow-2xl transition-all duration-500 hover:border-primary/30 hover:shadow-primary/5 overflow-hidden;
+  @apply bg-card/60 border border-border/50 backdrop-blur-2xl shadow-2xl transition-all duration-500 hover:border-primary/30 overflow-hidden;
+}
+
+.neural-grid {
+  background-image: 
+    linear-gradient(to right, hsl(var(--border) / 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, hsl(var(--border) / 0.1) 1px, transparent 1px);
+  background-size: 40px 40px;
 }
 
 .glare-streak {
   position: absolute;
-  width: 2px;
-  height: 150px;
+  width: 1px;
+  height: 200px;
   background: linear-gradient(to bottom, transparent, hsl(var(--primary)), transparent);
-  opacity: 0.15;
+  opacity: 0.2;
   filter: blur(2px);
   pointer-events: none;
   animation: flash linear infinite;
@@ -100,16 +86,9 @@ h1, h2, h3, h4, h5, h6 {
 
 @keyframes flash {
   0% { transform: translate(-100vw, -100vh) rotate(45deg); opacity: 0; }
-  20% { opacity: 0.3; }
-  80% { opacity: 0.3; }
+  10% { opacity: 0.4; }
+  90% { opacity: 0.4; }
   100% { transform: translate(100vw, 100vh) rotate(45deg); opacity: 0; }
-}
-
-.neural-grid {
-  background-image: 
-    linear-gradient(to right, hsl(var(--border) / 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, hsl(var(--border) / 0.05) 1px, transparent 1px);
-  background-size: 50px 50px;
 }
 
 ::-webkit-scrollbar {
@@ -119,5 +98,5 @@ h1, h2, h3, h4, h5, h6 {
   @apply bg-background;
 }
 ::-webkit-scrollbar-thumb {
-  @apply bg-muted-foreground/20 rounded-full hover:bg-primary/30 transition-colors;
+  @apply bg-primary/20 rounded-full hover:bg-primary/40 transition-colors;
 }

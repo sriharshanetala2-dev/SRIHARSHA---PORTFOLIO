@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Laptop, Database, Cpu, Activity, Terminal, ShieldCheck, Zap } from "lucide-react";
+import { Laptop, Database, Cpu, Activity, Terminal, Zap } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
 
@@ -16,21 +16,21 @@ export function About() {
   const [activeNode, setActiveNode] = useState(nodes[0]);
 
   return (
-    <section id="about" className="py-24 sm:py-32 px-6 border-t border-border bg-background relative overflow-hidden">
-      <div className="max-w-7xl mx-auto space-y-24 relative z-10">
+    <section id="about" className="py-24 sm:py-32 px-4 sm:px-8 border-t border-border bg-background relative overflow-hidden">
+      <div className="max-w-7xl mx-auto space-y-20 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="space-y-12"
+            className="space-y-10"
           >
-            <div className="space-y-8">
+            <div className="space-y-6">
               <div className="section-label">SYSTEM_ARCHITECT</div>
-              <h2 className="text-4xl sm:text-6xl lg:text-7xl font-headline font-black leading-[0.9] uppercase">
-                Architecting <br /> <span className="text-gradient">Digital Intelligence</span>
+              <h2 className="text-4xl sm:text-6xl font-headline font-black leading-tight uppercase">
+                Architecting <br className="hidden sm:block" /> <span className="text-gradient">Digital Intelligence</span>
               </h2>
-              <p className="text-base sm:text-lg lg:text-xl text-muted-foreground leading-relaxed font-bold uppercase tracking-normal opacity-80 max-w-xl">
+              <p className="text-sm sm:text-lg text-muted-foreground leading-relaxed font-bold uppercase tracking-normal opacity-80 max-w-xl">
                 Engineering high-performance ecosystems where robust systems logic meets autonomous AI orchestration.
               </p>
             </div>
@@ -41,15 +41,15 @@ export function About() {
                   key={node.id}
                   onClick={() => setActiveNode(node)}
                   className={cn(
-                    "p-8 rounded-[2rem] border-2 text-left transition-all duration-500 group relative overflow-hidden",
+                    "p-6 rounded-2xl border-2 text-left transition-all duration-300 group relative overflow-hidden",
                     activeNode.id === node.id 
-                      ? "bg-primary text-primary-foreground border-primary shadow-2xl shadow-primary/20 scale-[1.02]" 
+                      ? "bg-primary text-primary-foreground border-primary shadow-xl scale-[1.02]" 
                       : "bg-card border-border hover:border-primary/40"
                   )}
                 >
-                  <node.icon className={cn("w-8 h-8 mb-6 transition-transform group-hover:scale-110", activeNode.id === node.id ? "text-primary-foreground" : "text-primary")} />
-                  <div className="font-black text-sm uppercase tracking-[0.15em] leading-none">{node.label}</div>
-                  <div className={cn("text-[10px] font-black uppercase tracking-widest mt-2.5 opacity-60", activeNode.id === node.id ? "text-primary-foreground" : "text-muted-foreground")}>{node.desc}</div>
+                  <node.icon className={cn("w-6 h-6 mb-4", activeNode.id === node.id ? "text-primary-foreground" : "text-primary")} />
+                  <div className="font-black text-xs uppercase tracking-[0.1em]">{node.label}</div>
+                  <div className={cn("text-[9px] font-black uppercase tracking-widest mt-1 opacity-60", activeNode.id === node.id ? "text-primary-foreground" : "text-muted-foreground")}>{node.desc}</div>
                 </button>
               ))}
             </div>
@@ -57,40 +57,40 @@ export function About() {
 
           <motion.div
             key={activeNode.id}
-            initial={{ opacity: 0, scale: 0.95, x: 30 }}
-            animate={{ opacity: 1, scale: 1, x: 0 }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="p-8 sm:p-16 rounded-[3.5rem] border-2 border-border bg-card/50 backdrop-blur-3xl space-y-12 relative overflow-hidden shadow-4xl group"
+            initial={{ opacity: 0, scale: 0.98 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            className="p-8 sm:p-12 rounded-3xl border-2 border-border bg-card/40 backdrop-blur-3xl space-y-10 relative overflow-hidden shadow-2xl group"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-50" />
             
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-8 relative z-10">
-              <div className="p-6 rounded-3xl bg-primary text-primary-foreground shadow-2xl">
-                <activeNode.icon className="w-10 h-10" />
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 relative z-10">
+              <div className="p-5 rounded-2xl bg-primary text-primary-foreground shadow-xl">
+                <activeNode.icon className="w-8 h-8" />
               </div>
-              <div className="space-y-2">
-                <h3 className="text-3xl sm:text-5xl font-headline font-black uppercase tracking-tight leading-none">{activeNode.label} Core</h3>
-                <p className="text-[11px] font-black text-primary uppercase tracking-[0.5em] opacity-80 flex items-center gap-2">
-                  <Terminal className="w-3 h-3" /> NODE_STATUS: OPERATIONAL
+              <div className="space-y-1">
+                <h3 className="text-2xl sm:text-4xl font-headline font-black uppercase tracking-tight">{activeNode.label} Core</h3>
+                <p className="text-[10px] font-black text-primary uppercase tracking-[0.4em] flex items-center gap-2">
+                  <Terminal className="w-3 h-3" /> NODE_STATUS: ACTIVE
                 </p>
               </div>
             </div>
 
-            <div className="space-y-5 relative z-10">
+            <div className="space-y-4 relative z-10">
               {activeNode.metrics.map((metric, i) => (
-                <div key={i} className="flex flex-col sm:flex-row sm:items-center justify-between p-6 rounded-[1.5rem] bg-secondary/30 border border-border/50 group/metric hover:border-primary/40 transition-all gap-4">
-                  <div className="flex items-center gap-5">
-                    <div className="w-3 h-3 rounded-full bg-primary shadow-[0_0_12px_rgba(var(--primary),0.6)]" />
-                    <span className="font-black text-xs sm:text-sm uppercase tracking-[0.1em] leading-none text-foreground">{metric}</span>
+                <div key={i} className="flex flex-col sm:flex-row sm:items-center justify-between p-5 rounded-2xl bg-background/50 border border-border/50 group/metric hover:border-primary/40 transition-all gap-4">
+                  <div className="flex items-center gap-4">
+                    <div className="w-2.5 h-2.5 rounded-full bg-primary" />
+                    <span className="font-black text-[10px] sm:text-xs uppercase tracking-[0.1em] text-foreground">{metric}</span>
                   </div>
-                  <Zap className="w-4 h-4 text-primary opacity-20 group-hover/metric:opacity-100 transition-opacity hidden sm:block" />
+                  <Zap className="w-3.5 h-3.5 text-primary opacity-30 group-hover/metric:opacity-100 transition-opacity hidden sm:block" />
                 </div>
               ))}
             </div>
 
-            <div className="pt-10 border-t border-border/60 relative z-10 flex items-center justify-between">
-              <span className="text-[10px] font-black text-muted-foreground uppercase tracking-[0.3em]">SYSTEM_SYNC: ACTIVE</span>
-              <span className="text-[10px] font-black text-primary uppercase tracking-[0.3em]">v4.0.2</span>
+            <div className="pt-8 border-t border-border/50 relative z-10 flex items-center justify-between">
+              <span className="text-[9px] font-black text-muted-foreground uppercase tracking-[0.3em]">SYSTEM_SYNC: ACTIVE</span>
+              <span className="text-[9px] font-black text-primary uppercase tracking-[0.3em]">v4.0.2</span>
             </div>
           </motion.div>
         </div>
