@@ -60,7 +60,7 @@ export function Navbar() {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-[10px] font-black text-muted-foreground hover:text-primary transition-all uppercase tracking-[0.3em] relative group"
+                className="text-[12px] font-black text-muted-foreground hover:text-primary transition-all uppercase tracking-[0.3em] relative group"
               >
                 {link.name}
                 <motion.span 
@@ -80,7 +80,7 @@ export function Navbar() {
               href="#contact"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
-              className="px-12 py-4 rounded-2xl bg-primary text-primary-foreground text-[10px] font-black uppercase tracking-[0.3em] shadow-xl hover:shadow-primary/30 transition-all"
+              className="px-12 py-4 rounded-2xl bg-primary text-primary-foreground text-[12px] font-black uppercase tracking-[0.3em] shadow-xl hover:shadow-primary/30 transition-all"
             >
               Sync Node
             </motion.a>
@@ -114,7 +114,7 @@ export function Navbar() {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: i * 0.1 }}
-                className="text-[12px] font-black uppercase tracking-[0.4em] text-muted-foreground hover:text-primary py-5 border-b border-border/20 last:border-0"
+                className="text-[14px] font-black uppercase tracking-[0.4em] text-muted-foreground hover:text-primary py-5 border-b border-border/20 last:border-0"
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}
@@ -125,7 +125,7 @@ export function Navbar() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="w-full py-6 rounded-3xl bg-primary text-primary-foreground text-center font-black uppercase tracking-[0.4em] text-[11px] shadow-lg"
+              className="w-full py-6 rounded-3xl bg-primary text-primary-foreground text-center font-black uppercase tracking-[0.4em] text-[13px] shadow-lg"
               onClick={() => setIsOpen(false)}
             >
               Initiate Sync
