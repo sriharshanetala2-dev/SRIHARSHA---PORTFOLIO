@@ -8,7 +8,7 @@ export function Hero() {
   const glares = Array.from({ length: 4 });
 
   return (
-    <section className="min-h-screen flex items-center justify-center pt-32 pb-20 px-6 relative overflow-hidden bg-background">
+    <section className="min-h-screen flex items-center justify-center pt-40 pb-20 px-6 relative overflow-hidden bg-background">
       {/* Structural Background Layer */}
       <div className="absolute inset-0 neural-grid opacity-[0.03] pointer-events-none" />
       
@@ -34,9 +34,9 @@ export function Hero() {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="section-label mx-auto"
+          className="section-label mx-auto text-[8px] sm:text-[10px] mt-8"
         >
-          <Code2 className="w-4 h-4" />
+          <Code2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
           FULL_STACK_DEVELOPER_v4.0 // LIVE_NODE
         </motion.div>
 
@@ -57,7 +57,7 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-sm sm:text-xl lg:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed font-bold uppercase tracking-normal opacity-90 px-4"
           >
-            Building high-performance digital ecosystems where technical integrity meets autonomous orchestration.
+            Building digital ecosystems where Full Stack integrity meets autonomous neural orchestration.
           </motion.p>
         </div>
 
@@ -83,7 +83,7 @@ export function Hero() {
             { label: "Core Logic", value: "Neural", icon: Cpu },
             { label: "Integrity", value: "Verified", icon: Code2 },
             { label: "Subsystem", value: "Active", icon: Zap },
-            { label: "Latency", value: "12ms", icon: Box }
+            { label: "Latency", value: "14ms", icon: Box }
           ].map((stat, i) => (
             <motion.div 
               key={i}
