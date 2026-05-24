@@ -10,46 +10,46 @@
     --card-foreground: 222 47% 11%;
     --popover: 0 0% 100%;
     --popover-foreground: 222 47% 11%;
-    --primary: 217 91% 50%;
+    --primary: 142 71% 45%;
     --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
+    --secondary: 142 20% 96%;
     --secondary-foreground: 222 47% 11.2%;
-    --muted: 210 40% 96.1%;
+    --muted: 142 20% 96%;
     --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 180 100% 40%;
+    --accent: 74 100% 45%;
     --accent-foreground: 222 47% 11.2%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 217 91% 50%;
+    --border: 142 30% 91.4%;
+    --input: 142 30% 91.4%;
+    --ring: 142 71% 45%;
     --radius: 0.75rem;
     --grid-opacity: 0.1;
     --scan-opacity: 0.1;
   }
 
   .dark {
-    --background: 222 47% 4%;
-    --foreground: 210 40% 98%;
-    --card: 222 47% 6%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222 47% 4%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 217 91% 60%;
-    --primary-foreground: 222 47% 2%;
-    --secondary: 217.2 32.6% 12%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 12%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 180 100% 50%;
-    --accent-foreground: 210 40% 98%;
+    --background: 144 50% 3%;
+    --foreground: 142 20% 98%;
+    --card: 144 50% 5%;
+    --card-foreground: 142 20% 98%;
+    --popover: 144 50% 3%;
+    --popover-foreground: 142 20% 98%;
+    --primary: 142 71% 55%;
+    --primary-foreground: 144 50% 2%;
+    --secondary: 142 30% 10%;
+    --secondary-foreground: 142 20% 98%;
+    --muted: 142 30% 10%;
+    --muted-foreground: 142 15% 65%;
+    --accent: 74 100% 50%;
+    --accent-foreground: 144 50% 2%;
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 15%;
-    --input: 217.2 32.6% 15%;
-    --ring: 217 91% 60%;
-    --grid-opacity: 0.3;
-    --scan-opacity: 0.2;
+    --destructive-foreground: 142 20% 98%;
+    --border: 142 30% 15%;
+    --input: 142 30% 15%;
+    --ring: 142 71% 55%;
+    --grid-opacity: 0.25;
+    --scan-opacity: 0.15;
   }
 }
 
@@ -164,7 +164,7 @@
 }
 
 .text-gradient {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-indigo-400 to-accent;
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-emerald-400 to-accent;
 }
 
 .glass-card {
