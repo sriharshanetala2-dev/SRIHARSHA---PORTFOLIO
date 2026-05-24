@@ -8,8 +8,9 @@ import { Hero } from "@/components/sections/Hero";
 import { Footer } from "@/components/layout/Footer";
 import { Toaster } from "@/components/ui/toaster";
 import { PlaceHolderImages } from "@/app/lib/placeholder-images";
+import { motion, AnimatePresence } from "framer-motion";
 
-// Streaming Component Registry
+// High-Performance Streaming Components
 const About = dynamic(() => import('@/components/sections/About').then(mod => mod.About), { ssr: false });
 const ProfessionalTimeline = dynamic(() => import('@/components/sections/ProfessionalTimeline').then(mod => mod.ProfessionalTimeline), { ssr: false });
 const Projects = dynamic(() => import('@/components/sections/Projects').then(mod => mod.Projects), { ssr: false });
@@ -27,32 +28,32 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background relative selection:bg-primary/20">
-      {/* High-Fidelity Industrial OS Backdrop */}
+    <div className="min-h-screen bg-background relative selection:bg-primary/20 transition-colors duration-700">
+      {/* 5-Layer Industrial OS Backdrop (Hardware Accelerated) */}
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
-        {/* Layer 1: Professional Moving Workspace (Parallax Drift) */}
+        {/* Layer 1: Developer AI Workspace (Moving Parallax) */}
         {bgImage && (
-          <div className="absolute inset-0 grayscale contrast-[1.1] brightness-[0.4] dark:brightness-[0.2] opacity-[0.25] transition-all duration-1000 parallax-container">
+          <div className="absolute inset-[-5%] grayscale contrast-[1.15] brightness-[0.35] dark:brightness-[0.18] opacity-30 transition-all duration-1000 parallax-container">
             <Image 
               src={bgImage.imageUrl} 
               alt="Developer AI Environment" 
               fill 
-              className="object-cover blur-[2px]"
+              className="object-cover blur-[1.5px] scale-110"
               priority
               data-ai-hint={bgImage.imageHint}
             />
           </div>
         )}
 
-        {/* Layer 2: Neural Logic Matrix (Animated) */}
+        {/* Layer 2: Neural Logic Matrix (Animated Pulse) */}
         <div className="absolute inset-0 neural-grid" />
         
-        {/* Layer 3: Dynamic Lens Flare System (Floating) */}
-        <div className="lens-flare top-[-25%] left-[-20%] opacity-40 scale-150 blur-[120px]" />
-        <div className="lens-flare bottom-[-30%] right-[-15%] opacity-30 scale-125 blur-[100px] [animation-delay:-10s]" />
-        <div className="lens-flare top-[30%] left-[55%] opacity-15 scale-75 blur-[80px] [animation-delay:-20s]" />
+        {/* Layer 3: Dynamic Lens Flare System (Floating Optics) */}
+        <div className="lens-flare top-[-20%] left-[-15%] opacity-40 scale-150 blur-[120px]" />
+        <div className="lens-flare bottom-[-25%] right-[-10%] opacity-35 scale-125 blur-[100px] [animation-delay:-8s]" />
+        <div className="lens-flare top-[40%] left-[50%] opacity-20 scale-75 blur-[90px] [animation-delay:-15s]" />
         
-        {/* Layer 4: Industrial Logic Scan (Active) */}
+        {/* Layer 4: Industrial Logic Scan (Active Sweep) */}
         <div className="logic-scan-subsystem" />
         
         {/* Layer 5: Focus Calibration Mask */}
@@ -63,17 +64,23 @@ export default function Home() {
       
       <main className="relative z-10">
         <Hero />
-        {mounted && (
-          <>
-            <About />
-            <ProfessionalTimeline />
-            <Projects />
-            <AITool />
-            <StudentDashboard />
-            <Skills />
-            <Contact />
-          </>
-        )}
+        <AnimatePresence>
+          {mounted && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1.5, ease: "easeOut" }}
+            >
+              <About />
+              <ProfessionalTimeline />
+              <Projects />
+              <AITool />
+              <StudentDashboard />
+              <Skills />
+              <Contact />
+            </motion.div>
+          )}
+        </AnimatePresence>
       </main>
       
       <Footer />
