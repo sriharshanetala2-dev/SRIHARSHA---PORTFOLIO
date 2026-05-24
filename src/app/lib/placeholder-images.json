@@ -9,9 +9,9 @@
     },
     {
       "id": "system-backdrop",
-      "description": "Developer AI Neural System Backdrop",
-      "imageUrl": "https://picsum.photos/seed/ai_neural_developer_core/1920/1080",
-      "imageHint": "developer ai"
+      "description": "Developer AI Systems Environment",
+      "imageUrl": "https://picsum.photos/seed/dev_ai_workspace_v4/1920/1080",
+      "imageHint": "coding workspace"
     },
     {
       "id": "neural-workflow-os",

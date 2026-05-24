@@ -8,9 +8,9 @@
     },
     {
       "id": "system-backdrop",
-      "description": "Professional System Architecture Backdrop",
-      "imageUrl": "https://picsum.photos/seed/enterprise_server_hub/1920/1080",
-      "imageHint": "datacenter hardware"
+      "description": "Developer AI Systems Environment",
+      "imageUrl": "https://picsum.photos/seed/dev_ai_workspace_v4/1920/1080",
+      "imageHint": "coding workspace"
     },
     {
       "id": "neural-workflow-os",
