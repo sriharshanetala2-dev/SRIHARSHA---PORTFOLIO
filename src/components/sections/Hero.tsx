@@ -21,7 +21,7 @@ export function Hero() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
           >
-            <h1 className="text-3xl xs:text-4xl sm:text-7xl lg:text-9xl font-headline font-black tracking-tighter uppercase flex flex-col items-center select-none leading-[0.95] sm:leading-[1.05]">
+            <h1 className="text-2xl xs:text-3xl sm:text-5xl lg:text-7xl font-headline font-black tracking-tighter uppercase flex flex-col items-center select-none leading-[0.95] sm:leading-[1.05]">
               <motion.span 
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
