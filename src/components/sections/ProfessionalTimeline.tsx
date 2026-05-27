@@ -99,7 +99,7 @@ export function SystemRegistry() {
             src={timelineBackdrop.imageUrl}
             alt={timelineBackdrop.description}
             fill
-            className="object-cover opacity-30 grayscale brightness-[0.2]"
+            className="object-cover opacity-50 grayscale brightness-[0.5]"
             data-ai-hint={timelineBackdrop.imageHint}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-background via-background/60 to-background z-[1]" />
@@ -162,7 +162,9 @@ export function SystemRegistry() {
                     </div>
                     <div className="space-y-1">
                       <h3 className="text-base sm:text-2xl font-headline font-black uppercase tracking-tight leading-none group-hover:text-primary transition-colors">{item.role}</h3>
-                      <p className="text-[11px] sm:text-[12px] font-mono font-black text-primary/60 uppercase tracking-[0.2em] mt-1">{item.company || item.institution}</p>
+                      <div className="flex flex-wrap gap-2 mt-1">
+                         <p className="text-[11px] sm:text-[12px] font-mono font-black text-primary/60 uppercase tracking-[0.2em]">{item.company || item.institution}</p>
+                      </div>
                     </div>
                   </div>
                   <div className="flex items-center gap-2 text-[10px] sm:text-[11px] font-black text-muted-foreground bg-secondary/40 border border-border/40 px-3 sm:px-5 py-1.5 sm:py-2.5 rounded-full w-fit uppercase tracking-widest">
