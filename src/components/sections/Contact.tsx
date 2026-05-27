@@ -92,13 +92,13 @@ export function Contact() {
               <div className="space-y-10 relative z-10">
                 <div className="space-y-4">
                   <p className="text-[11px] font-black text-primary/60 uppercase tracking-[0.5em]">Email Port</p>
-                  <h3 className="text-base sm:text-lg font-headline font-black uppercase tracking-tight break-all leading-tight text-foreground">
+                  <h3 className="text-[10px] sm:text-lg font-headline font-black uppercase tracking-tight break-all leading-tight text-foreground">
                     {userEmail}
                   </h3>
                 </div>
                 <div className="space-y-4">
                   <p className="text-[11px] font-black text-primary/60 uppercase tracking-[0.5em]">Contact Node</p>
-                  <h3 className="text-base sm:text-xl font-headline font-black uppercase tracking-tight text-foreground">
+                  <h3 className="text-[10px] sm:text-xl font-headline font-black uppercase tracking-tight text-foreground">
                     +91 9346759263
                   </h3>
                 </div>
