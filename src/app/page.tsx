@@ -46,11 +46,11 @@ export default function Home() {
               transition={{ duration: 1 }}
             >
               <About />
+              <Skills />
               <SystemRegistry />
               <Projects />
-              <AITool />
               <StudentDashboard />
-              <Skills />
+              <AITool />
               <Contact />
             </motion.div>
           )}
