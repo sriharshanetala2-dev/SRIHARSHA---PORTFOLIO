@@ -20,7 +20,7 @@ export function Hero() {
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
           >
             <h1 className="text-3xl xs:text-4xl sm:text-7xl lg:text-9xl font-headline font-black tracking-tighter uppercase flex flex-col items-center select-none leading-[0.9] sm:leading-[1.1]">
-              <span className="text-foreground">Full Stack</span>
+              <span className="text-foreground">App & Full Stack</span>
               <span className="shimmer-text px-4">Developer</span>
             </h1>
           </motion.div>

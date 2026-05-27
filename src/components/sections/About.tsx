@@ -32,7 +32,7 @@ export function About() {
             className="space-y-8 sm:space-y-10"
           >
             <div className="space-y-4 sm:space-y-6">
-              <div className="section-label">FULL_STACK_DEVELOPER_CORE</div>
+              <div className="section-label">FULL_STACK_&_APP_DEVELOPER_CORE</div>
               <h2 className="text-2xl sm:text-6xl font-headline font-black leading-none sm:leading-[1.1] uppercase">
                 Engineering <br />
                 <span className="text-gradient">
