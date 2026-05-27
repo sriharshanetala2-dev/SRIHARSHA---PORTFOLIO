@@ -79,14 +79,14 @@ export function Skills() {
             src={skillsBackdrop.imageUrl}
             alt={skillsBackdrop.description}
             fill
-            className="object-cover opacity-10 grayscale"
+            className="object-cover opacity-30 grayscale brightness-[0.4]"
             data-ai-hint={skillsBackdrop.imageHint}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-background via-background/80 to-background z-10" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background via-background/60 to-background z-[1]" />
         </div>
       )}
 
-      <div className="absolute inset-0 neural-grid opacity-[0.03] pointer-events-none z-[1]" />
+      <div className="absolute inset-0 neural-grid opacity-[0.05] pointer-events-none z-[2]" />
       
       <div className="max-w-7xl mx-auto space-y-12 sm:space-y-20 relative z-10">
         <div className="text-center space-y-6">
@@ -139,7 +139,7 @@ export function Skills() {
                     <motion.div
                       key={skill.name}
                       variants={itemVariants}
-                      className="p-5 sm:p-6 rounded-[1.5rem] sm:rounded-[2rem] bg-card border border-border/60 hover:border-primary/40 transition-all group shadow-sm"
+                      className="p-5 sm:p-6 rounded-[1.5rem] sm:rounded-[2rem] bg-card/60 backdrop-blur-md border border-border/60 hover:border-primary/40 transition-all group shadow-sm"
                     >
                       <div className="flex items-center justify-between mb-4">
                         <div className="flex items-center gap-4">
