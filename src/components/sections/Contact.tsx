@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState } from "react";
@@ -91,14 +90,14 @@ export function Contact() {
               </div>
               <div className="space-y-10 relative z-10">
                 <div className="space-y-4">
-                  <p className="text-[11px] font-black text-primary/60 uppercase tracking-[0.5em]">Email Port</p>
-                  <h3 className="text-[10px] sm:text-lg font-headline font-black uppercase tracking-tight break-all leading-tight text-foreground">
+                  <p className="text-[11px] font-black text-primary uppercase tracking-[0.5em]">Email Port</p>
+                  <h3 className="text-[12px] sm:text-lg font-headline font-black uppercase tracking-tight break-all leading-tight text-foreground">
                     {userEmail}
                   </h3>
                 </div>
                 <div className="space-y-4">
-                  <p className="text-[11px] font-black text-primary/60 uppercase tracking-[0.5em]">Contact Node</p>
-                  <h3 className="text-[10px] sm:text-xl font-headline font-black uppercase tracking-tight text-foreground">
+                  <p className="text-[11px] font-black text-primary uppercase tracking-[0.5em]">Contact Node</p>
+                  <h3 className="text-[12px] sm:text-xl font-headline font-black uppercase tracking-tight text-foreground">
                     +91 9346759263
                   </h3>
                 </div>
@@ -127,7 +126,7 @@ export function Contact() {
                   <Input 
                     required 
                     placeholder="NAME" 
-                    className="h-14 sm:h-16 rounded-xl bg-secondary/10 border border-primary/20 font-black text-sm uppercase tracking-widest px-6 focus:bg-background focus:border-primary focus:shadow-[0_0_20px_rgba(var(--primary),0.05)] transition-all text-foreground w-full" 
+                    className="h-14 sm:h-16 rounded-xl bg-background border border-primary/20 font-black text-sm uppercase tracking-widest px-6 focus:bg-background focus:border-primary focus:shadow-[0_0_20px_rgba(var(--primary),0.05)] transition-all text-foreground w-full" 
                     value={formData.name} 
                     onChange={(e) => setFormData({...formData, name: e.target.value})} 
                   />
@@ -138,7 +137,7 @@ export function Contact() {
                     type="email" 
                     required 
                     placeholder="EMAIL" 
-                    className="h-14 sm:h-16 rounded-xl bg-secondary/10 border border-primary/20 font-black text-sm uppercase tracking-widest px-6 focus:bg-background focus:border-primary focus:shadow-[0_0_20px_rgba(var(--primary),0.05)] transition-all text-foreground w-full" 
+                    className="h-14 sm:h-16 rounded-xl bg-background border border-primary/20 font-black text-sm uppercase tracking-widest px-6 focus:bg-background focus:border-primary focus:shadow-[0_0_20px_rgba(var(--primary),0.05)] transition-all text-foreground w-full" 
                     value={formData.email} 
                     onChange={(e) => setFormData({...formData, email: e.target.value})} 
                   />
@@ -149,7 +148,7 @@ export function Contact() {
                 <Textarea 
                   required 
                   placeholder="MANIFEST CONTENT..." 
-                  className="min-h-[140px] sm:min-h-[200px] rounded-2xl bg-secondary/10 border border-primary/20 p-6 font-bold text-sm uppercase tracking-tight resize-none focus:bg-background focus:border-primary focus:shadow-[0_0_30px_rgba(var(--primary),0.05)] transition-all text-foreground" 
+                  className="min-h-[140px] sm:min-h-[200px] rounded-2xl bg-background border border-primary/20 p-6 font-bold text-sm uppercase tracking-tight resize-none focus:bg-background focus:border-primary focus:shadow-[0_0_30px_rgba(var(--primary),0.05)] transition-all text-foreground" 
                   value={formData.message} 
                   onChange={(e) => setFormData({...formData, message: e.target.value})} 
                 />
