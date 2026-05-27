@@ -73,7 +73,7 @@ const timelineItems = [
 ];
 
 export function SystemRegistry() {
-  const timelineBackdrop = PlaceHolderImages.find(img => img.id === 'core-logic-engine');
+  const timelineBackdrop = PlaceHolderImages.find(img => img.id === 'pulse-analytics-node');
 
   const container = {
     hidden: { opacity: 0 },
@@ -100,11 +100,11 @@ export function SystemRegistry() {
             src={timelineBackdrop.imageUrl}
             alt={timelineBackdrop.description}
             fill
-            className="object-cover opacity-80 grayscale brightness-[0.7] transition-all duration-1000"
+            className="object-cover opacity-90 brightness-[0.8] transition-all duration-1000"
             data-ai-hint={timelineBackdrop.imageHint}
           />
           {/* Refined gradient mask for optimal content contrast */}
-          <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/20 to-background z-[1]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/10 to-background z-[1]" />
         </div>
       )}
 
