@@ -7,6 +7,8 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, Phone, Send, Loader2, Activity, Zap, ShieldCheck, Terminal } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import Image from "next/image";
+import { PlaceHolderImages } from "@/app/lib/placeholder-images";
 
 export function Contact() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
@@ -14,6 +16,7 @@ export function Contact() {
   const { toast } = useToast();
 
   const userEmail = "sriharshanetala2@gmail.com";
+  const contactBackdrop = PlaceHolderImages.find(img => img.id === 'system-backdrop');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -42,7 +45,22 @@ export function Contact() {
 
   return (
     <section id="contact" className="py-20 sm:py-40 px-4 sm:px-6 bg-background relative overflow-hidden border-t border-border scroll-mt-20">
-      <div className="absolute inset-0 pointer-events-none">
+      {/* High-Fidelity Technical Backdrop - Blurred Coding Workspace */}
+      {contactBackdrop && (
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+          <Image
+            src={contactBackdrop.imageUrl}
+            alt={contactBackdrop.description}
+            fill
+            className="object-cover opacity-100 brightness-[0.7] blur-md scale-105 transition-all duration-1000"
+            data-ai-hint={contactBackdrop.imageHint}
+          />
+          {/* Refined gradient mask for optimal content contrast */}
+          <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/40 to-background z-[1]" />
+        </div>
+      )}
+
+      <div className="absolute inset-0 pointer-events-none z-[2]">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,hsl(var(--primary)/0.03),transparent_70%)]" />
         <div className="absolute inset-0 neural-grid opacity-[0.04]" />
       </div>
@@ -62,7 +80,7 @@ export function Contact() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-2xl sm:text-4xl lg:text-5xl font-headline font-black tracking-tighter uppercase leading-[0.9]"
+            className="text-2xl sm:text-4xl lg:text-5xl font-headline font-black tracking-tighter uppercase leading-[0.9] shimmer-text"
           >
             SYNC <span className="text-primary/60">NODES</span>
           </motion.h2>
@@ -84,7 +102,7 @@ export function Contact() {
           className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-12 items-stretch"
         >
           <div className="lg:col-span-5 space-y-6">
-            <motion.div variants={itemVariants} className="p-8 sm:p-12 rounded-[2rem] sm:rounded-[3rem] bg-card border border-border/50 shadow-4xl backdrop-blur-3xl relative overflow-hidden group">
+            <motion.div variants={itemVariants} className="p-8 sm:p-12 rounded-[2rem] sm:rounded-[3rem] bg-card/60 border border-border/50 shadow-4xl backdrop-blur-3xl relative overflow-hidden group">
               <div className="absolute top-0 right-0 p-8 sm:p-10 opacity-5 group-hover:opacity-10 transition-opacity">
                 <ShieldCheck className="w-16 h-16 sm:w-20 sm:h-20 text-primary" />
               </div>
@@ -118,7 +136,7 @@ export function Contact() {
             </motion.div>
           </div>
 
-          <motion.div variants={itemVariants} className="lg:col-span-7 p-8 sm:p-12 rounded-[2rem] sm:rounded-[3rem] bg-card border border-border shadow-4xl backdrop-blur-3xl relative overflow-hidden">
+          <motion.div variants={itemVariants} className="lg:col-span-7 p-8 sm:p-12 rounded-[2rem] sm:rounded-[3rem] bg-card/60 border border-border shadow-4xl backdrop-blur-3xl relative overflow-hidden">
             <form onSubmit={handleSubmit} className="space-y-6 sm:space-y-10 relative z-10 flex flex-col">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
                 <div className="space-y-2">
