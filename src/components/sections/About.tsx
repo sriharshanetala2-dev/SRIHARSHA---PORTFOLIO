@@ -51,15 +51,15 @@ export function About() {
                   key={node.id}
                   onClick={() => setActiveNode(node)}
                   className={cn(
-                    "p-4 sm:p-6 rounded-xl sm:rounded-2xl border-2 text-left transition-all duration-300 group relative overflow-hidden",
+                    "p-4 sm:p-6 rounded-xl sm:rounded-2xl border-none text-left transition-all duration-300 group relative overflow-hidden",
                     activeNode.id === node.id 
-                      ? "bg-primary text-primary-foreground border-primary shadow-xl scale-[1.02]" 
-                      : "bg-card border-border hover:border-primary/40 shadow-md"
+                      ? "bg-primary text-primary-foreground shadow-xl scale-[1.02]" 
+                      : "bg-card hover:bg-primary/10 shadow-md text-primary"
                   )}
                 >
                   <node.icon className={cn("w-5 h-5 sm:w-6 sm:h-6 mb-3 sm:mb-4", activeNode.id === node.id ? "text-primary-foreground" : "text-primary")} />
                   <div className="font-black text-xs sm:text-sm uppercase tracking-[0.1em]">{node.label}</div>
-                  <div className={cn("text-[9px] sm:text-[10px] font-black uppercase tracking-widest mt-1 opacity-60", activeNode.id === node.id ? "text-primary-foreground" : "text-muted-foreground")}>{node.desc}</div>
+                  <div className={cn("text-[9px] sm:text-[10px] font-black uppercase tracking-widest mt-1 opacity-60", activeNode.id === node.id ? "text-primary-foreground" : "text-primary")}>{node.desc}</div>
                 </button>
               ))}
             </div>
@@ -70,7 +70,7 @@ export function About() {
             initial={{ opacity: 0, scale: 0.98, x: 15 }}
             animate={{ opacity: 1, scale: 1, x: 0 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
-            className="p-6 sm:p-12 rounded-[1.5rem] sm:rounded-[2.5rem] border-2 border-border bg-card/40 backdrop-blur-3xl space-y-8 sm:space-y-10 relative overflow-hidden shadow-2xl group"
+            className="p-6 sm:p-12 rounded-[1.5rem] sm:rounded-[2.5rem] border-none bg-card/40 backdrop-blur-3xl space-y-8 sm:space-y-10 relative overflow-hidden shadow-2xl group"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-50" />
             
@@ -79,7 +79,7 @@ export function About() {
                 <activeNode.icon className="w-6 h-6 sm:w-8 sm:h-8" />
               </div>
               <div className="space-y-1">
-                <h3 className="text-xl sm:text-4xl font-headline font-black uppercase tracking-tight">{activeNode.label} Core</h3>
+                <h3 className="text-xl sm:text-4xl font-headline font-black uppercase tracking-tight text-primary">{activeNode.label} Core</h3>
                 <p className="text-[9px] sm:text-[12px] font-black text-primary uppercase tracking-[0.4em] flex items-center gap-2">
                   <Terminal className="w-3.5 h-3.5" /> NODE_STATUS: ACTIVE
                 </p>
@@ -88,10 +88,10 @@ export function About() {
 
             <div className="space-y-3 sm:space-y-4 relative z-10">
               {activeNode.metrics.map((metric, i) => (
-                <div key={i} className="flex flex-col sm:flex-row sm:items-center justify-between p-4 sm:p-5 rounded-xl sm:rounded-[1.25rem] bg-background/50 border border-border/50 group/metric hover:border-primary/40 transition-all gap-3 sm:gap-4">
+                <div key={i} className="flex flex-col sm:flex-row sm:items-center justify-between p-4 sm:p-5 rounded-xl sm:rounded-[1.25rem] bg-background/50 border-none group/metric hover:bg-primary/10 transition-all gap-3 sm:gap-4">
                   <div className="flex items-center gap-3 sm:gap-4">
                     <div className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-primary animate-pulse" />
-                    <span className="font-black text-[10px] sm:text-sm uppercase tracking-[0.1em] text-foreground">{metric}</span>
+                    <span className="font-black text-[10px] sm:text-sm uppercase tracking-[0.1em] text-primary">{metric}</span>
                   </div>
                   <Zap className="w-3.5 h-3.5 text-primary opacity-30 group-hover/metric:opacity-100 transition-opacity hidden sm:block" />
                 </div>

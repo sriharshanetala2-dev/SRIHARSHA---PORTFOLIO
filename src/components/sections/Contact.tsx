@@ -91,13 +91,13 @@ export function Contact() {
               <div className="space-y-8 relative z-10">
                 <div className="space-y-3">
                   <p className="text-[14px] sm:text-[14px] font-black text-primary uppercase tracking-[0.4em]">Email Port</p>
-                  <h3 className="text-[18px] sm:text-lg lg:text-xl font-headline font-black uppercase tracking-tight break-all leading-tight">
+                  <h3 className="text-[18px] sm:text-lg lg:text-xl font-headline font-black uppercase tracking-tight break-all leading-tight text-primary">
                     {userEmail}
                   </h3>
                 </div>
                 <div className="space-y-3">
                   <p className="text-[14px] sm:text-[14px] font-black text-primary uppercase tracking-[0.4em]">Contact Node</p>
-                  <h3 className="text-[18px] sm:text-lg lg:text-xl font-headline font-black uppercase tracking-tight">
+                  <h3 className="text-[18px] sm:text-lg lg:text-xl font-headline font-black uppercase tracking-tight text-primary">
                     +91 9346759263
                   </h3>
                 </div>
@@ -118,7 +118,7 @@ export function Contact() {
             </motion.div>
           </div>
 
-          <motion.div variants={itemVariants} className="lg:col-span-7 p-6 sm:p-16 rounded-[1.5rem] sm:rounded-[4rem] bg-card border-2 border-border shadow-4xl backdrop-blur-3xl relative overflow-hidden">
+          <motion.div variants={itemVariants} className="lg:col-span-7 p-6 sm:p-16 rounded-[1.5rem] sm:rounded-[4rem] bg-card border-none shadow-4xl backdrop-blur-3xl relative overflow-hidden">
             <form onSubmit={handleSubmit} className="space-y-6 sm:space-y-12 relative z-10 flex flex-col">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-10">
                 <div className="space-y-2">
@@ -126,7 +126,7 @@ export function Contact() {
                   <Input 
                     required 
                     placeholder="NAME" 
-                    className="h-14 sm:h-16 rounded-xl bg-secondary/30 border-border/60 font-black text-sm uppercase tracking-widest px-6 focus:border-primary focus:shadow-[0_0_15px_rgba(var(--primary),0.1)] transition-all" 
+                    className="h-14 sm:h-16 rounded-xl bg-secondary/30 border-none font-black text-sm uppercase tracking-widest px-6 focus:bg-secondary/50 focus:shadow-[0_0_15px_rgba(var(--primary),0.1)] transition-all text-primary" 
                     value={formData.name} 
                     onChange={(e) => setFormData({...formData, name: e.target.value})} 
                   />
@@ -137,7 +137,7 @@ export function Contact() {
                     type="email" 
                     required 
                     placeholder="EMAIL" 
-                    className="h-14 sm:h-16 rounded-xl bg-secondary/30 border-border/60 font-black text-sm uppercase tracking-widest px-6 focus:border-primary focus:shadow-[0_0_15px_rgba(var(--primary),0.1)] transition-all" 
+                    className="h-14 sm:h-16 rounded-xl bg-secondary/30 border-none font-black text-sm uppercase tracking-widest px-6 focus:bg-secondary/50 focus:shadow-[0_0_15px_rgba(var(--primary),0.1)] transition-all text-primary" 
                     value={formData.email} 
                     onChange={(e) => setFormData({...formData, email: e.target.value})} 
                   />
@@ -148,14 +148,14 @@ export function Contact() {
                 <Textarea 
                   required 
                   placeholder="MANIFEST CONTENT..." 
-                  className="min-h-[140px] sm:min-h-[200px] rounded-[1.25rem] sm:rounded-[2.5rem] bg-secondary/30 border-border/60 p-6 font-bold text-sm sm:text-base uppercase tracking-tight resize-none focus:border-primary focus:shadow-[0_0_20px_rgba(var(--primary),0.1)] transition-all" 
+                  className="min-h-[140px] sm:min-h-[200px] rounded-[1.25rem] sm:rounded-[2.5rem] bg-secondary/30 border-none p-6 font-bold text-sm sm:text-base uppercase tracking-tight resize-none focus:bg-secondary/50 focus:shadow-[0_0_20px_rgba(var(--primary),0.1)] transition-all text-primary" 
                   value={formData.message} 
                   onChange={(e) => setFormData({...formData, message: e.target.value})} 
                 />
               </div>
               <Button 
                 type="submit" 
-                className="w-fit mx-auto px-12 h-12 sm:h-16 rounded-full text-[10px] sm:text-sm font-black uppercase tracking-[0.4em] shadow-2xl bg-primary text-primary-foreground hover:shadow-[0_0_40px_rgba(var(--primary),0.5)] hover:scale-105 active:scale-95 transition-all duration-300" 
+                className="w-fit mx-auto px-12 h-12 sm:h-16 rounded-full text-[10px] sm:text-sm font-black uppercase tracking-[0.4em] shadow-2xl bg-primary text-primary-foreground hover:shadow-[0_0_40px_rgba(var(--primary),0.5)] hover:scale-105 active:scale-95 transition-all duration-300 border-none" 
                 disabled={isSubmitting}
               >
                 {isSubmitting ? <Loader2 className="w-5 h-5 animate-spin" /> : <><Send className="w-5 h-5 mr-3" /> Start Transmission</>}
