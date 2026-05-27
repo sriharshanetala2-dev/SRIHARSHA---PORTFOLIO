@@ -6,8 +6,12 @@ import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Code2, Terminal, Activity, Zap } from "lucide-react";
 import { projects } from "@/app/lib/projects-data";
 import { iconMap } from "@/app/lib/icon-map";
+import Image from "next/image";
+import { PlaceHolderImages } from "@/app/lib/placeholder-images";
 
 export function Projects() {
+  const projectsBackdrop = PlaceHolderImages.find(img => img.id === 'neural-workflow-os');
+
   const container = {
     hidden: { opacity: 0 },
     show: {
@@ -26,7 +30,21 @@ export function Projects() {
 
   return (
     <section id="portfolio" className="py-24 sm:py-40 px-4 sm:px-8 bg-secondary/5 border-t border-border relative overflow-hidden scroll-mt-20">
-      <div className="absolute inset-0 neural-grid opacity-[0.03] pointer-events-none" />
+      {/* High-Fidelity Technical Backdrop */}
+      {projectsBackdrop && (
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          <Image
+            src={projectsBackdrop.imageUrl}
+            alt={projectsBackdrop.description}
+            fill
+            className="object-cover opacity-40 grayscale brightness-[0.4]"
+            data-ai-hint={projectsBackdrop.imageHint}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-background via-background/70 to-background z-[1]" />
+        </div>
+      )}
+
+      <div className="absolute inset-0 neural-grid opacity-[0.03] pointer-events-none z-[2]" />
       
       <div className="max-w-7xl mx-auto space-y-20 relative z-10">
         <div className="text-center space-y-8">
