@@ -74,7 +74,7 @@ export function Hero() {
               Archive <ArrowRight className="ml-3 sm:ml-4 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-3 transition-transform" />
             </a>
           </Button>
-          <Button variant="outline" size="lg" className="w-full sm:w-auto rounded-full h-12 sm:h-14 px-8 sm:px-12 text-[10px] sm:text-sm font-black uppercase tracking-[0.4em] border-2 border-primary/20 hover:bg-primary/5 hover:border-primary/50 hover:shadow-[0_0_20px_rgba(var(--primary),0.1)] hover:scale-105 active:scale-95 transition-all duration-300" asChild>
+          <Button variant="outline" size="lg" className="w-full sm:w-auto rounded-full h-12 sm:h-14 px-8 sm:px-12 text-[10px] sm:text-sm font-black uppercase tracking-[0.4em] border-2 border-primary/20 text-primary hover:bg-primary/5 hover:border-primary/50 hover:shadow-[0_0_20px_rgba(var(--primary),0.1)] hover:scale-105 active:scale-95 transition-all duration-300" asChild>
             <a href="#contact">Contact</a>
           </Button>
         </motion.div>
