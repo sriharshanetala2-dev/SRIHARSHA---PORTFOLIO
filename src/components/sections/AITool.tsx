@@ -12,6 +12,8 @@ import { Sparkles, Loader2, Copy, Check, Terminal, ShieldCheck, Cpu, Briefcase, 
 import { useToast } from "@/hooks/use-toast";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
+import { PlaceHolderImages } from "@/app/lib/placeholder-images";
 
 export function AITool() {
   const [activeTool, setActiveTool] = useState("narrative");
@@ -24,6 +26,8 @@ export function AITool() {
 
   const [brandData, setBrandData] = useState({ name: "", mission: "", audience: "", tone: "Professional" as any });
   const [brandResult, setBrandResult] = useState<BrandIdentityOutput | null>(null);
+
+  const aiBackdrop = PlaceHolderImages.find(img => img.id === 'system-backdrop');
 
   const handleNarrative = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -63,7 +67,24 @@ export function AITool() {
   };
 
   return (
-    <section id="architectural-toolkit" className="py-20 sm:py-32 px-4 sm:px-6 bg-transparent relative overflow-hidden border-t border-border scroll-mt-20">
+    <section id="architectural-toolkit" className="py-20 sm:py-32 px-4 sm:px-6 bg-background relative overflow-hidden border-t border-border scroll-mt-20">
+      {/* High-Fidelity Technical Backdrop - Blurred Coding Workspace */}
+      {aiBackdrop && (
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+          <Image
+            src={aiBackdrop.imageUrl}
+            alt={aiBackdrop.description}
+            fill
+            className="object-cover opacity-100 brightness-[0.7] blur-md scale-105 transition-all duration-1000"
+            data-ai-hint={aiBackdrop.imageHint}
+          />
+          {/* Refined gradient mask for optimal content contrast */}
+          <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/30 to-background z-[1]" />
+        </div>
+      )}
+
+      <div className="absolute inset-0 neural-grid opacity-[0.1] pointer-events-none z-[2]" />
+
       <div className="max-w-6xl mx-auto space-y-10 sm:space-y-16 relative z-10">
         <div className="flex flex-col items-center text-center space-y-6">
           <motion.div 
