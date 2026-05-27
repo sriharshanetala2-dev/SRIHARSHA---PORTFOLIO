@@ -87,7 +87,7 @@ export function AITool() {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-sm sm:text-lg text-muted-foreground max-w-2xl font-bold uppercase tracking-tight opacity-90 px-4"
+            className="text-base sm:text-lg text-muted-foreground max-w-2xl font-bold uppercase tracking-tight opacity-90 px-4"
           >
             Professional utility nodes leveraging Google Genkit for automated project orchestration and system narratives.
           </motion.p>
@@ -98,13 +98,13 @@ export function AITool() {
             <TabsList className="bg-secondary/10 p-1 rounded-xl h-14 sm:h-20 border border-border/40 backdrop-blur-md">
               <TabsTrigger 
                 value="narrative" 
-                className="px-6 sm:px-16 rounded-lg font-black uppercase text-[10px] sm:text-sm tracking-[0.2em] h-full data-[state=active]:bg-background data-[state=active]:text-primary"
+                className="px-6 sm:px-16 rounded-lg font-black uppercase text-[12px] sm:text-sm tracking-[0.2em] h-full data-[state=active]:bg-background data-[state=active]:text-primary"
               >
                 NARRATIVE
               </TabsTrigger>
               <TabsTrigger 
                 value="brand" 
-                className="px-6 sm:px-16 rounded-lg font-black uppercase text-[10px] sm:text-sm tracking-[0.2em] h-full data-[state=active]:bg-background data-[state=active]:text-primary"
+                className="px-6 sm:px-16 rounded-lg font-black uppercase text-[12px] sm:text-sm tracking-[0.2em] h-full data-[state=active]:bg-background data-[state=active]:text-primary"
               >
                 IDENTITY
               </TabsTrigger>
