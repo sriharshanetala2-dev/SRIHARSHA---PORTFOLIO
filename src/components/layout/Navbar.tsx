@@ -30,7 +30,7 @@ export function Navbar() {
       scrolled ? "py-4 sm:py-6" : "py-6 sm:py-10"
     )}>
       <div className={cn(
-        "max-w-7xl mx-auto flex items-center justify-between px-5 sm:px-12 py-3 sm:py-4 rounded-full sm:rounded-[2rem] transition-all duration-700 border shadow-xl backdrop-blur-2xl",
+        "max-w-7xl mx-auto flex items-center justify-between px-5 sm:px-12 py-3 sm:py-4 rounded-full sm:rounded-[2.5rem] transition-all duration-700 border shadow-xl backdrop-blur-2xl",
         scrolled 
           ? "bg-white/90 border-border shadow-2xl" 
           : "bg-white/40 border-border/40 shadow-lg"

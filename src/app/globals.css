@@ -31,6 +31,9 @@
   * {
     @apply border-border outline-none transition-all duration-300;
   }
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     @apply bg-background text-foreground font-body antialiased selection:bg-primary/20 overflow-x-hidden;
     font-size: 16px;
@@ -95,4 +98,18 @@ h1, h2, h3, h4, h5, h6 {
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+@media print {
+  .neural-grid, .fixed, footer {
+    display: none !important;
+  }
+  .glass-card {
+    background: white !important;
+    border: 1px solid #eee !important;
+    box-shadow: none !important;
+  }
+  body {
+    background: white !important;
+  }
 }
