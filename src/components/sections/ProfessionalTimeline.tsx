@@ -73,7 +73,7 @@ const timelineItems = [
 ];
 
 export function SystemRegistry() {
-  const timelineBackdrop = PlaceHolderImages.find(img => img.id === 'sentinel-iam-hub');
+  const timelineBackdrop = PlaceHolderImages.find(img => img.id === 'core-logic-engine');
 
   const container = {
     hidden: { opacity: 0 },
