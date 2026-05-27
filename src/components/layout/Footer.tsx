@@ -39,7 +39,7 @@ export function Footer() {
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 sm:p-5 rounded-xl sm:rounded-2xl bg-secondary/40 border border-border hover:border-primary hover:bg-primary hover:text-primary-foreground hover:scale-110 transition-all duration-700 shadow-xl group relative overflow-hidden"
+                className="p-3 sm:p-5 rounded-xl sm:rounded-2xl bg-secondary/40 border border-border hover:border-primary hover:text-primary-foreground hover:scale-110 transition-all duration-700 shadow-xl group relative overflow-hidden"
                 aria-label={social.label}
               >
                 <social.icon className="w-5 h-5 sm:w-6 sm:h-6 group-hover:rotate-6 transition-transform relative z-10" />
@@ -50,19 +50,27 @@ export function Footer() {
         </div>
 
         <div className="pt-16 sm:pt-24 border-t border-border/40 flex flex-col md:flex-row items-center justify-between gap-10">
-          <p className="text-[10px] sm:text-[11px] text-muted-foreground font-black uppercase tracking-[0.5em] opacity-50 text-center">
-            &copy; SRI HARSHA // SYSTEM_LOGIC_V3 // ALL RIGHTS RESERVED.
-          </p>
+          <div className="flex flex-col items-center md:items-start gap-3">
+            <p className="text-[10px] sm:text-[11px] text-muted-foreground font-black uppercase tracking-[0.4em] opacity-60 text-center">
+              &copy; {new Date().getFullYear()} SRI HARSHA // ALL RIGHTS RESERVED.
+            </p>
+            <div className="flex items-center gap-3">
+              <div className="w-1.5 h-1.5 rounded-full bg-primary/40 animate-pulse" />
+              <p className="text-[9px] text-muted-foreground/30 font-mono uppercase tracking-[0.3em]">
+                System Architecture: V4.0.2 // STABLE
+              </p>
+            </div>
+          </div>
 
-          <div className="flex flex-wrap justify-center gap-8 sm:gap-16">
+          <div className="flex flex-wrap justify-center gap-10 sm:gap-14">
             {["About", "Portfolio", "Contact"].map((item) => (
               <a 
                 key={item}
                 href={`#${item.toLowerCase()}`}
-                className="text-[10px] sm:text-[11px] font-black text-muted-foreground hover:text-primary uppercase tracking-[0.5em] sm:tracking-[0.8em] transition-all relative group"
+                className="text-[10px] sm:text-[11px] font-black text-muted-foreground/50 hover:text-primary uppercase tracking-[0.4em] transition-all relative group"
               >
                 {item}
-                <span className="absolute -bottom-2 left-0 w-0 h-[1px] bg-primary transition-all group-hover:w-full" />
+                <span className="absolute -bottom-2 left-0 w-0 h-[1px] bg-primary transition-all group-hover:w-full shadow-[0_0_10px_rgba(var(--primary),0.5)]" />
               </a>
             ))}
           </div>
