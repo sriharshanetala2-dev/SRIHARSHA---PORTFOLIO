@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { 
   Users, 
@@ -39,6 +40,7 @@ import {
 } from "@/components/ui/table";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
+import { PlaceHolderImages } from "@/app/lib/placeholder-images";
 
 const gpaData = [
   { semester: "Sem 1", gpa: 3.2, attendance: 85 },
@@ -72,6 +74,7 @@ export function StudentDashboard() {
   const [activeTab, setActiveTab] = useState("Overview");
   const [mounted, setMounted] = useState(false);
   const { toast } = useToast();
+  const dashboardBackdrop = PlaceHolderImages.find(img => img.id === 'cloudsync-vault');
 
   useEffect(() => {
     setMounted(true);
@@ -259,8 +262,22 @@ export function StudentDashboard() {
   };
 
   return (
-    <section id="dashboard" className="py-12 sm:py-24 px-4 bg-secondary/5 border-t border-border overflow-hidden scroll-mt-20">
-      <div className="max-w-7xl mx-auto space-y-10 sm:space-y-16">
+    <section id="dashboard" className="py-12 sm:py-24 px-4 bg-secondary/5 border-t border-border relative overflow-hidden scroll-mt-20">
+      {/* High-Fidelity Technical Backdrop */}
+      {dashboardBackdrop && (
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          <Image
+            src={dashboardBackdrop.imageUrl}
+            alt={dashboardBackdrop.description}
+            fill
+            className="object-cover opacity-30 grayscale brightness-[0.4]"
+            data-ai-hint={dashboardBackdrop.imageHint}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-background via-background/60 to-background z-[1]" />
+        </div>
+      )}
+
+      <div className="max-w-7xl mx-auto space-y-10 sm:space-y-16 relative z-10">
         <div className="text-center space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-700">
           <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/25 text-[9px] sm:text-[11px] font-black text-primary uppercase tracking-[0.5em] shadow-lg">
             <Activity className="w-3 h-3" />
