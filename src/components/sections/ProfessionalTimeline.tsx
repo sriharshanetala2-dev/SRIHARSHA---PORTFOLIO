@@ -143,16 +143,16 @@ export function SystemRegistry() {
                       <item.icon className="w-5 h-5 sm:w-7 sm:h-7" />
                     </div>
                     <div className="space-y-1">
-                      <h3 className="text-sm sm:text-2xl font-headline font-black uppercase tracking-tight leading-none group-hover:text-primary transition-colors">{item.role}</h3>
-                      <p className="text-[9px] sm:text-[12px] font-mono font-black text-primary/60 uppercase tracking-[0.2em] mt-1">{item.company || item.institution}</p>
+                      <h3 className="text-base sm:text-2xl font-headline font-black uppercase tracking-tight leading-none group-hover:text-primary transition-colors">{item.role}</h3>
+                      <p className="text-[11px] sm:text-[12px] font-mono font-black text-primary/60 uppercase tracking-[0.2em] mt-1">{item.company || item.institution}</p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-2 text-[9px] sm:text-[11px] font-black text-muted-foreground bg-secondary/40 border border-border/40 px-3 sm:px-5 py-1.5 sm:py-2.5 rounded-full w-fit uppercase tracking-widest">
+                  <div className="flex items-center gap-2 text-[10px] sm:text-[11px] font-black text-muted-foreground bg-secondary/40 border border-border/40 px-3 sm:px-5 py-1.5 sm:py-2.5 rounded-full w-fit uppercase tracking-widest">
                     <CalendarDays className="w-3 h-3 sm:w-4 sm:h-4 opacity-50" />
                     {item.period}
                   </div>
                 </div>
-                <p className="text-[10px] sm:text-base text-muted-foreground leading-relaxed font-bold uppercase tracking-tight opacity-70">
+                <p className="text-[12px] sm:text-base text-muted-foreground leading-relaxed font-bold uppercase tracking-tight opacity-70">
                   {item.description}
                 </p>
               </div>
