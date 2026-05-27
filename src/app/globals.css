@@ -4,6 +4,30 @@
 
 @layer base {
   :root {
+    /* Deep Midnight Obsidian: High-Performance Dark Registry (Default) */
+    --background: 224 71% 4%;
+    --foreground: 210 40% 98%;
+    --card: 224 71% 4%;
+    --card-foreground: 210 40% 98%;
+    --popover: 224 71% 4%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 224 76% 48%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 222 47% 11%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 222 47% 11%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 224 76% 48%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224 76% 48%;
+    --radius: 1rem;
+  }
+
+  .light {
     /* Crystal Logic: High-Performance Light Registry */
     --background: 210 40% 98%;
     --foreground: 224 71% 4%;
@@ -24,30 +48,6 @@
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
     --ring: 224 76% 48%;
-    --radius: 1rem;
-  }
-
-  .dark {
-    /* Deep Midnight Obsidian: High-Performance Dark Registry */
-    --background: 224 71% 4%;
-    --foreground: 210 40% 98%;
-    --card: 224 71% 4%;
-    --card-foreground: 210 40% 98%;
-    --popover: 224 71% 4%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 224 76% 48%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 222 47% 11%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 222 47% 11%;
-    --muted-foreground: 215 20% 65%;
-    --accent: 224 76% 48%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 224 76% 48%;
   }
 }
 
@@ -62,11 +62,11 @@
     @apply bg-background text-foreground font-body antialiased selection:bg-primary/20 overflow-x-hidden;
     font-size: 16px;
     line-height: 1.6;
-    background-image: linear-gradient(rgba(var(--background), 0.9), rgba(var(--background), 0.9)), url('https://picsum.photos/seed/dev_ai_env_v12/1920/1080');
+    background-image: linear-gradient(rgba(10, 12, 18, 0.85), rgba(10, 12, 18, 0.95)), url('https://picsum.photos/seed/dark_tech_system_v1/1920/1080');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    background-blend-mode: overlay;
+    background-blend-mode: multiply;
   }
 }
 
