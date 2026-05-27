@@ -126,7 +126,7 @@ export function Contact() {
                   <Input 
                     required 
                     placeholder="NAME" 
-                    className="h-14 sm:h-16 rounded-xl bg-secondary/30 border-border/60 font-black text-sm uppercase tracking-widest px-6" 
+                    className="h-14 sm:h-16 rounded-xl bg-secondary/30 border-border/60 font-black text-sm uppercase tracking-widest px-6 focus:border-primary focus:shadow-[0_0_15px_rgba(var(--primary),0.1)] transition-all" 
                     value={formData.name} 
                     onChange={(e) => setFormData({...formData, name: e.target.value})} 
                   />
@@ -137,7 +137,7 @@ export function Contact() {
                     type="email" 
                     required 
                     placeholder="EMAIL" 
-                    className="h-14 sm:h-16 rounded-xl bg-secondary/30 border-border/60 font-black text-sm uppercase tracking-widest px-6" 
+                    className="h-14 sm:h-16 rounded-xl bg-secondary/30 border-border/60 font-black text-sm uppercase tracking-widest px-6 focus:border-primary focus:shadow-[0_0_15px_rgba(var(--primary),0.1)] transition-all" 
                     value={formData.email} 
                     onChange={(e) => setFormData({...formData, email: e.target.value})} 
                   />
@@ -148,14 +148,14 @@ export function Contact() {
                 <Textarea 
                   required 
                   placeholder="MANIFEST CONTENT..." 
-                  className="min-h-[140px] sm:min-h-[200px] rounded-[1.25rem] sm:rounded-[2.5rem] bg-secondary/30 border-border/60 p-6 font-bold text-sm sm:text-base uppercase tracking-tight resize-none" 
+                  className="min-h-[140px] sm:min-h-[200px] rounded-[1.25rem] sm:rounded-[2.5rem] bg-secondary/30 border-border/60 p-6 font-bold text-sm sm:text-base uppercase tracking-tight resize-none focus:border-primary focus:shadow-[0_0_20px_rgba(var(--primary),0.1)] transition-all" 
                   value={formData.message} 
                   onChange={(e) => setFormData({...formData, message: e.target.value})} 
                 />
               </div>
               <Button 
                 type="submit" 
-                className="w-fit mx-auto px-12 h-12 sm:h-16 rounded-full text-[10px] sm:text-sm font-black uppercase tracking-[0.4em] shadow-2xl bg-primary text-primary-foreground" 
+                className="w-fit mx-auto px-12 h-12 sm:h-16 rounded-full text-[10px] sm:text-sm font-black uppercase tracking-[0.4em] shadow-2xl bg-primary text-primary-foreground hover:shadow-[0_0_40px_rgba(var(--primary),0.5)] hover:scale-105 active:scale-95 transition-all duration-300" 
                 disabled={isSubmitting}
               >
                 {isSubmitting ? <Loader2 className="w-5 h-5 animate-spin" /> : <><Send className="w-5 h-5 mr-3" /> Start Transmission</>}

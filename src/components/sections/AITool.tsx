@@ -98,13 +98,13 @@ export function AITool() {
             <TabsList className="bg-secondary/10 p-1 rounded-xl h-14 sm:h-20 border border-border/40 backdrop-blur-md">
               <TabsTrigger 
                 value="narrative" 
-                className="px-6 sm:px-16 rounded-lg font-black uppercase text-[12px] sm:text-sm tracking-[0.2em] h-full data-[state=active]:bg-background data-[state=active]:text-primary"
+                className="px-6 sm:px-16 rounded-lg font-black uppercase text-[12px] sm:text-sm tracking-[0.2em] h-full data-[state=active]:bg-background data-[state=active]:text-primary data-[state=active]:shadow-[0_0_20px_rgba(var(--primary),0.2)] transition-all"
               >
                 NARRATIVE
               </TabsTrigger>
               <TabsTrigger 
                 value="brand" 
-                className="px-6 sm:px-16 rounded-lg font-black uppercase text-[12px] sm:text-sm tracking-[0.2em] h-full data-[state=active]:bg-background data-[state=active]:text-primary"
+                className="px-6 sm:px-16 rounded-lg font-black uppercase text-[12px] sm:text-sm tracking-[0.2em] h-full data-[state=active]:bg-background data-[state=active]:text-primary data-[state=active]:shadow-[0_0_20px_rgba(var(--primary),0.2)] transition-all"
               >
                 IDENTITY
               </TabsTrigger>
@@ -114,7 +114,7 @@ export function AITool() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-12">
             <motion.div initial={{ opacity: 0, x: -10 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
               <TabsContent value="narrative" className="m-0">
-                <Card className="glass-card border-border/40 bg-card/40 rounded-[1.5rem] sm:rounded-3xl overflow-hidden shadow-2xl">
+                <Card className="glass-card border-border/40 bg-card/40 rounded-[1.5rem] sm:rounded-3xl overflow-hidden shadow-2xl group hover:border-primary/40 transition-all duration-500">
                   <CardContent className="p-6 sm:p-10 space-y-6 sm:space-y-8">
                     <div className="flex items-center gap-3">
                       <Terminal className="w-5 h-5 text-primary" />
@@ -127,7 +127,7 @@ export function AITool() {
                           placeholder="e.g. Next.js, Firebase" 
                           value={narrativeData.techStack}
                           onChange={(e) => setNarrativeData({...narrativeData, techStack: e.target.value})}
-                          className="h-12 sm:h-14 bg-background/40 border-border/40 rounded-lg font-black text-xs uppercase tracking-widest px-4 sm:px-5"
+                          className="h-12 sm:h-14 bg-background/40 border-border/40 rounded-lg font-black text-xs uppercase tracking-widest px-4 sm:px-5 focus:border-primary/50 transition-all"
                         />
                       </div>
                       <div className="space-y-2">
@@ -136,10 +136,10 @@ export function AITool() {
                           placeholder="Define the mission..." 
                           value={narrativeData.scope}
                           onChange={(e) => setNarrativeData({...narrativeData, scope: e.target.value})}
-                          className="min-h-[100px] sm:min-h-[140px] bg-background/40 border-border/40 rounded-lg p-4 sm:p-5 resize-none font-bold text-xs uppercase tracking-tight"
+                          className="min-h-[100px] sm:min-h-[140px] bg-background/40 border-border/40 rounded-lg p-4 sm:p-5 resize-none font-bold text-xs uppercase tracking-tight focus:border-primary/50 transition-all"
                         />
                       </div>
-                      <Button type="submit" className="w-full h-14 sm:h-16 rounded-lg font-black uppercase tracking-widest text-xs shadow-lg bg-primary text-primary-foreground" disabled={loading}>
+                      <Button type="submit" className="w-full h-14 sm:h-16 rounded-lg font-black uppercase tracking-widest text-xs shadow-lg bg-primary text-primary-foreground hover:shadow-[0_0_30px_rgba(var(--primary),0.5)] hover:scale-[1.02] active:scale-95 transition-all duration-300" disabled={loading}>
                         {loading ? <Loader2 className="w-5 h-5 animate-spin" /> : <><Zap className="w-4 h-4 mr-2" /> Synthesize Logic</>}
                       </Button>
                     </form>
@@ -148,7 +148,7 @@ export function AITool() {
               </TabsContent>
 
               <TabsContent value="brand" className="m-0">
-                <Card className="glass-card border-border/40 bg-card/40 rounded-[1.5rem] sm:rounded-3xl overflow-hidden shadow-2xl">
+                <Card className="glass-card border-border/40 bg-card/40 rounded-[1.5rem] sm:rounded-3xl overflow-hidden shadow-2xl group hover:border-primary/40 transition-all duration-500">
                   <CardContent className="p-6 sm:p-10 space-y-6 sm:space-y-8">
                     <div className="flex items-center gap-3">
                       <Briefcase className="w-5 h-5 text-primary" />
@@ -162,7 +162,7 @@ export function AITool() {
                             placeholder="Name" 
                             value={brandData.name}
                             onChange={(e) => setBrandData({...brandData, name: e.target.value})}
-                            className="h-12 sm:h-14 bg-background/40 border-border/40 rounded-lg font-black text-xs uppercase px-4"
+                            className="h-12 sm:h-14 bg-background/40 border-border/40 rounded-lg font-black text-xs uppercase px-4 focus:border-primary/50 transition-all"
                           />
                         </div>
                         <div className="space-y-2">
@@ -170,7 +170,7 @@ export function AITool() {
                           <select 
                             value={brandData.tone}
                             onChange={(e) => setBrandData({...brandData, tone: e.target.value as any})}
-                            className="w-full h-12 sm:h-14 bg-background/40 border border-border/40 rounded-lg px-3 font-black text-[10px] uppercase tracking-widest focus:outline-none"
+                            className="w-full h-12 sm:h-14 bg-background/40 border border-border/40 rounded-lg px-3 font-black text-[10px] uppercase tracking-widest focus:outline-none focus:border-primary/50 transition-all"
                           >
                             <option>Professional</option>
                             <option>Futuristic</option>
@@ -184,10 +184,10 @@ export function AITool() {
                           placeholder="Brand purpose..." 
                           value={brandData.mission}
                           onChange={(e) => setBrandData({...brandData, mission: e.target.value})}
-                          className="min-h-[100px] sm:min-h-[120px] bg-background/40 border-border/40 rounded-lg p-4 sm:p-5 font-bold text-xs uppercase"
+                          className="min-h-[100px] sm:min-h-[120px] bg-background/40 border-border/40 rounded-lg p-4 sm:p-5 font-bold text-xs uppercase focus:border-primary/50 transition-all"
                         />
                       </div>
-                      <Button type="submit" className="w-full h-14 sm:h-16 rounded-lg font-black uppercase tracking-widest text-xs shadow-lg bg-primary text-primary-foreground" disabled={loading}>
+                      <Button type="submit" className="w-full h-14 sm:h-16 rounded-lg font-black uppercase tracking-widest text-xs shadow-lg bg-primary text-primary-foreground hover:shadow-[0_0_30px_rgba(var(--primary),0.5)] hover:scale-[1.02] active:scale-95 transition-all duration-300" disabled={loading}>
                         {loading ? <Loader2 className="w-5 h-5 animate-spin" /> : <><Sparkles className="w-4 h-4 mr-2" /> Forge Identity</>}
                       </Button>
                     </form>
@@ -197,7 +197,7 @@ export function AITool() {
             </motion.div>
 
             <motion.div initial={{ opacity: 0, x: 10 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-              <Card className="glass-card border-border/40 bg-card/60 rounded-[1.5rem] sm:rounded-3xl overflow-hidden h-full flex flex-col shadow-2xl">
+              <Card className="glass-card border-border/40 bg-card/60 rounded-[1.5rem] sm:rounded-3xl overflow-hidden h-full flex flex-col shadow-2xl group hover:border-primary/20 transition-all duration-500">
                 <CardContent className="p-6 sm:p-10 flex-1 flex flex-col">
                   <div className="flex items-center justify-between mb-6 sm:mb-8">
                     <div className="flex items-center gap-3">
@@ -205,7 +205,7 @@ export function AITool() {
                       <h3 className="text-base sm:text-xl font-black uppercase tracking-tight">Output</h3>
                     </div>
                     {(narrativeResult || brandResult) && (
-                      <Button variant="ghost" size="icon" onClick={() => copyToClipboard(narrativeResult?.projectDescription || brandResult?.professionalDescription || "")} className="h-10 w-10 rounded-lg border border-border/40 bg-background/20">
+                      <Button variant="ghost" size="icon" onClick={() => copyToClipboard(narrativeResult?.projectDescription || brandResult?.professionalDescription || "")} className="h-10 w-10 rounded-lg border border-border/40 bg-background/20 hover:bg-primary/20 hover:border-primary/40 transition-all">
                         {copied ? <Check className="w-5 h-5 text-green-500" /> : <Copy className="w-5 h-5" />}
                       </Button>
                     )}
@@ -216,7 +216,7 @@ export function AITool() {
                       {activeTool === "narrative" ? (
                         narrativeResult ? (
                           <motion.div key="narrative-out" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} className="space-y-6 text-center">
-                            <div className="p-6 sm:p-10 rounded-xl bg-background/50 border border-border/40 text-xs sm:text-base font-bold uppercase tracking-tight shimmer-text leading-relaxed">
+                            <div className="p-6 sm:p-10 rounded-xl bg-background/50 border border-border/40 text-xs sm:text-base font-bold uppercase tracking-tight shimmer-text leading-relaxed hover:border-primary/30 transition-all">
                               "{narrativeResult.projectDescription}"
                             </div>
                             <Box className="w-8 h-8 mx-auto opacity-10" />
@@ -227,7 +227,7 @@ export function AITool() {
                       ) : (
                         brandResult ? (
                           <motion.div key="brand-out" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} className="space-y-6">
-                             <div className="p-6 sm:p-10 rounded-xl bg-background/50 border border-border/40 space-y-4">
+                             <div className="p-6 sm:p-10 rounded-xl bg-background/50 border border-border/40 space-y-4 hover:border-primary/30 transition-all">
                                <p className="text-primary font-black text-[8px] uppercase tracking-[0.4em] opacity-50">Identity Verified</p>
                                <p className="text-xs sm:text-base font-bold uppercase tracking-tight leading-relaxed">{brandResult.professionalDescription}</p>
                              </div>

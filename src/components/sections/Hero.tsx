@@ -69,12 +69,12 @@ export function Hero() {
           transition={{ duration: 1, delay: 1 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 px-4"
         >
-          <Button size="lg" className="w-full sm:w-auto rounded-full h-12 sm:h-14 px-8 sm:px-12 text-[10px] sm:text-sm font-black uppercase tracking-[0.4em] shadow-2xl shadow-primary/40 hover:scale-105 hover:bg-primary/90 transition-all group" asChild>
+          <Button size="lg" className="w-full sm:w-auto rounded-full h-12 sm:h-14 px-8 sm:px-12 text-[10px] sm:text-sm font-black uppercase tracking-[0.4em] shadow-xl hover:shadow-[0_0_30px_rgba(var(--primary),0.4)] hover:scale-105 active:scale-95 bg-primary text-primary-foreground transition-all duration-300 group" asChild>
             <a href="#portfolio">
               Archive <ArrowRight className="ml-3 sm:ml-4 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-3 transition-transform" />
             </a>
           </Button>
-          <Button variant="outline" size="lg" className="w-full sm:w-auto rounded-full h-12 sm:h-14 px-8 sm:px-12 text-[10px] sm:text-sm font-black uppercase tracking-[0.4em] border-2 border-primary/20 hover:bg-primary/5 hover:border-primary/50 transition-all shadow-xl" asChild>
+          <Button variant="outline" size="lg" className="w-full sm:w-auto rounded-full h-12 sm:h-14 px-8 sm:px-12 text-[10px] sm:text-sm font-black uppercase tracking-[0.4em] border-2 border-primary/20 hover:bg-primary/5 hover:border-primary/50 hover:shadow-[0_0_20px_rgba(var(--primary),0.1)] hover:scale-105 active:scale-95 transition-all duration-300" asChild>
             <a href="#contact">Contact</a>
           </Button>
         </motion.div>
@@ -92,7 +92,7 @@ export function Hero() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 * i, duration: 0.8 }}
-              className="space-y-3 p-6 sm:p-10 rounded-2xl sm:rounded-[2.5rem] bg-secondary/20 border border-border/40 text-left hover:border-primary/40 hover:bg-secondary/40 transition-all group backdrop-blur-3xl shadow-xl"
+              className="space-y-3 p-6 sm:p-10 rounded-2xl sm:rounded-[2.5rem] bg-secondary/20 border border-border/40 text-left hover:border-primary/40 hover:bg-secondary/40 hover:shadow-[0_0_25px_rgba(var(--primary),0.05)] transition-all group backdrop-blur-3xl shadow-xl cursor-default"
             >
               <stat.icon className="w-5 h-5 sm:w-8 sm:h-8 text-primary group-hover:scale-110 transition-transform" />
               <div className="space-y-1">

@@ -79,9 +79,14 @@ export function Navbar() {
           
           <motion.a 
             href="#contact"
-            whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(var(--primary), 0.2)" }}
+            whileHover={{ 
+              scale: 1.05, 
+              boxShadow: "0 0 30px rgba(var(--primary), 0.4)",
+              backgroundColor: "hsl(var(--primary))",
+              color: "hsl(var(--primary-foreground))"
+            }}
             whileTap={{ scale: 0.95 }}
-            className="px-6 py-2.5 rounded-lg bg-primary text-primary-foreground text-[10px] font-black uppercase tracking-[0.3em] transition-all flex items-center gap-2"
+            className="px-6 py-2.5 rounded-lg bg-primary/10 text-primary border border-primary/20 text-[10px] font-black uppercase tracking-[0.3em] transition-all flex items-center gap-2"
           >
             <Terminal className="w-3.5 h-3.5" />
             Initialize
@@ -92,7 +97,7 @@ export function Navbar() {
         <div className="flex lg:hidden items-center gap-3">
           <motion.button 
             whileTap={{ scale: 0.9 }}
-            className="p-2.5 rounded-xl bg-primary text-primary-foreground shadow-lg"
+            className="p-2.5 rounded-xl bg-primary text-primary-foreground shadow-lg hover:shadow-[0_0_20px_rgba(var(--primary),0.4)] transition-all"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -115,7 +120,7 @@ export function Navbar() {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: i * 0.1 }}
-                className="text-sm font-black uppercase tracking-[0.4em] text-foreground/70 hover:text-primary py-4 border-b border-border/10 last:border-0"
+                className="text-sm font-black uppercase tracking-[0.4em] text-foreground/70 hover:text-primary py-4 border-b border-border/10 last:border-0 transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}
@@ -126,7 +131,7 @@ export function Navbar() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.4 }}
-              className="w-full py-5 rounded-2xl bg-primary text-primary-foreground text-center font-black uppercase tracking-[0.4em] text-[12px] shadow-2xl mt-4"
+              className="w-full py-5 rounded-2xl bg-primary text-primary-foreground text-center font-black uppercase tracking-[0.4em] text-[12px] shadow-2xl mt-4 hover:shadow-[0_0_30px_rgba(var(--primary),0.5)] transition-all"
               onClick={() => setIsOpen(false)}
             >
               Start Handshake
