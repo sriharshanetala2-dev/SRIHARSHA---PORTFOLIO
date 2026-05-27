@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect } from "react";
@@ -32,10 +33,10 @@ export function Navbar() {
       scrolled ? "py-4" : "py-8"
     )}>
       <div className={cn(
-        "max-w-7xl mx-auto flex items-center justify-between px-6 lg:px-8 xl:px-10 py-3 rounded-2xl sm:rounded-full transition-all duration-700 border-none shadow-2xl backdrop-blur-3xl",
+        "max-w-7xl mx-auto flex items-center justify-between px-6 lg:px-8 xl:px-10 py-3 rounded-2xl sm:rounded-full transition-all duration-700 shadow-2xl backdrop-blur-xl border border-white/5",
         scrolled 
-          ? "bg-card/90 shadow-primary/10" 
-          : "bg-card/20 shadow-lg"
+          ? "bg-card/40 border-white/10 shadow-primary/5" 
+          : "bg-white/5 shadow-lg"
       )}>
         <Link href="/" className="flex items-center gap-3 group">
           <motion.div 
