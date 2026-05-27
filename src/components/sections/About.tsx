@@ -16,7 +16,7 @@ const nodes = [
 
 export function About() {
   const [activeNode, setActiveNode] = useState(nodes[0]);
-  const aboutBackdrop = PlaceHolderImages.find(img => img.id === 'core-logic-engine');
+  const aboutBackdrop = PlaceHolderImages.find(img => img.id === 'system-backdrop');
 
   const variants = {
     hidden: { opacity: 0, y: 20 },
@@ -25,17 +25,18 @@ export function About() {
 
   return (
     <section id="about" className="py-16 sm:py-32 px-4 sm:px-8 border-t border-border bg-background relative overflow-hidden scroll-mt-20">
-      {/* High-Fidelity Technical Backdrop - Peak Visibility */}
+      {/* High-Fidelity Technical Backdrop - Blurred Coding Workspace */}
       {aboutBackdrop && (
-        <div className="absolute inset-0 z-0 pointer-events-none">
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
           <Image
             src={aboutBackdrop.imageUrl}
             alt={aboutBackdrop.description}
             fill
-            className="object-cover opacity-80 brightness-[0.9] transition-all duration-1000"
+            className="object-cover opacity-100 brightness-[0.7] blur-md scale-105 transition-all duration-1000"
             data-ai-hint={aboutBackdrop.imageHint}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/50 to-transparent z-10" />
+          {/* Refined gradient mask for optimal content contrast */}
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/60 to-background/20 z-10" />
         </div>
       )}
 
