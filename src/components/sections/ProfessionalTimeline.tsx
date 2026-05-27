@@ -152,7 +152,7 @@ export function SystemRegistry() {
                     {item.period}
                   </div>
                 </div>
-                <p className="text-[12px] sm:text-base text-muted-foreground leading-relaxed font-bold uppercase tracking-tight opacity-70">
+                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed font-bold uppercase tracking-tight opacity-70">
                   {item.description}
                 </p>
               </div>
