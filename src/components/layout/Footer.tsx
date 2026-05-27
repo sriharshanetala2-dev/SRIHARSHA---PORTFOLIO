@@ -24,7 +24,7 @@ export function Footer() {
               <Code2 className="w-6 h-6 text-primary/20 animate-pulse hidden sm:block" />
             </div>
             <p className="text-muted-foreground text-center lg:text-left max-w-lg text-[11px] sm:text-xs font-black leading-relaxed opacity-70 uppercase tracking-[0.2em] px-4 lg:px-0">
-              Architecting high-performance digital ecosystems with a focus on Full Stack integrity and UI precision.
+              Architecting high-performance digital ecosystems with a focus on Full Stack integrity and App Development precision.
             </p>
           </div>
 
