@@ -72,17 +72,17 @@ export function Skills() {
 
   return (
     <section id="skills" className="py-20 sm:py-32 px-4 sm:px-6 border-t border-border bg-background relative overflow-hidden scroll-mt-20">
-      {/* High-Fidelity Technical Backdrop */}
+      {/* High-Fidelity Technical Backdrop - Enhanced Visibility */}
       {skillsBackdrop && (
         <div className="absolute inset-0 z-0 pointer-events-none">
           <Image
             src={skillsBackdrop.imageUrl}
             alt={skillsBackdrop.description}
             fill
-            className="object-cover opacity-30 grayscale brightness-[0.4]"
+            className="object-cover opacity-60 grayscale brightness-[0.7] transition-all duration-1000"
             data-ai-hint={skillsBackdrop.imageHint}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-background via-background/60 to-background z-[1]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/60 to-background z-[1]" />
         </div>
       )}
 
