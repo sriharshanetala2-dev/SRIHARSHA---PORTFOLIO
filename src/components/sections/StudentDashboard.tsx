@@ -74,7 +74,7 @@ export function StudentDashboard() {
   const [activeTab, setActiveTab] = useState("Overview");
   const [mounted, setMounted] = useState(false);
   const { toast } = useToast();
-  const dashboardBackdrop = PlaceHolderImages.find(img => img.id === 'skyguard-mobile');
+  const dashboardBackdrop = PlaceHolderImages.find(img => img.id === 'system-backdrop');
 
   useEffect(() => {
     setMounted(true);
@@ -263,17 +263,17 @@ export function StudentDashboard() {
 
   return (
     <section id="dashboard" className="py-12 sm:py-24 px-4 bg-background border-t border-border relative overflow-hidden scroll-mt-20">
-      {/* High-Fidelity Technical Backdrop - Peak Visibility */}
+      {/* High-Fidelity Technical Backdrop - Blurred Coding Environment */}
       {dashboardBackdrop && (
-        <div className="absolute inset-0 z-0 pointer-events-none">
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
           <Image
             src={dashboardBackdrop.imageUrl}
             alt={dashboardBackdrop.description}
             fill
-            className="object-cover opacity-90 brightness-[0.8] transition-all duration-1000"
+            className="object-cover blur-md scale-105 opacity-100 brightness-[0.7] transition-all duration-1000"
             data-ai-hint={dashboardBackdrop.imageHint}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/20 to-background z-[1]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/30 to-background z-[1]" />
         </div>
       )}
 
