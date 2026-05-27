@@ -102,12 +102,12 @@ export function StudentDashboard() {
             <Card className="bg-background/40 border-border/50 overflow-hidden backdrop-blur-xl">
               <CardHeader className="flex flex-row items-center justify-between p-6">
                 <div className="space-y-1">
-                  <CardTitle className="text-base sm:text-lg font-black uppercase tracking-tight">Enrollment Registry</CardTitle>
-                  <CardDescription className="text-xs uppercase font-black opacity-50 tracking-widest">Live registered student database</CardDescription>
+                  <CardTitle className="text-sm sm:text-lg font-black uppercase tracking-tight">Enrollment Registry</CardTitle>
+                  <CardDescription className="text-[10px] uppercase font-black opacity-50 tracking-widest">Live registered student database</CardDescription>
                 </div>
                 <div className="flex gap-2">
-                  <button onClick={() => handleSimulatedAction("Filter Registry")} className="p-2.5 rounded-lg border border-border hover:bg-secondary transition-all"><Filter className="w-4 h-4" /></button>
-                  <button onClick={() => handleSimulatedAction("Query Registry")} className="p-2.5 rounded-lg border border-border hover:bg-secondary transition-all"><Search className="w-4 h-4" /></button>
+                  <button onClick={() => handleSimulatedAction("Filter Registry")} className="p-2 rounded-lg border border-border hover:bg-secondary transition-all"><Filter className="w-3.5 h-3.5" /></button>
+                  <button onClick={() => handleSimulatedAction("Query Registry")} className="p-2 rounded-lg border border-border hover:bg-secondary transition-all"><Search className="w-3.5 h-3.5" /></button>
                 </div>
               </CardHeader>
               <CardContent className="p-0 sm:p-6 overflow-hidden">
@@ -115,23 +115,23 @@ export function StudentDashboard() {
                   <Table className="min-w-[600px] sm:min-w-full">
                     <TableHeader>
                       <TableRow className="border-border/50 hover:bg-transparent">
-                        <TableHead className="text-xs font-black uppercase tracking-widest px-4">ID</TableHead>
-                        <TableHead className="text-xs font-black uppercase tracking-widest px-4">Name</TableHead>
-                        <TableHead className="hidden sm:table-cell text-xs font-black uppercase tracking-widest px-4">Course</TableHead>
-                        <TableHead className="text-xs font-black uppercase tracking-widest px-4">GPA</TableHead>
-                        <TableHead className="text-right px-4 text-xs font-black uppercase tracking-widest">Status</TableHead>
+                        <TableHead className="text-[10px] font-black uppercase tracking-widest px-4">ID</TableHead>
+                        <TableHead className="text-[10px] font-black uppercase tracking-widest px-4">Name</TableHead>
+                        <TableHead className="hidden sm:table-cell text-[10px] font-black uppercase tracking-widest px-4">Course</TableHead>
+                        <TableHead className="text-[10px] font-black uppercase tracking-widest px-4">GPA</TableHead>
+                        <TableHead className="text-right px-4 text-[10px] font-black uppercase tracking-widest">Status</TableHead>
                       </TableRow>
                     </TableHeader>
                     <TableBody>
                       {studentActivity.map((student) => (
                         <TableRow key={student.id} className="border-border/20 group hover:bg-primary/5 transition-colors">
-                          <TableCell className="font-mono text-xs text-muted-foreground">{student.id_num}</TableCell>
-                          <TableCell className="font-black text-sm uppercase tracking-tight">{student.name}</TableCell>
-                          <TableCell className="hidden sm:table-cell text-xs font-black uppercase opacity-60 tracking-wider">{student.course}</TableCell>
-                          <TableCell className="font-black text-primary text-sm">{student.gpa}</TableCell>
+                          <TableCell className="font-mono text-[10px] text-muted-foreground">{student.id_num}</TableCell>
+                          <TableCell className="font-black text-xs uppercase tracking-tight">{student.name}</TableCell>
+                          <TableCell className="hidden sm:table-cell text-[10px] font-black uppercase opacity-60 tracking-wider">{student.course}</TableCell>
+                          <TableCell className="font-black text-primary text-xs">{student.gpa}</TableCell>
                           <TableCell className="text-right">
                             <span className={cn(
-                              "px-3 py-1 rounded-md text-xs font-black uppercase tracking-widest border",
+                              "px-2 py-0.5 rounded-md text-[9px] font-black uppercase tracking-widest border",
                               student.status === "Active" 
                                 ? "bg-primary/5 border-primary/20 text-primary" 
                                 : "bg-accent/5 border-accent/20 text-accent"
@@ -154,8 +154,8 @@ export function StudentDashboard() {
           <div className="grid grid-cols-1 gap-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
              <Card className="bg-background/40 border-border/50 overflow-hidden backdrop-blur-xl">
               <CardHeader className="p-6">
-                <CardTitle className="text-base sm:text-lg font-black uppercase tracking-tight">Grade Velocity</CardTitle>
-                <CardDescription className="text-xs uppercase font-black opacity-50 tracking-widest">Aggregate semester performance tracking</CardDescription>
+                <CardTitle className="text-sm sm:text-lg font-black uppercase tracking-tight">Grade Velocity</CardTitle>
+                <CardDescription className="text-[10px] uppercase font-black opacity-50 tracking-widest">Aggregate semester performance tracking</CardDescription>
               </CardHeader>
               <CardContent className="h-[250px] sm:h-[400px] pt-4 px-2 sm:px-6">
                 <ChartContainer config={chartConfig} className="h-full w-full">
@@ -167,8 +167,8 @@ export function StudentDashboard() {
                       </linearGradient>
                     </defs>
                     <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="hsl(var(--border) / 0.3)" />
-                    <XAxis dataKey="semester" axisLine={false} tickLine={false} tick={{ fontSize: 11, fontWeight: 900, fill: "hsl(var(--muted-foreground))" }} />
-                    <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 11, fontWeight: 900, fill: "hsl(var(--muted-foreground))" }} />
+                    <XAxis dataKey="semester" axisLine={false} tickLine={false} tick={{ fontSize: 10, fontWeight: 900, fill: "hsl(var(--muted-foreground))" }} />
+                    <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 10, fontWeight: 900, fill: "hsl(var(--muted-foreground))" }} />
                     <ChartTooltip content={<ChartTooltipContent />} />
                     <Area type="monotone" dataKey="gpa" stroke="var(--color-gpa)" fill="url(#colorGpa)" strokeWidth={3} />
                   </AreaChart>
@@ -196,13 +196,13 @@ export function StudentDashboard() {
                   )}
                   onClick={() => handleSimulatedAction(`Analyzing ${stat.label}`)}
                 >
-                  <CardContent className="p-8 sm:p-8 flex items-center justify-between">
-                    <div className="space-y-2">
-                      <p className="text-xs font-black text-muted-foreground uppercase tracking-[0.3em]">{stat.label}</p>
-                      <span className="text-3xl sm:text-3xl font-black font-headline text-foreground leading-none">{stat.value}</span>
+                  <CardContent className="p-6 sm:p-8 flex items-center justify-between">
+                    <div className="space-y-1">
+                      <p className="text-[10px] font-black text-muted-foreground uppercase tracking-[0.3em]">{stat.label}</p>
+                      <span className="text-2xl sm:text-3xl font-black font-headline text-foreground leading-none">{stat.value}</span>
                     </div>
-                    <div className="p-4 rounded-2xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500 shadow-inner">
-                      <stat.icon className="w-6 h-6" />
+                    <div className="p-3 sm:p-4 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500 shadow-inner">
+                      <stat.icon className="w-5 h-5 sm:w-6 sm:h-6" />
                     </div>
                   </CardContent>
                 </Card>
@@ -213,10 +213,10 @@ export function StudentDashboard() {
               <Card className="bg-background/40 border-border/50 animate-in fade-in slide-in-from-left-4 duration-700 overflow-hidden backdrop-blur-xl">
                 <CardHeader className="flex flex-row items-center justify-between p-6">
                   <div className="space-y-1">
-                    <CardTitle className="text-sm font-black font-headline uppercase tracking-[0.4em] text-primary">System Trends</CardTitle>
-                    <CardDescription className="text-xs font-black uppercase opacity-40">Historical GPA metrics</CardDescription>
+                    <CardTitle className="text-[11px] sm:text-sm font-black font-headline uppercase tracking-[0.4em] text-primary">System Trends</CardTitle>
+                    <CardDescription className="text-[10px] font-black uppercase opacity-40">Historical GPA metrics</CardDescription>
                   </div>
-                  <BarChart3 className="w-5 h-5 text-primary opacity-30" />
+                  <BarChart3 className="w-4 h-4 text-primary opacity-30" />
                 </CardHeader>
                 <CardContent className="h-40 sm:h-64 pt-2 px-4">
                   <ChartContainer config={chartConfig} className="h-full w-full">
@@ -232,22 +232,22 @@ export function StudentDashboard() {
 
               <Card className="bg-background/40 border-border/50 animate-in fade-in slide-in-from-right-4 duration-700 overflow-hidden backdrop-blur-xl">
                 <CardHeader className="p-6">
-                  <CardTitle className="text-sm font-black font-headline uppercase tracking-[0.4em] text-primary">Live Activity</CardTitle>
-                  <CardDescription className="text-xs font-black uppercase opacity-40">Recent data access logs</CardDescription>
+                  <CardTitle className="text-[11px] sm:text-sm font-black font-headline uppercase tracking-[0.4em] text-primary">Live Activity</CardTitle>
+                  <CardDescription className="text-[10px] font-black uppercase opacity-40">Recent data access logs</CardDescription>
                 </CardHeader>
                 <CardContent className="p-6 space-y-3">
                   {studentActivity.slice(0, 3).map((student) => (
-                    <div key={student.id} className="flex items-center justify-between p-5 rounded-xl bg-secondary/20 border border-border/40 group hover:border-primary/60 transition-all cursor-pointer">
-                      <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-sm font-black text-primary border border-primary/20">
+                    <div key={student.id} className="flex items-center justify-between p-4 rounded-xl bg-secondary/20 border border-border/40 group hover:border-primary/60 transition-all cursor-pointer">
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-xs font-black text-primary border border-primary/20">
                           {student.name.split(' ').map(n => n[0]).join('')}
                         </div>
                         <div className="flex flex-col">
-                          <span className="text-xs font-black uppercase tracking-tight">{student.name}</span>
-                          <span className="text-[11px] uppercase font-black opacity-40 tracking-widest">{student.id_num}</span>
+                          <span className="text-[11px] font-black uppercase tracking-tight">{student.name}</span>
+                          <span className="text-[9px] uppercase font-black opacity-40 tracking-widest">{student.id_num}</span>
                         </div>
                       </div>
-                      <MoreVertical className="w-4 h-4 text-muted-foreground opacity-20 group-hover:opacity-100 transition-opacity" />
+                      <MoreVertical className="w-3.5 h-3.5 text-muted-foreground opacity-20 group-hover:opacity-100 transition-opacity" />
                     </div>
                   ))}
                 </CardContent>
@@ -277,14 +277,14 @@ export function StudentDashboard() {
         </div>
 
         <div className="rounded-[2.5rem] sm:rounded-[4rem] overflow-hidden border-2 border-border bg-card shadow-4xl animate-in fade-in zoom-in-95 duration-1000">
-          <div className="p-8 sm:p-10 border-b border-border bg-secondary/30 flex flex-col md:flex-row md:items-center justify-between gap-8">
+          <div className="p-6 sm:p-10 border-b border-border bg-secondary/30 flex flex-col md:flex-row md:items-center justify-between gap-8">
             <div className="flex items-center gap-6">
-              <div className="p-5 sm:p-5 rounded-2xl bg-primary text-primary-foreground shadow-2xl">
-                <Database className="w-8 h-8" />
+              <div className="p-4 sm:p-5 rounded-2xl bg-primary text-primary-foreground shadow-2xl">
+                <Database className="w-6 h-6 sm:w-8 sm:h-8" />
               </div>
               <div>
-                <h3 className="text-2xl sm:text-2xl font-black font-headline uppercase tracking-tight text-foreground">ANALYTICS ENGINE v3.0</h3>
-                <p className="text-xs text-primary uppercase tracking-[0.5em] font-black opacity-80 mt-1">Node Status: Verified // SYNCED</p>
+                <h3 className="text-xl sm:text-2xl font-black font-headline uppercase tracking-tight text-foreground">ANALYTICS ENGINE v3.0</h3>
+                <p className="text-[10px] text-primary uppercase tracking-[0.5em] font-black opacity-80 mt-1">Node Status: Verified // SYNCED</p>
               </div>
             </div>
             
@@ -297,8 +297,8 @@ export function StudentDashboard() {
                 />
               </div>
               <div className="flex items-center gap-3">
-                <button onClick={() => handleSimulatedAction("Alerts Node")} className="p-3.5 rounded-xl bg-background border border-border text-muted-foreground hover:text-primary transition-all shadow-md"><Bell className="w-5 h-5" /></button>
-                <div className="w-12 h-12 rounded-xl bg-primary/20 border-2 border-primary/20 flex items-center justify-center text-primary font-black cursor-pointer text-[12px] shadow-lg hover:scale-105 transition-all" onClick={() => handleSimulatedAction("User Identity Node")}>NS</div>
+                <button onClick={() => handleSimulatedAction("Alerts Node")} className="p-3 rounded-xl bg-background border border-border text-muted-foreground hover:text-primary transition-all shadow-md"><Bell className="w-4 h-4 sm:w-5 sm:h-5" /></button>
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-primary/20 border-2 border-primary/20 flex items-center justify-center text-primary font-black cursor-pointer text-[11px] sm:text-[12px] shadow-lg hover:scale-105 transition-all" onClick={() => handleSimulatedAction("User Identity Node")}>NS</div>
               </div>
             </div>
           </div>
@@ -315,30 +315,30 @@ export function StudentDashboard() {
                     key={item.label}
                     onClick={() => handleTabChange(item.label)}
                     className={cn(
-                      "flex items-center gap-4 px-6 py-5 rounded-xl text-xs font-black transition-all whitespace-nowrap lg:w-full uppercase tracking-[0.3em] shadow-sm",
+                      "flex items-center gap-3 px-5 py-4 rounded-xl text-[11px] font-black transition-all whitespace-nowrap lg:w-full uppercase tracking-[0.3em] shadow-sm",
                       activeTab === item.label
                       ? "bg-primary text-primary-foreground shadow-xl scale-[1.02]" 
                       : "text-muted-foreground hover:bg-primary/10 hover:text-primary border border-transparent hover:border-primary/20"
                     )}
                   >
-                    <item.icon className="w-5 h-5" />
+                    <item.icon className="w-4 h-4" />
                     {item.label}
                   </button>
                 ))}
               </div>
             </div>
 
-            <div className="flex-1 p-8 sm:p-14 space-y-10 bg-gradient-to-br from-background via-background to-secondary/5 overflow-hidden">
+            <div className="flex-1 p-6 sm:p-14 space-y-8 sm:space-y-10 bg-gradient-to-br from-background via-background to-secondary/5 overflow-hidden">
               <div className="flex items-center justify-between gap-6">
-                <h4 className="text-2xl sm:text-3xl font-black font-headline text-foreground uppercase tracking-tight leading-none">
-                  {activeTab} <span className="text-primary opacity-30 text-lg sm:text-xl">Subsystem</span>
+                <h4 className="text-xl sm:text-3xl font-black font-headline text-foreground uppercase tracking-tight leading-none">
+                  {activeTab} <span className="text-primary opacity-30 text-sm sm:text-xl">Subsystem</span>
                 </h4>
-                <div className="flex gap-3">
-                  <button onClick={() => handleSimulatedAction("Data Sync")} className="hidden sm:flex items-center gap-3 text-[11px] font-black px-6 py-3 rounded-xl border-2 border-border hover:border-primary hover:text-primary transition-all uppercase tracking-widest shadow-md">
-                    <TrendingUp className="w-4 h-4" /> Sync
+                <div className="flex gap-2 sm:gap-3">
+                  <button onClick={() => handleSimulatedAction("Data Sync")} className="hidden sm:flex items-center gap-3 text-[10px] sm:text-[11px] font-black px-4 py-2.5 rounded-xl border-2 border-border hover:border-primary hover:text-primary transition-all uppercase tracking-widest shadow-md">
+                    <TrendingUp className="w-3.5 h-3.5" /> Sync
                   </button>
-                  <button onClick={() => handleSimulatedAction("Data Export")} className="flex items-center gap-3 text-[11px] font-black px-6 py-3 rounded-xl bg-primary text-primary-foreground hover:brightness-110 transition-all uppercase tracking-widest shadow-2xl">
-                    <Download className="w-4 h-4" /> Export
+                  <button onClick={() => handleSimulatedAction("Data Export")} className="flex items-center gap-2 sm:gap-3 text-[10px] sm:text-[11px] font-black px-4 py-2.5 rounded-xl bg-primary text-primary-foreground hover:brightness-110 transition-all uppercase tracking-widest shadow-2xl">
+                    <Download className="w-3.5 h-3.5" /> Export
                   </button>
                 </div>
               </div>
