@@ -25,7 +25,7 @@ export function Projects() {
   };
 
   return (
-    <section id="portfolio" className="py-24 sm:py-32 px-8 bg-secondary/10 border-t border-border relative overflow-hidden scroll-mt-20">
+    <section id="portfolio" className="py-24 sm:py-32 px-4 sm:px-8 bg-secondary/10 border-t border-border relative overflow-hidden scroll-mt-20">
       <div className="max-w-7xl mx-auto space-y-20 relative z-10">
         <div className="text-center space-y-8">
           <motion.div 
@@ -59,7 +59,7 @@ export function Projects() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
         >
           {projects.map((project) => {
             const Icon = iconMap[project.icon] || Code2;
@@ -70,39 +70,39 @@ export function Projects() {
                 className="h-full"
               >
                 <Link href={`/projects/${project.id}`} className="group h-full block">
-                  <Card className="h-full rounded-[2.5rem] overflow-hidden glass-card hover:translate-y-[-10px] transition-all duration-700 shadow-xl">
-                    <CardContent className="p-10 space-y-10 flex flex-col h-full relative">
+                  <Card className="h-full rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden glass-card hover:translate-y-[-10px] transition-all duration-700 shadow-xl">
+                    <CardContent className="p-8 sm:p-10 space-y-8 sm:space-y-10 flex flex-col h-full relative">
                       <div className="flex justify-between items-start">
-                        <div className="p-4 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-700 shadow-lg">
-                          <Icon className="w-7 h-7" />
+                        <div className="p-3 sm:p-4 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-700 shadow-lg">
+                          <Icon className="w-6 h-6 sm:w-7 sm:h-7" />
                         </div>
-                        <span className="text-[11px] font-black uppercase tracking-[0.3em] text-primary bg-primary/5 px-6 py-2 rounded-full border border-primary/20">
+                        <span className="text-[10px] sm:text-[11px] font-black uppercase tracking-[0.3em] text-primary bg-primary/5 px-4 sm:px-6 py-1.5 sm:py-2 rounded-full border border-primary/20">
                           {project.category}
                         </span>
                       </div>
                       
-                      <div className="space-y-4 flex-grow">
-                        <h3 className="text-2xl font-headline font-black uppercase tracking-tight group-hover:text-primary transition-colors leading-tight">{project.title}</h3>
-                        <p className="text-sm sm:text-base text-muted-foreground leading-relaxed font-bold uppercase tracking-tight opacity-90 line-clamp-4">
+                      <div className="space-y-3 sm:space-y-4 flex-grow">
+                        <h3 className="text-xl sm:text-2xl font-headline font-black uppercase tracking-tight group-hover:text-primary transition-colors leading-tight">{project.title}</h3>
+                        <p className="text-[13px] sm:text-base text-muted-foreground leading-relaxed font-bold uppercase tracking-tight opacity-90 line-clamp-4">
                           {project.description}
                         </p>
                       </div>
                       
-                      <div className="space-y-4">
-                        <div className="flex items-center gap-3 text-[11px] font-black text-primary uppercase tracking-[0.3em] opacity-50">
-                          <Terminal className="w-4 h-4" /> SYSTEM_LOGS
+                      <div className="space-y-3 sm:space-y-4">
+                        <div className="flex items-center gap-2 sm:gap-3 text-[10px] sm:text-[11px] font-black text-primary uppercase tracking-[0.3em] opacity-50">
+                          <Terminal className="w-3.5 h-3.5 sm:w-4 sm:h-4" /> SYSTEM_LOGS
                         </div>
-                        <div className="flex flex-wrap gap-3">
+                        <div className="flex flex-wrap gap-2 sm:gap-3">
                           {project.tags.slice(0, 3).map(tag => (
-                            <span key={tag} className="text-[12px] font-black uppercase tracking-[0.3em] text-muted-foreground/50 font-mono">
+                            <span key={tag} className="text-[11px] sm:text-[12px] font-black uppercase tracking-[0.3em] text-muted-foreground/50 font-mono">
                               #{tag}
                             </span>
                           ))}
                         </div>
                       </div>
                       
-                      <div className="pt-8 border-t border-border/60 flex items-center justify-between text-[13px] font-black uppercase tracking-[0.3em] text-primary group-hover:gap-4 transition-all">
-                        Registry Archive <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
+                      <div className="pt-6 sm:pt-8 border-t border-border/60 flex items-center justify-between text-[12px] sm:text-[13px] font-black uppercase tracking-[0.3em] text-primary group-hover:gap-4 transition-all">
+                        Registry Archive <ArrowRight className="w-5 h-5 sm:w-6 h-6 group-hover:translate-x-2 transition-transform" />
                       </div>
                     </CardContent>
                   </Card>
