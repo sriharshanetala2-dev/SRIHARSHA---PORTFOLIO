@@ -37,10 +37,10 @@ export function Projects() {
             src={projectsBackdrop.imageUrl}
             alt={projectsBackdrop.description}
             fill
-            className="object-cover opacity-40 grayscale brightness-[0.4]"
+            className="object-cover opacity-60 brightness-[0.7] transition-all duration-1000"
             data-ai-hint={projectsBackdrop.imageHint}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-background via-background/70 to-background z-[1]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/60 to-background z-[1]" />
         </div>
       )}
 
