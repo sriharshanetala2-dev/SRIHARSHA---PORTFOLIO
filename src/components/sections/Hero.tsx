@@ -19,11 +19,11 @@ export function Hero() {
             src={heroImage.imageUrl}
             alt={heroImage.description}
             fill
-            className="object-cover opacity-40 grayscale"
+            className="object-cover opacity-60 grayscale transition-opacity duration-1000"
             priority
             data-ai-hint={heroImage.imageHint}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/60 to-background z-10" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/40 to-background z-10" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,hsl(var(--background))_100%)] z-10" />
         </div>
       )}
