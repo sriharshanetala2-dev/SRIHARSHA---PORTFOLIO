@@ -267,8 +267,8 @@ export function StudentDashboard() {
             Core Analytics Node
           </div>
           <h2 className="text-2xl sm:text-5xl lg:text-7xl font-headline font-black tracking-tighter uppercase leading-[0.9] shimmer-text">
-            INTELLIGENT <br /> 
-            DATA <br /> 
+            INTELLIGENT <br className="sm:hidden" /> 
+            DATA <br className="sm:hidden" /> 
             <span className="text-gradient">ECOSYSTEM</span>
           </h2>
           <p className="text-[10px] sm:text-lg text-muted-foreground max-w-3xl mx-auto font-black opacity-70 uppercase tracking-[0.2em] leading-relaxed px-4">
