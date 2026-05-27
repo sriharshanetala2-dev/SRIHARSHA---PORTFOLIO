@@ -62,7 +62,7 @@ export function Contact() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl xs:text-5xl sm:text-7xl lg:text-9xl font-headline font-black tracking-tighter uppercase leading-[0.9]"
+            className="text-3xl sm:text-6xl lg:text-8xl font-headline font-black tracking-tighter uppercase leading-[0.9]"
           >
             SYNC <span className="text-gradient">NODES</span>
           </motion.h2>
@@ -91,7 +91,7 @@ export function Contact() {
               <div className="space-y-8 relative z-10">
                 <div className="space-y-3">
                   <p className="text-[10px] sm:text-[14px] font-black text-primary uppercase tracking-[0.4em]">Email Port</p>
-                  <h3 className="text-[10px] sm:text-xl lg:text-2xl font-headline font-black uppercase tracking-tight break-all leading-tight">
+                  <h3 className="text-[9px] sm:text-xl font-headline font-black uppercase tracking-tight break-all leading-tight">
                     {userEmail}
                   </h3>
                 </div>
@@ -111,7 +111,9 @@ export function Contact() {
             <motion.div variants={itemVariants} className="p-6 rounded-[1.25rem] sm:rounded-[2.5rem] bg-primary/5 border border-primary/20 backdrop-blur-xl flex flex-col gap-3">
               <div className="flex items-center gap-3">
                 <Terminal className="w-4 h-4 sm:w-6 sm:h-6 text-primary" />
-                <p className="text-[10px] sm:text-[11px] font-black uppercase tracking-[0.4em] text-primary">Status: Link Ready</p>
+                <p className="text-[10px] sm:text-sm font-bold uppercase tracking-tight text-muted-foreground leading-relaxed opacity-80">
+                  Initialization complete. Secure channel verified for enterprise collaboration and technical orchestration.
+                </p>
               </div>
               <p className="text-[10px] sm:text-sm font-bold uppercase tracking-tight text-muted-foreground leading-relaxed opacity-80">
                 Initialization complete. Secure channel verified for enterprise collaboration and technical orchestration.
