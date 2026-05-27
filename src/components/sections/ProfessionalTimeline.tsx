@@ -113,7 +113,7 @@ export function SystemRegistry() {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-[11px] sm:text-lg text-muted-foreground font-bold uppercase tracking-widest opacity-80 max-w-2xl mx-auto px-4"
+            className="text-sm sm:text-xl text-muted-foreground font-bold uppercase tracking-widest opacity-80 max-w-2xl mx-auto px-4"
           >
             A high-fidelity audit of professional milestones and academic foundation nodes.
           </motion.p>
