@@ -33,11 +33,9 @@ export function About() {
           >
             <div className="space-y-6">
               <div className="section-label">FULL_STACK_DEVELOPER_CORE</div>
-              <h2 className="text-3xl sm:text-6xl font-headline font-black leading-tight uppercase">
+              <h2 className="text-3xl sm:text-6xl font-headline font-black leading-[1.1] sm:leading-tight uppercase">
                 Engineering <br className="sm:hidden" /> 
-                <span className="hidden sm:inline"> </span>
                 <span className="text-gradient">
-                  <br className="sm:hidden" />
                   Digital <br className="sm:hidden" /> Intelligence
                 </span>
               </h2>
