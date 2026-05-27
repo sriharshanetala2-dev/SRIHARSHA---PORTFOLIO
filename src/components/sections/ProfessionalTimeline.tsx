@@ -93,21 +93,21 @@ export function SystemRegistry() {
 
   return (
     <section id="experience" className="py-20 sm:py-32 px-4 sm:px-6 border-t border-border bg-background relative overflow-hidden scroll-mt-20">
-      {/* High-Fidelity Technical Backdrop - Enhanced Visibility */}
+      {/* Subtler technical backdrop for reduced appearance */}
       {timelineBackdrop && (
         <div className="absolute inset-0 z-0 pointer-events-none">
           <Image
             src={timelineBackdrop.imageUrl}
             alt={timelineBackdrop.description}
             fill
-            className="object-cover opacity-80 grayscale brightness-[0.7] transition-all duration-1000"
+            className="object-cover opacity-20 grayscale brightness-[0.4] transition-all duration-1000"
             data-ai-hint={timelineBackdrop.imageHint}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/40 to-background z-[1]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/60 to-background z-[1]" />
         </div>
       )}
 
-      <div className="absolute inset-0 neural-grid opacity-[0.05] pointer-events-none z-[2]" />
+      <div className="absolute inset-0 neural-grid opacity-[0.03] pointer-events-none z-[2]" />
       
       <div className="max-w-4xl mx-auto space-y-12 sm:space-y-24 relative z-10">
         <div className="text-center space-y-6">
