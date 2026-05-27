@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail, Sparkles, Code2 } from "lucide-react";
+import { Github, Linkedin, Mail, Sparkles, Code2, ArrowUpRight } from "lucide-react";
 import { Logo } from "@/components/ui/logo";
 
 export function Footer() {
@@ -62,15 +62,15 @@ export function Footer() {
             </div>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-10 sm:gap-14">
+          <div className="flex flex-wrap justify-center gap-8 sm:gap-12">
             {["About", "Portfolio", "Contact"].map((item) => (
               <a 
                 key={item}
                 href={`#${item.toLowerCase()}`}
-                className="text-[10px] sm:text-[11px] font-black text-muted-foreground/50 hover:text-primary uppercase tracking-[0.4em] transition-all relative group"
+                className="text-[10px] sm:text-[11px] font-black text-muted-foreground hover:text-primary uppercase tracking-[0.3em] transition-all relative group flex items-center gap-1.5"
               >
                 {item}
-                <span className="absolute -bottom-2 left-0 w-0 h-[1px] bg-primary transition-all group-hover:w-full shadow-[0_0_10px_rgba(var(--primary),0.5)]" />
+                <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300" />
               </a>
             ))}
           </div>
