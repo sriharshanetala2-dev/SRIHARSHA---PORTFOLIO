@@ -118,28 +118,28 @@ export function AITool() {
                   <CardContent className="p-6 sm:p-10 space-y-6 sm:space-y-8">
                     <div className="flex items-center gap-3">
                       <Terminal className="w-5 h-5 text-primary" />
-                      <h3 className="text-sm sm:text-xl font-black uppercase tracking-tight">System Params</h3>
+                      <h3 className="text-base sm:text-xl font-black uppercase tracking-tight">System Params</h3>
                     </div>
                     <form onSubmit={handleNarrative} className="space-y-4 sm:space-y-6">
                       <div className="space-y-2">
-                        <label className="text-[9px] sm:text-[11px] font-black uppercase tracking-widest text-muted-foreground ml-2">Tech Stack</label>
+                        <label className="text-[10px] sm:text-[11px] font-black uppercase tracking-widest text-muted-foreground ml-2">Tech Stack</label>
                         <Input 
                           placeholder="e.g. Next.js, Firebase" 
                           value={narrativeData.techStack}
                           onChange={(e) => setNarrativeData({...narrativeData, techStack: e.target.value})}
-                          className="h-12 sm:h-14 bg-background/40 border-border/40 rounded-lg font-black text-[10px] uppercase tracking-widest px-4 sm:px-5"
+                          className="h-12 sm:h-14 bg-background/40 border-border/40 rounded-lg font-black text-xs uppercase tracking-widest px-4 sm:px-5"
                         />
                       </div>
                       <div className="space-y-2">
-                        <label className="text-[9px] sm:text-[11px] font-black uppercase tracking-widest text-muted-foreground ml-2">Project Scope</label>
+                        <label className="text-[10px] sm:text-[11px] font-black uppercase tracking-widest text-muted-foreground ml-2">Project Scope</label>
                         <Textarea 
                           placeholder="Define the mission..." 
                           value={narrativeData.scope}
                           onChange={(e) => setNarrativeData({...narrativeData, scope: e.target.value})}
-                          className="min-h-[100px] sm:min-h-[140px] bg-background/40 border-border/40 rounded-lg p-4 sm:p-5 resize-none font-bold text-[10px] uppercase tracking-tight"
+                          className="min-h-[100px] sm:min-h-[140px] bg-background/40 border-border/40 rounded-lg p-4 sm:p-5 resize-none font-bold text-xs uppercase tracking-tight"
                         />
                       </div>
-                      <Button type="submit" className="w-full h-14 sm:h-16 rounded-lg font-black uppercase tracking-widest text-[10px] shadow-lg bg-primary text-primary-foreground" disabled={loading}>
+                      <Button type="submit" className="w-full h-14 sm:h-16 rounded-lg font-black uppercase tracking-widest text-xs shadow-lg bg-primary text-primary-foreground" disabled={loading}>
                         {loading ? <Loader2 className="w-5 h-5 animate-spin" /> : <><Zap className="w-4 h-4 mr-2" /> Synthesize Logic</>}
                       </Button>
                     </form>
@@ -152,25 +152,25 @@ export function AITool() {
                   <CardContent className="p-6 sm:p-10 space-y-6 sm:space-y-8">
                     <div className="flex items-center gap-3">
                       <Briefcase className="w-5 h-5 text-primary" />
-                      <h3 className="text-sm sm:text-xl font-black uppercase tracking-tight">Brand Matrix</h3>
+                      <h3 className="text-base sm:text-xl font-black uppercase tracking-tight">Brand Matrix</h3>
                     </div>
                     <form onSubmit={handleBrand} className="space-y-4 sm:space-y-6">
                       <div className="grid grid-cols-2 gap-4">
                         <div className="space-y-2">
-                          <label className="text-[9px] sm:text-[11px] font-black uppercase tracking-widest text-muted-foreground ml-2">Entity Name</label>
+                          <label className="text-[10px] sm:text-[11px] font-black uppercase tracking-widest text-muted-foreground ml-2">Entity Name</label>
                           <Input 
                             placeholder="Name" 
                             value={brandData.name}
                             onChange={(e) => setBrandData({...brandData, name: e.target.value})}
-                            className="h-12 sm:h-14 bg-background/40 border-border/40 rounded-lg font-black text-[10px] uppercase px-4"
+                            className="h-12 sm:h-14 bg-background/40 border-border/40 rounded-lg font-black text-xs uppercase px-4"
                           />
                         </div>
                         <div className="space-y-2">
-                          <label className="text-[9px] sm:text-[11px] font-black uppercase tracking-widest text-muted-foreground ml-2">Tone</label>
+                          <label className="text-[10px] sm:text-[11px] font-black uppercase tracking-widest text-muted-foreground ml-2">Tone</label>
                           <select 
                             value={brandData.tone}
                             onChange={(e) => setBrandData({...brandData, tone: e.target.value as any})}
-                            className="w-full h-12 sm:h-14 bg-background/40 border border-border/40 rounded-lg px-3 font-black text-[9px] uppercase tracking-widest focus:outline-none"
+                            className="w-full h-12 sm:h-14 bg-background/40 border border-border/40 rounded-lg px-3 font-black text-[10px] uppercase tracking-widest focus:outline-none"
                           >
                             <option>Professional</option>
                             <option>Futuristic</option>
@@ -179,15 +179,15 @@ export function AITool() {
                         </div>
                       </div>
                       <div className="space-y-2">
-                        <label className="text-[9px] sm:text-[11px] font-black uppercase tracking-widest text-muted-foreground ml-2">Mission</label>
+                        <label className="text-[10px] sm:text-[11px] font-black uppercase tracking-widest text-muted-foreground ml-2">Mission</label>
                         <Textarea 
                           placeholder="Brand purpose..." 
                           value={brandData.mission}
                           onChange={(e) => setBrandData({...brandData, mission: e.target.value})}
-                          className="min-h-[100px] sm:min-h-[120px] bg-background/40 border-border/40 rounded-lg p-4 sm:p-5 font-bold text-[10px] uppercase"
+                          className="min-h-[100px] sm:min-h-[120px] bg-background/40 border-border/40 rounded-lg p-4 sm:p-5 font-bold text-xs uppercase"
                         />
                       </div>
-                      <Button type="submit" className="w-full h-14 sm:h-16 rounded-lg font-black uppercase tracking-widest text-[10px] shadow-lg bg-primary text-primary-foreground" disabled={loading}>
+                      <Button type="submit" className="w-full h-14 sm:h-16 rounded-lg font-black uppercase tracking-widest text-xs shadow-lg bg-primary text-primary-foreground" disabled={loading}>
                         {loading ? <Loader2 className="w-5 h-5 animate-spin" /> : <><Sparkles className="w-4 h-4 mr-2" /> Forge Identity</>}
                       </Button>
                     </form>
@@ -202,7 +202,7 @@ export function AITool() {
                   <div className="flex items-center justify-between mb-6 sm:mb-8">
                     <div className="flex items-center gap-3">
                       <ShieldCheck className="w-5 h-5 text-primary" />
-                      <h3 className="text-sm sm:text-xl font-black uppercase tracking-tight">Output</h3>
+                      <h3 className="text-base sm:text-xl font-black uppercase tracking-tight">Output</h3>
                     </div>
                     {(narrativeResult || brandResult) && (
                       <Button variant="ghost" size="icon" onClick={() => copyToClipboard(narrativeResult?.projectDescription || brandResult?.professionalDescription || "")} className="h-10 w-10 rounded-lg border border-border/40 bg-background/20">
@@ -216,7 +216,7 @@ export function AITool() {
                       {activeTool === "narrative" ? (
                         narrativeResult ? (
                           <motion.div key="narrative-out" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} className="space-y-6 text-center">
-                            <div className="p-6 sm:p-10 rounded-xl bg-background/50 border border-border/40 text-[10px] sm:text-base font-bold uppercase tracking-tight shimmer-text leading-relaxed">
+                            <div className="p-6 sm:p-10 rounded-xl bg-background/50 border border-border/40 text-xs sm:text-base font-bold uppercase tracking-tight shimmer-text leading-relaxed">
                               "{narrativeResult.projectDescription}"
                             </div>
                             <Box className="w-8 h-8 mx-auto opacity-10" />
@@ -229,9 +229,9 @@ export function AITool() {
                           <motion.div key="brand-out" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} className="space-y-6">
                              <div className="p-6 sm:p-10 rounded-xl bg-background/50 border border-border/40 space-y-4">
                                <p className="text-primary font-black text-[8px] uppercase tracking-[0.4em] opacity-50">Identity Verified</p>
-                               <p className="text-[10px] sm:text-base font-bold uppercase tracking-tight leading-relaxed">{brandResult.professionalDescription}</p>
+                               <p className="text-xs sm:text-base font-bold uppercase tracking-tight leading-relaxed">{brandResult.professionalDescription}</p>
                              </div>
-                             <div className="p-4 sm:p-6 rounded-lg bg-primary/5 border border-primary/10 text-[9px] sm:text-[11px] font-black uppercase tracking-[0.4em] opacity-70">
+                             <div className="p-4 sm:p-6 rounded-lg bg-primary/5 border border-primary/10 text-[10px] sm:text-[11px] font-black uppercase tracking-[0.4em] opacity-70">
                                {brandResult.uiConcept}
                              </div>
                           </motion.div>
@@ -258,7 +258,7 @@ function EmptyState({ loading }: { loading: boolean }) {
         <Sparkles className={cn("w-12 h-12 text-muted-foreground/10", loading && "animate-pulse")} />
         {loading && <Loader2 className="absolute inset-0 w-12 h-12 animate-spin text-primary opacity-30" />}
       </div>
-      <p className="text-[9px] sm:text-[10px] font-black uppercase tracking-[0.5em] opacity-30">
+      <p className="text-[10px] sm:text-[11px] font-black uppercase tracking-[0.5em] opacity-30">
         {loading ? "Forging Node..." : "Awaiting Registry"}
       </p>
     </div>
