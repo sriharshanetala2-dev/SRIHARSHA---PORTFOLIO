@@ -87,7 +87,7 @@ export function AITool() {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-[11px] sm:text-lg text-muted-foreground max-w-2xl font-bold uppercase tracking-tight opacity-90 px-4"
+            className="text-sm sm:text-lg text-muted-foreground max-w-2xl font-bold uppercase tracking-tight opacity-90 px-4"
           >
             Professional utility nodes leveraging Google Genkit for automated project orchestration and system narratives.
           </motion.p>
