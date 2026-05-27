@@ -62,7 +62,7 @@ export function Contact() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl sm:text-6xl lg:text-8xl font-headline font-black tracking-tighter uppercase leading-[0.9]"
+            className="text-2xl sm:text-4xl lg:text-6xl font-headline font-black tracking-tighter uppercase leading-[0.9]"
           >
             SYNC <span className="text-gradient">NODES</span>
           </motion.h2>
