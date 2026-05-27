@@ -48,7 +48,7 @@ export function Navbar() {
               SRI HARSHA
             </span>
             <span className="text-[7px] sm:text-[9px] font-mono font-black uppercase tracking-[0.2em] text-primary/60 mt-0.5 sm:mt-1">
-              Systems Architect
+              Full Stack Developer
             </span>
           </div>
         </Link>

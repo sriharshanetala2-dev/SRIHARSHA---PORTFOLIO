@@ -32,7 +32,7 @@ export function Hero() {
             className="section-label mx-auto"
           >
             <Activity className="w-4 h-4" />
-            SYSTEM_ARCHITECT_v6.0
+            FULL_STACK_DEV_v6.0
           </motion.div>
           
           <motion.p
