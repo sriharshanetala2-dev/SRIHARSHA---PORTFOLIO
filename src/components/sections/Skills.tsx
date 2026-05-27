@@ -15,6 +15,8 @@ import {
   Settings
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
+import { PlaceHolderImages } from "@/app/lib/placeholder-images";
 
 const skillCategories = [
   {
@@ -50,6 +52,8 @@ const skillCategories = [
 ];
 
 export function Skills() {
+  const skillsBackdrop = PlaceHolderImages.find(img => img.id === 'pulse-analytics-node');
+
   const container = {
     hidden: { opacity: 0 },
     show: {
@@ -68,7 +72,21 @@ export function Skills() {
 
   return (
     <section id="skills" className="py-20 sm:py-32 px-4 sm:px-6 border-t border-border bg-background relative overflow-hidden scroll-mt-20">
-      <div className="absolute inset-0 neural-grid opacity-[0.03] pointer-events-none" />
+      {/* High-Fidelity Technical Backdrop */}
+      {skillsBackdrop && (
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          <Image
+            src={skillsBackdrop.imageUrl}
+            alt={skillsBackdrop.description}
+            fill
+            className="object-cover opacity-10 grayscale"
+            data-ai-hint={skillsBackdrop.imageHint}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-background via-background/80 to-background z-10" />
+        </div>
+      )}
+
+      <div className="absolute inset-0 neural-grid opacity-[0.03] pointer-events-none z-[1]" />
       
       <div className="max-w-7xl mx-auto space-y-12 sm:space-y-20 relative z-10">
         <div className="text-center space-y-6">
