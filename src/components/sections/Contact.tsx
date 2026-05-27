@@ -119,7 +119,7 @@ export function Contact() {
           </div>
 
           <motion.div variants={itemVariants} className="lg:col-span-7 p-6 sm:p-16 rounded-[1.5rem] sm:rounded-[4rem] bg-card border-2 border-border shadow-4xl backdrop-blur-3xl relative overflow-hidden">
-            <form onSubmit={handleSubmit} className="space-y-6 sm:space-y-12 relative z-10">
+            <form onSubmit={handleSubmit} className="space-y-6 sm:space-y-12 relative z-10 flex flex-col">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-10">
                 <div className="space-y-2">
                   <label className="text-[12px] sm:text-[14px] font-black uppercase tracking-[0.4em] text-primary ml-1">Identity Manifest</label>
@@ -153,7 +153,11 @@ export function Contact() {
                   onChange={(e) => setFormData({...formData, message: e.target.value})} 
                 />
               </div>
-              <Button type="submit" className="w-full h-12 sm:h-16 rounded-full text-[10px] sm:text-sm font-black uppercase tracking-[0.4em] shadow-2xl bg-primary text-primary-foreground" disabled={isSubmitting}>
+              <Button 
+                type="submit" 
+                className="w-fit mx-auto px-12 h-12 sm:h-16 rounded-full text-[10px] sm:text-sm font-black uppercase tracking-[0.4em] shadow-2xl bg-primary text-primary-foreground" 
+                disabled={isSubmitting}
+              >
                 {isSubmitting ? <Loader2 className="w-5 h-5 animate-spin" /> : <><Send className="w-5 h-5 mr-3" /> Start Transmission</>}
               </Button>
             </form>
