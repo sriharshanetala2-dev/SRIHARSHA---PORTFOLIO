@@ -11,6 +11,8 @@ import {
   CircleDot,
   Activity
 } from "lucide-react";
+import Image from "next/image";
+import { PlaceHolderImages } from "@/app/lib/placeholder-images";
 
 const timelineItems = [
   {
@@ -70,6 +72,8 @@ const timelineItems = [
 ];
 
 export function SystemRegistry() {
+  const timelineBackdrop = PlaceHolderImages.find(img => img.id === 'sentinel-iam-hub');
+
   const container = {
     hidden: { opacity: 0 },
     show: {
@@ -88,7 +92,21 @@ export function SystemRegistry() {
 
   return (
     <section id="experience" className="py-20 sm:py-32 px-4 sm:px-6 border-t border-border bg-background relative overflow-hidden scroll-mt-20">
-      <div className="absolute inset-0 neural-grid opacity-[0.05] pointer-events-none" />
+      {/* High-Fidelity Technical Backdrop */}
+      {timelineBackdrop && (
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          <Image
+            src={timelineBackdrop.imageUrl}
+            alt={timelineBackdrop.description}
+            fill
+            className="object-cover opacity-30 grayscale brightness-[0.2]"
+            data-ai-hint={timelineBackdrop.imageHint}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-background via-background/60 to-background z-[1]" />
+        </div>
+      )}
+
+      <div className="absolute inset-0 neural-grid opacity-[0.05] pointer-events-none z-[2]" />
       
       <div className="max-w-4xl mx-auto space-y-12 sm:space-y-24 relative z-10">
         <div className="text-center space-y-6">
