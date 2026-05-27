@@ -3,20 +3,37 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Code2, Cpu, Zap, Terminal, Activity } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
+import { PlaceHolderImages } from "@/app/lib/placeholder-images";
 
 export function Hero() {
+  const heroImage = PlaceHolderImages.find(img => img.id === 'system-backdrop');
+
   return (
     <section className="min-h-screen flex items-center justify-center pt-24 pb-12 sm:pt-32 sm:pb-16 px-4 sm:px-8 relative overflow-hidden bg-transparent">
-      {/* High-Fidelity Background Layer is globalized in globals.css */}
+      {/* High-Fidelity Background Image Layer */}
+      {heroImage && (
+        <div className="absolute inset-0 z-0 opacity-20 dark:opacity-30 mix-blend-overlay">
+          <Image
+            src={heroImage.imageUrl}
+            alt={heroImage.description}
+            fill
+            className="object-cover grayscale"
+            priority
+            data-ai-hint={heroImage.imageHint}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background" />
+        </div>
+      )}
       
       {/* Neural Interface Background Overlay */}
-      <div className="absolute inset-0 neural-grid opacity-[0.06] pointer-events-none z-1" />
+      <div className="absolute inset-0 neural-grid opacity-[0.08] pointer-events-none z-[1]" />
       
       {/* Dynamic Luminous Nodes */}
-      <div className="absolute top-[10%] left-[-15%] w-[70%] h-[70%] bg-primary/10 rounded-full blur-[180px] pointer-events-none animate-pulse-slow z-1" />
-      <div className="absolute bottom-[-10%] right-[-15%] w-[60%] h-[60%] bg-primary/5 rounded-full blur-[180px] pointer-events-none animate-pulse-slow z-1" style={{ animationDelay: '2s' }} />
+      <div className="absolute top-[10%] left-[-15%] w-[70%] h-[70%] bg-primary/10 rounded-full blur-[180px] pointer-events-none animate-pulse-slow z-[2]" />
+      <div className="absolute bottom-[-10%] right-[-15%] w-[60%] h-[60%] bg-primary/5 rounded-full blur-[180px] pointer-events-none animate-pulse-slow z-[2]" style={{ animationDelay: '2s' }} />
       
-      <div className="max-w-7xl mx-auto text-center space-y-8 sm:space-y-16 relative z-20 w-full">
+      <div className="max-w-7xl mx-auto text-center space-y-8 sm:space-y-16 relative z-[10] w-full">
         <div className="space-y-6 sm:space-y-14">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
