@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from "react";
@@ -62,7 +63,7 @@ export function Contact() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-2xl sm:text-4xl lg:text-6xl font-headline font-black tracking-tighter uppercase leading-[0.9]"
+            className="text-2xl sm:text-4xl lg:text-5xl font-headline font-black tracking-tighter uppercase leading-[0.9]"
           >
             SYNC <span className="text-primary/60">NODES</span>
           </motion.h2>
@@ -90,13 +91,13 @@ export function Contact() {
               </div>
               <div className="space-y-10 relative z-10">
                 <div className="space-y-4">
-                  <p className="text-[11px] font-black text-muted-foreground uppercase tracking-[0.5em] opacity-80">Email Port</p>
+                  <p className="text-[11px] font-black text-primary/60 uppercase tracking-[0.5em]">Email Port</p>
                   <h3 className="text-base sm:text-lg font-headline font-black uppercase tracking-tight break-all leading-tight text-foreground">
                     {userEmail}
                   </h3>
                 </div>
                 <div className="space-y-4">
-                  <p className="text-[11px] font-black text-muted-foreground uppercase tracking-[0.5em] opacity-80">Contact Node</p>
+                  <p className="text-[11px] font-black text-primary/60 uppercase tracking-[0.5em]">Contact Node</p>
                   <h3 className="text-base sm:text-xl font-headline font-black uppercase tracking-tight text-foreground">
                     +91 9346759263
                   </h3>
@@ -110,7 +111,7 @@ export function Contact() {
 
             <motion.div variants={itemVariants} className="p-8 rounded-[1.5rem] sm:rounded-[2rem] bg-secondary/20 border border-border/40 backdrop-blur-xl flex flex-col gap-4">
               <div className="flex items-center gap-4">
-                <Terminal className="w-6 h-6 text-muted-foreground/40" />
+                <Terminal className="w-6 h-6 text-primary/40" />
                 <p className="text-[11px] sm:text-xs font-bold uppercase tracking-tight text-foreground leading-relaxed opacity-80">
                   Initialization complete. Secure channel verified for enterprise collaboration and technical orchestration.
                 </p>
@@ -122,33 +123,33 @@ export function Contact() {
             <form onSubmit={handleSubmit} className="space-y-6 sm:space-y-10 relative z-10 flex flex-col">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
                 <div className="space-y-2">
-                  <label className="text-[11px] font-black uppercase tracking-[0.5em] text-muted-foreground ml-2">Identity Manifest</label>
+                  <label className="text-[11px] font-black uppercase tracking-[0.5em] text-primary ml-2">Identity Manifest</label>
                   <Input 
                     required 
                     placeholder="NAME" 
-                    className="h-14 sm:h-16 rounded-xl bg-secondary/30 border border-border/50 font-black text-sm uppercase tracking-widest px-6 focus:bg-background focus:shadow-[0_0_20px_rgba(var(--primary),0.1)] transition-all text-foreground w-full" 
+                    className="h-14 sm:h-16 rounded-xl bg-secondary/10 border border-primary/20 font-black text-sm uppercase tracking-widest px-6 focus:bg-background focus:border-primary focus:shadow-[0_0_20px_rgba(var(--primary),0.05)] transition-all text-foreground w-full" 
                     value={formData.name} 
                     onChange={(e) => setFormData({...formData, name: e.target.value})} 
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-[11px] font-black uppercase tracking-[0.5em] text-muted-foreground ml-2">Secure Port</label>
+                  <label className="text-[11px] font-black uppercase tracking-[0.5em] text-primary ml-2">Secure Port</label>
                   <Input 
                     type="email" 
                     required 
                     placeholder="EMAIL" 
-                    className="h-14 sm:h-16 rounded-xl bg-secondary/30 border border-border/50 font-black text-sm uppercase tracking-widest px-6 focus:bg-background focus:shadow-[0_0_20px_rgba(var(--primary),0.1)] transition-all text-foreground w-full" 
+                    className="h-14 sm:h-16 rounded-xl bg-secondary/10 border border-primary/20 font-black text-sm uppercase tracking-widest px-6 focus:bg-background focus:border-primary focus:shadow-[0_0_20px_rgba(var(--primary),0.05)] transition-all text-foreground w-full" 
                     value={formData.email} 
                     onChange={(e) => setFormData({...formData, email: e.target.value})} 
                   />
                 </div>
               </div>
               <div className="space-y-2">
-                <label className="text-[11px] font-black uppercase tracking-[0.5em] text-muted-foreground ml-2">Transmission Data</label>
+                <label className="text-[11px] font-black uppercase tracking-[0.5em] text-primary ml-2">Transmission Data</label>
                 <Textarea 
                   required 
                   placeholder="MANIFEST CONTENT..." 
-                  className="min-h-[140px] sm:min-h-[200px] rounded-2xl bg-secondary/30 border border-border/50 p-6 font-bold text-sm uppercase tracking-tight resize-none focus:bg-background focus:shadow-[0_0_30px_rgba(var(--primary),0.1)] transition-all text-foreground" 
+                  className="min-h-[140px] sm:min-h-[200px] rounded-2xl bg-secondary/10 border border-primary/20 p-6 font-bold text-sm uppercase tracking-tight resize-none focus:bg-background focus:border-primary focus:shadow-[0_0_30px_rgba(var(--primary),0.05)] transition-all text-foreground" 
                   value={formData.message} 
                   onChange={(e) => setFormData({...formData, message: e.target.value})} 
                 />
