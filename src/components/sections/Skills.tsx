@@ -67,10 +67,10 @@ export function Skills() {
   };
 
   return (
-    <section id="skills" className="py-24 sm:py-32 px-6 border-t border-border bg-background relative overflow-hidden scroll-mt-20">
+    <section id="skills" className="py-20 sm:py-32 px-4 sm:px-6 border-t border-border bg-background relative overflow-hidden scroll-mt-20">
       <div className="absolute inset-0 neural-grid opacity-[0.03] pointer-events-none" />
       
-      <div className="max-w-7xl mx-auto space-y-20 relative z-10">
+      <div className="max-w-7xl mx-auto space-y-12 sm:space-y-20 relative z-10">
         <div className="text-center space-y-6">
           <motion.div 
             initial={{ opacity: 0, y: 10 }}
@@ -84,7 +84,7 @@ export function Skills() {
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl sm:text-6xl font-headline font-black tracking-tighter uppercase leading-none"
+            className="text-3xl sm:text-6xl font-headline font-black tracking-tighter uppercase leading-none"
           >
             Systems <span className="text-gradient">Proficiency</span>
           </motion.h2>
@@ -92,7 +92,7 @@ export function Skills() {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-sm sm:text-lg text-muted-foreground font-bold max-w-2xl mx-auto opacity-70 uppercase tracking-widest leading-relaxed"
+            className="text-[11px] sm:text-lg text-muted-foreground font-bold max-w-2xl mx-auto opacity-70 uppercase tracking-[0.2em] leading-relaxed px-4"
           >
             A high-fidelity architectural audit of my core competencies, distributed across backend systems, frontend logic, and neural orchestration.
           </motion.p>
@@ -103,15 +103,15 @@ export function Skills() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="grid grid-cols-1 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8"
         >
           {skillCategories.map((category, catIdx) => (
             <div key={catIdx} className="space-y-6">
-              <div className="flex items-center gap-4 px-6">
+              <div className="flex items-center gap-4 px-4">
                 <div className="p-3 rounded-xl bg-primary/10 text-primary">
                   <category.icon className="w-5 h-5" />
                 </div>
-                <h3 className="text-lg font-black uppercase tracking-[0.2em]">{category.title}</h3>
+                <h3 className="text-sm sm:text-lg font-black uppercase tracking-[0.2em]">{category.title}</h3>
               </div>
 
               <div className="space-y-4">
@@ -121,16 +121,16 @@ export function Skills() {
                     <motion.div
                       key={skill.name}
                       variants={itemVariants}
-                      className="p-6 rounded-[2rem] bg-card border border-border/60 hover:border-primary/40 transition-all group shadow-sm hover:shadow-xl hover:translate-x-2"
+                      className="p-5 sm:p-6 rounded-[1.5rem] sm:rounded-[2rem] bg-card border border-border/60 hover:border-primary/40 transition-all group shadow-sm"
                     >
                       <div className="flex items-center justify-between mb-4">
                         <div className="flex items-center gap-4">
                           <div className="p-2.5 rounded-lg bg-secondary text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500">
-                            <Icon className="w-5 h-5" />
+                            <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
                           </div>
-                          <span className="font-black text-sm uppercase tracking-tight">{skill.name}</span>
+                          <span className="font-black text-xs sm:text-sm uppercase tracking-tight">{skill.name}</span>
                         </div>
-                        <span className="text-[10px] font-black uppercase tracking-widest text-primary/60">{skill.level}</span>
+                        <span className="text-[9px] sm:text-[10px] font-black uppercase tracking-widest text-primary/60">{skill.level}</span>
                       </div>
                       
                       <div className="w-full h-1.5 bg-secondary/50 rounded-full overflow-hidden">
@@ -143,7 +143,7 @@ export function Skills() {
                       </div>
                       
                       <div className="mt-4 flex items-center justify-between">
-                        <span className="text-[9px] font-black uppercase tracking-[0.3em] text-muted-foreground opacity-40">Status: Verified</span>
+                        <span className="text-[8px] sm:text-[9px] font-black uppercase tracking-[0.3em] text-muted-foreground opacity-40">Status: Verified</span>
                         <Zap className="w-3 h-3 text-primary opacity-0 group-hover:opacity-100 transition-opacity" />
                       </div>
                     </motion.div>
