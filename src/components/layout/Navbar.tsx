@@ -32,10 +32,10 @@ export function Navbar() {
       scrolled ? "py-4" : "py-6"
     )}>
       <div className={cn(
-        "max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-8 py-2.5 rounded-full sm:rounded-[1.5rem] transition-all duration-700 border shadow-xl backdrop-blur-2xl",
+        "max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-8 py-2.5 rounded-full sm:rounded-[1.5rem] transition-all duration-700 border shadow-2xl backdrop-blur-2xl",
         scrolled 
-          ? "bg-white/90 border-border shadow-2xl" 
-          : "bg-white/40 border-border/40 shadow-lg"
+          ? "bg-card/90 border-primary/20 shadow-primary/10" 
+          : "bg-card/40 border-border/40 shadow-lg"
       )}>
         <Link href="/" className="flex items-center gap-2.5 sm:gap-3 group">
           <motion.div 
@@ -106,7 +106,7 @@ export function Navbar() {
             initial={{ opacity: 0, scale: 0.95, y: -10 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: -10 }}
-            className="absolute top-full left-4 right-4 mt-4 bg-white/95 backdrop-blur-3xl border border-border rounded-[1.5rem] p-6 flex flex-col gap-3 lg:hidden shadow-4xl overflow-hidden"
+            className="absolute top-full left-4 right-4 mt-4 bg-card/95 backdrop-blur-3xl border border-border rounded-[1.5rem] p-6 flex flex-col gap-3 lg:hidden shadow-4xl overflow-hidden"
           >
             {navLinks.map((link, i) => (
               <motion.a
