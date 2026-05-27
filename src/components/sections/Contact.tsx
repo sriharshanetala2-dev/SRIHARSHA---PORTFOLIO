@@ -90,13 +90,13 @@ export function Contact() {
               </div>
               <div className="space-y-10 relative z-10">
                 <div className="space-y-4">
-                  <p className="text-[10px] font-black text-primary uppercase tracking-[0.5em] opacity-60">Email Port</p>
+                  <p className="text-[11px] font-black text-primary uppercase tracking-[0.5em] opacity-60">Email Port</p>
                   <h3 className="text-base sm:text-xl font-headline font-black uppercase tracking-tight break-all leading-tight text-primary">
                     {userEmail}
                   </h3>
                 </div>
                 <div className="space-y-4">
-                  <p className="text-[10px] font-black text-primary uppercase tracking-[0.5em] opacity-60">Contact Node</p>
+                  <p className="text-[11px] font-black text-primary uppercase tracking-[0.5em] opacity-60">Contact Node</p>
                   <h3 className="text-base sm:text-xl font-headline font-black uppercase tracking-tight text-primary">
                     +91 9346759263
                   </h3>
@@ -122,7 +122,7 @@ export function Contact() {
             <form onSubmit={handleSubmit} className="space-y-6 sm:space-y-10 relative z-10 flex flex-col">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black uppercase tracking-[0.5em] text-primary/60 ml-2">Identity Manifest</label>
+                  <label className="text-[11px] font-black uppercase tracking-[0.5em] text-primary/60 ml-2">Identity Manifest</label>
                   <Input 
                     required 
                     placeholder="NAME" 
@@ -132,7 +132,7 @@ export function Contact() {
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black uppercase tracking-[0.5em] text-primary/60 ml-2">Secure Port</label>
+                  <label className="text-[11px] font-black uppercase tracking-[0.5em] text-primary/60 ml-2">Secure Port</label>
                   <Input 
                     type="email" 
                     required 
@@ -144,7 +144,7 @@ export function Contact() {
                 </div>
               </div>
               <div className="space-y-2">
-                <label className="text-[10px] font-black uppercase tracking-[0.5em] text-primary/60 ml-2">Transmission Data</label>
+                <label className="text-[11px] font-black uppercase tracking-[0.5em] text-primary/60 ml-2">Transmission Data</label>
                 <Textarea 
                   required 
                   placeholder="MANIFEST CONTENT..." 
