@@ -1,13 +1,3 @@
-import { 
-  Database, 
-  Workflow, 
-  Smartphone,
-  ShieldCheck,
-  Cloud,
-  Server,
-  Code2
-} from 'lucide-react';
-
 export const projects = [
   {
     id: 'neural-workflow-os',
