@@ -91,13 +91,13 @@ export function Contact() {
               <div className="space-y-8 relative z-10">
                 <div className="space-y-3">
                   <p className="text-[12px] sm:text-[14px] font-black text-primary uppercase tracking-[0.4em]">Email Port</p>
-                  <h3 className="text-[14px] sm:text-xl lg:text-2xl font-headline font-black uppercase tracking-tight break-all leading-tight">
+                  <h3 className="text-[15px] sm:text-xl lg:text-2xl font-headline font-black uppercase tracking-tight break-all leading-tight">
                     {userEmail}
                   </h3>
                 </div>
                 <div className="space-y-3">
                   <p className="text-[12px] sm:text-[14px] font-black text-primary uppercase tracking-[0.4em]">Contact Node</p>
-                  <h3 className="text-lg sm:text-xl lg:text-2xl font-headline font-black uppercase tracking-tight">
+                  <h3 className="text-xl sm:text-xl lg:text-2xl font-headline font-black uppercase tracking-tight">
                     +91 9346759263
                   </h3>
                 </div>
@@ -111,7 +111,7 @@ export function Contact() {
             <motion.div variants={itemVariants} className="p-6 rounded-[1.25rem] sm:rounded-[2.5rem] bg-primary/5 border border-primary/20 backdrop-blur-xl flex flex-col gap-3">
               <div className="flex items-center gap-3">
                 <Terminal className="w-4 h-4 sm:w-6 sm:h-6 text-primary" />
-                <p className="text-[10px] sm:text-sm font-bold uppercase tracking-tight text-muted-foreground leading-relaxed opacity-80">
+                <p className="text-[12px] sm:text-sm font-bold uppercase tracking-tight text-muted-foreground leading-relaxed opacity-80">
                   Initialization complete. Secure channel verified for enterprise collaboration and technical orchestration.
                 </p>
               </div>
