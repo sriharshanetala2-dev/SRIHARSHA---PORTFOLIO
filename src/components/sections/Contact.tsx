@@ -155,7 +155,7 @@ export function Contact() {
               </div>
               <Button 
                 type="submit" 
-                className="w-fit mx-auto px-12 h-12 sm:h-16 rounded-full text-[10px] sm:text-sm font-black uppercase tracking-[0.4em] shadow-2xl bg-primary text-primary-foreground hover:shadow-[0_0_50px_rgba(var(--primary),0.5)] hover:scale-105 active:scale-95 transition-all duration-300 border-none" 
+                className="w-full sm:w-fit mx-auto px-8 sm:px-12 h-12 sm:h-16 rounded-full text-[10px] sm:text-sm font-black uppercase tracking-[0.4em] shadow-2xl bg-primary text-primary-foreground hover:shadow-[0_0_50px_rgba(var(--primary),0.5)] hover:scale-105 active:scale-95 transition-all duration-300 border-none" 
                 disabled={isSubmitting}
               >
                 {isSubmitting ? <Loader2 className="w-6 h-6 animate-spin" /> : <><Send className="w-5 h-5 mr-3" /> Start Transmission</>}
