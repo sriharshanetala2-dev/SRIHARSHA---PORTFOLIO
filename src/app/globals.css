@@ -4,26 +4,26 @@
 
 @layer base {
   :root {
-    /* Sophisticated Midnight Slate & Electric Cyan Theme */
-    --background: 222 47% 2%;
+    /* Neon Crimson & Carbon Theme */
+    --background: 240 10% 4%;
     --foreground: 210 40% 98%;
-    --card: 222 47% 4%;
+    --card: 240 10% 6%;
     --card-foreground: 210 40% 98%;
-    --popover: 222 47% 4%;
+    --popover: 240 10% 6%;
     --popover-foreground: 210 40% 98%;
-    --primary: 191 100% 50%;
-    --primary-foreground: 222 47% 2%;
-    --secondary: 222 47% 8%;
+    --primary: 348 100% 55%;
+    --primary-foreground: 240 10% 4%;
+    --secondary: 240 10% 10%;
     --secondary-foreground: 210 40% 98%;
-    --muted: 222 47% 8%;
-    --muted-foreground: 215 20% 70%;
-    --accent: 191 100% 50%;
-    --accent-foreground: 222 47% 2%;
+    --muted: 240 10% 10%;
+    --muted-foreground: 215 15% 65%;
+    --accent: 348 100% 55%;
+    --accent-foreground: 240 10% 4%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
-    --border: 222 47% 15%;
-    --input: 222 47% 15%;
-    --ring: 191 100% 50%;
+    --border: 240 10% 15%;
+    --input: 240 10% 15%;
+    --ring: 348 100% 55%;
     --radius: 1.5rem;
   }
 }
