@@ -266,7 +266,7 @@ export function StudentDashboard() {
             <Activity className="w-3 h-3" />
             Core Analytics Node
           </div>
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-headline font-black tracking-tighter uppercase leading-[0.9] shimmer-text">
+          <h2 className="text-3xl sm:text-6xl lg:text-8xl font-headline font-black tracking-tighter uppercase leading-[0.9] shimmer-text">
             INTELLIGENT <br /> 
             DATA <br /> 
             <span className="text-gradient">ECOSYSTEM</span>
