@@ -34,8 +34,10 @@ export function About() {
             <div className="space-y-6">
               <div className="section-label">FULL_STACK_DEVELOPER_CORE</div>
               <h2 className="text-3xl sm:text-6xl font-headline font-black leading-tight uppercase">
-                Engineering <br className="sm:hidden" /> <br className="hidden sm:block" /> 
+                Engineering <br className="sm:hidden" /> 
+                <span className="hidden sm:inline"> </span>
                 <span className="text-gradient">
+                  <br className="sm:hidden" />
                   Digital <br className="sm:hidden" /> Intelligence
                 </span>
               </h2>
@@ -57,8 +59,8 @@ export function About() {
                   )}
                 >
                   <node.icon className={cn("w-6 h-6 mb-4", activeNode.id === node.id ? "text-primary-foreground" : "text-primary")} />
-                  <div className="font-black text-sm uppercase tracking-[0.1em]">{node.label}</div>
-                  <div className={cn("text-[10px] font-black uppercase tracking-widest mt-1 opacity-60", activeNode.id === node.id ? "text-primary-foreground" : "text-muted-foreground")}>{node.desc}</div>
+                  <div className="font-black text-base sm:text-sm uppercase tracking-[0.1em]">{node.label}</div>
+                  <div className={cn("text-[12px] sm:text-[10px] font-black uppercase tracking-widest mt-1 opacity-60", activeNode.id === node.id ? "text-primary-foreground" : "text-muted-foreground")}>{node.desc}</div>
                 </button>
               ))}
             </div>
