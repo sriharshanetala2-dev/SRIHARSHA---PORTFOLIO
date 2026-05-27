@@ -153,7 +153,7 @@ export function Contact() {
                   onChange={(e) => setFormData({...formData, message: e.target.value})} 
                 />
               </div>
-              <Button type="submit" className="w-full h-14 sm:h-20 rounded-full text-[12px] sm:text-base font-black uppercase tracking-[0.5em] shadow-2xl bg-primary text-primary-foreground" disabled={isSubmitting}>
+              <Button type="submit" className="w-full h-12 sm:h-16 rounded-full text-[10px] sm:text-sm font-black uppercase tracking-[0.4em] shadow-2xl bg-primary text-primary-foreground" disabled={isSubmitting}>
                 {isSubmitting ? <Loader2 className="w-5 h-5 animate-spin" /> : <><Send className="w-5 h-5 mr-3" /> Start Transmission</>}
               </Button>
             </form>
