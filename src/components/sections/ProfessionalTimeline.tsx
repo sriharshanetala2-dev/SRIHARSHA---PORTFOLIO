@@ -1,3 +1,4 @@
+
 "use client";
 
 import { motion } from "framer-motion";
@@ -72,7 +73,7 @@ const timelineItems = [
 ];
 
 export function SystemRegistry() {
-  const timelineBackdrop = PlaceHolderImages.find(img => img.id === 'sentinel-iam-hub');
+  const timelineBackdrop = PlaceHolderImages.find(img => img.id === 'system-backdrop');
 
   const container = {
     hidden: { opacity: 0 },
@@ -92,18 +93,18 @@ export function SystemRegistry() {
 
   return (
     <section id="experience" className="py-20 sm:py-32 px-4 sm:px-6 border-t border-border bg-background relative overflow-hidden scroll-mt-20">
-      {/* High-Fidelity Technical Backdrop - Peak Visibility */}
+      {/* High-Fidelity Technical Backdrop - Blurred Coding Workspace */}
       {timelineBackdrop && (
-        <div className="absolute inset-0 z-0 pointer-events-none">
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
           <Image
             src={timelineBackdrop.imageUrl}
             alt={timelineBackdrop.description}
             fill
-            className="object-cover opacity-85 brightness-[0.85] transition-all duration-1000"
+            className="object-cover opacity-100 brightness-[0.7] blur-md scale-105 transition-all duration-1000"
             data-ai-hint={timelineBackdrop.imageHint}
           />
           {/* Refined gradient mask for optimal content contrast */}
-          <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/10 to-background z-[1]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/30 to-background z-[1]" />
         </div>
       )}
 
