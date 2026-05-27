@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 export function Hero() {
   return (
     <section className="min-h-screen flex items-center justify-center pt-24 pb-12 sm:pt-32 sm:pb-16 px-4 sm:px-8 relative overflow-hidden bg-transparent">
-      {/* High-Fidelity Background Layer - Globalized to globals.css */}
+      {/* High-Fidelity Background Layer is globalized in globals.css */}
       
       {/* Neural Interface Background Overlay */}
       <div className="absolute inset-0 neural-grid opacity-[0.06] pointer-events-none z-1" />
