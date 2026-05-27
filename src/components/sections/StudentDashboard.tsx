@@ -74,7 +74,7 @@ export function StudentDashboard() {
   const [activeTab, setActiveTab] = useState("Overview");
   const [mounted, setMounted] = useState(false);
   const { toast } = useToast();
-  const dashboardBackdrop = PlaceHolderImages.find(img => img.id === 'cloudsync-vault');
+  const dashboardBackdrop = PlaceHolderImages.find(img => img.id === 'sentinel-iam-hub');
 
   useEffect(() => {
     setMounted(true);
@@ -263,14 +263,14 @@ export function StudentDashboard() {
 
   return (
     <section id="dashboard" className="py-12 sm:py-24 px-4 bg-secondary/5 border-t border-border relative overflow-hidden scroll-mt-20">
-      {/* High-Fidelity Technical Backdrop */}
+      {/* High-Fidelity Technical Backdrop - Enhanced Visibility */}
       {dashboardBackdrop && (
         <div className="absolute inset-0 z-0 pointer-events-none">
           <Image
             src={dashboardBackdrop.imageUrl}
             alt={dashboardBackdrop.description}
             fill
-            className="object-cover opacity-30 grayscale brightness-[0.4]"
+            className="object-cover opacity-60 grayscale brightness-[0.6] transition-all duration-1000"
             data-ai-hint={dashboardBackdrop.imageHint}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-background via-background/60 to-background z-[1]" />
