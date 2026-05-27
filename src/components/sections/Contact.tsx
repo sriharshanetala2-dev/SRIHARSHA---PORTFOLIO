@@ -64,7 +64,7 @@ export function Contact() {
             viewport={{ once: true }}
             className="text-2xl sm:text-4xl lg:text-6xl font-headline font-black tracking-tighter uppercase leading-[0.9]"
           >
-            SYNC <span className="text-gradient">NODES</span>
+            SYNC <span className="text-primary/60">NODES</span>
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 15 }}
@@ -84,33 +84,33 @@ export function Contact() {
           className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-12 items-stretch"
         >
           <div className="lg:col-span-5 space-y-6">
-            <motion.div variants={itemVariants} className="p-8 sm:p-12 rounded-[2rem] sm:rounded-[3rem] bg-card/40 border-none shadow-4xl backdrop-blur-3xl relative overflow-hidden group">
+            <motion.div variants={itemVariants} className="p-8 sm:p-12 rounded-[2rem] sm:rounded-[3rem] bg-card border border-border/50 shadow-4xl backdrop-blur-3xl relative overflow-hidden group">
               <div className="absolute top-0 right-0 p-8 sm:p-10 opacity-5 group-hover:opacity-10 transition-opacity">
                 <ShieldCheck className="w-16 h-16 sm:w-20 sm:h-20 text-primary" />
               </div>
               <div className="space-y-10 relative z-10">
                 <div className="space-y-4">
-                  <p className="text-[11px] font-black text-primary uppercase tracking-[0.5em] opacity-80">Email Port</p>
-                  <h3 className="text-base sm:text-lg font-headline font-black uppercase tracking-tight break-all leading-tight text-primary">
+                  <p className="text-[11px] font-black text-muted-foreground uppercase tracking-[0.5em] opacity-80">Email Port</p>
+                  <h3 className="text-base sm:text-lg font-headline font-black uppercase tracking-tight break-all leading-tight text-foreground">
                     {userEmail}
                   </h3>
                 </div>
                 <div className="space-y-4">
-                  <p className="text-[11px] font-black text-primary uppercase tracking-[0.5em] opacity-80">Contact Node</p>
-                  <h3 className="text-base sm:text-xl font-headline font-black uppercase tracking-tight text-primary">
+                  <p className="text-[11px] font-black text-muted-foreground uppercase tracking-[0.5em] opacity-80">Contact Node</p>
+                  <h3 className="text-base sm:text-xl font-headline font-black uppercase tracking-tight text-foreground">
                     +91 9346759263
                   </h3>
                 </div>
-                <div className="pt-8 border-t border-primary/10 flex items-center gap-4">
+                <div className="pt-8 border-t border-border/10 flex items-center gap-4">
                   <Activity className="w-5 h-5 text-primary animate-pulse" />
                   <p className="text-[10px] font-black uppercase tracking-[0.4em] text-muted-foreground">Awaiting Signal Transmission</p>
                 </div>
               </div>
             </motion.div>
 
-            <motion.div variants={itemVariants} className="p-8 rounded-[1.5rem] sm:rounded-[2rem] bg-primary/5 border-none backdrop-blur-xl flex flex-col gap-4">
+            <motion.div variants={itemVariants} className="p-8 rounded-[1.5rem] sm:rounded-[2rem] bg-secondary/20 border border-border/40 backdrop-blur-xl flex flex-col gap-4">
               <div className="flex items-center gap-4">
-                <Terminal className="w-6 h-6 text-primary/40" />
+                <Terminal className="w-6 h-6 text-muted-foreground/40" />
                 <p className="text-[11px] sm:text-xs font-bold uppercase tracking-tight text-foreground leading-relaxed opacity-80">
                   Initialization complete. Secure channel verified for enterprise collaboration and technical orchestration.
                 </p>
@@ -118,37 +118,37 @@ export function Contact() {
             </motion.div>
           </div>
 
-          <motion.div variants={itemVariants} className="lg:col-span-7 p-8 sm:p-12 rounded-[2rem] sm:rounded-[3rem] bg-card/60 border-none shadow-4xl backdrop-blur-3xl relative overflow-hidden">
+          <motion.div variants={itemVariants} className="lg:col-span-7 p-8 sm:p-12 rounded-[2rem] sm:rounded-[3rem] bg-card border border-border shadow-4xl backdrop-blur-3xl relative overflow-hidden">
             <form onSubmit={handleSubmit} className="space-y-6 sm:space-y-10 relative z-10 flex flex-col">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
                 <div className="space-y-2">
-                  <label className="text-[11px] font-black uppercase tracking-[0.5em] text-primary ml-2">Identity Manifest</label>
+                  <label className="text-[11px] font-black uppercase tracking-[0.5em] text-muted-foreground ml-2">Identity Manifest</label>
                   <Input 
                     required 
                     placeholder="NAME" 
-                    className="h-14 sm:h-16 rounded-xl bg-secondary/30 border-none font-black text-sm uppercase tracking-widest px-6 focus:bg-secondary/50 focus:shadow-[0_0_20px_rgba(var(--primary),0.1)] transition-all text-primary w-full max-w-md" 
+                    className="h-14 sm:h-16 rounded-xl bg-secondary/30 border border-border/50 font-black text-sm uppercase tracking-widest px-6 focus:bg-background focus:shadow-[0_0_20px_rgba(var(--primary),0.1)] transition-all text-foreground w-full" 
                     value={formData.name} 
                     onChange={(e) => setFormData({...formData, name: e.target.value})} 
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-[11px] font-black uppercase tracking-[0.5em] text-primary ml-2">Secure Port</label>
+                  <label className="text-[11px] font-black uppercase tracking-[0.5em] text-muted-foreground ml-2">Secure Port</label>
                   <Input 
                     type="email" 
                     required 
                     placeholder="EMAIL" 
-                    className="h-14 sm:h-16 rounded-xl bg-secondary/30 border-none font-black text-sm uppercase tracking-widest px-6 focus:bg-secondary/50 focus:shadow-[0_0_20px_rgba(var(--primary),0.1)] transition-all text-primary w-full max-w-md" 
+                    className="h-14 sm:h-16 rounded-xl bg-secondary/30 border border-border/50 font-black text-sm uppercase tracking-widest px-6 focus:bg-background focus:shadow-[0_0_20px_rgba(var(--primary),0.1)] transition-all text-foreground w-full" 
                     value={formData.email} 
                     onChange={(e) => setFormData({...formData, email: e.target.value})} 
                   />
                 </div>
               </div>
               <div className="space-y-2">
-                <label className="text-[11px] font-black uppercase tracking-[0.5em] text-primary ml-2">Transmission Data</label>
+                <label className="text-[11px] font-black uppercase tracking-[0.5em] text-muted-foreground ml-2">Transmission Data</label>
                 <Textarea 
                   required 
                   placeholder="MANIFEST CONTENT..." 
-                  className="min-h-[140px] sm:min-h-[200px] rounded-2xl bg-secondary/30 border-none p-6 font-bold text-sm uppercase tracking-tight resize-none focus:bg-secondary/50 focus:shadow-[0_0_30px_rgba(var(--primary),0.1)] transition-all text-primary" 
+                  className="min-h-[140px] sm:min-h-[200px] rounded-2xl bg-secondary/30 border border-border/50 p-6 font-bold text-sm uppercase tracking-tight resize-none focus:bg-background focus:shadow-[0_0_30px_rgba(var(--primary),0.1)] transition-all text-foreground" 
                   value={formData.message} 
                   onChange={(e) => setFormData({...formData, message: e.target.value})} 
                 />
