@@ -4,27 +4,27 @@
 
 @layer base {
   :root {
-    /* Deep Cobalt & Obsidian Theme */
-    --background: 222 47% 4%;
+    /* Deep Midnight Obsidian & Cobalt Registry */
+    --background: 222 60% 2%;
     --foreground: 210 40% 98%;
-    --card: 222 47% 6%;
+    --card: 222 60% 4%;
     --card-foreground: 210 40% 98%;
-    --popover: 222 47% 6%;
+    --popover: 222 60% 4%;
     --popover-foreground: 210 40% 98%;
     --primary: 224 76% 48%;
     --primary-foreground: 210 40% 98%;
-    --secondary: 222 47% 10%;
+    --secondary: 222 50% 8%;
     --secondary-foreground: 210 40% 98%;
-    --muted: 222 47% 10%;
-    --muted-foreground: 215 15% 65%;
+    --muted: 222 30% 12%;
+    --muted-foreground: 215 20% 75%;
     --accent: 224 76% 48%;
     --accent-foreground: 210 40% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
-    --border: 222 32% 12%;
-    --input: 222 32% 12%;
+    --border: 222 32% 10%;
+    --input: 222 32% 10%;
     --ring: 224 76% 48%;
-    --radius: 1.5rem;
+    --radius: 1rem;
   }
 }
 
@@ -72,8 +72,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .neural-grid {
   background-image: 
-    linear-gradient(to right, hsl(var(--border) / 0.3) 1px, transparent 1px),
-    linear-gradient(to bottom, hsl(var(--border) / 0.3) 1px, transparent 1px);
+    linear-gradient(to right, hsl(var(--border) / 0.2) 1px, transparent 1px),
+    linear-gradient(to bottom, hsl(var(--border) / 0.2) 1px, transparent 1px);
   background-size: 40px 40px;
 }
 
@@ -103,7 +103,7 @@ h1, h2, h3, h4, h5, h6 {
 
 @keyframes pulse-slow {
   0%, 100% { opacity: 0.1; transform: scale(1); }
-  50% { opacity: 0.3; transform: scale(1.05); }
+  50% { opacity: 0.2; transform: scale(1.05); }
 }
 
 .animate-pulse-slow {

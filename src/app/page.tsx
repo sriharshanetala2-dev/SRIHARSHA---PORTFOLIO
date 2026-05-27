@@ -27,10 +27,10 @@ export default function Home() {
     <div className="min-h-screen bg-background relative selection:bg-primary/10">
       {/* Enhanced Persistent Background Layer */}
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
-        <div className="absolute inset-0 neural-grid opacity-[0.05]" />
-        <div className="absolute top-[-10%] right-[-10%] w-[60%] h-[60%] bg-primary/10 rounded-full blur-[150px] animate-pulse-slow" />
-        <div className="absolute bottom-[-10%] left-[-10%] w-[60%] h-[60%] bg-primary/5 rounded-full blur-[150px] animate-pulse-slow" style={{ animationDelay: '4s' }} />
-        <div className="absolute top-[30%] left-[20%] w-[30%] h-[30%] bg-primary/5 rounded-full blur-[120px] animate-float" />
+        <div className="absolute inset-0 neural-grid opacity-[0.06]" />
+        <div className="absolute top-[-5%] right-[-5%] w-[50%] h-[50%] bg-primary/5 rounded-full blur-[180px] animate-pulse-slow" />
+        <div className="absolute bottom-[-5%] left-[-5%] w-[50%] h-[50%] bg-primary/3 rounded-full blur-[180px] animate-pulse-slow" style={{ animationDelay: '4s' }} />
+        <div className="absolute top-[20%] left-[10%] w-[25%] h-[25%] bg-primary/3 rounded-full blur-[140px] animate-float" />
       </div>
 
       <Navbar />
