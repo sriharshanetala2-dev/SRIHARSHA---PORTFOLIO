@@ -27,10 +27,10 @@ export function Navbar() {
   return (
     <nav className={cn(
       "fixed top-0 w-full z-[100] transition-all duration-700 px-4 sm:px-12",
-      scrolled ? "py-2 sm:py-4" : "py-4 sm:py-6"
+      scrolled ? "py-4" : "py-6"
     )}>
       <div className={cn(
-        "max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-8 py-2 sm:py-2.5 rounded-full sm:rounded-[1.5rem] transition-all duration-700 border shadow-xl backdrop-blur-2xl",
+        "max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-8 py-2.5 rounded-full sm:rounded-[1.5rem] transition-all duration-700 border shadow-xl backdrop-blur-2xl",
         scrolled 
           ? "bg-white/90 border-border shadow-2xl" 
           : "bg-white/40 border-border/40 shadow-lg"
@@ -39,12 +39,12 @@ export function Navbar() {
           <motion.div 
             whileHover={{ rotate: 10, scale: 1.1 }}
             transition={{ type: "spring", stiffness: 400, damping: 25 }}
-            className="p-2 sm:p-2.5 rounded-xl bg-primary text-primary-foreground shadow-xl flex items-center justify-center"
+            className="p-2 rounded-xl bg-primary text-primary-foreground shadow-xl flex items-center justify-center"
           >
             <Code2 className="w-4 h-4 sm:w-5 sm:h-5" />
           </motion.div>
           <div className="flex flex-col">
-            <span className="text-sm sm:text-lg font-headline font-black tracking-tight uppercase leading-none shimmer-text">
+            <span className="text-sm sm:text-base font-headline font-black tracking-tight uppercase leading-none shimmer-text">
               SRI HARSHA
             </span>
             <span className="text-[7px] sm:text-[9px] font-mono font-black uppercase tracking-[0.2em] text-primary/60 mt-0.5 sm:mt-1">
@@ -60,7 +60,7 @@ export function Navbar() {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-[10px] font-black text-foreground/70 hover:text-primary transition-all uppercase tracking-[0.3em] relative group"
+                className="text-[12px] font-black text-foreground/70 hover:text-primary transition-all uppercase tracking-[0.3em] relative group"
               >
                 {link.name}
                 <motion.span 
@@ -79,7 +79,7 @@ export function Navbar() {
             href="#contact"
             whileHover={{ scale: 1.05, y: -1 }}
             whileTap={{ scale: 0.95 }}
-            className="px-6 py-2.5 rounded-lg bg-primary text-primary-foreground text-[9px] font-black uppercase tracking-[0.3em] shadow-xl hover:shadow-primary/30 transition-all flex items-center gap-2"
+            className="px-6 py-2.5 rounded-lg bg-primary text-primary-foreground text-[10px] font-black uppercase tracking-[0.3em] shadow-xl hover:shadow-primary/30 transition-all flex items-center gap-2"
           >
             <Terminal className="w-3.5 h-3.5" />
             Sync
@@ -113,7 +113,7 @@ export function Navbar() {
                 initial={{ opacity: 0, x: -10 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: i * 0.05 }}
-                className="text-[10px] font-black uppercase tracking-[0.3em] text-foreground/70 hover:text-primary py-3 border-b border-border/10 last:border-0"
+                className="text-[13px] font-black uppercase tracking-[0.3em] text-foreground/70 hover:text-primary py-3 border-b border-border/10 last:border-0"
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}
@@ -124,7 +124,7 @@ export function Navbar() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="w-full py-4 rounded-lg bg-primary text-primary-foreground text-center font-black uppercase tracking-[0.3em] text-[10px] shadow-xl mt-2"
+              className="w-full py-4 rounded-lg bg-primary text-primary-foreground text-center font-black uppercase tracking-[0.3em] text-[12px] shadow-xl mt-2"
               onClick={() => setIsOpen(false)}
             >
               Initialize Node
