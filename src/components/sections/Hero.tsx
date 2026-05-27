@@ -3,30 +3,12 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Code2, Cpu, Zap, Terminal, Activity } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import Image from "next/image";
-import { PlaceHolderImages } from "@/app/lib/placeholder-images";
 
 export function Hero() {
-  const heroImage = PlaceHolderImages.find(img => img.id === 'system-backdrop');
-
   return (
-    <section className="min-h-screen flex items-center justify-center pt-24 pb-12 sm:pt-32 sm:pb-16 px-4 sm:px-8 relative overflow-hidden bg-background">
-      {/* High-Fidelity Background Layer */}
-      <div className="absolute inset-0 z-0 overflow-hidden">
-        {heroImage && (
-          <Image
-            src={heroImage.imageUrl}
-            alt={heroImage.description}
-            fill
-            className="object-cover opacity-[0.12] scale-105 grayscale contrast-125 pointer-events-none"
-            priority
-            data-ai-hint={heroImage.imageHint}
-          />
-        )}
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background" />
-        <div className="absolute inset-0 bg-background/20 backdrop-blur-[2px]" />
-      </div>
-
+    <section className="min-h-screen flex items-center justify-center pt-24 pb-12 sm:pt-32 sm:pb-16 px-4 sm:px-8 relative overflow-hidden bg-transparent">
+      {/* High-Fidelity Background Layer - Globalized to globals.css */}
+      
       {/* Neural Interface Background Overlay */}
       <div className="absolute inset-0 neural-grid opacity-[0.06] pointer-events-none z-1" />
       
