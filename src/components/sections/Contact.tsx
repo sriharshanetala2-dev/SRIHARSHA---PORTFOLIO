@@ -48,7 +48,7 @@ export function Contact() {
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10 w-full">
-        <div className="flex flex-col items-center text-center space-y-6 sm:space-y-10 mb-12 sm:mb-32">
+        <div className="flex flex-col items-center text-center space-y-6 sm:space-y-10 mb-12 sm:mb-24">
           <motion.div 
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -81,84 +81,84 @@ export function Contact() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-20 items-stretch"
+          className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-12 items-stretch"
         >
-          <div className="lg:col-span-5 space-y-6 sm:space-y-8">
-            <motion.div variants={itemVariants} className="p-8 sm:p-16 rounded-[1.5rem] sm:rounded-[4rem] bg-card/40 border-none shadow-4xl backdrop-blur-3xl relative overflow-hidden group">
-              <div className="absolute top-0 right-0 p-8 sm:p-12 opacity-5 group-hover:opacity-10 transition-opacity">
-                <ShieldCheck className="w-16 h-16 sm:w-24 sm:h-24 text-primary" />
+          <div className="lg:col-span-5 space-y-6">
+            <motion.div variants={itemVariants} className="p-8 sm:p-12 rounded-[2rem] sm:rounded-[3rem] bg-card/40 border-none shadow-4xl backdrop-blur-3xl relative overflow-hidden group">
+              <div className="absolute top-0 right-0 p-8 sm:p-10 opacity-5 group-hover:opacity-10 transition-opacity">
+                <ShieldCheck className="w-16 h-16 sm:w-20 sm:h-20 text-primary" />
               </div>
-              <div className="space-y-12 relative z-10">
+              <div className="space-y-10 relative z-10">
                 <div className="space-y-4">
                   <p className="text-[10px] font-black text-primary uppercase tracking-[0.5em] opacity-60">Email Port</p>
-                  <h3 className="text-lg sm:text-2xl font-headline font-black uppercase tracking-tight break-all leading-tight text-primary">
+                  <h3 className="text-base sm:text-xl font-headline font-black uppercase tracking-tight break-all leading-tight text-primary">
                     {userEmail}
                   </h3>
                 </div>
                 <div className="space-y-4">
                   <p className="text-[10px] font-black text-primary uppercase tracking-[0.5em] opacity-60">Contact Node</p>
-                  <h3 className="text-lg sm:text-2xl font-headline font-black uppercase tracking-tight text-primary">
+                  <h3 className="text-base sm:text-xl font-headline font-black uppercase tracking-tight text-primary">
                     +91 9346759263
                   </h3>
                 </div>
-                <div className="pt-10 border-t border-primary/10 flex items-center gap-4">
+                <div className="pt-8 border-t border-primary/10 flex items-center gap-4">
                   <Activity className="w-5 h-5 text-primary animate-pulse" />
                   <p className="text-[10px] font-black uppercase tracking-[0.4em] text-muted-foreground opacity-40">Awaiting Signal Transmission</p>
                 </div>
               </div>
             </motion.div>
 
-            <motion.div variants={itemVariants} className="p-8 rounded-[1.5rem] sm:rounded-[3rem] bg-primary/5 border-none backdrop-blur-xl flex flex-col gap-4">
+            <motion.div variants={itemVariants} className="p-8 rounded-[1.5rem] sm:rounded-[2rem] bg-primary/5 border-none backdrop-blur-xl flex flex-col gap-4">
               <div className="flex items-center gap-4">
                 <Terminal className="w-6 h-6 text-primary/40" />
-                <p className="text-[11px] sm:text-sm font-bold uppercase tracking-tight text-muted-foreground leading-relaxed opacity-70">
+                <p className="text-[11px] sm:text-xs font-bold uppercase tracking-tight text-muted-foreground leading-relaxed opacity-70">
                   Initialization complete. Secure channel verified for enterprise collaboration and technical orchestration.
                 </p>
               </div>
             </motion.div>
           </div>
 
-          <motion.div variants={itemVariants} className="lg:col-span-7 p-8 sm:p-20 rounded-[1.5rem] sm:rounded-[5rem] bg-card/60 border-none shadow-4xl backdrop-blur-3xl relative overflow-hidden">
-            <form onSubmit={handleSubmit} className="space-y-8 sm:space-y-16 relative z-10 flex flex-col">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-12">
-                <div className="space-y-3">
-                  <label className="text-[10px] sm:text-[12px] font-black uppercase tracking-[0.5em] text-primary/60 ml-2">Identity Manifest</label>
+          <motion.div variants={itemVariants} className="lg:col-span-7 p-8 sm:p-12 rounded-[2rem] sm:rounded-[3rem] bg-card/60 border-none shadow-4xl backdrop-blur-3xl relative overflow-hidden">
+            <form onSubmit={handleSubmit} className="space-y-6 sm:space-y-10 relative z-10 flex flex-col">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+                <div className="space-y-2">
+                  <label className="text-[10px] font-black uppercase tracking-[0.5em] text-primary/60 ml-2">Identity Manifest</label>
                   <Input 
                     required 
                     placeholder="NAME" 
-                    className="h-16 sm:h-20 rounded-2xl bg-secondary/30 border-none font-black text-sm uppercase tracking-widest px-8 focus:bg-secondary/50 focus:shadow-[0_0_20px_rgba(var(--primary),0.1)] transition-all text-primary" 
+                    className="h-14 sm:h-16 rounded-xl bg-secondary/30 border-none font-black text-sm uppercase tracking-widest px-6 focus:bg-secondary/50 focus:shadow-[0_0_20px_rgba(var(--primary),0.1)] transition-all text-primary" 
                     value={formData.name} 
                     onChange={(e) => setFormData({...formData, name: e.target.value})} 
                   />
                 </div>
-                <div className="space-y-3">
-                  <label className="text-[10px] sm:text-[12px] font-black uppercase tracking-[0.5em] text-primary/60 ml-2">Secure Port</label>
+                <div className="space-y-2">
+                  <label className="text-[10px] font-black uppercase tracking-[0.5em] text-primary/60 ml-2">Secure Port</label>
                   <Input 
                     type="email" 
                     required 
                     placeholder="EMAIL" 
-                    className="h-16 sm:h-20 rounded-2xl bg-secondary/30 border-none font-black text-sm uppercase tracking-widest px-8 focus:bg-secondary/50 focus:shadow-[0_0_20px_rgba(var(--primary),0.1)] transition-all text-primary" 
+                    className="h-14 sm:h-16 rounded-xl bg-secondary/30 border-none font-black text-sm uppercase tracking-widest px-6 focus:bg-secondary/50 focus:shadow-[0_0_20px_rgba(var(--primary),0.1)] transition-all text-primary" 
                     value={formData.email} 
                     onChange={(e) => setFormData({...formData, email: e.target.value})} 
                   />
                 </div>
               </div>
-              <div className="space-y-3">
-                <label className="text-[10px] sm:text-[12px] font-black uppercase tracking-[0.5em] text-primary/60 ml-2">Transmission Data</label>
+              <div className="space-y-2">
+                <label className="text-[10px] font-black uppercase tracking-[0.5em] text-primary/60 ml-2">Transmission Data</label>
                 <Textarea 
                   required 
                   placeholder="MANIFEST CONTENT..." 
-                  className="min-h-[160px] sm:min-h-[240px] rounded-[2rem] sm:rounded-[4rem] bg-secondary/30 border-none p-8 font-bold text-sm sm:text-base uppercase tracking-tight resize-none focus:bg-secondary/50 focus:shadow-[0_0_30px_rgba(var(--primary),0.1)] transition-all text-primary" 
+                  className="min-h-[140px] sm:min-h-[200px] rounded-2xl bg-secondary/30 border-none p-6 font-bold text-sm uppercase tracking-tight resize-none focus:bg-secondary/50 focus:shadow-[0_0_30px_rgba(var(--primary),0.1)] transition-all text-primary" 
                   value={formData.message} 
                   onChange={(e) => setFormData({...formData, message: e.target.value})} 
                 />
               </div>
               <Button 
                 type="submit" 
-                className="w-fit mx-auto px-16 h-14 sm:h-20 rounded-full text-[10px] sm:text-sm font-black uppercase tracking-[0.4em] shadow-2xl bg-primary text-primary-foreground hover:shadow-[0_0_50px_rgba(var(--primary),0.5)] hover:scale-105 active:scale-95 transition-all duration-300 border-none" 
+                className="w-fit mx-auto px-12 h-12 sm:h-16 rounded-full text-[10px] sm:text-sm font-black uppercase tracking-[0.4em] shadow-2xl bg-primary text-primary-foreground hover:shadow-[0_0_50px_rgba(var(--primary),0.5)] hover:scale-105 active:scale-95 transition-all duration-300 border-none" 
                 disabled={isSubmitting}
               >
-                {isSubmitting ? <Loader2 className="w-6 h-6 animate-spin" /> : <><Send className="w-6 h-6 mr-4" /> Start Transmission</>}
+                {isSubmitting ? <Loader2 className="w-6 h-6 animate-spin" /> : <><Send className="w-5 h-5 mr-3" /> Start Transmission</>}
               </Button>
             </form>
           </motion.div>
