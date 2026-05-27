@@ -28,11 +28,11 @@ export function Navbar() {
 
   return (
     <nav className={cn(
-      "fixed top-0 w-full z-[100] transition-all duration-700 px-4 sm:px-12",
+      "fixed top-0 w-full z-[100] transition-all duration-700 px-4 lg:px-6 xl:px-12",
       scrolled ? "py-4" : "py-8"
     )}>
       <div className={cn(
-        "max-w-7xl mx-auto flex items-center justify-between px-6 sm:px-10 py-3 rounded-2xl sm:rounded-full transition-all duration-700 border-none shadow-2xl backdrop-blur-3xl",
+        "max-w-7xl mx-auto flex items-center justify-between px-6 lg:px-8 xl:px-10 py-3 rounded-2xl sm:rounded-full transition-all duration-700 border-none shadow-2xl backdrop-blur-3xl",
         scrolled 
           ? "bg-card/90 shadow-primary/10" 
           : "bg-card/20 shadow-lg"
@@ -56,8 +56,8 @@ export function Navbar() {
         </Link>
 
         {/* Desktop Interface */}
-        <div className="hidden lg:flex items-center gap-10">
-          <div className="flex items-center gap-8">
+        <div className="hidden lg:flex items-center lg:gap-6 xl:gap-10">
+          <div className="flex items-center lg:gap-6 xl:gap-8">
             {navLinks.map((link) => (
               <a
                 key={link.name}
