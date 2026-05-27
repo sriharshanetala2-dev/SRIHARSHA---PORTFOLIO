@@ -20,8 +20,8 @@ export function Hero() {
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
           >
             <h1 className="text-4xl xs:text-5xl sm:text-7xl lg:text-9xl font-headline font-black tracking-tighter uppercase flex flex-col items-center select-none leading-[1] sm:leading-[1.1]">
-              <span className="text-foreground">Engineering</span>
-              <span className="shimmer-text px-4">Intelligence</span>
+              <span className="text-foreground">Full Stack</span>
+              <span className="shimmer-text px-4">Developer</span>
             </h1>
           </motion.div>
           
@@ -43,7 +43,7 @@ export function Hero() {
               className="section-label mx-auto"
             >
               <Activity className="w-4 h-4" />
-              FULL_STACK_DEV_v6.0
+              SYSTEM_DEVELOPER_v6.0
             </motion.div>
           </div>
         </div>
@@ -82,8 +82,8 @@ export function Hero() {
             >
               <stat.icon className="w-5 h-5 sm:w-8 sm:h-8 text-primary opacity-80" />
               <div className="space-y-1">
-                <p className="text-[8px] sm:text-[12px] font-mono font-black uppercase tracking-[0.2em] sm:tracking-[0.3em] text-muted-foreground/60">{stat.label}</p>
-                <p className="text-xs sm:text-xl font-black uppercase text-foreground font-mono leading-none">{stat.value}</p>
+                <p className="text-[10px] sm:text-[12px] font-mono font-black uppercase tracking-[0.2em] sm:tracking-[0.3em] text-muted-foreground/60">{stat.label}</p>
+                <p className="text-sm sm:text-xl font-black uppercase text-foreground font-mono leading-none">{stat.value}</p>
               </div>
             </motion.div>
           ))}
