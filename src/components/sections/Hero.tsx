@@ -11,29 +11,29 @@ export function Hero() {
 
   return (
     <section className="min-h-screen flex items-center justify-center pt-24 pb-12 sm:pt-32 sm:pb-16 px-4 sm:px-8 relative overflow-hidden bg-background">
-      {/* High-Fidelity Background Image Layer */}
+      {/* High-Fidelity Background Image Layer - Enhanced Visibility */}
       {heroImage && (
         <div className="absolute inset-0 z-0">
           <Image
             src={heroImage.imageUrl}
             alt={heroImage.description}
             fill
-            className="object-cover opacity-80 grayscale brightness-[0.8] transition-opacity duration-1000"
+            className="object-cover opacity-90 brightness-[0.9] transition-opacity duration-1000"
             priority
             data-ai-hint={heroImage.imageHint}
           />
           {/* Refined Overlays for Peak Visibility */}
-          <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/20 to-background z-10" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,hsl(var(--background)/0.8)_100%)] z-10" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/10 to-background z-10" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,hsl(var(--background)/0.7)_100%)] z-10" />
         </div>
       )}
       
       {/* Neural Interface Background Overlay */}
-      <div className="absolute inset-0 neural-grid opacity-[0.08] pointer-events-none z-[5]" />
+      <div className="absolute inset-0 neural-grid opacity-[0.1] pointer-events-none z-[5]" />
       
       {/* Dynamic Luminous Nodes */}
-      <div className="absolute top-[10%] left-[-15%] w-[70%] h-[70%] bg-primary/10 rounded-full blur-[180px] pointer-events-none animate-pulse-slow z-[2]" />
-      <div className="absolute bottom-[-10%] right-[-15%] w-[60%] h-[60%] bg-primary/5 rounded-full blur-[180px] pointer-events-none animate-pulse-slow z-[2]" style={{ animationDelay: '2s' }} />
+      <div className="absolute top-[10%] left-[-15%] w-[70%] h-[70%] bg-primary/15 rounded-full blur-[180px] pointer-events-none animate-pulse-slow z-[2]" />
+      <div className="absolute bottom-[-10%] right-[-15%] w-[60%] h-[60%] bg-primary/10 rounded-full blur-[180px] pointer-events-none animate-pulse-slow z-[2]" style={{ animationDelay: '2s' }} />
       
       <div className="max-w-7xl mx-auto text-center space-y-8 sm:space-y-16 relative z-[10] w-full">
         <div className="space-y-6 sm:space-y-14">
@@ -113,7 +113,7 @@ export function Hero() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 * i, duration: 0.8 }}
-              className="space-y-3 p-6 sm:p-10 rounded-2xl sm:rounded-[2.5rem] bg-secondary/20 border border-border/40 text-left hover:border-primary/40 hover:bg-secondary/40 hover:shadow-[0_0_25px_rgba(var(--primary),0.05)] transition-all group backdrop-blur-3xl shadow-xl cursor-default"
+              className="space-y-3 p-6 sm:p-10 rounded-2xl sm:rounded-[2.5rem] bg-secondary/40 border border-border/40 text-left hover:border-primary/40 hover:bg-secondary/50 hover:shadow-[0_0_25px_rgba(var(--primary),0.1)] transition-all group backdrop-blur-3xl shadow-xl cursor-default"
             >
               <stat.icon className="w-5 h-5 sm:w-8 sm:h-8 text-primary group-hover:scale-110 transition-transform" />
               <div className="space-y-1">

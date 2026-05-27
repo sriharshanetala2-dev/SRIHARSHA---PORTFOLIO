@@ -72,21 +72,21 @@ export function Skills() {
 
   return (
     <section id="skills" className="py-20 sm:py-32 px-4 sm:px-6 border-t border-border bg-background relative overflow-hidden scroll-mt-20">
-      {/* High-Fidelity Technical Backdrop - Enhanced Visibility */}
+      {/* High-Fidelity Technical Backdrop - Peak Visibility */}
       {skillsBackdrop && (
         <div className="absolute inset-0 z-0 pointer-events-none">
           <Image
             src={skillsBackdrop.imageUrl}
             alt={skillsBackdrop.description}
             fill
-            className="object-cover opacity-60 grayscale brightness-[0.7] transition-all duration-1000"
+            className="object-cover opacity-85 brightness-[0.85] transition-all duration-1000"
             data-ai-hint={skillsBackdrop.imageHint}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/60 to-background z-[1]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/20 to-background z-[1]" />
         </div>
       )}
 
-      <div className="absolute inset-0 neural-grid opacity-[0.05] pointer-events-none z-[2]" />
+      <div className="absolute inset-0 neural-grid opacity-[0.1] pointer-events-none z-[2]" />
       
       <div className="max-w-7xl mx-auto space-y-12 sm:space-y-20 relative z-10">
         <div className="text-center space-y-6">
@@ -110,7 +110,7 @@ export function Skills() {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-[11px] sm:text-lg text-muted-foreground font-bold max-w-2xl mx-auto opacity-70 uppercase tracking-[0.2em] leading-relaxed px-4"
+            className="text-[11px] sm:text-lg text-muted-foreground font-bold max-w-2xl mx-auto opacity-90 uppercase tracking-[0.2em] leading-relaxed px-4"
           >
             A high-fidelity architectural audit of my core competencies, distributed across backend systems, frontend logic, and neural orchestration.
           </motion.p>
@@ -126,10 +126,10 @@ export function Skills() {
           {skillCategories.map((category, catIdx) => (
             <div key={catIdx} className="space-y-6">
               <div className="flex items-center gap-4 px-4">
-                <div className="p-3 rounded-xl bg-primary/10 text-primary">
+                <div className="p-3 rounded-xl bg-primary/20 text-primary backdrop-blur-md">
                   <category.icon className="w-5 h-5" />
                 </div>
-                <h3 className="text-sm sm:text-lg font-black uppercase tracking-[0.2em]">{category.title}</h3>
+                <h3 className="text-sm sm:text-lg font-black uppercase tracking-[0.2em] text-foreground">{category.title}</h3>
               </div>
 
               <div className="space-y-4">
@@ -139,19 +139,19 @@ export function Skills() {
                     <motion.div
                       key={skill.name}
                       variants={itemVariants}
-                      className="p-5 sm:p-6 rounded-[1.5rem] sm:rounded-[2rem] bg-card/60 backdrop-blur-md border border-border/60 hover:border-primary/40 transition-all group shadow-sm"
+                      className="p-5 sm:p-6 rounded-[1.5rem] sm:rounded-[2rem] bg-card/80 backdrop-blur-xl border border-white/10 hover:border-primary/50 transition-all group shadow-2xl"
                     >
                       <div className="flex items-center justify-between mb-4">
                         <div className="flex items-center gap-4">
-                          <div className="p-2.5 rounded-lg bg-secondary text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500">
+                          <div className="p-2.5 rounded-lg bg-secondary/80 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500">
                             <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
                           </div>
                           <span className="font-black text-xs sm:text-sm uppercase tracking-tight">{skill.name}</span>
                         </div>
-                        <span className="text-[9px] sm:text-[10px] font-black uppercase tracking-widest text-primary/60">{skill.level}</span>
+                        <span className="text-[9px] sm:text-[10px] font-black uppercase tracking-widest text-primary/80">{skill.level}</span>
                       </div>
                       
-                      <div className="w-full h-1.5 bg-secondary/50 rounded-full overflow-hidden">
+                      <div className="w-full h-1.5 bg-secondary/40 rounded-full overflow-hidden">
                         <motion.div 
                           initial={{ width: 0 }}
                           whileInView={{ width: skill.level === "High" ? "95%" : skill.level === "Core" ? "85%" : "75%" }}
@@ -161,7 +161,7 @@ export function Skills() {
                       </div>
                       
                       <div className="mt-4 flex items-center justify-between">
-                        <span className="text-[8px] sm:text-[9px] font-black uppercase tracking-[0.3em] text-muted-foreground opacity-40">Status: Verified</span>
+                        <span className="text-[8px] sm:text-[9px] font-black uppercase tracking-[0.3em] text-muted-foreground opacity-60">Status: Verified</span>
                         <Zap className="w-3 h-3 text-primary opacity-0 group-hover:opacity-100 transition-opacity" />
                       </div>
                     </motion.div>

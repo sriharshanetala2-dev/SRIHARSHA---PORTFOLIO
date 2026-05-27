@@ -32,10 +32,10 @@ export function About() {
             src={aboutBackdrop.imageUrl}
             alt={aboutBackdrop.description}
             fill
-            className="object-cover opacity-90 brightness-[0.8] transition-all duration-1000"
+            className="object-cover opacity-80 brightness-[0.9] transition-all duration-1000"
             data-ai-hint={aboutBackdrop.imageHint}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/60 to-transparent z-10" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/50 to-transparent z-10" />
         </div>
       )}
 
@@ -71,7 +71,7 @@ export function About() {
                     "p-4 sm:p-6 rounded-xl sm:rounded-2xl border-none text-left transition-all duration-300 group relative overflow-hidden",
                     activeNode.id === node.id 
                       ? "bg-primary text-primary-foreground shadow-xl scale-[1.02]" 
-                      : "bg-card hover:bg-primary/10 shadow-md text-primary"
+                      : "bg-card/80 backdrop-blur-md hover:bg-primary/20 shadow-md text-primary"
                   )}
                 >
                   <node.icon className={cn("w-5 h-5 sm:w-6 sm:h-6 mb-3 sm:mb-4", activeNode.id === node.id ? "text-primary-foreground" : "text-primary")} />
@@ -87,9 +87,9 @@ export function About() {
             initial={{ opacity: 0, scale: 0.98, x: 15 }}
             animate={{ opacity: 1, scale: 1, x: 0 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
-            className="p-6 sm:p-12 rounded-[1.5rem] sm:rounded-[2.5rem] border-none bg-card/40 backdrop-blur-3xl space-y-8 sm:space-y-10 relative overflow-hidden shadow-2xl group"
+            className="p-6 sm:p-12 rounded-[1.5rem] sm:rounded-[2.5rem] border-none bg-card/60 backdrop-blur-3xl space-y-8 sm:space-y-10 relative overflow-hidden shadow-2xl group"
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-50" />
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent opacity-50" />
             
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 relative z-10">
               <div className="p-4 sm:p-5 rounded-lg sm:rounded-xl bg-primary text-primary-foreground shadow-xl">
@@ -105,7 +105,7 @@ export function About() {
 
             <div className="space-y-3 sm:space-y-4 relative z-10">
               {activeNode.metrics.map((metric, i) => (
-                <div key={i} className="flex flex-col sm:flex-row sm:items-center justify-between p-4 sm:p-5 rounded-xl sm:rounded-[1.25rem] bg-background/50 border-none group/metric hover:bg-primary/10 transition-all gap-3 sm:gap-4">
+                <div key={i} className="flex flex-col sm:flex-row sm:items-center justify-between p-4 sm:p-5 rounded-xl sm:rounded-[1.25rem] bg-background/70 border border-white/5 group/metric hover:bg-primary/20 transition-all gap-3 sm:gap-4">
                   <div className="flex items-center gap-3 sm:gap-4">
                     <div className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-primary animate-pulse" />
                     <span className="font-black text-[10px] sm:text-sm uppercase tracking-[0.1em] text-primary">{metric}</span>

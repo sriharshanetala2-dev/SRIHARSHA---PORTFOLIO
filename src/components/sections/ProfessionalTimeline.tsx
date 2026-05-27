@@ -1,4 +1,3 @@
-
 "use client";
 
 import { motion } from "framer-motion";
@@ -73,7 +72,7 @@ const timelineItems = [
 ];
 
 export function SystemRegistry() {
-  const timelineBackdrop = PlaceHolderImages.find(img => img.id === 'pulse-analytics-node');
+  const timelineBackdrop = PlaceHolderImages.find(img => img.id === 'sentinel-iam-hub');
 
   const container = {
     hidden: { opacity: 0 },
@@ -93,22 +92,22 @@ export function SystemRegistry() {
 
   return (
     <section id="experience" className="py-20 sm:py-32 px-4 sm:px-6 border-t border-border bg-background relative overflow-hidden scroll-mt-20">
-      {/* Enhanced Technical Backdrop Visibility */}
+      {/* High-Fidelity Technical Backdrop - Peak Visibility */}
       {timelineBackdrop && (
         <div className="absolute inset-0 z-0 pointer-events-none">
           <Image
             src={timelineBackdrop.imageUrl}
             alt={timelineBackdrop.description}
             fill
-            className="object-cover opacity-90 brightness-[0.8] transition-all duration-1000"
+            className="object-cover opacity-85 brightness-[0.85] transition-all duration-1000"
             data-ai-hint={timelineBackdrop.imageHint}
           />
           {/* Refined gradient mask for optimal content contrast */}
-          <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/10 to-background z-[1]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/10 to-background z-[1]" />
         </div>
       )}
 
-      <div className="absolute inset-0 neural-grid opacity-[0.05] pointer-events-none z-[2]" />
+      <div className="absolute inset-0 neural-grid opacity-[0.1] pointer-events-none z-[2]" />
       
       <div className="max-w-4xl mx-auto space-y-12 sm:space-y-24 relative z-10">
         <div className="text-center space-y-6">
@@ -133,7 +132,7 @@ export function SystemRegistry() {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-sm sm:text-xl text-muted-foreground font-bold uppercase tracking-widest opacity-80 max-w-2xl mx-auto px-4"
+            className="text-sm sm:text-xl text-muted-foreground font-bold uppercase tracking-widest opacity-90 max-w-2xl mx-auto px-4"
           >
             A high-fidelity audit of professional milestones and academic foundation nodes.
           </motion.p>
@@ -146,7 +145,7 @@ export function SystemRegistry() {
           viewport={{ once: true }}
           className="space-y-6 sm:space-y-12 relative"
         >
-          <div className="absolute left-6 sm:left-8 top-0 bottom-0 w-px bg-border/40 hidden md:block" />
+          <div className="absolute left-6 sm:left-8 top-0 bottom-0 w-px bg-primary/20 hidden md:block" />
           
           {timelineItems.map((item) => (
             <motion.div
@@ -154,27 +153,27 @@ export function SystemRegistry() {
               variants={itemVariants}
               className="relative flex flex-col md:flex-row gap-6 md:pl-24 group"
             >
-              <div className="absolute left-6 top-10 w-4 h-4 rounded-full bg-primary border-4 border-background hidden md:block z-20 shadow-[0_0_15px_rgba(var(--primary),0.4)] group-hover:scale-150 transition-transform" />
+              <div className="absolute left-6 top-10 w-4 h-4 rounded-full bg-primary border-4 border-background hidden md:block z-20 shadow-[0_0_15px_rgba(var(--primary),0.5)] group-hover:scale-150 transition-transform" />
               
-              <div className="flex-1 space-y-4 sm:space-y-8 bg-card/60 p-6 sm:p-12 rounded-[1.5rem] sm:rounded-[2.5rem] border border-border/60 shadow-2xl backdrop-blur-3xl group-hover:border-primary/40 transition-all duration-500">
+              <div className="flex-1 space-y-4 sm:space-y-8 bg-card/70 p-6 sm:p-12 rounded-[1.5rem] sm:rounded-[2.5rem] border border-white/10 shadow-2xl backdrop-blur-3xl group-hover:border-primary/50 transition-all duration-500">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                   <div className="flex items-center gap-4 sm:gap-6">
-                    <div className="p-3 sm:p-4 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-700">
+                    <div className="p-3 sm:p-4 rounded-xl bg-primary/20 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-700">
                       <item.icon className="w-5 h-5 sm:w-7 sm:h-7" />
                     </div>
                     <div className="space-y-1">
                       <h3 className="text-base sm:text-2xl font-headline font-black uppercase tracking-tight leading-none group-hover:text-primary transition-colors">{item.role}</h3>
                       <div className="flex flex-wrap gap-2 mt-1">
-                         <p className="text-[11px] sm:text-[12px] font-mono font-black text-primary/60 uppercase tracking-[0.2em]">{item.company || item.institution}</p>
+                         <p className="text-[11px] sm:text-[12px] font-mono font-black text-primary/80 uppercase tracking-[0.2em]">{item.company || item.institution}</p>
                       </div>
                     </div>
                   </div>
-                  <div className="flex items-center gap-2 text-[10px] sm:text-[11px] font-black text-muted-foreground bg-secondary/40 border border-border/40 px-3 sm:px-5 py-1.5 sm:py-2.5 rounded-full w-fit uppercase tracking-widest">
-                    <CalendarDays className="w-3 h-3 sm:w-4 sm:h-4 opacity-50" />
+                  <div className="flex items-center gap-2 text-[10px] sm:text-[11px] font-black text-foreground bg-primary/10 border border-primary/20 px-3 sm:px-5 py-1.5 sm:py-2.5 rounded-full w-fit uppercase tracking-widest">
+                    <CalendarDays className="w-3 h-3 sm:w-4 sm:h-4 opacity-70" />
                     {item.period}
                   </div>
                 </div>
-                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed font-bold uppercase tracking-tight opacity-70">
+                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed font-bold uppercase tracking-tight opacity-90">
                   {item.description}
                 </p>
               </div>

@@ -29,22 +29,22 @@ export function Projects() {
   };
 
   return (
-    <section id="portfolio" className="py-24 sm:py-40 px-4 sm:px-8 bg-secondary/5 border-t border-border relative overflow-hidden scroll-mt-20">
-      {/* High-Fidelity Technical Backdrop */}
+    <section id="portfolio" className="py-24 sm:py-40 px-4 sm:px-8 bg-background border-t border-border relative overflow-hidden scroll-mt-20">
+      {/* High-Fidelity Technical Backdrop - Peak Visibility */}
       {projectsBackdrop && (
         <div className="absolute inset-0 z-0 pointer-events-none">
           <Image
             src={projectsBackdrop.imageUrl}
             alt={projectsBackdrop.description}
             fill
-            className="object-cover opacity-60 brightness-[0.7] transition-all duration-1000"
+            className="object-cover opacity-90 brightness-[0.85] transition-all duration-1000"
             data-ai-hint={projectsBackdrop.imageHint}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/60 to-background z-[1]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/20 to-background z-[1]" />
         </div>
       )}
 
-      <div className="absolute inset-0 neural-grid opacity-[0.03] pointer-events-none z-[2]" />
+      <div className="absolute inset-0 neural-grid opacity-[0.1] pointer-events-none z-[2]" />
       
       <div className="max-w-7xl mx-auto space-y-20 relative z-10">
         <div className="text-center space-y-8">
@@ -69,7 +69,7 @@ export function Projects() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-base sm:text-xl text-muted-foreground max-w-3xl mx-auto font-black opacity-70 uppercase tracking-[0.2em] leading-relaxed"
+            className="text-base sm:text-xl text-muted-foreground max-w-3xl mx-auto font-black opacity-90 uppercase tracking-[0.2em] leading-relaxed"
           >
             High-performance software systems engineered for enterprise stability and technical integrity.
           </motion.p>
@@ -91,31 +91,31 @@ export function Projects() {
                 className="h-full"
               >
                 <Link href={`/projects/${project.id}`} className="group h-full block">
-                  <Card className="h-full rounded-[2rem] sm:rounded-[3rem] overflow-hidden glass-card border-border/20 group-hover:border-primary/40 group-hover:shadow-[0_0_30px_rgba(var(--primary),0.1)] transition-all duration-700 h-full">
+                  <Card className="h-full rounded-[2rem] sm:rounded-[3rem] overflow-hidden bg-card/80 backdrop-blur-2xl border border-white/10 group-hover:border-primary/50 group-hover:shadow-[0_0_40px_rgba(var(--primary),0.2)] transition-all duration-700">
                     <CardContent className="p-8 sm:p-12 space-y-10 flex flex-col h-full relative">
                       <div className="flex justify-between items-start">
-                        <div className="p-4 rounded-2xl bg-primary/5 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-700 shadow-inner border border-primary/20">
+                        <div className="p-4 rounded-2xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-700 shadow-inner border border-primary/20">
                           <Icon className="w-6 h-6 sm:w-8 sm:h-8" />
                         </div>
-                        <span className="text-[10px] font-black uppercase tracking-[0.4em] text-primary bg-primary/10 px-5 py-2 rounded-full border border-primary/20 backdrop-blur-md">
+                        <span className="text-[10px] font-black uppercase tracking-[0.4em] text-primary bg-primary/20 px-5 py-2 rounded-full border border-primary/30 backdrop-blur-md">
                           {project.category}
                         </span>
                       </div>
                       
                       <div className="space-y-4 flex-grow">
                         <h3 className="text-xl sm:text-3xl font-headline font-black uppercase tracking-tight group-hover:text-primary transition-colors leading-[1.1]">{project.title}</h3>
-                        <p className="text-[13px] sm:text-base text-muted-foreground leading-relaxed font-bold uppercase tracking-tight opacity-70 line-clamp-4 group-hover:opacity-100 transition-opacity">
+                        <p className="text-[13px] sm:text-base text-muted-foreground leading-relaxed font-bold uppercase tracking-tight opacity-90 line-clamp-4 group-hover:opacity-100 transition-opacity">
                           {project.description}
                         </p>
                       </div>
                       
                       <div className="space-y-6">
-                        <div className="flex items-center gap-3 text-[10px] font-black text-primary/50 uppercase tracking-[0.4em]">
+                        <div className="flex items-center gap-3 text-[10px] font-black text-primary/70 uppercase tracking-[0.4em]">
                           <Terminal className="w-4 h-4" /> SYSTEM_LOGS
                         </div>
                         <div className="flex flex-wrap gap-3">
                           {project.tags.slice(0, 3).map(tag => (
-                            <span key={tag} className="text-[10px] sm:text-[11px] font-black uppercase tracking-[0.3em] text-muted-foreground/40 font-mono group-hover:text-primary/60 transition-colors">
+                            <span key={tag} className="text-[10px] sm:text-[11px] font-black uppercase tracking-[0.3em] text-primary/50 font-mono group-hover:text-primary transition-colors">
                               #{tag}
                             </span>
                           ))}
