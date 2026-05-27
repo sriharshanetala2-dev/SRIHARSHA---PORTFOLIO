@@ -6,24 +6,14 @@ import { Button } from "@/components/ui/button";
 
 export function Hero() {
   return (
-    <section className="min-h-screen flex items-center justify-center pt-24 pb-16 px-4 sm:px-8 relative overflow-hidden bg-background">
+    <section className="min-h-screen flex items-center justify-center pt-32 pb-16 px-4 sm:px-8 relative overflow-hidden bg-background">
       <div className="absolute inset-0 neural-grid opacity-[0.06] pointer-events-none" />
       
       <div className="absolute top-[10%] left-[-15%] w-[70%] h-[70%] bg-primary/5 rounded-full blur-[180px] pointer-events-none" />
       <div className="absolute bottom-[-10%] right-[-15%] w-[60%] h-[60%] bg-primary/5 rounded-full blur-[180px] pointer-events-none" />
       
-      <div className="max-w-7xl mx-auto text-center space-y-10 sm:space-y-16 relative z-20 w-full">
-        <motion.div
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="section-label mx-auto"
-        >
-          <Activity className="w-4 h-4" />
-          SYSTEM_ARCHITECT_v6.0
-        </motion.div>
-
-        <div className="space-y-6 sm:space-y-12">
+      <div className="max-w-7xl mx-auto text-center space-y-12 sm:space-y-16 relative z-20 w-full">
+        <div className="space-y-10 sm:space-y-14">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -34,13 +24,23 @@ export function Hero() {
               <span className="shimmer-text px-4">Intelligence</span>
             </h1>
           </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="section-label mx-auto"
+          >
+            <Activity className="w-4 h-4" />
+            SYSTEM_ARCHITECT_v6.0
+          </motion.div>
           
           <motion.p
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.2 }}
-            className="text-sm xs:text-base sm:text-xl lg:text-3xl text-muted-foreground max-w-4xl mx-auto leading-relaxed font-bold uppercase tracking-tight opacity-90 px-4"
+            transition={{ duration: 1, delay: 0.3 }}
+            className="text-sm xs:text-base sm:text-xl lg:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed font-bold uppercase tracking-tight opacity-90 px-4"
           >
             Architecting high-performance digital ecosystems where technical integrity meets autonomous orchestration.
           </motion.p>
@@ -50,7 +50,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 1, delay: 0.4 }}
+          transition={{ duration: 1, delay: 0.5 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 px-4"
         >
           <Button size="lg" className="w-full sm:w-auto rounded-full h-14 sm:h-20 px-10 sm:px-14 text-[10px] sm:text-lg font-black uppercase tracking-[0.4em] shadow-2xl shadow-primary/30 hover:scale-105 transition-all group" asChild>
@@ -63,7 +63,7 @@ export function Hero() {
           </Button>
         </motion.div>
 
-        <div className="pt-12 sm:pt-32 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8 max-w-6xl mx-auto">
+        <div className="pt-12 sm:pt-24 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8 max-w-6xl mx-auto">
           {[
             { label: "Core Kernel", value: "Neural_v6", icon: Cpu },
             { label: "Integrity", value: "Hardened", icon: Code2 },
@@ -75,7 +75,7 @@ export function Hero() {
               initial={{ opacity: 0, scale: 0.95, y: 15 }}
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.5 + (i * 0.1), duration: 0.8 }}
+              transition={{ delay: 0.6 + (i * 0.1), duration: 0.8 }}
               className="space-y-2 sm:space-y-4 p-5 sm:p-10 rounded-[1.5rem] sm:rounded-[3rem] bg-secondary/30 border border-border/80 text-left hover:border-primary/60 transition-all group backdrop-blur-3xl shadow-xl"
             >
               <stat.icon className="w-5 h-5 sm:w-8 sm:h-8 text-primary opacity-80" />
