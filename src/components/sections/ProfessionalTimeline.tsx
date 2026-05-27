@@ -1,3 +1,4 @@
+
 "use client";
 
 import { motion } from "framer-motion";
@@ -92,17 +93,17 @@ export function SystemRegistry() {
 
   return (
     <section id="experience" className="py-20 sm:py-32 px-4 sm:px-6 border-t border-border bg-background relative overflow-hidden scroll-mt-20">
-      {/* High-Fidelity Technical Backdrop */}
+      {/* High-Fidelity Technical Backdrop - Enhanced Visibility */}
       {timelineBackdrop && (
         <div className="absolute inset-0 z-0 pointer-events-none">
           <Image
             src={timelineBackdrop.imageUrl}
             alt={timelineBackdrop.description}
             fill
-            className="object-cover opacity-50 grayscale brightness-[0.5]"
+            className="object-cover opacity-80 grayscale brightness-[0.7] transition-all duration-1000"
             data-ai-hint={timelineBackdrop.imageHint}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-background via-background/60 to-background z-[1]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/40 to-background z-[1]" />
         </div>
       )}
 
