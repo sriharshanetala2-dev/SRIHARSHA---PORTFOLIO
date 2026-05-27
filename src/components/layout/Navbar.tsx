@@ -49,7 +49,7 @@ export function Navbar() {
             <span className="text-sm sm:text-base font-headline font-black tracking-tight uppercase leading-none shimmer-text">
               SRI HARSHA
             </span>
-            <span className="text-[7px] sm:text-[9px] font-mono font-black uppercase tracking-[0.2em] text-primary/70 mt-0.5 leading-tight">
+            <span className="text-[7px] sm:text-[9px] font-mono font-black uppercase tracking-[0.2em] text-primary mt-0.5 leading-tight">
               Full Stack & <br /> App Developer
             </span>
           </div>
@@ -62,7 +62,7 @@ export function Navbar() {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-[11px] font-black text-foreground/60 hover:text-primary transition-all uppercase tracking-[0.3em] relative group"
+                className="text-[11px] font-black text-foreground hover:text-primary transition-all uppercase tracking-[0.3em] relative group"
               >
                 {link.name}
                 <motion.span 
@@ -120,7 +120,7 @@ export function Navbar() {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: i * 0.1 }}
-                className="text-sm font-black uppercase tracking-[0.4em] text-foreground/70 hover:text-primary py-4 border-b border-border/10 last:border-0 transition-colors"
+                className="text-sm font-black uppercase tracking-[0.4em] text-foreground hover:text-primary py-4 border-b border-border/10 last:border-0 transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}

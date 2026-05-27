@@ -70,7 +70,7 @@ export function Contact() {
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-[11px] sm:text-2xl text-muted-foreground max-w-3xl font-bold uppercase tracking-widest opacity-80"
+            className="text-[11px] sm:text-2xl text-foreground max-w-3xl font-bold uppercase tracking-widest opacity-90"
           >
             High-performance handshake for technical collaboration.
           </motion.p>
@@ -90,20 +90,20 @@ export function Contact() {
               </div>
               <div className="space-y-10 relative z-10">
                 <div className="space-y-4">
-                  <p className="text-[11px] font-black text-primary uppercase tracking-[0.5em] opacity-60">Email Port</p>
-                  <h3 className="text-base sm:text-xl font-headline font-black uppercase tracking-tight break-all leading-tight text-primary">
+                  <p className="text-[11px] font-black text-primary uppercase tracking-[0.5em] opacity-80">Email Port</p>
+                  <h3 className="text-base sm:text-lg font-headline font-black uppercase tracking-tight break-all leading-tight text-primary">
                     {userEmail}
                   </h3>
                 </div>
                 <div className="space-y-4">
-                  <p className="text-[11px] font-black text-primary uppercase tracking-[0.5em] opacity-60">Contact Node</p>
+                  <p className="text-[11px] font-black text-primary uppercase tracking-[0.5em] opacity-80">Contact Node</p>
                   <h3 className="text-base sm:text-xl font-headline font-black uppercase tracking-tight text-primary">
                     +91 9346759263
                   </h3>
                 </div>
                 <div className="pt-8 border-t border-primary/10 flex items-center gap-4">
                   <Activity className="w-5 h-5 text-primary animate-pulse" />
-                  <p className="text-[10px] font-black uppercase tracking-[0.4em] text-muted-foreground opacity-40">Awaiting Signal Transmission</p>
+                  <p className="text-[10px] font-black uppercase tracking-[0.4em] text-muted-foreground">Awaiting Signal Transmission</p>
                 </div>
               </div>
             </motion.div>
@@ -111,7 +111,7 @@ export function Contact() {
             <motion.div variants={itemVariants} className="p-8 rounded-[1.5rem] sm:rounded-[2rem] bg-primary/5 border-none backdrop-blur-xl flex flex-col gap-4">
               <div className="flex items-center gap-4">
                 <Terminal className="w-6 h-6 text-primary/40" />
-                <p className="text-[11px] sm:text-xs font-bold uppercase tracking-tight text-muted-foreground leading-relaxed opacity-70">
+                <p className="text-[11px] sm:text-xs font-bold uppercase tracking-tight text-foreground leading-relaxed opacity-80">
                   Initialization complete. Secure channel verified for enterprise collaboration and technical orchestration.
                 </p>
               </div>
@@ -122,7 +122,7 @@ export function Contact() {
             <form onSubmit={handleSubmit} className="space-y-6 sm:space-y-10 relative z-10 flex flex-col">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
                 <div className="space-y-2">
-                  <label className="text-[11px] font-black uppercase tracking-[0.5em] text-primary/60 ml-2">Identity Manifest</label>
+                  <label className="text-[11px] font-black uppercase tracking-[0.5em] text-primary ml-2">Identity Manifest</label>
                   <Input 
                     required 
                     placeholder="NAME" 
@@ -132,7 +132,7 @@ export function Contact() {
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-[11px] font-black uppercase tracking-[0.5em] text-primary/60 ml-2">Secure Port</label>
+                  <label className="text-[11px] font-black uppercase tracking-[0.5em] text-primary ml-2">Secure Port</label>
                   <Input 
                     type="email" 
                     required 
@@ -144,7 +144,7 @@ export function Contact() {
                 </div>
               </div>
               <div className="space-y-2">
-                <label className="text-[11px] font-black uppercase tracking-[0.5em] text-primary/60 ml-2">Transmission Data</label>
+                <label className="text-[11px] font-black uppercase tracking-[0.5em] text-primary ml-2">Transmission Data</label>
                 <Textarea 
                   required 
                   placeholder="MANIFEST CONTENT..." 

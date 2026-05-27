@@ -46,7 +46,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.6 }}
-              className="text-xs xs:text-sm sm:text-xl lg:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed font-bold uppercase tracking-tight opacity-80 px-4"
+              className="text-xs xs:text-sm sm:text-xl lg:text-2xl text-foreground max-w-4xl mx-auto leading-relaxed font-bold uppercase tracking-tight opacity-90 px-4"
             >
               Architecting high-performance digital ecosystems where technical integrity meets autonomous orchestration.
             </motion.p>
@@ -96,8 +96,8 @@ export function Hero() {
             >
               <stat.icon className="w-5 h-5 sm:w-8 sm:h-8 text-primary group-hover:scale-110 transition-transform" />
               <div className="space-y-1">
-                <p className="text-[9px] sm:text-[10px] font-mono font-black uppercase tracking-[0.3em] text-muted-foreground/60">{stat.label}</p>
-                <p className="text-xs sm:text-lg font-black uppercase text-foreground font-mono leading-none tracking-tight">{stat.value}</p>
+                <p className="text-[9px] sm:text-[10px] font-mono font-black uppercase tracking-[0.3em] text-muted-foreground">{stat.label}</p>
+                <p className="text-xs sm:text-lg font-black uppercase text-primary font-mono leading-none tracking-tight">{stat.value}</p>
               </div>
             </motion.div>
           ))}

@@ -40,7 +40,7 @@ export function About() {
                   Intelligence
                 </span>
               </h2>
-              <p className="text-[13px] sm:text-lg text-muted-foreground leading-relaxed font-bold uppercase tracking-normal opacity-80 max-w-xl">
+              <p className="text-[13px] sm:text-lg text-foreground leading-relaxed font-bold uppercase tracking-normal opacity-90 max-w-xl">
                 Engineering high-performance ecosystems where robust systems logic meets autonomous AI orchestration.
               </p>
             </div>
@@ -59,7 +59,7 @@ export function About() {
                 >
                   <node.icon className={cn("w-5 h-5 sm:w-6 sm:h-6 mb-3 sm:mb-4", activeNode.id === node.id ? "text-primary-foreground" : "text-primary")} />
                   <div className="font-black text-xs sm:text-sm uppercase tracking-[0.1em]">{node.label}</div>
-                  <div className={cn("text-[9px] sm:text-[10px] font-black uppercase tracking-widest mt-1 opacity-60", activeNode.id === node.id ? "text-primary-foreground" : "text-primary")}>{node.desc}</div>
+                  <div className={cn("text-[9px] sm:text-[10px] font-black uppercase tracking-widest mt-1 opacity-70", activeNode.id === node.id ? "text-primary-foreground" : "text-primary")}>{node.desc}</div>
                 </button>
               ))}
             </div>
