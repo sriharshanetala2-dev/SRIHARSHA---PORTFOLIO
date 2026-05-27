@@ -10,7 +10,7 @@ import Image from "next/image";
 import { PlaceHolderImages } from "@/app/lib/placeholder-images";
 
 export function Projects() {
-  const projectsBackdrop = PlaceHolderImages.find(img => img.id === 'neural-workflow-os');
+  const projectsBackdrop = PlaceHolderImages.find(img => img.id === 'system-backdrop');
 
   const container = {
     hidden: { opacity: 0 },
@@ -30,17 +30,17 @@ export function Projects() {
 
   return (
     <section id="portfolio" className="py-24 sm:py-40 px-4 sm:px-8 bg-background border-t border-border relative overflow-hidden scroll-mt-20">
-      {/* High-Fidelity Technical Backdrop - Peak Visibility */}
+      {/* High-Fidelity Technical Backdrop - Blurred Coding Workspace */}
       {projectsBackdrop && (
-        <div className="absolute inset-0 z-0 pointer-events-none">
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
           <Image
             src={projectsBackdrop.imageUrl}
             alt={projectsBackdrop.description}
             fill
-            className="object-cover opacity-90 brightness-[0.85] transition-all duration-1000"
+            className="object-cover opacity-100 brightness-[0.7] blur-md scale-105 transition-all duration-1000"
             data-ai-hint={projectsBackdrop.imageHint}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/20 to-background z-[1]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/30 to-background z-[1]" />
         </div>
       )}
 
