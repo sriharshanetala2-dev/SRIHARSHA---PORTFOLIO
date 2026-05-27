@@ -55,12 +55,12 @@ export function Hero() {
           transition={{ duration: 1, delay: 0.5 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 px-4"
         >
-          <Button size="lg" className="w-full sm:w-auto rounded-full h-14 sm:h-20 px-10 sm:px-14 text-[10px] sm:text-lg font-black uppercase tracking-[0.4em] shadow-2xl shadow-primary/30 hover:scale-105 transition-all group" asChild>
+          <Button size="lg" className="w-full sm:w-auto rounded-full h-12 sm:h-16 px-8 sm:px-12 text-[10px] sm:text-sm font-black uppercase tracking-[0.4em] shadow-2xl shadow-primary/30 hover:scale-105 transition-all group" asChild>
             <a href="#portfolio">
-              Archive <ArrowRight className="ml-3 sm:ml-4 w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-3 transition-transform" />
+              Archive <ArrowRight className="ml-3 sm:ml-4 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-3 transition-transform" />
             </a>
           </Button>
-          <Button variant="outline" size="lg" className="w-full sm:w-auto rounded-full h-14 sm:h-20 px-10 sm:px-14 text-[10px] sm:text-lg font-black uppercase tracking-[0.4em] border-2 border-border hover:bg-secondary/60 transition-all shadow-xl" asChild>
+          <Button variant="outline" size="lg" className="w-full sm:w-auto rounded-full h-12 sm:h-16 px-8 sm:px-12 text-[10px] sm:text-sm font-black uppercase tracking-[0.4em] border-2 border-border hover:bg-secondary/60 transition-all shadow-xl" asChild>
             <a href="#contact">Contact</a>
           </Button>
         </motion.div>
