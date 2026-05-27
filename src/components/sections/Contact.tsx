@@ -126,7 +126,7 @@ export function Contact() {
                   <Input 
                     required 
                     placeholder="NAME" 
-                    className="h-14 sm:h-16 rounded-xl bg-secondary/30 border-none font-black text-sm uppercase tracking-widest px-6 focus:bg-secondary/50 focus:shadow-[0_0_20px_rgba(var(--primary),0.1)] transition-all text-primary" 
+                    className="h-14 sm:h-16 rounded-xl bg-secondary/30 border-none font-black text-sm uppercase tracking-widest px-6 focus:bg-secondary/50 focus:shadow-[0_0_20px_rgba(var(--primary),0.1)] transition-all text-primary w-full max-w-md" 
                     value={formData.name} 
                     onChange={(e) => setFormData({...formData, name: e.target.value})} 
                   />
@@ -137,7 +137,7 @@ export function Contact() {
                     type="email" 
                     required 
                     placeholder="EMAIL" 
-                    className="h-14 sm:h-16 rounded-xl bg-secondary/30 border-none font-black text-sm uppercase tracking-widest px-6 focus:bg-secondary/50 focus:shadow-[0_0_20px_rgba(var(--primary),0.1)] transition-all text-primary" 
+                    className="h-14 sm:h-16 rounded-xl bg-secondary/30 border-none font-black text-sm uppercase tracking-widest px-6 focus:bg-secondary/50 focus:shadow-[0_0_20px_rgba(var(--primary),0.1)] transition-all text-primary w-full max-w-md" 
                     value={formData.email} 
                     onChange={(e) => setFormData({...formData, email: e.target.value})} 
                   />
