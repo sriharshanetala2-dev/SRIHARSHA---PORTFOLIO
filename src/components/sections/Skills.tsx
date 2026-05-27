@@ -52,7 +52,7 @@ const skillCategories = [
 ];
 
 export function Skills() {
-  const skillsBackdrop = PlaceHolderImages.find(img => img.id === 'pulse-analytics-node');
+  const skillsBackdrop = PlaceHolderImages.find(img => img.id === 'system-backdrop');
 
   const container = {
     hidden: { opacity: 0 },
@@ -72,17 +72,18 @@ export function Skills() {
 
   return (
     <section id="skills" className="py-20 sm:py-32 px-4 sm:px-6 border-t border-border bg-background relative overflow-hidden scroll-mt-20">
-      {/* High-Fidelity Technical Backdrop - Peak Visibility */}
+      {/* High-Fidelity Technical Backdrop - Blurred Coding Workspace */}
       {skillsBackdrop && (
-        <div className="absolute inset-0 z-0 pointer-events-none">
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
           <Image
             src={skillsBackdrop.imageUrl}
             alt={skillsBackdrop.description}
             fill
-            className="object-cover opacity-85 brightness-[0.85] transition-all duration-1000"
+            className="object-cover opacity-100 brightness-[0.7] blur-md scale-105 transition-all duration-1000"
             data-ai-hint={skillsBackdrop.imageHint}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/20 to-background z-[1]" />
+          {/* Refined gradient mask for optimal contrast */}
+          <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/30 to-background z-[1]" />
         </div>
       )}
 
@@ -144,7 +145,7 @@ export function Skills() {
                       <div className="flex items-center justify-between mb-4">
                         <div className="flex items-center gap-4">
                           <div className="p-2.5 rounded-lg bg-secondary/80 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500">
-                            <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
+                            <Icon className="w-4 h-4 sm:w-5 vsm:h-5" />
                           </div>
                           <span className="font-black text-xs sm:text-sm uppercase tracking-tight">{skill.name}</span>
                         </div>
