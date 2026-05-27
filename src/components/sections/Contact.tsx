@@ -62,7 +62,7 @@ export function Contact() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl sm:text-7xl lg:text-9xl font-headline font-black tracking-tighter uppercase leading-[0.9]"
+            className="text-4xl xs:text-5xl sm:text-7xl lg:text-9xl font-headline font-black tracking-tighter uppercase leading-[0.9]"
           >
             SYNC <span className="text-gradient">NODES</span>
           </motion.h2>
@@ -88,20 +88,20 @@ export function Contact() {
               <div className="absolute top-0 right-0 p-6 sm:p-8 opacity-10 group-hover:opacity-30 transition-opacity">
                 <ShieldCheck className="w-10 h-10 sm:w-16 sm:h-16 text-primary" />
               </div>
-              <div className="space-y-6 sm:space-y-10 relative z-10">
-                <div className="space-y-2">
+              <div className="space-y-8 relative z-10">
+                <div className="space-y-3">
                   <p className="text-[10px] sm:text-[12px] font-black text-primary uppercase tracking-[0.4em]">Connectivity Port</p>
-                  <h3 className="text-sm sm:text-3xl font-headline font-black uppercase tracking-tight break-all">
+                  <h3 className="text-[11px] sm:text-xl lg:text-2xl font-headline font-black uppercase tracking-tight break-all leading-tight">
                     {userEmail}
                   </h3>
                 </div>
-                <div className="space-y-2">
+                <div className="space-y-3">
                   <p className="text-[10px] sm:text-[12px] font-black text-primary uppercase tracking-[0.4em]">System ID Node</p>
-                  <h3 className="text-sm sm:text-3xl font-headline font-black uppercase tracking-tight">
+                  <h3 className="text-sm sm:text-xl lg:text-2xl font-headline font-black uppercase tracking-tight">
                     +91 9346759263
                   </h3>
                 </div>
-                <div className="pt-6 sm:pt-8 border-t border-border/60 flex items-center gap-3">
+                <div className="pt-8 border-t border-border/60 flex items-center gap-3">
                   <Activity className="w-4 h-4 text-primary animate-pulse" />
                   <p className="text-[9px] sm:text-[11px] font-black uppercase tracking-[0.3em] text-muted-foreground opacity-60">Awaiting Signal...</p>
                 </div>
