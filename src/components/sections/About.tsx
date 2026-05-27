@@ -32,10 +32,10 @@ export function About() {
             src={aboutBackdrop.imageUrl}
             alt={aboutBackdrop.description}
             fill
-            className="object-cover opacity-10 grayscale"
+            className="object-cover opacity-60 grayscale brightness-[0.6] transition-all duration-1000"
             data-ai-hint={aboutBackdrop.imageHint}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent z-10" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/60 to-transparent z-10" />
         </div>
       )}
 
