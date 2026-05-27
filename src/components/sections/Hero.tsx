@@ -1,4 +1,3 @@
-
 'use client';
 
 import { motion } from "framer-motion";
@@ -19,12 +18,13 @@ export function Hero() {
             src={heroImage.imageUrl}
             alt={heroImage.description}
             fill
-            className="object-cover opacity-60 grayscale transition-opacity duration-1000"
+            className="object-cover opacity-80 grayscale brightness-[0.8] transition-opacity duration-1000"
             priority
             data-ai-hint={heroImage.imageHint}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/40 to-background z-10" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,hsl(var(--background))_100%)] z-10" />
+          {/* Refined Overlays for Peak Visibility */}
+          <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/20 to-background z-10" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,hsl(var(--background)/0.8)_100%)] z-10" />
         </div>
       )}
       
