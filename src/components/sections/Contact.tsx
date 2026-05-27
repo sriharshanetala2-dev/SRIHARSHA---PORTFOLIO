@@ -90,14 +90,14 @@ export function Contact() {
               </div>
               <div className="space-y-8 relative z-10">
                 <div className="space-y-3">
-                  <p className="text-[12px] sm:text-[14px] font-black text-primary uppercase tracking-[0.4em]">Email Port</p>
-                  <h3 className="text-[16px] sm:text-xl lg:text-2xl font-headline font-black uppercase tracking-tight break-all leading-tight">
+                  <p className="text-[14px] sm:text-[14px] font-black text-primary uppercase tracking-[0.4em]">Email Port</p>
+                  <h3 className="text-[18px] sm:text-lg lg:text-xl font-headline font-black uppercase tracking-tight break-all leading-tight">
                     {userEmail}
                   </h3>
                 </div>
                 <div className="space-y-3">
-                  <p className="text-[12px] sm:text-[14px] font-black text-primary uppercase tracking-[0.4em]">Contact Node</p>
-                  <h3 className="text-[16px] sm:text-xl lg:text-2xl font-headline font-black uppercase tracking-tight">
+                  <p className="text-[14px] sm:text-[14px] font-black text-primary uppercase tracking-[0.4em]">Contact Node</p>
+                  <h3 className="text-[18px] sm:text-lg lg:text-xl font-headline font-black uppercase tracking-tight">
                     +91 9346759263
                   </h3>
                 </div>
