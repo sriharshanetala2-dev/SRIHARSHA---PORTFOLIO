@@ -4,25 +4,25 @@
 
 @layer base {
   :root {
-    /* Crystal Logic: High-Contrast Light Registry */
-    --background: 210 40% 98%;
-    --foreground: 222 60% 2%;
-    --card: 0 0% 100%;
-    --card-foreground: 222 60% 2%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222 60% 2%;
+    /* Deep Midnight Obsidian: High-Performance Dark Registry */
+    --background: 224 71% 4%;
+    --foreground: 210 40% 98%;
+    --card: 224 71% 4%;
+    --card-foreground: 210 40% 98%;
+    --popover: 224 71% 4%;
+    --popover-foreground: 210 40% 98%;
     --primary: 224 76% 48%;
     --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 94%;
-    --secondary-foreground: 222 60% 2%;
-    --muted: 210 40% 92%;
-    --muted-foreground: 215 25% 40%;
+    --secondary: 222 47% 11%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 222 47% 11%;
+    --muted-foreground: 215 20% 65%;
     --accent: 224 76% 48%;
     --accent-foreground: 210 40% 98%;
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 85%;
-    --input: 214.3 31.8% 85%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
     --ring: 224 76% 48%;
     --radius: 1rem;
   }
