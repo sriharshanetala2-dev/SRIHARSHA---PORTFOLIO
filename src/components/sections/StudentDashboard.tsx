@@ -269,7 +269,7 @@ export function StudentDashboard() {
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-headline font-black tracking-tighter uppercase leading-[0.9] shimmer-text">
             INTELLIGENT <span className="text-gradient">DATA ECOSYSTEM</span>
           </h2>
-          <p className="text-sm sm:text-lg text-muted-foreground max-w-3xl mx-auto font-black opacity-70 uppercase tracking-[0.2em] leading-relaxed px-4">
+          <p className="text-[11px] sm:text-lg text-muted-foreground max-w-3xl mx-auto font-black opacity-70 uppercase tracking-[0.2em] leading-relaxed px-4">
             A high-performance architectural simulation focusing on academic data integrity and predictive lifecycle analytics.
           </p>
         </div>
