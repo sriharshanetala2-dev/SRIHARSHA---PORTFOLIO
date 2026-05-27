@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import { Laptop, Database, Cpu, Activity, Terminal, Zap } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
+import Image from "next/image";
+import { PlaceHolderImages } from "@/app/lib/placeholder-images";
 
 const nodes = [
   { id: "frontend", label: "Frontend", icon: Laptop, desc: "Next.js Hub", metrics: ["Next.js 15 Core", "Atomic Design", "Responsive Logic"] },
@@ -14,6 +16,7 @@ const nodes = [
 
 export function About() {
   const [activeNode, setActiveNode] = useState(nodes[0]);
+  const aboutBackdrop = PlaceHolderImages.find(img => img.id === 'core-logic-engine');
 
   const variants = {
     hidden: { opacity: 0, y: 20 },
@@ -22,6 +25,20 @@ export function About() {
 
   return (
     <section id="about" className="py-16 sm:py-32 px-4 sm:px-8 border-t border-border bg-background relative overflow-hidden scroll-mt-20">
+      {/* High-Fidelity Technical Backdrop */}
+      {aboutBackdrop && (
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          <Image
+            src={aboutBackdrop.imageUrl}
+            alt={aboutBackdrop.description}
+            fill
+            className="object-cover opacity-10 grayscale"
+            data-ai-hint={aboutBackdrop.imageHint}
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent z-10" />
+        </div>
+      )}
+
       <div className="max-w-7xl mx-auto space-y-12 sm:space-y-16 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
           <motion.div
