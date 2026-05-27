@@ -62,7 +62,10 @@
     @apply bg-background text-foreground font-body antialiased selection:bg-primary/20 overflow-x-hidden;
     font-size: 16px;
     line-height: 1.6;
-    background-image: linear-gradient(rgba(10, 12, 18, 0.85), rgba(10, 12, 18, 0.95)), url('https://picsum.photos/seed/dark_tech_system_v1/1920/1080');
+    /* High-Fidelity Technical Backdrop Integration */
+    background-image: 
+      linear-gradient(rgba(10, 12, 18, 0.92), rgba(10, 12, 18, 0.98)), 
+      url('https://picsum.photos/seed/dev_ai_env_v12/1920/1080');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
