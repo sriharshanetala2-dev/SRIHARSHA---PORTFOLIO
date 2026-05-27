@@ -49,9 +49,14 @@ export function Navbar() {
             <span className="text-sm sm:text-base font-headline font-black tracking-tight uppercase leading-none shimmer-text">
               SRI HARSHA
             </span>
-            <span className="text-[7px] sm:text-[9px] font-mono font-black uppercase tracking-[0.2em] text-primary mt-0.5 leading-tight">
-              Full Stack & <br /> App Developer
-            </span>
+            <div className="flex flex-col">
+              <span className="text-[7px] sm:text-[9px] font-mono font-black uppercase tracking-[0.2em] text-primary mt-0.5 leading-tight">
+                Full Stack &
+              </span>
+              <span className="text-[7px] sm:text-[9px] font-mono font-black uppercase tracking-[0.2em] text-primary leading-tight">
+                App Developer
+              </span>
+            </div>
           </div>
         </Link>
 
@@ -62,7 +67,7 @@ export function Navbar() {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-[11px] font-black text-foreground hover:text-primary transition-all uppercase tracking-[0.3em] relative group"
+                className="text-[13px] font-black text-foreground hover:text-primary transition-all uppercase tracking-[0.3em] relative group"
               >
                 {link.name}
                 <motion.span 
@@ -86,7 +91,7 @@ export function Navbar() {
               color: "hsl(var(--primary-foreground))"
             }}
             whileTap={{ scale: 0.95 }}
-            className="px-6 py-2.5 rounded-lg bg-primary/10 text-primary text-[10px] font-black uppercase tracking-[0.3em] transition-all flex items-center gap-2 border-none"
+            className="px-6 py-2.5 rounded-lg bg-primary/10 text-primary text-[12px] font-black uppercase tracking-[0.3em] transition-all flex items-center gap-2 border-none"
           >
             <Terminal className="w-3.5 h-3.5" />
             Initialize
