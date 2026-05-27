@@ -33,7 +33,7 @@ export function About() {
           >
             <div className="space-y-6">
               <div className="section-label">FULL_STACK_DEVELOPER_CORE</div>
-              <h2 className="text-4xl sm:text-6xl font-headline font-black leading-tight uppercase">
+              <h2 className="text-3xl sm:text-6xl font-headline font-black leading-tight uppercase">
                 Engineering <br className="hidden sm:block" /> <span className="text-gradient">Digital Intelligence</span>
               </h2>
               <p className="text-base sm:text-lg text-muted-foreground leading-relaxed font-bold uppercase tracking-normal opacity-80 max-w-xl">
