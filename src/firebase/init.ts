@@ -1,18 +1,24 @@
-
 'use client';
 
-import { initializeApp, getApps, getApp, FirebaseApp } from 'firebase/app';
-import { getFirestore, Firestore } from 'firebase/firestore';
-import { getAuth, Auth } from 'firebase/auth';
+import { initializeApp, getApps, getApp } from 'firebase/app';
+import { getFirestore } from 'firebase/firestore';
+import { getAuth } from 'firebase/auth';
 import { firebaseConfig } from './config';
 
+/**
+ * Initializes Firebase services safely for the client side.
+ * Skips initialization during server-side rendering to prevent 500 errors.
+ */
 export function initializeFirebase() {
-  const isConfigValid = firebaseConfig.apiKey && firebaseConfig.apiKey !== "undefined";
+  // Guard against server-side execution
+  if (typeof window === 'undefined') {
+    return { firebaseApp: null, firestore: null, auth: null };
+  }
+
+  const { apiKey } = firebaseConfig;
+  const isConfigValid = !!apiKey && apiKey !== "undefined";
 
   if (!isConfigValid) {
-    if (typeof window !== 'undefined') {
-      console.warn("Firebase configuration is missing or incomplete.");
-    }
     return { firebaseApp: null, firestore: null, auth: null };
   }
 
@@ -23,9 +29,7 @@ export function initializeFirebase() {
 
     return { firebaseApp: app, firestore: db, auth };
   } catch (error) {
-    if (typeof window !== 'undefined') {
-      console.error("Error initializing Firebase:", error);
-    }
+    console.error("Firebase architecture initialization failed:", error);
     return { firebaseApp: null, firestore: null, auth: null };
   }
 }

@@ -72,7 +72,7 @@ export function Contact() {
             viewport={{ once: true }}
             className="text-[11px] sm:text-2xl text-muted-foreground max-w-3xl font-bold uppercase tracking-widest opacity-80"
           >
-            High-performance handshake for architectural orchestration.
+            High-performance handshake for technical collaboration.
           </motion.p>
         </div>
 
@@ -90,13 +90,13 @@ export function Contact() {
               </div>
               <div className="space-y-8 relative z-10">
                 <div className="space-y-3">
-                  <p className="text-[10px] sm:text-[12px] font-black text-primary uppercase tracking-[0.4em]">Connectivity Port</p>
+                  <p className="text-[10px] sm:text-[14px] font-black text-primary uppercase tracking-[0.4em]">Email Port</p>
                   <h3 className="text-[9px] sm:text-base lg:text-xl font-headline font-black uppercase tracking-tight break-all leading-tight">
                     {userEmail}
                   </h3>
                 </div>
                 <div className="space-y-3">
-                  <p className="text-[10px] sm:text-[12px] font-black text-primary uppercase tracking-[0.4em]">System ID Node</p>
+                  <p className="text-[10px] sm:text-[14px] font-black text-primary uppercase tracking-[0.4em]">Contact Node</p>
                   <h3 className="text-xs sm:text-base lg:text-xl font-headline font-black uppercase tracking-tight">
                     +91 9346759263
                   </h3>
@@ -123,7 +123,7 @@ export function Contact() {
             <form onSubmit={handleSubmit} className="space-y-6 sm:space-y-12 relative z-10">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-10">
                 <div className="space-y-2">
-                  <label className="text-[10px] sm:text-[11px] font-black uppercase tracking-[0.4em] text-primary ml-1">Identity Manifest</label>
+                  <label className="text-[10px] sm:text-[14px] font-black uppercase tracking-[0.4em] text-primary ml-1">Identity Manifest</label>
                   <Input 
                     required 
                     placeholder="NAME" 
@@ -133,7 +133,7 @@ export function Contact() {
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-[10px] sm:text-[11px] font-black uppercase tracking-[0.4em] text-primary ml-1">Secure Port</label>
+                  <label className="text-[10px] sm:text-[14px] font-black uppercase tracking-[0.4em] text-primary ml-1">Secure Port</label>
                   <Input 
                     type="email" 
                     required 
@@ -145,7 +145,7 @@ export function Contact() {
                 </div>
               </div>
               <div className="space-y-2">
-                <label className="text-[10px] sm:text-[11px] font-black uppercase tracking-[0.4em] text-primary ml-1">Transmission Data</label>
+                <label className="text-[10px] sm:text-[14px] font-black uppercase tracking-[0.4em] text-primary ml-1">Transmission Data</label>
                 <Textarea 
                   required 
                   placeholder="MANIFEST CONTENT..." 
@@ -154,7 +154,7 @@ export function Contact() {
                   onChange={(e) => setFormData({...formData, message: e.target.value})} 
                 />
               </div>
-              <Button type="submit" className="w-full h-14 sm:h-20 rounded-full text-[10px] sm:text-base font-black uppercase tracking-[0.5em] shadow-2xl bg-primary text-primary-foreground" disabled={isSubmitting}>
+              <Button type="submit" className="w-full h-14 sm:h-20 rounded-full text-[12px] sm:text-base font-black uppercase tracking-[0.5em] shadow-2xl bg-primary text-primary-foreground" disabled={isSubmitting}>
                 {isSubmitting ? <Loader2 className="w-5 h-5 animate-spin" /> : <><Send className="w-5 h-5 mr-3" /> Start Transmission</>}
               </Button>
             </form>

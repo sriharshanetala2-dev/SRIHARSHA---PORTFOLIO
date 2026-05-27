@@ -24,26 +24,28 @@ export function Hero() {
               <span className="shimmer-text px-4">Intelligence</span>
             </h1>
           </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="section-label mx-auto"
-          >
-            <Activity className="w-4 h-4" />
-            FULL_STACK_DEV_v6.0
-          </motion.div>
           
-          <motion.p
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.3 }}
-            className="text-sm xs:text-base sm:text-xl lg:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed font-bold uppercase tracking-tight opacity-90 px-4"
-          >
-            Architecting high-performance digital ecosystems where technical integrity meets autonomous orchestration.
-          </motion.p>
+          <div className="space-y-8">
+            <motion.p
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, delay: 0.3 }}
+              className="text-sm xs:text-base sm:text-xl lg:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed font-bold uppercase tracking-tight opacity-90 px-4"
+            >
+              Engineering high-performance digital ecosystems where technical integrity meets autonomous orchestration.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="section-label mx-auto"
+            >
+              <Activity className="w-4 h-4" />
+              FULL_STACK_DEV_v6.0
+            </motion.div>
+          </div>
         </div>
 
         <motion.div
