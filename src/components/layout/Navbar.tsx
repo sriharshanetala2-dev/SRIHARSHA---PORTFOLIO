@@ -29,19 +29,19 @@ export function Navbar() {
   return (
     <nav className={cn(
       "fixed top-0 w-full z-[100] transition-all duration-700 px-4 sm:px-12",
-      scrolled ? "py-4" : "py-6"
+      scrolled ? "py-4" : "py-8"
     )}>
       <div className={cn(
-        "max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-8 py-2.5 rounded-full sm:rounded-[1.5rem] transition-all duration-700 border shadow-2xl backdrop-blur-2xl",
+        "max-w-7xl mx-auto flex items-center justify-between px-6 sm:px-10 py-3 rounded-2xl sm:rounded-full transition-all duration-700 border shadow-2xl backdrop-blur-3xl",
         scrolled 
           ? "bg-card/90 border-primary/20 shadow-primary/10" 
-          : "bg-card/40 border-border/40 shadow-lg"
+          : "bg-card/20 border-border/20 shadow-lg"
       )}>
-        <Link href="/" className="flex items-center gap-2.5 sm:gap-3 group">
+        <Link href="/" className="flex items-center gap-3 group">
           <motion.div 
-            whileHover={{ rotate: 10, scale: 1.1 }}
-            transition={{ type: "spring", stiffness: 400, damping: 25 }}
-            className="p-2 rounded-xl bg-primary text-primary-foreground shadow-xl flex items-center justify-center"
+            whileHover={{ rotate: 15, scale: 1.15 }}
+            transition={{ type: "spring", stiffness: 400, damping: 20 }}
+            className="p-2 rounded-xl bg-primary text-primary-foreground shadow-[0_0_20px_rgba(var(--primary),0.3)] flex items-center justify-center"
           >
             <Code2 className="w-4 h-4 sm:w-5 sm:h-5" />
           </motion.div>
@@ -49,53 +49,53 @@ export function Navbar() {
             <span className="text-sm sm:text-base font-headline font-black tracking-tight uppercase leading-none shimmer-text">
               SRI HARSHA
             </span>
-            <span className="text-[7px] sm:text-[9px] font-mono font-black uppercase tracking-[0.2em] text-primary/60 mt-0.5 sm:mt-1">
+            <span className="text-[7px] sm:text-[9px] font-mono font-black uppercase tracking-[0.2em] text-primary/70 mt-0.5">
               Full Stack & App Developer
             </span>
           </div>
         </Link>
 
-        {/* Desktop Navigation Interface */}
-        <div className="hidden lg:flex items-center gap-8">
-          <div className="flex items-center gap-6">
+        {/* Desktop Interface */}
+        <div className="hidden lg:flex items-center gap-10">
+          <div className="flex items-center gap-8">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-[12px] font-black text-foreground/70 hover:text-primary transition-all uppercase tracking-[0.3em] relative group"
+                className="text-[11px] font-black text-foreground/60 hover:text-primary transition-all uppercase tracking-[0.3em] relative group"
               >
                 {link.name}
                 <motion.span 
-                  className="absolute -bottom-1.5 left-0 h-[2px] bg-primary rounded-full"
+                  className="absolute -bottom-1.5 left-0 h-[1px] bg-primary rounded-full"
                   initial={{ width: 0 }}
                   whileHover={{ width: "100%" }}
-                  transition={{ duration: 0.3 }}
+                  transition={{ duration: 0.4 }}
                 />
               </a>
             ))}
           </div>
           
-          <div className="h-5 w-px bg-border/60" />
+          <div className="h-4 w-px bg-border/40" />
           
           <motion.a 
             href="#contact"
-            whileHover={{ scale: 1.05, y: -1 }}
+            whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(var(--primary), 0.2)" }}
             whileTap={{ scale: 0.95 }}
-            className="px-6 py-2.5 rounded-lg bg-primary text-primary-foreground text-[10px] font-black uppercase tracking-[0.3em] shadow-xl hover:shadow-primary/30 transition-all flex items-center gap-2"
+            className="px-6 py-2.5 rounded-lg bg-primary text-primary-foreground text-[10px] font-black uppercase tracking-[0.3em] transition-all flex items-center gap-2"
           >
             <Terminal className="w-3.5 h-3.5" />
-            Sync
+            Initialize
           </motion.a>
         </div>
 
-        {/* Mobile Controller Interface */}
-        <div className="flex items-center gap-3 lg:hidden">
+        {/* Mobile Controller */}
+        <div className="flex lg:hidden items-center gap-3">
           <motion.button 
             whileTap={{ scale: 0.9 }}
-            className="p-2.5 rounded-lg bg-primary text-primary-foreground shadow-xl"
+            className="p-2.5 rounded-xl bg-primary text-primary-foreground shadow-lg"
             onClick={() => setIsOpen(!isOpen)}
           >
-            {isOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
+            {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </motion.button>
         </div>
       </div>
@@ -103,19 +103,19 @@ export function Navbar() {
       <AnimatePresence>
         {isOpen && (
           <motion.div 
-            initial={{ opacity: 0, scale: 0.95, y: -10 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95, y: -10 }}
-            className="absolute top-full left-4 right-4 mt-4 bg-card/95 backdrop-blur-3xl border border-border rounded-[1.5rem] p-6 flex flex-col gap-3 lg:hidden shadow-4xl overflow-hidden"
+            initial={{ opacity: 0, y: -20, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -20, scale: 0.95 }}
+            className="absolute top-full left-4 right-4 mt-4 bg-card/95 backdrop-blur-3xl border border-border/60 rounded-3xl p-8 flex flex-col gap-4 lg:hidden shadow-4xl overflow-hidden"
           >
             {navLinks.map((link, i) => (
               <motion.a
                 key={link.name}
                 href={link.href}
-                initial={{ opacity: 0, x: -10 }}
+                initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: i * 0.05 }}
-                className="text-[13px] font-black uppercase tracking-[0.3em] text-foreground/70 hover:text-primary py-3 border-b border-border/10 last:border-0"
+                transition={{ delay: i * 0.1 }}
+                className="text-sm font-black uppercase tracking-[0.4em] text-foreground/70 hover:text-primary py-4 border-b border-border/10 last:border-0"
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}
@@ -123,13 +123,13 @@ export function Navbar() {
             ))}
             <motion.a 
               href="#contact"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="w-full py-4 rounded-lg bg-primary text-primary-foreground text-center font-black uppercase tracking-[0.3em] text-[12px] shadow-xl mt-2"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.4 }}
+              className="w-full py-5 rounded-2xl bg-primary text-primary-foreground text-center font-black uppercase tracking-[0.4em] text-[12px] shadow-2xl mt-4"
               onClick={() => setIsOpen(false)}
             >
-              Initialize Node
+              Start Handshake
             </motion.a>
           </motion.div>
         )}

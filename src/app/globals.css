@@ -4,26 +4,26 @@
 
 @layer base {
   :root {
-    --background: 222 47% 4%;
+    --background: 222 47% 2%;
     --foreground: 210 40% 98%;
-    --card: 222 47% 6%;
+    --card: 222 47% 4%;
     --card-foreground: 210 40% 98%;
-    --popover: 222 47% 6%;
+    --popover: 222 47% 4%;
     --popover-foreground: 210 40% 98%;
-    --primary: 199 89% 48%;
-    --primary-foreground: 222 47% 4%;
-    --secondary: 222 47% 12%;
+    --primary: 191 100% 50%;
+    --primary-foreground: 222 47% 2%;
+    --secondary: 222 47% 8%;
     --secondary-foreground: 210 40% 98%;
-    --muted: 222 47% 12%;
+    --muted: 222 47% 8%;
     --muted-foreground: 215 20.2% 65.1%;
-    --accent: 199 89% 48%;
-    --accent-foreground: 222 47% 4%;
+    --accent: 191 100% 50%;
+    --accent-foreground: 222 47% 2%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
-    --border: 217 33% 17%;
-    --input: 217 33% 17%;
-    --ring: 199 89% 48%;
-    --radius: 2rem;
+    --border: 217 33% 15%;
+    --input: 217 33% 15%;
+    --ring: 191 100% 50%;
+    --radius: 1.5rem;
   }
 }
 
@@ -42,14 +42,14 @@
 }
 
 .text-gradient {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary/80 to-primary/60;
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary/80 to-primary/40;
 }
 
 .shimmer-text {
   background-size: 200% auto;
   animation: shimmer 5s linear infinite;
   @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-foreground to-primary font-black;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.05));
+  filter: drop-shadow(0 2px 8px rgba(var(--primary), 0.2));
 }
 
 @keyframes shimmer {
@@ -58,7 +58,7 @@
 }
 
 .section-label {
-  @apply text-[10px] sm:text-[11px] font-black uppercase tracking-[0.3em] sm:tracking-[0.4em] text-primary bg-primary/5 px-6 sm:px-8 py-2 sm:py-3 rounded-full inline-flex items-center gap-2 sm:gap-4 border border-primary/20 shadow-sm backdrop-blur-xl;
+  @apply text-[10px] sm:text-[11px] font-black uppercase tracking-[0.4em] text-primary bg-primary/10 px-6 py-2 rounded-full inline-flex items-center gap-3 border border-primary/30 shadow-[0_0_15px_rgba(var(--primary),0.1)] backdrop-blur-xl;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -66,13 +66,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .glass-card {
-  @apply bg-card/70 border border-border/60 backdrop-blur-2xl shadow-xl transition-all duration-500 hover:border-primary/40 overflow-hidden;
+  @apply bg-card/40 border border-border/40 backdrop-blur-3xl shadow-2xl transition-all duration-500 hover:border-primary/40 hover:shadow-primary/5 overflow-hidden;
 }
 
 .neural-grid {
   background-image: 
-    linear-gradient(to right, hsl(var(--border) / 0.4) 1px, transparent 1px),
-    linear-gradient(to bottom, hsl(var(--border) / 0.4) 1px, transparent 1px);
+    linear-gradient(to right, hsl(var(--border) / 0.3) 1px, transparent 1px),
+    linear-gradient(to bottom, hsl(var(--border) / 0.3) 1px, transparent 1px);
   background-size: 40px 40px;
 }
 
@@ -83,7 +83,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 ::-webkit-scrollbar-track {
   @apply bg-background;
@@ -100,16 +100,11 @@ h1, h2, h3, h4, h5, h6 {
   scrollbar-width: none;
 }
 
-@media print {
-  .neural-grid, .fixed, footer {
-    display: none !important;
-  }
-  .glass-card {
-    background: white !important;
-    border: 1px solid #eee !important;
-    box-shadow: none !important;
-  }
-  body {
-    background: white !important;
-  }
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.1; transform: scale(1); }
+  50% { opacity: 0.3; transform: scale(1.05); }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 8s ease-in-out infinite;
 }

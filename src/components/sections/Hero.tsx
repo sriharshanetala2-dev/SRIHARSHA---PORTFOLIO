@@ -7,60 +7,74 @@ import { Button } from "@/components/ui/button";
 export function Hero() {
   return (
     <section className="min-h-screen flex items-center justify-center pt-24 pb-12 sm:pt-32 sm:pb-16 px-4 sm:px-8 relative overflow-hidden bg-background">
-      <div className="absolute inset-0 neural-grid opacity-[0.06] pointer-events-none" />
+      {/* Neural Interface Background */}
+      <div className="absolute inset-0 neural-grid opacity-[0.08] pointer-events-none" />
       
-      <div className="absolute top-[10%] left-[-15%] w-[70%] h-[70%] bg-primary/5 rounded-full blur-[180px] pointer-events-none" />
-      <div className="absolute bottom-[-10%] right-[-15%] w-[60%] h-[60%] bg-primary/5 rounded-full blur-[180px] pointer-events-none" />
+      {/* Dynamic Blurs */}
+      <div className="absolute top-[10%] left-[-15%] w-[70%] h-[70%] bg-primary/10 rounded-full blur-[180px] pointer-events-none animate-pulse-slow" />
+      <div className="absolute bottom-[-10%] right-[-15%] w-[60%] h-[60%] bg-primary/5 rounded-full blur-[180px] pointer-events-none animate-pulse-slow" style={{ animationDelay: '2s' }} />
       
       <div className="max-w-7xl mx-auto text-center space-y-8 sm:space-y-16 relative z-20 w-full">
         <div className="space-y-6 sm:space-y-14">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
           >
-            <h1 className="text-3xl xs:text-4xl sm:text-7xl lg:text-9xl font-headline font-black tracking-tighter uppercase flex flex-col items-center select-none leading-[0.9] sm:leading-[1.1]">
-              <span className="text-foreground">Full Stack & App</span>
-              <span className="shimmer-text px-4">Developer</span>
+            <h1 className="text-3xl xs:text-4xl sm:text-7xl lg:text-9xl font-headline font-black tracking-tighter uppercase flex flex-col items-center select-none leading-[0.95] sm:leading-[1.05]">
+              <motion.span 
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.8 }}
+                className="text-foreground"
+              >
+                Full Stack & App
+              </motion.span>
+              <motion.span 
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4, duration: 0.8 }}
+                className="shimmer-text px-4"
+              >
+                Developer
+              </motion.span>
             </h1>
           </motion.div>
           
-          <div className="space-y-6">
+          <div className="space-y-8">
             <motion.p
               initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1, delay: 0.3 }}
-              className="text-xs xs:text-sm sm:text-xl lg:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed font-bold uppercase tracking-tight opacity-90 px-4"
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.6 }}
+              className="text-xs xs:text-sm sm:text-xl lg:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed font-bold uppercase tracking-tight opacity-80 px-4"
             >
-              Engineering high-performance digital ecosystems where technical integrity meets autonomous orchestration.
+              Architecting high-performance digital ecosystems where technical integrity meets autonomous orchestration.
             </motion.p>
 
             <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
               className="section-label mx-auto"
             >
-              <Activity className="w-4 h-4" />
-              SYSTEM_DEVELOPER_v6.0
+              <Activity className="w-4 h-4 text-primary animate-pulse" />
+              SYSTEM_INIT: SUCCESS_v6.0
             </motion.div>
           </div>
         </div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1, delay: 0.5 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 1 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 px-4"
         >
-          <Button size="lg" className="w-full sm:w-auto rounded-full h-12 sm:h-16 px-8 sm:px-12 text-[10px] sm:text-sm font-black uppercase tracking-[0.4em] shadow-2xl shadow-primary/30 hover:scale-105 transition-all group" asChild>
+          <Button size="lg" className="w-full sm:w-auto rounded-full h-12 sm:h-14 px-8 sm:px-12 text-[10px] sm:text-sm font-black uppercase tracking-[0.4em] shadow-2xl shadow-primary/40 hover:scale-105 hover:bg-primary/90 transition-all group" asChild>
             <a href="#portfolio">
               Archive <ArrowRight className="ml-3 sm:ml-4 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-3 transition-transform" />
             </a>
           </Button>
-          <Button variant="outline" size="lg" className="w-full sm:w-auto rounded-full h-12 sm:h-16 px-8 sm:px-12 text-[10px] sm:text-sm font-black uppercase tracking-[0.4em] border-2 border-border hover:bg-secondary/60 transition-all shadow-xl" asChild>
+          <Button variant="outline" size="lg" className="w-full sm:w-auto rounded-full h-12 sm:h-14 px-8 sm:px-12 text-[10px] sm:text-sm font-black uppercase tracking-[0.4em] border-2 border-primary/20 hover:bg-primary/5 hover:border-primary/50 transition-all shadow-xl" asChild>
             <a href="#contact">Contact</a>
           </Button>
         </motion.div>
@@ -74,16 +88,16 @@ export function Hero() {
           ].map((stat, i) => (
             <motion.div 
               key={i}
-              initial={{ opacity: 0, scale: 0.95, y: 15 }}
-              whileInView={{ opacity: 1, scale: 1, y: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.6 + (i * 0.1), duration: 0.8 }}
-              className="space-y-2 sm:space-y-4 p-4 sm:p-10 rounded-[1.25rem] sm:rounded-[3rem] bg-secondary/30 border border-border/80 text-left hover:border-primary/60 transition-all group backdrop-blur-3xl shadow-xl"
+              transition={{ delay: 0.2 * i, duration: 0.8 }}
+              className="space-y-3 p-6 sm:p-10 rounded-2xl sm:rounded-[2.5rem] bg-secondary/20 border border-border/40 text-left hover:border-primary/40 hover:bg-secondary/40 transition-all group backdrop-blur-3xl shadow-xl"
             >
-              <stat.icon className="w-4 h-4 sm:w-8 sm:h-8 text-primary opacity-80" />
+              <stat.icon className="w-5 h-5 sm:w-8 sm:h-8 text-primary group-hover:scale-110 transition-transform" />
               <div className="space-y-1">
-                <p className="text-[9px] sm:text-[12px] font-mono font-black uppercase tracking-[0.2em] sm:tracking-[0.3em] text-muted-foreground/60">{stat.label}</p>
-                <p className="text-xs sm:text-xl font-black uppercase text-foreground font-mono leading-none">{stat.value}</p>
+                <p className="text-[9px] sm:text-[10px] font-mono font-black uppercase tracking-[0.3em] text-muted-foreground/60">{stat.label}</p>
+                <p className="text-xs sm:text-lg font-black uppercase text-foreground font-mono leading-none tracking-tight">{stat.value}</p>
               </div>
             </motion.div>
           ))}
