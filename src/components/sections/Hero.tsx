@@ -1,3 +1,4 @@
+
 'use client';
 
 import { motion } from "framer-motion";
@@ -10,24 +11,25 @@ export function Hero() {
   const heroImage = PlaceHolderImages.find(img => img.id === 'system-backdrop');
 
   return (
-    <section className="min-h-screen flex items-center justify-center pt-24 pb-12 sm:pt-32 sm:pb-16 px-4 sm:px-8 relative overflow-hidden bg-transparent">
+    <section className="min-h-screen flex items-center justify-center pt-24 pb-12 sm:pt-32 sm:pb-16 px-4 sm:px-8 relative overflow-hidden bg-background">
       {/* High-Fidelity Background Image Layer */}
       {heroImage && (
-        <div className="absolute inset-0 z-0 opacity-20 dark:opacity-30 mix-blend-overlay">
+        <div className="absolute inset-0 z-0">
           <Image
             src={heroImage.imageUrl}
             alt={heroImage.description}
             fill
-            className="object-cover grayscale"
+            className="object-cover opacity-40 grayscale"
             priority
             data-ai-hint={heroImage.imageHint}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/60 to-background z-10" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,hsl(var(--background))_100%)] z-10" />
         </div>
       )}
       
       {/* Neural Interface Background Overlay */}
-      <div className="absolute inset-0 neural-grid opacity-[0.08] pointer-events-none z-[1]" />
+      <div className="absolute inset-0 neural-grid opacity-[0.08] pointer-events-none z-[5]" />
       
       {/* Dynamic Luminous Nodes */}
       <div className="absolute top-[10%] left-[-15%] w-[70%] h-[70%] bg-primary/10 rounded-full blur-[180px] pointer-events-none animate-pulse-slow z-[2]" />
