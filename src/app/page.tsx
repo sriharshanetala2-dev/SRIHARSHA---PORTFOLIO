@@ -35,9 +35,10 @@ export default function Home() {
       
       <main className="relative z-10">
         <Hero />
-        <AnimatePresence>
+        <AnimatePresence mode="wait">
           {mounted && (
             <motion.div
+              key="main-content"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1 }}
