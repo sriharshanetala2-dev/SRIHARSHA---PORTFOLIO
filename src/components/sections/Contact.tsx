@@ -91,7 +91,7 @@ export function Contact() {
               <div className="space-y-8 relative z-10">
                 <div className="space-y-3">
                   <p className="text-[10px] sm:text-[14px] font-black text-primary uppercase tracking-[0.4em]">Email Port</p>
-                  <h3 className="text-[9px] sm:text-xl font-headline font-black uppercase tracking-tight break-all leading-tight">
+                  <h3 className="text-[11px] sm:text-xl lg:text-2xl font-headline font-black uppercase tracking-tight break-all leading-tight">
                     {userEmail}
                   </h3>
                 </div>
@@ -115,9 +115,6 @@ export function Contact() {
                   Initialization complete. Secure channel verified for enterprise collaboration and technical orchestration.
                 </p>
               </div>
-              <p className="text-[10px] sm:text-sm font-bold uppercase tracking-tight text-muted-foreground leading-relaxed opacity-80">
-                Initialization complete. Secure channel verified for enterprise collaboration and technical orchestration.
-              </p>
             </motion.div>
           </div>
 
