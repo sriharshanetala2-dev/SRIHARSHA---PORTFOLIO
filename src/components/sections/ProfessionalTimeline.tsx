@@ -73,7 +73,7 @@ const timelineItems = [
 ];
 
 export function SystemRegistry() {
-  const timelineBackdrop = PlaceHolderImages.find(img => img.id === 'core-logic-engine');
+  const timelineBackdrop = PlaceHolderImages.find(img => img.id === 'sentinel-iam-hub');
 
   const container = {
     hidden: { opacity: 0 },
@@ -93,21 +93,22 @@ export function SystemRegistry() {
 
   return (
     <section id="experience" className="py-20 sm:py-32 px-4 sm:px-6 border-t border-border bg-background relative overflow-hidden scroll-mt-20">
-      {/* Subtler technical backdrop for reduced appearance */}
+      {/* Enhanced Technical Backdrop Visibility */}
       {timelineBackdrop && (
         <div className="absolute inset-0 z-0 pointer-events-none">
           <Image
             src={timelineBackdrop.imageUrl}
             alt={timelineBackdrop.description}
             fill
-            className="object-cover opacity-20 grayscale brightness-[0.4] transition-all duration-1000"
+            className="object-cover opacity-80 grayscale brightness-[0.8] transition-all duration-1000"
             data-ai-hint={timelineBackdrop.imageHint}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/60 to-background z-[1]" />
+          {/* Refined gradient mask for optimal content contrast */}
+          <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/20 to-background z-[1]" />
         </div>
       )}
 
-      <div className="absolute inset-0 neural-grid opacity-[0.03] pointer-events-none z-[2]" />
+      <div className="absolute inset-0 neural-grid opacity-[0.05] pointer-events-none z-[2]" />
       
       <div className="max-w-4xl mx-auto space-y-12 sm:space-y-24 relative z-10">
         <div className="text-center space-y-6">
@@ -155,7 +156,7 @@ export function SystemRegistry() {
             >
               <div className="absolute left-6 top-10 w-4 h-4 rounded-full bg-primary border-4 border-background hidden md:block z-20 shadow-[0_0_15px_rgba(var(--primary),0.4)] group-hover:scale-150 transition-transform" />
               
-              <div className="flex-1 space-y-4 sm:space-y-8 bg-card/40 p-6 sm:p-12 rounded-[1.5rem] sm:rounded-[2.5rem] border border-border/60 shadow-2xl backdrop-blur-3xl group-hover:border-primary/40 transition-all duration-500">
+              <div className="flex-1 space-y-4 sm:space-y-8 bg-card/60 p-6 sm:p-12 rounded-[1.5rem] sm:rounded-[2.5rem] border border-border/60 shadow-2xl backdrop-blur-3xl group-hover:border-primary/40 transition-all duration-500">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                   <div className="flex items-center gap-4 sm:gap-6">
                     <div className="p-3 sm:p-4 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-700">
