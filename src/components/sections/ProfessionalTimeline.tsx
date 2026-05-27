@@ -73,7 +73,7 @@ const timelineItems = [
 ];
 
 export function SystemRegistry() {
-  const timelineBackdrop = PlaceHolderImages.find(img => img.id === 'sentinel-iam-hub');
+  const timelineBackdrop = PlaceHolderImages.find(img => img.id === 'core-logic-engine');
 
   const container = {
     hidden: { opacity: 0 },
@@ -100,7 +100,7 @@ export function SystemRegistry() {
             src={timelineBackdrop.imageUrl}
             alt={timelineBackdrop.description}
             fill
-            className="object-cover opacity-80 grayscale brightness-[0.8] transition-all duration-1000"
+            className="object-cover opacity-80 grayscale brightness-[0.7] transition-all duration-1000"
             data-ai-hint={timelineBackdrop.imageHint}
           />
           {/* Refined gradient mask for optimal content contrast */}
