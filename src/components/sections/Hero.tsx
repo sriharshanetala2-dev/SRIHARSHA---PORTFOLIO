@@ -55,7 +55,7 @@ export function Hero() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.8 }}
-              className="section-label mx-auto text-foreground"
+              className="section-label mx-auto"
             >
               <Activity className="w-4 h-4 text-primary animate-pulse" />
               SYSTEM_INIT: SUCCESS_v6.0
