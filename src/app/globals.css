@@ -4,25 +4,25 @@
 
 @layer base {
   :root {
-    /* Deep Midnight Obsidian & Cobalt Registry */
-    --background: 222 60% 2%;
-    --foreground: 210 40% 98%;
-    --card: 222 60% 4%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222 60% 4%;
-    --popover-foreground: 210 40% 98%;
+    /* Crystal Logic: High-Contrast Light Registry */
+    --background: 210 40% 98%;
+    --foreground: 222 60% 2%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 60% 2%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 60% 2%;
     --primary: 224 76% 48%;
     --primary-foreground: 210 40% 98%;
-    --secondary: 222 50% 8%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 222 30% 12%;
-    --muted-foreground: 215 20% 75%;
+    --secondary: 210 40% 94%;
+    --secondary-foreground: 222 60% 2%;
+    --muted: 210 40% 92%;
+    --muted-foreground: 215 25% 40%;
     --accent: 224 76% 48%;
     --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
+    --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
-    --border: 222 32% 10%;
-    --input: 222 32% 10%;
+    --border: 214.3 31.8% 85%;
+    --input: 214.3 31.8% 85%;
     --ring: 224 76% 48%;
     --radius: 1rem;
   }
@@ -50,7 +50,7 @@
   background-size: 200% auto;
   animation: shimmer 5s linear infinite;
   @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-foreground to-primary font-black;
-  filter: drop-shadow(0 2px 8px rgba(var(--primary), 0.2));
+  filter: drop-shadow(0 2px 4px rgba(var(--primary), 0.1));
 }
 
 @keyframes shimmer {
@@ -59,7 +59,7 @@
 }
 
 .section-label {
-  @apply text-[10px] sm:text-[11px] font-black uppercase tracking-[0.4em] text-primary bg-primary/10 px-6 py-2 rounded-full inline-flex items-center gap-3 shadow-[0_0_15px_rgba(var(--primary),0.1)] backdrop-blur-xl;
+  @apply text-[10px] sm:text-[11px] font-black uppercase tracking-[0.4em] text-primary bg-primary/10 px-6 py-2 rounded-full inline-flex items-center gap-3 shadow-[0_4px_15px_rgba(var(--primary),0.05)] backdrop-blur-xl;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -67,13 +67,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .glass-card {
-  @apply bg-card/40 backdrop-blur-3xl shadow-2xl transition-all duration-500 hover:shadow-primary/5 overflow-hidden;
+  @apply bg-card/60 backdrop-blur-3xl shadow-2xl transition-all duration-500 hover:shadow-primary/10 overflow-hidden border border-border/40;
 }
 
 .neural-grid {
   background-image: 
-    linear-gradient(to right, hsl(var(--border) / 0.2) 1px, transparent 1px),
-    linear-gradient(to bottom, hsl(var(--border) / 0.2) 1px, transparent 1px);
+    linear-gradient(to right, hsl(var(--border) / 0.3) 1px, transparent 1px),
+    linear-gradient(to bottom, hsl(var(--border) / 0.3) 1px, transparent 1px);
   background-size: 40px 40px;
 }
 
@@ -103,7 +103,7 @@ h1, h2, h3, h4, h5, h6 {
 
 @keyframes pulse-slow {
   0%, 100% { opacity: 0.1; transform: scale(1); }
-  50% { opacity: 0.2; transform: scale(1.05); }
+  50% { opacity: 0.3; transform: scale(1.05); }
 }
 
 .animate-pulse-slow {
